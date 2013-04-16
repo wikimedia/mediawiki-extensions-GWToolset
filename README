@@ -1,0 +1,11 @@
+GWToolset
+=========
+A MediWiki extension that allows GLAMs the ability to mass upload content based
+on an xml file containing respective metadata about the content. The intent is
+to allow for a variety of xml schemas; see the extension page,
+https://www.mediawiki.org/wiki/Extension:GWToolset, for further information.
+
+
+Contributors
+------------
+dan entous <contact@pennlinepublishing.com>

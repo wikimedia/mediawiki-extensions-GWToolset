@@ -1,0 +1,60 @@
+#gwtoolset-form {
+	position: relative;
+}
+
+#gwtoolset-form li {
+	margin-bottom: .5em;
+}
+
+#gwtoolset-loader {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, .8);
+	display: none;
+}
+
+#gwtoolset-loader p {
+	position: absolute;
+	bottom: 5%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+td.add-metadata, td.subtract-metadata {
+	width: 16px;
+}
+
+.required {
+	font-weight: bold;
+	color: red;
+}
+
+.gwtoolset-metadata-button {
+	cursor: pointer;
+}
+
+#save-mapping {
+	display: inline-block;
+	margin: 3px 3px 0 0;
+	padding: 3px 10px;
+	cursor: pointer;
+	color: #050505;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ebebeb 50%, #dbdbdb 50%, #b5b5b5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(0.50, #ebebeb), color-stop(0.50, #dbdbdb), to(#b5b5b5));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #949494;
+	-moz-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 1);
+	box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 1);
+	text-shadow: 0px -1px 0px rgba(000, 000, 000, 0.2), 0px 1px 0px rgba(255, 255, 255, 1);
+
+}
+
+.gwtoolset-url-input {
+	width: 300px;
+}
