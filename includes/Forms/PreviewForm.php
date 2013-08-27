@@ -57,8 +57,25 @@ class PreviewForm {
 		$step2_link = Html::rawElement( 'span', array( 'id' =>'step2-link' ), ' ' );
 
 		return
-			wfMessage( 'gwtoolset-step-3-instructions' )->params( (int)Config::$preview_throttle )->parse() .
-			wfMessage( 'gwtoolset-results' )->parse() .
+			Html::rawElement(
+				'h2',
+				array(),
+				wfMessage( 'gwtoolset-step-3-instructions-heading' )->escaped()
+			) .
+
+
+			Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-step-3-instructions-1' )->params( (int)Config::$preview_throttle )->parse()
+			) .
+
+			Html::rawElement(
+				'h3',
+				array(),
+				wfMessage( 'gwtoolset-results' )->escaped()
+			) .
+
 			self::getTitlesAsList( $mediafile_titles ) .
 
 			Html::openElement(

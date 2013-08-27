@@ -327,7 +327,12 @@ class MetadataMappingHandler extends FormHandler {
 			 * created in $this->processMetadata() when necessary.
 			 */
 			if ( !empty( $this->SpecialPage ) ) {
-				$result = wfMessage( 'gwtoolset-step-4-heading' )->parse() .
+				$result =
+					Html::rawElement(
+						'h2',
+						array(),
+						wfMessage( 'gwtoolset-step-4-heading' )->escaped()
+					) .
 					$this->createMetadataBatchJob( $user_options );
 				/**
 				 * when $this->SpecialPage is empty, this method is being run

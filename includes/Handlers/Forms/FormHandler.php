@@ -116,7 +116,7 @@ abstract class FormHandler extends SpecialPageHandler {
 
 		if ( !$result->ok ) {
 			$result =
-				wfMessage( 'gwtoolset-wiki-checks-not-passed' )->parse() .
+				Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped() ) .
 				Html::rawElement( 'span', array( 'class' => 'error' ), $result->getMessage() );
 		} else {
 			$result = $this->processRequest();

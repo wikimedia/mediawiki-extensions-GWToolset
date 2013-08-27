@@ -35,8 +35,17 @@ class MetadataMappingForm {
 		$template_link = '[[Template:' . Filter::evaluate( $user_options['mediawiki-template-name'] ) . ']]';
 
 		return
-			wfMessage( 'gwtoolset-step-2-heading' )->params( $template_link )->parse() .
-			wfMessage( 'gwtoolset-metadata-file' )->parse() .
+			Html::rawElement(
+				'h2',
+				array(),
+				wfMessage( 'gwtoolset-step-2-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'h3',
+				array(),
+				wfMessage( 'gwtoolset-metadata-file' )->parse()
+			) .
 
 			Html::rawElement(
 				'p',
@@ -46,7 +55,61 @@ class MetadataMappingForm {
 				wfMessage( 'gwtoolset-record-count' )->params( (int)$user_options['record-count'] )->escaped()
 			) .
 
-			wfMessage( 'gwtoolset-step-2-instructions' )->params( $template_link )->parse() .
+			Html::rawElement(
+				'h4',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-1' )->escaped()
+			) .
+
+			Html::openElement( 'ul' ) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-1-li-1' )->params( $template_link )->parse()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-1-li-2' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-1-li-3' )->escaped()
+			) .
+
+			Html::closeElement( 'ul' ) .
+
+			Html::rawElement(
+				'h5',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-2' )->escaped()
+			) .
+
+			Html::openElement( 'ol' ) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-2-li-1' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-2-instructions-2-li-2' )->escaped()
+			) .
+
+			Html::closeElement( 'ol' ) .
 
 			Html::openElement(
 				'form',
@@ -149,7 +212,11 @@ class MetadataMappingForm {
 				)
 			) .
 
-			wfMessage( 'gwtoolset-mediawiki-template' )->params( Filter::evaluate( $user_options['mediawiki-template-name'] ) )->parse() .
+			Html::rawElement(
+				'h3',
+				array(),
+				wfMessage( 'gwtoolset-mediawiki-template' )->params( Filter::evaluate( $user_options['mediawiki-template-name'] ) )->escaped()
+			) .
 
 			Html::rawElement(
 				'table',

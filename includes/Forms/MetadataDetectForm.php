@@ -31,7 +31,51 @@ class MetadataDetectForm {
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplateDbAdapter() );
 
 		return
-			wfMessage( 'gwtoolset-step-1-instructions' )->parse() .
+			Html::rawElement(
+				'h2',
+				array(),
+				wfMessage( 'gwtoolset-step-1-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-1' )->escaped()
+			) .
+
+		Html::openElement( 'ol' ) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-li-1' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-li-2' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-li-3' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-li-4' )->escaped()
+			) .
+
+			Html::closeElement( 'ol' ) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-2' )
+			) .
 
 			Html::openElement(
 				'form',

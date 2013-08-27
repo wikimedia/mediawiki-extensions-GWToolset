@@ -107,7 +107,7 @@ class XmlDetectHandler extends XmlHandler {
 		if ( !isset( $user_options['record-element-name'] )
 			|| !isset( $user_options['record-count'] )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->escaped() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )->parse() );
 		}
 
 		switch ( $XMLElement->nodeType ) {
@@ -404,7 +404,28 @@ class XmlDetectHandler extends XmlHandler {
 		}
 
 		if ( empty( $this->_metadata_example_dom_element ) ) {
-			$msg = wfMessage( 'gwtoolset-no-xml-element-found' )->parse() . PHP_EOL .
+			wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
+				Html::openElement( 'ul' ) .
+					Html::rawElement(
+						'li',
+						array(),
+						wfMessage( 'gwtoolset-no-xml-element-found-li-1' )->escaped()
+					) .
+					Html::rawElement(
+						'li',
+						array(),
+						wfMessage( 'gwtoolset-no-xml-element-found-li-2' )->rawParams(
+							Html::rawElement(
+								'a',
+								array(
+									'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
+									'target' => '_blank'
+								),
+								'XML Validator'
+							)
+						)->escaped()
+					) .
+				Html::closeElement( 'ul' ) .
 				$this->_SpecialPage->getBackToFormLink();
 			throw new Exception( $msg );
 		}

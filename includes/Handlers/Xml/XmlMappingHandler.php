@@ -223,7 +223,7 @@ class XmlMappingHandler extends XmlHandler {
 		if ( !isset( $user_options['record-element-name'] )
 			|| !isset( $user_options['record-count'] )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->escaped() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )->parse() );
 		}
 
 		switch ( $XMLElement->nodeType ) {

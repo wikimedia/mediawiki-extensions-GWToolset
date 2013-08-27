@@ -387,7 +387,7 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	public function getMediaWikiTemplate( array &$user_options, $mediawiki_template_name = 'mediawiki-template-name' ) {
 		if ( !isset( $user_options[$mediawiki_template_name] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->param( wfMessage( 'gwtoolset-no-mediawiki-template' )->escaped() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->param( wfMessage( 'gwtoolset-no-mediawiki-template' )->parse() )->parse() );
 		}
 
 		if ( in_array( $user_options[$mediawiki_template_name], Config::$allowed_templates ) ) {

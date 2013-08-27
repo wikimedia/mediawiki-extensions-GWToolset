@@ -105,7 +105,7 @@ class SpecialGWToolset extends SpecialPage {
 					$html .= $this->_Handler->getHtmlForm( $this->_registered_modules[$this->module_key] );
 				} catch ( Exception $e ) {
 					$html .=
-						wfMessage( 'gwtoolset-technical-error' )->parse() .
+						Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-technical-error' )->escaped() ) .
 						Html::rawElement( 'p', array( 'class' => 'error' ), Filter::evaluate( $e->getMessage() ) );
 				}
 			}
@@ -131,7 +131,11 @@ class SpecialGWToolset extends SpecialPage {
 					throw new PermissionsError( $e->getMessage() );
 				} else {
 					$html .=
-						wfMessage( 'gwtoolset-file-interpretation-error' )->parse() .
+						Html::rawElement(
+							'h2',
+							array(),
+							wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
+						) .
 						Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
 				}
 			}
@@ -177,7 +181,7 @@ class SpecialGWToolset extends SpecialPage {
 
 		if ( !$Status->ok ) {
 			$this->getOutput()->addHTML(
-				wfMessage( 'gwtoolset-wiki-checks-not-passed' )->parse() .
+				Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped() ) .
 				Html::rawElement( 'span', array( 'class' => 'error' ), $Status->getMessage() )
 			);
 			return false;

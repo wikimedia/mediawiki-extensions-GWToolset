@@ -30,11 +30,11 @@ class MappingPhpAdapter implements DataAdapterInterface {
 		$result = false;
 
 		if ( empty( $options['mapping-json'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping-json' )->escaped() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping-json' )->parse() )->parse() );
 		}
 
 		if ( empty( $options['mapping-name'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping' )->plain() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping' )->parse() )->parse() );
 		}
 
 		if ( empty( $options['user'] ) ) {

@@ -96,7 +96,7 @@ class Config {
 			'gwtoolset-save-mapping-name',
 			'gwtoolset-save-mapping-failed',
 			'gwtoolset-save-mapping-succeeded',
-			'gwtoolset-step-2',
+			'gwtoolset-step-2-heading',
 			'gwtoolset-back-link-option'
 		)
 	);

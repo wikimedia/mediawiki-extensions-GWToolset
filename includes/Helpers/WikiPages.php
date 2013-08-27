@@ -30,7 +30,7 @@ class WikiPages {
 		$result = null;
 
 		if ( empty( $url ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-file-url' )->escaped() )->parse() );
+			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-file-url' )->parse() )->parse() );
 		}
 
 		if ( count( $accepted_extensions ) > 0 ) {

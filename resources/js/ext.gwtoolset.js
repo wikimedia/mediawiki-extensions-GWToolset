@@ -190,8 +190,8 @@
 		 */
 		addStepLinks: function () {
 			var $step2_link = $( '<a/>' )
-				.attr( { 'href': '#', 'title': mw.message( 'gwtoolset-step-2' ) } )
-				.text( mw.message( 'gwtoolset-step-2' ) )
+				.attr( { 'href': '#', 'title': mw.message( 'gwtoolset-step-2-heading' ) } )
+				.text( mw.message( 'gwtoolset-step-2-heading' ) )
 				.on( 'click', function ( evt ) { evt.preventDefault(); history.back(); } );
 			gwtoolset.$step2_link.replaceWith( $step2_link );
 		},

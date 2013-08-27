@@ -35,7 +35,7 @@ class FileChecks {
 			&& ( (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('post_max_size') )
 				|| (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('upload_max_filesize') ) )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-over-max-ini' )->escaped() );
+			throw new Exception( wfMessage( 'gwtoolset-over-max-ini' )->parse() );
 		}
 	}
 

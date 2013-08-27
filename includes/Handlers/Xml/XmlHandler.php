@@ -12,6 +12,7 @@ use Content,
 	DOMXPath,
 	Exception,
 	Html,
+	Linker,
 	Php\Filter,
 	XMLReader;
 
@@ -202,10 +203,31 @@ abstract class XmlHandler {
 		$DOMNodeList = $DOMXPath->query( '//' . Filter::evaluate( $user_options['record-element-name'] ) );
 
 		if ( $DOMNodeList->length < 1 ) {
-			throw new Exception(
-				wfMessage( 'gwtoolset-no-xml-element-found' )->parse() . PHP_EOL .
-				$this->_SpecialPage->getBackToFormLink()
-			);
+			$msg =
+				wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
+				Html::openElement( 'ul' ) .
+					Html::rawElement(
+						'li',
+						array(),
+						wfMessage( 'gwtoolset-no-xml-element-found-li-1' )->escaped()
+					) .
+					Html::rawElement(
+						'li',
+						array(),
+						wfMessage( 'gwtoolset-no-xml-element-found-li-2' )->rawParams(
+							Html::rawElement(
+								'a',
+								array(
+									'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
+									'target' => '_blank'
+								),
+								'XML Validator'
+							)
+						)->escaped()
+					) .
+				Html::closeElement( 'ul' ) .
+				$this->_SpecialPage->getBackToFormLink();
+			throw new Exception( $msg );
 		}
 
 		foreach ( $DOMNodeList as $DOMNode ) {
