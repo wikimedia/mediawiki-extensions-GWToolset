@@ -1,16 +1,17 @@
 /*global jQuery, mw */
-/*jslint browser: true, continue: true, white: true, devel: true, regexp: true, todo: true */
+/*jslint browser: true, white: true, devel: true, regexp: true */
 (function ( $ ) {
 	'use strict';
 
-	var digitTest = /^\d+$/,
+	var gwtoolset,
+		digitTest = /^\d+$/,
 		keyBreaker = /([^\[\]]+)|(\[\])/g,
-		plus = /\+/g,
 		paramTest = /([^?#]*)(#.*)?$/,
-		gwtoolset;
+		plus = /\+/g;
 
 	/**
 	 * @add jQuery.String
+	 * @author justinbmeyer
 	 * @see https://github.com/jupiterjs/jquerymx/blob/master/lang/string/deparam/deparam.js
 	 */
 	$.String = $.extend( $.String || {}, {
@@ -20,7 +21,7 @@
 		 * Takes a string of name value pairs and returns a Object literal that represents those params.
 		 *
 		 * @param {string} params a string like <code>"foo=bar&person[age]=3"</code>
-		 * @return {json} A JavaScript Object that represents the params:
+		 * @return {Object} A JavaScript Object that represents the params:
 		 *
 		 *     {
 		 *       foo: "bar",
@@ -35,36 +36,36 @@
 			}
 
 			var current,
-				data = {},
 				i,
 				j,
 				key,
 				lastPart,
 				pair,
-				pairs = params.split( '&' ),
 				part,
 				parts,
-				value;
+				value,
+				data = {},
+				pairs = params.split( '&' );
 
-			for ( i = 0; i < pairs.length; i += 1 ) {
+			for ( i = 0; i < pairs.length; i++ ) {
 				current = data;
 				pair = pairs[i].split( '=' );
 
 				// if we find foo=1+1=2
 				if ( pair.length !== 2 ) {
-					pair = [ pair[0], pair.slice( 1 ).join( "=" ) ];
+					pair = [ pair[0], pair.slice( 1 ).join( '=' ) ];
 				}
 
-				key = decodeURIComponent( pair[0].replace( plus, " " ) );
-				value = decodeURIComponent( pair[1].replace( plus, " " ) );
+				key = decodeURIComponent( pair[0].replace( plus, ' ' ) );
+				value = decodeURIComponent( pair[1].replace( plus, ' ' ) );
 				parts = key.match( keyBreaker );
 
-				for ( j = 0; j < parts.length - 1; j += 1 ) {
+				for ( j = 0; j < parts.length - 1; j++ ) {
 					part = parts[ j ];
 
 					if ( !current[ part ] ) {
 						// if what we are pointing to looks like an array
-						current[ part ] = digitTest.test( parts[ j + 1 ] ) || parts[ j + 1 ] === "[]" ? [] : {};
+						current[ part ] = digitTest.test( parts[ j + 1 ] ) || parts[ j + 1 ] === '[]' ? [] : {};
 					}
 
 					current = current[ part ];
@@ -72,7 +73,7 @@
 
 				lastPart = parts[ parts.length - 1 ];
 
-				if ( lastPart === "[]" ) {
+				if ( lastPart === '[]' ) {
 					current.push( value );
 				} else {
 					current[lastPart] = value;
@@ -85,87 +86,65 @@
 
 	gwtoolset = {
 
-		display_debug_output: true,
-		$dialog: {},
-		empty_console: {
-			log: function () {
-			}
-		},
+		$dialog: $( '<div>' )
+			.attr( 'id', 'dialog' )
+			.dialog( {
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				close: function () {
+					gwtoolset.closeDialog();
+				}
+			} ),
 		$form: $( '#gwtoolset-form' ),
-		$ajax_loader: $( '<div/>' ).attr( { 'id': 'gwtoolset-loader' } ),
-		$template_table_tbody: $( '#template-table > tbody' ),
-		$save_mapping_button: $( '<tr />' )
+		$ajaxLoader: $( '<div>' )
+			.attr( 'id', 'gwtoolset-loader' )
 			.html(
-				$( '<td/>' )
+				$( '<p>' )
+					.text( mw.message( 'gwtoolset-loading' ).text() )
+					.append( $.createSpinner( { size: 'large', type: 'block' } ) )
+			),
+		$templateTableTbody: $( '#template-table > tbody' ),
+		$saveMappingButton: $( '<tr>' )
+			.html(
+				$( '<td>' )
 					.attr( 'colspan', 3 )
 					.css( 'text-align', 'right' )
 					.html(
-						$( '<span/>' )
-							.attr( { 'id': 'save-mapping', 'title': mw.message( 'gwtoolset-save-mapping' ).escaped() } )
-							.text( mw.message( 'gwtoolset-save-mapping' ).escaped() )
+						$( '<span>' )
+							.attr( {
+								id: 'save-mapping',
+								title: mw.message( 'gwtoolset-save-mapping' ).text()
+							} )
+							.text( mw.message( 'gwtoolset-save-mapping' ).text() )
 					)
 			),
 		$buttons: {
-			$add: $( '<img/>' ).attr( { 'src': mw.config.get('wgScriptPath') + '/extensions/GWToolset/resources/images/b_snewtbl.png', 'class': 'gwtoolset-metadata-button' } ),
-			$subtract: $( '<img/>' ).attr( { 'src': mw.config.get('wgScriptPath') + '/extensions/GWToolset/resources/images/b_drop.png', 'class': 'gwtoolset-metadata-button' } )
+			$add: $( '<img>' )
+				.attr( 'src', mw.config.get('wgExtensionAssetsPath') + '/GWToolset/resources/images/b_snewtbl.png' )
+				.addClass( 'gwtoolset-metadata-button' ),
+			$subtract: $( '<img>' )
+				.attr( 'src', mw.config.get('wgExtensionAssetsPath') + '/GWToolset/resources/images/b_drop.png' )
+				.addClass( 'gwtoolset-metadata-button' )
 		},
-		$button_placeholders : $( '.button-add, .button-subtract' ),
-		$back_text: $( '#back-text' ),
-		$step2_link: $( '#step2-link' ),
+		$backText: $( '#back-text' ),
+		$step2Link: $( '#step2-link' ),
 
-		/**
-		 * @returns {void}
-		 */
 		addAjaxLoader: function () {
-			this.$ajax_loader
-				.append( '<p><img src="' + mw.config.get('wgScriptPath') + '/skins/common/images/ajax-loader.gif"/><br />' + mw.msg( 'gwtoolset-loading' ) + '</p>' );
-			this.$form.prepend( this.$ajax_loader );
+			this.$ajaxLoader.hide();
+			this.$form.prepend( this.$ajaxLoader );
 		},
 
-		/**
-		 * @returns {void}
-		 */
-		addBackLink: function () {
-			var $back_link_option = $( '<a/>' )
-				.attr( { 'href': '#', 'title': mw.message( 'gwtoolset-back-link-option' )	} )
-				.text( mw.message( 'gwtoolset-back-link-option' ) )
-				.on( 'click', function ( evt ) { evt.preventDefault(); history.back(); } );
-			gwtoolset.$back_text.replaceWith( $back_link_option );
+		addBackLinks: function () {
+			this.$backText.replaceWith( this.createBackLink( { title: mw.message( 'gwtoolset-back-text-link' ).text() } ) );
+			this.$step2Link.replaceWith( this.createBackLink( { title: mw.message( 'gwtoolset-step-2-heading' ).text() } ) );
 		},
 
-		/**
-		 * @returns {void}
-		 */
 		addButtons: function () {
-			gwtoolset.$button_placeholders.each( function() {
-				var $elm = $( this );
-
-				if ( $elm.hasClass( 'button-add' ) ) {
-					$elm.html( gwtoolset.$buttons.$add.clone().on( 'click', gwtoolset.handleButtonAddClick ) );
-				}
-
-				if ( $elm.hasClass( 'button-subtract' ) ) {
-					$elm.html( gwtoolset.$buttons.$subtract.clone().on( 'click', gwtoolset.handleButtonSubtractClick ) );
-				}
-			});
+			$( '.button-add' ).html( this.$buttons.$add.clone().on( 'click', this.handleButtonAddClick ) );
+			$( '.button-subtract' ).html( this.$buttons.$subtract.clone().on( 'click', this.handleButtonSubtractClick ) );
 		},
 
-		/**
-		 * @returns {void}
-		 */
-		addDialog: function() {
-			gwtoolset.$dialog = $( '<div/>' )
-				.attr( 'id', 'dialog' )
-				.dialog( {
-					autoOpen: false,
-					draggable: false,
-					modal: true
-				} );
-		},
-
-		/**
-		 * @returns {void}
-		 */
 		addFormListener: function () {
 			if ( this.$form.length < 1 ) {
 				return;
@@ -175,84 +154,83 @@
 			this.$form.on( 'submit', this.handleFormSubmit );
 		},
 
-		/**
-		 * @returns {void}
-		 */
 		addSaveMappingButton: function () {
-			if ( this.$template_table_tbody.length === 1 ) {
-				this.$template_table_tbody.append( this.$save_mapping_button );
-				this.$save_mapping_button.on( 'click', this.handleSaveMappingClick );
+			if ( this.$templateTableTbody.length === 1 ) {
+				this.$templateTableTbody.append( this.$saveMappingButton );
+				this.$saveMappingButton.on( 'click', this.handleSaveMappingClick );
 			}
 		},
 
-		/**
-		 * @returns {void}
-		 */
-		addStepLinks: function () {
-			var $step2_link = $( '<a/>' )
-				.attr( { 'href': '#', 'title': mw.message( 'gwtoolset-step-2-heading' ) } )
-				.text( mw.message( 'gwtoolset-step-2-heading' ) )
-				.on( 'click', function ( evt ) { evt.preventDefault(); history.back(); } );
-			gwtoolset.$step2_link.replaceWith( $step2_link );
+		closeDialog: function () {
+			this.$dialog.dialog( {
+				buttons: null,
+				dialogClass: null,
+				title: null
+			} );
 		},
 
 		/**
-		 * @returns {void}
+		 * creates an <a> link that will take the user back one page in the browser history
+		 * the method uses options.title for the link title and text, yet also allows
+		 * you to specify unique values if desired
+		 *
+		 * @param {Object} options
 		 */
-		handleAjaxComplete: function () {
-			console.log( 'ajax complete' );
+		createBackLink: function ( options ) {
+			return $( '<a>' )
+				.attr( 'href', '#' )
+				.attr( 'title', options.title || 'back link' )
+				.text( options.text || options.title || 'back link' )
+				.on( 'click', function ( evt ) {
+					evt.preventDefault();
+					evt.stopPropagation();
+					history.back();
+				} );
 		},
 
-		/**
-		 * @returns {void}
-		 */
 		handleAjaxError: function () {
-			gwtoolset.openDialog( mw.message( 'gwtoolset-developer-issue' ) );
-			console.log( arguments );
+			gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-developer-issue' ).text() } );
+			mw.log( arguments );
 		},
 
 		/**
-		 * @param {Status} data
+		 * @param {Object} data
 		 * @param {string} textStatus
-		 * @param {object} jqXHR
-		 * @returns {void}
+		 * @param {Object} jqXHR
 		 */
 		handleAjaxSuccess: function ( data, textStatus, jqXHR ) {
-			if ( !data.ok || data.ok !== true || !textStatus || !jqXHR ) {
-				gwtoolset.openDialog( mw.message( 'gwtoolset-save-mapping-failed' ).escaped() );
+			if ( data.ok !== true || !textStatus || !jqXHR ) {
+				gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-save-mapping-failed' ).text() } );
 			} else {
-				gwtoolset.openDialog( mw.message( 'gwtoolset-save-mapping-succeeded' ).escaped() );
+				gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-save-mapping-succeeded' ).text() } );
 			}
-
-			console.log( arguments );
 		},
 
 		/**
-		 * @param {object} evt
-		 * @returns {void}
+		 * @param {Event} evt
 		 */
 		handleButtonAddClick: function ( evt ) {
 			var $target = $( this ).closest( 'tr' ),
-				$td_button = $( '<td/>' )
-					.attr( {'class': 'button-subtract'} )
+				$tdButton = $( '<td>' )
+					.addClass( 'button-subtract' )
 					.html( gwtoolset.$buttons.$subtract.clone().on( 'click', gwtoolset.handleButtonSubtractClick ) ),
-				$row = $( '<tr/>' );
+				$row = $( '<tr>' );
 
 			evt.preventDefault();
 
 			$target.children().each( function () {
-				var $elm = $( this ),
-					$td_elm;
+				var $tdElm,
+				$elm = $( this );
 
 				if ( $elm.find('label').length === 1 ) {
-					$row.append( $( '<td/>' ).html( ' ' ) );
-				} else if ( $elm.hasClass('button-add') ) {
-					$row.append( $td_button );
+					$row.append( $( '<td>' ) );
+				} else if ( $elm.hasClass( 'button-add' ) ) {
+					$row.append( $tdButton );
 				} else {
-					$td_elm = $elm.clone();
-					$td_elm.find( 'input' ).val( '' );
-					$td_elm.find( 'option' ).prop( 'selected', false );
-					$row.append( $td_elm );
+					$tdElm = $elm.clone();
+					$tdElm.find( 'input' ).val( '' );
+					$tdElm.find( 'option' ).prop( 'selected', false );
+					$row.append( $tdElm );
 				}
 			});
 
@@ -260,79 +238,105 @@
 		},
 
 		/**
-		 * @param {object} evt
-		 * @returns {void}
+		 * @param {Event} evt
 		 */
 		handleButtonSubtractClick: function ( evt ) {
 			evt.preventDefault();
 			$( this ).closest( 'tr' ).remove();
 		},
 
-		/**
-		 * @returns {void}
-		 */
 		handleFormSubmit: function () {
-			gwtoolset.$ajax_loader.fadeIn();
+			gwtoolset.$ajaxLoader.fadeIn();
 		},
 
 		/**
-		 * @param {object} evt
-		 * @returns {void}
+		 * @param {Event} evt
 		 */
 		handleSaveMappingClick: function ( evt ) {
-			var mapping_name_to_use = prompt( mw.message( 'gwtoolset-save-mapping-name' ).escaped(), $( '#metadata-mapping-name' ).val() ),
-				mediawiki_template_name = $( '#mediawiki-template-name' ).val(),
-				wpEditToken = $( '#wpEditToken' ).val(),
-				metadata_mappings = gwtoolset.$form.find( 'select' ).serialize();
+			var $form = $( '<form>' )
+					.on( 'submit', gwtoolset.saveMapping ),
+				$input = $( '<input>' )
+					.attr( 'type', 'text' )
+					.attr( 'id', 'mapping-name-to-use' )
+					.attr( 'value', $( '#metadata-mapping-name' ).val() );
 
 			evt.preventDefault();
-			metadata_mappings = $.String.deparam( metadata_mappings );
 
-			if ( mapping_name_to_use !== null && mapping_name_to_use.length > 3 ) {
-				gwtoolset.saveMapping( mapping_name_to_use, mediawiki_template_name, wpEditToken, metadata_mappings );
-			}
+			gwtoolset.openDialog( {
+				options: {
+					title: mw.message( 'gwtoolset-save-mapping-name' ).text(),
+					dialogClass: 'no-close',
+					buttons : [
+						{
+							text: mw.message( 'gwtoolset-save' ).text(),
+							click: function () {
+								$( this ).dialog( 'close' );
+								gwtoolset.saveMapping();
+							},
+							id: 'button-save-mapping'
+						},
+						{
+							text: mw.message( 'gwtoolset-cancel' ).text(),
+							click: function () {
+								$( this ).dialog( 'close' );
+							}
+						}
+					]
+				},
+				msg: $form.append( $input )
+			} );
 		},
 
-		/**
-		 * @returns {void}
-		 */
 		init: function () {
-			gwtoolset.setConsole();
-			gwtoolset.addStepLinks();
-			gwtoolset.addBackLink();
+			gwtoolset.addBackLinks();
 			gwtoolset.addFormListener();
 			gwtoolset.addSaveMappingButton();
 			gwtoolset.addButtons();
-			gwtoolset.addDialog();
 		},
 
 		/**
-		 * @param {string} msg
-		 * @returns {void}
+		 * @param {Object} options
 		 */
-		openDialog : function ( msg ) {
-			gwtoolset.$dialog.html( msg );
+		openDialog: function ( options ) {
+			gwtoolset.$dialog.html( options.msg );
+
+			if ( options.options !== undefined ) {
+				gwtoolset.$dialog.dialog( options.options );
+			}
+
 			gwtoolset.$dialog.dialog( 'open' );
 		},
 
 		/**
 		 * sends the appropriate data to the server for the mapping to be created/updated
 		 *
-		 * @param {string} mapping_name_to_use a name for the mapping to be saved as
-		 * @param {string} mediawiki_template the name of the mediawiki template the mapping applies to
-		 * @param {string} the edit token that allows the user to amke edits to stored data
-		 * @param {array} metadata_mappings a json array of the selected mappings
-		 * @todo handle server error, timeout, etc.
+		 * @param {Event} evt
 		 */
-		saveMapping: function ( mapping_name_to_use, mediawiki_template_name, wpEditToken, metadata_mappings ) {
+		saveMapping: function ( evt ) {
+			var mappingNameToUse = $( '#mapping-name-to-use' ).val(),
+				mediawikiTemplateName = $( '#mediawiki-template-name' ).val(),
+				wpEditToken = mw.user.tokens.get( 'editToken' ),
+				metadataMappings = gwtoolset.$form.find( 'select' ).serialize();
+
+			if ( evt ) {
+				gwtoolset.$dialog.dialog( 'close' );
+				evt.preventDefault();
+			}
+
+			metadataMappings = $.String.deparam( metadataMappings );
+
+			if ( mappingNameToUse === null || mappingNameToUse.length < 3 ) {
+				return;
+			}
+
 			$.ajax( {
 				type: 'POST',
 				url: mw.util.wikiGetlink( 'Special:GWToolset' ),
 				data: {
 					'gwtoolset-form': 'metadata-mapping-save',
-					'mapping-name-to-use': mapping_name_to_use,
-					'metadata-mappings': metadata_mappings,
-					'mediawiki-template-name': mediawiki_template_name,
+					'mapping-name-to-use': mappingNameToUse,
+					'metadata-mappings': metadataMappings,
+					'mediawiki-template-name': mediawikiTemplateName,
 					'wpEditToken': wpEditToken
 				},
 				error: gwtoolset.handleAjaxError,
@@ -340,15 +344,6 @@
 				complete: gwtoolset.handleAjaxComplete,
 				timeout: 5000
 			} );
-		},
-
-		/**
-		 * @returns {void}
-		 */
-		setConsole: function () {
-			if ( window.console === undefined || !this.display_debug_output ) {
-				window.console = this.empty_console;
-			}
 		}
 
 	};

@@ -6,15 +6,16 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMDocument,
 	DOMElement,
-	Exception,
 	GWToolset\Config,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	MWException,
 	Php\Filter,
 	XMLReader;
 
@@ -201,7 +202,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 *
 	 * @return {array}
 	 * - $result['Title'] {Title}
@@ -212,18 +213,24 @@ class XmlMappingHandler extends XmlHandler {
 		$record = null;
 		$outer_xml = null;
 
-		if ( !( $XMLElement instanceof XMLReader ) && !( $XMLElement instanceof DOMElement ) ) {
-			throw new Exception(
-				wfMessage( 'gwtoolset-developer-issue' )->params(
-					wfMessage( 'gwtoolset-no-xmlelement' )->escaped()
-				)->parse()
+		if ( !( $XMLElement instanceof XMLReader )
+			&& !( $XMLElement instanceof DOMElement )
+		) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-xml-element' )->escaped() )
+					->parse()
 			);
 		}
 
 		if ( !isset( $user_options['record-element-name'] )
 			|| !isset( $user_options['record-count'] )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )
+					->parse()
+			);
 		}
 
 		switch ( $XMLElement->nodeType ) {
@@ -231,7 +238,7 @@ class XmlMappingHandler extends XmlHandler {
 				if ( $XMLElement instanceof XMLReader ) {
 					if ( $XMLElement->name === $user_options['record-element-name'] ) {
 						$record = $XMLElement->expand();
-						$outer_xml = $xml_reader->readOuterXml();
+						$outer_xml = $XMLElement->readOuterXml();
 					}
 				} elseif ( $XMLElement instanceof DOMElement ) {
 					if ( $XMLElement->nodeName === $user_options['record-element-name'] ) {
@@ -256,7 +263,10 @@ class XmlMappingHandler extends XmlHandler {
 						break;
 					}
 
-					$result['Title'] = $this->_MappingHandler->processMatchingElement( $user_options, $this->getDOMElementMapped( $record ), $outer_xml );
+					$result['Title'] = $this->_MappingHandler->processMatchingElement(
+						$user_options, $this->getDOMElementMapped( $record ),
+						$outer_xml
+					);
 				}
 
 				break;
@@ -278,23 +288,24 @@ class XmlMappingHandler extends XmlHandler {
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 * @return {array}
 	 * an array of mediafile Title(s)
 	 */
-	public function processXml( array &$user_options, &$xml_source = null ) {
-		$mediafile_titles = null;
+	public function processXml( array &$user_options, $xml_source = null ) {
 		$callback = 'processDOMElements';
 
-		if ( !( $xml_source instanceof Content ) ) {
-			throw new Exception(
-				wfMessage( 'gwtoolset-developer-issue' )->params(
-					wfMessage( 'gwtoolset-no-xml-source' )->escaped()
-				)->parse()
+		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
+			return $this->readXmlAsFile( $user_options, $xml_source, $callback );
+		} elseif ( $xml_source instanceof Content ) {
+			return $this->readXmlAsString( $user_options, $xml_source->getNativeData(), $callback );
+		} else {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-xml-source' )->escaped() )
+					->parse()
 			);
 		}
-
-		return $this->readXmlAsString( $user_options, $xml_source->getNativeData(), $callback );
 	}
 
 	/**

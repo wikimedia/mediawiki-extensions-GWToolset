@@ -6,13 +6,14 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMElement,
-	Exception,
 	Html,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	MWException,
 	Php\Filter,
 	XMLReader;
 
@@ -81,8 +82,11 @@ class XmlDetectHandler extends XmlHandler {
 
 	/**
 	 * attempts to find an example dom element in the metadata xml file that will
-	 * be used for mapping the metadata to the mediawiki template. the search is
-	 * based on hard-coded keys in the $user_options array
+	 * be used for mapping the metadata to the mediawiki template. it will also
+	 * search through all remaining dom elements and add nodes to the example
+	 * record if they were not in the example dom element.
+	 *
+	 * the search is based on hard-coded keys in the $user_options array
 	 *
 	 * - $user_options['record-element-name']
 	 * - $user_options['record-count']
@@ -95,19 +99,28 @@ class XmlDetectHandler extends XmlHandler {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
+	 * @throws {MWException}
 	 * @return {void}
 	 */
 	protected function findExampleDOMElement( $XMLElement, array &$user_options ) {
 		$record = null;
 
 		if ( !( $XMLElement instanceof XMLReader ) && !( $XMLElement instanceof DOMElement ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-xmlelement' )->escaped() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-xml-element' )->escaped() )
+					->parse()
+			);
 		}
 
 		if ( !isset( $user_options['record-element-name'] )
 			|| !isset( $user_options['record-count'] )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-dom-record-issue' )->parse() )
+					->parse()
+			);
 		}
 
 		switch ( $XMLElement->nodeType ) {
@@ -386,10 +399,10 @@ class XmlDetectHandler extends XmlHandler {
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 * @return {void}
 	 */
-	public function processXml( array &$user_options, &$xml_source = null ) {
+	public function processXml( array &$user_options, $xml_source = null ) {
 		$callback = 'findExampleDOMElement';
 
 		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
@@ -400,11 +413,11 @@ class XmlDetectHandler extends XmlHandler {
 			$msg = wfMessage( 'gwtoolset-developer-issue' )->params(
 				wfMessage( 'gwtoolset-no-xml-source' )->escaped()
 			)->parse();
-			throw new Exception( $msg );
+			throw new MWException( $msg );
 		}
 
 		if ( empty( $this->_metadata_example_dom_element ) ) {
-			wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
+			$msg = wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
 				Html::openElement( 'ul' ) .
 					Html::rawElement(
 						'li',
@@ -427,7 +440,7 @@ class XmlDetectHandler extends XmlHandler {
 					) .
 				Html::closeElement( 'ul' ) .
 				$this->_SpecialPage->getBackToFormLink();
-			throw new Exception( $msg );
+			throw new MWException( $msg );
 		}
 
 		ksort( $this->_metadata_example_dom_nodes );
