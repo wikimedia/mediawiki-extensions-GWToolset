@@ -6,9 +6,9 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Jobs;
-use Exception,
-	Job,
+use Job,
 	UploadBase,
 	UploadFromUrl,
 	User;

@@ -4,10 +4,11 @@ GWToolset v0.0.1
 1. Licensing
 2. Requirements
 3. Configuration
-   a. DefaultSettings.php
-   b. LocalSettings.php
-   c. Assign Users
-   d. Image Folder Permissions
+   a. php.ini
+   b. DefaultSettings.php
+   c. LocalSettings.php
+   d. Assign Users
+   e. Image Folder Permissions
 4. Hidden Categories
 
 
@@ -26,6 +27,13 @@ Requirements
 
 Configuration
 -------------
+### `php.ini`
+the following can also be set in httpd.conf, httpd-vhosts.conf, or in .htaccess
+instead of in php.ini
+
+* `memory_limit = '256M'`
+
+
 ### `DefaultSettings.php`
 The following values are usually in the wiki’s `DefaultSettings.php`; if they
 are not set as indicated, you can make the changes in the `LocalSettings.php`
@@ -33,7 +41,7 @@ file.
 
 * `$wgEnableAPI = true`
 * `$wgEnableWriteAPI = true`
-* `$wgMemoryLimit = "256M"`;
+* `$wgMaxImageArea = 6.4e7`; // when not using ImageMagick, otherwise leave it as is
 
 
 ### `LocalSettings.php`
@@ -49,7 +57,7 @@ _load the extension_
 
 
 ### Assign Users
-Assign users to the gwtoolset group as appropriate. Yo ucan do this on the
+Assign users to the gwtoolset group as appropriate. You can do this on the
 Special:UserRights page.
 
 

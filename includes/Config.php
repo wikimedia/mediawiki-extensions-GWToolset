@@ -16,7 +16,7 @@ class Config {
 	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
 	public static $descriptionmsg = 'gwtoolset-desc';
 	public static $type = 'media';
-	public static $version = '0.0.1';
+	public static $version = '0.1.0';
 
 	/**
 	 * @var {array}
@@ -107,7 +107,8 @@ class Config {
 	 * @var {array}
 	 */
 	public static $hooks = array(
-		'CanonicalNamespaces' => 'GWToolset\Hooks::onCanonicalNamespaces'
+		'CanonicalNamespaces' => 'GWToolset\Hooks::onCanonicalNamespaces',
+		'UnitTestsList' => 'GWToolset\Hooks::onUnitTestsList'
 	);
 
 	/**
@@ -133,7 +134,7 @@ class Config {
 	/**
 	 * @var {int}
 	 */
-	public static $job_throttle = 3;
+	public static $job_throttle = 10;
 
 	/**
 	 * @var {int}
@@ -292,6 +293,13 @@ class Config {
 			'group' => 'media'
 		)
 	);
+
+	/**
+	 * @var {int}
+	 * title maximum length in bytes
+	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
+	 */
+	public static $title_max_length = 207;
 
 	/**
 	 * @var {string}

@@ -6,13 +6,13 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Models;
-use Exception,
-	Html,
+use Html,
 	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
 	GWToolset\Helpers\FileChecks,
-	Php\Curl,
+	MWException,
 	Php\Filter,
 	ReflectionClass,
 	ReflectionProperty,
@@ -324,49 +324,70 @@ class MediawikiTemplate implements ModelInterface {
 	}
 
 	/**
-	 * creates a title string that will be used to create a
-	 * wiki title for a media file. the title string is based on :
+	 * creates a title string that will be used to create a wiki title for a media file.
+	 * the title string is based on :
 	 *
 	 *   - title
 	 *   - title identifier
 	 *   - url to the media file’s extension
 	 *
-	 * @param {array} $options
+	 * the title length is limited to Config::$title_max_length
+	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
 	 *
-	 * @return {string}
-	 * the string is not filtered.
-	 * the result assumes that it will be used in Title creation
-	 * and relies on the Title class to filter it
+	 * @param {array} $options
+	 * @throws {MWException}
+	 * @return {string} the string is not filtered.
 	 */
 	public function getTitle( array &$options ) {
 		$result = null;
 
 		if ( empty( $this->mediawiki_template_array['title-identifier'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-mapping-no-title-identifier' )->escaped() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-mapping-no-title-identifier' )
+					->escaped()
+			);
 		}
 
 		if ( empty( $options['evaluated-media-file-extension'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )->rawParams( Filter::evaluate( $options['url-to-the-media-file'] ) )->escaped() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
+					->rawParams( Filter::evaluate( $options['url-to-the-media-file'] ) )
+					->escaped()
+				);
 		}
 
-		/**
-		 * @todo: get rid of this hack. create a more robust method for
-		 * dealing with string case issues in mediawiki template attributes
-		 *
-		 * quick hack to handle Book template issue where it uses Title
-		 * instead of title as an attribute
-		 */
 		if ( !empty( $this->mediawiki_template_array['title'] ) ) {
-			$result = $this->mediawiki_template_array['title'];
-		} elseif ( !empty( $this->mediawiki_template_array['Title'] ) ) {
-			$result = $this->mediawiki_template_array['Title'];
-		} else {
-			throw new Exception( wfMessage( 'gwtoolset-mapping-no-title' )->escaped() );
+			$title_length = strlen( $this->mediawiki_template_array['title'] );
+			$title_identifier_length = strlen( $this->mediawiki_template_array['title-identifier'] );
+			$file_extension_length = strlen( $options['evaluated-media-file-extension'] ) + 1;
+
+			if ( ( $title_length + $title_identifier_length + $file_extension_length + 1 )
+				> Config::$title_max_length
+			) {
+				$result = substr(
+					$this->mediawiki_template_array['title'],
+					0,
+					( Config::$title_max_length - $title_identifier_length - $file_extension_length - 1 )
+				);
+			} else {
+				$result = $this->mediawiki_template_array['title'];
+			}
+
+			$result .= Config::$title_separator;
 		}
 
-		$result .= Config::$title_separator;
-		$result = $result . $this->mediawiki_template_array['title-identifier'];
+		$result .= $this->mediawiki_template_array['title-identifier'];
 		$result .= '.' . $options['evaluated-media-file-extension'];
+
+		if ( $result > Config::$title_max_length ) {
+			$result = substr(
+				$this->mediawiki_template_array['title-identifier'],
+				0,
+				( Config::$title_max_length - $file_extension_length - 1 )
+			);
+
+			$result .= '.' . $options['evaluated-media-file-extension'];
+		}
 
 		return $result;
 	}
@@ -382,19 +403,23 @@ class MediawikiTemplate implements ModelInterface {
 	 * @param {string} $mediawiki_template_name
 	 * the key within $user_options that holds the name of the mediawiki template
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 * @return {void}
 	 */
 	public function getMediaWikiTemplate( array &$user_options, $mediawiki_template_name = 'mediawiki-template-name' ) {
 		if ( !isset( $user_options[$mediawiki_template_name] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->param( wfMessage( 'gwtoolset-no-mediawiki-template' )->parse() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->param( wfMessage( 'gwtoolset-no-mediawiki-template' )->parse() )
+					->parse()
+				);
 		}
 
 		if ( in_array( $user_options[$mediawiki_template_name], Config::$allowed_templates ) ) {
 			$this->mediawiki_template_name = $user_options[$mediawiki_template_name];
 			$this->retrieve();
 		} else {
-			throw new Exception( wfMessage( 'gwtoolset-metadata-invalid-template' )->escaped() );
+			throw new MWException( wfMessage( 'gwtoolset-metadata-invalid-template' )->escaped() );
 		}
 	}
 
@@ -418,16 +443,21 @@ class MediawikiTemplate implements ModelInterface {
 	 * this mediawiki template model
 	 *
 	 * @param {array} $options
+	 * @throws {MWException}
 	 * @return {void}
 	 */
 	public function retrieve( array &$options = array() ) {
 		$result = $this->_DataAdapater->retrieve( array( 'mediawiki_template_name' => $this->mediawiki_template_name ) );
 
-		if ( empty( $result ) || $result->numRows() !== 1 ) {
-			throw new Exception( wfMessage( 'gwtoolset-mediawiki-template-not-found' )->rawParams( $this->mediawiki_template_name )->escaped() );
+		if ( empty( $result ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
+					->rawParams( Filter::evaluate( $this->mediawiki_template_name ) )
+						->escaped()
+				);
 		}
 
-		$this->mediawiki_template_json = $result->current()->mediawiki_template_json;
+		$this->mediawiki_template_json = $result['mediawiki_template_json'];
 		$this->mediawiki_template_array = json_decode( $this->mediawiki_template_json, true );
 
 		$this->mediawiki_template_array['title-identifier'] = null;

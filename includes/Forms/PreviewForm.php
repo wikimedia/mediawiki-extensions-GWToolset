@@ -7,8 +7,7 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Forms;
-use Exception,
-	GWToolset\Config,
+use GWToolset\Config,
 	GWToolset\Helpers\FileChecks,
 	Html,
 	IContextSource,

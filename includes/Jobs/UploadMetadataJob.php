@@ -6,8 +6,10 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Jobs;
 use Job,
+	MWException,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	User;
 
@@ -79,7 +81,7 @@ class UploadMetadataJob extends Job {
 
 		try {
 			$result = $this->_MetadataMappingHandler->processRequest();
-		} catch ( Exception $e ) {
+		} catch ( MWException $e ) {
 			error_log( $e->getMessage() );
 		}
 

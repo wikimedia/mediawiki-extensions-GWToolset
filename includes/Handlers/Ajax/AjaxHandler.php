@@ -6,9 +6,9 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Handlers\Ajax;
-use Exception,
-	GWToolset\Handlers\SpecialPageHandler,
+use	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\WikiChecks,
 	Status;
 

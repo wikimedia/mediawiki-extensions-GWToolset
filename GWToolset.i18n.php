@@ -216,11 +216,11 @@ It should be in the '''$3''' namespace.",
 	'gwtoolset-step-3-instructions-3' => 'If you’re not happy with the results, go back to Step 2: Metadata mapping and adjust the mapping as necessary.
 
 If you need to make adjustments to the metadata file itself, go ahead and do so and re-upload it by beginning the process again with Step 1: Metadata detection.',
-	'gwtoolset-title-bad' => 'The title created, based on the metadata and mediawiki template mapping is not a valid.
+	'gwtoolset-title-bad' => "The title created, based on the metadata and mediawiki template mapping is not valid.
 
-Try another field from the metadata for title-identifier and title, or if possible, change the metadata where needed.
+Try another field from the metadata for title and title-identifier, or if possible, change the metadata where needed. See https://commons.wikimedia.org/wiki/Commons:File_naming for more insight.
 
-($1)',
+'''Invalid title''': ($1)",
 
 	/**
 	 * step 4 - batch job creation

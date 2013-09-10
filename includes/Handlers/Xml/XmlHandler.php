@@ -6,13 +6,14 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMDocument,
 	DOMXPath,
-	Exception,
 	Html,
 	Linker,
+	MWException,
 	Php\Filter,
 	XMLReader;
 
@@ -75,7 +76,7 @@ abstract class XmlHandler {
 		return $result;
 	}
 
-	public abstract function processXml( array &$user_options, &$xml_source = null );
+	public abstract function processXml( array &$user_options, $xml_source = null );
 
 	/**
 	 * opens the xml file as a stream and sends the stream to other methods in
@@ -104,37 +105,51 @@ abstract class XmlHandler {
 	 * @todo: handle an xml schema if present (future)
 	 * @todo: handle incomplete/partial uploads (future)
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 *
-	 * @return {string}
-	 * @deprecated should not be used at the moment, possible future use
+	 * @return {array}
+	 * an array of mediafile Title(s)
 	 */
 	protected function readXmlAsFile( array &$user_options, $file_path_local = null, $callback = null ) {
-		$result = null;
-		$read_result = array( 'msg' => null, 'stop-reading' => false );
-		$xml_reader = null;
+		$result = array();
+		$read_result = array( 'Title' => null, 'stop-reading' => false );
 
 		if ( empty( $callback ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-callback' )->escaped() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-callback' )->escaped() )
+					->parse()
+			);
 		}
 
-		$xml_reader = new XMLReader();
+		$XMLReader = new XMLReader();
 
-		if ( !$xml_reader->open( $file_path_local ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-could-not-open-xml' )->escaped() )->parse() );
+		if ( !$XMLReader->open( $file_path_local ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-could-not-open-xml' )->escaped() )
+					->parse()
+			);
 		}
 
-		while ( $xml_reader->read() ) {
-			$read_result = $this->$callback( $xml_reader, $user_options );
-			$result .= $read_result['msg'];
+		while ( $XMLReader->read() ) {
+			$read_result = $this->$callback( $XMLReader, $user_options );
+
+			if ( !empty( $read_result['Title'] ) ) {
+				$result[] = $read_result['Title'];
+			}
 
 			if ( $read_result['stop-reading'] ) {
 				break;
 			}
 		}
 
-		if ( !$xml_reader->close() ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-could-not-close-xml' )->escaped() )->parse() );
+		if ( !$XMLReader->close() ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-could-not-close-xml' )->escaped() )
+					->parse()
+			);
 		}
 
 		return $result;
@@ -168,17 +183,17 @@ abstract class XmlHandler {
 	 * @todo: handle an xml schema if present (future)
 	 * @todo: handle incomplete/partial uploads (future)
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 *
 	 * @return {array}
 	 * an array of mediafile Title(s)
 	 */
 	protected function readXmlAsString( array &$user_options, $xml_source = null, &$callback = null ) {
-		$mediafile_titles = array();
+		$result = array();
 		$read_result = array( 'Title' => null, 'stop-reading' => false );
 
 		if ( empty( $callback ) ) {
-			throw new Exception(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )->params(
 					wfMessage( 'gwtoolset-no-callback' )->escaped()
 				)->parse()
@@ -193,7 +208,7 @@ abstract class XmlHandler {
 		$errors = libxml_get_errors();
 
 		if ( !empty( $errors ) ) {
-			throw new Exception(
+			throw new MWException(
 				wfMessage( 'gwtoolset-xml-error' )->escaped() .
 				Html::rawElement( 'pre', array( 'style' => 'overflow:auto;' ), print_r( $errors, true ) )
 			);
@@ -227,14 +242,14 @@ abstract class XmlHandler {
 					) .
 				Html::closeElement( 'ul' ) .
 				$this->_SpecialPage->getBackToFormLink();
-			throw new Exception( $msg );
+			throw new MWException( $msg );
 		}
 
 		foreach ( $DOMNodeList as $DOMNode ) {
 			$read_result = $this->$callback( $DOMNode, $user_options );
 
 			if ( !empty( $read_result['Title'] ) ) {
-				$mediafile_titles[] = $read_result['Title'];
+				$result[] = $read_result['Title'];
 			}
 
 			if ( $read_result['stop-reading'] ) {
@@ -242,6 +257,6 @@ abstract class XmlHandler {
 			}
 		}
 
-		return $mediafile_titles;
+		return $result;
 	}
 }

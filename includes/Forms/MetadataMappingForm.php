@@ -7,8 +7,7 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Forms;
-use Exception,
-	Html,
+use Html,
 	GWToolset\Config,
 	GWToolset\Handlers\Forms\FormHandler,
 	GWToolset\Helpers\FileChecks,
@@ -33,6 +32,10 @@ class MetadataMappingForm {
 	public static function getForm( FormHandler $Handler, array &$user_options ) {
 
 		$template_link = '[[Template:' . Filter::evaluate( $user_options['mediawiki-template-name'] ) . ']]';
+		$metadata_file_url = !empty( $user_options['Metadata-Title'] )
+			? Linker::link( $user_options['Metadata-Title'], null, array( 'target' => '_blank' ) ) .
+				Html::rawElement( 'br' )
+			: null;
 
 		return
 			Html::rawElement(
@@ -50,8 +53,7 @@ class MetadataMappingForm {
 			Html::rawElement(
 				'p',
 				array(),
-				Linker::link( $user_options['Metadata-Title'], null, array( 'target' => '_blank' ) ) .
-				Html::rawElement( 'br' ) .
+				$metadata_file_url .
 				wfMessage( 'gwtoolset-record-count' )->params( (int)$user_options['record-count'] )->escaped()
 			) .
 
@@ -150,24 +152,6 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'record-count',
-					'value' => (int)$user_options['record-count']
-				)
-			) .
-
-			Html::rawElement(
-				'input',
-				array(
-					'type' => 'hidden',
-					'name' => 'record-element-name',
-					'value' => Filter::evaluate( $user_options['record-element-name'] )
-				)
-			) .
-
-			Html::rawElement(
-				'input',
-				array(
-					'type' => 'hidden',
 					'id' => 'mediawiki-template-name',
 					'name' => 'mediawiki-template-name',
 					'value' => Filter::evaluate( $user_options['mediawiki-template-name'] )
@@ -187,6 +171,16 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
+					'id' => 'metadata-mapping-name',
+					'name' => 'metadata-mapping-name',
+					'value' => Filter::evaluate( $user_options['metadata-mapping-name'] )
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
 					'name' => 'metadata-mapping-url',
 					'value' => Filter::evaluate( $user_options['metadata-mapping-url'] )
 				)
@@ -196,9 +190,26 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'id' => 'metadata-mapping-name',
-					'name' => 'metadata-mapping-name',
-					'value' => Filter::evaluate( $user_options['metadata-mapping-name'] )
+					'name' => 'metadata-stash-key',
+					'value' => Filter::evaluate( $user_options['metadata-stash-key'] )
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
+					'name' => 'record-count',
+					'value' => (int)$user_options['record-count']
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
+					'name' => 'record-element-name',
+					'value' => Filter::evaluate( $user_options['record-element-name'] )
 				)
 			) .
 

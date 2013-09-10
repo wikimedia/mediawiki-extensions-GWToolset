@@ -6,9 +6,10 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Helpers;
 use GWToolset\Config,
-	GWToolset\Exception,
+	MWException,
 	Php\File,
 	Php\Filter,
 	OutputPage,
@@ -27,7 +28,7 @@ class FileChecks {
 	public static $current_extension;
 
 	/**
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 * @return {void}
 	 */
 	public static function checkContentLength() {
@@ -35,7 +36,7 @@ class FileChecks {
 			&& ( (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('post_max_size') )
 				|| (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('upload_max_filesize') ) )
 		) {
-			throw new Exception( wfMessage( 'gwtoolset-over-max-ini' )->parse() );
+			throw new MWException( wfMessage( 'gwtoolset-over-max-ini' )->parse() );
 		}
 	}
 
@@ -214,11 +215,16 @@ class FileChecks {
 	 *
 	 * @param {File} $File
 	 * @param {array} $accepted_types
+	 * @throws {MWException}
 	 * @return {Status}
 	 */
 	public static function isUploadedFileValid( File $File, array $accepted_types = array() ) {
 		if ( empty( $accepted_types ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-accepted-types' )->escaped( 'gwtoolset-no-accepted-types-provided' ) )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-accepted-types' )->escaped( 'gwtoolset-no-accepted-types-provided' ) )
+					->parse()
+			);
 		}
 
 		$Status = self::isFileEmpty( $File );

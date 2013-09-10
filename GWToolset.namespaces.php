@@ -6,9 +6,9 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+$namespaceNames = array();
 
-namespace Php;
-use Exception;
-
-class FileException extends Exception {
-}
+$namespaceNames['en'] = array(
+	NS_GWTOOLSET       => 'GWToolset',
+	NS_GWTOOLSET_TALK  => 'GWToolset_talk'
+);

@@ -6,14 +6,15 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset;
-use Exception,
-	GWToolset\Handlers\SpecialPageHandler,
+use GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Models\Menu,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
 	Linker,
+	MWException,
 	PermissionsError,
 	Php\Filter,
 	SpecialPage,
@@ -67,7 +68,7 @@ class SpecialGWToolset extends SpecialPage {
 	 * @param {bool} $includable whether the page can be included in normal pages
 	 */
 	public function __construct() {
-		parent::__construct( Config::$special_page_name, Config::$restriction, Config::$listed );
+		parent::__construct( Config::$special_page_name, Config::$special_page_restriction, Config::$special_page_listed );
 	}
 
 	/**
@@ -89,7 +90,7 @@ class SpecialGWToolset extends SpecialPage {
 	 * a control method that processes a SpecialPage request
 	 * and returns a response, typically an html form
 	 *
-	 * @throws {PermissionsError|Exception}
+	 * @throws {PermissionsError|MWException}
 	 *
 	 * @return {void}
 	 * SpecialPage>Output is used to take care of the response
@@ -103,7 +104,7 @@ class SpecialGWToolset extends SpecialPage {
 			} else {
 				try {
 					$html .= $this->_Handler->getHtmlForm( $this->_registered_modules[$this->module_key] );
-				} catch ( Exception $e ) {
+				} catch ( MWException $e ) {
 					$html .=
 						Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-technical-error' )->escaped() ) .
 						Html::rawElement( 'p', array( 'class' => 'error' ), Filter::evaluate( $e->getMessage() ) );
@@ -114,7 +115,10 @@ class SpecialGWToolset extends SpecialPage {
 				FileChecks::checkContentLength();
 
 				if ( !( $this->_Handler instanceof \GWToolset\Handlers\SpecialPageHandler ) ) {
-					$msg = wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-upload-handler' )->escaped() )->parse();
+					$msg = wfMessage( 'gwtoolset-developer-issue' )
+						->params( wfMessage( 'gwtoolset-no-upload-handler' )->escaped() )
+						->parse();
+
 					if ( ini_get( 'display_errors' ) && $this->getUser()->isAllowed( 'gwtoolset-debug' ) ) {
 						$msg .= Html::rawElement( 'br' ) .
 							Html::rawElement( 'pre', array( 'style' => 'overflow:auto' ), print_r( error_get_last(), true ) );
@@ -122,11 +126,11 @@ class SpecialGWToolset extends SpecialPage {
 						$msg = wfMessage( 'gwtoolset-no-upload-handler' )->escaped();
 					}
 
-					throw new Exception( $msg );
+					throw new MWException( $msg );
 				}
 
 				$html .= $this->_Handler->execute();
-			} catch ( Exception $e ) {
+			} catch ( MWException $e ) {
 				if ( $e->getCode() === 1000 ) {
 					throw new PermissionsError( $e->getMessage() );
 				} else {
@@ -198,6 +202,7 @@ class SpecialGWToolset extends SpecialPage {
 	 * @return {void}
 	 */
 	public function execute( $par ) {
+		$this->setHeaders();
 		set_error_handler( '\GWToolset\handleError' );
 
 		if ( $this->wikiChecks() ) {

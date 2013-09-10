@@ -7,10 +7,10 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Handlers\Forms;
-use Exception,
-	GWToolset\Handlers\SpecialPageHandler,
+use	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\WikiChecks,
 	Html,
+	MWException,
 	Php\Filter;
 
 abstract class FormHandler extends SpecialPageHandler {
@@ -25,7 +25,7 @@ abstract class FormHandler extends SpecialPageHandler {
 	 *
 	 * @param {array} $expected_options
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 * the exception message has been filtered
 	 *
 	 * @return {void}
@@ -55,21 +55,25 @@ abstract class FormHandler extends SpecialPageHandler {
 				Html::rawElement( 'ul', array(), $msg ) .
 				Html::rawElement( 'p', array(), $this->SpecialPage->getBackToFormLink() );
 
-			throw new Exception( $msg );
+			throw new MWException( $msg );
 		}
 	}
 
 	/**
 	 * @param {string} $module_name
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 *
 	 * @return {string}
 	 * the string has not been filtered
 	 */
 	protected function getFormClass( $module_name ) {
 		if ( $module_name === null ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-module' )->escaped() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-module' )->escaped() )
+					->parse()
+			);
 		}
 
 		return $module_name['form'];
@@ -88,7 +92,7 @@ abstract class FormHandler extends SpecialPageHandler {
 	 *
 	 * @param {string} $module_name
 	 *
-	 * @throws {Exception}
+	 * @throws {MWException}
 	 *
 	 * @return {string}
 	 * the string has not been filtered
@@ -97,7 +101,7 @@ abstract class FormHandler extends SpecialPageHandler {
 		$form_class = $this->getFormClass( $module_name );
 
 		if ( !class_exists( $form_class ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-no-form' )->escaped() );
+			throw new MWException( wfMessage( 'gwtoolset-no-form' )->escaped() );
 		}
 
 		return $form_class::getForm( $this->SpecialPage );

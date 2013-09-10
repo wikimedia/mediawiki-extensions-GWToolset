@@ -6,13 +6,14 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Adapters\Php;
 use ContentHandler,
-	Exception,
 	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiPages,
+	MWException,
 	Php\Filter,
 	Revision,
 	Title,
@@ -22,37 +23,50 @@ class MappingPhpAdapter implements DataAdapterInterface {
 
 	/**
 	 * @param {array} $options
+	 * @throws {MWException}
 	 * @return {Status}
 	 */
 	public function create( array $options = array() ) {
-		$pageid = -1;
-		$title = null;
 		$result = false;
 
 		if ( empty( $options['mapping-json'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping-json' )->parse() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-mapping-json' )->parse() )
+					->parse()
+			);
 		}
 
 		if ( empty( $options['mapping-name'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-mapping' )->parse() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-mapping' )->parse() )
+					->parse()
+			);
 		}
 
 		if ( empty( $options['user'] ) ) {
-			throw new Exception( wfMessage( 'gwtoolset-developer-issue' )->params( wfMessage( 'gwtoolset-no-user' )->escaped() )->parse() );
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-user' )->escaped() )
+					->parse()
+			);
 		}
 
 		// nb: cannot filter the json - might need to test it as valid by converting it back and forth with json_decode/encode
 		$options['text'] = $options['mapping-json'];
 		$options['mapping-user-name'] = $options['user']->getName();
-		$options['summary'] = wfMessage( 'gwtoolset-create-mapping' )->params( Config::$name, $options['mapping-user-name'] )->escaped();
-
-		$options['title'] = Title::newFromText(
-			Config::$metadata_namespace .
-			Config::$metadata_mapping_subdirectory . '/' .
-			WikiPages::titleCheck( $options['mapping-user-name'] ) . '/' .
-			WikiPages::titleCheck( $options['mapping-name'] ) . '.json'
-		);
-
+		$options['summary'] =
+			wfMessage( 'gwtoolset-create-mapping' )
+				->params( Config::$name, $options['mapping-user-name'] )
+				->escaped();
+		$options['title'] =
+			Title::makeTitleSafe(
+				Config::$metadata_namespace,
+				Config::$metadata_mapping_subpage . '/' .
+					$options['mapping-user-name'] . '/' .
+					$options['mapping-name'] . '.json'
+			);
 		$result = $this->saveMapping( $options );
 
 		return $result;
@@ -72,7 +86,11 @@ class MappingPhpAdapter implements DataAdapterInterface {
 
 		if ( $options['Metadata-Mapping-Title'] instanceof Title ) {
 			if ( !$options['Metadata-Mapping-Title']->isKnown() ) {
-				throw new Exception( wfMessage( 'gwtoolset-metadata-mapping-not-found' )->params( $options['metadata-mapping-url'] )->escaped() );
+				throw new MWException(
+					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
+						->params( $options['metadata-mapping-url'] )
+						->parse()
+				);
 			}
 
 			$Mapping_Page = new WikiPage( $options['Metadata-Mapping-Title'] );

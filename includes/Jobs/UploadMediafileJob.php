@@ -6,9 +6,10 @@
  * @ingroup Extensions
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
+
 namespace GWToolset\Jobs;
-use Exception,
-	GWToolset\Handlers\UploadHandler,
+use GWToolset\Handlers\UploadHandler,
+	MWException,
 	Job,
 	User;
 
@@ -92,7 +93,7 @@ class UploadMediafileJob extends Job {
 
 		try {
 			$result = $this->processMetadata();
-		} catch ( Exception $e ) {
+		} catch ( MWException $e ) {
 			error_log( $e->getMessage() );
 		}
 

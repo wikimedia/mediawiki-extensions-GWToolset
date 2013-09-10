@@ -8,7 +8,7 @@
  */
 namespace GWToolset\Forms;
 use Html,
-	GWToolset\Adapters\Db\MediawikiTemplateDbAdapter,
+	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Config,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Models\MediawikiTemplate,
@@ -28,7 +28,9 @@ class MetadataDetectForm {
 	 * an html form
 	 */
 	public static function getForm( SpecialPage $SpecialPage ) {
-		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplateDbAdapter() );
+		$namespace = $SpecialPage->getLanguage()->getNamespaces();
+		$namespace = $namespace[Config::$metadata_namespace] . ':';
+		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 
 		return
 			Html::rawElement(
@@ -176,13 +178,13 @@ class MetadataDetectForm {
 							'type' => 'text',
 							'name' => 'metadata-mapping-url',
 							'class' => 'gwtoolset-url-input',
-							'placeholder' => Filter::evaluate( Config::$metadata_namespace ) . Filter::evaluate( Config::$metadata_mapping_subdirectory ) . '/User-name/mapping-name.json'
+							'placeholder' => $namespace . Filter::evaluate( Config::$metadata_mapping_subpage ) . '/User-name/mapping-name.json'
 						)
 					) .
 					Html::rawElement( 'br' ) .
 					Linker::link(
-						Title::newFromText( 'Special:PrefixIndex/' . Config::$metadata_namespace . Config::$metadata_mapping_subdirectory ),
-						Filter::evaluate( Config::$metadata_namespace ) . Filter::evaluate( Config::$metadata_mapping_subdirectory ),
+						Title::newFromText( 'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage ),
+						$namespace . Filter::evaluate( Config::$metadata_mapping_subpage ),
 						array( 'target' => '_blank' )
 					)
 				)
@@ -208,35 +210,11 @@ class MetadataDetectForm {
 				) .
 				Html::rawElement( 'br' ) .
 				wfMessage( 'gwtoolset-metadata-file-source' )->escaped() .
-				Html::rawElement( 'br' ) .
-				wfMessage( 'gwtoolset-metadata-file-source-info' )->escaped() .
+				self::getMetadataFileUrlExtraInstructions() .
 				Html::rawElement(
 					'ul',
 					array(),
-					Html::rawElement(
-						'li',
-						array(),
-						Html::rawElement(
-							'label',
-							array(),
-							wfMessage( 'gwtoolset-metadata-file-url' )->escaped() .
-							Html::rawElement(
-								'input',
-								array(
-									'type' => 'text',
-									'name' => 'metadata-file-url',
-									'class' => 'gwtoolset-url-input',
-									'placeholder' => 'Two-images.xml'
-								)
-							) .
-							Html::rawElement( 'br' ) .
-							Linker::link(
-								Title::newFromText( 'Special:PrefixIndex/' . Config::$metadata_namespace . Config::$metadata_sets_subdirectory ),
-								Filter::evaluate( Config::$metadata_namespace ) . Filter::evaluate( Config::$metadata_sets_subdirectory ),
-								array( 'target' => '_blank' )
-							)
-						)
-					) .
+					self::getMetadataFileUrlInput( $namespace ) .
 					Html::rawElement(
 						'li',
 						array(),
@@ -283,5 +261,59 @@ class MetadataDetectForm {
 			) .
 
 			Html::closeElement( 'form' );
+	}
+
+	public static function getMetadataFileUrlExtraInstructions() {
+		$result = null;
+
+		if ( Config::$use_UploadStash ) {
+			return $result;
+		}
+
+		$result = Html::rawElement( 'br' ) .
+			wfMessage( 'gwtoolset-metadata-file-source-info' )->escaped();
+
+		return $result;
+	}
+
+	public static function getMetadataFileUrlInput( $namespace ) {
+		$result = null;
+
+		if ( Config::$use_UploadStash ) {
+			return $result;
+		}
+
+		$result = Html::rawElement(
+			'li',
+			array(),
+			Html::rawElement(
+				'label',
+				array(),
+				wfMessage( 'gwtoolset-metadata-file-url' )->escaped() .
+				Html::rawElement(
+					'input',
+					array(
+						'type' => 'text',
+						'name' => 'metadata-file-url',
+						'class' => 'gwtoolset-url-input',
+						'placeholder' => 'Two-images.xml'
+					)
+				) .
+				Html::rawElement( 'br' ) .
+				Linker::link(
+					Title::newFromText(
+						'Special:PrefixIndex/' .
+						$namespace .
+						Config::$metadata_sets_subpage
+					),
+					$namespace .
+					Filter::evaluate( Config::$metadata_sets_subpage
+					),
+					array( 'target' => '_blank' )
+				)
+			)
+		);
+
+		return $result;
 	}
 }
