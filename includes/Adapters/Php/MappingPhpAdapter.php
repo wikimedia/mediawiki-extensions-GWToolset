@@ -53,20 +53,27 @@ class MappingPhpAdapter implements DataAdapterInterface {
 			);
 		}
 
-		// nb: cannot filter the json - might need to test it as valid by converting it back and forth with json_decode/encode
+		// nb: cannot filter the json - might need to test it as valid by converting it back and
+		// forth with json_decode/encode
 		$options['text'] = $options['mapping-json'];
 		$options['mapping-user-name'] = $options['user']->getName();
+
 		$options['summary'] =
 			wfMessage( 'gwtoolset-create-mapping' )
 				->params( Config::$name, $options['mapping-user-name'] )
 				->escaped();
-		$options['title'] =
-			Title::makeTitleSafe(
-				Config::$metadata_namespace,
+
+		$options['title'] =	\GWToolset\getTitle(
+			\GWToolset\stripIllegalTitleChars(
 				Config::$metadata_mapping_subpage . '/' .
-					$options['mapping-user-name'] . '/' .
-					$options['mapping-name'] . '.json'
-			);
+				$options['mapping-user-name'] . '/' .
+				$options['mapping-name'] . '.json',
+				array( 'allow-subpage' => true )
+			),
+			Config::$metadata_namespace,
+			array( 'must-be-known' => false )
+		);
+
 		$result = $this->saveMapping( $options );
 
 		return $result;
@@ -95,7 +102,8 @@ class MappingPhpAdapter implements DataAdapterInterface {
 
 			$Mapping_Page = new WikiPage( $options['Metadata-Mapping-Title'] );
 			$result = $Mapping_Page->getContent( Revision::RAW )->getNativeData();
-			$result = str_replace( PHP_EOL, '', $result ); // need to remove line breaks from the mapping otherwise the json_decode will error out
+			// need to remove line breaks from the mapping otherwise the json_decode will error out
+			$result = str_replace( PHP_EOL, '', $result );
 		}
 
 		return $result;
@@ -122,7 +130,13 @@ class MappingPhpAdapter implements DataAdapterInterface {
 		$Mapping_Page = new WikiPage( $options['title'] );
 
 		set_error_handler( '\GWToolset\swallowErrors' );
-		$result = $Mapping_Page->doEditContent( $Mapping_Content, $options['summary'], 0, false, $options['user'] );
+		$result = $Mapping_Page->doEditContent(
+			$Mapping_Content,
+			$options['summary'],
+			0,
+			false,
+			$options['user']
+		);
 
 		return $result;
 	}

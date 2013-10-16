@@ -44,25 +44,6 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
-	 * @return {bool}
-	 */
-	protected function validateParams() {
-		$result = true;
-
-		if ( empty( $this->params['username'] ) ) {
-			error_log( __METHOD__ . ' : no $this->params[\'user\'] provided' . PHP_EOL );
-			$result = false;
-		}
-
-		if ( empty( $this->params['post'] ) ) {
-			error_log( __METHOD__ . ' : no $this->params[\'post\'] provided' . PHP_EOL );
-			$result = false;
-		}
-
-		return $result;
-	}
-
-	/**
 	 * entry point
 	 * @todo: should $result always be true?
 	 * @return {bool|array}
@@ -82,7 +63,26 @@ class UploadMetadataJob extends Job {
 		try {
 			$result = $this->_MetadataMappingHandler->processRequest();
 		} catch ( MWException $e ) {
-			error_log( $e->getMessage() );
+			$this->setLastError( __METHOD__ . ': ' . $e->getMessage() );
+		}
+
+		return $result;
+	}
+
+	/**
+	 * @return {bool}
+	 */
+	protected function validateParams() {
+		$result = true;
+
+		if ( empty( $this->params['username'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'user\'] provided' );
+			$result = false;
+		}
+
+		if ( empty( $this->params['post'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'post\'] provided' );
+			$result = false;
 		}
 
 		return $result;

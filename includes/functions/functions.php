@@ -72,10 +72,11 @@ function getBytes( $val ) {
  * attempts to retrieve a wiki title based on a given page title, an
  * optional namespace requirement and whether or not the title must be known
  *
- * @param {string} $page_title
- * @param {int} $namespace
- * @param {array} $options
- *   {boolean} $options['must-be-known']
+ * @param {String} $page_title
+ * @param {Int} $namespace
+ * @param {Array} $options
+ *   {Boolean} $options['must-be-known']
+ *   Whether or not the Title must be known; defaults to true
  *
  * @throws {MWException}
  * @return {null|Title}
@@ -149,8 +150,11 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
  * @param {string} $title
  *
  * @param {array} $options
- *   {boolean} $options['allow-subpage'] allows for the ‘/’ subpage character
- *    {string} $options['replacement']
+ *   {Boolean} $options['allow-subpage']
+ *   allows for the ‘/’ subpage character
+ *
+ *   {String} $options['replacement']
+ *   the character used to replace illegal characters; defaults to ‘-’
  *
  * @return {string} the string is not filtered
  */
