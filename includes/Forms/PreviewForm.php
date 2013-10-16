@@ -110,7 +110,7 @@ class PreviewForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'record-begin',
-					'value' => (int)$user_options['record-count']
+					'value' => (int)$user_options['record-current']
 				)
 			) .
 

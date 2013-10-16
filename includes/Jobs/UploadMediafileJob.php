@@ -8,27 +8,16 @@
  */
 
 namespace GWToolset\Jobs;
-use GWToolset\Handlers\UploadHandler,
+use GWToolset\Adapters\Php\MappingPhpAdapter,
+	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
+	GWToolset\Models\Mapping,
+	GWToolset\Models\MediawikiTemplate,
+	GWToolset\Handlers\UploadHandler,
 	MWException,
 	Job,
 	User;
 
 class UploadMediafileJob extends Job {
-
-	/**
-	 * {UploadHandler}
-	 */
-	protected $_UploadHandler;
-
-	/**
-	 * @var {User}
-	 */
-	protected $_User;
-
-	/**
-	 * @var {string}
-	 */
-	public $filename_metadata;
 
 	/**
 	 * @param {Title} $title
@@ -41,38 +30,37 @@ class UploadMediafileJob extends Job {
 	}
 
 	/**
+	 * a control method for re-establishing application state so that the metadata can be processed.
+	 * this is similar to MetadataMappingHandler::processMetadata(), however it avoids the necessity
+	 * to process the metadata file
+	 *
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
 		$result = false;
+		$_POST = $this->params['post'];
 
-		$this->_UploadHandler = new UploadHandler(
+		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
+		$MediawikiTemplate->getMediaWikiTemplate( $this->params['user-options'] );
+
+		$Mapping = new Mapping( new MappingPhpAdapter() );
+		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray( $_POST );
+		$Mapping->setTargetElements();
+		$Mapping->reverseMap();
+
+		$User = User::newFromName( $this->params['user-name'] );
+
+		$UploadHandler = new UploadHandler(
 			array(
-				'User' => $this->_User
+				'Mapping' => $Mapping,
+				'MediawikiTemplate' => $MediawikiTemplate,
+				'User' => $User,
 			)
 		);
 
-		$this->_UploadHandler->user_options = $this->params['user_options'];
-		$result = $this->_UploadHandler->saveMediafileAsContent( $this->params );
-
-		return $result;
-	}
-
-	/**
-	 * @return {bool}
-	 */
-	protected function validateParams() {
-		$result = true;
-
-		if ( empty( $this->params['username'] ) ) {
-			error_log( __METHOD__ . ' : no $this->params[\'username\'] provided' . PHP_EOL );
-			$result = false;
-		}
-
-		if ( empty( $this->params['user_options'] ) ) {
-			error_log( __METHOD__ . ' : no $this->params[\'user_options\'] provided' . PHP_EOL );
-			$result = false;
-		}
+		$MediawikiTemplate->metadata_raw = $this->params['metadata-raw'];
+		$MediawikiTemplate->populateFromArray( $this->params['element-mapped-to-mediawiki-template'] );
+		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
 
 		return $result;
 	}
@@ -89,16 +77,46 @@ class UploadMediafileJob extends Job {
 			return $result;
 		}
 
-		$this->_User = User::newFromName( $this->params['username'] );
-
 		try {
 			$result = $this->processMetadata();
 		} catch ( MWException $e ) {
-			error_log( $e->getMessage() );
+			$this->setLastError(
+				__METHOD__ . ': ' .
+				$e->getMessage() .
+				print_r( $this->params['user-options'], true )
+			);
 		}
 
-		if ( !$result ) {
-			error_log( "Could not save [ {$this->params['title']} ] to the wiki." );
+		return $result;
+	}
+
+	/**
+	 * @return {bool}
+	 */
+	protected function validateParams() {
+		$result = true;
+
+		if ( empty( $this->params['element-mapped-to-mediawiki-template'] ) ) {
+			$this->setLastError(
+				__METHOD__ .
+				': no $this->params[\'element-mapped-to-mediawiki-template\'] provided'
+			);
+			$result = false;
+		}
+
+		if ( empty( $this->params['metadata-raw'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'metadata-raw\'] provided' );
+			$result = false;
+		}
+
+		if ( empty( $this->params['user-name'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'user-name\'] provided' );
+			$result = false;
+		}
+
+		if ( empty( $this->params['user-options'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'user-options\'] provided' );
+			$result = false;
 		}
 
 		return $result;

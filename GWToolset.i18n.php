@@ -35,7 +35,7 @@ $messages['en'] = array(
 	'gwtoolset-developer-issue' => "Please contact a developer; they will need to address this issue before you can continue.
 
 '''$1'''",
-	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, or <code>record-count</code> not provided.',
+	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, or <code>record-count</code> or <code>record-current</code> not provided.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> not set.',
 	'gwtoolset-no-accepted-types' => 'No accepted types provided',
 	'gwtoolset-no-callback' => 'No callback passed to this method.',
@@ -53,6 +53,7 @@ $messages['en'] = array(
 	'gwtoolset-no-title' => 'No title provided.',
 	'gwtoolset-no-upload-handler' => 'No upload handler was created.',
 	'gwtoolset-no-upload-media' => "<code>user_options['upload-media']</code> not set.",
+	'gwtoolset-no-url-to-evaluate' => 'No URL was provided for evaluation.',
 	'gwtoolset-no-url-to-media' => '<code>url-to-the-media-file</code> not set.',
 	'gwtoolset-no-user' => 'no user object provided.',
 	'gwtoolset-no-xml-element' => 'No XMLReader or DOMElement provided.',
@@ -280,7 +281,7 @@ $messages['qqq'] = array(
 	'gwtoolset-desc' => '{{desc|name=GWToolset|url=https://www.mediawiki.org/wiki/Extension:GWToolset}}',
 	'gwtoolset-developer-issue' => "A user-friendly message that lets the user know that something went wrong that a developer will need to fix. The single parameter takes a message that explains a bit more to the developer what the issue may be.",
 	'gwtoolset-disk-write-failure' => 'User error message that appears when the uploaded file failed to write to disk.',
-	'gwtoolset-dom-record-issue' => 'Hint to the developer that appears when record-element-name, or record-count not provided.',
+	'gwtoolset-dom-record-issue' => 'Hint to the developer that appears when record-element-name, or record-count or record-current not provided.',
 	'gwtoolset-ensure-well-formed-xml' => 'Additional instructions that will help the user make sure the XML File is well-formed.',
 	'gwtoolset-example-record' => 'Label for the metadata example record.',
 	'gwtoolset-file-interpretation-error' => 'Heading that appears when there was a problem interpreting the metadata file.',
@@ -347,6 +348,7 @@ $messages['qqq'] = array(
 	'gwtoolset-no-title' => 'Hint to the developer that appears when no title is provided.',
 	'gwtoolset-no-upload-handler' => 'Hint to the developer that appears when no upload handler was created.',
 	'gwtoolset-no-upload-media' => "Hint to the developer that appears when user_options['upload-media'] is not set.",
+	'gwtoolset-no-url-to-evaluate' => 'Message that appears when no URL was provided for evaluation.',
 	'gwtoolset-no-url-to-media' => 'Hint to the developer that appears when url-to-the-media-file is not set.',
 	'gwtoolset-no-user' => 'Hint to the developer that appears when no user object is provided.',
 	'gwtoolset-no-xml-element' => 'Hint to the developer that appears when no XMLReader or DOMElement is provided.',

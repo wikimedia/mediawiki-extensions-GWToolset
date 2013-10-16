@@ -206,7 +206,7 @@ class XmlMappingHandler extends XmlHandler {
 	 *
 	 * @return {array}
 	 * - $result['Title'] {Title}
-	 * - $result['stop-reading'] {boolean}
+	 * - $result['stop-reading'] {bool}
 	 */
 	protected function processDOMElements( $XMLElement, array &$user_options ) {
 		$result = array( 'Title' => null, 'stop-reading' => false );
@@ -225,6 +225,7 @@ class XmlMappingHandler extends XmlHandler {
 
 		if ( !isset( $user_options['record-element-name'] )
 			|| !isset( $user_options['record-count'] )
+			|| !isset( $user_options['record-current'] )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -248,23 +249,26 @@ class XmlMappingHandler extends XmlHandler {
 				}
 
 				if ( !empty( $record ) ) {
-					$user_options['record-count'] += 1;
+					$user_options['record-current'] += 1;
 
-					// don’t process the element if the record count is not >=
-					// the record nr we should start processing on
-					if ( $user_options['record-count'] < $user_options['record-begin'] ) {
+					// don’t process the element if the current record nr is <
+					// the record nr we should begin processing on
+					if ( $user_options['record-current'] < $user_options['record-begin'] ) {
 						break;
 					}
 
-					// stop processing if the record count is > the record nr we should
-					// start processing on plus the job throttle
-					if ( $user_options['record-count'] > $user_options['record-begin'] + Config::$job_throttle ) {
+					// stop processing if the current record nr is >=
+					// the record nr we should begin processing on plus the job throttle
+					if ( $user_options['record-current']
+						>= $user_options['record-begin'] + Config::$job_throttle
+					) {
 						$result['stop-reading'] = true;
 						break;
 					}
 
 					$result['Title'] = $this->_MappingHandler->processMatchingElement(
-						$user_options, $this->getDOMElementMapped( $record ),
+						$user_options,
+						$this->getDOMElementMapped( $record ),
 						$outer_xml
 					);
 				}

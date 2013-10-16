@@ -29,11 +29,6 @@ use Job,
 class UploadMetadataJob extends Job {
 
 	/**
-	 * @var {MetadataMappingHandler}
-	 */
-	protected $_MetadataMappingHandler;
-
-	/**
 	 * @param {Title} $title
 	 * @param {bool|array} $params
 	 * @param {int} $id
@@ -41,6 +36,24 @@ class UploadMetadataJob extends Job {
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		parent::__construct( 'gwtoolsetUploadMetadataJob', $title, $params, $id );
+	}
+
+	/**
+	 * a control method for re-establishing application state so that the metadata can be processed
+	 *
+	 * @return {bool|Title}
+	 */
+	protected function processMetadata() {
+		$result = false;
+		$_POST = $this->params['post'];
+
+		$MetadataMappingHandler = new MetadataMappingHandler(
+			array( 'User' => User::newFromName( $this->params['user-name'] ) )
+		);
+
+		$result = $MetadataMappingHandler->processRequest();
+
+		return $result;
 	}
 
 	/**
@@ -55,13 +68,8 @@ class UploadMetadataJob extends Job {
 			return $result;
 		}
 
-		$_POST = $this->params['post'];
-		$this->_MetadataMappingHandler = new MetadataMappingHandler(
-			array( 'User' => User::newFromName( $this->params['username'] ) )
-		);
-
 		try {
-			$result = $this->_MetadataMappingHandler->processRequest();
+			$result = $this->processMetadata();
 		} catch ( MWException $e ) {
 			$this->setLastError( __METHOD__ . ': ' . $e->getMessage() );
 		}
@@ -75,8 +83,8 @@ class UploadMetadataJob extends Job {
 	protected function validateParams() {
 		$result = true;
 
-		if ( empty( $this->params['username'] ) ) {
-			$this->setLastError( __METHOD__ . ': no $this->params[\'user\'] provided' );
+		if ( empty( $this->params['user-name'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'user-name\'] provided' );
 			$result = false;
 		}
 

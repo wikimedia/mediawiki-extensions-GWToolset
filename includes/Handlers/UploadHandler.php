@@ -270,6 +270,13 @@ class UploadHandler {
 		$result = array( 'content-type' => null, 'extension' => null, 'url' => null );
 		$pathinfo = array();
 
+		if ( empty( $url ) ) {
+			throw new MWException(
+				__METHOD__ . ' ' .
+				wfMessage( 'gwtoolset-no-url-to-evaluate' )->escaped()
+			);
+		}
+
 		$Http = MWHttpRequest::factory(
 			$url,
 			array(
@@ -401,13 +408,13 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {Array} $options
+	 * @param {String} $title
 	 * @throws {MWException}
 	 * @return {Title}
 	 */
-	protected function getTitle( array &$options ) {
+	protected function getTitle( $title ) {
 		$result = \GWToolset\getTitle(
-			\GWToolset\stripIllegalTitleChars( $options['title'] ),
+			\GWToolset\stripIllegalTitleChars( $title ),
 			Config::$mediafile_namespace,
 			array( 'must-be-known' => false )
 		);
@@ -415,7 +422,7 @@ class UploadHandler {
 		if ( !( $result instanceof Title ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-title-bad' )
-					->params( $options['title'] )->parse()
+					->params( $title )->parse()
 			);
 		}
 
@@ -594,15 +601,15 @@ class UploadHandler {
 	}
 
 	/**
-	 * controls the workflow for saving media files
-	 *
+	 * @todo does ContentHandler filter $options['text']?
+	 * @todo does WikiPage filter $options['comment']?
 	 * @param {array} $user_options
-	 * an array of user options that was submitted in the html form
-	 *
+	 * @throws {MWException}
 	 * @return {null|Title}
 	 */
-	public function saveMediaFile( array &$user_options ) {
-		$result = null;
+	public function saveMediafileAsContent( array &$user_options ) {
+		$Title = null;
+		$Status = null;
 		$options = array();
 
 		$this->validateUserOptions( $user_options );
@@ -625,27 +632,9 @@ class UploadHandler {
 
 		$options['text'] = $this->getText();
 
-		if ( $this->user_options['save-as-batch-job'] ) {
-			$Status = $this->saveMediafileViaJob( $options );
-		} else {
-			$result = $this->saveMediafileAsContent( $options );
-		}
-
-		return $result;
-	}
-
-	/**
-	 * @todo does ContentHandler filter $options['text']?
-	 * @todo does WikiPage filter $options['comment']?
-	 * @param {array} $options
-	 * @throws {MWException}
-	 * @return {Title}
-	 */
-	public function saveMediafileAsContent( array &$options ) {
-		$Status = null;
 		WikiChecks::increaseHTTPTimeout();
 		$this->validatePageOptions( $options );
-		$Title = $this->getTitle( $options );
+		$Title = $this->getTitle( $options['title'] );
 
 		if ( !$Title->isKnown() ) {
 			$Status = $this->uploadMediaFileViaUploadFromUrl( $options, $Title );
@@ -670,10 +659,20 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {array} $options
+	 * save a metadata record as a new/updated wiki page
+	 *
+	 * @param {array} $user_options
+	 * an array of user options that was submitted in the html form
+	 *
+	 * @param {array} $element_mapped_to_mediawiki_template
+	 * @param {string} $metadata_raw
 	 * @return {bool}
 	 */
-	protected function saveMediafileViaJob( array &$options ) {
+	public function saveMediafileViaJob(
+		array &$user_options,
+		$metadata_raw = null,
+		$element_mapped_to_mediawiki_template
+	) {
 		$result = false;
 		$job = null;
 		$sessionKey = null;
@@ -682,20 +681,22 @@ class UploadHandler {
 			return;
 		}
 
-		$this->validatePageOptions( $options );
-		$Title = $this->getTitle( $options );
+		$this->validateUserOptions( $user_options );
 
 		$job = new UploadMediafileJob(
-			$Title,
+			Title::newFromText(
+				$this->_User->getName() . '/' .
+				Config::$name . '/' .
+				'Mediafile Batch Job/' .
+				uniqid(),
+				NS_USER
+			),
 			array(
-				'comment' => $options['comment'],
-				'ignorewarnings' => $options['ignorewarnings'],
-				'text' => $options['text'],
-				'title' => $options['title'],
-				'url-to-the-media-file' => $options['url-to-the-media-file'],
-				'username' => $this->_User->getName(),
-				'user_options' => $this->user_options,
-				'watch' => $options['watch']
+				'element-mapped-to-mediawiki-template' => $element_mapped_to_mediawiki_template,
+				'post' => $_POST,
+				'metadata-raw' => $metadata_raw,
+				'user-name' => $this->_User->getName(),
+				'user-options' => $user_options
 			)
 		);
 

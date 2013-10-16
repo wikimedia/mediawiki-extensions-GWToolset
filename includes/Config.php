@@ -246,6 +246,7 @@ class Config {
 			'gwtoolset-cancel'
 		),
 		'dependencies' => array(
+			'jquery.json',
 			'jquery.spinner',
 			'jquery.ui.widget',
 			'jquery.ui.button',
@@ -279,7 +280,7 @@ class Config {
 
 	/**
 	 * @see SpecialPage __constructor
-	 * @var {boolean}
+	 * @var {bool}
 	 * whether the page is listed in Special:Specialpages
 	 */
 	public static $special_page_listed = true;
@@ -307,14 +308,14 @@ class Config {
 	public static $title_separator = '-';
 
 	/**
-	 * @var {boolean}
+	 * @var {bool}
 	 * tells the upload form to place the $accepted_mime_types in a comma
 	 * delimited list in the input file’s accept attribute
 	 */
 	public static $use_file_accept_attribute = true;
 
 	/**
-	 * @var {boolean}
+	 * @var {bool}
 	 */
 	public static $use_UploadStash = true;
 
