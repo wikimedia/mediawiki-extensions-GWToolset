@@ -34,7 +34,7 @@ $messages['en'] = array(
 	'gwtoolset-could-not-open-xml' => 'Could not open the XML File for reading.',
 	'gwtoolset-developer-issue' => "Please contact a developer; they will need to address this issue before you can continue.
 
-'''$1'''",
+$1",
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, or <code>record-count</code> or <code>record-current</code> not provided.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> not set.',
 	'gwtoolset-no-accepted-types' => 'No accepted types provided',

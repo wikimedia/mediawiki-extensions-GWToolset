@@ -17,6 +17,7 @@ use ContentHandler,
 	GWToolset\Jobs\UploadFromUrlJob,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	GWToolset\Models\Metadata,
 	JobQueueGroup,
 	Linker,
 	LocalRepo,
@@ -48,6 +49,11 @@ class UploadHandler {
 	 * @var {MediawikiTemplate}
 	 */
 	protected $_MediawikiTemplate;
+
+	/**
+	 * @var {Metadata}
+	 */
+	protected $_Metadata;
 
 	/**
 	 * @var {SpecialPage}
@@ -88,7 +94,6 @@ class UploadHandler {
 
 	/**
 	 * @param {array} $options
-	 * @return {void}
 	 */
 	public function __construct( array $options = array() ) {
 		$this->reset();
@@ -103,6 +108,10 @@ class UploadHandler {
 
 		if ( isset( $options['MediawikiTemplate'] ) ) {
 			$this->_MediawikiTemplate = $options['MediawikiTemplate'];
+		}
+
+		if ( isset( $options['Metadata'] ) ) {
+			$this->_Metadata = $options['Metadata'];
 		}
 
 		if ( isset( $options['SpecialPage'] ) ) {
@@ -153,7 +162,11 @@ class UploadHandler {
 			$categories = explode( Config::$category_separator, $this->user_options['categories'] );
 
 			foreach ( $categories as $category ) {
-				$result .= '[[Category:' . Filter::evaluate( $category ) . ']]';
+				$result .=
+						'[[' .
+							\GWToolset\getNamespaceName( NS_CATEGORY ) .
+							\GWToolset\stripIllegalCategoryChars( Filter::evaluate( $category ) ) .
+						']]';
 			}
 		}
 
@@ -187,13 +200,19 @@ class UploadHandler {
 				}
 
 				if ( !empty( $this->user_options['category-metadata'][$i] ) ) {
-					$metadata = Filter::evaluate(
-						$this->getMappedField( $this->user_options['category-metadata'][$i] )
-					);
+					$metadata =
+						$this->_Metadata->getConcatenatedField(
+							$this->user_options['category-metadata'][$i]
+						);
 				}
 
 				if ( !empty( $metadata ) ) {
-					$result .= '[[Category:' .  $phrase . $metadata . ']]';
+					$result .=
+						'[[' .
+							\GWToolset\getNamespaceName( NS_CATEGORY ) .
+							\GWToolset\stripIllegalCategoryChars( $phrase ) .
+							\GWToolset\stripIllegalCategoryChars( $metadata ) .
+						']]';
 				}
 			}
 		}
@@ -208,7 +227,6 @@ class UploadHandler {
 	 *
 	 * @param {array} $accepted_types
 	 * @throws {MWException}
-	 * @return {void}
 	 */
 	protected function augmentAllowedExtensions( array $accepted_types = array() ) {
 		global $wgFileExtensions;
@@ -366,32 +384,6 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {string} $field
-	 *
-	 * @return {string}
-	 * the string is not filtered
-	 */
-	protected function getMappedField( $field ) {
-		$result = null;
-
-		foreach ( $this->_Mapping->target_dom_elements_mapped[$field] as $targeted_field ) {
-			$parameter_as_id = $this->_MediawikiTemplate->getParameterAsId( $targeted_field );
-
-			if ( array_key_exists(
-					$targeted_field, $this->_MediawikiTemplate->mediawiki_template_array )
-			) {
-				$result .= $this->_MediawikiTemplate->mediawiki_template_array[$targeted_field] . ' ';
-			} elseif ( array_key_exists(
-					$parameter_as_id, $this->_MediawikiTemplate->mediawiki_template_array )
-			) {
-				$result .= $this->_MediawikiTemplate->mediawiki_template_array[$parameter_as_id] . ' ';
-			}
-		}
-
-		return $result;
-	}
-
-	/**
 	 * creates the wiki text for the media file page.
 	 * concatenates several pieces of information in order to create the wiki
 	 * text for the mediafile wiki text
@@ -408,7 +400,7 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {String} $title
+	 * @param {string} $title
 	 * @throws {MWException}
 	 * @return {Title}
 	 */
@@ -493,9 +485,6 @@ class UploadHandler {
 		return $result;
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function reset() {
 		$this->_File = null;
 		$this->_Mapping = null;
@@ -512,7 +501,6 @@ class UploadHandler {
 	 * restores the wiki’s allowed extensions array
 	 *
 	 * @param {array} $accepted_types
-	 * @return {void}
 	 */
 	protected function restoreAllowedExtensions( array $accepted_types = array() ) {
 		global $wgFileExtensions;
@@ -603,6 +591,7 @@ class UploadHandler {
 	/**
 	 * @todo does ContentHandler filter $options['text']?
 	 * @todo does WikiPage filter $options['comment']?
+	 *
 	 * @param {array} $user_options
 	 * @throws {MWException}
 	 * @return {null|Title}
@@ -664,15 +653,14 @@ class UploadHandler {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $element_mapped_to_mediawiki_template
-	 * @param {string} $metadata_raw
+	 * @param {array} $options
+	 *   {array} $options['metadata-mapped-to-mediawiki-template']
+	 *   {array} $options['metadata-as-array']
+	 *   {string} $options['metadata-raw']
+	 *
 	 * @return {bool}
 	 */
-	public function saveMediafileViaJob(
-		array &$user_options,
-		$metadata_raw = null,
-		$element_mapped_to_mediawiki_template
-	) {
+	public function saveMediafileViaJob( array &$user_options, array $options ) {
 		$result = false;
 		$job = null;
 		$sessionKey = null;
@@ -692,9 +680,8 @@ class UploadHandler {
 				NS_USER
 			),
 			array(
-				'element-mapped-to-mediawiki-template' => $element_mapped_to_mediawiki_template,
+				'options' => $options,
 				'post' => $_POST,
-				'metadata-raw' => $metadata_raw,
 				'user-name' => $this->_User->getName(),
 				'user-options' => $user_options
 			)
@@ -782,7 +769,6 @@ class UploadHandler {
 	 *
 	 * @param {array} $options
 	 * @throws {MWException}
-	 * @return {void}
 	 */
 	protected function validatePageOptions( array &$options ) {
 		if ( !isset( $options['ignorewarnings'] ) ) {
@@ -820,7 +806,6 @@ class UploadHandler {
 	/**
 	 * @param {array} $options
 	 * @throws {MWException}
-	 * @return {void}
 	 */
 	protected function validateUserOptions( array &$user_options ) {
 		if ( !isset( $user_options['comment'] ) ) {

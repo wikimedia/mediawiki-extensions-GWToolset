@@ -16,7 +16,7 @@ class Config {
 	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
 	public static $descriptionmsg = 'gwtoolset-desc';
 	public static $type = 'media';
-	public static $version = '0.1.0';
+	public static $version = '0.1.1';
 
 	/**
 	 * @var {array}
@@ -56,6 +56,7 @@ class Config {
 
 		'GWToolset\Adapters\Php\MappingPhpAdapter' => '/includes/Adapters/Php/MappingPhpAdapter.php',
 		'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
+		'GWToolset\Adapters\Php\MetadataPhpAdapter' => '/includes/Adapters/Php/MetadataPhpAdapter.php',
 
 		'GWToolset\Forms\MetadataDetectForm' => '/includes/Forms/MetadataDetectForm.php',
 		'GWToolset\Forms\MetadataMappingForm' => '/includes/Forms/MetadataMappingForm.php',
@@ -86,8 +87,7 @@ class Config {
 
 		'GWToolset\Models\Mapping' => '/includes/Models/Mapping.php',
 		'GWToolset\Models\MediawikiTemplate' => '/includes/Models/MediawikiTemplate.php',
-		'GWToolset\Models\Menu' => '/includes/Models/Menu.php',
-		'GWToolset\Models\ModelAbstract' => '/includes/Models/ModelAbstract.php',
+		'GWToolset\Models\Metadata' => '/includes/Models/Metadata.php',
 		'GWToolset\Models\ModelInterface' => '/includes/Models/ModelInterface.php',
 
 		'GWToolset\SpecialGWToolset' => '/includes/Specials/SpecialGWToolset.php',

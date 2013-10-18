@@ -108,18 +108,13 @@ class Mapping implements ModelInterface {
 	 * relies on a hardcoded path to the metadata mapping url
 	 *
 	 * @param {array} $options
-	 *
 	 * @throws {MWException}
-	 *
 	 * @return {string}
 	 * the string is not filtered
 	 */
 	protected function getMappingName( array $options ) {
 		$result = null;
-
-		$Languages = new Language();
-		$namespace = $Languages->getNamespaces();
-		$namespace = $namespace[Config::$metadata_namespace] . ':';
+		$namespace = \GWToolset\getNamespaceName( Config::$metadata_namespace );
 
 		if ( !empty( $options['Metadata-Mapping-Title'] ) ) {
 			$result = str_replace(

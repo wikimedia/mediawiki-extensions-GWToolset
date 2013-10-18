@@ -28,8 +28,7 @@ class MetadataDetectForm {
 	 * an html form
 	 */
 	public static function getForm( SpecialPage $SpecialPage ) {
-		$namespace = $SpecialPage->getLanguage()->getNamespaces();
-		$namespace = $namespace[Config::$metadata_namespace] . ':';
+		$namespace = \GWToolset\getNamespaceName( Config::$metadata_namespace );
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 
 		return

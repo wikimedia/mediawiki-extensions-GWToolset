@@ -10,8 +10,10 @@
 namespace GWToolset\Jobs;
 use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
+	GWToolset\Adapters\Php\MetadataPhpAdapter,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	GWToolset\Models\Metadata,
 	GWToolset\Handlers\UploadHandler,
 	MWException,
 	Job,
@@ -34,6 +36,10 @@ class UploadMediafileJob extends Job {
 	 * this is similar to MetadataMappingHandler::processMetadata(), however it avoids the necessity
 	 * to process the metadata file
 	 *
+	 * @todo re-factor so that this is able to use MetadataMappingHandler::processMetadata(). will
+	 * need to add some logic to it so that if a batch job is being process it doesn't display a form
+	 * or process the metadata again
+	 *
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
@@ -48,18 +54,27 @@ class UploadMediafileJob extends Job {
 		$Mapping->setTargetElements();
 		$Mapping->reverseMap();
 
+		$Metadata = new Metadata( new MetadataPhpAdapter() );
+
 		$User = User::newFromName( $this->params['user-name'] );
 
 		$UploadHandler = new UploadHandler(
 			array(
 				'Mapping' => $Mapping,
 				'MediawikiTemplate' => $MediawikiTemplate,
+				'Metadata' => $Metadata,
 				'User' => $User,
 			)
 		);
 
-		$MediawikiTemplate->metadata_raw = $this->params['metadata-raw'];
-		$MediawikiTemplate->populateFromArray( $this->params['element-mapped-to-mediawiki-template'] );
+		$MediawikiTemplate->metadata_raw = $this->params['options']['metadata-raw'];
+		$MediawikiTemplate->populateFromArray(
+			$this->params['options']['metadata-mapped-to-mediawiki-template']
+		);
+
+		$Metadata->metadata_raw = $this->params['options']['metadata-raw'];
+		$Metadata->metadata_as_array = $this->params['options']['metadata-as-array'];
+
 		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
 
 		return $result;
@@ -96,16 +111,23 @@ class UploadMediafileJob extends Job {
 	protected function validateParams() {
 		$result = true;
 
-		if ( empty( $this->params['element-mapped-to-mediawiki-template'] ) ) {
+		if ( empty( $this->params['options'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'options\'] provided' );
+			$result = false;
+		}
+
+		if ( empty( $this->params['options']['metadata-mapped-to-mediawiki-template'] ) ) {
 			$this->setLastError(
 				__METHOD__ .
-				': no $this->params[\'element-mapped-to-mediawiki-template\'] provided'
+				': no $this->params[\'options\'][\'metadata-mapped-to-mediawiki-template\'] provided'
 			);
 			$result = false;
 		}
 
-		if ( empty( $this->params['metadata-raw'] ) ) {
-			$this->setLastError( __METHOD__ . ': no $this->params[\'metadata-raw\'] provided' );
+		if ( empty( $this->params['options']['metadata-raw'] ) ) {
+			$this->setLastError(
+				__METHOD__ . ': no $this->params[\'options\'][\'metadata-raw\'] provided'
+			);
 			$result = false;
 		}
 

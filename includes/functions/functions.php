@@ -69,13 +69,37 @@ function getBytes( $val ) {
 }
 
 /**
+ * based on a namespace number, returns the namespace name
+ *
+ * @param {int} $namespace
+ * @return {null|string}
+ * the result is not filtered
+ */
+function getNamespaceName( $namespace = 0 ) {
+	$result = null;
+
+	if ( !is_int( $namespace ) ) {
+		return $result;
+	}
+
+	$Languages = new Language();
+	$namespaces = $Languages->getNamespaces();
+
+	if ( isset( $namespaces[$namespace] ) ) {
+		$result = $namespaces[$namespace] . ':';
+	}
+
+	return $result;
+}
+
+/**
  * attempts to retrieve a wiki title based on a given page title, an
  * optional namespace requirement and whether or not the title must be known
  *
- * @param {String} $page_title
+ * @param {string} $page_title
  * @param {Int} $namespace
- * @param {Array} $options
- *   {Boolean} $options['must-be-known']
+ * @param {array} $options
+ *   {boolean} $options['must-be-known']
  *   Whether or not the Title must be known; defaults to true
  *
  * @throws {MWException}
@@ -138,6 +162,23 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 }
 
 /**
+ * @param {string} $category
+ * @return {null|string}
+ * the result has not been filtered
+ */
+function stripIllegalCategoryChars( $category = null ) {
+	$result = null;
+
+	if ( empty( $category ) || !is_string( $category ) ) {
+		return $result;
+	}
+
+	$result = str_replace( array( '[', ']' ), '', $category );
+
+	return $result;
+}
+
+/**
  * replaces illegal characters in a title with a replacement character, defaults to ‘-’.
  * illegal characters are based on Commons:File_naming and other bad title articles.
  * Title::secureAndSplit() allows some of these characters.
@@ -150,10 +191,10 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
  * @param {string} $title
  *
  * @param {array} $options
- *   {Boolean} $options['allow-subpage']
+ *   {boolean} $options['allow-subpage']
  *   allows for the ‘/’ subpage character
  *
- *   {String} $options['replacement']
+ *   {string} $options['replacement']
  *   the character used to replace illegal characters; defaults to ‘-’
  *
  * @return {string} the string is not filtered
@@ -184,8 +225,8 @@ function stripIllegalTitleChars( $title, array $options = array() ) {
 
 /**
  * wfSuppressWarnings() lowers the error_reporting threshold because the
- * script that follows it is “allowed” to produce warnings,    thus, only
- * handle errors this way when error_reporting is set to >= E_ALL
+ * script that follows it is “allowed” to produce warnings, thus, only
+ * throw an exception when error_reporting is set to >= E_ALL
  *
  * @param {int} $errno
  * @param {string} $errstr
@@ -203,7 +244,7 @@ function handleError( $errno, $errstr, $errfile, $errline, array $errcontext ) {
 
 		if ( $errno > E_WARNING ) {
 			error_log( $errstr . ' in ' . $errfile . ' on line nr ' . $errline );
-			throw new ErrorException( $errormsg, 0, $errno, $errfile, $errline );
+			throw new MWException( $errormsg );
 		} else {
 			echo $errormsg;
 		}

@@ -66,6 +66,53 @@ class XmlMappingHandler extends XmlHandler {
 	}
 
 	/**
+	 * helper method for getDOMElementAsArray()
+	 *
+	 * @param {array} $array
+	 * @param {DOMElement} $DOMElement
+	 */
+	protected function addDOMElementToArray( array &$array, DOMElement $DOMElement ) {
+		$is_url = strpos( $DOMElement->nodeValue, '://' ) !== false;
+		$array[] = $this->getFilteredNodeValue( $DOMElement, $is_url );
+
+		if ( $DOMElement->hasAttributes() ) {
+			foreach ( $DOMElement->attributes as $attribute ) {
+				$array['@attributes'][$attribute->name] = $attribute->value;
+			}
+		}
+	}
+
+	/**
+	 * creates an array based on the dom element provided
+	 *   - only goes 1 level down
+	 *   - assigns the element name as the array index
+	 *   - adds values as an array to the element name index
+	 *
+	 * we’re using this method instead of a SimpleXMLElement object because we have found that some
+	 * metadata sources use XML namespaces without declaring them within the XML document, which
+	 * requires additional logic to sort out the namespaced elements that may not be reliable
+	 *
+	 * @param {DOMElement} $DOMElement
+	 * @return {array}
+	 */
+	protected function getDOMElementAsArray( DOMElement $DOMElement ) {
+		$result = array();
+
+		foreach ( $DOMElement->childNodes as $childNode ) {
+			if ( $childNode->nodeType === XML_ELEMENT_NODE ) {
+				if ( !isset( $result[$childNode->tagName] ) ) {
+					$result[$childNode->tagName] = array();
+					$this->addDOMElementToArray( $result[$childNode->tagName], $childNode );
+				} else {
+					$this->addDOMElementToArray( $result[$childNode->tagName], $childNode );
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	/**
 	 * takes in a metadata dom element that represents a targeted
 	 * record within the metadata that will be saved/updated in the
 	 * wiki as a wiki page and maps it to the mediawiki template
@@ -81,6 +128,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * getting the NS is not always straightforward
 	 *
 	 * @todo possibly filter keys and values
+	 * @todo possibly refactor so that it works with getDOMElementAsArray
 	 *
 	 * @param {DOMELement} $DOMElement
 	 *
@@ -268,8 +316,11 @@ class XmlMappingHandler extends XmlHandler {
 
 					$result['Title'] = $this->_MappingHandler->processMatchingElement(
 						$user_options,
-						$this->getDOMElementMapped( $record ),
-						$outer_xml
+						array(
+							'metadata-as-array' => $this->getDOMElementAsArray( $record ),
+							'metadata-mapped-to-mediawiki-template' => $this->getDOMElementMapped( $record ),
+							'metadata-raw' => $outer_xml
+						)
 					);
 				}
 

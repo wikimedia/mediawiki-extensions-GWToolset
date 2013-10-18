@@ -320,7 +320,7 @@ class MetadataMappingForm {
 
 			Html::rawElement(
 				'table',
-				array(),
+				array( 'id' => 'global-categories-table' ),
 				Html::rawElement(
 					'tbody',
 					array(),
@@ -370,7 +370,7 @@ class MetadataMappingForm {
 
 			Html::rawElement(
 				'table',
-				array(),
+				array( 'id' => 'item-specific-categories-table' ),
 				Html::rawElement(
 					'thead',
 					array(),
