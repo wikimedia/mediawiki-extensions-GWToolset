@@ -9,7 +9,6 @@
 
 namespace GWToolset;
 use GWToolset\Handlers\SpecialPageHandler,
-	GWToolset\Models\Menu,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
@@ -18,8 +17,7 @@ use GWToolset\Handlers\SpecialPageHandler,
 	PermissionsError,
 	Php\Filter,
 	SpecialPage,
-	Title,
-	JobQueueGroup;
+	Title;
 
 class SpecialGWToolset extends SpecialPage {
 
@@ -50,25 +48,26 @@ class SpecialGWToolset extends SpecialPage {
 		)
 	);
 
-	/**
-	 * Default constructor for special pages
-	 * Derivative classes should call this from their constructor
-	 *     Note that if the user does not have the required level, an error message will
-	 *     be displayed by the default execute() method, without the global function ever
-	 *     being called.
-	 *
-	 *     If you override execute(), you can recover the default behaviour with userCanExecute()
-	 *     and displayRestrictionError()
-	 *
-	 * @param {string} $name name of the special page, as seen in links and URLs
-	 * @param {string} $restriction user right required, e.g. "block" or "delete"
-	 * @param {bool} $listed whether the page is listed in Special:Specialpages
-	 * @param {callback|bool} $function function called by execute(). By default it is constructed from $name
-	 * @param {string} $file file which is included by execute(). It is also constructed from $name by default
-	 * @param {bool} $includable whether the page can be included in normal pages
-	 */
 	public function __construct() {
-		parent::__construct( Config::$special_page_name, Config::$special_page_restriction, Config::$special_page_listed );
+		parent::__construct(
+			Config::$special_page_name,
+			Config::$special_page_restriction,
+			Config::$special_page_listed
+		);
+	}
+
+	/**
+	 * entry point
+	 * a control method that acts as an entry point for the SpecialPage
+	 */
+	public function execute( $par ) {
+		$this->setHeaders();
+		set_error_handler( '\GWToolset\handleError' );
+
+		if ( $this->wikiChecks() ) {
+			$this->setModuleAndHandler();
+			$this->processRequest();
+		}
 	}
 
 	/**
@@ -88,12 +87,9 @@ class SpecialGWToolset extends SpecialPage {
 
 	/**
 	 * a control method that processes a SpecialPage request
-	 * and returns a response, typically an html form
+	 * SpecialPage->getOutput()->addHtml() present the end result of the request
 	 *
 	 * @throws {PermissionsError|MWException}
-	 *
-	 * @return {void}
-	 * SpecialPage>Output is used to take care of the response
 	 */
 	protected function processRequest() {
 		$html = null;
@@ -103,11 +99,22 @@ class SpecialGWToolset extends SpecialPage {
 				$html .= wfMessage( 'gwtoolset-intro' )->parseAsBlock();
 			} else {
 				try {
-					$html .= $this->_Handler->getHtmlForm( $this->_registered_modules[$this->module_key] );
+					$html .=
+						$this->_Handler->getHtmlForm(
+							$this->_registered_modules[$this->module_key]
+						);
 				} catch ( MWException $e ) {
 					$html .=
-						Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-technical-error' )->escaped() ) .
-						Html::rawElement( 'p', array( 'class' => 'error' ), Filter::evaluate( $e->getMessage() ) );
+						Html::rawElement(
+							'h2',
+							array(),
+							wfMessage( 'gwtoolset-technical-error' )->escaped()
+						) .
+						Html::rawElement(
+							'p',
+							array( 'class' => 'error' ),
+							Filter::evaluate( $e->getMessage() )
+						);
 				}
 			}
 		} else {
@@ -119,9 +126,15 @@ class SpecialGWToolset extends SpecialPage {
 						->params( wfMessage( 'gwtoolset-no-upload-handler' )->escaped() )
 						->parse();
 
-					if ( ini_get( 'display_errors' ) && $this->getUser()->isAllowed( 'gwtoolset-debug' ) ) {
+					if ( ini_get( 'display_errors' )
+						&& $this->getUser()->isAllowed( 'gwtoolset-debug' )
+					) {
 						$msg .= Html::rawElement( 'br' ) .
-							Html::rawElement( 'pre', array( 'style' => 'overflow:auto' ), print_r( error_get_last(), true ) );
+							Html::rawElement(
+								'pre',
+								array( 'style' => 'overflow:auto' ),
+								print_r( error_get_last(), true )
+							);
 					} else {
 						$msg = wfMessage( 'gwtoolset-no-upload-handler' )->escaped();
 					}
@@ -185,29 +198,20 @@ class SpecialGWToolset extends SpecialPage {
 
 		if ( !$Status->ok ) {
 			$this->getOutput()->addHTML(
-				Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped() ) .
-				Html::rawElement( 'span', array( 'class' => 'error' ), $Status->getMessage() )
+				Html::rawElement(
+					'h2',
+					array(),
+					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
+				) .
+				Html::rawElement(
+					'span',
+					array( 'class' => 'error' ),
+					$Status->getMessage()
+				)
 			);
 			return false;
 		}
 
 		return true;
-	}
-
-	/**
-	 * entry point
-	 * a control method that acts as an entry point for the
-	 * SpecialPage and handles execution of the class methods
-	 *
-	 * @return {void}
-	 */
-	public function execute( $par ) {
-		$this->setHeaders();
-		set_error_handler( '\GWToolset\handleError' );
-
-		if ( $this->wikiChecks() ) {
-			$this->setModuleAndHandler();
-			$this->processRequest();
-		}
 	}
 }
