@@ -35,11 +35,24 @@ require_once $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPA
 
 /**
  * define namespaces
+ * @see http://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
+ * @see https://www.mediawiki.org/wiki/Extension_default_namespaces#GWToolset
  */
 if ( !defined( 'NS_GWTOOLSET' ) ) {
-	define( 'NS_GWTOOLSET', 332 );
+	define( 'NS_GWTOOLSET', 490 );
 	define( 'NS_GWTOOLSET_TALK', NS_GWTOOLSET + 1 );
+} else {
+	echo
+		'Namespace conflict. Either another extension or configuration has already ' .
+		'defined the namespace NS_GWTOOLSET.';
+	exit();
 }
+
+$wgExtraNamespaces[NS_GWTOOLSET] = 'GWToolset';
+$wgExtraNamespaces[NS_GWTOOLSET_TALK] = 'GWToolset_talk';
+$wgNamespaceProtection[NS_GWTOOLSET] = array( 'gwtoolset' );
+$wgNamespacesWithSubpages[NS_GWTOOLSET] = true;
+$wgNamespacesWithSubpages[NS_GWTOOLSET_TALK] = true;
 
 /**
  * registering extension metadata with MediaWiki
@@ -56,7 +69,9 @@ $wgExtensionCredits[Config::$type][] = array(
 /**
  * add user permissions
  */
+$wgGroupPermissions["gwtoolset"]["gwtoolset"] = true;
 $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
+$wgGroupPermissions['sysop']['gwtoolset'] = true;
 $wgGroupPermissions['sysop']['gwtoolset-debug'] = true;
 
 /**
