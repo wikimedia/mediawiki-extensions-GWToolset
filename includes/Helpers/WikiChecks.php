@@ -10,6 +10,7 @@
 namespace GWToolset\Helpers;
 use GWToolset\Config,
 	Html,
+	MWException,
 	PermissionsError,
 	Php\Filter,
 	SpecialPage,
@@ -44,7 +45,7 @@ class WikiChecks {
 		try {
 			$SpecialPage->checkPermissions();
 		} catch ( PermissionsError $e ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given' );
+			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
 		}
 
 		return Status::newGood();
@@ -54,7 +55,6 @@ class WikiChecks {
 	 * the following settings need to be checked in order to handle large images
 	 *
 	 * @param {int} $max_image_area
-	 * @return {void}
 	 */
 	public static function checkMaxImageArea( $max_image_area = 0 ) {
 		global $wgMaxImageArea, $wgUseImageMagick;
@@ -85,10 +85,28 @@ class WikiChecks {
 	}
 
 	/**
+	 * @return {Status}
+	 */
+	public static function checkMediaWikiVersion() {
+		global $wgVersion;
+
+		try {
+			wfUseMW( Config::$required_mediawiki_version );
+		} catch( MWException $e ) {
+			return Status::newFatal(
+				'gwtoolset-mediawiki-version-invalid',
+				Config::$required_mediawiki_version,
+				$wgVersion
+			);
+		}
+
+		return Status::newGood();
+	}
+
+	/**
 	 * the following settings need to be checked in order to handle large images
 	 *
 	 * @param {string} $memory_limit
-	 * @return {void}
 	 */
 	public static function checkMemoryLimit( $memory_limit = null ) {
 		global $wgMemoryLimit, $wgUseImageMagick;
@@ -113,6 +131,19 @@ class WikiChecks {
 	}
 
 	/**
+	 * @return {Status}
+	 */
+	public static function checkPHPVersion() {
+		if ( !defined( 'PHP_VERSION' )
+			|| version_compare( PHP_VERSION, '5.3.3', '<' )
+		) {
+			return Status::newFatal( 'gwtoolset-verify-php-version', Config::$name );
+		}
+
+		return Status::newGood();
+	}
+
+	/**
 	 * Make sure the user is a member of a group that can access this extension
 	 *
 	 * @param {SpecialPage} $SpecialPage
@@ -120,7 +151,7 @@ class WikiChecks {
 	 */
 	public static function checkUserWikiGroups( SpecialPage $SpecialPage ) {
 		if ( !in_array( Config::$user_group, $SpecialPage->getUser()->getEffectiveGroups() ) ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given' );
+			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
 		}
 
 		return Status::newGood();
@@ -152,7 +183,7 @@ class WikiChecks {
 	 */
 	public static function doesEditTokenMatch( SpecialPage $SpecialPage ) {
 		if ( !$SpecialPage->getUser()->matchEditToken( $SpecialPage->getRequest()->getVal( 'wpEditToken' ) ) ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given' );
+			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
 		}
 
 		return Status::newGood();
@@ -166,8 +197,6 @@ class WikiChecks {
 	 * e.g., http://academia.lndb.lv/xmlui/bitstream/handle/1/231/k_001_ktl1-1-27.jpg
 	 * @todo: what is this limit set to on production?
 	 * @todo: does ui need a notice to user about this limitation?
-	 *
-	 * @retun {void}
 	 */
 	public static function increaseHTTPTimeout( $timeout = 0 ) {
 		global $wgHTTPTimeout;
@@ -214,9 +243,8 @@ class WikiChecks {
 	 * @return {Status}
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
-		self::checkMediaUploadSettings();
 
-		$Status = self::verifyPHPVersion();
+		$Status = self::checkPHPVersion();
 		if ( !$Status->ok ) {
 			return $Status;
 		}
@@ -227,6 +255,11 @@ class WikiChecks {
 		}
 
 		$Status = self::verifyFinfoExists();
+		if ( !$Status->ok ) {
+			return $Status;
+		}
+
+		$Status = self::checkMediaWikiVersion();
 		if ( !$Status->ok ) {
 			return $Status;
 		}
@@ -271,12 +304,11 @@ class WikiChecks {
 			return $Status;
 		}
 
+		self::checkMediaUploadSettings();
+
 		return $Status;
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public static function restoreHTTPTimeout() {
 		global $wgHTTPTimeout;
 
@@ -332,19 +364,6 @@ class WikiChecks {
 	public static function verifyFinfoExists() {
 		if ( !class_exists( 'finfo' ) ) {
 			return Status::newFatal( 'gwtoolset-verify-finfo', Config::$name );
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * @return {Status}
-	 */
-	public static function verifyPHPVersion() {
-		if ( !defined( 'PHP_VERSION' )
-			|| version_compare( PHP_VERSION, '5.3.3', '<' )
-		) {
-			return Status::newFatal( 'gwtoolset-verify-php-version', Config::$name );
 		}
 
 		return Status::newGood();

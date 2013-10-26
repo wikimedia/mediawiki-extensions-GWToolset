@@ -240,6 +240,7 @@ Try another field from the metadata for title and title-identifier, or if possib
 • <code>post_max_size</code> ($2)
 
 are set lower than the wiki’s $wgMaxUploadSize ($3); please adjust the PHP ini settings as appropriate.',
+	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version ($1)<br />This MediaWiki version is ($2)',
 	'gwtoolset-permission-not-given' => 'Make sure that you are logged-in or contact an administrator in order to be granted permission to view this page ($1).',
 	'gwtoolset-user-blocked' => 'Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.',
 	'gwtoolset-verify-api-enabled' => 'The $1 Extension requires that the wiki API is enabled.
@@ -310,6 +311,7 @@ $messages['qqq'] = array(
 	'gwtoolset-metadata-user-options-error' => 'Initial paragraph that notifies the user that there are form fields missing. The specific form fields that are missing are mentioned separately.',
 	'gwtoolset-metadata-invalid-template' => 'Message that appears when no valid MediaWiki template is found.',
 	'gwtoolset-mediawiki-template' => 'Heading used on the mapping page. The parameter is filled in with the wiki template name that will be used for mapping the metadata to the wiki template.',
+	'gwtoolset-mediawiki-version-invalid' => 'Message appears when the MediaWiki version is too low.',
 	'gwtoolset-menu' => 'The extension menu list. This is a parameter placeholder that will be replaced with HTML li elements.',
 	'gwtoolset-menu-1' => 'The first menu item for the extension menu list.',
 	'gwtoolset-metadata-field' => 'Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.',

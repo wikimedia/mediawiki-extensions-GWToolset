@@ -224,6 +224,11 @@ class Config {
 	public static $preview_throttle = 3;
 
 	/**
+	 * @var {string}
+	 */
+	public static $required_mediawiki_version = '1.22c';
+
+	/**
 	 * @var {array}
 	 */
 	public static $resources = array(
