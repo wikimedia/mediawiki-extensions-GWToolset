@@ -9,26 +9,15 @@
 
 namespace GWToolset;
 use ErrorException,
+	GWToolset\GWTException,
 	GWToolset\MediaWiki\Api\Client,
 	Html,
 	Language,
-	MWException,
 	SpecialPage,
 	Status,
 	Title,
 	RecursiveArrayIterator,
 	RecursiveIteratorIterator;
-
-/**
- * @param {Status} $Status
- * @throws {MWException}
- */
-function checkStatus( Status $Status ) {
-	if ( !$Status->ok ) {
-		throw new MWException( $Status->getMessage() );
-	}
-	unset( $Status );
-}
 
 /**
  * @param {array} $array
@@ -102,7 +91,7 @@ function getNamespaceName( $namespace = 0 ) {
  *   {boolean} $options['must-be-known']
  *   Whether or not the Title must be known; defaults to true
  *
- * @throws {MWException}
+ * @throws {GWTException}
  * @return {null|Title}
  */
 function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = array() ) {
@@ -116,7 +105,7 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 	$options = array_merge( $option_defaults, $options );
 
 	if ( empty( $page_title ) ) {
-		throw new MWException(
+		throw new GWTException(
 			wfMessage( 'gwtoolset-developer-issue' )
 				->params( wfMessage( 'gwtoolset-no-page-title' )->escaped() )
 				->parse()
@@ -124,7 +113,7 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 	}
 
 	if ( strpos( $page_title, $wgServer ) !== false ) {
-		throw new MWException(
+		throw new GWTException(
 			wfMessage( 'gwtoolset-page-title-contains-url' )
 				->params( $page_title )
 				->parse()
@@ -141,7 +130,7 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 			&& $namespace !== $Title->getNamespace()
 	) {
 		$Language = new Language();
-		throw new MWException(
+		throw new GWTException(
 			wfMessage( 'gwtoolset-namespace-mismatch' )
 				->params(
 					$page_title,
@@ -224,61 +213,7 @@ function stripIllegalTitleChars( $title, array $options = array() ) {
 }
 
 /**
- * wfSuppressWarnings() lowers the error_reporting threshold because the
- * script that follows it is “allowed” to produce warnings, thus, only
- * throw an exception when error_reporting is set to >= E_ALL
- *
- * @param {int} $errno
- * @param {string} $errstr
- * @param {string} $errfile
- * @param {int} $errline
- * @param {array} $errcontext
- */
-function handleError( $errno, $errstr, $errfile, $errline, array $errcontext ) {
-	if ( ini_get( 'display_errors' ) && error_reporting() >= E_ALL ) {
-		$errormsg = Html::rawElement(
-			'pre',
-			array( 'style' => 'overflow:auto;' ),
-			$errstr . "\n" . print_r( debug_backtrace(), true )
-		);
-
-		if ( $errno > E_WARNING ) {
-			error_log( $errstr . ' in ' . $errfile . ' on line nr ' . $errline );
-			throw new MWException( $errormsg );
-		} else {
-			echo $errormsg;
-		}
-	} elseif ( error_reporting() >= E_ALL ) {
-		error_log( $errstr . ' in ' . $errfile . ' on line nr ' . $errline );
-	}
-}
-
-/**
- * @see http://www.shawnstratton.info/in_array-not-recursive/
- * @param {mixed} $needle
- * @param {array} $haystack
- * @param {bool} $strict
- */
-function in_array_r( $needle, $haystack, $strict = false ) {
-	$array = new RecursiveIteratorIterator( new RecursiveArrayIterator( $haystack ) );
-
-	foreach ( $array as $element ) {
-		if ( $strict == true ) {
-			if ( $element === $needle ) {
-				return true;
-			}
-		} else {
-			if ( $element == $needle ) {
-				return true;
-			}
-		}
-	}
-
-	return false;
-}
-
-/**
- * @throws {MWException}
+ * @throws {GWTException}
  */
 function jsonCheckForError() {
 	$error_msg = null;
@@ -313,11 +248,6 @@ function jsonCheckForError() {
 	}
 
 	if ( !empty( $error_msg ) ) {
-		throw new MWException( $error_msg );
+		throw new GWTException( $error_msg );
 	}
-}
-
-// created to deal with an issue within
-// GWToolset/includes/Adapters/Api/MappingPhpAdapter.php->saveMapping()
-function swallowErrors() {
 }

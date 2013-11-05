@@ -10,6 +10,7 @@
 namespace GWToolset\Handlers;
 use ContentHandler,
 	GWToolset\Config,
+	GWToolset\GWTException,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	GWToolset\Helpers\WikiPages,
@@ -22,7 +23,6 @@ use ContentHandler,
 	Linker,
 	LocalRepo,
 	MimeMagic,
-	MWException,
 	MWHttpRequest,
 	Php\File,
 	Php\Filter,
@@ -142,7 +142,7 @@ class UploadHandler {
 			'</metadata_mapped_json> -->' . PHP_EOL . PHP_EOL .
 			'<!-- Metadata Raw -->' . PHP_EOL .
 			'<!-- <metadata_raw>' . PHP_EOL .
-			$this->_MediawikiTemplate->metadata_raw . PHP_EOL .
+			htmlspecialchars( $this->_MediawikiTemplate->metadata_raw ) . PHP_EOL .
 			'</metadata_raw> -->' . PHP_EOL;
 	}
 
@@ -226,13 +226,13 @@ class UploadHandler {
 	 * xml file uploads as metadata sets
 	 *
 	 * @param {array} $accepted_types
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 */
 	protected function augmentAllowedExtensions( array $accepted_types = array() ) {
 		global $wgFileExtensions;
 
 		if ( empty( $accepted_types ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
 						wfMessage( 'gwtoolset-no-accepted-types' )
@@ -277,7 +277,7 @@ class UploadHandler {
 	 *   $url = 'http://images.memorix.nl/gam/thumb/150x150/115165d2-1267-7db5-4abb-54d273c47a81.jpg';
 	 *
 	 * @param {string} $url
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {array}
 	 * the values in the array are not filtered
 	 *   $result['content-type']
@@ -289,7 +289,7 @@ class UploadHandler {
 		$pathinfo = array();
 
 		if ( empty( $url ) ) {
-			throw new MWException(
+			throw new GWTException(
 				__METHOD__ . ' ' .
 				wfMessage( 'gwtoolset-no-url-to-evaluate' )->escaped()
 			);
@@ -307,7 +307,7 @@ class UploadHandler {
 		$Status = $Http->execute();
 
 		if ( !$Status->ok ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
 					->rawParams( Filter::evaluate( $url ) )
 					->escaped()
@@ -319,7 +319,7 @@ class UploadHandler {
 		$result['extension'] = $this->getFileExtension( $result );
 
 		if ( empty( $result['extension'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
 					->rawParams( Filter::evaluate( $url ) )
 					->escaped()
@@ -339,7 +339,7 @@ class UploadHandler {
 	 *   ['url'] final url to the media file
 	 *   ['content-type'] content-type of that final url
 	 *
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {null|string}
 	 */
 	protected function getFileExtension( array $options ) {
@@ -347,7 +347,7 @@ class UploadHandler {
 		$result = null;
 
 		if ( empty( $options['url'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
 					->rawParams( Filter::evaluate( $options['url'] ) )
 					->escaped()
@@ -355,7 +355,7 @@ class UploadHandler {
 		}
 
 		if ( empty( $options['content-type'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-no-content-type' )
 					->rawParams( Filter::evaluate( $options['content-type'] ) )
 					->escaped()
@@ -401,7 +401,7 @@ class UploadHandler {
 
 	/**
 	 * @param {string} $title
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {Title}
 	 */
 	protected function getTitle( $title ) {
@@ -412,7 +412,7 @@ class UploadHandler {
 		);
 
 		if ( !( $result instanceof Title ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-title-bad' )
 					->params( $title )->parse()
 			);
@@ -517,7 +517,7 @@ class UploadHandler {
 	 * the key-name expected in $_FILES[] that should contain the metadata file
 	 * that has been uploaded via an html form
 	 *
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {null|Title}
 	 */
 	public function saveMetadataFileAsContent( $metadata_file_upload = 'metadata-file-upload' ) {
@@ -526,7 +526,7 @@ class UploadHandler {
 		$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
 
 		if ( !$Status->ok ) {
-			throw new MWException( $Status->getMessage() );
+			throw new GWTException( $Status->getMessage() );
 		}
 
 		$this->augmentAllowedExtensions( Config::$accepted_metadata_types );
@@ -560,7 +560,7 @@ class UploadHandler {
 
 	/**
 	 * @param {string} $metadata_file_upload
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {null|string} null or a stash upload file key
 	 */
 	public function saveMetadataFileAsStash( $metadata_file_upload = 'metadata-file-upload' ) {
@@ -571,7 +571,7 @@ class UploadHandler {
 			$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
 
 			if ( !$Status->ok ) {
-				throw new MWException( $Status->getMessage() );
+				throw new GWTException( $Status->getMessage() );
 			}
 
 			global $wgLocalFileRepo;
@@ -593,7 +593,7 @@ class UploadHandler {
 	 * @todo does WikiPage filter $options['comment']?
 	 *
 	 * @param {array} $user_options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {null|Title}
 	 */
 	public function saveMediafileAsContent( array &$user_options ) {
@@ -641,7 +641,7 @@ class UploadHandler {
 		}
 
 		if ( !$Status->isOK() ) {
-			throw new MWException( $Status->getWikiText() );
+			throw new GWTException( $Status->getWikiText() );
 		}
 
 		return $Title;
@@ -768,11 +768,11 @@ class UploadHandler {
 	 *   - url-to-the-media-file
 	 *
 	 * @param {array} $options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 */
 	protected function validatePageOptions( array &$options ) {
 		if ( !isset( $options['ignorewarnings'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-ignorewarnings' )->parse() )
 					->parse()
@@ -781,13 +781,13 @@ class UploadHandler {
 
 		// assumes that text must be something
 		if ( empty( $options['text'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-text' )->escaped() )
 					->parse()
 			);
 		}if ( empty( $options['title'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-title' )->escaped() )
 					->parse()
@@ -795,7 +795,7 @@ class UploadHandler {
 		}
 
 		if ( empty( $options['url-to-the-media-file'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-url-to-media' )->parse() )
 					->parse()
@@ -805,11 +805,11 @@ class UploadHandler {
 
 	/**
 	 * @param {array} $options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 */
 	protected function validateUserOptions( array &$user_options ) {
 		if ( !isset( $user_options['comment'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-comment' )->parse() )
 					->parse()
@@ -817,7 +817,7 @@ class UploadHandler {
 		}
 
 		if ( !isset( $user_options['save-as-batch-job'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-save-as-batch' )->parse() )
 					->parse()
@@ -825,7 +825,7 @@ class UploadHandler {
 		}
 
 		if ( !isset( $user_options['upload-media'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-upload-media' )->parse() )
 					->parse()
