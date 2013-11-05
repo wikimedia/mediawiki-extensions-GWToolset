@@ -91,7 +91,7 @@ class PreviewForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-form',
-					'value' => 'metadata-mapping'
+					'value' => 'metadata-preview'
 				)
 			) .
 
