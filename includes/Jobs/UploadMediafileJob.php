@@ -14,8 +14,8 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Models\Metadata,
+	GWToolset\GWTException,
 	GWToolset\Handlers\UploadHandler,
-	MWException,
 	Job,
 	User;
 
@@ -25,7 +25,6 @@ class UploadMediafileJob extends Job {
 	 * @param {Title} $title
 	 * @param {bool|array} $params
 	 * @param {int} $id
-	 * @return {void}
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		parent::__construct( 'gwtoolsetUploadMediafileJob', $title, $params, $id );
@@ -94,7 +93,7 @@ class UploadMediafileJob extends Job {
 
 		try {
 			$result = $this->processMetadata();
-		} catch ( MWException $e ) {
+		} catch ( GWTException $e ) {
 			$this->setLastError(
 				__METHOD__ . ': ' .
 				$e->getMessage() .

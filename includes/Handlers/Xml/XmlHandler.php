@@ -11,6 +11,7 @@ namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMDocument,
 	DOMXPath,
+	GWToolset\GWTException,
 	Html,
 	Linker,
 	MWException,
@@ -208,7 +209,7 @@ abstract class XmlHandler {
 		$errors = libxml_get_errors();
 
 		if ( !empty( $errors ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-xml-error' )->escaped() .
 				Html::rawElement( 'pre', array( 'style' => 'overflow:auto;' ), print_r( $errors, true ) )
 			);
@@ -242,7 +243,7 @@ abstract class XmlHandler {
 					) .
 				Html::closeElement( 'ul' ) .
 				$this->_SpecialPage->getBackToFormLink();
-			throw new MWException( $msg );
+			throw new GWTException( $msg );
 		}
 
 		foreach ( $DOMNodeList as $DOMNode ) {

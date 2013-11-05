@@ -11,6 +11,7 @@ namespace GWToolset\Adapters\Php;
 use ContentHandler,
 	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
+	GWToolset\GWTException,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiPages,
 	MWException,
@@ -85,6 +86,9 @@ class MappingPhpAdapter implements DataAdapterInterface {
 	/**
 	 * @todo is the content returned by the WikiPage filtered?
 	 * @param {array} $options
+	 *
+	 * @throws {GWTException}
+	 *
 	 * @return {string}
 	 * the content of the wikipage referred to by the wiki title
 	 */
@@ -93,7 +97,7 @@ class MappingPhpAdapter implements DataAdapterInterface {
 
 		if ( $options['Metadata-Mapping-Title'] instanceof Title ) {
 			if ( !$options['Metadata-Mapping-Title']->isKnown() ) {
-				throw new MWException(
+				throw new GWTException(
 					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
 						->params( $options['metadata-mapping-url'] )
 						->parse()
@@ -129,7 +133,6 @@ class MappingPhpAdapter implements DataAdapterInterface {
 		$Mapping_Content = ContentHandler::makeContent( $options['text'], $options['title'] );
 		$Mapping_Page = new WikiPage( $options['title'] );
 
-		set_error_handler( '\GWToolset\swallowErrors' );
 		$result = $Mapping_Page->doEditContent(
 			$Mapping_Content,
 			$options['summary'],

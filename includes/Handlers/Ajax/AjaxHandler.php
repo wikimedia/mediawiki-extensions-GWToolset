@@ -17,8 +17,6 @@ abstract class AjaxHandler extends SpecialPageHandler {
 	/**
 	 * gets an html form.
 	 * not needed in this class
-	 *
-	 * @return {void}
 	 */
 	public function getHtmlForm() {
 	}
@@ -27,8 +25,6 @@ abstract class AjaxHandler extends SpecialPageHandler {
 	 * entry point
 	 * a control method that acts as an entry point for the
 	 * SpecialPageHandler and handles execution of the class methods
-	 *
-	 * @return {void}
 	 */
 	public function execute() {
 		$result = WikiChecks::doesEditTokenMatch( $this->SpecialPage );
@@ -37,8 +33,18 @@ abstract class AjaxHandler extends SpecialPageHandler {
 			$result = $this->processRequest();
 		}
 
+		set_error_handler( array( $this, 'swallowErrors' ) );
 		header( 'Content-Type: application/json; charset=utf-8' );
 		echo json_encode( $result );
 		exit();
+	}
+
+	/**
+	 * intended to swallow notice and warnings when display errors is set to true
+	 * this should not be the case in a production environment
+	 *
+	 * @see http://php.net/manual/en/function.set-error-handler.php
+	 */
+	function swallowErrors() {
 	}
 }

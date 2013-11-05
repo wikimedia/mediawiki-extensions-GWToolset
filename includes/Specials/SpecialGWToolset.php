@@ -9,6 +9,7 @@
 
 namespace GWToolset;
 use GWToolset\Handlers\SpecialPageHandler,
+	GWToolset\GWTException,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
@@ -71,7 +72,6 @@ class SpecialGWToolset extends SpecialPage {
 	public function execute( $par ) {
 		$this->setHeaders();
 		$this->outputHeader();
-		set_error_handler( '\GWToolset\handleError' );
 
 		if ( $this->wikiChecks() ) {
 			$this->setModuleAndHandler();
@@ -98,7 +98,7 @@ class SpecialGWToolset extends SpecialPage {
 	 * a control method that processes a SpecialPage request
 	 * SpecialPage->getOutput()->addHtml() present the end result of the request
 	 *
-	 * @throws {PermissionsError|MWException}
+	 * @throws {GWTException|MWException|PermissionsError}
 	 */
 	protected function processRequest() {
 		$html = null;
@@ -114,7 +114,7 @@ class SpecialGWToolset extends SpecialPage {
 						$this->_Handler->getHtmlForm(
 							$this->_registered_modules[$this->module_key]
 						);
-				} catch ( MWException $e ) {
+				} catch ( GWTException $e ) {
 					$html .=
 						Html::rawElement(
 							'h2',
@@ -154,7 +154,7 @@ class SpecialGWToolset extends SpecialPage {
 				}
 
 				$html .= $this->_Handler->execute();
-			} catch ( MWException $e ) {
+			} catch ( GWTException $e ) {
 				if ( $e->getCode() === 1000 ) {
 					throw new PermissionsError( $e->getMessage() );
 				} else {

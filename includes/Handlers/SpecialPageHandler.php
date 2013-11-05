@@ -23,7 +23,6 @@ abstract class SpecialPageHandler {
 
 	/**
 	 * @param {array} $options
-	 * @return {void}
 	 */
 	public function __construct( array $options = array() ) {
 		if ( isset( $options['SpecialPage'] ) ) {

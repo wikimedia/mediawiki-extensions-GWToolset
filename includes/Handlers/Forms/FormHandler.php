@@ -7,7 +7,8 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Handlers\Forms;
-use	GWToolset\Handlers\SpecialPageHandler,
+use	GWToolset\GWTException,
+	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\WikiChecks,
 	Html,
 	MWException,
@@ -25,10 +26,8 @@ abstract class FormHandler extends SpecialPageHandler {
 	 *
 	 * @param {array} $expected_options
 	 *
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * the exception message has been filtered
-	 *
-	 * @return {void}
 	 */
 	protected function checkForRequiredFormFields( array &$user_options, array $expected_options ) {
 		$msg = null;
@@ -51,17 +50,20 @@ abstract class FormHandler extends SpecialPageHandler {
 
 		if ( $msg !== null ) {
 			$msg =
-				Html::rawElement( 'p', array( 'class' => 'error' ) , wfMessage( 'gwtoolset-metadata-user-options-error' )->escaped() ) .
+				Html::rawElement(
+					'p',
+					array( 'class' => 'error' ),
+					wfMessage( 'gwtoolset-metadata-user-options-error' )->escaped()
+				) .
 				Html::rawElement( 'ul', array(), $msg ) .
 				Html::rawElement( 'p', array(), $this->SpecialPage->getBackToFormLink() );
 
-			throw new MWException( $msg );
+			throw new GWTException( $msg );
 		}
 	}
 
 	/**
 	 * @param {string} $module_name
-	 *
 	 * @throws {MWException}
 	 *
 	 * @return {string}
@@ -92,7 +94,7 @@ abstract class FormHandler extends SpecialPageHandler {
 	 *
 	 * @param {string} $module_name
 	 *
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 *
 	 * @return {string}
 	 * the string has not been filtered
@@ -101,7 +103,7 @@ abstract class FormHandler extends SpecialPageHandler {
 		$form_class = $this->getFormClass( $module_name );
 
 		if ( !class_exists( $form_class ) ) {
-			throw new MWException( wfMessage( 'gwtoolset-no-form' )->escaped() );
+			throw new GWTException( wfMessage( 'gwtoolset-no-form' )->escaped() );
 		}
 
 		return $form_class::getForm( $this->SpecialPage );
@@ -120,7 +122,11 @@ abstract class FormHandler extends SpecialPageHandler {
 
 		if ( !$result->ok ) {
 			$result =
-				Html::rawElement( 'h2', array(), wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped() ) .
+				Html::rawElement(
+					'h2',
+					array(),
+					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
+				) .
 				Html::rawElement( 'span', array( 'class' => 'error' ), $result->getMessage() );
 		} else {
 			$result = $this->processRequest();

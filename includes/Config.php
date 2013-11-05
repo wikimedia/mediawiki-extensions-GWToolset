@@ -16,7 +16,7 @@ class Config {
 	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
 	public static $descriptionmsg = 'gwtoolset-desc';
 	public static $type = 'media';
-	public static $version = '0.1.1';
+	public static $version = '0.1.2';
 
 	/**
 	 * @var {array}
@@ -52,6 +52,8 @@ class Config {
 	 * @var {array}
 	 */
 	public static $autoloader_classes = array(
+		'GWToolset\GWTException' => '/includes/GWTException.php',
+
 		'GWToolset\Adapters\DataAdapterInterface' => '/includes/Adapters/DataAdapterInterface.php',
 
 		'GWToolset\Adapters\Php\MappingPhpAdapter' => '/includes/Adapters/Php/MappingPhpAdapter.php',
@@ -81,7 +83,6 @@ class Config {
 
 		'GWToolset\Hooks' => '/includes/Hooks/Hooks.php',
 
-		'GWToolset\Jobs\UploadFromUrlJob' => '/includes/Jobs/UploadFromUrlJob.php',
 		'GWToolset\Jobs\UploadMediafileJob' => '/includes/Jobs/UploadMediafileJob.php',
 		'GWToolset\Jobs\UploadMetadataJob' => '/includes/Jobs/UploadMetadataJob.php',
 

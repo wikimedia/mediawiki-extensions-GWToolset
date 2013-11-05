@@ -11,6 +11,7 @@ namespace GWToolset\Models;
 use Html,
 	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
+	GWToolset\GWTException,
 	GWToolset\Helpers\FileChecks,
 	MWException,
 	Php\Filter,
@@ -60,7 +61,6 @@ class MediawikiTemplate implements ModelInterface {
 
 	/**
 	 * @param {DataAdapterInterface} $DataAdapter
-	 * @return {void}
 	 */
 	public function __construct( DataAdapterInterface $DataAdapter ) {
 		$this->_DataAdapater = $DataAdapter;
@@ -335,21 +335,21 @@ class MediawikiTemplate implements ModelInterface {
 	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
 	 *
 	 * @param {array} $options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {string} the string is not filtered.
 	 */
 	public function getTitle( array &$options ) {
 		$result = null;
 
 		if ( empty( $this->mediawiki_template_array['title-identifier'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-no-title-identifier' )
 					->escaped()
 			);
 		}
 
 		if ( empty( $options['evaluated-media-file-extension'] ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
 					->rawParams( Filter::evaluate( $options['url-to-the-media-file'] ) )
 					->escaped()
@@ -403,8 +403,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * @param {string} $mediawiki_template_name
 	 * the key within $user_options that holds the name of the mediawiki template
 	 *
-	 * @throws {MWException}
-	 * @return {void}
+	 * @throws {GWTException|MWException}
 	 */
 	public function getMediaWikiTemplate( array &$user_options, $mediawiki_template_name = 'mediawiki-template-name' ) {
 		if ( !isset( $user_options[$mediawiki_template_name] ) ) {
@@ -419,13 +418,10 @@ class MediawikiTemplate implements ModelInterface {
 			$this->mediawiki_template_name = $user_options[$mediawiki_template_name];
 			$this->retrieve();
 		} else {
-			throw new MWException( wfMessage( 'gwtoolset-metadata-invalid-template' )->escaped() );
+			throw new GWTException( wfMessage( 'gwtoolset-metadata-invalid-template' )->escaped() );
 		}
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function populateFromArray( array &$metadata = array() ) {
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
 			$this->mediawiki_template_array[$parameter] = null;
@@ -443,14 +439,13 @@ class MediawikiTemplate implements ModelInterface {
 	 * this mediawiki template model
 	 *
 	 * @param {array} $options
-	 * @throws {MWException}
-	 * @return {void}
+	 * @throws {GWTException}
 	 */
 	public function retrieve( array &$options = array() ) {
 		$result = $this->_DataAdapater->retrieve( array( 'mediawiki_template_name' => $this->mediawiki_template_name ) );
 
 		if ( empty( $result ) ) {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
 					->rawParams( Filter::evaluate( $this->mediawiki_template_name ) )
 						->escaped()

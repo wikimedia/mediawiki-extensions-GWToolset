@@ -10,14 +10,17 @@
 namespace GWToolset\Handlers\Forms;
 use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
+	GWToolset\Adapters\Php\MetadataPhpAdapter,
 	GWToolset\Config,
 	GWToolset\Forms\PreviewForm,
+	GWToolset\GWTException,
 	GWToolset\Jobs\UploadMetadataJob,
 	GWToolset\Handlers\UploadHandler,
 	GWToolset\Handlers\Xml\XmlMappingHandler,
 	GWToolset\Helpers\WikiPages,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	GWToolset\Models\Metadata,
 	Html,
 	JobQueueGroup,
 	Linker,
@@ -43,6 +46,11 @@ class MetadataMappingHandler extends FormHandler {
 	protected $_MediawikiTemplate;
 
 	/**
+	 * @var {Metadata}
+	 */
+	protected $_Metadata;
+
+	/**
 	 * @var {UploadHandler}
 	 */
 	protected $_UploadHandler;
@@ -55,6 +63,8 @@ class MetadataMappingHandler extends FormHandler {
 	/**
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
+	 *
+	 * @throws {MWException}
 	 *
 	 * @return {string}
 	 * the html string has been escaped and parsed by wfMessage
@@ -90,12 +100,10 @@ class MetadataMappingHandler extends FormHandler {
 				->rawParams( $newFilesLink )
 				->parse();
 		} else {
-			$result = Html::rawElement(
-				'span',
-				array( 'class' => 'error' ),
-				wfMessage( 'gwtoolset-developer-issue' )->params(
-					wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped()
-				)->parse()
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped() )
+					->parse()
 			);
 		}
 
@@ -110,8 +118,6 @@ class MetadataMappingHandler extends FormHandler {
 	 *
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
-	 *
-	 * @return {void}
 	 */
 	protected function getGlobalCategories( array &$user_options ) {
 		$user_options['categories'] = Config::$mediawiki_template_default_category;
@@ -218,26 +224,26 @@ class MetadataMappingHandler extends FormHandler {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $element_mapped_to_mediawiki_template
-	 * @param {string} $metadata_raw
+	 * @param {array} $options
+	 *   {array} $options['metadata-as-array']
+	 *   {array} $options['metadata-mapped-to-mediawiki-template']
+	 *   {string} $options['metadata-raw']
+	 *
 	 * @return {null|Title|bool}
 	 */
-	public function processMatchingElement(
-		array &$user_options,
-		$element_mapped_to_mediawiki_template,
-		$metadata_raw
-	) {
+	public function processMatchingElement( array &$user_options, array $options ) {
 		$result = null;
 
-		$this->_MediawikiTemplate->metadata_raw = $metadata_raw;
-		$this->_MediawikiTemplate->populateFromArray( $element_mapped_to_mediawiki_template );
+		$this->_MediawikiTemplate->metadata_raw = $options['metadata-raw'];
+		$this->_MediawikiTemplate->populateFromArray(
+			$options['metadata-mapped-to-mediawiki-template']
+		);
+
+		$this->_Metadata->metadata_raw = $options['metadata-raw'];
+		$this->_Metadata->metadata_as_array = $options['metadata-as-array'];
 
 		if ( $user_options['save-as-batch-job'] ) {
-			$result = $this->_UploadHandler->saveMediafileViaJob(
-				$user_options,
-				$metadata_raw,
-				$element_mapped_to_mediawiki_template
-			);
+			$result = $this->_UploadHandler->saveMediafileViaJob( $user_options, $options );
 		} else {
 			$result = $this->_UploadHandler->saveMediafileAsContent( $user_options );
 		}
@@ -253,7 +259,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {array}
 	 * an array of mediafile Title(s)
 	 */
@@ -262,6 +268,7 @@ class MetadataMappingHandler extends FormHandler {
 		$UploadStashFile = null;
 		$this->_Mapping = null;
 		$this->_MediawikiTemplate = null;
+		$this->_Metadata = null;
 		$this->_UploadHandler = null;
 		$this->_XmlMappingHandler = null;
 
@@ -273,10 +280,13 @@ class MetadataMappingHandler extends FormHandler {
 		$this->_Mapping->setTargetElements();
 		$this->_Mapping->reverseMap();
 
+		$this->_Metadata = new Metadata( new MetadataPhpAdapter() );
+
 		$this->_UploadHandler = new UploadHandler(
 			array(
 				'Mapping' => $this->_Mapping,
 				'MediawikiTemplate' => $this->_MediawikiTemplate,
+				'Metadata' => $this->_Metadata,
 				'User' => $this->User,
 			)
 		);
@@ -311,7 +321,7 @@ class MetadataMappingHandler extends FormHandler {
 				$Metadata_Content
 			);
 		} else {
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-metadata-file-url-not-present' )
 					->params( $user_options['metadata-file-url'])
 					->escaped()

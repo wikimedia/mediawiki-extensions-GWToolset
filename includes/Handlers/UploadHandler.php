@@ -23,6 +23,7 @@ use ContentHandler,
 	Linker,
 	LocalRepo,
 	MimeMagic,
+	MWException,
 	MWHttpRequest,
 	Php\File,
 	Php\Filter,
@@ -226,13 +227,13 @@ class UploadHandler {
 	 * xml file uploads as metadata sets
 	 *
 	 * @param {array} $accepted_types
-	 * @throws {GWTException}
+	 * @throws {MWException}
 	 */
 	protected function augmentAllowedExtensions( array $accepted_types = array() ) {
 		global $wgFileExtensions;
 
 		if ( empty( $accepted_types ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
 						wfMessage( 'gwtoolset-no-accepted-types' )
@@ -768,11 +769,11 @@ class UploadHandler {
 	 *   - url-to-the-media-file
 	 *
 	 * @param {array} $options
-	 * @throws {GWTException}
+	 * @throws {MWException}
 	 */
 	protected function validatePageOptions( array &$options ) {
 		if ( !isset( $options['ignorewarnings'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-ignorewarnings' )->parse() )
 					->parse()
@@ -781,13 +782,13 @@ class UploadHandler {
 
 		// assumes that text must be something
 		if ( empty( $options['text'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-text' )->escaped() )
 					->parse()
 			);
 		}if ( empty( $options['title'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-title' )->escaped() )
 					->parse()
@@ -795,7 +796,7 @@ class UploadHandler {
 		}
 
 		if ( empty( $options['url-to-the-media-file'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-url-to-media' )->parse() )
 					->parse()
@@ -805,11 +806,11 @@ class UploadHandler {
 
 	/**
 	 * @param {array} $options
-	 * @throws {GWTException}
+	 * @throws {MWException}
 	 */
 	protected function validateUserOptions( array &$user_options ) {
 		if ( !isset( $user_options['comment'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-comment' )->parse() )
 					->parse()
@@ -817,7 +818,7 @@ class UploadHandler {
 		}
 
 		if ( !isset( $user_options['save-as-batch-job'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-save-as-batch' )->parse() )
 					->parse()
@@ -825,7 +826,7 @@ class UploadHandler {
 		}
 
 		if ( !isset( $user_options['upload-media'] ) ) {
-			throw new GWTException(
+			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-upload-media' )->parse() )
 					->parse()

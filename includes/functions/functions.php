@@ -13,6 +13,7 @@ use ErrorException,
 	GWToolset\MediaWiki\Api\Client,
 	Html,
 	Language,
+	MWException,
 	SpecialPage,
 	Status,
 	Title,
@@ -91,7 +92,7 @@ function getNamespaceName( $namespace = 0 ) {
  *   {boolean} $options['must-be-known']
  *   Whether or not the Title must be known; defaults to true
  *
- * @throws {GWTException}
+ * @throws {GWTException|MWException}
  * @return {null|Title}
  */
 function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = array() ) {
@@ -105,7 +106,7 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 	$options = array_merge( $option_defaults, $options );
 
 	if ( empty( $page_title ) ) {
-		throw new GWTException(
+		throw new MWException(
 			wfMessage( 'gwtoolset-developer-issue' )
 				->params( wfMessage( 'gwtoolset-no-page-title' )->escaped() )
 				->parse()

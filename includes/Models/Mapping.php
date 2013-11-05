@@ -10,11 +10,11 @@
 namespace GWToolset\Models;
 use GWToolset\Adapters\DataAdapterInterface,
 	GWtoolset\Config,
+	GWToolset\GWTException,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiPages,
 	Language,
 	Linker,
-	MWException,
 	Php\Filter;
 
 class Mapping implements ModelInterface {
@@ -56,7 +56,6 @@ class Mapping implements ModelInterface {
 
 	/**
 	 * @param {DataAdapterInterface} $DataAdapter
-	 * @return {void}
 	 */
 	public function __construct( DataAdapterInterface $DataAdapter ) {
 		$this->reset();
@@ -88,13 +87,13 @@ class Mapping implements ModelInterface {
 		try {
 			$result = json_decode( $this->mapping_json, true );
 			\GWToolset\jsonCheckForError();
-		} catch ( MWException $e ) {
+		} catch ( GWTException $e ) {
 			$error_msg = $e->getMessage();
 			if ( isset( $options['Metadata-Mapping-Title'] ) ) {
 				$error_msg .= ' ' . Linker::link( $options['Metadata-Mapping-Title'], null, array( 'target' => '_blank' ) );
 			}
 
-			throw new MWException(
+			throw new GWTException(
 				wfMessage( 'gwtoolset-metadata-mapping-bad' )
 					->rawParams( $error_msg )
 					->parse()
@@ -108,7 +107,7 @@ class Mapping implements ModelInterface {
 	 * relies on a hardcoded path to the metadata mapping url
 	 *
 	 * @param {array} $options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {string}
 	 * the string is not filtered
 	 */
@@ -140,7 +139,7 @@ class Mapping implements ModelInterface {
 					->rawParams( $url, $expected_path )
 					->escaped();
 
-				throw new MWException( $msg );
+				throw new GWTException( $msg );
 			}
 
 			$result = $result[2];
@@ -153,7 +152,7 @@ class Mapping implements ModelInterface {
 	 * attempts to retrieve a wiki page title that contains the metadata mapping json
 	 *
 	 * @param {array} $options
-	 * @throws {MWException}
+	 * @throws {GWTException}
 	 * @return {null|Title}
 	 */
 	protected function getMappingTitle( array &$options ) {
@@ -166,7 +165,7 @@ class Mapping implements ModelInterface {
 			);
 
 			if ( empty( $result ) ) {
-				throw new MWException(
+				throw new GWTException(
 					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
 						->params( $options['metadata-mapping-url'] )
 						->parse()
@@ -179,7 +178,6 @@ class Mapping implements ModelInterface {
 
 	/**
 	 * @param {array} $options
-	 * @return {void}
 	 */
 	protected function populate( array &$options ) {
 		if ( empty( $options ) ) {
@@ -201,9 +199,6 @@ class Mapping implements ModelInterface {
 		$this->reverseMap();
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function reset() {
 		$this->mapping_array = array();
 		$this->mapping_json = null;
@@ -217,8 +212,7 @@ class Mapping implements ModelInterface {
 	 * @param {array} $options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {MWException}
-	 * @return {void}
+	 * @throws {GWTException}
 	 */
 	public function retrieve( array &$options = array() ) {
 		$options['Metadata-Mapping-Title'] = $this->getMappingTitle( $options );
@@ -230,9 +224,6 @@ class Mapping implements ModelInterface {
 		}
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function reverseMap() {
 		foreach ( $this->target_dom_elements as $element ) {
 			foreach ( $this->mapping_array as $mediawiki_parameter => $target_dom_elements ) {
@@ -243,9 +234,6 @@ class Mapping implements ModelInterface {
 		}
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function setTargetElements() {
 		foreach ( $this->mapping_array as $key => $value ) {
 			foreach ( $value as $item ) {

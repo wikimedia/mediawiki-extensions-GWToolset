@@ -9,7 +9,7 @@
 
 namespace GWToolset\Jobs;
 use Job,
-	MWException,
+	GWToolset\GWTException,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	User;
 
@@ -32,7 +32,6 @@ class UploadMetadataJob extends Job {
 	 * @param {Title} $title
 	 * @param {bool|array} $params
 	 * @param {int} $id
-	 * @return {void}
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		parent::__construct( 'gwtoolsetUploadMetadataJob', $title, $params, $id );
@@ -70,7 +69,7 @@ class UploadMetadataJob extends Job {
 
 		try {
 			$result = $this->processMetadata();
-		} catch ( MWException $e ) {
+		} catch ( GWTException $e ) {
 			$this->setLastError( __METHOD__ . ': ' . $e->getMessage() );
 		}
 
