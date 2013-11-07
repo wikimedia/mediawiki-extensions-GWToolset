@@ -217,6 +217,27 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
+					'id' => 'metadata-namespace',
+					'name' => 'metadata-namespace',
+					'value' => Filter::evaluate( \GWToolset\getNamespaceName( Config::$metadata_namespace ) )
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
+					'id' => 'metadata-mapping-subpage',
+					'name' => 'metadata-mapping-subpage',
+					'value' => Filter::evaluate( Config::$metadata_mapping_subpage )
+				)
+			) .
+
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
 					'id' => 'wpEditToken',
 					'name' => 'wpEditToken',
 					'value' => $Handler->User->getEditToken()

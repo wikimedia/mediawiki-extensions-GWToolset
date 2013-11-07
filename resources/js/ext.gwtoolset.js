@@ -293,20 +293,32 @@
 		},
 
 		handleAjaxError: function () {
-			gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-developer-issue' ).text() } );
+			gwtoolset.openDialog( {
+				msg: mw.message( 'gwtoolset-developer-issue', '' ).text()
+			} );
+
 			mw.log( arguments );
 		},
 
 		/**
 		 * @param {Object} data
-		 * @param {string} textStatus
-		 * @param {Object} jqXHR
 		 */
-		handleAjaxSuccess: function ( data, textStatus, jqXHR ) {
-			if ( data.ok !== true || !textStatus || !jqXHR ) {
-				gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-save-mapping-failed' ).text() } );
+		handleAjaxSuccess: function ( data ) {
+			if ( !data.edit || !data.edit.result || data.edit.result !== 'Success' ) {
+				if ( data.error && data.error.info ) {
+					gwtoolset.openDialog( {
+						msg: mw.message( 'gwtoolset-save-mapping-failed' ).text() +
+							' ( ' + data.error.info + ' )'
+					} );
+				} else {
+					gwtoolset.openDialog( {
+						msg: mw.message( 'gwtoolset-save-mapping-failed' ).text()
+					} );
+				}
 			} else {
-				gwtoolset.openDialog( { msg: mw.message( 'gwtoolset-save-mapping-succeeded' ).text() } );
+				gwtoolset.openDialog( {
+					msg: mw.message( 'gwtoolset-save-mapping-succeeded' ).text()
+				} );
 			}
 		},
 
@@ -519,10 +531,24 @@
 		 * @param {Event} evt
 		 */
 		saveMapping: function ( evt ) {
-			var mappingNameToUse = $( '#mapping-name-to-use' ).val(),
-				mediawikiTemplateName = $( '#mediawiki-template-name' ).val(),
-				wpEditToken = mw.user.tokens.get( 'editToken' ),
-				metadataMappings = gwtoolset.getFormSectionValues( gwtoolset.$templateTableTbody, 'select' );
+			var Api = new mw.Api(),
+				mappingNameToUse = $( '#mapping-name-to-use' ).val(),
+				metadataMappings = gwtoolset
+					.getFormSectionValues(
+						gwtoolset.$templateTableTbody,
+						'select'
+					),
+				summary = mw.message(
+					'gwtoolset-create-mapping',
+					'GWToolset',
+					mw.user.getName()
+					)
+					.text(),
+				title = $( '#metadata-namespace' ).val() +
+					$( '#metadata-mapping-subpage' ).val() + '/' +
+					mw.user.getName() + '/' +
+					mappingNameToUse + '.json',
+				wpEditToken = mw.user.tokens.get( 'editToken' );
 
 			if ( evt ) {
 				gwtoolset.$dialog.dialog( 'close' );
@@ -533,21 +559,20 @@
 				return;
 			}
 
-			$.ajax( {
-				type: 'POST',
-				url: mw.util.wikiGetlink( 'Special:GWToolset' ),
-				data: {
-					'gwtoolset-form': 'metadata-mapping-save',
-					'mapping-name-to-use': mappingNameToUse,
-					'metadata-mappings': metadataMappings,
-					'mediawiki-template-name': mediawikiTemplateName,
-					'wpEditToken': wpEditToken
+			Api.post(
+				{
+					action: 'edit',
+					summary: summary,
+					text: $.toJSON( metadataMappings ),
+					title: title,
+					token: wpEditToken
 				},
-				error: gwtoolset.handleAjaxError,
-				success: gwtoolset.handleAjaxSuccess,
-				complete: gwtoolset.handleAjaxComplete,
-				timeout: 5000
-			} );
+				{
+					error: gwtoolset.handleAjaxError,
+					success: gwtoolset.handleAjaxSuccess,
+					timeout: 5000
+				}
+			);
 		}
 
 	};

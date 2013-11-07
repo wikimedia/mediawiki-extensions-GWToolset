@@ -46,10 +46,6 @@ class SpecialGWToolset extends SpecialPage {
 			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',
 			'form' => '\GWToolset\Forms\MetadataMappingForm'
 		),
-		'metadata-mapping-save' => array(
-			'allow-get' => false,
-			'handler' => '\GWToolset\Handlers\Ajax\MetadataMappingSaveHandler'
-		),
 		'metadata-preview' => array(
 			'allow-get' => false,
 			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',

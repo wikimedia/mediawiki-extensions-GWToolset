@@ -8,76 +8,15 @@
  */
 
 namespace GWToolset\Adapters\Php;
-use ContentHandler,
-	GWToolset\Adapters\DataAdapterInterface,
-	GWToolset\Config,
+use GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\GWTException,
-	GWToolset\Helpers\FileChecks,
-	GWToolset\Helpers\WikiPages,
-	MWException,
-	Php\Filter,
 	Revision,
 	Title,
 	WikiPage;
 
 class MappingPhpAdapter implements DataAdapterInterface {
 
-	/**
-	 * @param {array} $options
-	 * @throws {MWException}
-	 * @return {Status}
-	 */
 	public function create( array $options = array() ) {
-		$result = false;
-
-		if ( empty( $options['mapping-json'] ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-mapping-json' )->parse() )
-					->parse()
-			);
-		}
-
-		if ( empty( $options['mapping-name'] ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-mapping' )->parse() )
-					->parse()
-			);
-		}
-
-		if ( empty( $options['user'] ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-user' )->escaped() )
-					->parse()
-			);
-		}
-
-		// nb: cannot filter the json - might need to test it as valid by converting it back and
-		// forth with json_decode/encode
-		$options['text'] = $options['mapping-json'];
-		$options['mapping-user-name'] = $options['user']->getName();
-
-		$options['summary'] =
-			wfMessage( 'gwtoolset-create-mapping' )
-				->params( Config::$name, $options['mapping-user-name'] )
-				->escaped();
-
-		$options['title'] =	\GWToolset\getTitle(
-			\GWToolset\stripIllegalTitleChars(
-				Config::$metadata_mapping_subpage . '/' .
-				$options['mapping-user-name'] . '/' .
-				$options['mapping-name'] . '.json',
-				array( 'allow-subpage' => true )
-			),
-			Config::$metadata_namespace,
-			array( 'must-be-known' => false )
-		);
-
-		$result = $this->saveMapping( $options );
-
-		return $result;
 	}
 
 	public function delete( array $options = array() ) {
@@ -109,37 +48,6 @@ class MappingPhpAdapter implements DataAdapterInterface {
 			// need to remove line breaks from the mapping otherwise the json_decode will error out
 			$result = str_replace( PHP_EOL, '', $result );
 		}
-
-		return $result;
-	}
-
-	/**
-	 * attempts to save the mapping to the wiki as content
-	 *
-	 * @todo does ContentHandler filter $options['text']
-	 * @todo does ContentHandler filter $options['summary']
-	 * @todo figure out issue with the db ErrorException
-	 *    Transaction idle or pre-commit callbacks still pending.
-	 *    triggered by $db->__destruct because there is a mTrxIdleCallbacks waiting
-	 *    not sure why though
-	 * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=47375
-	 *
-	 * @param {array} $options
-	 * @return {Status}
-	 */
-	protected function saveMapping( array &$options ) {
-		$result = false;
-
-		$Mapping_Content = ContentHandler::makeContent( $options['text'], $options['title'] );
-		$Mapping_Page = new WikiPage( $options['title'] );
-
-		$result = $Mapping_Page->doEditContent(
-			$Mapping_Content,
-			$options['summary'],
-			0,
-			false,
-			$options['user']
-		);
 
 		return $result;
 	}

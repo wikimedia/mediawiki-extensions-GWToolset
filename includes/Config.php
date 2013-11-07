@@ -64,9 +64,6 @@ class Config {
 		'GWToolset\Forms\MetadataMappingForm' => '/includes/Forms/MetadataMappingForm.php',
 		'GWToolset\Forms\PreviewForm' => '/includes/Forms/PreviewForm.php',
 
-		'GWToolset\Handlers\Ajax\AjaxHandler' => '/includes/Handlers/Ajax/AjaxHandler.php',
-		'GWToolset\Handlers\Ajax\MetadataMappingSaveHandler' => '/includes/Handlers/Ajax/MetadataMappingSaveHandler.php',
-
 		'GWToolset\Handlers\Forms\FormHandler' => '/includes/Handlers/Forms/FormHandler.php',
 		'GWToolset\Handlers\Forms\MetadataDetectHandler' => '/includes/Handlers/Forms/MetadataDetectHandler.php',
 		'GWToolset\Handlers\Forms\MetadataMappingHandler' => '/includes/Handlers/Forms/MetadataMappingHandler.php',
@@ -240,16 +237,17 @@ class Config {
 			'resources/css/ext.gwtoolset.css'
 		),
 		'messages' => array(
+			'gwtoolset-back-text-link',
+			'gwtoolset-cancel',
+			'gwtoolset-create-mapping',
 			'gwtoolset-developer-issue',
 			'gwtoolset-loading',
+			'gwtoolset-save',
 			'gwtoolset-save-mapping',
 			'gwtoolset-save-mapping-name',
 			'gwtoolset-save-mapping-failed',
 			'gwtoolset-save-mapping-succeeded',
-			'gwtoolset-step-2-heading',
-			'gwtoolset-back-text-link',
-			'gwtoolset-save',
-			'gwtoolset-cancel'
+			'gwtoolset-step-2-heading'
 		),
 		'dependencies' => array(
 			'jquery.json',
