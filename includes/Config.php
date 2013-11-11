@@ -16,7 +16,7 @@ class Config {
 	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
 	public static $descriptionmsg = 'gwtoolset-desc';
 	public static $type = 'media';
-	public static $version = '0.1.2';
+	public static $version = '0.1.3';
 
 	/**
 	 * @var {array}
@@ -75,11 +75,13 @@ class Config {
 		'GWToolset\Handlers\Xml\XmlMappingHandler' => '/includes/Handlers/Xml/XmlMappingHandler.php',
 
 		'GWToolset\Helpers\FileChecks' => '/includes/Helpers/FileChecks.php',
+		'GWToolset\Helpers\GWTFileBackend' => '/includes/Helpers/GWTFileBackend.php',
 		'GWToolset\Helpers\WikiChecks' => '/includes/Helpers/WikiChecks.php',
 		'GWToolset\Helpers\WikiPages' => '/includes/Helpers/WikiPages.php',
 
 		'GWToolset\Hooks' => '/includes/Hooks/Hooks.php',
 
+		'GWToolset\Jobs\GWTFileBackendCleanupJob' => '/includes/Jobs/GWTFileBackendCleanupJob.php',
 		'GWToolset\Jobs\UploadMediafileJob' => '/includes/Jobs/UploadMediafileJob.php',
 		'GWToolset\Jobs\UploadMetadataJob' => '/includes/Jobs/UploadMetadataJob.php',
 
@@ -122,9 +124,10 @@ class Config {
 
 	/**
 	 * @var {array}
+	 * register jobs with the wiki
 	 */
 	public static $jobs = array(
-		'gwtoolsetUploadFromUrlJob' => 'GWToolset\Jobs\UploadFromUrlJob',
+		'gwtoolsetGWTFileBackendCleanupJob' => 'GWToolset\Jobs\GWTFileBackendCleanupJob',
 		'gwtoolsetUploadMediafileJob' => 'GWToolset\Jobs\UploadMediafileJob',
 		'gwtoolsetUploadMetadataJob' => 'GWToolset\Jobs\UploadMetadataJob'
 	);

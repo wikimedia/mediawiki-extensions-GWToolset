@@ -14,7 +14,10 @@ use GWToolset\Helpers\WikiChecks;
  * not a valid entry point to the wiki.
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	echo 'This file is part of a MediaWiki extension; it is not a valid entry point. To install this extension, follow the directions in the INSTALL file.';
+	echo
+		'This file is part of a MediaWiki extension; it is not a valid entry point. ' .
+		'To install this extension, follow the directions in the INSTALL file.';
+
 	exit();
 }
 
@@ -26,12 +29,19 @@ $wgGWToolsetDir = realpath( __DIR__ );
 /**
  * load extension configuration
  */
-require_once $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Config.php';
+require_once
+	$wgGWToolsetDir . DIRECTORY_SEPARATOR .
+	'includes' . DIRECTORY_SEPARATOR .
+	'Config.php';
 
 /**
  * load extension functions
  */
-require_once $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'functions.php';
+require_once
+	$wgGWToolsetDir . DIRECTORY_SEPARATOR .
+	'includes' . DIRECTORY_SEPARATOR .
+	'functions' . DIRECTORY_SEPARATOR .
+	'functions.php';
 
 /**
  * define namespaces
@@ -45,6 +55,7 @@ if ( !defined( 'NS_GWTOOLSET' ) ) {
 	echo
 		'Namespace conflict. Either another extension or configuration has already ' .
 		'defined the namespace NS_GWTOOLSET.';
+
 	exit();
 }
 
@@ -78,14 +89,18 @@ $wgGroupPermissions['sysop']['gwtoolset-debug'] = true;
  * add autoloader classes
  */
 foreach ( Config::$autoloader_classes as $class => $file ) {
-	$wgAutoloadClasses[$class] = $wgGWToolsetDir . str_replace( '/', DIRECTORY_SEPARATOR, $file );
+	$wgAutoloadClasses[$class] =
+		$wgGWToolsetDir .
+		str_replace( '/', DIRECTORY_SEPARATOR, $file );
 }
 
 /**
  * add internationalization message file references
  */
 foreach ( Config::$messages as $message => $file ) {
-	$wgExtensionMessagesFiles[$message] = $wgGWToolsetDir . str_replace( '/', DIRECTORY_SEPARATOR, $file );
+	$wgExtensionMessagesFiles[$message] =
+		$wgGWToolsetDir .
+		str_replace( '/', DIRECTORY_SEPARATOR, $file );
 }
 
 /**

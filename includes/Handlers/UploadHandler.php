@@ -11,17 +11,14 @@ namespace GWToolset\Handlers;
 use ContentHandler,
 	GWToolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
-	GWToolset\Helpers\WikiPages,
 	GWToolset\Jobs\UploadMediafileJob,
-	GWToolset\Jobs\UploadFromUrlJob,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Models\Metadata,
 	JobQueueGroup,
-	Linker,
-	LocalRepo,
 	MimeMagic,
 	MWException,
 	MWHttpRequest,
@@ -30,24 +27,28 @@ use ContentHandler,
 	Title,
 	UploadBase,
 	UploadFromUrl,
-	UploadStash,
 	User,
 	WikiPage;
 
 class UploadHandler {
 
 	/**
-	 * @var {File}
+	 * @var {Php\File}
 	 */
 	protected $_File;
 
 	/**
-	 * @var {Mapping}
+	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 */
+	protected $_GWTFileBackend;
+
+	/**
+	 * @var {GWToolset\Modles\Mapping}
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {MediawikiTemplate}
+	 * @var {GWToolset\Models\MediawikiTemplate}
 	 */
 	protected $_MediawikiTemplate;
 
@@ -103,6 +104,10 @@ class UploadHandler {
 			$this->_File = $options['File'];
 		}
 
+		if ( isset( $options['GWTFileBackend'] ) ) {
+			$this->_GWTFileBackend = $options['GWTFileBackend'];
+		}
+
 		if ( isset( $options['Mapping'] ) ) {
 			$this->_Mapping = $options['Mapping'];
 		}
@@ -143,7 +148,7 @@ class UploadHandler {
 			'</metadata_mapped_json> -->' . PHP_EOL . PHP_EOL .
 			'<!-- Metadata Raw -->' . PHP_EOL .
 			'<!-- <metadata_raw>' . PHP_EOL .
-			htmlspecialchars( $this->_MediawikiTemplate->metadata_raw ) . PHP_EOL .
+			htmlspecialchars( $this->_MediawikiTemplate->metadata_raw, ENT_QUOTES, 'UTF-8' ) . PHP_EOL .
 			'</metadata_raw> -->' . PHP_EOL;
 	}
 
@@ -422,70 +427,6 @@ class UploadHandler {
 		return $result;
 	}
 
-	/**
-	 * retrieves the metadata file via :
-	 * - a url to the local wiki
-	 * - or the uploaded file given in the $_POST'ed form
-	 *
-	 * if the form contains both a url and uploaded file, the script will prefer
-	 * the url and ignore the uploaded file
-	 *
-	 * if a file is uploaded, a local wiki url to the newly uploaded file will be
-	 * added to $user_options[$options['metadata-file-url']]
-	 *
-	 * @param {array} $user_options
-	 * an array of user options that was submitted in the html form
-	 *
-	 * @param {array} $options
-	 *   {string} $options['metadata-file-url']
-	 *   the key within $user_options that holds the url to the metadata file
-	 *   stored in the local wiki
-	 *
-	 *   {string} $options['metadata-file-upload']
-	 *   the key-name expected in $_FILES[] that should contain the metadata file
-	 *   that has been uploaded via an html form
-	 *
-	 * @return {null|Title}
-	 */
-	public function getTitleFromUrlOrFile( array &$user_options, array $options = array() ) {
-		$result = null;
-
-		$options_default = array(
-			'metadata-file-url' => 'metadata-file-url',
-			'metadata-file-upload' => 'metadata-file-upload'
-		);
-
-		$options = array_merge( $option_defaults, $options );
-
-		if ( !empty( $user_options[$options['metadata-file-url']] ) ) {
-			$result = \GWToolset\getTitle(
-				$user_options[$options['metadata-file-url']],
-				Config::$metadata_namespace
-			);
-		} elseif ( !empty( $_FILES[$options['metadata-file-upload']]['name'] ) ) {
-			$result = $this->saveMetadataFileAsContent( $options['metadata-file-upload'] );
-			$user_options['metadata-file-url'] = $result;
-		}
-
-		return $result;
-	}
-
-	/**
-	 * @param {array} $user_options
-	 * @return {null|UploadStashFile}
-	 */
-	public function getMetadataFromStash( array &$user_options ) {
-		$result = null;
-
-		if ( !empty( $user_options['metadata-stash-key'] ) ) {
-			global $wgLocalFileRepo;
-			$UploadStash = new UploadStash( new LocalRepo( $wgLocalFileRepo ), $this->_User );
-			$result = $UploadStash->getFile( $user_options['metadata-stash-key'] );
-		}
-
-		return $result;
-	}
-
 	public function reset() {
 		$this->_File = null;
 		$this->_Mapping = null;
@@ -509,62 +450,13 @@ class UploadHandler {
 	}
 
 	/**
-	 * attempts to save the uploaded metadata file to the wiki as content
-	 *
-	 * @todo does ContentHandler filter the $text?
-	 * @todo does WikiPage filter $summary?
-	 *
-	 * @param {string} $metadata_file_upload
-	 * the key-name expected in $_FILES[] that should contain the metadata file
-	 * that has been uploaded via an html form
-	 *
-	 * @throws {GWTException}
-	 * @return {null|Title}
-	 */
-	public function saveMetadataFileAsContent( $metadata_file_upload = 'metadata-file-upload' ) {
-		$result = null;
-		$this->_File->populate( $metadata_file_upload );
-		$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
-
-		if ( !$Status->ok ) {
-			throw new GWTException( $Status->getMessage() );
-		}
-
-		$this->augmentAllowedExtensions( Config::$accepted_metadata_types );
-		WikiChecks::increaseHTTPTimeout( 120 );
-
-		$Metadata_Title = \GWToolset\getTitle(
-			\GWToolset\stripIllegalTitleChars(
-				Config::$metadata_sets_subpage . '/' .
-				$this->_User->getName() . '/' .
-				$this->_File->pathinfo['filename'] .
-				'.' . $this->_File->pathinfo['extension'],
-				array( 'allow-subpage' => true )
-			),
-			Config::$metadata_namespace,
-			array( 'must-be-known' => false )
-		);
-
-		$text = file_get_contents( $this->_File->tmp_name );
-		$Metadata_Content = ContentHandler::makeContent( $text, $Metadata_Title );
-		$summary = wfMessage( 'gwtoolset-create-metadata' )
-			->params( Config::$name, $this->_User->getName() )
-			->escaped();
-
-		$Metadata_Page = new WikiPage( $Metadata_Title );
-		$Metadata_Page->doEditContent( $Metadata_Content, $summary, 0, false, $this->_User );
-		$this->restoreAllowedExtensions();
-		$result = $Metadata_Title;
-
-		return $result;
-	}
-
-	/**
 	 * @param {string} $metadata_file_upload
 	 * @throws {GWTException}
-	 * @return {null|string} null or a stash upload file key
+	 *
+	 * @return {null|string}
+	 * null or an mwstore path
 	 */
-	public function saveMetadataFileAsStash( $metadata_file_upload = 'metadata-file-upload' ) {
+	public function saveMetadataToFileBackend( $metadata_file_upload = 'metadata-file-upload' ) {
 		$result = null;
 
 		if ( !empty( $_FILES[$metadata_file_upload]['name'] ) ) {
@@ -575,17 +467,8 @@ class UploadHandler {
 				throw new GWTException( $Status->getMessage() );
 			}
 
-			global $wgLocalFileRepo;
-			$UploadStash = new UploadStash( new LocalRepo( $wgLocalFileRepo), $this->_User );
-			$result = $UploadStash
-				->stashFile(
-					$this->_File->tmp_name,
-					null,
-					array( 'expiry' => strtotime( '1 week' ) )
-				)
-				->getFileKey();
+			$result = $this->_GWTFileBackend->saveFile( $this->_File );
 		}
-
 		return $result;
 	}
 
@@ -735,26 +618,6 @@ class UploadHandler {
 			$options['comment'],
 			$options['text'],
 			$options['watch'],
-			$this->_User
-		);
-
-		return $Status;
-	}
-
-	/**
-	 * @return {null|Status}
-	 */
-	protected function uploadMetadataFile() {
-		$Status = null;
-
-		$comment = wfMessage( 'gwtoolset-create-metadata' )
-			->params( Config::$name, $this->_User->getName() )
-			->escaped();
-		$pagetext = '[[Category:' . Config::$metadata_file_category . ']]';
-		$Status = $this->_UploadBase->performUpload(
-			$comment,
-			$comment . $pagetext,
-			null,
 			$this->_User
 		);
 

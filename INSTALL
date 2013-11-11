@@ -7,8 +7,10 @@ GWToolset Install
    a. php.ini
    b. DefaultSettings.php
    c. LocalSettings.php
-   d. Assign Users
-   e. Image Folder Permissions
+   d. FileBackend
+   e. FileBackend Security
+   f. Assign Users
+   g. Image Folder Permissions
 4. Hidden Categories
 
 
@@ -53,7 +55,46 @@ _enable uploads and url uploading_
 * `$wgAllowCopyUploads = true;`
 
 _load the extension_
-* `require_once( "$IP/extensions/GWToolset/GWToolset.php" );`
+* `require_once "$IP/extensions/GWToolset/GWToolset.php";`
+
+
+### FileBackend
+The extension makes use of a file backend to temporarily store metada files for processing.
+Once the extension finishes processing the metadata file, a cleanup job is run in order to
+delete the metadata file from the file backend. Sometimes orphaned files can remain in the file
+backend; the maintenace script GWToolset\maintenance\cleanupGWTFileBackend.php can be run to
+remove those files. $wgGWTFBMaxAge, a php relative time value, is used as an age threshold to
+determine which files to delete.
+
+The file backend can be on a local file system or in an online object store.
+
+You’ll need to set-up a FileBackend configuration for the extension in LocalSettings.php. The
+configuration below can be used as a default local file system backend.
+
+$wgFileBackends[] = array(
+   'name'           => 'gwtoolset-backend',
+   'class'          => 'FSFileBackend',
+   'lockManager'    => 'nullLockManager',
+   'fileMode'       => 0644,
+   'containerPaths' => array(
+	  'gwtoolset-metadata' => $IP . DIRECTORY_SEPARATOR .
+		 'images' . DIRECTORY_SEPARATOR .
+		 'gwtoolset' . DIRECTORY_SEPARATOR .
+		 'metadata'
+   )
+);
+
+$wgGWTFileBackend = 'gwtoolset-backend';
+$wgGWTFBMetadataContainer = 'gwtoolset-metadata';
+$wgGWTFBMaxAge = '1 week';
+
+
+### FileBackend security
+The extension attempts to secure the FileBackend the FileBackend::prepare() method and
+passing in noAccess, and noListing parameters, however this security is limited to
+apache web servers that allow .htaccess files. please make sure you set-up the appropriate
+security for this directory so that the web server can access the files stored under it,
+but not the public.
 
 
 ### Assign Users
@@ -65,7 +106,8 @@ Special:UserRights page.
 Make sure the wiki’s image folder can be written to by the web server.
 
 
-### Hidden Categories
+Hidden Categories
+-----------------
 GWToolset adds the following categories to media file uploads. You may want to
 add these as hidden categories to your wiki. If this is the case, then add the
 behaviour switch __HIDDENCAT__ to the top of the category page for the following:

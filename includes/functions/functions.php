@@ -9,6 +9,7 @@
 
 namespace GWToolset;
 use ErrorException,
+	GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\MediaWiki\Api\Client,
 	Html,
@@ -89,8 +90,8 @@ function getNamespaceName( $namespace = 0 ) {
  * @param {string} $page_title
  * @param {Int} $namespace
  * @param {array} $options
- *   {boolean} $options['must-be-known']
- *   Whether or not the Title must be known; defaults to true
+ * @param {bool} $options['must-be-known']
+ * Whether or not the Title must be known; defaults to true
  *
  * @throws {GWTException|MWException}
  * @return {null|Title}
@@ -152,68 +153,6 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 }
 
 /**
- * @param {string} $category
- * @return {null|string}
- * the result has not been filtered
- */
-function stripIllegalCategoryChars( $category = null ) {
-	$result = null;
-
-	if ( empty( $category ) || !is_string( $category ) ) {
-		return $result;
-	}
-
-	$result = str_replace( array( '[', ']' ), '', $category );
-
-	return $result;
-}
-
-/**
- * replaces illegal characters in a title with a replacement character, defaults to ‘-’.
- * illegal characters are based on Commons:File_naming and other bad title articles.
- * Title::secureAndSplit() allows some of these characters.
- *
- * @see https://commons.wikimedia.org/wiki/Commons:File_naming
- * @see http://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(technical_restrictions)
- * @see http://www.mediawiki.org/wiki/Help:Bad_title
- * @see http://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist
- *
- * @param {string} $title
- *
- * @param {array} $options
- *   {boolean} $options['allow-subpage']
- *   allows for the ‘/’ subpage character
- *
- *   {string} $options['replacement']
- *   the character used to replace illegal characters; defaults to ‘-’
- *
- * @return {string} the string is not filtered
- */
-function stripIllegalTitleChars( $title, array $options = array() ) {
-	$option_defaults = array(
-		'allow-subpage' => false,
-		'replacement' => '-'
-	);
-
-	$options = array_merge( $option_defaults, $options );
-
-	$illegal_chars = array(
-		'#','<','>','[',']','|','{','}',':','¬','`','!','"','£','$','^','&','*',
-		'(',')','+','=','~','?',',',Config::$metadata_separator,';',"'",'@'
-	);
-
-	if ( !$options['allow-subpage'] ) {
-		$illegal_chars[] = '/';
-	}
-
-	return str_replace(
-		$illegal_chars,
-		$options['replacement'],
-		$title
-	);
-}
-
-/**
  * @throws {GWTException}
  */
 function jsonCheckForError() {
@@ -251,4 +190,67 @@ function jsonCheckForError() {
 	if ( !empty( $error_msg ) ) {
 		throw new GWTException( $error_msg );
 	}
+}
+
+/**
+ * @param {string} $category
+ * @return {null|string}
+ * the result has not been filtered
+ */
+function stripIllegalCategoryChars( $category = null ) {
+	$result = null;
+
+	if ( empty( $category ) || !is_string( $category ) ) {
+		return $result;
+	}
+
+	$result = str_replace( array( '[', ']' ), '', $category );
+
+	return $result;
+}
+
+/**
+ * replaces illegal characters in a title with a replacement character, defaults to ‘-’.
+ * illegal characters are based on Commons:File_naming and other bad title articles.
+ * Title::secureAndSplit() allows some of these characters.
+ *
+ * @see https://commons.wikimedia.org/wiki/Commons:File_naming
+ * @see http://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(technical_restrictions)
+ * @see http://www.mediawiki.org/wiki/Help:Bad_title
+ * @see http://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist
+ *
+ * @param {string} $title
+ *
+ * @param {array} $options
+ *
+ * @param {boolean} $options['allow-subpage']
+ * allows for the ‘/’ subpage character
+ *
+ * @param {string} $options['replacement']
+ * the character used to replace illegal characters; defaults to ‘-’
+ *
+ * @return {string} the string is not filtered
+ */
+function stripIllegalTitleChars( $title, array $options = array() ) {
+	$option_defaults = array(
+		'allow-subpage' => false,
+		'replacement' => '-'
+	);
+
+	$options = array_merge( $option_defaults, $options );
+
+	$illegal_chars = array(
+		'#','<','>','[',']','|','{','}',':','¬','`','!','"','£','$','^','&','*',
+		'(',')','+','=','~','?',',',Config::$metadata_separator,';',"'",'@'
+	);
+
+	if ( !$options['allow-subpage'] ) {
+		$illegal_chars[] = '/';
+	}
+
+	return str_replace(
+		$illegal_chars,
+		$options['replacement'],
+		$title
+	);
 }

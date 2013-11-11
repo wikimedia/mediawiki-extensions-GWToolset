@@ -8,51 +8,43 @@
  */
 
 namespace GWToolset\Handlers\Forms;
-use ContentHandler,
-	GWToolset\Adapters\Php\MappingPhpAdapter,
+use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Config,
 	GWToolset\Forms\MetadataMappingForm,
 	GWToolset\GWTException,
 	GWToolset\Handlers\UploadHandler,
 	GWToolset\Handlers\Xml\XmlDetectHandler,
-	GWToolset\Helpers\FileChecks,
-	GWToolset\Helpers\Github,
-	GWToolset\Helpers\WikiPages,
+	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
-	Php\File,
-	Php\Filter,
-	RepoGroup,
-	Revision,
-	Title,
-	UploadStashFile,
-	WikiPage;
+	FSFile,
+	Php\File;
 
 class MetadataDetectHandler extends FormHandler {
 
 	/**
-	 * @var {File}
+	 * @var {GWToolset\Helpers\GWTFileBackend}
 	 */
-	protected $_File;
+	protected $_GWTFileBackend;
 
 	/**
-	 * @var {Mapping}
+	 * @var {GWToolset\Models\Mapping}
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {MediawikiTemplate}
+	 * @var {GWToolset\Models\MediawikiTemplate}
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {UploadHandler}
+	 * @var {GWToolset\Handlers\UploadHandler}
 	 */
 	protected $_UploadHandler;
 
 	/**
-	 * @var {XmlDetectHandler}
+	 * @var {GWToolset\Handlers\Xml\XmlDetectHandler}
 	 */
 	public $XmlDetectHandler;
 
@@ -140,14 +132,6 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function processRequest() {
 		$result = null;
-		$user_options = array();
-		$UploadStashFile = null;
-		$this->_File = new File();
-		$this->_Mapping = null;
-		$this->_MediawikiTemplate = null;
-		$this->_UploadHandler = null;
-		$this->XmlDetectHandler = null;
-
 		$user_options = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(
@@ -159,9 +143,20 @@ class MetadataDetectHandler extends FormHandler {
 			)
 		);
 
+		global $wgGWTFileBackend, $wgGWTFBMetadataContainer;
+
+		$this->_GWTFileBackend = new GWTFileBackend(
+			array(
+				'file-backend-name' => $wgGWTFileBackend,
+				'container' => $wgGWTFBMetadataContainer,
+				'User' => $this->User
+			)
+		);
+
 		$this->_UploadHandler = new UploadHandler(
 			array(
-				'File' => new File,
+				'File' => new File(),
+				'GWTFileBackend' => $this->_GWTFileBackend,
 				'SpecialPage' => $this->SpecialPage,
 				'User' => $this->User
 			)
@@ -173,27 +168,27 @@ class MetadataDetectHandler extends FormHandler {
 			)
 		);
 
-		if ( Config::$use_UploadStash ) {
-			$user_options['metadata-stash-key'] = $this->_UploadHandler->saveMetadataFileAsStash();
-			$UploadStashFile = $this->_UploadHandler->getMetadataFromStash( $user_options );
-		} else {
-			$user_options['Metadata-Title'] =
-				$this->_UploadHandler->getTitleFromUrlOrFile( $user_options );
-		}
+		// upload the metadata file and get an mwstore reference to it
+		$user_options['metadata-file-mwstore'] = $this->_UploadHandler->saveMetadataToFileBackend();
 
-		if ( $UploadStashFile instanceof UploadStashFile ) {
-			$this->XmlDetectHandler->processXml( $user_options, $UploadStashFile->getLocalRefPath() );
-		} elseif ( $user_options['Metadata-Title'] instanceof Title ) {
-			$Metadata_Page = new WikiPage( $user_options['Metadata-Title'] );
-			$Metadata_Content = $Metadata_Page->getContent( Revision::RAW );
-			$this->XmlDetectHandler->processXml( $user_options, $Metadata_Content );
-		} else {
-			throw new GWTException(
-				wfMessage( 'gwtoolset-metadata-file-url-not-present' )
-					->params( $user_options['metadata-file-url'])
-					->escaped()
+		// retrieve the metadata file, the FileBackend will return an FSFile object
+		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['metadata-file-mwstore'] );
+
+		if ( !( $FSFile instanceof FSFile ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
+							->params( $user_options['metadata-file-mwstore'] )
+							->parse()
+					)
+					->parse()
 			);
 		}
+
+		$user_options['metadata-file-sha1'] = $FSFile->getSha1Base36();
+		$this->XmlDetectHandler->processXml( $user_options, $FSFile->getPath() );
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$this->_MediawikiTemplate->getMediaWikiTemplate( $user_options );

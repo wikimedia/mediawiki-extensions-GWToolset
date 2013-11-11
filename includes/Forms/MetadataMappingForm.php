@@ -190,8 +190,17 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'metadata-stash-key',
-					'value' => Filter::evaluate( $user_options['metadata-stash-key'] )
+					'name' => 'metadata-file-mwstore',
+					'value' => Filter::evaluate( urlencode( $user_options['metadata-file-mwstore'] ) )
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
+					'name' => 'metadata-file-sha1',
+					'value' => Filter::evaluate( $user_options['metadata-file-sha1'] )
 				)
 			) .
 

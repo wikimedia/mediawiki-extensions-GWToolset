@@ -8,16 +8,17 @@
  */
 
 namespace GWToolset\Handlers\Forms;
-use GWToolset\Adapters\Php\MappingPhpAdapter,
+use FSFile,
+	GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Adapters\Php\MetadataPhpAdapter,
 	GWToolset\Config,
 	GWToolset\Forms\PreviewForm,
 	GWToolset\GWTException,
-	GWToolset\Jobs\UploadMetadataJob,
+	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Handlers\UploadHandler,
 	GWToolset\Handlers\Xml\XmlMappingHandler,
-	GWToolset\Helpers\WikiPages,
+	GWToolset\Jobs\UploadMetadataJob,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Models\Metadata,
@@ -26,37 +27,34 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	Linker,
 	MWException,
 	Php\Filter,
-	Revision,
 	SpecialPage,
 	Title,
-	UploadStashFile,
-	User,
-	WikiPage;
+	User;
 
 class MetadataMappingHandler extends FormHandler {
 
 	/**
-	 * @var {Mapping}
+	 * @var {GWToolset\Models\Mapping}
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {MediawikiTemplate}
+	 * @var {GWToolset\Models\MediawikiTemplate}
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {Metadata}
+	 * @var {GWToolset\Models\Metadata}
 	 */
 	protected $_Metadata;
 
 	/**
-	 * @var {UploadHandler}
+	 * @var {GWToolset\Handlers\UploadHandler}
 	 */
 	protected $_UploadHandler;
 
 	/**
-	 * @var {XmlMappingHandler}
+	 * @var {GWToolset\Handlers\XmlMappingHandler}
 	 */
 	protected $_XmlMappingHandler;
 
@@ -162,8 +160,12 @@ class MetadataMappingHandler extends FormHandler {
 				? urldecode( $_POST['metadata-file-url'] )
 				: null,
 
-			'metadata-stash-key' => !empty( $_POST['metadata-stash-key'] )
-				? urldecode( $_POST['metadata-stash-key'] )
+			'metadata-file-mwstore' => !empty( $_POST['metadata-file-mwstore'] )
+				? urldecode( $_POST['metadata-file-mwstore'] )
+				: null,
+
+			'metadata-file-sha1' => !empty( $_POST['metadata-file-sha1'] )
+				? $_POST['metadata-file-sha1']
 				: null,
 
 			'partner-template-url' => !empty( $_POST['partner-template-url'] )
@@ -264,13 +266,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * an array of mediafile Title(s)
 	 */
 	protected function processMetadata( array &$user_options ) {
-		$mediafile_titles = array();
-		$UploadStashFile = null;
-		$this->_Mapping = null;
-		$this->_MediawikiTemplate = null;
-		$this->_Metadata = null;
-		$this->_UploadHandler = null;
-		$this->_XmlMappingHandler = null;
+		$result = array();
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$this->_MediawikiTemplate->getMediaWikiTemplate( $user_options );
@@ -281,6 +277,16 @@ class MetadataMappingHandler extends FormHandler {
 		$this->_Mapping->reverseMap();
 
 		$this->_Metadata = new Metadata( new MetadataPhpAdapter() );
+
+		global $wgGWTFileBackend, $wgGWTFBMetadataContainer;
+
+		$this->_GWTFileBackend = new GWTFileBackend(
+			array(
+				'file-backend-name' => $wgGWTFileBackend,
+				'container' => $wgGWTFBMetadataContainer,
+				'User' => $this->User
+			)
+		);
 
 		$this->_UploadHandler = new UploadHandler(
 			array(
@@ -299,49 +305,79 @@ class MetadataMappingHandler extends FormHandler {
 			)
 		);
 
-		if ( is_string( $user_options['metadata-stash-key'] ) ) {
-			$UploadStashFile = $this->_UploadHandler->getMetadataFromStash( $user_options );
-		} elseif ( is_string( $user_options['metadata-file-url'] ) ) {
-			$Metadata_Title = \GWToolset\getTitle(
-				$user_options['metadata-file-url'],
-				Config::$metadata_namespace
+		// retrieve the metadata file, the FileBackend will return an FSFile object
+		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['metadata-file-mwstore'] );
+
+		if ( !( $FSFile instanceof FSFile ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
+							->params( $user_options['metadata-file-mwstore'] )
+							->parse()
+					)
+					->parse()
 			);
 		}
 
-		if ( $UploadStashFile instanceof UploadStashFile ) {
-			$mediafile_titles = $this->_XmlMappingHandler->processXml(
-				$user_options,
-				$UploadStashFile->getLocalRefPath()
-			);
-		} elseif ( $Metadata_Title instanceof Title ) {
-			$Metadata_Page = new WikiPage( $Metadata_Title );
-			$Metadata_Content = $Metadata_Page->getContent( Revision::RAW );
-			$mediafile_titles = $this->_XmlMappingHandler->processXml(
-				$user_options,
-				$Metadata_Content
-			);
-		} else {
-			throw new GWTException(
-				wfMessage( 'gwtoolset-metadata-file-url-not-present' )
-					->params( $user_options['metadata-file-url'])
-					->escaped()
+		if ( $user_options['metadata-file-sha1'] !== $FSFile->getSha1Base36() ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-sha1-does-not-match' )->parse()
+					)
+					->parse()
 			);
 		}
 
-		/**
-		 * when $this->SpecialPage is empty this method is being run by a wiki job
-		 * if more metadata records exist in the metadata file, create another
-		 * UploadMetadataJob
-		 */
-		if ( empty( $this->SpecialPage )
-			&& (int)$user_options['record-count']
-			>= ( (int)$user_options['record-begin'] + (int)Config::$job_throttle )
-		) {
-			$_POST['record-begin'] = (int)$user_options['record-current'];
-			$this->createMetadataBatchJob( $user_options );
+		$result = $this->_XmlMappingHandler->processXml(
+			$user_options,
+			$FSFile->getPath()
+		);
+
+		// when PHP_SAPI === 'cli' this method is being run by a wiki job.
+		if ( PHP_SAPI === 'cli' ) {
+			// at this point
+			// * the UploadMetadataJob has created ( Config::$job_throttle ) number of UploadMediafileJobs
+			// * $user_options['record-begin'] is the value that the UploadMetadataJob began with
+			// * $user_options['record-current'] is the next record that needs to be processed
+			//
+			// example to illustrate the test
+			// * Config::$preview_throttle       = 3
+			// * Config::$job_throttle           = 10
+			// * $user_options['record-count']   = 14
+			// * $user_options['record-begin']   = 4   ( because the preview took care of 3 )
+			// * $user_options['record-current'] = 14  ( 13 mediafiles will have been processed
+			//                                           this is the current record we need to process )
+			//
+			// the test 14 >= ( 4 + 10 ) is true so
+			// * $user_options['record-begin'] = $user_options['record-current']
+			// * create another UploadMetadataJob that will take care of the last record
+			if (
+				(int)$user_options['record-count']
+				>= ( (int)$user_options['record-begin'] + (int)Config::$job_throttle )
+			) {
+				$_POST['record-begin'] = (int)$user_options['record-current'];
+				$this->createMetadataBatchJob( $user_options );
+
+			// no more UploadMediafileJobs need to be created; create a GWTFileBackendCleanupJob
+			// that will delete the metadata file in the mwstore
+			} else {
+				$Status = $this->_GWTFileBackend->createCleanupJob( $user_options['metadata-file-mwstore'] );
+
+				if ( !$Status->ok ) {
+					throw new MWException(
+						wfMessage( 'gwtoolset-developer-issue' )
+							->params( __METHOD__ . ': ' . $Status->getMessage() )
+							->parse()
+					);
+				}
+			}
 		}
 
-		return $mediafile_titles;
+		return $result;
 	}
 
 	/**
@@ -366,7 +402,8 @@ class MetadataMappingHandler extends FormHandler {
 				'record-count',
 				'record-element-name',
 				'title-identifier',
-				'url-to-the-media-file'
+				'url-to-the-media-file',
+				'metadata-file-mwstore'
 			)
 		);
 
@@ -382,13 +419,10 @@ class MetadataMappingHandler extends FormHandler {
 		} else {
 			$user_options['save-as-batch-job'] = true;
 
-			/**
-			 * when $this->SpecialPage is not empty, this method is being run
-			 * by a user as a SpecialPage, thus this is the creation of the
-			 * initial uploadMetadataJob. subsequent uploadMetadataJobs are
-			 * created in $this->processMetadata() when necessary.
-			 */
-			if ( !empty( $this->SpecialPage ) ) {
+			// when PHP_SAPI !== 'cli', this method is being run by a user as a SpecialPage,
+			// thus this is the creation of the initial uploadMetadataJob. subsequent
+			// uploadMetadataJobs are created in $this->processMetadata() when necessary.
+			if ( PHP_SAPI !== 'cli' ) {
 				$result =
 					Html::rawElement(
 						'h2',
@@ -397,10 +431,8 @@ class MetadataMappingHandler extends FormHandler {
 					) .
 					$this->createMetadataBatchJob( $user_options );
 
-			/**
-			 * when $this->SpecialPage is empty, this method is being run
-			 * by a wiki job; typically, uploadMediafileJob.
-			 */
+			// when PHP_SAPI === 'cli', this method is being run by a wiki job;
+			// typically uploadMediafileJob.
 			} else {
 				$result = $this->processMetadata( $user_options );
 			}
