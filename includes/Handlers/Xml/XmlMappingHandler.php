@@ -9,11 +9,8 @@
 
 namespace GWToolset\Handlers\Xml;
 use Content,
-	DOMDocument,
 	DOMElement,
 	GWToolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	MWException,
@@ -23,17 +20,17 @@ use Content,
 class XmlMappingHandler extends XmlHandler {
 
 	/**
-	 * @var {Mapping}
+	 * @var {GWToolset\Models\Mapping}
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {MetadataMappingHandler}
+	 * @var {GWToolset\Handlers\Forms\MetadataMappingHandler}
 	 */
 	protected $_MappingHandler;
 
 	/**
-	 * @var {MediawikiTemplate}
+	 * @var {GWToolset\Models\MediawikiTemplate}
 	 */
 	protected $_MediawikiTemplate;
 
@@ -44,7 +41,6 @@ class XmlMappingHandler extends XmlHandler {
 
 	/**
 	 * @param {array} $options
-	 * @return {void}
 	 */
 	public function __construct( array $options = array() ) {
 		$this->reset();
@@ -139,12 +135,19 @@ class XmlMappingHandler extends XmlHandler {
 	 * values provided by the DOMElement
 	 */
 	protected function getDOMElementMapped( DOMElement $DOMElement ) {
+
 		$elements_mapped = array();
 		$is_url = false;
 		$DOMNodeList = $DOMElement->getElementsByTagName( '*' );
 
+		// cycle over all of the elements in the record element provided
 		foreach ( $DOMNodeList as $DOMNodeElement ) {
-			if ( !key_exists( $DOMNodeElement->tagName, $this->_Mapping->target_dom_elements_mapped ) ) {
+
+			// if the current element is not one that was mapped, skip it
+			if ( !key_exists(
+					$DOMNodeElement->tagName,
+					$this->_Mapping->target_dom_elements_mapped
+			) ) {
 				continue;
 			}
 
@@ -152,6 +155,7 @@ class XmlMappingHandler extends XmlHandler {
 			$template_parameters = $this->_Mapping->target_dom_elements_mapped[$DOMNodeElement->tagName];
 			$lang = null;
 
+			// set the lang attribute if found
 			if ( $DOMNodeElement->hasAttributes() ) {
 				foreach ( $DOMNodeElement->attributes as $DOMAttribute ) {
 					if ( $DOMAttribute->name === 'lang' ) {
@@ -165,43 +169,71 @@ class XmlMappingHandler extends XmlHandler {
 				$is_url = strpos( $template_parameter, 'url' ) !== false;
 
 				if ( !empty( $lang ) ) {
+					// within a record, multimple elements with the same element name, e.g., description
+					// can exist. some may have a lang attribute and some may not. if the first element
+					// found does not have a lang attribute it is stored as a value in
+					// $elements_mapped[$template_parameter] and consecutive elements are concatenate on it.
+					//
+					// however, if one of those similar elements has a lang attribute,
+					// $elements_mapped[$template_parameter] needs to become an array with index [0]
+					// containing the values that do not have a lang attribute and index['language']
+					// containing the languages provided as sub indexes, e.g., ['language']['en']
+					if ( isset( $elements_mapped[$template_parameter] )
+						&& !is_array( $elements_mapped[$template_parameter] )
+					) {
+						$tmp_string = $elements_mapped[$template_parameter];
+						$elements_mapped[$template_parameter] = array( $tmp_string );
+					}
+
 					if ( !isset( $elements_mapped[$template_parameter]['language'] ) ) {
 						$elements_mapped[$template_parameter]['language'] = array();
 					}
 
 					if ( !isset( $elements_mapped[$template_parameter]['language'][$lang] ) ) {
-						$elements_mapped[$template_parameter]['language'][$lang] = $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+						$elements_mapped[$template_parameter]['language'][$lang] =
+							$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 					} else {
-						$elements_mapped[$template_parameter]['language'][$lang] .= Config::$metadata_separator . $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+						$elements_mapped[$template_parameter]['language'][$lang] .=
+							Config::$metadata_separator .
+							$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 					}
 				} else {
 					if ( !isset( $elements_mapped[$template_parameter] ) ) {
-						$elements_mapped[$template_parameter] = $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+						$elements_mapped[$template_parameter] =
+							$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 					} else {
 						if ( $template_parameter === 'title-identifier' ) {
-							$elements_mapped[$template_parameter] .= Config::$title_separator . $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
-							// url-to-the-media-file should only be evaluated once when $elements_mapped['url-to-the-media-file'] is not set
-						} elseif ( $template_parameter !== 'url-to-the-media-file' ) {
+							$elements_mapped[$template_parameter] .=
+								Config::$title_separator .
+								$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 
-							/**
-							 * if a template_parameter has some elements with a lang attribute
-							 * and some not, the non lang attribute versions need their own
-							 * array element
-							 *
-							 * isset( $elements_mapped[ $template_parameter ][ 'language ] )
-							 * doesn't work here
-							 */
+						// url-to-the-media-file should only be evaluated once
+						// when $elements_mapped['url-to-the-media-file'] is not set
+						} elseif ( $template_parameter !== 'url-to-the-media-file' ) {
+							// if a template_parameter has some elements with a lang attribute
+							// and some not, the non lang attribute versions need their own
+							// array element
+							//
+							// isset( $elements_mapped[ $template_parameter ][ 'language ] )
+							// doesn't work here
 							if ( is_array( $elements_mapped[$template_parameter] )
 								&& array_key_exists( 'language', $elements_mapped[$template_parameter] )
 							) {
 								if ( !isset( $elements_mapped[$template_parameter][0] ) ) {
-									$elements_mapped[$template_parameter][0] = $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+									$elements_mapped[$template_parameter][0] =
+										$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 								} else {
-									// .= produces PHP Fatal error:  Cannot use assign-op operators with overloaded objects nor string offsets
-									$elements_mapped[$template_parameter][0] = $elements_mapped[$template_parameter][0] . Config::$metadata_separator . $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+									// .= produces PHP Fatal error: Cannot use assign-op operators with overloaded
+									// objects nor string offsets
+									$elements_mapped[$template_parameter][0] =
+										$elements_mapped[$template_parameter][0] .
+										Config::$metadata_separator .
+										$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 								}
 							} else {
-								$elements_mapped[$template_parameter] .= Config::$metadata_separator . $this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+								$elements_mapped[$template_parameter] .=
+									Config::$metadata_separator .
+									$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 							}
 						}
 					}
@@ -364,9 +396,6 @@ class XmlMappingHandler extends XmlHandler {
 		}
 	}
 
-	/**
-	 * @return {void}
-	 */
 	public function reset() {
 		$this->_Mapping = null;
 		$this->_MappingHandler = null;
