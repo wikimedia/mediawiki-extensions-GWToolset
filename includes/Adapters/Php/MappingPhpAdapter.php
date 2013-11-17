@@ -38,7 +38,7 @@ class MappingPhpAdapter implements DataAdapterInterface {
 			if ( !$options['Metadata-Mapping-Title']->isKnown() ) {
 				throw new GWTException(
 					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
-						->params( $options['metadata-mapping-url'] )
+						->params( $options['gwtoolset-metadata-mapping-url'] )
 						->parse()
 				);
 			}

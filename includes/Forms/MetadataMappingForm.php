@@ -31,7 +31,9 @@ class MetadataMappingForm {
 	 */
 	public static function getForm( FormHandler $Handler, array &$user_options ) {
 
-		$template_link = '[[Template:' . Filter::evaluate( $user_options['mediawiki-template-name'] ) . ']]';
+		$template_link = '[[Template:' .
+			Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] ) .
+			']]';
 		$metadata_file_url = !empty( $user_options['Metadata-Title'] )
 			? Linker::link( $user_options['Metadata-Title'], null, array( 'target' => '_blank' ) ) .
 				Html::rawElement( 'br' )
@@ -54,7 +56,8 @@ class MetadataMappingForm {
 				'p',
 				array(),
 				$metadata_file_url .
-				wfMessage( 'gwtoolset-record-count' )->params( (int)$user_options['record-count'] )->escaped()
+				wfMessage( 'gwtoolset-record-count' )
+					->params( (int)$user_options['gwtoolset-record-count'] )->escaped()
 			) .
 
 			Html::rawElement(
@@ -152,9 +155,9 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'id' => 'mediawiki-template-name',
-					'name' => 'mediawiki-template-name',
-					'value' => Filter::evaluate( $user_options['mediawiki-template-name'] )
+					'id' => 'gwtoolset-mediawiki-template-name',
+					'name' => 'gwtoolset-mediawiki-template-name',
+					'value' => Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] )
 				)
 			) .
 
@@ -162,8 +165,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'metadata-file-url',
-					'value' => Filter::evaluate( $user_options['metadata-file-url'] )
+					'name' => 'gwtoolset-metadata-file-url',
+					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-file-url'] )
 				)
 			) .
 
@@ -171,9 +174,9 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'id' => 'metadata-mapping-name',
-					'name' => 'metadata-mapping-name',
-					'value' => Filter::evaluate( $user_options['metadata-mapping-name'] )
+					'id' => 'gwtoolset-metadata-mapping-name',
+					'name' => 'gwtoolset-metadata-mapping-name',
+					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-mapping-name'] )
 				)
 			) .
 
@@ -181,8 +184,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'metadata-mapping-url',
-					'value' => Filter::evaluate( $user_options['metadata-mapping-url'] )
+					'name' => 'gwtoolset-metadata-mapping-url',
+					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-mapping-url'] )
 				)
 			) .
 
@@ -190,8 +193,10 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'metadata-file-mwstore',
-					'value' => Filter::evaluate( urlencode( $user_options['metadata-file-mwstore'] ) )
+					'name' => 'gwtoolset-metadata-file-mwstore',
+					'value' => Filter::evaluate(
+						urlencode( $user_options['gwtoolset-metadata-file-mwstore'] )
+					)
 				)
 			) .
 
@@ -199,8 +204,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'metadata-file-sha1',
-					'value' => Filter::evaluate( $user_options['metadata-file-sha1'] )
+					'name' => 'gwtoolset-metadata-file-sha1',
+					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-file-sha1'] )
 				)
 			) .
 
@@ -208,8 +213,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'record-count',
-					'value' => (int)$user_options['record-count']
+					'name' => 'gwtoolset-record-count',
+					'value' => (int)$user_options['gwtoolset-record-count']
 				)
 			) .
 
@@ -217,8 +222,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'record-element-name',
-					'value' => Filter::evaluate( $user_options['record-element-name'] )
+					'name' => 'gwtoolset-record-element-name',
+					'value' => Filter::evaluate( $user_options['gwtoolset-record-element-name'] )
 				)
 			) .
 
@@ -226,8 +231,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'id' => 'metadata-namespace',
-					'name' => 'metadata-namespace',
+					'id' => 'gwtoolset-metadata-namespace',
+					'name' => 'gwtoolset-metadata-namespace',
 					'value' => Filter::evaluate( \GWToolset\getNamespaceName( Config::$metadata_namespace ) )
 				)
 			) .
@@ -236,8 +241,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'id' => 'metadata-mapping-subpage',
-					'name' => 'metadata-mapping-subpage',
+					'id' => 'gwtoolset-metadata-mapping-subpage',
+					'name' => 'gwtoolset-metadata-mapping-subpage',
 					'value' => Filter::evaluate( Config::$metadata_mapping_subpage )
 				)
 			) .
@@ -256,7 +261,9 @@ class MetadataMappingForm {
 			Html::rawElement(
 				'h3',
 				array(),
-				wfMessage( 'gwtoolset-mediawiki-template' )->params( Filter::evaluate( $user_options['mediawiki-template-name'] ) )->escaped()
+				wfMessage( 'gwtoolset-mediawiki-template' )
+					->params( Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] ) )
+					->escaped()
 			) .
 
 			Html::rawElement(
@@ -378,7 +385,7 @@ class MetadataMappingForm {
 								array(
 									'type' => 'text',
 									'id' => 'gwtoolset-category',
-									'name' => 'category[]'
+									'name' => 'gwtoolset-category[]'
 								)
 							)
 						)
@@ -441,7 +448,7 @@ class MetadataMappingForm {
 								'input',
 								array(
 									'type' => 'text',
-									'name' => 'category-phrase[]',
+									'name' => 'gwtoolset-category-phrase[]',
 									'placeholder' => wfMessage( 'gwtoolset-painted-by' )->escaped()
 								)
 							)
@@ -452,7 +459,7 @@ class MetadataMappingForm {
 							Html::rawElement(
 								'select',
 								array(
-									'name' => 'category-metadata[]'
+									'name' => 'gwtoolset-category-metadata[]'
 								),
 								$Handler->XmlDetectHandler->getMetadataAsOptions()
 							)
@@ -480,7 +487,7 @@ class MetadataMappingForm {
 						'input',
 						array(
 							'type' => 'text',
-							'name' => 'partner-template-url',
+							'name' => 'gwtoolset-partner-template-url',
 							'placeholder' => 'Template:Europeana',
 							'class' => 'gwtoolset-url-input'
 						)

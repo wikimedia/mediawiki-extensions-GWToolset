@@ -34,6 +34,31 @@ use FSFile,
 class MetadataMappingHandler extends FormHandler {
 
 	/**
+	 * @var {array}
+	 */
+	protected $_expected_post_fields = array(
+		'gwtoolset-category',
+		'gwtoolset-category-phrase',
+		'gwtoolset-category-metadata',
+		'gwtoolset-form',
+		'gwtoolset-preview',
+		'gwtoolset-mediawiki-template-name',
+		'gwtoolset-metadata-file-mwstore',
+		'gwtoolset-metadata-file-sha1',
+		'gwtoolset-metadata-file-url',
+		'gwtoolset-metadata-mapping-name',
+		'gwtoolset-metadata-mapping-subpage',
+		'gwtoolset-metadata-mapping-url',
+		'gwtoolset-metadata-namespace',
+		'gwtoolset-partner-template-url',
+		'gwtoolset-record-begin',
+		'gwtoolset-record-count',
+		'gwtoolset-record-element-name',
+		'wpEditToken',
+		'wpSummary'
+	);
+
+	/**
 	 * @var {GWToolset\Models\Mapping}
 	 */
 	protected $_Mapping;
@@ -52,6 +77,11 @@ class MetadataMappingHandler extends FormHandler {
 	 * @var {GWToolset\Handlers\UploadHandler}
 	 */
 	protected $_UploadHandler;
+
+	/**
+	 * #var {array}
+	 */
+	protected $_whitelisted_post;
 
 	/**
 	 * @var {GWToolset\Handlers\XmlMappingHandler}
@@ -79,7 +109,7 @@ class MetadataMappingHandler extends FormHandler {
 				NS_USER
 			),
 			array(
-				'post' => $_POST,
+				'whitelisted-post' => $this->_whitelisted_post,
 				'user-name' => $this->User->getName(),
 				'user-options' => $user_options
 			)
@@ -120,8 +150,8 @@ class MetadataMappingHandler extends FormHandler {
 	protected function getGlobalCategories( array &$user_options ) {
 		$user_options['categories'] = Config::$mediawiki_template_default_category;
 
-		if ( isset( $_POST['category'] ) ) {
-			foreach ( $_POST['category'] as $category ) {
+		if ( isset( $this->_whitelisted_post['gwtoolset-category'] ) ) {
+			foreach ( $this->_whitelisted_post['gwtoolset-category'] as $category ) {
 				if ( !empty( $category ) ) {
 					$user_options['categories'] .= Config::$category_separator . $category;
 				}
@@ -130,7 +160,7 @@ class MetadataMappingHandler extends FormHandler {
 	}
 
 	/**
-	 * gets various user options from $_POST and sets default values
+	 * gets various user options from $this->_whitelisted_post and sets default values
 	 * if no user value is supplied
 	 *
 	 * @return {array}
@@ -140,78 +170,103 @@ class MetadataMappingHandler extends FormHandler {
 		$result = array(
 			'categories' => null,
 
-			'category-phrase' => !empty( $_POST['category-phrase'] )
-				? $_POST['category-phrase']
+			'gwtoolset-category-phrase' =>
+				!empty( $this->_whitelisted_post['gwtoolset-category-phrase'] )
+				? $this->_whitelisted_post['gwtoolset-category-phrase']
 				: array(),
 
-			'category-metadata' => !empty( $_POST['category-metadata'] )
-				? $_POST['category-metadata']
+			'gwtoolset-category-metadata' =>
+				!empty( $this->_whitelisted_post['gwtoolset-category-metadata'] )
+				? $this->_whitelisted_post['gwtoolset-category-metadata']
 				: array(),
 
-			'comment' => !empty( $_POST['wpSummary'] )
-				? $_POST['wpSummary']
+			'comment' =>
+				!empty( $this->_whitelisted_post['wpSummary'] )
+				? $this->_whitelisted_post['wpSummary']
 				: '',
 
-			'mediawiki-template-name' => !empty( $_POST['mediawiki-template-name'] )
-				? $_POST['mediawiki-template-name']
+			'gwtoolset-mediawiki-template-name' =>
+				!empty( $this->_whitelisted_post['gwtoolset-mediawiki-template-name'] )
+				? $this->_whitelisted_post['gwtoolset-mediawiki-template-name']
 				: null,
 
-			'metadata-file-url' => !empty( $_POST['metadata-file-url'] )
-				? urldecode( $_POST['metadata-file-url'] )
+			'gwtoolset-metadata-file-url' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
+				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
 				: null,
 
-			'metadata-file-mwstore' => !empty( $_POST['metadata-file-mwstore'] )
-				? urldecode( $_POST['metadata-file-mwstore'] )
+			'gwtoolset-metadata-file-mwstore' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-mwstore'] )
+				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-mwstore'] )
 				: null,
 
-			'metadata-file-sha1' => !empty( $_POST['metadata-file-sha1'] )
-				? $_POST['metadata-file-sha1']
+			'gwtoolset-metadata-file-sha1' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-sha1'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-file-sha1']
 				: null,
 
-			'partner-template-url' => !empty( $_POST['partner-template-url'] )
-				? urldecode( $_POST['partner-template-url'] )
+			'gwtoolset-partner-template-url' =>
+				!empty( $this->_whitelisted_post['gwtoolset-partner-template-url'] )
+				? urldecode( $this->_whitelisted_post['gwtoolset-partner-template-url'] )
 				: null,
 
-			'preview' => !empty( $_POST['gwtoolset-preview'] )
+			'preview' => !empty( $this->_whitelisted_post['gwtoolset-preview'] )
 				? true
 				: false,
 
-			'record-begin' => !empty( $_POST['record-begin'] )
-				? (int)$_POST['record-begin']
+			'gwtoolset-record-begin' =>
+				!empty( $this->_whitelisted_post['gwtoolset-record-begin'] )
+				? (int)$this->_whitelisted_post['gwtoolset-record-begin']
 				: 1,
 
-			'record-count' => !empty( $_POST['record-count'] )
-				? (int)$_POST['record-count']
+			'gwtoolset-record-count' =>
+				!empty( $this->_whitelisted_post['gwtoolset-record-count'] )
+				? (int)$this->_whitelisted_post['gwtoolset-record-count']
 				: 0,
 
-			'record-current' => 0,
+			'gwtoolset-record-current' => 0,
 
-			'record-element-name' => !empty( $_POST['record-element-name'] )
-				? $_POST['record-element-name']
+			'gwtoolset-record-element-name' =>
+				!empty( $this->_whitelisted_post['gwtoolset-record-element-name'] )
+				? $this->_whitelisted_post['gwtoolset-record-element-name']
 				: 'record',
 
-			'save-as-batch-job' => !empty( $_POST['save-as-batch-job'] )
-				? (bool)$_POST['save-as-batch-job']
+			'save-as-batch-job' =>
+				!empty( $this->_whitelisted_post['save-as-batch-job'] )
+				? (bool)$this->_whitelisted_post['save-as-batch-job']
 				: false,
 
-			// Filter::evaluate is used here to extract the 'title-identifier' array
-			'title-identifier' => !empty( $_POST['title-identifier'] )
-				? Filter::evaluate( array( 'source' => $_POST, 'key-name' => 'title-identifier' ) )
+			// Filter::evaluate is used here to extract the 'gwtoolset-title-identifier' array
+			'gwtoolset-title-identifier' =>
+				!empty( $this->_whitelisted_post['gwtoolset-title-identifier'] )
+				? Filter::evaluate(
+						array(
+							'source' => $this->_whitelisted_post,
+							'key-name' => 'gwtoolset-title-identifier'
+						)
+					)
 				: null,
 
-			'upload-media' => !empty( $_POST['upload-media'] )
-				? (bool)$_POST['upload-media']
+			'upload-media' =>
+				!empty( $this->_whitelisted_post['upload-media'] )
+				? (bool)$this->_whitelisted_post['upload-media']
 				: false,
 
-			// Filter::evaluate is used here to extract the 'url-to-the-media-file' array
-			'url-to-the-media-file' => !empty( $_POST['url-to-the-media-file'] )
-				? Filter::evaluate( array( 'source' => $_POST, 'key-name' => 'url-to-the-media-file' ) )
+			// Filter::evaluate is used here to extract the 'gwtoolset-url-to-the-media-file' array
+			'gwtoolset-url-to-the-media-file' =>
+				!empty( $this->_whitelisted_post['gwtoolset-url-to-the-media-file'] )
+				? Filter::evaluate(
+						array(
+							'source' => $this->_whitelisted_post,
+							'key-name' => 'gwtoolset-url-to-the-media-file'
+						)
+					)
 				: null
 		);
 
-		if ( !empty( $result['partner-template-url'] ) ) {
+		if ( !empty( $result['gwtoolset-partner-template-url'] ) ) {
 			$result['partner-template-name'] = \GWToolset\getTitle(
-				$result['partner-template-url'],
+				$result['gwtoolset-partner-template-url'],
 				NS_TEMPLATE,
 				array( 'must-be-known' => false )
 			);
@@ -245,7 +300,11 @@ class MetadataMappingHandler extends FormHandler {
 		$this->_Metadata->metadata_as_array = $options['metadata-as-array'];
 
 		if ( $user_options['save-as-batch-job'] ) {
-			$result = $this->_UploadHandler->saveMediafileViaJob( $user_options, $options );
+			$result = $this->_UploadHandler->saveMediafileViaJob(
+				$user_options,
+				$options,
+				$this->_whitelisted_post
+			);
 		} else {
 			$result = $this->_UploadHandler->saveMediafileAsContent( $user_options );
 		}
@@ -268,11 +327,9 @@ class MetadataMappingHandler extends FormHandler {
 	protected function processMetadata( array &$user_options ) {
 		$result = array();
 
-		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$this->_MediawikiTemplate->getMediaWikiTemplate( $user_options );
-
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
-		$this->_Mapping->mapping_array = $this->_MediawikiTemplate->getMappingFromArray( $_POST );
+		$this->_Mapping->mapping_array =
+			$this->_MediawikiTemplate->getMappingFromArray( $this->_whitelisted_post );
 		$this->_Mapping->setTargetElements();
 		$this->_Mapping->reverseMap();
 
@@ -306,7 +363,9 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['metadata-file-mwstore'] );
+		$FSFile = $this->_GWTFileBackend->retrieveFile(
+			$user_options['gwtoolset-metadata-file-mwstore']
+		);
 
 		if ( !( $FSFile instanceof FSFile ) ) {
 			throw new MWException(
@@ -314,14 +373,14 @@ class MetadataMappingHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['metadata-file-mwstore'] )
+							->params( $user_options['gwtoolset-metadata-file-mwstore'] )
 							->parse()
 					)
 					->parse()
 			);
 		}
 
-		if ( $user_options['metadata-file-sha1'] !== $FSFile->getSha1Base36() ) {
+		if ( $user_options['gwtoolset-metadata-file-sha1'] !== $FSFile->getSha1Base36() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -340,32 +399,39 @@ class MetadataMappingHandler extends FormHandler {
 		// when PHP_SAPI === 'cli' this method is being run by a wiki job.
 		if ( PHP_SAPI === 'cli' ) {
 			// at this point
-			// * the UploadMetadataJob has created ( Config::$job_throttle ) number of UploadMediafileJobs
-			// * $user_options['record-begin'] is the value that the UploadMetadataJob began with
-			// * $user_options['record-current'] is the next record that needs to be processed
+			// * the UploadMetadataJob has created ( Config::$job_throttle ) number of
+			//   UploadMediafileJobs
+			// * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
+			//   began with
+			// * $user_options['gwtoolset-record-current'] is the next record that needs to be
+			//   processed
 			//
 			// example to illustrate the test
 			// * Config::$preview_throttle       = 3
 			// * Config::$job_throttle           = 10
-			// * $user_options['record-count']   = 14
-			// * $user_options['record-begin']   = 4   ( because the preview took care of 3 )
-			// * $user_options['record-current'] = 14  ( 13 mediafiles will have been processed
-			//                                           this is the current record we need to process )
+			// * $user_options['gwtoolset-record-count']   = 14
+			// * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
+			// * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
+			//                                                     processed this is the current
+			//                                                     record we need to process )
 			//
 			// the test 14 >= ( 4 + 10 ) is true so
-			// * $user_options['record-begin'] = $user_options['record-current']
+			// * $user_options['gwtoolset-record-begin'] = $user_options['gwtoolset-record-current']
 			// * create another UploadMetadataJob that will take care of the last record
 			if (
-				(int)$user_options['record-count']
-				>= ( (int)$user_options['record-begin'] + (int)Config::$job_throttle )
+				(int)$user_options['gwtoolset-record-count']
+				>= ( (int)$user_options['gwtoolset-record-begin'] + (int)Config::$job_throttle )
 			) {
-				$_POST['record-begin'] = (int)$user_options['record-current'];
+				$this->_whitelisted_post['gwtoolset-record-begin'] =
+					(int)$user_options['gwtoolset-record-current'];
 				$this->createMetadataBatchJob( $user_options );
 
 			// no more UploadMediafileJobs need to be created; create a GWTFileBackendCleanupJob
 			// that will delete the metadata file in the mwstore
 			} else {
-				$Status = $this->_GWTFileBackend->createCleanupJob( $user_options['metadata-file-mwstore'] );
+				$Status = $this->_GWTFileBackend->createCleanupJob(
+					$user_options['gwtoolset-metadata-file-mwstore']
+				);
 
 				if ( !$Status->ok ) {
 					throw new MWException(
@@ -392,18 +458,27 @@ class MetadataMappingHandler extends FormHandler {
 	public function processRequest() {
 		$result = null;
 		$mediafile_titles = array();
+
+		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
+		$this->_MediawikiTemplate->getMediaWikiTemplate( $_POST['gwtoolset-mediawiki-template-name'] );
+
+		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
+			$this->_expected_post_fields[] = Filter::evaluate( $key );
+		}
+
+		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );
 		$user_options = $this->getUserOptions();
 		$this->getGlobalCategories( $user_options );
 
 		$this->checkForRequiredFormFields(
 			$user_options,
 			array(
-				'mediawiki-template-name',
-				'record-count',
-				'record-element-name',
-				'title-identifier',
-				'url-to-the-media-file',
-				'metadata-file-mwstore'
+				'gwtoolset-mediawiki-template-name',
+				'gwtoolset-record-count',
+				'gwtoolset-record-element-name',
+				'gwtoolset-title-identifier',
+				'gwtoolset-url-to-the-media-file',
+				'gwtoolset-metadata-file-mwstore'
 			)
 		);
 

@@ -32,9 +32,11 @@ class PreviewForm {
 	 * @return {string}
 	 * an html form that is filtered
 	 */
-	public static function getForm( IContextSource $Context, array &$user_options, array &$mediafile_titles ) {
+	public static function getForm(
+		IContextSource $Context, array &$user_options, array &$mediafile_titles
+	) {
 		$process_button =
-			(int)$user_options['record-count'] > (int)Config::$preview_throttle
+			(int)$user_options['gwtoolset-record-count'] > (int)Config::$preview_throttle
 			? Html::rawElement(
 					'input',
 					array(
@@ -109,8 +111,8 @@ class PreviewForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'record-begin',
-					'value' => (int)$user_options['record-current']
+					'name' => 'gwtoolset-record-begin',
+					'value' => (int)$user_options['gwtoolset-record-current'] // this difference is intentional
 				)
 			) .
 
@@ -137,11 +139,10 @@ class PreviewForm {
 	}
 
 	/**
-	 * a decorator method that creates <input type="hidden"> fields
-	 * based on the previous $_POST. this is done to insure that all
-	 * fields posted in step 2 : Metadata Mapping are maintained
-	 * within this form, so that when this form posts to create the
-	 * initial batch job, it has the mapping information from step 2
+	 * a decorator method that creates <input type="hidden"> fields based on the previous $_POST.
+	 * this is done to insure that all fields posted in step 2 : Metadata Mapping are maintained
+	 * within this form, so that when this form posts to create the initial batch job,
+	 * it has the mapping information from step 2
 	 *
 	 * @return {string}
 	 * the string is filtered

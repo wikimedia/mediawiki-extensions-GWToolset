@@ -408,8 +408,8 @@
 					.on( 'submit', gwtoolset.saveMapping ),
 				$input = $( '<input>' )
 					.attr( 'type', 'text' )
-					.attr( 'id', 'mapping-name-to-use' )
-					.attr( 'value', $( '#metadata-mapping-name' ).val() );
+					.attr( 'id', 'gwtoolset-mapping-name-to-use' )
+					.attr( 'value', $( '#gwtoolset-metadata-mapping-name' ).val() );
 
 			evt.preventDefault();
 
@@ -496,11 +496,11 @@
 										break;
 									case '$itemSpecificCategoriesTableTbody':
 										// only want to trigger buttonAdd once
-										if ( cookieSectionField === 'category-metadata' ) {
+										if ( cookieSectionField === 'gwtoolset-category-metadata' ) {
 											buttonAdd = gwtoolset[section].find( '.button-add img' );
 											buttonAdd.trigger( 'click', {
-												option: cookieSectionFields['category-metadata'][cookieSectionFieldIndex],
-												value: cookieSectionFields['category-phrase'][cookieSectionFieldIndex]
+												option: cookieSectionFields['gwtoolset-category-metadata'][cookieSectionFieldIndex],
+												value: cookieSectionFields['gwtoolset-category-phrase'][cookieSectionFieldIndex]
 											} );
 										}
 										break;
@@ -532,7 +532,7 @@
 		 */
 		saveMapping: function ( evt ) {
 			var Api = new mw.Api(),
-				mappingNameToUse = $( '#mapping-name-to-use' ).val(),
+				mappingNameToUse = $( '#gwtoolset-mapping-name-to-use' ).val(),
 				metadataMappings = gwtoolset
 					.getFormSectionValues(
 						gwtoolset.$templateTableTbody,
@@ -544,8 +544,8 @@
 					mw.user.getName()
 					)
 					.text(),
-				title = $( '#metadata-namespace' ).val() +
-					$( '#metadata-mapping-subpage' ).val() + '/' +
+				title = $( '#gwtoolset-metadata-namespace' ).val() +
+					$( '#gwtoolset-metadata-mapping-subpage' ).val() + '/' +
 					mw.user.getName() + '/' +
 					mappingNameToUse + '.json',
 				wpEditToken = mw.user.tokens.get( 'editToken' );

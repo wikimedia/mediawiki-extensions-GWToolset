@@ -35,18 +35,20 @@ class UploadMediafileJob extends Job {
 	 * this is similar to MetadataMappingHandler::processMetadata(), however it avoids the necessity
 	 * to process the metadata file
 	 *
-	 * @todo re-factor so that this is able to use MetadataMappingHandler::processMetadata(). will
-	 * need to add some logic to it so that if a batch job is being process it doesn't display a form
-	 * or process the metadata again
+	 * @todo re-factor so that this is able to use MetadataMappingHandler::processRequest(). will
+	 * need to add some logic to it so that if a batch job is being process it doesn't display a
+	 * form or process the metadata again
 	 *
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
 		$result = false;
-		$_POST = $this->params['post'];
+		$_POST = $this->params['whitelisted-post'];
 
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$MediawikiTemplate->getMediaWikiTemplate( $this->params['user-options'] );
+		$MediawikiTemplate->getMediaWikiTemplate(
+			$this->params['user-options']['gwtoolset-mediawiki-template-name']
+		);
 
 		$Mapping = new Mapping( new MappingPhpAdapter() );
 		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray( $_POST );
@@ -137,6 +139,11 @@ class UploadMediafileJob extends Job {
 
 		if ( empty( $this->params['user-options'] ) ) {
 			$this->setLastError( __METHOD__ . ': no $this->params[\'user-options\'] provided' );
+			$result = false;
+		}
+
+		if ( empty( $this->params['whitelisted-post'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'whitelisted-post\'] provided' );
 			$result = false;
 		}
 

@@ -15,6 +15,7 @@ use ErrorException,
 	Html,
 	Language,
 	MWException,
+	Php\Filter,
 	SpecialPage,
 	Status,
 	Title,
@@ -153,6 +154,41 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 }
 
 /**
+ * cycles over the $_POST and returns a “whitelisted-post” that:
+ * - contains only the posted fields expected
+ * - sanitizes those fields
+ * - if the field is an array, field[], only goes into it one level
+ *
+ * @param {array} $expected_post_fields
+ *
+ * @return {array}
+ * the values within the array have been sanitized
+ */
+function getWhitelistedPost( array $expected_post_fields = array() ) {
+		$result = array();
+
+		foreach ( $expected_post_fields as $field ) {
+			$field = normalizeSpace( $field );
+
+			if ( isset( $_POST[$field] ) ) {
+				if ( is_array( $_POST[$field] ) ) {
+					$result[$field] = array();
+					foreach ( $_POST[$field] as $subfield ) {
+						// avoid field[][]
+						if ( !is_array( $subfield ) ) {
+							$result[$field][] = Filter::evaluate( $subfield );
+						}
+					}
+				} else {
+					$result[$field] = Filter::evaluate( $_POST[$field] );
+				}
+			}
+		}
+
+		return $result;
+	}
+
+/**
  * @throws {GWTException}
  */
 function jsonCheckForError() {
@@ -190,6 +226,18 @@ function jsonCheckForError() {
 	if ( !empty( $error_msg ) ) {
 		throw new GWTException( $error_msg );
 	}
+}
+
+/**
+ * replaces ‘ ’ with ‘_’
+ *
+ * @param {string} $parameter
+ *
+ * @return {string}
+ * the string is not filtered
+ */
+function normalizeSpace( $string ) {
+	return str_replace( ' ', '_', $string );
 }
 
 /**

@@ -202,14 +202,14 @@ class XmlMappingHandler extends XmlHandler {
 						$elements_mapped[$template_parameter] =
 							$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 					} else {
-						if ( $template_parameter === 'title-identifier' ) {
+						if ( $template_parameter === 'gwtoolset-title-identifier' ) {
 							$elements_mapped[$template_parameter] .=
 								Config::$title_separator .
 								$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 
 						// url-to-the-media-file should only be evaluated once
-						// when $elements_mapped['url-to-the-media-file'] is not set
-						} elseif ( $template_parameter !== 'url-to-the-media-file' ) {
+						// when $elements_mapped['gwtoolset-url-to-the-media-file'] is not set
+						} elseif ( $template_parameter !== 'gwtoolset-url-to-the-media-file' ) {
 							// if a template_parameter has some elements with a lang attribute
 							// and some not, the non lang attribute versions need their own
 							// array element
@@ -269,14 +269,11 @@ class XmlMappingHandler extends XmlHandler {
 	}
 
 	/**
-	 * find dom elements in the $XMLElement provided that match the
-	 * metadata record element indicated by original $_POST,
-	 * $user_options['record-element-name']
+	 * find dom elements in the $XMLElement provided that match the metadata record element
+	 * indicated by original $_POST, $user_options['gwtoolset-record-element-name']
 	 *
-	 * each matched metadata record, is sent to
-	 * $this->_MappingHandler->processMatchingElement()
-	 * to be saved as a new mediafile in the wiki or to update
-	 * an existing mediafile in the wiki
+	 * each matched metadata record, is sent to $this->_MappingHandler->processMatchingElement()
+	 * to be saved as a new mediafile in the wiki or to update an existing mediafile in the wiki
 	 *
 	 * @param {XMLReader|DOMElement} $xml_source
 	 *
@@ -304,9 +301,9 @@ class XmlMappingHandler extends XmlHandler {
 			);
 		}
 
-		if ( !isset( $user_options['record-element-name'] )
-			|| !isset( $user_options['record-count'] )
-			|| !isset( $user_options['record-current'] )
+		if ( !isset( $user_options['gwtoolset-record-element-name'] )
+			|| !isset( $user_options['gwtoolset-record-count'] )
+			|| !isset( $user_options['gwtoolset-record-current'] )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -318,30 +315,33 @@ class XmlMappingHandler extends XmlHandler {
 		switch ( $XMLElement->nodeType ) {
 			case ( XMLReader::ELEMENT ):
 				if ( $XMLElement instanceof XMLReader ) {
-					if ( $XMLElement->name === $user_options['record-element-name'] ) {
+					if ( $XMLElement->name === $user_options['gwtoolset-record-element-name'] ) {
 						$record = $XMLElement->expand();
 						$outer_xml = $XMLElement->readOuterXml();
 					}
 				} elseif ( $XMLElement instanceof DOMElement ) {
-					if ( $XMLElement->nodeName === $user_options['record-element-name'] ) {
+					if ( $XMLElement->nodeName === $user_options['gwtoolset-record-element-name'] ) {
 						$record = $XMLElement;
 						$outer_xml = $record->ownerDocument->saveXml( $record );
 					}
 				}
 
 				if ( !empty( $record ) ) {
-					$user_options['record-current'] += 1;
+					$user_options['gwtoolset-record-current'] += 1;
 
 					// don’t process the element if the current record nr is <
 					// the record nr we should begin processing on
-					if ( $user_options['record-current'] < $user_options['record-begin'] ) {
+					if (
+						$user_options['gwtoolset-record-current'] < $user_options['gwtoolset-record-begin']
+					) {
 						break;
 					}
 
 					// stop processing if the current record nr is >=
 					// the record nr we should begin processing on plus the job throttle
-					if ( $user_options['record-current']
-						>= $user_options['record-begin'] + Config::$job_throttle
+					if (
+						$user_options['gwtoolset-record-current']
+						>= $user_options['gwtoolset-record-begin'] + Config::$job_throttle
 					) {
 						$result['stop-reading'] = true;
 						break;

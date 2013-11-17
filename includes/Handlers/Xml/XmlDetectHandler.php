@@ -87,8 +87,8 @@ class XmlDetectHandler extends XmlHandler {
 	 *
 	 * the search is based on hard-coded keys in the $user_options array
 	 *
-	 * - $user_options['record-element-name']
-	 * - $user_options['record-count']
+	 * - $user_options['gwtoolset-record-element-name']
+	 * - $user_options['gwtoolset-record-count']
 	 *
 	 * if a matching dom element is found it is placed in
 	 * $this->_metadata_example_dom_element
@@ -111,8 +111,8 @@ class XmlDetectHandler extends XmlHandler {
 			);
 		}
 
-		if ( !isset( $user_options['record-element-name'] )
-			|| !isset( $user_options['record-count'] )
+		if ( !isset( $user_options['gwtoolset-record-element-name'] )
+			|| !isset( $user_options['gwtoolset-record-count'] )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -124,19 +124,19 @@ class XmlDetectHandler extends XmlHandler {
 		switch ( $XMLElement->nodeType ) {
 			case ( XMLReader::ELEMENT ):
 				if ( $XMLElement instanceof XMLReader ) {
-					if ( $XMLElement->name === $user_options['record-element-name'] ) {
+					if ( $XMLElement->name === $user_options['gwtoolset-record-element-name'] ) {
 						$record = $XMLElement->expand();
 					}
 				} elseif ( $XMLElement instanceof DOMElement ) {
-					if ( $XMLElement->nodeName === $user_options['record-element-name'] ) {
+					if ( $XMLElement->nodeName === $user_options['gwtoolset-record-element-name'] ) {
 						$record = $XMLElement;
 					}
 				}
 
 				if ( !empty( $record ) ) {
-					$user_options['record-count'] += 1;
+					$user_options['gwtoolset-record-count'] += 1;
 
-					if ( $user_options['record-count'] === 1 ) {
+					if ( $user_options['gwtoolset-record-count'] === 1 ) {
 						$this->createExampleDOMElement( $record );
 					}
 
@@ -180,7 +180,9 @@ class XmlDetectHandler extends XmlHandler {
 	 *
 	 * @return {string}
 	 */
-	protected function getButtonRowNoMetadata( $parameter = null, $parameter_as_id = null, $required = null, $selected_option = null ) {
+	protected function getButtonRowNoMetadata(
+		$parameter = null, $parameter_as_id = null, $required = null, $selected_option = null
+	) {
 		$template =
 			'<tr>' .
 			'<td><label for="%s">%s%s :</label></td>' .
@@ -209,7 +211,9 @@ class XmlDetectHandler extends XmlHandler {
 	 *
 	 * @return {string}
 	 */
-	protected function getFirstRow( $parameter = null, $parameter_as_id = null, $required = null, $selected_option = null ) {
+	protected function getFirstRow(
+		$parameter = null, $parameter_as_id = null, $required = null, $selected_option = null
+	) {
 		$template =
 			'<tr>' .
 			'<td><label for="%s">%s%s :</label></td>' .
@@ -332,13 +336,15 @@ class XmlDetectHandler extends XmlHandler {
 	 * @return {string}
 	 * the values within the table row have been filtered
 	 */
-	public function getMetadataAsTableCells( $parameter, MediawikiTemplate $MediawikiTemplate, Mapping $Mapping ) {
+	public function getMetadataAsTableCells(
+		$parameter, MediawikiTemplate $MediawikiTemplate, Mapping $Mapping
+	) {
 		$result = null;
 		$selected_options = array();
-		$parameter_as_id = $MediawikiTemplate->getParameterAsId( $parameter );
+		$parameter_as_id = \GWToolset\normalizeSpace( $parameter );
 		$first_row_placed = false;
 		$required = null;
-		$required_fields = array( 'title-identifier', 'url-to-the-media-file' );
+		$required_fields = array( 'gwtoolset-title-identifier', 'gwtoolset-url-to-the-media-file' );
 
 		if ( isset( $Mapping->mapping_array[$parameter] ) ) {
 			$selected_options = $Mapping->mapping_array[$parameter];
@@ -348,7 +354,9 @@ class XmlDetectHandler extends XmlHandler {
 			$this->_metadata_as_options = Html::rawElement( 'option', array( 'value' => '' ), ' ' );
 
 			foreach ( $this->_metadata_example_dom_nodes as $nodeName => $nodeValue ) {
-				$this->_metadata_as_options .= Html::rawElement( 'option', array(), Filter::evaluate( $nodeName ) );
+				$this->_metadata_as_options .= Html::rawElement(
+					'option', array(), Filter::evaluate( $nodeName )
+				);
 			}
 		}
 
@@ -356,14 +364,18 @@ class XmlDetectHandler extends XmlHandler {
 			$required = Html::rawElement( 'span', array( 'class' => 'required' ), '*' );
 		}
 
-		if ( $parameter_as_id === 'url-to-the-media-file' ) {
+		if ( $parameter_as_id === 'gwtoolset-url-to-the-media-file' ) {
 			if ( isset( $selected_options[0] ) ) {
-				$result .= $this->getButtonRowNoMetadata( $parameter, $parameter_as_id, $required, $selected_options[0] );
+				$result .= $this->getButtonRowNoMetadata(
+					$parameter, $parameter_as_id, $required, $selected_options[0]
+				);
 			} else {
 				$result .= $this->getButtonRowNoMetadata( $parameter, $parameter_as_id, $required );
 			}
 		} elseif ( count( $selected_options ) === 1 ) {
-			$result .= $this->getFirstRow( $parameter, $parameter_as_id, $required, $selected_options[0] );
+			$result .= $this->getFirstRow(
+				$parameter, $parameter_as_id, $required, $selected_options[0]
+			);
 		} elseif ( count( $selected_options ) > 1 ) {
 			foreach ( $selected_options as $option ) {
 				if ( key_exists( $option, $this->_metadata_example_dom_nodes ) ) {

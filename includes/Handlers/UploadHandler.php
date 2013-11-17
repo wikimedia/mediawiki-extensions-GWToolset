@@ -194,21 +194,21 @@ class UploadHandler {
 		$metadata = null;
 		$result = null;
 
-		if ( !empty( $this->user_options['category-metadata'] ) ) {
-			$category_count = count( $this->user_options['category-metadata'] );
+		if ( !empty( $this->user_options['gwtoolset-category-metadata'] ) ) {
+			$category_count = count( $this->user_options['gwtoolset-category-metadata'] );
 
 			for ( $i = 0; $i < $category_count; $i += 1 ) {
 				$phrase = null;
 				$metadata = null;
 
-				if ( !empty( $this->user_options['category-phrase'][$i] ) ) {
-					$phrase = Filter::evaluate( $this->user_options['category-phrase'][$i] ) . ' ';
+				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
+					$phrase = Filter::evaluate( $this->user_options['gwtoolset-category-phrase'][$i] ) . ' ';
 				}
 
-				if ( !empty( $this->user_options['category-metadata'][$i] ) ) {
+				if ( !empty( $this->user_options['gwtoolset-category-metadata'][$i] ) ) {
 					$metadata =
 						$this->_Metadata->getConcatenatedField(
-							$this->user_options['category-metadata'][$i]
+							$this->user_options['gwtoolset-category-metadata'][$i]
 						);
 				}
 
@@ -456,7 +456,9 @@ class UploadHandler {
 	 * @return {null|string}
 	 * null or an mwstore path
 	 */
-	public function saveMetadataToFileBackend( $metadata_file_upload = 'metadata-file-upload' ) {
+	public function saveMetadataToFileBackend(
+		$metadata_file_upload = 'gwtoolset-metadata-file-upload'
+	) {
 		$result = null;
 
 		if ( !empty( $_FILES[$metadata_file_upload]['name'] ) ) {
@@ -488,11 +490,11 @@ class UploadHandler {
 		$this->validateUserOptions( $user_options );
 		$this->user_options = $user_options;
 
-		$options['url-to-the-media-file'] =
-			$this->_MediawikiTemplate->mediawiki_template_array['url-to-the-media-file'];
+		$options['gwtoolset-url-to-the-media-file'] =
+			$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file'];
 
-		$evaluated_url = $this->evaluateMediafileUrl( $options['url-to-the-media-file'] );
-		$options['url-to-the-media-file'] = $evaluated_url['url'];
+		$evaluated_url = $this->evaluateMediafileUrl( $options['gwtoolset-url-to-the-media-file'] );
+		$options['gwtoolset-url-to-the-media-file'] = $evaluated_url['url'];
 		$options['evaluated-media-file-extension'] = $evaluated_url['extension'];
 
 		$options['title'] = $this->_MediawikiTemplate->getTitle( $options );
@@ -538,13 +540,16 @@ class UploadHandler {
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param {array} $options
-	 *   {array} $options['metadata-mapped-to-mediawiki-template']
-	 *   {array} $options['metadata-as-array']
-	 *   {string} $options['metadata-raw']
+	 * @param {array} $options['metadata-mapped-to-mediawiki-template']
+	 * @param {array} $options['metadata-as-array']
+	 * @param {string} $options['metadata-raw']
+	 * @param {array} $whitelisted_post
 	 *
 	 * @return {bool}
 	 */
-	public function saveMediafileViaJob( array &$user_options, array $options ) {
+	public function saveMediafileViaJob(
+		array &$user_options, array $options, array $whitelisted_post
+	) {
 		$result = false;
 		$job = null;
 		$sessionKey = null;
@@ -565,7 +570,7 @@ class UploadHandler {
 			),
 			array(
 				'options' => $options,
-				'post' => $_POST,
+				'whitelisted-post' => $whitelisted_post,
 				'user-name' => $this->_User->getName(),
 				'user-options' => $user_options
 			)
@@ -583,7 +588,7 @@ class UploadHandler {
 	}
 
 	/**
-	 * @todo does UploadFromUrl filter $options['url-to-the-media-file']
+	 * @todo does UploadFromUrl filter $options['gwtoolset-url-to-the-media-file']
 	 * @todo does UploadFromUrl filter $options['comment']
 	 * @todo does UploadFromUrl filter $options['text']
 	 *
@@ -597,7 +602,7 @@ class UploadHandler {
 
 		$Upload->initialize(
 			$Title->getBaseText(),
-			$options['url-to-the-media-file'],
+			$options['gwtoolset-url-to-the-media-file'],
 			false
 		);
 
@@ -658,7 +663,7 @@ class UploadHandler {
 			);
 		}
 
-		if ( empty( $options['url-to-the-media-file'] ) ) {
+		if ( empty( $options['gwtoolset-url-to-the-media-file'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-url-to-media' )->parse() )

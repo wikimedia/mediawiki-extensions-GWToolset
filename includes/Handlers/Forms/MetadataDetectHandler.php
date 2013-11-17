@@ -24,6 +24,19 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 class MetadataDetectHandler extends FormHandler {
 
 	/**
+	 * @var {array}
+	 */
+	protected $_expected_post_fields = array(
+		'gwtoolset-form',
+		'MAX_FILE_SIZE',
+		'gwtoolset-mediawiki-template-name',
+		'gwtoolset-metadata-file-upload',
+		'gwtoolset-metadata-mapping-url',
+		'gwtoolset-record-element-name',
+		'wpEditToken'
+	);
+
+	/**
 	 * @var {GWToolset\Helpers\GWTFileBackend}
 	 */
 	protected $_GWTFileBackend;
@@ -42,6 +55,11 @@ class MetadataDetectHandler extends FormHandler {
 	 * @var {GWToolset\Handlers\UploadHandler}
 	 */
 	protected $_UploadHandler;
+
+	/**
+	 * #var {array}
+	 */
+	protected $_whitelisted_post;
 
 	/**
 	 * @var {GWToolset\Handlers\Xml\XmlDetectHandler}
@@ -84,34 +102,33 @@ class MetadataDetectHandler extends FormHandler {
 	}
 
 	/**
-	 * gets various user options from $_POST and sets default values
+	 * gets various user options from $this->_whitelisted_post and sets default values
 	 * if no user value is supplied
 	 *
 	 * @return {array}
-	 * the values within the array have not been filtered
 	 */
 	protected function getUserOptions() {
 		return array(
-			'mediawiki-template-name' => !empty( $_POST['mediawiki-template-name'] )
-				? $_POST['mediawiki-template-name']
+			'gwtoolset-mediawiki-template-name' => !empty(
+					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
+				)
+				? $this->_whitelisted_post['gwtoolset-mediawiki-template-name']
 				: null,
 
-			'metadata-file-url' => !empty( $_POST['metadata-file-url'] )
-				? urldecode( $_POST['metadata-file-url'] )
+			'gwtoolset-metadata-file-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
+				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
 				: null,
 
-			'metadata-mapping-url' => !empty( $_POST['metadata-mapping-url'] )
-				? urldecode( $_POST['metadata-mapping-url'] )
+			'gwtoolset-metadata-mapping-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
+				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
 				: null,
-
-			'metadata-stash-key' => null,
 
 			'Metadata-Title' => null,
 
-			'record-count' => 0,
+			'gwtoolset-record-count' => 0,
 
-			'record-element-name' => !empty( $_POST['record-element-name'] )
-				? $_POST['record-element-name']
+			'gwtoolset-record-element-name' => !empty( $this->_whitelisted_post['gwtoolset-record-element-name'] )
+				? $this->_whitelisted_post['gwtoolset-record-element-name']
 				: 'record',
 		);
 	}
@@ -132,14 +149,15 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function processRequest() {
 		$result = null;
+		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );
 		$user_options = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(
 			$user_options,
 			array(
-				'record-element-name',
-				'mediawiki-template-name',
-				'record-count'
+				'gwtoolset-record-element-name',
+				'gwtoolset-mediawiki-template-name',
+				'gwtoolset-record-count'
 			)
 		);
 
@@ -169,10 +187,10 @@ class MetadataDetectHandler extends FormHandler {
 		);
 
 		// upload the metadata file and get an mwstore reference to it
-		$user_options['metadata-file-mwstore'] = $this->_UploadHandler->saveMetadataToFileBackend();
+		$user_options['gwtoolset-metadata-file-mwstore'] = $this->_UploadHandler->saveMetadataToFileBackend();
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['metadata-file-mwstore'] );
+		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['gwtoolset-metadata-file-mwstore'] );
 
 		if ( !( $FSFile instanceof FSFile ) ) {
 			throw new MWException(
@@ -180,18 +198,20 @@ class MetadataDetectHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['metadata-file-mwstore'] )
+							->params( $user_options['gwtoolset-metadata-file-mwstore'] )
 							->parse()
 					)
 					->parse()
 			);
 		}
 
-		$user_options['metadata-file-sha1'] = $FSFile->getSha1Base36();
+		$user_options['gwtoolset-metadata-file-sha1'] = $FSFile->getSha1Base36();
 		$this->XmlDetectHandler->processXml( $user_options, $FSFile->getPath() );
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$this->_MediawikiTemplate->getMediaWikiTemplate( $user_options );
+		$this->_MediawikiTemplate->getMediaWikiTemplate(
+			$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
+		);
 
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
 		$this->_Mapping->retrieve( $user_options );

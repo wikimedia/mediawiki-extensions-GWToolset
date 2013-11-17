@@ -136,7 +136,7 @@ class MetadataDetectForm {
 						'input',
 						array(
 							'type' => 'text',
-							'name' => 'record-element-name',
+							'name' => 'gwtoolset-record-element-name',
 							'placeholder' => 'record'
 						)
 					) .
@@ -155,7 +155,7 @@ class MetadataDetectForm {
 					'label',
 					array(),
 					wfMessage( 'gwtoolset-which-mediawiki-template' )->escaped() .
-					$MediawikiTemplate->getTemplatesAsSelect( 'mediawiki-template-name' ) .
+					$MediawikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' ) .
 					Html::rawElement(
 						'span',
 						array( 'class' => 'required' ),
@@ -175,14 +175,18 @@ class MetadataDetectForm {
 						'input',
 						array(
 							'type' => 'text',
-							'name' => 'metadata-mapping-url',
+							'name' => 'gwtoolset-metadata-mapping-url',
 							'class' => 'gwtoolset-url-input',
-							'placeholder' => $namespace . Filter::evaluate( Config::$metadata_mapping_subpage ) . '/User-name/mapping-name.json'
+							'placeholder' => $namespace .
+								Filter::evaluate( Config::$metadata_mapping_subpage ) .
+								'/User-name/mapping-name.json'
 						)
 					) .
 					Html::rawElement( 'br' ) .
 					Linker::link(
-						Title::newFromText( 'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage ),
+						Title::newFromText(
+							'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage
+						),
 						$namespace . Filter::evaluate( Config::$metadata_mapping_subpage ),
 						array( 'target' => '_blank' )
 					)
@@ -222,15 +226,19 @@ class MetadataDetectForm {
 							'input',
 							array(
 								'type' => 'file',
-								'name' => 'metadata-file-upload',
+								'name' => 'gwtoolset-metadata-file-upload',
 								'accept' => FileChecks::getFileAcceptAttribute( Config::$accepted_metadata_types )
 							)
 						) .
 						Html::rawElement( 'br' ) .
 						'<i>' .
-						wfMessage( 'gwtoolset-accepted-file-types' )->escaped() . ' ' . FileChecks::getAcceptedExtensionsAsList( Config::$accepted_metadata_types ) .
+						wfMessage( 'gwtoolset-accepted-file-types' )->escaped() . ' ' .
+						FileChecks::getAcceptedExtensionsAsList( Config::$accepted_metadata_types ) .
 						Html::rawElement( 'br' ) .
-						wfMessage( 'upload-maxfilesize' )->params( number_format( FileChecks::getMaxUploadSize() / 1024 ) )->escaped() . ' kilobytes' .
+						wfMessage( 'upload-maxfilesize' )
+							->params( number_format( FileChecks::getMaxUploadSize() / 1024 ) )
+							->escaped() .
+							' kilobytes' .
 						'</i>'
 					)
 				)
@@ -293,7 +301,7 @@ class MetadataDetectForm {
 					'input',
 					array(
 						'type' => 'text',
-						'name' => 'metadata-file-url',
+						'name' => 'gwtoolset-metadata-file-url',
 						'class' => 'gwtoolset-url-input',
 						'placeholder' => 'Two-images.xml'
 					)

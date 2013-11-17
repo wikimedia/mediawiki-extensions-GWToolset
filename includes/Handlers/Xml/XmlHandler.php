@@ -95,13 +95,7 @@ abstract class XmlHandler {
 	 * the method that will be used to process the read xml file
 	 *
 	 * @todo: handle invalid xml
-	 * @todo: handle no record-element-name found, specified element does not exist
 	 * @todo: how to handle attributes and children nodes
-	 * @todo: how to store entire file while only reading first node and preparing for element to template matching
-	 * @todo: upload by url use internal upload process rather than the api
-	 * @todo: parse the actual Artwork template for attributes rather than rely on a hard-coded class
-	 * @todo: setup so that record x can be used for mapping rather than only the first record, which is the current default
-	 * @todo: figure out a batch job processing method
 	 * @todo: handle mal-formed xml (future)
 	 * @todo: handle an xml schema if present (future)
 	 * @todo: handle incomplete/partial uploads (future)
@@ -111,7 +105,9 @@ abstract class XmlHandler {
 	 * @return {array}
 	 * an array of mediafile Title(s)
 	 */
-	protected function readXmlAsFile( array &$user_options, $file_path_local = null, $callback = null ) {
+	protected function readXmlAsFile(
+		array &$user_options, $file_path_local = null, $callback = null
+	) {
 		$result = array();
 		$read_result = array( 'Title' => null, 'stop-reading' => false );
 
@@ -173,13 +169,7 @@ abstract class XmlHandler {
 	 * the method that will be used to process the read xml file
 	 *
 	 * @todo: handle invalid xml
-	 * @todo: handle no record-element-name found, specified element does not exist
 	 * @todo: how to handle attributes and children nodes
-	 * @todo: how to store entire file while only reading first node and preparing for element to template matching
-	 * @todo: upload by url use internal upload process rather than the api
-	 * @todo: parse the actual Artwork template for attributes rather than rely on a hard-coded class
-	 * @todo: setup so that record x can be used for mapping rather than only the first record, which is the current default
-	 * @todo: figure out a batch job processing method
 	 * @todo: handle mal-formed xml (future)
 	 * @todo: handle an xml schema if present (future)
 	 * @todo: handle incomplete/partial uploads (future)
@@ -189,7 +179,9 @@ abstract class XmlHandler {
 	 * @return {array}
 	 * an array of mediafile Title(s)
 	 */
-	protected function readXmlAsString( array &$user_options, $xml_source = null, &$callback = null ) {
+	protected function readXmlAsString(
+		array &$user_options, $xml_source = null, &$callback = null
+	) {
 		$result = array();
 		$read_result = array( 'Title' => null, 'stop-reading' => false );
 
@@ -216,7 +208,9 @@ abstract class XmlHandler {
 		}
 
 		$DOMXPath = new DOMXPath( $DOMDoc );
-		$DOMNodeList = $DOMXPath->query( '//' . Filter::evaluate( $user_options['record-element-name'] ) );
+		$DOMNodeList = $DOMXPath->query(
+			'//' . Filter::evaluate( $user_options['gwtoolset-record-element-name'] )
+		);
 
 		if ( $DOMNodeList->length < 1 ) {
 			$msg =

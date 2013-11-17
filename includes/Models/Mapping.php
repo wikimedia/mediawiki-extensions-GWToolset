@@ -90,7 +90,12 @@ class Mapping implements ModelInterface {
 		} catch ( GWTException $e ) {
 			$error_msg = $e->getMessage();
 			if ( isset( $options['Metadata-Mapping-Title'] ) ) {
-				$error_msg .= ' ' . Linker::link( $options['Metadata-Mapping-Title'], null, array( 'target' => '_blank' ) );
+				$error_msg .= ' ' .
+					Linker::link(
+						$options['Metadata-Mapping-Title'],
+						null,
+						array( 'target' => '_blank' )
+					);
 			}
 
 			throw new GWTException(
@@ -129,7 +134,7 @@ class Mapping implements ModelInterface {
 			$result = explode( '/', $result );
 
 			if ( !isset( $result[2] ) ) {
-				$url = Filter::evaluate( $options['metadata-mapping-url'] );
+				$url = Filter::evaluate( $options['gwtoolset-metadata-mapping-url'] );
 
 				$expected_path = $namespace .
 					Filter::evaluate( Config::$metadata_mapping_subpage ) .
@@ -158,16 +163,16 @@ class Mapping implements ModelInterface {
 	protected function getMappingTitle( array &$options ) {
 		$result = null;
 
-		if ( !empty( $options['metadata-mapping-url'] ) ) {
+		if ( !empty( $options['gwtoolset-metadata-mapping-url'] ) ) {
 			$result = \GWToolset\getTitle(
-				$options['metadata-mapping-url'],
+				$options['gwtoolset-metadata-mapping-url'],
 				Config::$metadata_namespace
 			);
 
 			if ( empty( $result ) ) {
 				throw new GWTException(
 					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
-						->params( $options['metadata-mapping-url'] )
+						->params( $options['gwtoolset-metadata-mapping-url'] )
 						->parse()
 				);
 			}
@@ -185,8 +190,8 @@ class Mapping implements ModelInterface {
 		}
 
 		$this->mediawiki_template_name =
-			isset( $options['mediawiki-template-name'] )
-				? $options['mediawiki-template-name']
+			isset( $options['gwtoolset-mediawiki-template-name'] )
+				? $options['gwtoolset-mediawiki-template-name']
 				: null;
 
 		$this->mapping_json =
@@ -216,7 +221,7 @@ class Mapping implements ModelInterface {
 	 */
 	public function retrieve( array &$options = array() ) {
 		$options['Metadata-Mapping-Title'] = $this->getMappingTitle( $options );
-		$options['metadata-mapping-name'] = $this->getMappingName( $options );
+		$options['gwtoolset-metadata-mapping-name'] = $this->getMappingName( $options );
 		$options['metadata-mapping-json'] = $this->_DataAdapater->retrieve( $options );
 
 		if ( !empty( $options['Metadata-Mapping-Title'] ) ) {

@@ -84,7 +84,7 @@ class GWTFileBackend {
 				NS_USER
 			),
 			array(
-				'metadata-file-mwstore' => Filter::evaluate( $mwstore_path )
+				'gwtoolset-metadata-file-mwstore' => Filter::evaluate( $mwstore_path )
 			)
 		);
 
@@ -330,7 +330,10 @@ class GWTFileBackend {
 		if ( empty( $params['container'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-file-backend-container' )->parse() )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-no-file-backend-container' )->parse()
+					)
 					->parse()
 			);
 		}

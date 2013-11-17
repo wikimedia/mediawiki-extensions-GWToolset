@@ -14,10 +14,9 @@ use Job,
 	User;
 
 /**
- * runs the MetadataMappingHandler with the originally $_POST’ed
- * form fields when the job was created. the $_POST contains
- * one or more of the following, which are used to create
- * uploadMediafileJobs via the MetadataMappingHandler:
+ * runs the MetadataMappingHandler with the originally $_POST’ed form fields when
+ * the job was created. the $_POST contains one or more of the following,
+ * which are used to create uploadMediafileJobs via the MetadataMappingHandler:
  *
  *   - mediawiki template to use
  *   - url to the metadata source in the wiki
@@ -44,7 +43,7 @@ class UploadMetadataJob extends Job {
 	 */
 	protected function processMetadata() {
 		$result = false;
-		$_POST = $this->params['post'];
+		$_POST = $this->params['whitelisted-post'];
 
 		$MetadataMappingHandler = new MetadataMappingHandler(
 			array( 'User' => User::newFromName( $this->params['user-name'] ) )
@@ -87,8 +86,8 @@ class UploadMetadataJob extends Job {
 			$result = false;
 		}
 
-		if ( empty( $this->params['post'] ) ) {
-			$this->setLastError( __METHOD__ . ': no $this->params[\'post\'] provided' );
+		if ( empty( $this->params['whitelisted-post'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'whitelisted-post\'] provided' );
 			$result = false;
 		}
 

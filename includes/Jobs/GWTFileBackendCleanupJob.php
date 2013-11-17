@@ -39,7 +39,7 @@ class GWTFileBackendCleanupJob extends Job {
 			)
 		);
 
-		$Status = $GWTFileBackend->deleteFile( $this->params['metadata-file-mwstore'] );
+		$Status = $GWTFileBackend->deleteFile( $this->params['gwtoolset-metadata-file-mwstore'] );
 
 		if ( !$Status->ok ) {
 			$this->setLastError( __METHOD__ . ': ' . $Status->getMessage() );
@@ -75,8 +75,10 @@ class GWTFileBackendCleanupJob extends Job {
 	protected function validateParams() {
 		$result = true;
 
-		if ( empty( $this->params['metadata-file-mwstore'] ) ) {
-			$this->setLastError( __METHOD__ . ': no $this->params[\'metadata-file-mwstore\'] provided' );
+		if ( empty( $this->params['gwtoolset-metadata-file-mwstore'] ) ) {
+			$this->setLastError(
+				__METHOD__ . ': no $this->params[\'gwtoolset-metadata-file-mwstore\'] provided'
+			);
 			$result = false;
 		}
 
