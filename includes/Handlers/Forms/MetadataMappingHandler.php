@@ -89,15 +89,12 @@ class MetadataMappingHandler extends FormHandler {
 	protected $_XmlMappingHandler;
 
 	/**
-	 * @param {array} $user_options
-	 * an array of user options that was submitted in the html form
-	 *
 	 * @throws {MWException}
 	 *
 	 * @return {string}
 	 * the html string has been escaped and parsed by wfMessage
 	 */
-	protected function createMetadataBatchJob( array &$user_options ) {
+	protected function createMetadataBatchJob() {
 		$result = false;
 
 		$job = new UploadMetadataJob(
@@ -109,9 +106,8 @@ class MetadataMappingHandler extends FormHandler {
 				NS_USER
 			),
 			array(
-				'whitelisted-post' => $this->_whitelisted_post,
 				'user-name' => $this->User->getName(),
-				'user-options' => $user_options
+				'whitelisted-post' => $this->_whitelisted_post
 			)
 		);
 
@@ -321,7 +317,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws {GWTException}
-	 * @return {array}
+	 * @return {array|string}
 	 * an array of mediafile Title(s)
 	 */
 	protected function processMetadata( array &$user_options ) {
@@ -398,6 +394,18 @@ class MetadataMappingHandler extends FormHandler {
 
 		// when PHP_SAPI === 'cli' this method is being run by a wiki job.
 		if ( PHP_SAPI === 'cli' ) {
+			// add jobs created earlier by $this->_UploadHandler::saveMediafileViaJob to the JobQueue
+			if ( count( $this->_UploadHandler->mediafile_jobs ) > 0 ) {
+				$added_jobs = JobQueueGroup::singleton()->push( $this->_UploadHandler->mediafile_jobs );
+
+				if ( $added_jobs ) {
+					$result =
+						wfMessage( 'gwtoolset-mediafile-jobs-created' )
+							->params( count( $this->_UploadHandler->mediafile_jobs ) )
+							->escaped();
+				}
+			}
+
 			// at this point
 			// * the UploadMetadataJob has created ( Config::$job_throttle ) number of
 			//   UploadMediafileJobs
@@ -425,10 +433,9 @@ class MetadataMappingHandler extends FormHandler {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
 					(int)$user_options['gwtoolset-record-current'];
 				$this->createMetadataBatchJob( $user_options );
-
-			// no more UploadMediafileJobs need to be created; create a GWTFileBackendCleanupJob
-			// that will delete the metadata file in the mwstore
 			} else {
+				// no more UploadMediafileJobs need to be created
+				// create a GWTFileBackendCleanupJob that will delete the metadata file in the mwstore
 				$Status = $this->_GWTFileBackend->createCleanupJob(
 					$user_options['gwtoolset-metadata-file-mwstore']
 				);

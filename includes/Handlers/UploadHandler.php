@@ -82,17 +82,12 @@ class UploadHandler {
 	/**
 	 * @var {array}
 	 */
+	public $mediafile_jobs;
+
+	/**
+	 * @var {array}
+	 */
 	public $user_options;
-
-	/**
-	 * @var {int}
-	 */
-	public $jobs_added;
-
-	/**
-	 * @var {int}
-	 */
-	public $jobs_not_added;
 
 	/**
 	 * @param {array} $options
@@ -434,8 +429,7 @@ class UploadHandler {
 		$this->_SpecialPage = null;
 		$this->_UploadBase = null;
 
-		$this->jobs_added = 0;
-		$this->jobs_not_added = 0;
+		$this->mediafile_jobs = array();
 		$this->user_options = array();
 	}
 
@@ -551,11 +545,16 @@ class UploadHandler {
 		array &$user_options, array $options, array $whitelisted_post
 	) {
 		$result = false;
-		$job = null;
-		$sessionKey = null;
 
-		if ( $this->jobs_added > Config::$job_throttle ) {
-			return;
+		if ( count( $this->mediafile_jobs ) > Config::$job_throttle ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-job-throttle-exceeded' )->escaped()
+					)
+					->escaped()
+			);
 		}
 
 		$this->validateUserOptions( $user_options );
@@ -576,13 +575,8 @@ class UploadHandler {
 			)
 		);
 
-		$result = JobQueueGroup::singleton()->push( $job );
-
-		if ( $result ) {
-			$this->jobs_added += 1;
-		} else {
-			$this->jobs_not_added += 1;
-		}
+		$this->mediafile_jobs[] = $job;
+		$result = true;
 
 		return $result;
 	}

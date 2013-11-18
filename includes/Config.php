@@ -16,7 +16,7 @@ class Config {
 	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
 	public static $descriptionmsg = 'gwtoolset-desc';
 	public static $type = 'media';
-	public static $version = '0.1.6';
+	public static $version = '0.0.1-dev';
 
 	/**
 	 * @var {array}

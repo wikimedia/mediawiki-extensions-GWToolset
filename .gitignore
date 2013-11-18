@@ -3,4 +3,4 @@
 *.kate-swp
 .*.swp
 .DS_Store
-config-custom.php
+.change-log.txt

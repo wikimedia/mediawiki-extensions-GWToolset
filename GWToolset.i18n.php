@@ -33,14 +33,13 @@ $messages['en'] = array(
 	'gwtoolset-batchjob-creation-failure' => 'Could not create a ($1) batch job.',
 	'gwtoolset-could-not-close-xml' => 'Could not close the XMLReader.',
 	'gwtoolset-could-not-open-xml' => 'Could not open the XML File for reading.',
-	'gwtoolset-developer-issue' => "Please contact a developer; they will need to address this issue before you can continue.
-
-$1",
+	'gwtoolset-developer-issue' => "Please contact a developer; they will need to address this issue before you can continue. $1",
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, or <code>record-count</code> or <code>record-current</code> not provided.',
 	'gwtoolset-file-backend-maxage-invalid' => 'The FileBackend max age value provided is invalid @see php.net/manual/en/datetime.formats.relative.php.',
 	'gwtoolset-fsfile-empty' => 'The mwstored file was empty; the extension has deleted the file for you.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Could not retrieve ($1) from the FileBackend.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> not set.',
+	'gwtoolset-job-throttle-exceeded' => 'The batch job job throttle was exceeded.',
 	'gwtoolset-no-accepted-types' => 'No accepted types provided',
 	'gwtoolset-no-callback' => 'No callback passed to this method.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> not set.",
@@ -238,6 +237,7 @@ Try another field from the metadata for title and title-identifier, or if possib
 	'gwtoolset-batchjob-metadata-created' => 'Metadata batch job created. Your metadata file will be analyzed shortly and each item will be uploaded to the wiki in a background process. You can check the ($1) page to see when they have been uploaded.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Could not create batchjob for the metadata file.',
 	'gwtoolset-create-mediafile' => '$1 creating mediafile for $2.',
+	'gwtoolset-mediafile-jobs-created' => 'Created ($1) mediafile batch jobs.',
 	'gwtoolset-step-4-heading' => 'Step 4: Batch upload',
 
 	/**
@@ -306,6 +306,7 @@ $messages['qqq'] = array(
 	'gwtoolset-ignorewarnings' => 'Hint to the developer that appears when ignorewarnings is not set.',
 	'gwtoolset-improper-upload' => 'User error message that appears when a File was not uploaded properly.',
 	'gwtoolset-intro' => 'Introduction paragraph for the extension used on the initial Special:GWtoolset landing page.',
+	'gwtoolset-job-throttle-exceeded' => 'Developer message that appears when the batch job job throttle was exceeded.',
 	'gwtoolset-json-error' => 'Appears when there is a problem with a JSON value.',
 	'gwtoolset-json-error-ctrl-char' => 'User error message when an unexpected control character has been found.',
 	'gwtoolset-json-error-depth' => 'User error message when the maximum stack depth is exceeded.',
@@ -321,6 +322,7 @@ $messages['qqq'] = array(
 	'gwtoolset-mapping-no-title-identifier' => 'User error message when the metadata mapping contains no title identifier.',
 	'gwtoolset-maps-to' => 'Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.',
 	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'User message that appears when the PHP ini settings are less that the wiki’s $wgMaxUploadSize setting.',
+	'gwtoolset-mediafile-jobs-created' => 'User/Developer message that indicates ($1) number of mediafile batch jobs was created.',
 	'gwtoolset-metadata-user-options-error' => 'Initial paragraph that notifies the user that there are form fields missing. The specific form fields that are missing are mentioned separately.',
 	'gwtoolset-metadata-invalid-template' => 'Message that appears when no valid MediaWiki template is found.',
 	'gwtoolset-mediawiki-template' => 'Heading used on the mapping page. The parameter is filled in with the wiki template name that will be used for mapping the metadata to the wiki template.',
