@@ -64,7 +64,7 @@ class GWTFileBackendCleanup extends Maintenance {
 		$mwstore_path = $GWTFileBackend->getMWStorePath();
 
 		$FSFileBackendFileList = $GWTFileBackend->FileBackend->getFileList(
-			array( 'dir' => $mwstore_path )
+			array( 'dir' => $mwstore_path, 'adviseStat' => true )
 		);
 
 		$this->output(
