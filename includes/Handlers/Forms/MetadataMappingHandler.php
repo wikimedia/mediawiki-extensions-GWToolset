@@ -13,6 +13,7 @@ use FSFile,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Adapters\Php\MetadataPhpAdapter,
 	GWToolset\Config,
+	GWToolset\Constants,
 	GWToolset\Forms\PreviewForm,
 	GWToolset\GWTException,
 	GWToolset\Helpers\GWTFileBackend,
@@ -100,7 +101,7 @@ class MetadataMappingHandler extends FormHandler {
 		$job = new UploadMetadataJob(
 			Title::newFromText(
 				$this->User->getName() . '/' .
-				Config::$name . '/' .
+				Constants::EXTENSION_NAME . '/' .
 				'Metadata Batch Job/' .
 				uniqid(),
 				NS_USER
@@ -433,6 +434,7 @@ class MetadataMappingHandler extends FormHandler {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
 					(int)$user_options['gwtoolset-record-current'];
 				$this->createMetadataBatchJob( $user_options );
+
 			} else {
 				// no more UploadMediafileJobs need to be created
 				// create a GWTFileBackendCleanupJob that will delete the metadata file in the mwstore

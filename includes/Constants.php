@@ -8,7 +8,11 @@
  */
 
 namespace GWToolset;
-use Exception;
 
-class GWTException extends Exception {
+class Constants {
+
+	const EXTENSION_NAME = 'GWToolset';
+	const REQUIRED_MEDIAWIKI_VERSION = '1.22c';
+	const USE_FILEBACKEND = true;
+
 }

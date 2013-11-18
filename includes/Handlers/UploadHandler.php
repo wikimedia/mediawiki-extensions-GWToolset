@@ -10,6 +10,7 @@
 namespace GWToolset\Handlers;
 use ContentHandler,
 	GWToolset\Config,
+	GWToolset\Constants,
 	GWToolset\GWTException,
 	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Helpers\FileChecks,
@@ -495,7 +496,7 @@ class UploadHandler {
 		$options['ignorewarnings'] = true;
 		$options['watch'] = true;
 		$options['comment'] = wfMessage( 'gwtoolset-create-mediafile' )
-			->params( Config::$name, $this->_User->getName() )
+			->params( Constants::EXTENSION_NAME, $this->_User->getName() )
 			->escaped() . PHP_EOL .
 			trim( $this->user_options['comment'] );
 
@@ -562,7 +563,7 @@ class UploadHandler {
 		$job = new UploadMediafileJob(
 			Title::newFromText(
 				$this->_User->getName() . '/' .
-				Config::$name . '/' .
+				Constants::EXTENSION_NAME . '/' .
 				'Mediafile Batch Job/' .
 				uniqid(),
 				NS_USER

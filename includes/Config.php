@@ -9,14 +9,11 @@
 
 namespace GWToolset;
 
+/**
+ * these values can be overriden in LocalSettings.php with
+ * GWToolset\Config::$var_name = 'new value'
+ */
 class Config {
-
-	public static $name = 'GWToolset';
-	public static $author = array( 'dan entous' );
-	public static $url = 'https://www.mediawiki.org/wiki/Extension:GWToolset';
-	public static $descriptionmsg = 'gwtoolset-desc';
-	public static $type = 'media';
-	public static $version = '0.0.1-dev';
 
 	/**
 	 * @var {array}
@@ -49,67 +46,9 @@ class Config {
 	);
 
 	/**
-	 * @var {array}
-	 */
-	public static $autoloader_classes = array(
-		'GWToolset\GWTException' => '/includes/GWTException.php',
-
-		'GWToolset\Adapters\DataAdapterInterface' => '/includes/Adapters/DataAdapterInterface.php',
-
-		'GWToolset\Adapters\Php\MappingPhpAdapter' => '/includes/Adapters/Php/MappingPhpAdapter.php',
-		'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
-		'GWToolset\Adapters\Php\MetadataPhpAdapter' => '/includes/Adapters/Php/MetadataPhpAdapter.php',
-
-		'GWToolset\Forms\MetadataDetectForm' => '/includes/Forms/MetadataDetectForm.php',
-		'GWToolset\Forms\MetadataMappingForm' => '/includes/Forms/MetadataMappingForm.php',
-		'GWToolset\Forms\PreviewForm' => '/includes/Forms/PreviewForm.php',
-
-		'GWToolset\Handlers\Forms\FormHandler' => '/includes/Handlers/Forms/FormHandler.php',
-		'GWToolset\Handlers\Forms\MetadataDetectHandler' => '/includes/Handlers/Forms/MetadataDetectHandler.php',
-		'GWToolset\Handlers\Forms\MetadataMappingHandler' => '/includes/Handlers/Forms/MetadataMappingHandler.php',
-
-		'GWToolset\Handlers\SpecialPageHandler' => '/includes/Handlers/SpecialPageHandler.php',
-		'GWToolset\Handlers\UploadHandler' => '/includes/Handlers/UploadHandler.php',
-		'GWToolset\Handlers\Xml\XmlDetectHandler' => '/includes/Handlers/Xml/XmlDetectHandler.php',
-		'GWToolset\Handlers\Xml\XmlHandler' => '/includes/Handlers/Xml/XmlHandler.php',
-		'GWToolset\Handlers\Xml\XmlMappingHandler' => '/includes/Handlers/Xml/XmlMappingHandler.php',
-
-		'GWToolset\Helpers\FileChecks' => '/includes/Helpers/FileChecks.php',
-		'GWToolset\Helpers\GWTFileBackend' => '/includes/Helpers/GWTFileBackend.php',
-		'GWToolset\Helpers\WikiChecks' => '/includes/Helpers/WikiChecks.php',
-		'GWToolset\Helpers\WikiPages' => '/includes/Helpers/WikiPages.php',
-
-		'GWToolset\Hooks' => '/includes/Hooks/Hooks.php',
-
-		'GWToolset\Jobs\GWTFileBackendCleanupJob' => '/includes/Jobs/GWTFileBackendCleanupJob.php',
-		'GWToolset\Jobs\UploadMediafileJob' => '/includes/Jobs/UploadMediafileJob.php',
-		'GWToolset\Jobs\UploadMetadataJob' => '/includes/Jobs/UploadMetadataJob.php',
-
-		'GWToolset\Models\Mapping' => '/includes/Models/Mapping.php',
-		'GWToolset\Models\MediawikiTemplate' => '/includes/Models/MediawikiTemplate.php',
-		'GWToolset\Models\Metadata' => '/includes/Models/Metadata.php',
-		'GWToolset\Models\ModelInterface' => '/includes/Models/ModelInterface.php',
-
-		'GWToolset\SpecialGWToolset' => '/includes/Specials/SpecialGWToolset.php',
-
-		'Php\File' => '/includes/Php/File.php',
-		'Php\FileException' => '/includes/Php/FileException.php',
-		'Php\Filter' => '/includes/Php/Filter.php',
-		'Php\FilterException' => '/includes/Php/FilterException.php'
-	);
-
-	/**
 	 * @var {string}
 	 */
 	public static $category_separator = '|';
-
-	/**
-	 * @var {array}
-	 */
-	public static $hooks = array(
-		'CanonicalNamespaces' => 'GWToolset\Hooks::onCanonicalNamespaces',
-		'UnitTestsList' => 'GWToolset\Hooks::onUnitTestsList'
-	);
 
 	/**
 	 * @var {int}
@@ -121,16 +60,6 @@ class Config {
 	 * @var {string}
 	 */
 	public static $http_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1';
-
-	/**
-	 * @var {array}
-	 * register jobs with the wiki
-	 */
-	public static $jobs = array(
-		'gwtoolsetGWTFileBackendCleanupJob' => 'GWToolset\Jobs\GWTFileBackendCleanupJob',
-		'gwtoolsetUploadMediafileJob' => 'GWToolset\Jobs\UploadMediafileJob',
-		'gwtoolsetUploadMetadataJob' => 'GWToolset\Jobs\UploadMetadataJob'
-	);
 
 	/**
 	 * @var {int}
@@ -153,6 +82,7 @@ class Config {
 
 	/**
 	 * @var {array}
+	 * fallbacks in case there’s no template data for these MediaWiki templates
 	 * http://gwtoolset/api.php?action=templatedata&titles=Template:Artwork
 	 */
 	public static $mediawiki_templates = array(
@@ -174,15 +104,6 @@ class Config {
 	 * 128M default
 	 */
 	public static $memory_limit = '256M';
-
-	/**
-	 * @var {array}
-	 */
-	public static $messages = array(
-		'GWToolsetAlias' => '/GWToolset.alias.php',
-		'GWToolset' => '/GWToolset.i18n.php',
-		'GWToolsetNamespaces' => '/GWToolset.namespaces.php',
-	);
 
 	/**
 	 * @var {string}
@@ -226,57 +147,9 @@ class Config {
 
 	/**
 	 * @var {string}
-	 */
-	public static $required_mediawiki_version = '1.22c';
-
-	/**
-	 * @var {array}
-	 */
-	public static $resources = array(
-		'scripts' => array(
-			'resources/js/ext.gwtoolset.js'
-		),
-		'styles' => array(
-			'resources/css/ext.gwtoolset.css'
-		),
-		'messages' => array(
-			'gwtoolset-back-text-link',
-			'gwtoolset-cancel',
-			'gwtoolset-create-mapping',
-			'gwtoolset-developer-issue',
-			'gwtoolset-loading',
-			'gwtoolset-save',
-			'gwtoolset-save-mapping',
-			'gwtoolset-save-mapping-name',
-			'gwtoolset-save-mapping-failed',
-			'gwtoolset-save-mapping-succeeded',
-			'gwtoolset-step-2-heading'
-		),
-		'dependencies' => array(
-			'jquery.json',
-			'jquery.spinner',
-			'jquery.ui.widget',
-			'jquery.ui.button',
-			'jquery.ui.draggable',
-			'jquery.ui.mouse',
-			'jquery.ui.position',
-			'jquery.ui.resizable',
-			'jquery.ui.dialog'
-		)
-	);
-
-	/**
-	 * @var {string}
 	 * Category:Source_templates is the category on commons for partner templates
 	 */
 	public static $source_templates = 'Source_templates';
-
-	/**
-	 * @see SpecialPage __constructor
-	 * @var {string}
-	 * name of the special page, as seen in links and URLs
-	 */
-	public static $special_page_name = 'GWToolset';
 
 	/**
 	 * @see SpecialPage __constructor
@@ -291,16 +164,6 @@ class Config {
 	 * whether the page is listed in Special:Specialpages
 	 */
 	public static $special_page_listed = true;
-
-	/**
-	 * @var {array}
-	 */
-	public static $special_pages = array(
-		'GWToolset' => array(
-			'class_name' => 'GWToolset\SpecialGWToolset',
-			'group' => 'media'
-		)
-	);
 
 	/**
 	 * @var {int}
@@ -320,11 +183,6 @@ class Config {
 	 * delimited list in the input file’s accept attribute
 	 */
 	public static $use_file_accept_attribute = true;
-
-	/**
-	 * @var {bool}
-	 */
-	public static $use_UploadStash = true;
 
 	/**
 	 * @var {string}

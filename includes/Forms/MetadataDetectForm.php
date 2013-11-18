@@ -10,6 +10,7 @@ namespace GWToolset\Forms;
 use Html,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Config,
+	GWToolset\Constants,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Models\MediawikiTemplate,
 	Linker,
@@ -273,7 +274,7 @@ class MetadataDetectForm {
 	public static function getMetadataFileUrlExtraInstructions() {
 		$result = null;
 
-		if ( Config::$use_UploadStash ) {
+		if ( Constants::USE_FILEBACKEND ) {
 			return $result;
 		}
 
@@ -286,7 +287,7 @@ class MetadataDetectForm {
 	public static function getMetadataFileUrlInput( $namespace ) {
 		$result = null;
 
-		if ( Config::$use_UploadStash ) {
+		if ( Constants::USE_FILEBACKEND ) {
 			return $result;
 		}
 

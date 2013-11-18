@@ -8,8 +8,9 @@
  */
 
 namespace GWToolset;
-use GWToolset\Handlers\SpecialPageHandler,
+use GWToolset\Constants,
 	GWToolset\GWTException,
+	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
@@ -55,7 +56,7 @@ class SpecialGWToolset extends SpecialPage {
 
 	public function __construct() {
 		parent::__construct(
-			Config::$special_page_name,
+			Constants::EXTENSION_NAME,
 			Config::$special_page_restriction,
 			Config::$special_page_listed
 		);
@@ -169,7 +170,7 @@ class SpecialGWToolset extends SpecialPage {
 		$this->getOutput()->addHtml(
 			wfMessage( 'gwtoolset-menu' )->rawParams(
 				Linker::link(
-					Title::newFromText( 'Special:' . Config::$name ),
+					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
 					wfMessage( 'gwtoolset-menu-1' )->escaped(),
 					array(),
 					array( 'gwtoolset-form' => 'metadata-detect' )

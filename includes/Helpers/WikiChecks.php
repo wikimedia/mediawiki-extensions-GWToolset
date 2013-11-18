@@ -9,6 +9,7 @@
 
 namespace GWToolset\Helpers;
 use GWToolset\Config,
+	GWToolset\Constants,
 	Html,
 	MWException,
 	PermissionsError,
@@ -91,11 +92,11 @@ class WikiChecks {
 		global $wgVersion;
 
 		try {
-			wfUseMW( Config::$required_mediawiki_version );
+			wfUseMW( Constants::REQUIRED_MEDIAWIKI_VERSION );
 		} catch( MWException $e ) {
 			return Status::newFatal(
 				'gwtoolset-mediawiki-version-invalid',
-				Config::$required_mediawiki_version,
+				Constants::REQUIRED_MEDIAWIKI_VERSION,
 				$wgVersion
 			);
 		}
@@ -137,7 +138,7 @@ class WikiChecks {
 		if ( !defined( 'PHP_VERSION' )
 			|| version_compare( PHP_VERSION, '5.3.3', '<' )
 		) {
-			return Status::newFatal( 'gwtoolset-verify-php-version', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-php-version', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
@@ -326,7 +327,7 @@ class WikiChecks {
 		global $wgEnableUploads;
 
 		if ( !$wgEnableUploads || ( !wfIsHHVM() && !wfIniGetBool( 'file_uploads' ) ) ) {
-			return Status::newFatal( 'gwtoolset-verify-uploads-enabled', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
@@ -339,7 +340,7 @@ class WikiChecks {
 		global $wgEnableAPI;
 
 		if ( !$wgEnableAPI ) {
-			return Status::newFatal( 'gwtoolset-verify-api-enabled', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-api-enabled', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
@@ -352,7 +353,7 @@ class WikiChecks {
 		global $wgEnableWriteAPI;
 
 		if ( !$wgEnableWriteAPI ) {
-			return Status::newFatal( 'gwtoolset-verify-api-writeable', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-api-writeable', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
@@ -363,7 +364,7 @@ class WikiChecks {
 	 */
 	public static function verifyFinfoExists() {
 		if ( !class_exists( 'finfo' ) ) {
-			return Status::newFatal( 'gwtoolset-verify-finfo', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-finfo', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
@@ -374,7 +375,7 @@ class WikiChecks {
 	 */
 	public static function verifyXMLReaderExists() {
 		if ( !class_exists( 'XMLReader' ) ) {
-			return Status::newFatal( 'gwtoolset-verify-xmlreader', Config::$name );
+			return Status::newFatal( 'gwtoolset-verify-xmlreader', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();

@@ -11,6 +11,7 @@ namespace GWToolset\Helpers;
 use FileBackendGroup,
 	GWToolset\Jobs\GWTFileBackendCleanupJob,
 	GWToolset\Config,
+	GWToolset\Constants,
 	JobQueueGroup,
 	MWException,
 	Php\File,
@@ -78,7 +79,7 @@ class GWTFileBackend {
 		$job = new GWTFileBackendCleanupJob(
 			Title::newFromText(
 				Filter::evaluate( $this->_User->getName() ) . '/' .
-				Filter::evaluate( Config::$name ) . '/' .
+				Filter::evaluate( Constants::EXTENSION_NAME ) . '/' .
 				'FileBackend Cleanup Job/' .
 				uniqid(),
 				NS_USER
