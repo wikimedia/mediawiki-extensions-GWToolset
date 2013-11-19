@@ -547,7 +547,7 @@ class UploadHandler {
 	) {
 		$result = false;
 
-		if ( count( $this->mediafile_jobs ) > Config::$job_throttle ) {
+		if ( count( $this->mediafile_jobs ) > (int)Config::$mediafile_job_throttle ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(

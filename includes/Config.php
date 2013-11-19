@@ -63,11 +63,6 @@ class Config {
 
 	/**
 	 * @var {int}
-	 */
-	public static $job_throttle = 10;
-
-	/**
-	 * @var {int}
 	 * 1.25e7 or 12,500,000 default
 	 */
 	public static $max_image_area = 6.4e7;
@@ -79,6 +74,21 @@ class Config {
 	 * the wiki’s $wgMaxUploadSize is used
 	 */
 	public static $max_upload_filesize = 0;
+
+	/**
+	 * @var {int}
+	 * the maximum number of mediafile jobs to add to the job queue during this run.
+	 */
+	public static $mediafile_job_throttle = 10;
+
+	/**
+	 * @var {int}
+	 * the maximum number of UploadMediafileJob’s that should exist in the overall job queue.
+	 * if this number is reached, the UploadMetadataJob will attempt
+	 * Config::$metadata_job_max_attempts times to add to the additional
+	 * UploadMediafileJob’s before failing.
+	 */
+	public static $mediafile_job_queue_max = 1000;
 
 	/**
 	 * @var {array}
@@ -110,6 +120,15 @@ class Config {
 	 * category automatically assigned to metadata files uploaded by GWToolset
 	 */
 	public static $metadata_file_category = 'GWToolset_Metadata_Sets';
+
+	/**
+	 * @var {int}
+	 * the maximum number of times the UploadMetadataJob will attempt to add the same
+	 * UploadMediafileJob’s to the job queue. this max is used when the
+	 * Config::$metadata_job_max_attempts has been reached and if used, can indicate
+	 * an issue with the job queue clearing out UploadMediafileJob’s.
+	 */
+	public static $metadata_job_max_attempts = 5;
 
 	/**
 	 * @var {string}

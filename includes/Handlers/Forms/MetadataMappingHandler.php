@@ -107,6 +107,7 @@ class MetadataMappingHandler extends FormHandler {
 				NS_USER
 			),
 			array(
+				'attempts' => 1,
 				'user-name' => $this->User->getName(),
 				'whitelisted-post' => $this->_whitelisted_post
 			)
@@ -408,7 +409,7 @@ class MetadataMappingHandler extends FormHandler {
 			}
 
 			// at this point
-			// * the UploadMetadataJob has created ( Config::$job_throttle ) number of
+			// * the UploadMetadataJob has created ( Config::$mediafile_job_throttle ) number of
 			//   UploadMediafileJobs
 			// * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
 			//   began with
@@ -416,8 +417,8 @@ class MetadataMappingHandler extends FormHandler {
 			//   processed
 			//
 			// example to illustrate the test
-			// * Config::$preview_throttle       = 3
-			// * Config::$job_throttle           = 10
+			// * Config::$preview_throttle                 = 3
+			// * Config::$mediafile_job_throttle           = 10
 			// * $user_options['gwtoolset-record-count']   = 14
 			// * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
 			// * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
@@ -429,7 +430,7 @@ class MetadataMappingHandler extends FormHandler {
 			// * create another UploadMetadataJob that will take care of the last record
 			if (
 				(int)$user_options['gwtoolset-record-count']
-				>= ( (int)$user_options['gwtoolset-record-begin'] + (int)Config::$job_throttle )
+				>= ( (int)$user_options['gwtoolset-record-begin'] + (int)Config::$mediafile_job_throttle )
 			) {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
 					(int)$user_options['gwtoolset-record-current'];
@@ -492,7 +493,7 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		if ( $user_options['preview'] === true ) {
-			Config::$job_throttle = Config::$preview_throttle;
+			Config::$mediafile_job_throttle = (int)Config::$preview_throttle;
 			$mediafile_titles = $this->processMetadata( $user_options );
 
 			$result = PreviewForm::getForm(

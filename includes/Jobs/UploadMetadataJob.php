@@ -9,8 +9,13 @@
 
 namespace GWToolset\Jobs;
 use Job,
+	JobQueueGroup,
+	GWToolset\Config,
+	GWToolset\Constants,
 	GWToolset\GWTException,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
+	MWException,
+	Title,
 	User;
 
 /**
@@ -55,14 +60,66 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
+	 * @return {bool}
+	 */
+	protected function recreateMetadataJob() {
+		$result = false;
+
+		if ( (int)$this->params['attempts'] > (int)Config::$metadata_job_max_attempts ) {
+			throw new MWException(
+				'There is a serious problem with the gwtoolsetUploadMediafileJob job queue' .
+				'There are > ' . Config::$mediafile_job_queue_max . ' gwtoolsetUploadMediafileJob’s ' .
+				'in the job queue. gwtoolsetUploadMetadataJob has attempted ' .
+				Config::$metadata_job_max_attempts . ' times to add additional ' .
+				'gwtoolsetUploadMediafileJob’s to the job queue, but cannot because the ' .
+				'gwtoolsetUploadMediafileJob’s are not clearing out.'
+			);
+		}
+
+		$job = new UploadMetadataJob(
+			Title::newFromText(
+				User::newFromName( $this->params['user-name'] ) . '/' .
+				Constants::EXTENSION_NAME . '/' .
+				'Metadata Batch Job/' .
+				uniqid(),
+				NS_USER
+			),
+			array(
+				'attempts' => (int)$this->params['attempts'] + 1,
+				'user-name' => $this->params['user-name'],
+				'whitelisted-post' => $this->params['whitelisted-post']
+			)
+		);
+
+		$result = JobQueueGroup::singleton()->push( $job );
+	}
+
+	/**
 	 * entry point
-	 * @todo: should $result always be true?
-	 * @return {bool|array}
+	 * @return {bool}
 	 */
 	public function run() {
 		$result = false;
 
 		if ( !$this->validateParams() ) {
+			return $result;
+		}
+
+		$job_queue_size = JobQueueGroup::singleton()->get( 'gwtoolsetUploadMediafileJob' )->getSize();
+
+		// make sure the overall job queue does not have > Config::$mediafile_job_queue_max
+		// gwtoolsetUploadMediafileJob’s. if it does, re-create the UploadMetadataJob
+		// in order to try again later to add the UploadMediafileJob’s
+		if ( (int)$job_queue_size > (int)Config::$mediafile_job_queue_max ) {
+			$result = $this->recreateMetadataJob();
+
+			if ( !$result ) {
+				$this->setLastError(
+					__METHOD__ . ': ' .
+					wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped()
+				);
+			}
+
 			return $result;
 		}
 
@@ -80,6 +137,11 @@ class UploadMetadataJob extends Job {
 	 */
 	protected function validateParams() {
 		$result = true;
+
+		if ( empty( $this->params['attempts'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'attempts\'] provided' );
+			$result = false;
+		}
 
 		if ( empty( $this->params['user-name'] ) ) {
 			$this->setLastError( __METHOD__ . ': no $this->params[\'user-name\'] provided' );

@@ -340,8 +340,8 @@ class XmlMappingHandler extends XmlHandler {
 					// stop processing if the current record nr is >=
 					// the record nr we should begin processing on plus the job throttle
 					if (
-						$user_options['gwtoolset-record-current']
-						>= $user_options['gwtoolset-record-begin'] + Config::$job_throttle
+						(int)$user_options['gwtoolset-record-current']
+						>= (int)$user_options['gwtoolset-record-begin'] + (int)Config::$mediafile_job_throttle
 					) {
 						$result['stop-reading'] = true;
 						break;
