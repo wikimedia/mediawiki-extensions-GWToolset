@@ -193,7 +193,7 @@ class XmlDetectHandler extends XmlHandler {
 		return sprintf(
 			$template,
 			Filter::evaluate( $parameter_as_id ),
-			Filter::evaluate( $parameter ),
+			$this->getFormLabel( $parameter ),
 			$required,
 			Filter::evaluate( $parameter ),
 			Filter::evaluate( $parameter_as_id ),
@@ -224,7 +224,7 @@ class XmlDetectHandler extends XmlHandler {
 		return sprintf(
 			$template,
 			Filter::evaluate( $parameter_as_id ),
-			Filter::evaluate( $parameter ),
+			$this->getFormLabel( $parameter ),
 			$required,
 			Filter::evaluate( $parameter ),
 			Filter::evaluate( $parameter_as_id ),
@@ -253,6 +253,25 @@ class XmlDetectHandler extends XmlHandler {
 			Filter::evaluate( $parameter ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
+	}
+
+	/**
+	 * normalizes form field names so that - _ and gwtoolset are removed from the form label
+	 *
+	 * @param {string}
+	 *
+	 * @return {string}
+	 * the string has been sanitized
+	 */
+	protected function getFormLabel( $parameter ) {
+		$result = Filter::evaluate( $parameter );
+		$result = str_replace(
+			array( '_', '-', 'gwtoolset' ),
+			array( ' ', ' ', '' ),
+			$result
+		);
+
+		return $result;
 	}
 
 	/**

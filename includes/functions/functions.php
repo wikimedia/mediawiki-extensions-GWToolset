@@ -109,6 +109,7 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 
 	if ( empty( $page_title ) ) {
 		throw new MWException(
+			__METHOD__ . ': ' .
 			wfMessage( 'gwtoolset-developer-issue' )
 				->params( wfMessage( 'gwtoolset-no-page-title' )->escaped() )
 				->parse()
@@ -156,10 +157,15 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 /**
  * cycles over the $_POST and returns a “whitelisted-post” that:
  * - contains only the posted fields expected
- * - sanitizes those fields
- * - if the field is an array, field[], only goes into it one level
+ * - if the field is an array, only one level is applied
+ * - sanitizes those fields with
+ *   - FILTER_SANITIZE_STRING
+ *     @see http://php.net/manual/en/filter.filters.sanitize.php
+ *   - shorterns strings > $metadata['size'], the max size expected of a field value
  *
  * @param {array} $expected_post_fields
+ *
+ * @throws {MWException}
  *
  * @return {array}
  * the values within the array have been sanitized
@@ -167,21 +173,37 @@ function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = ar
 function getWhitelistedPost( array $expected_post_fields = array() ) {
 		$result = array();
 
-		foreach ( $expected_post_fields as $field ) {
-			$field = normalizeSpace( $field );
+		foreach ( $expected_post_fields as $field => $metadata ) {
+			if ( !isset( $_POST[$field] ) ) {
+				continue;
+			}
 
-			if ( isset( $_POST[$field] ) ) {
-				if ( is_array( $_POST[$field] ) ) {
-					$result[$field] = array();
-					foreach ( $_POST[$field] as $subfield ) {
-						// avoid field[][]
-						if ( !is_array( $subfield ) ) {
-							$result[$field][] = Filter::evaluate( $subfield );
-						}
+			if ( !isset( $metadata['size'] ) ) {
+				throw new MWException(
+					__METHOD__ . ': ' .
+					wfMessage( 'gwtoolset-developer-issue' )
+						->params(
+							wfMessage( 'gwtoolset-no-field-size' )
+								->params( $field )
+								->escaped()
+						)
+						->parse()
+				);
+			}
+
+			if ( is_array( $_POST[$field] ) ) {
+				$result[$field] = array();
+
+				foreach ( $_POST[$field] as $value ) {
+					// avoid field[][]
+					if ( !is_array( $value ) ) {
+						$value = substr( $value, 0, $metadata['size'] );
+						$result[$field][] = Filter::evaluate( $value );
 					}
-				} else {
-					$result[$field] = Filter::evaluate( $_POST[$field] );
 				}
+			} else {
+				$value = substr( $_POST[$field], 0, $metadata['size'] );
+				$result[$field] = Filter::evaluate( $value );
 			}
 		}
 

@@ -27,13 +27,13 @@ class MetadataDetectHandler extends FormHandler {
 	 * @var {array}
 	 */
 	protected $_expected_post_fields = array(
-		'gwtoolset-form',
-		'MAX_FILE_SIZE',
-		'gwtoolset-mediawiki-template-name',
-		'gwtoolset-metadata-file-upload',
-		'gwtoolset-metadata-mapping-url',
-		'gwtoolset-record-element-name',
-		'wpEditToken'
+		'gwtoolset-form' => array( 'size' => 255 ),
+		'MAX_FILE_SIZE' => array( 'size' => 255 ),
+		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
+		'gwtoolset-metadata-file-upload' => array( 'size' => 255 ),
+		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
+		'gwtoolset-record-element-name' => array( 'size' => 255 ),
+		'wpEditToken' => array( 'size' => 255 )
 	);
 
 	/**

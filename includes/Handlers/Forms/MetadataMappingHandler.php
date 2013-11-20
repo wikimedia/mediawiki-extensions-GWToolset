@@ -38,25 +38,25 @@ class MetadataMappingHandler extends FormHandler {
 	 * @var {array}
 	 */
 	protected $_expected_post_fields = array(
-		'gwtoolset-category',
-		'gwtoolset-category-phrase',
-		'gwtoolset-category-metadata',
-		'gwtoolset-form',
-		'gwtoolset-preview',
-		'gwtoolset-mediawiki-template-name',
-		'gwtoolset-metadata-file-mwstore',
-		'gwtoolset-metadata-file-sha1',
-		'gwtoolset-metadata-file-url',
-		'gwtoolset-metadata-mapping-name',
-		'gwtoolset-metadata-mapping-subpage',
-		'gwtoolset-metadata-mapping-url',
-		'gwtoolset-metadata-namespace',
-		'gwtoolset-partner-template-url',
-		'gwtoolset-record-begin',
-		'gwtoolset-record-count',
-		'gwtoolset-record-element-name',
-		'wpEditToken',
-		'wpSummary'
+		'gwtoolset-category' => array( 'size' => 255 ),
+		'gwtoolset-category-phrase' => array( 'size' => 255 ),
+		'gwtoolset-category-metadata' => array( 'size' => 255 ),
+		'gwtoolset-form' => array( 'size' => 255 ),
+		'gwtoolset-preview' => array( 'size' => 255 ),
+		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
+		'gwtoolset-metadata-file-mwstore' => array( 'size' => 255 ),
+		'gwtoolset-metadata-file-sha1' => array( 'size' => 255 ),
+		'gwtoolset-metadata-file-url' => array( 'size' => 255 ),
+		'gwtoolset-metadata-mapping-name' => array( 'size' => 255 ),
+		'gwtoolset-metadata-mapping-subpage' => array( 'size' => 255 ),
+		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
+		'gwtoolset-metadata-namespace' => array( 'size' => 255 ),
+		'gwtoolset-partner-template-url' => array( 'size' => 255 ),
+		'gwtoolset-record-begin' => array( 'size' => 255 ),
+		'gwtoolset-record-count' => array( 'size' => 255 ),
+		'gwtoolset-record-element-name' => array( 'size' => 255 ),
+		'wpEditToken' => array( 'size' => 255 ),
+		'wpSummary' => array( 'size' => 255 )
 	);
 
 	/**
@@ -473,7 +473,9 @@ class MetadataMappingHandler extends FormHandler {
 		$this->_MediawikiTemplate->getMediaWikiTemplate( $_POST['gwtoolset-mediawiki-template-name'] );
 
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
-			$this->_expected_post_fields[] = Filter::evaluate( $key );
+			// MediaWiki template parameters sometimes contain spaces
+			$key = \GWToolset\normalizeSpace( $key );
+			$this->_expected_post_fields[Filter::evaluate( $key )] = array( 'size' => 255 );
 		}
 
 		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );
