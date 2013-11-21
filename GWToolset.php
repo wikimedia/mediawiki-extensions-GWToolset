@@ -52,49 +52,51 @@ $wgGroupPermissions['sysop']['gwtoolset'] = true;
 $wgGroupPermissions['sysop']['gwtoolset-debug'] = true;
 
 // load extension functions
-require_once $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'functions.php';
+require_once $wgGWToolsetDir . '/includes/functions/functions.php';
 
 // add autoloader classes
-$wgAutoloadClasses['GWToolset\Config'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Config.php';
-$wgAutoloadClasses['GWToolset\Constants'] =	$wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Constants.php';
-$wgAutoloadClasses['GWToolset\GWTException'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'GWTException.php';
-$wgAutoloadClasses['GWToolset\Adapters\DataAdapterInterface'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Adapters' . DIRECTORY_SEPARATOR . 'DataAdapterInterface.php';
-$wgAutoloadClasses['GWToolset\Adapters\Php\MappingPhpAdapter'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Adapters' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'MappingPhpAdapter.php';
-$wgAutoloadClasses['GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Adapters' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'MediawikiTemplatePhpAdapter.php';
-$wgAutoloadClasses['GWToolset\Adapters\Php\MetadataPhpAdapter'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Adapters' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'MetadataPhpAdapter.php';
-$wgAutoloadClasses['GWToolset\Forms\MetadataDetectForm'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'MetadataDetectForm.php';
-$wgAutoloadClasses['GWToolset\Forms\MetadataMappingForm'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'MetadataMappingForm.php';
-$wgAutoloadClasses['GWToolset\Forms\PreviewForm'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'PreviewForm.php';
-$wgAutoloadClasses['GWToolset\Handlers\Forms\FormHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'FormHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\Forms\MetadataDetectHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'MetadataDetectHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\Forms\MetadataMappingHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Forms' . DIRECTORY_SEPARATOR . 'MetadataMappingHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\SpecialPageHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'SpecialPageHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\UploadHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'UploadHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\Xml\XmlDetectHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Xml' . DIRECTORY_SEPARATOR . 'XmlDetectHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\Xml\XmlHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Xml' . DIRECTORY_SEPARATOR . 'XmlHandler.php';
-$wgAutoloadClasses['GWToolset\Handlers\Xml\XmlMappingHandler'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Handlers' . DIRECTORY_SEPARATOR . 'Xml' . DIRECTORY_SEPARATOR . 'XmlMappingHandler.php';
-$wgAutoloadClasses['GWToolset\Helpers\FileChecks'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Helpers' . DIRECTORY_SEPARATOR . 'FileChecks.php';
-$wgAutoloadClasses['GWToolset\Helpers\GWTFileBackend'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Helpers' . DIRECTORY_SEPARATOR . 'GWTFileBackend.php';
-$wgAutoloadClasses['GWToolset\Helpers\WikiChecks'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Helpers' . DIRECTORY_SEPARATOR . 'WikiChecks.php';
-$wgAutoloadClasses['GWToolset\Helpers\WikiPages'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Helpers' . DIRECTORY_SEPARATOR . 'WikiPages.php';
-$wgAutoloadClasses['GWToolset\Hooks'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Hooks' . DIRECTORY_SEPARATOR . 'Hooks.php';
-$wgAutoloadClasses['GWToolset\Jobs\GWTFileBackendCleanupJob'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Jobs' . DIRECTORY_SEPARATOR . 'GWTFileBackendCleanupJob.php';
-$wgAutoloadClasses['GWToolset\Jobs\UploadMediafileJob'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Jobs' . DIRECTORY_SEPARATOR . 'UploadMediafileJob.php';
-$wgAutoloadClasses['GWToolset\Jobs\UploadMetadataJob'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Jobs' . DIRECTORY_SEPARATOR . 'UploadMetadataJob.php';
-$wgAutoloadClasses['GWToolset\Models\Mapping'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'Mapping.php';
-$wgAutoloadClasses['GWToolset\Models\MediawikiTemplate'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'MediawikiTemplate.php';
-$wgAutoloadClasses['GWToolset\Models\Metadata'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'Metadata.php';
-$wgAutoloadClasses['GWToolset\Models\ModelInterface'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'ModelInterface.php';
-$wgAutoloadClasses['GWToolset\SpecialGWToolset'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Specials' . DIRECTORY_SEPARATOR . 'SpecialGWToolset.php';
-$wgAutoloadClasses['Php\File'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'File.php';
-$wgAutoloadClasses['Php\FileException'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'FileException.php';
-$wgAutoloadClasses['Php\Filter'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'Filter.php';
-$wgAutoloadClasses['Php\FilterException'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'Php' . DIRECTORY_SEPARATOR . 'FilterException.php';
+$wgAutoloadClasses = $wgAutoloadClasses + array(
+	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',
+	'GWToolset\Constants' => $wgGWToolsetDir . '/includes/Constants.php',
+	'GWToolset\GWTException' => $wgGWToolsetDir . '/includes/GWTException.php',
+	'GWToolset\Adapters\DataAdapterInterface' => $wgGWToolsetDir . '/includes/Adapters/DataAdapterInterface.php',
+	'GWToolset\Adapters\Php\MappingPhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MappingPhpAdapter.php',
+	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
+	'GWToolset\Adapters\Php\MetadataPhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MetadataPhpAdapter.php',
+	'GWToolset\Forms\MetadataDetectForm' => $wgGWToolsetDir . '/includes/Forms/MetadataDetectForm.php',
+	'GWToolset\Forms\MetadataMappingForm' => $wgGWToolsetDir . '/includes/Forms/MetadataMappingForm.php',
+	'GWToolset\Forms\PreviewForm' => $wgGWToolsetDir . '/includes/Forms/PreviewForm.php',
+	'GWToolset\Handlers\Forms\FormHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/FormHandler.php',
+	'GWToolset\Handlers\Forms\MetadataDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataDetectHandler.php',
+	'GWToolset\Handlers\Forms\MetadataMappingHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataMappingHandler.php',
+	'GWToolset\Handlers\SpecialPageHandler' => $wgGWToolsetDir . '/includes/Handlers/SpecialPageHandler.php',
+	'GWToolset\Handlers\UploadHandler' => $wgGWToolsetDir . '/includes/Handlers/UploadHandler.php',
+	'GWToolset\Handlers\Xml\XmlDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlDetectHandler.php',
+	'GWToolset\Handlers\Xml\XmlHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlHandler.php',
+	'GWToolset\Handlers\Xml\XmlMappingHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlMappingHandler.php',
+	'GWToolset\Helpers\FileChecks' => $wgGWToolsetDir . '/includes/Helpers/FileChecks.php',
+	'GWToolset\Helpers\GWTFileBackend' => $wgGWToolsetDir . '/includes/Helpers/GWTFileBackend.php',
+	'GWToolset\Helpers\WikiChecks' => $wgGWToolsetDir . '/includes/Helpers/WikiChecks.php',
+	'GWToolset\Helpers\WikiPages' => $wgGWToolsetDir . '/includes/Helpers/WikiPages.php',
+	'GWToolset\Hooks' => $wgGWToolsetDir . '/includes/Hooks/Hooks.php',
+	'GWToolset\Jobs\GWTFileBackendCleanupJob' => $wgGWToolsetDir . '/includes/Jobs/GWTFileBackendCleanupJob.php',
+	'GWToolset\Jobs\UploadMediafileJob' => $wgGWToolsetDir . '/includes/Jobs/UploadMediafileJob.php',
+	'GWToolset\Jobs\UploadMetadataJob' => $wgGWToolsetDir . '/includes/Jobs/UploadMetadataJob.php',
+	'GWToolset\Models\Mapping' => $wgGWToolsetDir . '/includes/Models/Mapping.php',
+	'GWToolset\Models\MediawikiTemplate' => $wgGWToolsetDir . '/includes/Models/MediawikiTemplate.php',
+	'GWToolset\Models\Metadata' => $wgGWToolsetDir . '/includes/Models/Metadata.php',
+	'GWToolset\Models\ModelInterface' => $wgGWToolsetDir . '/includes/Models/ModelInterface.php',
+	'GWToolset\SpecialGWToolset' => $wgGWToolsetDir . '/includes/Specials/SpecialGWToolset.php',
+	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php',
+	'Php\FileException' => $wgGWToolsetDir . '/includes/Php/FileException.php',
+	'Php\Filter' => $wgGWToolsetDir . '/includes/Php/Filter.php',
+	'Php\FilterException' => $wgGWToolsetDir . '/includes/Php/FilterException.php'
+);
 
 // add internationalization message file references
-$wgExtensionMessagesFiles['GWToolsetAlias'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'GWToolset.alias.php';
-$wgExtensionMessagesFiles['GWToolset'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'GWToolset.i18n.php';
-$wgExtensionMessagesFiles['GWToolsetNamespaces'] = $wgGWToolsetDir . DIRECTORY_SEPARATOR . 'GWToolset.namespaces.php';
+$wgExtensionMessagesFiles['GWToolsetAlias'] = $wgGWToolsetDir . '/GWToolset.alias.php';
+$wgExtensionMessagesFiles['GWToolset'] = $wgGWToolsetDir . '/GWToolset.i18n.php';
+$wgExtensionMessagesFiles['GWToolsetNamespaces'] = $wgGWToolsetDir . '/GWToolset.namespaces.php';
 
 // setup special page references
 $wgSpecialPages['GWToolset'] = 'GWToolset\SpecialGWToolset';
