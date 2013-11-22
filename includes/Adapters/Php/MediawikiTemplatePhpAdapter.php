@@ -60,7 +60,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 				);
 		}
 
-		$Title = \GWToolset\getTitle(
+		$Title = Utils::getTitle(
 			$options['mediawiki_template_name'],
 			NS_TEMPLATE
 		);
@@ -124,7 +124,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		$api_result = json_decode( $Http->getContent(), true );
 
 		try {
-			\GWToolset\jsonCheckForError();
+			Utils::jsonCheckForError();
 		} catch ( GWTException $e ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

@@ -101,7 +101,7 @@ class MediawikiTemplate implements ModelInterface {
 		}
 
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
-			$parameter_as_id = Utils::sanitizeString( \GWToolset\normalizeSpace( $parameter ) );
+			$parameter_as_id = Utils::sanitizeString( Utils::normalizeSpace( $parameter ) );
 
 			if ( isset( $array[$parameter_as_id] ) ) {
 				foreach ( $array[$parameter_as_id] as $metadata_element ) {
@@ -421,7 +421,7 @@ class MediawikiTemplate implements ModelInterface {
 	public function populateFromArray( array &$metadata = array() ) {
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
 			$this->mediawiki_template_array[$parameter] = null;
-			$parameter_as_id = \GWToolset\normalizeSpace( $parameter );
+			$parameter_as_id = Utils::normalizeSpace( $parameter );
 
 			if ( isset( $metadata[$parameter_as_id] ) ) {
 				$this->mediawiki_template_array[$parameter] = $metadata[$parameter_as_id];

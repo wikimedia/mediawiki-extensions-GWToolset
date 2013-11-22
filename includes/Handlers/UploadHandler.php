@@ -166,8 +166,8 @@ class UploadHandler {
 			foreach ( $categories as $category ) {
 				$result .=
 						'[[' .
-							\GWToolset\getNamespaceName( NS_CATEGORY ) .
-							\GWToolset\stripIllegalCategoryChars( Utils::sanitizeString( $category ) ) .
+							Utils::getNamespaceName( NS_CATEGORY ) .
+							Utils::stripIllegalCategoryChars( Utils::sanitizeString( $category ) ) .
 						']]';
 			}
 		}
@@ -211,9 +211,9 @@ class UploadHandler {
 				if ( !empty( $metadata ) ) {
 					$result .=
 						'[[' .
-							\GWToolset\getNamespaceName( NS_CATEGORY ) .
-							\GWToolset\stripIllegalCategoryChars( $phrase ) .
-							\GWToolset\stripIllegalCategoryChars( $metadata ) .
+							Utils::getNamespaceName( NS_CATEGORY ) .
+							Utils::stripIllegalCategoryChars( $phrase ) .
+							Utils::stripIllegalCategoryChars( $metadata ) .
 						']]';
 				}
 			}
@@ -407,8 +407,8 @@ class UploadHandler {
 	 * @return {Title}
 	 */
 	protected function getTitle( $title ) {
-		$result = \GWToolset\getTitle(
-			\GWToolset\stripIllegalTitleChars( $title ),
+		$result = Utils::getTitle(
+			Utils::stripIllegalTitleChars( $title ),
 			Config::$mediafile_namespace,
 			array( 'must-be-known' => false )
 		);

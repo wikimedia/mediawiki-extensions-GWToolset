@@ -251,7 +251,7 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		if ( !empty( $result['gwtoolset-partner-template-url'] ) ) {
-			$result['partner-template-name'] = \GWToolset\getTitle(
+			$result['partner-template-name'] = Utils::getTitle(
 				$result['gwtoolset-partner-template-url'],
 				NS_TEMPLATE,
 				array( 'must-be-known' => false )
@@ -462,11 +462,11 @@ class MetadataMappingHandler extends FormHandler {
 
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
 			// MediaWiki template parameters sometimes contain spaces
-			$key = \GWToolset\normalizeSpace( $key );
+			$key = Utils::normalizeSpace( $key );
 			$this->_expected_post_fields[Utils::sanitizeString( $key )] = array( 'size' => 255 );
 		}
 
-		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );
+		$this->_whitelisted_post = Utils::getWhitelistedPost( $this->_expected_post_fields );
 		$user_options = $this->getUserOptions();
 		$this->getGlobalCategories( $user_options );
 

@@ -33,8 +33,8 @@ class FileChecks {
 	 */
 	public static function checkContentLength() {
 		if ( isset( $_SERVER["CONTENT_LENGTH"] )
-			&& ( (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('post_max_size') )
-				|| (int)$_SERVER["CONTENT_LENGTH"] > \GWToolset\getBytes( ini_get('upload_max_filesize') ) )
+			&& ( (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('post_max_size') )
+				|| (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('upload_max_filesize') ) )
 		) {
 			throw new GWTException( wfMessage( 'gwtoolset-over-max-ini' )->parse() );
 		}
@@ -91,7 +91,7 @@ class FileChecks {
 	 * @return {array}
 	 */
 	public static function getAcceptedMimeTypes( array &$accepted_types = array() ) {
-		return array_unique( \GWToolset\getArraySecondLevelValues( $accepted_types ) );
+		return array_unique( Utils::getArraySecondLevelValues( $accepted_types ) );
 	}
 
 	/**

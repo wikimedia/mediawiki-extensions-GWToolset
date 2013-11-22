@@ -18,6 +18,7 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
+	GWToolset\Utils,
 	FSFile,
 	Php\File;
 
@@ -149,7 +150,7 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function processRequest() {
 		$result = null;
-		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );
+		$this->_whitelisted_post = Utils::getWhitelistedPost( $this->_expected_post_fields );
 		$user_options = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(

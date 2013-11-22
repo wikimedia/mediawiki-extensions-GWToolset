@@ -231,7 +231,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'gwtoolset-metadata-namespace',
 					'name' => 'gwtoolset-metadata-namespace',
-					'value' => Utils::sanitizeString( \GWToolset\getNamespaceName( Config::$metadata_namespace ) )
+					'value' => Utils::sanitizeString( Utils::getNamespaceName( Config::$metadata_namespace ) )
 				)
 			) .
 

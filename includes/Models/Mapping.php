@@ -86,7 +86,7 @@ class Mapping implements ModelInterface {
 
 		try {
 			$result = json_decode( $this->mapping_json, true );
-			\GWToolset\jsonCheckForError();
+			Utils::jsonCheckForError();
 		} catch ( GWTException $e ) {
 			$error_msg = $e->getMessage();
 			if ( isset( $options['Metadata-Mapping-Title'] ) ) {
@@ -118,7 +118,7 @@ class Mapping implements ModelInterface {
 	 */
 	protected function getMappingName( array $options ) {
 		$result = null;
-		$namespace = \GWToolset\getNamespaceName( Config::$metadata_namespace );
+		$namespace = Utils::getNamespaceName( Config::$metadata_namespace );
 
 		if ( !empty( $options['Metadata-Mapping-Title'] ) ) {
 			$result = str_replace(
@@ -164,7 +164,7 @@ class Mapping implements ModelInterface {
 		$result = null;
 
 		if ( !empty( $options['gwtoolset-metadata-mapping-url'] ) ) {
-			$result = \GWToolset\getTitle(
+			$result = Utils::getTitle(
 				$options['gwtoolset-metadata-mapping-url'],
 				Config::$metadata_namespace
 			);

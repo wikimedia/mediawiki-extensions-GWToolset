@@ -51,9 +51,6 @@ $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
 $wgGroupPermissions['sysop']['gwtoolset'] = true;
 $wgGroupPermissions['sysop']['gwtoolset-debug'] = true;
 
-// load extension functions
-require_once $wgGWToolsetDir . '/includes/functions/functions.php';
-
 // add autoloader classes
 $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',

@@ -360,7 +360,7 @@ class XmlDetectHandler extends XmlHandler {
 	) {
 		$result = null;
 		$selected_options = array();
-		$parameter_as_id = \GWToolset\normalizeSpace( $parameter );
+		$parameter_as_id = Utils::normalizeSpace( $parameter );
 		$first_row_placed = false;
 		$required = null;
 		$required_fields = array( 'gwtoolset-title-identifier', 'gwtoolset-url-to-the-media-file' );
