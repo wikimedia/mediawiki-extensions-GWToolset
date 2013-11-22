@@ -59,6 +59,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',
 	'GWToolset\Constants' => $wgGWToolsetDir . '/includes/Constants.php',
 	'GWToolset\GWTException' => $wgGWToolsetDir . '/includes/GWTException.php',
+	'GWToolset\Utils' => $wgGWToolsetDir . '/includes/Utils.php',
 	'GWToolset\Adapters\DataAdapterInterface' => $wgGWToolsetDir . '/includes/Adapters/DataAdapterInterface.php',
 	'GWToolset\Adapters\Php\MappingPhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MappingPhpAdapter.php',
 	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
@@ -88,9 +89,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Models\ModelInterface' => $wgGWToolsetDir . '/includes/Models/ModelInterface.php',
 	'GWToolset\SpecialGWToolset' => $wgGWToolsetDir . '/includes/Specials/SpecialGWToolset.php',
 	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php',
-	'Php\FileException' => $wgGWToolsetDir . '/includes/Php/FileException.php',
-	'Php\Filter' => $wgGWToolsetDir . '/includes/Php/Filter.php',
-	'Php\FilterException' => $wgGWToolsetDir . '/includes/Php/FilterException.php'
+	'Php\FileException' => $wgGWToolsetDir . '/includes/Php/FileException.php'
 );
 
 // add internationalization message file references

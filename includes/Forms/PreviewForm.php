@@ -8,11 +8,11 @@
  */
 namespace GWToolset\Forms;
 use GWToolset\Config,
+	GWToolset\Utils,
 	GWToolset\Helpers\FileChecks,
 	Html,
 	IContextSource,
 	Linker,
-	Php\Filter,
 	Title;
 
 class PreviewForm {
@@ -164,8 +164,8 @@ class PreviewForm {
 					'input',
 					array(
 						'type' => 'hidden',
-						'name' => Filter::evaluate( $key ),
-						'value' => Filter::evaluate( $value )
+						'name' => Utils::sanitizeString( $key ),
+						'value' => Utils::sanitizeString( $value )
 					)
 				);
 			} else {
@@ -174,8 +174,8 @@ class PreviewForm {
 						'input',
 						array(
 							'type' => 'hidden',
-							'name' => Filter::evaluate( $key ) . '[]',
-							'value' => Filter::evaluate( $sub_value )
+							'name' => Utils::sanitizeString( $key ) . '[]',
+							'value' => Utils::sanitizeString( $sub_value )
 						)
 					);
 				}

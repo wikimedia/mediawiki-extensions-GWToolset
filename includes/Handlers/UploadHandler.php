@@ -12,6 +12,7 @@ use ContentHandler,
 	GWToolset\Config,
 	GWToolset\Constants,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
@@ -24,7 +25,6 @@ use ContentHandler,
 	MWException,
 	MWHttpRequest,
 	Php\File,
-	Php\Filter,
 	Title,
 	UploadBase,
 	UploadFromUrl,
@@ -167,7 +167,7 @@ class UploadHandler {
 				$result .=
 						'[[' .
 							\GWToolset\getNamespaceName( NS_CATEGORY ) .
-							\GWToolset\stripIllegalCategoryChars( Filter::evaluate( $category ) ) .
+							\GWToolset\stripIllegalCategoryChars( Utils::sanitizeString( $category ) ) .
 						']]';
 			}
 		}
@@ -198,7 +198,7 @@ class UploadHandler {
 				$metadata = null;
 
 				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
-					$phrase = Filter::evaluate( $this->user_options['gwtoolset-category-phrase'][$i] ) . ' ';
+					$phrase = Utils::sanitizeString( $this->user_options['gwtoolset-category-phrase'][$i] ) . ' ';
 				}
 
 				if ( !empty( $this->user_options['gwtoolset-category-metadata'][$i] ) ) {
@@ -248,7 +248,7 @@ class UploadHandler {
 
 		foreach ( array_keys( Config::$accepted_metadata_types ) as $accepted_extension ) {
 			if ( !in_array( $accepted_extension, $wgFileExtensions ) ) {
-				$wgFileExtensions[] = Filter::evaluate( $accepted_extension );
+				$wgFileExtensions[] = Utils::sanitizeString( $accepted_extension );
 			}
 		}
 	}
@@ -311,7 +311,7 @@ class UploadHandler {
 		if ( !$Status->ok ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
-					->rawParams( Filter::evaluate( $url ) )
+					->rawParams( Utils::sanitizeString( $url ) )
 					->escaped()
 			);
 		}
@@ -323,7 +323,7 @@ class UploadHandler {
 		if ( empty( $result['extension'] ) ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
-					->rawParams( Filter::evaluate( $url ) )
+					->rawParams( Utils::sanitizeString( $url ) )
 					->escaped()
 			);
 		}
@@ -351,7 +351,7 @@ class UploadHandler {
 		if ( empty( $options['url'] ) ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
-					->rawParams( Filter::evaluate( $options['url'] ) )
+					->rawParams( Utils::sanitizeString( $options['url'] ) )
 					->escaped()
 			);
 		}
@@ -359,7 +359,7 @@ class UploadHandler {
 		if ( empty( $options['content-type'] ) ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-no-content-type' )
-					->rawParams( Filter::evaluate( $options['content-type'] ) )
+					->rawParams( Utils::sanitizeString( $options['content-type'] ) )
 					->escaped()
 			);
 		}

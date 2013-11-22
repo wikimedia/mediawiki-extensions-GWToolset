@@ -8,11 +8,11 @@
  */
 namespace GWToolset\Handlers\Forms;
 use	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\WikiChecks,
 	Html,
-	MWException,
-	Php\Filter;
+	MWException;
 
 abstract class FormHandler extends SpecialPageHandler {
 
@@ -34,16 +34,16 @@ abstract class FormHandler extends SpecialPageHandler {
 
 		foreach ( $expected_options as $option ) {
 			if ( !array_key_exists( $option, $user_options ) ) {
-				$msg .= '<li>' . Filter::evaluate( $option ) . '</li>';
+				$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
 			}
 
 			if ( is_array( $user_options[$option] ) ) {
 				if ( strlen( reset( $user_options[$option] ) ) < 1 ) {
-					$msg .= '<li>' . Filter::evaluate( $option ) . '</li>';
+					$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
 				}
 			} else {
 				if ( strlen( $user_options[$option] ) < 1 ) {
-					$msg .= '<li>' . Filter::evaluate( $option ) . '</li>';
+					$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
 				}
 			}
 		}

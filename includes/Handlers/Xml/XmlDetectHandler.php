@@ -11,11 +11,11 @@ namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMElement,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	Html,
 	MWException,
-	Php\Filter,
 	XMLReader;
 
 /**
@@ -192,11 +192,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Filter::evaluate( $parameter_as_id ),
+			Utils::sanitizeString( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
-			Filter::evaluate( $parameter ),
-			Filter::evaluate( $parameter_as_id ),
+			Utils::sanitizeString( $parameter ),
+			Utils::sanitizeString( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -223,11 +223,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Filter::evaluate( $parameter_as_id ),
+			Utils::sanitizeString( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
-			Filter::evaluate( $parameter ),
-			Filter::evaluate( $parameter_as_id ),
+			Utils::sanitizeString( $parameter ),
+			Utils::sanitizeString( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -250,7 +250,7 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Filter::evaluate( $parameter ),
+			Utils::sanitizeString( $parameter ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -264,7 +264,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * the string has been sanitized
 	 */
 	protected function getFormLabel( $parameter ) {
-		$result = Filter::evaluate( $parameter );
+		$result = Utils::sanitizeString( $parameter );
 		$result = str_replace(
 			array( '_', '-', 'gwtoolset' ),
 			array( ' ', ' ', '' ),
@@ -293,12 +293,12 @@ class XmlDetectHandler extends XmlHandler {
 					Html::rawElement(
 						'td',
 						array(),
-						Filter::evaluate( $nodeName )
+						Utils::sanitizeString( $nodeName )
 					) .
 					Html::rawElement(
 						'td',
 						array(),
-						Filter::evaluate( $nodeValue )
+						Utils::sanitizeString( $nodeValue )
 					)
 				);
 			}
@@ -332,7 +332,7 @@ class XmlDetectHandler extends XmlHandler {
 				$attribs['selected'] = 'selected';
 			}
 
-			$result .= Html::rawElement( 'option', $attribs, Filter::evaluate( $nodeName ) );
+			$result .= Html::rawElement( 'option', $attribs, Utils::sanitizeString( $nodeName ) );
 		}
 
 		return $result;
@@ -374,7 +374,7 @@ class XmlDetectHandler extends XmlHandler {
 
 			foreach ( $this->_metadata_example_dom_nodes as $nodeName => $nodeValue ) {
 				$this->_metadata_as_options .= Html::rawElement(
-					'option', array(), Filter::evaluate( $nodeName )
+					'option', array(), Utils::sanitizeString( $nodeName )
 				);
 			}
 		}

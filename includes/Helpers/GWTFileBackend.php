@@ -12,10 +12,10 @@ use FileBackendGroup,
 	GWToolset\Jobs\GWTFileBackendCleanupJob,
 	GWToolset\Config,
 	GWToolset\Constants,
+	GWToolset\Utils,
 	JobQueueGroup,
 	MWException,
 	Php\File,
-	Php\Filter,
 	Status,
 	Title,
 	User;
@@ -78,14 +78,14 @@ class GWTFileBackend {
 
 		$job = new GWTFileBackendCleanupJob(
 			Title::newFromText(
-				Filter::evaluate( $this->_User->getName() ) . '/' .
-				Filter::evaluate( Constants::EXTENSION_NAME ) . '/' .
+				Utils::sanitizeString( $this->_User->getName() ) . '/' .
+				Utils::sanitizeString( Constants::EXTENSION_NAME ) . '/' .
 				'FileBackend Cleanup Job/' .
 				uniqid(),
 				NS_USER
 			),
 			array(
-				'gwtoolset-metadata-file-mwstore' => Filter::evaluate( $mwstore_path )
+				'gwtoolset-metadata-file-mwstore' => Utils::sanitizeString( $mwstore_path )
 			)
 		);
 
@@ -121,7 +121,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$src = array( 'src' => Filter::evaluate( $mwstore_file_path ) );
+		$src = array( 'src' => Utils::sanitizeString( $mwstore_file_path ) );
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			$result = $this->FileBackend->quickDelete( $src );
@@ -180,7 +180,7 @@ class GWTFileBackend {
 			$this->getHashPath() . DIRECTORY_SEPARATOR .
 			$this->_hash .
 			( ( !empty( $this->_file_extension ) )
-				? '.' . Filter::evaluate( $this->_file_extension )
+				? '.' . Utils::sanitizeString( $this->_file_extension )
 				: null );
 	}
 
@@ -209,8 +209,8 @@ class GWTFileBackend {
 	 */
 	protected function quickStore( $tmp_file_path = null ) {
 		$params = array(
-			'src' => Filter::evaluate( $tmp_file_path ),
-			'dst' => Filter::evaluate( $this->getMWStorePath() )
+			'src' => Utils::sanitizeString( $tmp_file_path ),
+			'dst' => Utils::sanitizeString( $this->getMWStorePath() )
 		);
 
 		return $this->FileBackend->quickStore( $params );
@@ -234,7 +234,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$src = array( 'src' => Filter::evaluate( $mwstore_file_path ) );
+		$src = array( 'src' => Utils::sanitizeString( $mwstore_file_path ) );
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			if ( $this->FileBackend->getFileSize( $src ) === 0 ) {
@@ -340,10 +340,10 @@ class GWTFileBackend {
 		}
 
 		$this->FileBackend = FileBackendGroup::singleton()->get(
-			Filter::evaluate( $params['file-backend-name'] )
+			Utils::sanitizeString( $params['file-backend-name'] )
 		);
 
-		$this->_container = Filter::evaluate( $params['container'] );
+		$this->_container = Utils::sanitizeString( $params['container'] );
 	}
 
 }

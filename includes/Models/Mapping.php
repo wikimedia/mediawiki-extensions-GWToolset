@@ -11,11 +11,11 @@ namespace GWToolset\Models;
 use GWToolset\Adapters\DataAdapterInterface,
 	GWtoolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiPages,
 	Language,
-	Linker,
-	Php\Filter;
+	Linker;
 
 class Mapping implements ModelInterface {
 
@@ -134,10 +134,10 @@ class Mapping implements ModelInterface {
 			$result = explode( '/', $result );
 
 			if ( !isset( $result[2] ) ) {
-				$url = Filter::evaluate( $options['gwtoolset-metadata-mapping-url'] );
+				$url = Utils::sanitizeString( $options['gwtoolset-metadata-mapping-url'] );
 
 				$expected_path = $namespace .
-					Filter::evaluate( Config::$metadata_mapping_subpage ) .
+					Utils::sanitizeString( Config::$metadata_mapping_subpage ) .
 					'/user-name/file-name.json';
 
 				$msg = wfMessage( 'gwtoolset-metadata-mapping-invalid-url' )

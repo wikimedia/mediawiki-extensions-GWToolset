@@ -12,10 +12,10 @@ use Content,
 	DOMDocument,
 	DOMXPath,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	Html,
 	Linker,
 	MWException,
-	Php\Filter,
 	XMLReader;
 
 abstract class XmlHandler {
@@ -209,7 +209,7 @@ abstract class XmlHandler {
 
 		$DOMXPath = new DOMXPath( $DOMDoc );
 		$DOMNodeList = $DOMXPath->query(
-			'//' . Filter::evaluate( $user_options['gwtoolset-record-element-name'] )
+			'//' . Utils::sanitizeString( $user_options['gwtoolset-record-element-name'] )
 		);
 
 		if ( $DOMNodeList->length < 1 ) {

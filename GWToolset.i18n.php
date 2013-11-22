@@ -66,6 +66,7 @@ $messages['en'] = array(
 	'gwtoolset-no-user' => 'no user object provided.',
 	'gwtoolset-no-xml-element' => 'No XMLReader or DOMElement provided.',
 	'gwtoolset-no-xml-source' => 'No local XML source was given.',
+	'gwtoolset-not-string' => 'The value provided to the method was not a string; it’s a ($1).',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 does not match.',
 
 	/**
@@ -379,6 +380,7 @@ $messages['qqq'] = array(
 	'gwtoolset-no-xml-element-found-li-1' => 'Suggestion 1 on how to correct a no XML element found error.',
 	'gwtoolset-no-xml-element-found-li-2' => 'Suggestion 2 on how to correct a no XML element found error.',
 	'gwtoolset-no-xml-source' => 'Hint to the developer that appears when no local XML source was given',
+	'gwtoolset-not-string' => 'Developer message that appears when the value provided to the method was not a string; parameter $1 is the actual type of the value.',
 	'gwtoolset-over-max-ini' => 'User error message that appears when the uploaded file exceeds the upload_max_filesize directive in php.ini.',
 	'gwtoolset-over-max-file-size' => 'User error message that appears when the uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.',
 	'gwtoolset-page-title-contains-url' => 'Appears when the page title being requested contains the URL of the site and not just the page title',

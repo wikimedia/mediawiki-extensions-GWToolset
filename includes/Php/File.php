@@ -8,7 +8,8 @@
  */
 
 namespace Php;
-use finfo;
+use finfo,
+	GWToolset\Utils;
 
 /**
  * @link http://php.net/manual/en/reserved.variables.files.php
@@ -156,7 +157,7 @@ class File {
 	 * @return {void}
 	 */
 	public function populate( $file_field_name ) {
-		$file_field_name = Filter::evaluate( $file_field_name );
+		$file_field_name = Utils::sanitizeString( $file_field_name );
 
 		if ( !isset( $_FILES[$file_field_name] ) ) {
 			throw new FileException( 'The expected form field [' . $file_field_name . '] does not exist. (Php\File)' );

@@ -10,10 +10,10 @@
 namespace GWToolset\Helpers;
 use GWToolset\Config,
 	GWToolset\Constants,
+	GWToolset\Utils,
 	Html,
 	MWException,
 	PermissionsError,
-	Php\Filter,
 	SpecialPage,
 	Status,
 	User,
@@ -122,7 +122,7 @@ class WikiChecks {
 		if ( (int)$php_memory_limit_in_bytes < (int)$memory_limit_in_bytes && !$wgUseImageMagick ) {
 			$msg =
 				'php\'s memory_limit is set to ' . ini_get( 'memory_limit' ) . '. ' .
-				'the recommended setting is ' . Filter::evaluate( $memory_limit ) . ' ' .
+				'the recommended setting is ' . Utils::sanitizeString( $memory_limit ) . ' ' .
 				'when ImageMagick is not being used. ' .
 				'You can set php\'s memory_limit to the recommended setting in httpd.conf, ' .
 				'httpd-vhosts.conf, php.ini, or .htaccess.';

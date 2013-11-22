@@ -9,11 +9,11 @@
 namespace GWToolset\Forms;
 use Html,
 	GWToolset\Config,
+	GWToolset\Utils,
 	GWToolset\Handlers\Forms\FormHandler,
 	GWToolset\Helpers\FileChecks,
 	IContextSource,
 	Linker,
-	Php\Filter,
 	Title;
 
 class MetadataMappingForm {
@@ -32,7 +32,7 @@ class MetadataMappingForm {
 	public static function getForm( FormHandler $Handler, array &$user_options ) {
 
 		$template_link = '[[Template:' .
-			Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] ) .
+			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .
 			']]';
 		$metadata_file_url = !empty( $user_options['Metadata-Title'] )
 			? Linker::link( $user_options['Metadata-Title'], null, array( 'target' => '_blank' ) ) .
@@ -157,7 +157,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'gwtoolset-mediawiki-template-name',
 					'name' => 'gwtoolset-mediawiki-template-name',
-					'value' => Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] )
 				)
 			) .
 
@@ -166,7 +166,7 @@ class MetadataMappingForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-url',
-					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-file-url'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-metadata-file-url'] )
 				)
 			) .
 
@@ -176,7 +176,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'gwtoolset-metadata-mapping-name',
 					'name' => 'gwtoolset-metadata-mapping-name',
-					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-mapping-name'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-metadata-mapping-name'] )
 				)
 			) .
 
@@ -185,7 +185,7 @@ class MetadataMappingForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-mapping-url',
-					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-mapping-url'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-metadata-mapping-url'] )
 				)
 			) .
 
@@ -194,9 +194,7 @@ class MetadataMappingForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-mwstore',
-					'value' => Filter::evaluate(
-						urlencode( $user_options['gwtoolset-metadata-file-mwstore'] )
-					)
+					'value' => Utils::sanitizeUrl( $user_options['gwtoolset-metadata-file-mwstore'] )
 				)
 			) .
 
@@ -205,7 +203,7 @@ class MetadataMappingForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-sha1',
-					'value' => Filter::evaluate( $user_options['gwtoolset-metadata-file-sha1'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-metadata-file-sha1'] )
 				)
 			) .
 
@@ -223,7 +221,7 @@ class MetadataMappingForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-element-name',
-					'value' => Filter::evaluate( $user_options['gwtoolset-record-element-name'] )
+					'value' => Utils::sanitizeString( $user_options['gwtoolset-record-element-name'] )
 				)
 			) .
 
@@ -233,7 +231,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'gwtoolset-metadata-namespace',
 					'name' => 'gwtoolset-metadata-namespace',
-					'value' => Filter::evaluate( \GWToolset\getNamespaceName( Config::$metadata_namespace ) )
+					'value' => Utils::sanitizeString( \GWToolset\getNamespaceName( Config::$metadata_namespace ) )
 				)
 			) .
 
@@ -243,7 +241,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'gwtoolset-metadata-mapping-subpage',
 					'name' => 'gwtoolset-metadata-mapping-subpage',
-					'value' => Filter::evaluate( Config::$metadata_mapping_subpage )
+					'value' => Utils::sanitizeString( Config::$metadata_mapping_subpage )
 				)
 			) .
 
@@ -262,7 +260,7 @@ class MetadataMappingForm {
 				'h3',
 				array(),
 				wfMessage( 'gwtoolset-mediawiki-template' )
-					->params( Filter::evaluate( $user_options['gwtoolset-mediawiki-template-name'] ) )
+					->params( Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) )
 					->escaped()
 			) .
 

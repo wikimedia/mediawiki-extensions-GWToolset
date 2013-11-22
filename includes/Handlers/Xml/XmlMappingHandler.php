@@ -11,10 +11,10 @@ namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMElement,
 	GWToolset\Config,
+	GWToolset\Utils,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	MWException,
-	Php\Filter,
 	XMLReader;
 
 class XmlMappingHandler extends XmlHandler {
@@ -159,7 +159,7 @@ class XmlMappingHandler extends XmlHandler {
 			if ( $DOMNodeElement->hasAttributes() ) {
 				foreach ( $DOMNodeElement->attributes as $DOMAttribute ) {
 					if ( $DOMAttribute->name === 'lang' ) {
-						$lang = Filter::evaluate( $DOMAttribute->value );
+						$lang = Utils::sanitizeString( $DOMAttribute->value );
 						break;
 					}
 				}
@@ -255,14 +255,9 @@ class XmlMappingHandler extends XmlHandler {
 		$result = null;
 
 		if ( $is_url ) {
-			$result = Filter::evaluate(
-				array(
-					'source' => $DOMNodeElement->nodeValue,
-					'filter-sanitize' => FILTER_SANITIZE_URL
-				)
-			);
+			$result = Utils::sanitizeUrl( $DOMNodeElement->nodeValue );
 		} else {
-			$result = Filter::evaluate( $DOMNodeElement->nodeValue );
+			$result = Utils::sanitizeString( $DOMNodeElement->nodeValue );
 		}
 
 		return $result;

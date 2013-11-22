@@ -10,7 +10,7 @@
 namespace GWToolset\Models;
 use GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
-	Php\Filter;
+	GWToolset\Utils;
 
 class Metadata implements ModelInterface {
 	/**
@@ -75,16 +75,11 @@ class Metadata implements ModelInterface {
 
 				if ( strpos( $value, '://' ) !== false ) {
 					$result .=
-						Filter::evaluate(
-							array(
-								'source' => $value,
-								'filter-sanitize' => FILTER_SANITIZE_URL
-							)
-						) .
+						Utils::sanitizeUrl( $value ) .
 						Config::$metadata_separator .
 						' ';
 				} else {
-					$result .= Filter::evaluate( $value ) . Config::$metadata_separator . ' ';
+					$result .= Utils::sanitizeString( $value ) . Config::$metadata_separator . ' ';
 				}
 			}
 		}

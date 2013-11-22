@@ -10,9 +10,9 @@
 namespace GWToolset\Helpers;
 use GWToolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	MWException,
 	Php\File,
-	Php\Filter,
 	OutputPage,
 	Status,
 	UploadBase;
@@ -76,7 +76,7 @@ class FileChecks {
 		$result = null;
 
 		if ( !empty( $accepted_types ) ) {
-			$result = Filter::evaluate(
+			$result = Utils::sanitizeString(
 				implode( ', ', self::getAcceptedExtensions( $accepted_types ) )
 			);
 		}
@@ -110,7 +110,7 @@ class FileChecks {
 
 		if ( !empty( $accepted_types ) && Config::$use_file_accept_attribute ) {
 			$result =
-				Filter::evaluate(
+				Utils::sanitizeString(
 					implode( ', ', self::getAcceptedMimeTypes( $accepted_types ) )
 				);
 		}
@@ -148,14 +148,14 @@ class FileChecks {
 		$extension = null;
 
 		if ( $File instanceof File ) {
-			$extension = Filter::evaluate( strtolower( $File->pathinfo['extension'] ) );
+			$extension = Utils::sanitizeString( strtolower( $File->pathinfo['extension'] ) );
 		} else {
 			$pathinfo = pathinfo( $File );
 
 			if ( !isset( $pathinfo['extension'] ) ) {
 				$msg = 'gwtoolset-unaccepted-extension';
 			} else {
-				$extension = Filter::evaluate( strtolower( $pathinfo['extension'] ) );
+				$extension = Utils::sanitizeString( strtolower( $pathinfo['extension'] ) );
 			}
 		}
 
@@ -168,7 +168,7 @@ class FileChecks {
 		}
 
 		if ( $msg !== null ) {
-			return Status::newFatal( $msg, Filter::evaluate( $extension ) );
+			return Status::newFatal( $msg, Utils::sanitizeString( $extension ) );
 		}
 
 		self::$current_extension = $extension;
@@ -184,9 +184,9 @@ class FileChecks {
 	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = array() ) {
 		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
 			if ( self::$current_extension === 'xml' ) {
-				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Filter::evaluate( $File->mime_type ) );
+				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Utils::sanitizeString( $File->mime_type ) );
 			} else {
-				return Status::newFatal( 'gwtoolset-unaccepted-mime-type', Filter::evaluate( $File->mime_type ) );
+				return Status::newFatal( 'gwtoolset-unaccepted-mime-type', Utils::sanitizeString( $File->mime_type ) );
 			}
 		}
 
@@ -272,8 +272,8 @@ class FileChecks {
 		if ( !in_array( $File->mime_type, $accepted_types[$File->pathinfo['extension']] ) ) {
 			return Status::newFatal(
 				'gwtoolset-mime-type-mismatch',
-				Filter::evaluate( $File->pathinfo['extension'] ),
-				Filter::evaluate( $File->mime_type )
+				Utils::sanitizeString( $File->pathinfo['extension'] ),
+				Utils::sanitizeString( $File->mime_type )
 			);
 		}
 

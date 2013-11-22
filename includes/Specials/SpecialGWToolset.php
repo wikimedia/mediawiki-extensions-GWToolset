@@ -10,6 +10,7 @@
 namespace GWToolset;
 use GWToolset\Constants,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
@@ -17,7 +18,6 @@ use GWToolset\Constants,
 	Linker,
 	MWException,
 	PermissionsError,
-	Php\Filter,
 	SpecialPage,
 	Title;
 
@@ -121,7 +121,7 @@ class SpecialGWToolset extends SpecialPage {
 						Html::rawElement(
 							'p',
 							array( 'class' => 'error' ),
-							Filter::evaluate( $e->getMessage() )
+							Utils::sanitizeString( $e->getMessage() )
 						);
 				}
 			}

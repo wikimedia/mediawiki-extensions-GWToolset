@@ -12,9 +12,9 @@ use Html,
 	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\Helpers\FileChecks,
 	MWException,
-	Php\Filter,
 	ReflectionClass,
 	ReflectionProperty,
 	ResultWrapper;
@@ -101,11 +101,11 @@ class MediawikiTemplate implements ModelInterface {
 		}
 
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
-			$parameter_as_id = Filter::evaluate( \GWToolset\normalizeSpace( $parameter ) );
+			$parameter_as_id = Utils::sanitizeString( \GWToolset\normalizeSpace( $parameter ) );
 
 			if ( isset( $array[$parameter_as_id] ) ) {
 				foreach ( $array[$parameter_as_id] as $metadata_element ) {
-					$result[$parameter_as_id][] = Filter::evaluate( $metadata_element );
+					$result[$parameter_as_id][] = Utils::sanitizeString( $metadata_element );
 				}
 			}
 		}
@@ -125,7 +125,7 @@ class MediawikiTemplate implements ModelInterface {
 		$result = Html::rawElement( 'option', array( 'value' => '' ), ' ' );
 
 		foreach ( $this->_DataAdapater->getKeys() as $option ) {
-			$result .= Html::rawElement( 'option', array(), Filter::evaluate( $option ) );
+			$result .= Html::rawElement( 'option', array(), Utils::sanitizeString( $option ) );
 		}
 
 		return $result;
@@ -153,7 +153,7 @@ class MediawikiTemplate implements ModelInterface {
 				continue;
 			}
 
-			$sections .= ' | ' . Filter::evaluate( $parameter ) . ' = ';
+			$sections .= ' | ' . Utils::sanitizeString( $parameter ) . ' = ';
 
 			/**
 			 * sometimes the metadata element has several "shared" metadata
@@ -169,8 +169,8 @@ class MediawikiTemplate implements ModelInterface {
 						foreach ( $sub_template_content as $language => $language_content ) {
 							$sections .= sprintf(
 									$this->_sub_templates['language'],
-									Filter::evaluate( $language ),
-									Filter::evaluate( $language_content )
+									Utils::sanitizeString( $language ),
+									Utils::sanitizeString( $language_content )
 								) . PHP_EOL;
 						}
 						/**
@@ -179,7 +179,7 @@ class MediawikiTemplate implements ModelInterface {
 						 * elements that do not specify a lang attribute
 						 */
 					} else {
-						$sections .= Filter::evaluate( $sub_template_content ) . PHP_EOL;
+						$sections .= Utils::sanitizeString( $sub_template_content ) . PHP_EOL;
 					}
 				}
 			} else {
@@ -188,7 +188,7 @@ class MediawikiTemplate implements ModelInterface {
 				if ( $parameter === 'institution' ) {
 					$sections .= sprintf(
 							$this->_sub_templates['institution'],
-							Filter::evaluate( $content )
+							Utils::sanitizeString( $content )
 						) . PHP_EOL;
 				} elseif ( $parameter === 'artist' ) {
 					// assumes that there could be more than one creator and uses the
@@ -208,7 +208,7 @@ class MediawikiTemplate implements ModelInterface {
 
 						$sections .= sprintf(
 								$this->_sub_templates['creator'],
-								Filter::evaluate( $creator )
+								Utils::sanitizeString( $creator )
 							) . PHP_EOL;
 					}
 				} elseif ( $parameter === 'permission' ) {
@@ -260,19 +260,19 @@ class MediawikiTemplate implements ModelInterface {
 						$permission = $content;
 					}
 
-					$sections .= Filter::evaluate( $permission ) . PHP_EOL;
+					$sections .= Utils::sanitizeString( $permission ) . PHP_EOL;
 				} elseif ( $parameter === 'source' ) {
 					if ( !empty( $user_options['partner-template-name'] ) ) {
-						$sections .= Filter::evaluate( $content ) .
+						$sections .= Utils::sanitizeString( $content ) .
 							'{{' .
-							Filter::evaluate( $user_options['partner-template-name'] ) .
+							Utils::sanitizeString( $user_options['partner-template-name'] ) .
 							'}}' .
 							PHP_EOL;
 					} else {
-						$sections .= Filter::evaluate( $content ) . PHP_EOL;
+						$sections .= Utils::sanitizeString( $content ) . PHP_EOL;
 					}
 				} else {
-					$sections .= Filter::evaluate( $content ) . PHP_EOL;
+					$sections .= Utils::sanitizeString( $content ) . PHP_EOL;
 				}
 			}
 		}
@@ -307,11 +307,11 @@ class MediawikiTemplate implements ModelInterface {
 		$attribs = array();
 
 		if ( !empty( $name ) ) {
-			$attribs['name'] = Filter::evaluate( $name );
+			$attribs['name'] = Utils::sanitizeString( $name );
 		}
 
 		if ( !empty( $id ) ) {
-			$attribs['id'] = Filter::evaluate( $id );
+			$attribs['id'] = Utils::sanitizeString( $id );
 		}
 
 		$result =
@@ -350,7 +350,7 @@ class MediawikiTemplate implements ModelInterface {
 		if ( empty( $options['evaluated-media-file-extension'] ) ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
-					->rawParams( Filter::evaluate( $options['gwtoolset-url-to-the-media-file'] ) )
+					->rawParams( Utils::sanitizeString( $options['gwtoolset-url-to-the-media-file'] ) )
 					->escaped()
 				);
 		}
@@ -445,7 +445,7 @@ class MediawikiTemplate implements ModelInterface {
 		if ( empty( $result ) ) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
-					->rawParams( Filter::evaluate( $this->mediawiki_template_name ) )
+					->rawParams( Utils::sanitizeString( $this->mediawiki_template_name ) )
 						->escaped()
 				);
 		}

@@ -11,10 +11,10 @@ namespace GWToolset\Adapters\Php;
 use GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	MimeMagic,
 	MWException,
 	MWHttpRequest,
-	Php\Filter,
 	Title;
 
 class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
@@ -51,11 +51,11 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		// should we limit the mw templates we allow?
 		// 2013-09-26 w/david haskia, for now, yes
 		if ( !isset(
-			Config::$mediawiki_templates[Filter::evaluate( $options['mediawiki_template_name'] )] )
+			Config::$mediawiki_templates[Utils::sanitizeString( $options['mediawiki_template_name'] )] )
 		) {
 			throw new GWTException(
 				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
-					->rawParams( Filter::evaluate( $options['mediawiki_template_name'] ) )
+					->rawParams( Utils::sanitizeString( $options['mediawiki_template_name'] ) )
 					->escaped()
 				);
 		}
@@ -77,7 +77,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
 		if ( empty ( $template_data ) ) {
 			$result['mediawiki_template_json'] =
-				Config::$mediawiki_templates[Filter::evaluate( $options['mediawiki_template_name'] )];
+				Config::$mediawiki_templates[Utils::sanitizeString( $options['mediawiki_template_name'] )];
 		} else {
 			$result['mediawiki_template_json'] = $template_data;
 		}

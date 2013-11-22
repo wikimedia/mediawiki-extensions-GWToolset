@@ -14,6 +14,7 @@ use FSFile,
 	GWToolset\Adapters\Php\MetadataPhpAdapter,
 	GWToolset\Config,
 	GWToolset\Constants,
+	GWToolset\Utils,
 	GWToolset\Forms\PreviewForm,
 	GWToolset\GWTException,
 	GWToolset\Helpers\GWTFileBackend,
@@ -27,7 +28,6 @@ use FSFile,
 	JobQueueGroup,
 	Linker,
 	MWException,
-	Php\Filter,
 	SpecialPage,
 	Title,
 	User;
@@ -234,15 +234,9 @@ class MetadataMappingHandler extends FormHandler {
 				? (bool)$this->_whitelisted_post['save-as-batch-job']
 				: false,
 
-			// Filter::evaluate is used here to extract the 'gwtoolset-title-identifier' array
 			'gwtoolset-title-identifier' =>
 				!empty( $this->_whitelisted_post['gwtoolset-title-identifier'] )
-				? Filter::evaluate(
-						array(
-							'source' => $this->_whitelisted_post,
-							'key-name' => 'gwtoolset-title-identifier'
-						)
-					)
+				? $this->_whitelisted_post['gwtoolset-title-identifier']
 				: null,
 
 			'upload-media' =>
@@ -250,15 +244,9 @@ class MetadataMappingHandler extends FormHandler {
 				? (bool)$this->_whitelisted_post['upload-media']
 				: false,
 
-			// Filter::evaluate is used here to extract the 'gwtoolset-url-to-the-media-file' array
 			'gwtoolset-url-to-the-media-file' =>
 				!empty( $this->_whitelisted_post['gwtoolset-url-to-the-media-file'] )
-				? Filter::evaluate(
-						array(
-							'source' => $this->_whitelisted_post,
-							'key-name' => 'gwtoolset-url-to-the-media-file'
-						)
-					)
+				? $this->_whitelisted_post['gwtoolset-url-to-the-media-file']
 				: null
 		);
 
@@ -475,7 +463,7 @@ class MetadataMappingHandler extends FormHandler {
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
 			// MediaWiki template parameters sometimes contain spaces
 			$key = \GWToolset\normalizeSpace( $key );
-			$this->_expected_post_fields[Filter::evaluate( $key )] = array( 'size' => 255 );
+			$this->_expected_post_fields[Utils::sanitizeString( $key )] = array( 'size' => 255 );
 		}
 
 		$this->_whitelisted_post = \GWToolset\getWhitelistedPost( $this->_expected_post_fields );

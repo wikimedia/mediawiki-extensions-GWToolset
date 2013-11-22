@@ -11,11 +11,11 @@ namespace GWToolset;
 use ErrorException,
 	GWToolset\Config,
 	GWToolset\GWTException,
+	GWToolset\Utils,
 	GWToolset\MediaWiki\Api\Client,
 	Html,
 	Language,
 	MWException,
-	Php\Filter,
 	SpecialPage,
 	Status,
 	Title,
@@ -198,12 +198,12 @@ function getWhitelistedPost( array $expected_post_fields = array() ) {
 					// avoid field[][]
 					if ( !is_array( $value ) ) {
 						$value = substr( $value, 0, $metadata['size'] );
-						$result[$field][] = Filter::evaluate( $value );
+						$result[$field][] = Utils::sanitizeString( $value );
 					}
 				}
 			} else {
 				$value = substr( $_POST[$field], 0, $metadata['size'] );
-				$result[$field] = Filter::evaluate( $value );
+				$result[$field] = Utils::sanitizeString( $value );
 			}
 		}
 

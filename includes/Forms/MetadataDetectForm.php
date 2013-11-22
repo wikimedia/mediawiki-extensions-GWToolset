@@ -11,10 +11,10 @@ use Html,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Config,
 	GWToolset\Constants,
+	GWToolset\Utils,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Models\MediawikiTemplate,
 	Linker,
-	Php\Filter,
 	SpecialPage,
 	Title;
 
@@ -179,7 +179,7 @@ class MetadataDetectForm {
 							'name' => 'gwtoolset-metadata-mapping-url',
 							'class' => 'gwtoolset-url-input',
 							'placeholder' => $namespace .
-								Filter::evaluate( Config::$metadata_mapping_subpage ) .
+								Utils::sanitizeString( Config::$metadata_mapping_subpage ) .
 								'/User-name/mapping-name.json'
 						)
 					) .
@@ -188,7 +188,7 @@ class MetadataDetectForm {
 						Title::newFromText(
 							'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage
 						),
-						$namespace . Filter::evaluate( Config::$metadata_mapping_subpage ),
+						$namespace . Utils::sanitizeString( Config::$metadata_mapping_subpage ),
 						array( 'target' => '_blank' )
 					)
 				)
@@ -315,8 +315,7 @@ class MetadataDetectForm {
 						Config::$metadata_sets_subpage
 					),
 					$namespace .
-					Filter::evaluate( Config::$metadata_sets_subpage
-					),
+					Utils::sanitizeString( Config::$metadata_sets_subpage ),
 					array( 'target' => '_blank' )
 				)
 			)
