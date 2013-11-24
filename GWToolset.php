@@ -67,7 +67,6 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Handlers\Forms\FormHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/FormHandler.php',
 	'GWToolset\Handlers\Forms\MetadataDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataDetectHandler.php',
 	'GWToolset\Handlers\Forms\MetadataMappingHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataMappingHandler.php',
-	'GWToolset\Handlers\SpecialPageHandler' => $wgGWToolsetDir . '/includes/Handlers/SpecialPageHandler.php',
 	'GWToolset\Handlers\UploadHandler' => $wgGWToolsetDir . '/includes/Handlers/UploadHandler.php',
 	'GWToolset\Handlers\Xml\XmlDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlDetectHandler.php',
 	'GWToolset\Handlers\Xml\XmlHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlHandler.php',

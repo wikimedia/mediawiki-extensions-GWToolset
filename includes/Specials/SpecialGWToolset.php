@@ -11,7 +11,7 @@ namespace GWToolset;
 use GWToolset\Constants,
 	GWToolset\GWTException,
 	GWToolset\Utils,
-	GWToolset\Handlers\SpecialPageHandler,
+	GWToolset\Handlers\Forms\FormHandler,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
@@ -29,7 +29,7 @@ class SpecialGWToolset extends SpecialPage {
 	public $module_key;
 
 	/**
-	 * @var {SpecialPageHandler}
+	 * @var {GWToolset\Handlers\Forms\FormHandler}
 	 */
 	protected $_Handler;
 
@@ -92,6 +92,13 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
+	 * @return {array}
+	 */
+	public function getRegisteredModules() {
+		return $this->_registered_modules;
+	}
+
+	/**
 	 * a control method that processes a SpecialPage request
 	 * SpecialPage->getOutput()->addHtml() present the end result of the request
 	 *
@@ -107,10 +114,7 @@ class SpecialGWToolset extends SpecialPage {
 				$html .= wfMessage( 'gwtoolset-intro' )->parseAsBlock();
 			} else {
 				try {
-					$html .=
-						$this->_Handler->getHtmlForm(
-							$this->_registered_modules[$this->module_key]
-						);
+					$html .= $this->_Handler->getHtmlForm( $this->module_key );
 				} catch ( GWTException $e ) {
 					$html .=
 						Html::rawElement(
@@ -128,28 +132,6 @@ class SpecialGWToolset extends SpecialPage {
 		} else {
 			try {
 				FileChecks::checkContentLength();
-
-				if ( !( $this->_Handler instanceof \GWToolset\Handlers\SpecialPageHandler ) ) {
-					$msg = wfMessage( 'gwtoolset-developer-issue' )
-						->params( wfMessage( 'gwtoolset-no-upload-handler' )->escaped() )
-						->parse();
-
-					if ( ini_get( 'display_errors' )
-						&& $this->getUser()->isAllowed( 'gwtoolset-debug' )
-					) {
-						$msg .= Html::rawElement( 'br' ) .
-							Html::rawElement(
-								'pre',
-								array( 'style' => 'overflow:auto' ),
-								print_r( error_get_last(), true )
-							);
-					} else {
-						$msg = wfMessage( 'gwtoolset-no-upload-handler' )->escaped();
-					}
-
-					throw new MWException( $msg );
-				}
-
 				$html .= $this->_Handler->execute();
 			} catch ( GWTException $e ) {
 				if ( $e->getCode() === 1000 ) {
@@ -180,6 +162,9 @@ class SpecialGWToolset extends SpecialPage {
 		$this->getOutput()->addHtml( $html );
 	}
 
+	/**
+	 * @throws {MWException}
+	 */
 	protected function setModuleAndHandler() {
 		$this->module_key = null;
 		$gwtoolset_form = $this->getRequest()->getVal( 'gwtoolset-form' );
@@ -191,6 +176,29 @@ class SpecialGWToolset extends SpecialPage {
 		if ( $this->module_key !== null ) {
 			$handler = $this->_registered_modules[$this->module_key]['handler'];
 			$this->_Handler = new $handler( array( 'SpecialPage' => $this ) );
+
+			if ( !( $this->_Handler instanceof FormHandler ) ) {
+				$msg = wfMessage( 'gwtoolset-developer-issue' )
+				->params(
+					__METHOD__ . ': ' .
+					wfMessage( 'gwtoolset-incorrect-form-handler' )
+					->params( $this->module_key )
+					->escaped()
+				)
+				->escaped();
+
+				throw new MWException( $msg );
+			}
+		} else if ( $this->getRequest()->wasPosted() ) {
+			// a posted form must have a registered module key
+			$msg = wfMessage( 'gwtoolset-developer-issue' )
+				->params(
+					__METHOD__ . ': ' .
+					wfMessage( 'gwtoolset-no-form-handler' )->escaped()
+				)
+				->escaped();
+
+				throw new MWException( $msg );
 		}
 	}
 

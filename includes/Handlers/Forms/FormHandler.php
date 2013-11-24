@@ -9,12 +9,37 @@
 namespace GWToolset\Handlers\Forms;
 use	GWToolset\GWTException,
 	GWToolset\Utils,
-	GWToolset\Handlers\SpecialPageHandler,
 	GWToolset\Helpers\WikiChecks,
 	Html,
-	MWException;
+	MWException,
+	SpecialPage;
 
-abstract class FormHandler extends SpecialPageHandler {
+abstract class FormHandler {
+
+	/**
+	 * @var {SpecialPage}
+	 */
+	public $SpecialPage;
+
+	/**
+	 * @var {User}
+	 */
+	public $User;
+
+	/**
+	 * @param {array} $options
+	 */
+	public function __construct( array $options = array() ) {
+		if ( isset( $options['SpecialPage'] ) ) {
+			$this->SpecialPage = $options['SpecialPage'];
+		}
+
+		if ( isset( $options['User'] ) ) {
+			$this->User = $options['User'];
+		} elseif ( isset( $this->SpecialPage ) ) {
+			$this->User = $this->SpecialPage->getUser();
+		}
+	}
 
 	/**
 	 * make sure the expected options :
@@ -63,22 +88,49 @@ abstract class FormHandler extends SpecialPageHandler {
 	}
 
 	/**
-	 * @param {string} $module_name
+	 * @param {string} $module
 	 * @throws {MWException}
-	 *
 	 * @return {string}
-	 * the string has not been filtered
 	 */
-	protected function getFormClass( $module_name ) {
-		if ( $module_name === null ) {
+	public function getFormClass( $module = null ) {
+		$registered_modules = $this->SpecialPage->getRegisteredModules();
+
+		if ( $module === null || !array_key_exists( $module, $registered_modules ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-module' )->escaped() )
-					->parse()
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-no-module' )->escaped()
+					)
+					->escaped()
 			);
 		}
 
-		return $module_name['form'];
+		if ( !isset( $registered_modules[$module]['form'] ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-no-module' )->escaped()
+					)
+					->escaped()
+			);
+		}
+
+		$result = $registered_modules[$module]['form'];
+
+		if ( !class_exists( $result ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params(
+						__METHOD__ . ': ' .
+						wfMessage( 'gwtoolset-no-module' )->escaped()
+					)
+					->escaped()
+			);
+		}
+
+		return $result;
 	}
 
 	/**
@@ -99,20 +151,15 @@ abstract class FormHandler extends SpecialPageHandler {
 	 * @return {string}
 	 * the string has not been filtered
 	 */
-	public function getHtmlForm( $module_name = null ) {
-		$form_class = $this->getFormClass( $module_name );
-
-		if ( !class_exists( $form_class ) ) {
-			throw new GWTException( wfMessage( 'gwtoolset-no-form' )->escaped() );
-		}
-
+	public function getHtmlForm( $module = null ) {
+		$form_class = $this->getFormClass( $module );
 		return $form_class::getForm( $this->SpecialPage );
 	}
 
 	/**
 	 * entry point
 	 * a control method that acts as an entry point for the
-	 * SpecialPageHandler and handles execution of the class methods
+	 * FormHandler and handles execution of the class methods
 	 *
 	 * @return {string}
 	 * the string has not been filtered
@@ -134,4 +181,12 @@ abstract class FormHandler extends SpecialPageHandler {
 
 		return $result;
 	}
+
+	/**
+	 * a control method that processes a SpecialPage request
+	 * and returns a response, typically an html form
+	 *
+	 * @return {string}
+	 */
+	abstract protected function processRequest();
 }
