@@ -115,15 +115,6 @@ class MetadataDetectForm {
 				)
 			) .
 
-			Html::rawElement(
-				'input',
-				array(
-					'type' => 'hidden',
-					'name' => 'MAX_FILE_SIZE',
-					'value' => FileChecks::getMaxUploadSize()
-				)
-			) .
-
 			Html::openElement( 'ol' ) .
 
 			Html::rawElement(

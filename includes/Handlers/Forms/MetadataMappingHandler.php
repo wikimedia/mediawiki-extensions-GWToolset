@@ -191,12 +191,12 @@ class MetadataMappingHandler extends FormHandler {
 
 			'gwtoolset-metadata-file-url' =>
 				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
-				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-file-url']
 				: null,
 
 			'gwtoolset-metadata-file-mwstore' =>
 				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-mwstore'] )
-				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-mwstore'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-file-mwstore']
 				: null,
 
 			'gwtoolset-metadata-file-sha1' =>
@@ -206,7 +206,7 @@ class MetadataMappingHandler extends FormHandler {
 
 			'gwtoolset-partner-template-url' =>
 				!empty( $this->_whitelisted_post['gwtoolset-partner-template-url'] )
-				? urldecode( $this->_whitelisted_post['gwtoolset-partner-template-url'] )
+				? $this->_whitelisted_post['gwtoolset-partner-template-url']
 				: null,
 
 			'preview' => !empty( $this->_whitelisted_post['gwtoolset-preview'] )

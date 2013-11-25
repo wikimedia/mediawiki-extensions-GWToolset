@@ -30,7 +30,6 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected $_expected_post_fields = array(
 		'gwtoolset-form' => array( 'size' => 255 ),
-		'MAX_FILE_SIZE' => array( 'size' => 255 ),
 		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
 		'gwtoolset-metadata-file-upload' => array( 'size' => 255 ),
 		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
@@ -118,11 +117,11 @@ class MetadataDetectHandler extends FormHandler {
 				: null,
 
 			'gwtoolset-metadata-file-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
-				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-file-url']
 				: null,
 
 			'gwtoolset-metadata-mapping-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
-				? urldecode( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-mapping-url']
 				: null,
 
 			'Metadata-Title' => null,

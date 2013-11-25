@@ -295,10 +295,6 @@ class FileChecks {
 				$msg = 'gwtoolset-over-max-ini';
 				break;
 
-			case UPLOAD_ERR_FORM_SIZE :
-				$msg = 'gwtoolset-over-max-file-size';
-				break;
-
 			case UPLOAD_ERR_PARTIAL :
 				$msg = 'gwtoolset-partial-upload';
 				break;
