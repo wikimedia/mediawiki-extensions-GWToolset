@@ -74,6 +74,7 @@ $messages['en'] = array(
 	 * file checks
 	 */
 	'gwtoolset-disk-write-failure' => 'Failed to write file to disk.',
+	'gwtoolset-xml-doctype' => 'The XML metadata file cannot contain a <!DOCTYPE> section; please remove it and then try uploading the XML metadata file again.',
 	'gwtoolset-file-is-empty' => 'The uploaded file is empty.',
 	'gwtoolset-improper-upload' => 'File was not uploaded properly.',
 	'gwtoolset-mime-type-mismatch' => 'The uploaded file’s extension ($1) and mime-type ($2) do not match.',
@@ -447,5 +448,6 @@ $messages['qqq'] = array(
 	'gwtoolset-which-mediawiki-template' => 'Label for which media wiki template in the HTML form.',
 	'gwtoolset-which-metadata-mapping' => 'Label for which metadata in the HTML form.',
 	'gwtoolset-wiki-checks-not-passed' => 'Heading used when a wiki requirement is not met.',
+	'gwtoolset-xml-doctype' => 'A user message that appears when the XML metadata file contains a <!DOCTYPE> section.',
 	'gwtoolset-xml-error' => 'User error message when the extension cannot properly load the XML provided.'
 );

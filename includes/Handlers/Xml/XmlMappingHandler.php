@@ -11,13 +11,20 @@ namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMElement,
 	GWToolset\Config,
+	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Utils,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	MWException,
+	SpecialPage,
 	XMLReader;
 
 class XmlMappingHandler extends XmlHandler {
+
+	/**
+	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 */
+	protected $_GWTFileBackend;
 
 	/**
 	 * @var {GWToolset\Models\Mapping}
@@ -45,16 +52,20 @@ class XmlMappingHandler extends XmlHandler {
 	public function __construct( array $options = array() ) {
 		$this->reset();
 
+		if ( isset( $options['GWTFileBackend'] ) ) {
+			$this->_GWTFileBackend = $options['GWTFileBackend'];
+		}
+
 		if ( isset( $options['Mapping'] ) ) {
 			$this->_Mapping = $options['Mapping'];
 		}
 
-		if ( isset( $options['MediawikiTemplate'] ) ) {
-			$this->_MediawikiTemplate = $options['MediawikiTemplate'];
-		}
-
 		if ( isset( $options['MappingHandler'] ) ) {
 			$this->_MappingHandler = $options['MappingHandler'];
+		}
+
+		if ( isset( $options['MediawikiTemplate'] ) ) {
+			$this->_MediawikiTemplate = $options['MediawikiTemplate'];
 		}
 
 		if ( isset( $options['SpecialPage'] ) ) {
@@ -380,8 +391,6 @@ class XmlMappingHandler extends XmlHandler {
 
 		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
 			return $this->readXmlAsFile( $user_options, $xml_source, $callback );
-		} elseif ( $xml_source instanceof Content ) {
-			return $this->readXmlAsString( $user_options, $xml_source->getNativeData(), $callback );
 		} else {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

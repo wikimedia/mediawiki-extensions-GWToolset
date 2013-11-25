@@ -11,11 +11,13 @@ namespace GWToolset\Handlers\Xml;
 use Content,
 	DOMElement,
 	GWToolset\GWTException,
+	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Utils,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	Html,
 	MWException,
+	SpecialPage,
 	XMLReader;
 
 /**
@@ -23,6 +25,11 @@ use Content,
  * in the appropriate form handler
  */
 class XmlDetectHandler extends XmlHandler {
+
+	/**
+	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 */
+	protected $_GWTFileBackend;
 
 	/**
 	 * @var {array}
@@ -46,10 +53,20 @@ class XmlDetectHandler extends XmlHandler {
 	protected $_metadata_as_options;
 
 	/**
+	 * @var {SpecialPage}
+	 */
+	protected $_SpecialPage;
+
+	/**
 	 * @param {array} $options
 	 */
 	public function __construct( array $options = array() ) {
 		$this->reset();
+
+		if ( isset( $options['GWTFileBackend'] ) ) {
+			$this->_GWTFileBackend = $options['GWTFileBackend'];
+		}
+
 		if ( isset( $options['SpecialPage'] ) ) {
 			$this->_SpecialPage = $options['SpecialPage'];
 		}
@@ -434,8 +451,6 @@ class XmlDetectHandler extends XmlHandler {
 
 		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
 			$this->readXmlAsFile( $user_options, $xml_source, $callback );
-		} elseif ( $xml_source instanceof Content ) {
-			$this->readXmlAsString( $user_options, $xml_source->getNativeData(), $callback );
 		} else {
 			$msg = wfMessage( 'gwtoolset-developer-issue' )->params(
 				wfMessage( 'gwtoolset-no-xml-source' )->escaped()

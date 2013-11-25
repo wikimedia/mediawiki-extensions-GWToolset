@@ -183,6 +183,7 @@ class MetadataDetectHandler extends FormHandler {
 
 		$this->XmlDetectHandler = new XmlDetectHandler(
 			array(
+				'GWTFileBackend' => $this->_GWTFileBackend,
 				'SpecialPage' => $this->SpecialPage
 			)
 		);

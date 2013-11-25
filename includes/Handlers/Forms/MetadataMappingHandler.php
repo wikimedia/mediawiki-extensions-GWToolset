@@ -343,6 +343,7 @@ class MetadataMappingHandler extends FormHandler {
 
 		$this->_XmlMappingHandler = new XmlMappingHandler(
 			array(
+				'GWTFileBackend' => $this->_GWTFileBackend,
 				'Mapping' => $this->_Mapping,
 				'MediawikiTemplate' => $this->_MediawikiTemplate,
 				'MappingHandler' => $this

@@ -129,7 +129,21 @@ abstract class XmlHandler {
 			);
 		}
 
+		$old_value = libxml_disable_entity_loader( true );
+
 		while ( $XMLReader->read() ) {
+			if ( $XMLReader->nodeType === XMLReader::DOC_TYPE ) {
+				if ( $this->_GWTFileBackend instanceof \GWToolset\Helpers\GWTFileBackend ) {
+					$file_mwstore_path = $this->_GWTFileBackend->getMWStorePath();
+
+					if ( $file_mwstore_path !== null ) {
+						$this->_GWTFileBackend->deleteFile( $file_mwstore_path );
+					}
+				}
+
+				throw new GWTException( wfMessage( 'gwtoolset-xml-doctype' ) );
+			}
+
 			$read_result = $this->$callback( $XMLReader, $user_options );
 
 			if ( !empty( $read_result['Title'] ) ) {
@@ -140,6 +154,8 @@ abstract class XmlHandler {
 				break;
 			}
 		}
+
+		libxml_disable_entity_loader( $old_value );
 
 		if ( !$XMLReader->close() ) {
 			throw new MWException(
@@ -152,106 +168,4 @@ abstract class XmlHandler {
 		return $result;
 	}
 
-	/**
-	 * reads an xml string and sends the nodes to other methods
-	 * via the $callback to process the them.
-	 *
-	 * allows for the reading to be stopped if the $callback
-	 * method returns $read_result['stop-reading'] = true
-	 *
-	 * @param {array} $user_options
-	 * an array of user options that was submitted in the html form
-	 *
-	 * @param {string} $xml_source
-	 * an xml string
-	 *
-	 * @param {string} $callback
-	 * the method that will be used to process the read xml file
-	 *
-	 * @todo: handle invalid xml
-	 * @todo: how to handle attributes and children nodes
-	 * @todo: handle mal-formed xml (future)
-	 * @todo: handle an xml schema if present (future)
-	 * @todo: handle incomplete/partial uploads (future)
-	 *
-	 * @throws {MWException}
-	 *
-	 * @return {array}
-	 * an array of mediafile Title(s)
-	 */
-	protected function readXmlAsString(
-		array &$user_options, $xml_source = null, &$callback = null
-	) {
-		$result = array();
-		$read_result = array( 'Title' => null, 'stop-reading' => false );
-
-		if ( empty( $callback ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )->params(
-					wfMessage( 'gwtoolset-no-callback' )->escaped()
-				)->parse()
-			);
-		}
-
-		libxml_use_internal_errors( true );
-		libxml_clear_errors();
-
-		$DOMDoc = new DOMDocument();
-		$DOMDoc->loadXML( $xml_source );
-		$errors = libxml_get_errors();
-
-		if ( !empty( $errors ) ) {
-			throw new GWTException(
-				wfMessage( 'gwtoolset-xml-error' )->escaped() .
-				Html::rawElement( 'pre', array( 'style' => 'overflow:auto;' ), print_r( $errors, true ) )
-			);
-		}
-
-		$DOMXPath = new DOMXPath( $DOMDoc );
-		$DOMNodeList = $DOMXPath->query(
-			'//' . Utils::sanitizeString( $user_options['gwtoolset-record-element-name'] )
-		);
-
-		if ( $DOMNodeList->length < 1 ) {
-			$msg =
-				wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
-				Html::openElement( 'ul' ) .
-					Html::rawElement(
-						'li',
-						array(),
-						wfMessage( 'gwtoolset-no-xml-element-found-li-1' )->escaped()
-					) .
-					Html::rawElement(
-						'li',
-						array(),
-						wfMessage( 'gwtoolset-no-xml-element-found-li-2' )->rawParams(
-							Html::rawElement(
-								'a',
-								array(
-									'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
-									'target' => '_blank'
-								),
-								'XML Validator'
-							)
-						)->escaped()
-					) .
-				Html::closeElement( 'ul' ) .
-				$this->_SpecialPage->getBackToFormLink();
-			throw new GWTException( $msg );
-		}
-
-		foreach ( $DOMNodeList as $DOMNode ) {
-			$read_result = $this->$callback( $DOMNode, $user_options );
-
-			if ( !empty( $read_result['Title'] ) ) {
-				$result[] = $read_result['Title'];
-			}
-
-			if ( $read_result['stop-reading'] ) {
-				break;
-			}
-		}
-
-		return $result;
-	}
 }
