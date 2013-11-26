@@ -291,10 +291,7 @@ class UploadHandler {
 		$pathinfo = array();
 
 		if ( empty( $url ) ) {
-			throw new GWTException(
-				__METHOD__ . ' ' .
-				wfMessage( 'gwtoolset-no-url-to-evaluate' )->escaped()
-			);
+			throw new GWTException( 'gwtoolset-no-url-to-evaluate' );
 		}
 
 		$Http = MWHttpRequest::factory(
@@ -310,9 +307,9 @@ class UploadHandler {
 
 		if ( !$Status->ok ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
-					->rawParams( Utils::sanitizeString( $url ) )
-					->escaped()
+				array(
+					'gwtoolset-mapping-media-file-url-bad' => array( $url )
+				)
 			);
 		}
 
@@ -322,9 +319,7 @@ class UploadHandler {
 
 		if ( empty( $result['extension'] ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
-					->rawParams( Utils::sanitizeString( $url ) )
-					->escaped()
+				array( 'gwtoolset-mapping-media-file-url-extension-bad' => array( $url ) )
 			);
 		}
 
@@ -350,17 +345,16 @@ class UploadHandler {
 
 		if ( empty( $options['url'] ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-media-file-url-bad' )
-					->rawParams( Utils::sanitizeString( $options['url'] ) )
-					->escaped()
+				array( 'gwtoolset-mapping-media-file-url-bad' => array( $options['url'] ) )
 			);
 		}
 
 		if ( empty( $options['content-type'] ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-media-file-no-content-type' )
-					->rawParams( Utils::sanitizeString( $options['content-type'] ) )
-					->escaped()
+				array(
+					'gwtoolset-mapping-media-file-no-content-type' =>
+					array ( $options['content-type'] )
+				)
 			);
 		}
 
@@ -415,8 +409,7 @@ class UploadHandler {
 
 		if ( !( $result instanceof Title ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-title-bad' )
-					->params( $title )->parse()
+				array( 'gwtoolset-title-bad' => array( $title ) )
 			);
 		}
 
@@ -456,16 +449,19 @@ class UploadHandler {
 	) {
 		$result = null;
 
-		if ( !empty( $_FILES[$metadata_file_upload]['name'] ) ) {
-			$this->_File->populate( $metadata_file_upload );
-			$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
-
-			if ( !$Status->ok ) {
-				throw new GWTException( $Status->getMessage() );
-			}
-
-			$result = $this->_GWTFileBackend->saveFile( $this->_File );
+		if ( empty( $_FILES[$metadata_file_upload]['name'] ) ) {
+			throw new GWTException( 'gwtoolset-no-file' );
 		}
+
+		$this->_File->populate( $metadata_file_upload );
+		$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
+
+		if ( !$Status->ok ) {
+			throw new GWTException( $Status->getMessage() );
+		}
+
+		$result = $this->_GWTFileBackend->saveFile( $this->_File );
+
 		return $result;
 	}
 
@@ -509,7 +505,7 @@ class UploadHandler {
 		if ( !$Title->isKnown() ) {
 			$Status = $this->uploadMediaFileViaUploadFromUrl( $options, $Title );
 		} else {
-			if ( $this->user_options['upload-media'] === true ) {
+			if ( $this->user_options['gwtoolset-reupload-media'] === true ) {
 				// this will re-upload the mediafile, but will not change the page contents
 				$Status = $this->uploadMediaFileViaUploadFromUrl( $options, $Title );
 			}
@@ -522,7 +518,7 @@ class UploadHandler {
 		}
 
 		if ( !$Status->isOK() ) {
-			throw new GWTException( $Status->getWikiText() );
+			throw new GWTException( $Status->getMessage() );
 		}
 
 		return $Title;
@@ -688,10 +684,10 @@ class UploadHandler {
 			);
 		}
 
-		if ( !isset( $user_options['upload-media'] ) ) {
+		if ( !isset( $user_options['gwtoolset-reupload-media'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-upload-media' )->parse() )
+					->params( wfMessage( 'gwtoolset-no-reupload-media' )->parse() )
 					->parse()
 			);
 		}

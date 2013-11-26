@@ -341,18 +341,16 @@ class MediawikiTemplate implements ModelInterface {
 		$result = null;
 
 		if ( empty( $this->mediawiki_template_array['gwtoolset-title-identifier'] ) ) {
-			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-no-title-identifier' )
-					->escaped()
-			);
+			throw new GWTException( 'gwtoolset-mapping-no-title-identifier' );
 		}
 
 		if ( empty( $options['evaluated-media-file-extension'] ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mapping-media-file-url-extension-bad' )
-					->rawParams( Utils::sanitizeString( $options['gwtoolset-url-to-the-media-file'] ) )
-					->escaped()
-				);
+				array(
+					'gwtoolset-mapping-media-file-url-extension-bad' =>
+					array( $options['gwtoolset-url-to-the-media-file'] )
+				)
+			);
 		}
 
 		if ( !empty( $this->mediawiki_template_array['title'] ) ) {
@@ -412,9 +410,7 @@ class MediawikiTemplate implements ModelInterface {
 			$this->mediawiki_template_name = $mediawiki_template_name;
 			$this->retrieve();
 		} else {
-			throw new GWTException(
-				wfMessage( 'gwtoolset-metadata-invalid-template' )->escaped()
-			);
+			throw new GWTException( 'gwtoolset-metadata-invalid-template' );
 		}
 	}
 
@@ -444,10 +440,11 @@ class MediawikiTemplate implements ModelInterface {
 
 		if ( empty( $result ) ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
-					->rawParams( Utils::sanitizeString( $this->mediawiki_template_name ) )
-						->escaped()
-				);
+				array(
+					'gwtoolset-mediawiki-template-not-found' =>
+					array( $this->mediawiki_template_name )
+				)
+			);
 		}
 
 		$this->mediawiki_template_json = $result['mediawiki_template_json'];

@@ -54,10 +54,11 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 			Config::$mediawiki_templates[Utils::sanitizeString( $options['mediawiki_template_name'] )] )
 		) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mediawiki-template-not-found' )
-					->rawParams( Utils::sanitizeString( $options['mediawiki_template_name'] ) )
-					->escaped()
-				);
+				array(
+					'gwtoolset-mediawiki-template-not-found' =>
+					array( $options['mediawiki_template_name'] )
+				)
+			);
 		}
 
 		$Title = Utils::getTitle(
@@ -67,9 +68,10 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
 		if ( !$Title->isKnown() ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-mediawiki-template-does-not-exist' )
-					->params( $Title->getBaseTitle() )
-					->parse()
+				array(
+					'gwtoolset-mediawiki-template-does-not-exist' =>
+					array( $Title->getBaseTitle() )
+				)
 			);
 		}
 

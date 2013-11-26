@@ -56,6 +56,7 @@ class MetadataMappingHandler extends FormHandler {
 		'gwtoolset-record-begin' => array( 'size' => 255 ),
 		'gwtoolset-record-count' => array( 'size' => 255 ),
 		'gwtoolset-record-element-name' => array( 'size' => 255 ),
+		'gwtoolset-reupload-media' => array( 'size' => 255 ),
 		'wpEditToken' => array( 'size' => 255 ),
 		'wpSummary' => array( 'size' => 255 )
 	);
@@ -240,9 +241,9 @@ class MetadataMappingHandler extends FormHandler {
 				? $this->_whitelisted_post['gwtoolset-title-identifier']
 				: null,
 
-			'upload-media' =>
-				!empty( $this->_whitelisted_post['upload-media'] )
-				? (bool)$this->_whitelisted_post['upload-media']
+			'gwtoolset-reupload-media' =>
+				!empty( $this->_whitelisted_post['gwtoolset-reupload-media'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-reupload-media']
 				: false,
 
 			'gwtoolset-url-to-the-media-file' =>

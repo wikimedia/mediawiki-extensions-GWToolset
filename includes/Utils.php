@@ -120,9 +120,7 @@ class Utils {
 
 		if ( strpos( $page_title, $wgServer ) !== false ) {
 			throw new GWTException(
-				wfMessage( 'gwtoolset-page-title-contains-url' )
-					->params( $page_title )
-					->parse()
+				array( 'gwtoolset-page-title-contains-url' => array( $page_title ) )
 			);
 		}
 
@@ -137,13 +135,13 @@ class Utils {
 		) {
 			$Language = new Language();
 			throw new GWTException(
-				wfMessage( 'gwtoolset-namespace-mismatch' )
-					->params(
+				array(
+					'gwtoolset-namespace-mismatch' => array(
 						$page_title,
 						$Language->getNsText( $Title->getNamespace() ),
 						$Language->getNsText( $namespace )
 					)
-					->parse()
+				)
 			);
 		}
 
@@ -223,27 +221,27 @@ class Utils {
 				break;
 
 			case JSON_ERROR_DEPTH:
-				$error_msg = wfMessage( 'gwtoolset-json-error-depth' )->escaped();
+				$error_msg = 'gwtoolset-json-error-depth';
 				break;
 
 			case JSON_ERROR_STATE_MISMATCH:
-				$error_msg = wfMessage( 'gwtoolset-json-error-state-mismatch' )->escaped();
+				$error_msg = 'gwtoolset-json-error-state-mismatch';
 				break;
 
 			case JSON_ERROR_CTRL_CHAR:
-				$error_msg = wfMessage( 'gwtoolset-json-error-ctrl-char' )->escaped();
+				$error_msg = 'gwtoolset-json-error-ctrl-char';
 				break;
 
 			case JSON_ERROR_SYNTAX:
-				$error_msg = wfMessage( 'gwtoolset-json-error-syntax' )->escaped();
+				$error_msg = 'gwtoolset-json-error-syntax';
 				break;
 
 			case JSON_ERROR_UTF8:
-				$error_msg = wfMessage( 'gwtoolset-json-error-utf8' )->escaped();
+				$error_msg = 'gwtoolset-json-error-utf8';
 				break;
 
 			default:
-				$error_msg = wfMessage( 'gwtoolset-json-error-unknown' )->escaped();
+				$error_msg = 'gwtoolset-json-error-unknown';
 				break;
 		}
 

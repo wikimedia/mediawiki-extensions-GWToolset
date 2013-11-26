@@ -118,15 +118,10 @@ class SpecialGWToolset extends SpecialPage {
 				} catch ( GWTException $e ) {
 					$html .=
 						Html::rawElement(
-							'h2',
-							array(),
+							'h2', array(),
 							wfMessage( 'gwtoolset-technical-error' )->escaped()
 						) .
-						Html::rawElement(
-							'p',
-							array( 'class' => 'error' ),
-							Utils::sanitizeString( $e->getMessage() )
-						);
+						Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
 				}
 			}
 		} else {
@@ -134,17 +129,12 @@ class SpecialGWToolset extends SpecialPage {
 				FileChecks::checkContentLength();
 				$html .= $this->_Handler->execute();
 			} catch ( GWTException $e ) {
-				if ( $e->getCode() === 1000 ) {
-					throw new PermissionsError( $e->getMessage() );
-				} else {
-					$html .=
-						Html::rawElement(
-							'h2',
-							array(),
-							wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
-						) .
-						Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
-				}
+				$html .=
+					Html::rawElement(
+						'h2', array(),
+						wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
+					) .
+					Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
 			}
 		}
 

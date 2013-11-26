@@ -99,9 +99,7 @@ class Mapping implements ModelInterface {
 			}
 
 			throw new GWTException(
-				wfMessage( 'gwtoolset-metadata-mapping-bad' )
-					->rawParams( $error_msg )
-					->parse()
+				array( 'gwtoolset-metadata-mapping-bad' => array( $error_msg ) )
 			);
 		}
 
@@ -140,11 +138,12 @@ class Mapping implements ModelInterface {
 					Utils::sanitizeString( Config::$metadata_mapping_subpage ) .
 					'/user-name/file-name.json';
 
-				$msg = wfMessage( 'gwtoolset-metadata-mapping-invalid-url' )
-					->rawParams( $url, $expected_path )
-					->escaped();
-
-				throw new GWTException( $msg );
+				throw new GWTException(
+					array(
+						'gwtoolset-metadata-mapping-invalid-url' =>
+						array( $url, $expected_path )
+					)
+				);
 			}
 
 			$result = $result[2];
@@ -171,9 +170,10 @@ class Mapping implements ModelInterface {
 
 			if ( empty( $result ) ) {
 				throw new GWTException(
-					wfMessage( 'gwtoolset-metadata-mapping-not-found' )
-						->params( $options['gwtoolset-metadata-mapping-url'] )
-						->parse()
+					array(
+						'gwtoolset-metadata-mapping-not-found' =>
+						array( $options['gwtoolset-metadata-mapping-url'] )
+					)
 				);
 			}
 		}

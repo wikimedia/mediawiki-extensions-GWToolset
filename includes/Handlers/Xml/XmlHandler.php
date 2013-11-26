@@ -141,7 +141,7 @@ abstract class XmlHandler {
 					}
 				}
 
-				throw new GWTException( wfMessage( 'gwtoolset-xml-doctype' ) );
+				throw new GWTException( 'gwtoolset-xml-doctype' );
 			}
 
 			$read_result = $this->$callback( $XMLReader, $user_options );

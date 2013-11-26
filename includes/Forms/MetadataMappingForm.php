@@ -533,7 +533,7 @@ class MetadataMappingForm {
 						'input',
 						array(
 							'type' => 'checkbox',
-							'name' => 'upload-media',
+							'name' => 'gwtoolset-reupload-media',
 							'value' => 'true'
 						)
 					) .

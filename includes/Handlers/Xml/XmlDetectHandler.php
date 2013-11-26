@@ -459,30 +459,12 @@ class XmlDetectHandler extends XmlHandler {
 		}
 
 		if ( empty( $this->_metadata_example_dom_element ) ) {
-			$msg = wfMessage( 'gwtoolset-no-xml-element-found' )->escaped() .
-				Html::openElement( 'ul' ) .
-					Html::rawElement(
-						'li',
-						array(),
-						wfMessage( 'gwtoolset-no-xml-element-found-li-1' )->escaped()
-					) .
-					Html::rawElement(
-						'li',
-						array(),
-						wfMessage( 'gwtoolset-no-xml-element-found-li-2' )->rawParams(
-							Html::rawElement(
-								'a',
-								array(
-									'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
-									'target' => '_blank'
-								),
-								'XML Validator'
-							)
-						)->escaped()
-					) .
-				Html::closeElement( 'ul' ) .
+			$msg = 'http://www.w3schools.com/xml/xml_validator.asp' . PHP_EOL .
 				$this->_SpecialPage->getBackToFormLink();
-			throw new GWTException( $msg );
+
+			throw new GWTException(
+				array( 'gwtoolset-no-xml-element-found' => array( $msg ) )
+			);
 		}
 
 		ksort( $this->_metadata_example_dom_nodes );

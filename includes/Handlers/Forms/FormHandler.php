@@ -59,31 +59,26 @@ abstract class FormHandler {
 
 		foreach ( $expected_options as $option ) {
 			if ( !array_key_exists( $option, $user_options ) ) {
-				$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
+				$msg .= '* ' . $option . PHP_EOL;
 			}
 
 			if ( is_array( $user_options[$option] ) ) {
 				if ( strlen( reset( $user_options[$option] ) ) < 1 ) {
-					$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
+					$msg .= '* ' . $option . PHP_EOL;
 				}
 			} else {
 				if ( strlen( $user_options[$option] ) < 1 ) {
-					$msg .= '<li>' . Utils::sanitizeString( $option ) . '</li>';
+					$msg .= '* ' . $option . PHP_EOL;
 				}
 			}
 		}
 
 		if ( $msg !== null ) {
-			$msg =
-				Html::rawElement(
-					'p',
-					array( 'class' => 'error' ),
-					wfMessage( 'gwtoolset-metadata-user-options-error' )->escaped()
-				) .
-				Html::rawElement( 'ul', array(), $msg ) .
-				Html::rawElement( 'p', array(), $this->SpecialPage->getBackToFormLink() );
+			$msg .= $this->SpecialPage->getBackToFormLink();
 
-			throw new GWTException( $msg );
+			throw new GWTException(
+				array( 'gwtoolset-metadata-user-options-error' => array( $msg ) )
+			);
 		}
 	}
 
