@@ -11,6 +11,7 @@ namespace GWToolset\Helpers;
 use GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
+	MimeMagic,
 	MWException,
 	Php\File,
 	OutputPage,
@@ -213,6 +214,8 @@ class FileChecks {
 	 *  - bad extension
 	 *  - js posing as xml
 	 *
+	 * currently tests metadata file upload only.
+	 *
 	 * @param {File} $File
 	 * @param {array} $accepted_types
 	 * @throws {MWException}
@@ -261,6 +264,8 @@ class FileChecks {
 	}
 
 	/**
+	 * currently tests metadata file upload only.
+	 *
 	 * @param {File} $File
 	 * @return {Status}
 	 */
@@ -269,7 +274,10 @@ class FileChecks {
 			return Status::newFatal( 'gwtoolset-unaccepted-extension' );
 		}
 
-		if ( !in_array( $File->mime_type, $accepted_types[$File->pathinfo['extension']] ) ) {
+		$mime_type_extension_match =
+			MimeMagic::singleton()->isMatchingExtension( $File->pathinfo['extension'], $File->mime_type );
+
+		if ( !$mime_type_extension_match ) {
 			return Status::newFatal(
 				'gwtoolset-mime-type-mismatch',
 				Utils::sanitizeString( $File->pathinfo['extension'] ),

@@ -9,7 +9,10 @@
 
 namespace Php;
 use finfo,
-	GWToolset\Utils;
+	GWToolset\GWTException,
+	GWToolset\Utils,
+	MimeMagic,
+	MWException;
 
 /**
  * @link http://php.net/manual/en/reserved.variables.files.php
@@ -30,7 +33,9 @@ class File {
 
 	/**
 	 * @var {string}
-	 * The mime type of the file, if the browser provided this information. An example would be "image/gif". This mime type is however not checked on the PHP side and therefore don't take its value for granted.
+	 * The mime type of the file, if the browser provided this information.
+	 * An example would be "image/gif". This mime type is however not checked on the PHP side
+	 * and therefore don't take its value for granted.
 	 */
 	public $type;
 
@@ -54,7 +59,8 @@ class File {
 	 * Value: 0; There is no error, the file uploaded with success.
 	 *
 	 * UPLOAD_ERR_FORM_SIZE
-	 * Value: 2; The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.
+	 * Value: 2; The uploaded file exceeds the MAX_FILE_SIZE directive that
+	 * was specified in the HTML form.
 	 *
 	 * UPLOAD_ERR_PARTIAL
 	 * Value: 3; The uploaded file was only partially uploaded.
@@ -69,7 +75,9 @@ class File {
 	 * Value: 7; Failed to write file to disk. Introduced in PHP 5.1.0.
 	 *
 	 * UPLOAD_ERR_EXTENSION
-	 * Value: 8; A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help. Introduced in PHP 5.2.0.
+	 * Value: 8; A PHP extension stopped the file upload. PHP does not provide a way to
+	 * ascertain which extension caused the file upload to stop; examining the list of
+	 * loaded extensions with phpinfo() may help. Introduced in PHP 5.2.0.
 	 */
 	public $error;
 
@@ -99,30 +107,18 @@ class File {
 	 * @return {void}
 	 */
 	public function __construct( $file_field_name = null ) {
-		$this->reset();
+		$this->init();
+
 		if ( !empty( $file_field_name ) ) {
 			$this->populate( $file_field_name );
 		}
 	}
 
-	/**
-	 * finfo runs a best guess at mime-type and character encoding.
-	 * nb: if there are no utf-8 characters present in the file
-	 * then it will guess that the encoding is us-ascii
-	 *
-	 * e.g. of output application/xml; charset=us-ascii
-	 *
-	 * @return {void}
-	 *
-	 * @link http://www.php.net/manual/en/function.finfo-file.php
-	 * @link http://www.php.net/manual/en/fileinfo.constants.php
-	 */
 	protected function setMimeType() {
-		if ( !class_exists( 'finfo' ) ) {
-			return;
-		}
-		$finfo = new finfo( FILEINFO_MIME_TYPE );
-		$this->mime_type = $finfo->file( $this->tmp_name );
+		$this->mime_type = MimeMagic::singleton()->guessMimeType(
+			$this->tmp_name,
+			$this->pathinfo['extension']
+		);
 	}
 
 	protected function setPathInfo() {
@@ -145,32 +141,45 @@ class File {
 			|| empty( $this->tmp_name )
 		);
 
-		if ( !$result ) {
-			return false;
-		}
-
-		return true;
+		return $result;
 	}
 
 	/**
-	 * @throws {FileException}
-	 * @return {void}
+	 * @return {bool}
+	 */
+	protected function isPathInfoComplete() {
+		$result = !(
+			!isset( $this->pathinfo['basename'] )
+			|| !isset( $this->pathinfo['dirname'] )
+			|| !isset( $this->pathinfo['extension'] )
+			|| !isset( $this->pathinfo['filename'] )
+		);
+
+		return $result;
+	}
+
+	/**
+	 * @throws {GWTException|MWException}
 	 */
 	public function populate( $file_field_name ) {
 		$file_field_name = Utils::sanitizeString( $file_field_name );
 
 		if ( !isset( $_FILES[$file_field_name] ) ) {
-			throw new FileException( 'The expected form field [' . $file_field_name . '] does not exist. (Php\File)' );
+			throw new MWException(
+				wfMessage( 'gwtoolset-no-form-field' )
+					->params( $file_field_name )
+					->escaped()
+			);
 		}
 
 		$file = $_FILES[$file_field_name];
 
 		if ( empty( $file ) ) {
-			throw new FileException( 'The file submitted contains no information; it is most likely an empty file. (Php\File)' );
+			throw new GWTException( 'gwtoolset-no-file' );
 		}
 
 		if ( isset( $file[0] ) ) {
-			throw new FileException( 'The file submitted contains information on more than one file ($_FILES has multiple values). (Php\File)' );
+			throw new GWTException( 'gwtoolset-multiple-files' );
 		}
 
 		$this->original_file_array = $file;
@@ -196,18 +205,20 @@ class File {
 		}
 
 		if ( !$this->isFileInfoComplete() ) {
-			throw new FileException( 'The file submitted does not contain enough information to process the file; it may be empty or you did not select a file to submit. (Php\File)' );
+			throw new GWTException( 'gwtoolset-no-file' );
 		}
 
 		$this->setIsFileUploaded();
 		$this->setPathinfo();
+
+		if ( !$this->isPathInfoComplete() ) {
+			throw new GWTException( 'gwtoolset-no-extension' );
+		}
+
 		$this->setMimeType();
 	}
 
-	/**
-	 * @return {void}
-	 */
-	public function reset() {
+	public function init() {
 		$this->original_file_array = array();
 		$this->error = null;
 		$this->name = null;
@@ -218,4 +229,5 @@ class File {
 		$this->pathinfo = array();
 		$this->mime_type = null;
 	}
+
 }
