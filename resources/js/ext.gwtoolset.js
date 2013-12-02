@@ -307,12 +307,11 @@
 			if ( !data.edit || !data.edit.result || data.edit.result !== 'Success' ) {
 				if ( data.error && data.error.info ) {
 					gwtoolset.openDialog( {
-						msg: mw.message( 'gwtoolset-save-mapping-failed' ).text() +
-							' ( ' + data.error.info + ' )'
+						msg: mw.message( 'gwtoolset-save-mapping-failed', data.error.info ).escaped()
 					} );
 				} else {
 					gwtoolset.openDialog( {
-						msg: mw.message( 'gwtoolset-save-mapping-failed' ).text()
+						msg: mw.message( 'gwtoolset-save-mapping-failed', '' ).escaped()
 					} );
 				}
 			} else {
