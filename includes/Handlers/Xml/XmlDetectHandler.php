@@ -17,6 +17,7 @@ use Content,
 	GWToolset\Models\MediawikiTemplate,
 	Html,
 	MWException,
+	Sanitizer,
 	SpecialPage,
 	XMLReader;
 
@@ -209,11 +210,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Utils::sanitizeString( $parameter_as_id ),
+			Sanitizer::escapeId( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
 			Utils::sanitizeString( $parameter ),
-			Utils::sanitizeString( $parameter_as_id ),
+			Sanitizer::escapeId( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -240,11 +241,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Utils::sanitizeString( $parameter_as_id ),
+			Sanitizer::escapeId( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
 			Utils::sanitizeString( $parameter ),
-			Utils::sanitizeString( $parameter_as_id ),
+			Sanitizer::escapeId( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -452,9 +453,9 @@ class XmlDetectHandler extends XmlHandler {
 		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
 			$this->readXmlAsFile( $user_options, $xml_source, $callback );
 		} else {
-			$msg = wfMessage( 'gwtoolset-developer-issue' )->params(
-				wfMessage( 'gwtoolset-no-xml-source' )->escaped()
-			)->parse();
+			$msg = wfMessage( 'gwtoolset-developer-issue' )
+				->params( wfMessage( 'gwtoolset-no-xml-source' )->escaped() )
+				->parse();
 			throw new MWException( $msg );
 		}
 

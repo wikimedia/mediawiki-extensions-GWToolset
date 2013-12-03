@@ -193,7 +193,9 @@ class MetadataDetectForm {
 						'a',
 						array(
 							'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
-							'target' => '_blank'
+							'target' => '_blank',
+							'class' => 'external free',
+							'rel' => 'nofollow'
 						),
 						'XML Validator'
 					)
