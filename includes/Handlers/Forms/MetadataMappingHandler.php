@@ -451,17 +451,25 @@ class MetadataMappingHandler extends FormHandler {
 	 * a control method that processes a SpecialPage request
 	 * and returns a response, typically an html form
 	 *
+	 * @param {array} $original_post
+	 *
 	 * @return {string|array}
 	 * - an html form, which is filtered in the getForm method
 	 * - an html response, which has been escaped and parsed by wfMessage
 	 * - an array of mediafile Title(s)
 	 */
-	public function processRequest() {
+	public function processRequest( array $original_post = array() ) {
 		$result = null;
 		$mediafile_titles = array();
 
+		if ( empty( $original_post ) ) {
+			$original_post = $_POST;
+		}
+
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$this->_MediawikiTemplate->getMediaWikiTemplate( $_POST['gwtoolset-mediawiki-template-name'] );
+		$this->_MediawikiTemplate->getMediaWikiTemplate(
+			$original_post['gwtoolset-mediawiki-template-name']
+		);
 
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
 			// MediaWiki template parameters sometimes contain spaces
@@ -469,7 +477,10 @@ class MetadataMappingHandler extends FormHandler {
 			$this->_expected_post_fields[Utils::sanitizeString( $key )] = array( 'size' => 255 );
 		}
 
-		$this->_whitelisted_post = Utils::getWhitelistedPost( $this->_expected_post_fields );
+		$this->_whitelisted_post = Utils::getWhitelistedPost(
+			$original_post,
+			$this->_expected_post_fields
+		);
 		$user_options = $this->getUserOptions();
 		$this->getGlobalCategories( $user_options );
 

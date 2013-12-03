@@ -150,7 +150,10 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function processRequest() {
 		$result = null;
-		$this->_whitelisted_post = Utils::getWhitelistedPost( $this->_expected_post_fields );
+		$this->_whitelisted_post = Utils::getWhitelistedPost(
+			$_POST,
+			$this->_expected_post_fields
+		);
 		$user_options = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(

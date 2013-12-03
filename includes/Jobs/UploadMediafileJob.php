@@ -43,7 +43,6 @@ class UploadMediafileJob extends Job {
 	 */
 	protected function processMetadata() {
 		$result = false;
-		$_POST = $this->params['whitelisted-post'];
 
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$MediawikiTemplate->getMediaWikiTemplate(
@@ -51,7 +50,9 @@ class UploadMediafileJob extends Job {
 		);
 
 		$Mapping = new Mapping( new MappingPhpAdapter() );
-		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray( $_POST );
+		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray(
+			$this->params['whitelisted-post']
+		);
 		$Mapping->setTargetElements();
 		$Mapping->reverseMap();
 

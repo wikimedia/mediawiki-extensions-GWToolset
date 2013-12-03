@@ -181,18 +181,21 @@ class Utils {
 	 *     @see http://php.net/manual/en/filter.filters.sanitize.php
 	 *   - shorterns strings > $metadata['size'], the max size expected of a field value
 	 *
+	 * @param {array} $original_post
 	 * @param {array} $expected_post_fields
-	 *
 	 * @throws {MWException}
 	 *
 	 * @return {array}
 	 * the values within the array have been sanitized
 	 */
-	public static function getWhitelistedPost( array $expected_post_fields = array() ) {
+	public static function getWhitelistedPost(
+		array $original_post = array(),
+		array $expected_post_fields = array()
+	) {
 		$result = array();
 
 		foreach ( $expected_post_fields as $field => $metadata ) {
-			if ( !isset( $_POST[$field] ) ) {
+			if ( !isset( $original_post[$field] ) ) {
 				continue;
 			}
 
@@ -209,10 +212,10 @@ class Utils {
 				);
 			}
 
-			if ( is_array( $_POST[$field] ) ) {
+			if ( is_array( $original_post[$field] ) ) {
 				$result[$field] = array();
 
-				foreach ( $_POST[$field] as $value ) {
+				foreach ( $original_post[$field] as $value ) {
 					// avoid field[][]
 					if ( !is_array( $value ) ) {
 						$value = substr( $value, 0, $metadata['size'] );
@@ -220,7 +223,7 @@ class Utils {
 					}
 				}
 			} else {
-				$value = substr( $_POST[$field], 0, $metadata['size'] );
+				$value = substr( $original_post[$field], 0, $metadata['size'] );
 				$result[$field] = Utils::sanitizeString( $value );
 			}
 		}
