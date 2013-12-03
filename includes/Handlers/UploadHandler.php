@@ -75,13 +75,6 @@ class UploadHandler {
 
 	/**
 	 * @var {array}
-	 * used to hold the original wiki file extension array while the extension
-	 * augments it for metadata file upload.
-	 */
-	private $_wgFileExtensions;
-
-	/**
-	 * @var {array}
 	 */
 	public $mediafile_jobs;
 
@@ -220,37 +213,6 @@ class UploadHandler {
 		}
 
 		return $result;
-	}
-
-	/**
-	 * adds to the wiki’s allowed extensions array, $wgFileExtensions so that
-	 * UploadBase will accept certain types. original intention is to allow
-	 * xml file uploads as metadata sets
-	 *
-	 * @param {array} $accepted_types
-	 * @throws {MWException}
-	 */
-	protected function augmentAllowedExtensions( array $accepted_types = array() ) {
-		global $wgFileExtensions;
-
-		if ( empty( $accepted_types ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params(
-						wfMessage( 'gwtoolset-no-accepted-types' )
-							->escaped( 'gwtoolset-no-accepted-types-provided' )
-					)
-					->parse()
-			);
-		}
-
-		$this->_wgFileExtensions = $wgFileExtensions;
-
-		foreach ( array_keys( Config::$accepted_metadata_types ) as $accepted_extension ) {
-			if ( !in_array( $accepted_extension, $wgFileExtensions ) ) {
-				$wgFileExtensions[] = Utils::sanitizeString( $accepted_extension );
-			}
-		}
 	}
 
 	/**
@@ -425,16 +387,6 @@ class UploadHandler {
 
 		$this->mediafile_jobs = array();
 		$this->user_options = array();
-	}
-
-	/**
-	 * restores the wiki’s allowed extensions array
-	 *
-	 * @param {array} $accepted_types
-	 */
-	protected function restoreAllowedExtensions( array $accepted_types = array() ) {
-		global $wgFileExtensions;
-		$wgFileExtensions = $this->_wgFileExtensions;
 	}
 
 	/**
