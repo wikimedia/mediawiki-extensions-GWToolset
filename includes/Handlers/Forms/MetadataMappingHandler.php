@@ -385,8 +385,8 @@ class MetadataMappingHandler extends FormHandler {
 			$FSFile->getPath()
 		);
 
-		// when PHP_SAPI === 'cli' this method is being run by a wiki job.
-		if ( PHP_SAPI === 'cli' ) {
+		// this method is being run by a wiki job.
+		if ( PHP_SAPI === 'cli' || empty( $this->SpecialPage ) ) {
 			// add jobs created earlier by $this->_UploadHandler::saveMediafileViaJob to the JobQueue
 			if ( count( $this->_UploadHandler->mediafile_jobs ) > 0 ) {
 				$added_jobs = JobQueueGroup::singleton()->push( $this->_UploadHandler->mediafile_jobs );
@@ -492,6 +492,7 @@ class MetadataMappingHandler extends FormHandler {
 			$result = PreviewForm::getForm(
 				$this->SpecialPage->getContext(),
 				$user_options,
+				$this->_expected_post_fields,
 				$mediafile_titles
 			);
 		} else {

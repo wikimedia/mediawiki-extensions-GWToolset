@@ -25,15 +25,19 @@ class PreviewForm {
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {string} $results
-	 * an html string that contains links to the results of the preview batch upload
-	 * the string should have already been filtered
+	 * @param {array} $expected_post_fields
+	 *
+	 * @param {array} $mediafile_titles
+	 * a collection of MediaWiki Title objects
 	 *
 	 * @return {string}
 	 * an html form that is filtered
 	 */
 	public static function getForm(
-		IContextSource $Context, array &$user_options, array &$mediafile_titles
+		IContextSource $Context,
+		array $user_options,
+		array $expected_post_fields,
+		array $mediafile_titles
 	) {
 		$process_button =
 			(int)$user_options['gwtoolset-record-count'] > (int)Config::$preview_throttle
@@ -116,7 +120,7 @@ class PreviewForm {
 				)
 			) .
 
-			self::getPostAsHiddenFields() .
+			self::getPostAsHiddenFields( $expected_post_fields ) .
 
 			Html::rawElement(
 				'p',
@@ -141,21 +145,29 @@ class PreviewForm {
 	/**
 	 * a decorator method that creates <input type="hidden"> fields based on the previous $_POST.
 	 * this is done to insure that all fields posted in step 2 : Metadata Mapping are maintained
-	 * within this form, so that when this form posts to create the initial batch job,
+	 * within this form so that when this form posts to create the initial batch job,
 	 * it has the mapping information from step 2
+	 *
+	 * @param {array} $expected_post_fields
 	 *
 	 * @return {string}
 	 * the string is filtered
 	 */
-	public static function getPostAsHiddenFields() {
+	public static function getPostAsHiddenFields( array $expected_post_fields ) {
 		$result = null;
 
-		foreach ( $_POST as $key => $value ) {
+		foreach ( $expected_post_fields as $key => $value ) {
 			if ( $key === 'submit'
 				|| $key === 'wpEditToken'
 				|| $key === 'gwtoolset-form'
 				|| $key === 'gwtoolset-preview'
 			) {
+				continue;
+			}
+
+			if ( isset( $_POST[$key] ) ) {
+				$value = $_POST[$key];
+			} else {
 				continue;
 			}
 
@@ -196,7 +208,7 @@ class PreviewForm {
 	 * @return {string}
 	 * the string contains a Title link assumed to be filtered by Title
 	 */
-	public static function getTitlesAsList( array &$mediafile_titles ) {
+	public static function getTitlesAsList( array $mediafile_titles ) {
 		$result = Html::openElement( 'ul' );
 
 		foreach ( $mediafile_titles as $Title ) {
