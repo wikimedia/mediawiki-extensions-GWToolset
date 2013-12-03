@@ -406,7 +406,7 @@ class MediawikiTemplate implements ModelInterface {
 				);
 		}
 
-		if ( in_array( $mediawiki_template_name, Config::$allowed_templates ) ) {
+		if ( key_exists( $mediawiki_template_name, Config::$mediawiki_templates ) ) {
 			$this->mediawiki_template_name = $mediawiki_template_name;
 			$this->retrieve();
 		} else {

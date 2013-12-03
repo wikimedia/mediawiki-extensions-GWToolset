@@ -43,6 +43,24 @@ class Utils {
 	}
 
 	/**
+	 * GlobalFunctions->wfObjectToArray() doesn’t work here
+	 *
+	 * @param {array|object} $data
+	 * @return {array}
+	 */
+	public static function objectToArray( $data ) {
+		if ( is_object( $data ) ) {
+			$data = (array)$data;
+		}
+
+		if ( is_array( $data ) ) {
+			return array_map( array( __CLASS__, __FUNCTION__ ), $data );
+		} else {
+			return $data;
+		}
+	}
+
+	/**
 	 * takes a php ini value that contains a letter for Kilobytes, Megabytes, etc.
 	 * and converts it to bytes
 	 *

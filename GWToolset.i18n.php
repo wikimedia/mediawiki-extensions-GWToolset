@@ -29,7 +29,6 @@ $messages['en'] = array(
 	/**
 	 * developer issues
 	 */
-	'gwtoolset-api-call-unsuccessful' => 'The API call to retrieve ($1) was unsuccessful. The API error message is ($2).',
 	'gwtoolset-batchjob-creation-failure' => 'Could not create a ($1) batch job.',
 	'gwtoolset-could-not-close-xml' => 'Could not close the XMLReader.',
 	'gwtoolset-could-not-open-xml' => 'Could not open the XML File for reading.',
@@ -280,7 +279,6 @@ Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> 
 $messages['qqq'] = array(
 	'gwtoolset' => 'extension name',
 	'gwtoolset-accepted-file-types' => 'Label for accepted file types in the HTML form.',
-	'gwtoolset-api-call-unsuccessful' => 'Message that appears when an API call was unsuccessful.',
 	'gwtoolset-back-text' => 'User message telling the user to use the browser back button to go back to the HTML form. When JavaScript is active this message is replaced with an anchor tag using gwtoolset-back-text-link.',
 	'gwtoolset-back-text-link' => 'gwtoolset-back-text is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.',
 	'gwtoolset-batchjob-creation-failure' => 'Message that appears when the extention could not create a batch job. Parameter $1 is the type of batch job.',

@@ -8,7 +8,9 @@
  */
 
 namespace GWToolset\Adapters\Php;
-use GWToolset\Adapters\DataAdapterInterface,
+use ApiMain,
+	DerivativeRequest,
+	GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
@@ -66,11 +68,11 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 			NS_TEMPLATE
 		);
 
-		if ( !$Title->isKnown() ) {
+		if ( $Title === null || !$Title->isKnown() ) {
 			throw new GWTException(
 				array(
 					'gwtoolset-mediawiki-template-does-not-exist' =>
-					array( $Title->getBaseTitle() )
+					array( $options['mediawiki_template_name'] )
 				)
 			);
 		}
@@ -100,49 +102,29 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	protected function retrieveTemplateData( Title $Title ) {
 		$result = null;
 		$api_result = array();
-		global $wgServer, $wgScriptPath;
+		global $wgRequest;
 
-		$url = $wgServer .
-			$wgScriptPath .
-			'/api.php?action=templatedata&titles=' .
-			$Title->getBaseTitle();
+		$Api = new ApiMain(
+			new DerivativeRequest(
+				$wgRequest,
+				array(
+					'action' => 'templatedata',
+					'titles' => $Title->getBaseTitle()
+				),
+				false // not posted
+			),
+			false // disable write
+		);
 
-		$Http = MWHttpRequest::factory( $url );
+		$Api->execute();
 
-		$Status = $Http->execute();
+		$api_result = $Api->getResultData();
+		$api_result = Utils::objectToArray( $api_result );
 
-		if ( !$Status->ok ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params(
-						wfMessage( 'gwtoolset-api-call-unsuccessful' )
-							->params( $Title->getBaseTitle(), $Status->getMessage() )
-							->escaped()
-					)
-				->parse()
-			);
-		}
-
-		$api_result = json_decode( $Http->getContent(), true );
-
-		try {
-			Utils::jsonCheckForError();
-		} catch ( GWTException $e ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params(
-						wfMessage( 'gwtoolset-json-error' )
-							->params( $e->getMessage() )
-							->escaped()
-					)
-				->parse()
-			);
-		}
-
-		if ( isset ( $api_result['pages'] ) && count ( $api_result['pages'] ) === 1 ) {
+		if ( isset( $api_result['pages'] ) && count( $api_result['pages'] ) === 1 ) {
 			$api_result = array_shift( $api_result['pages'] );
 
-			if ( count ( $api_result['params'] ) > 0 ) {
+			if ( count( $api_result['params'] ) > 0 ) {
 				foreach ( $api_result['params'] as $key => $value ) {
 					if ( !$value['deprecated'] ) {
 						$result[$key] = '';

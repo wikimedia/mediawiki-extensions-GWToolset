@@ -113,7 +113,7 @@ class MetadataDetectHandler extends FormHandler {
 			'gwtoolset-mediawiki-template-name' => !empty(
 					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
 				)
-				? $this->_whitelisted_post['gwtoolset-mediawiki-template-name']
+				? Utils::normalizeSpace( $this->_whitelisted_post['gwtoolset-mediawiki-template-name'] )
 				: null,
 
 			'gwtoolset-metadata-file-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
@@ -212,7 +212,7 @@ class MetadataDetectHandler extends FormHandler {
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$this->_MediawikiTemplate->getMediaWikiTemplate(
-			$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
+			$user_options['gwtoolset-mediawiki-template-name']
 		);
 
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
