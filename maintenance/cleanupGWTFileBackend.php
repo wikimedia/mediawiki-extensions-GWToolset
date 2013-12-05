@@ -32,12 +32,12 @@ class GWTFileBackendCleanup extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgGWTFileBackend, $wgGWTFBMetadataContainer, $wgGWTFBMaxAge;
+		global $wgGWTFileBackend, $wgGWTFBMaxAge;
 
 		$GWTFileBackend = new GWTFileBackend(
 			array(
-				'file-backend-name' => $wgGWTFileBackend,
-				'container' => $wgGWTFBMetadataContainer
+				'container' => Config::$filebackend_metadata_container,
+				'file-backend-name' => $wgGWTFileBackend
 			)
 		);
 
@@ -61,7 +61,7 @@ class GWTFileBackendCleanup extends Maintenance {
 			'...' . PHP_EOL
 		);
 
-		$mwstore_path = $GWTFileBackend->getMWStorePath();
+		$mwstore_path = $GWTFileBackend->getMWStorePath() . '/';
 
 		$FSFileBackendFileList = $GWTFileBackend->FileBackend->getFileList(
 			array( 'dir' => $mwstore_path, 'adviseStat' => true )

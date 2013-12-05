@@ -134,10 +134,10 @@ abstract class XmlHandler {
 		while ( $XMLReader->read() ) {
 			if ( $XMLReader->nodeType === XMLReader::DOC_TYPE ) {
 				if ( $this->_GWTFileBackend instanceof \GWToolset\Helpers\GWTFileBackend ) {
-					$file_mwstore_path = $this->_GWTFileBackend->getMWStorePath();
+					$mwstore_relative_path = $this->_GWTFileBackend->getMWStoreRelativePath();
 
-					if ( $file_mwstore_path !== null ) {
-						$this->_GWTFileBackend->deleteFile( $file_mwstore_path );
+					if ( $mwstore_relative_path !== null ) {
+						$this->_GWTFileBackend->deleteFileFromRelativePath( $mwstore_relative_path );
 					}
 				}
 

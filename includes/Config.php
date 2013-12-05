@@ -39,6 +39,11 @@ class Config {
 	public static $category_separator = '|';
 
 	/**
+	 * @var {string}
+	 */
+	public static $filebackend_metadata_container = 'gwtoolset-metadata';
+
+	/**
 	 * @var {int}
 	 * 20 minutes, 25 seconds default
 	 */

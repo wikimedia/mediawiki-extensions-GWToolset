@@ -165,12 +165,12 @@ class MetadataDetectHandler extends FormHandler {
 			)
 		);
 
-		global $wgGWTFileBackend, $wgGWTFBMetadataContainer;
+		global $wgGWTFileBackend;
 
 		$this->_GWTFileBackend = new GWTFileBackend(
 			array(
+				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
-				'container' => $wgGWTFBMetadataContainer,
 				'User' => $this->User
 			)
 		);
@@ -192,10 +192,13 @@ class MetadataDetectHandler extends FormHandler {
 		);
 
 		// upload the metadata file and get an mwstore reference to it
-		$user_options['gwtoolset-metadata-file-mwstore'] = $this->_UploadHandler->saveMetadataToFileBackend();
+		$user_options['gwtoolset-metadata-file-relative-path'] =
+			$this->_UploadHandler->saveMetadataToFileBackend();
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFile( $user_options['gwtoolset-metadata-file-mwstore'] );
+		$FSFile = $this->_GWTFileBackend->retrieveFileFromRelativePath(
+			$user_options['gwtoolset-metadata-file-relative-path']
+		);
 
 		if ( !( $FSFile instanceof FSFile ) ) {
 			throw new MWException(
@@ -203,7 +206,7 @@ class MetadataDetectHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['gwtoolset-metadata-file-mwstore'] )
+							->params( $user_options['gwtoolset-metadata-file-relative-path'] )
 							->parse()
 					)
 					->parse()

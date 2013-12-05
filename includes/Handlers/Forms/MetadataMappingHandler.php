@@ -45,7 +45,7 @@ class MetadataMappingHandler extends FormHandler {
 		'gwtoolset-form' => array( 'size' => 255 ),
 		'gwtoolset-preview' => array( 'size' => 255 ),
 		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
-		'gwtoolset-metadata-file-mwstore' => array( 'size' => 255 ),
+		'gwtoolset-metadata-file-relative-path' => array( 'size' => 255 ),
 		'gwtoolset-metadata-file-sha1' => array( 'size' => 255 ),
 		'gwtoolset-metadata-file-url' => array( 'size' => 255 ),
 		'gwtoolset-metadata-mapping-name' => array( 'size' => 255 ),
@@ -195,9 +195,9 @@ class MetadataMappingHandler extends FormHandler {
 				? $this->_whitelisted_post['gwtoolset-metadata-file-url']
 				: null,
 
-			'gwtoolset-metadata-file-mwstore' =>
-				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-mwstore'] )
-				? $this->_whitelisted_post['gwtoolset-metadata-file-mwstore']
+			'gwtoolset-metadata-file-relative-path' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-relative-path'] )
+				? $this->_whitelisted_post['gwtoolset-metadata-file-relative-path']
 				: null,
 
 			'gwtoolset-metadata-file-sha1' =>
@@ -323,12 +323,12 @@ class MetadataMappingHandler extends FormHandler {
 
 		$this->_Metadata = new Metadata( new MetadataPhpAdapter() );
 
-		global $wgGWTFileBackend, $wgGWTFBMetadataContainer;
+		global $wgGWTFileBackend;
 
 		$this->_GWTFileBackend = new GWTFileBackend(
 			array(
+				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
-				'container' => $wgGWTFBMetadataContainer,
 				'User' => $this->User
 			)
 		);
@@ -352,8 +352,8 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFile(
-			$user_options['gwtoolset-metadata-file-mwstore']
+		$FSFile = $this->_GWTFileBackend->retrieveFileFromRelativePath(
+			$user_options['gwtoolset-metadata-file-relative-path']
 		);
 
 		if ( !( $FSFile instanceof FSFile ) ) {
@@ -362,7 +362,7 @@ class MetadataMappingHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['gwtoolset-metadata-file-mwstore'] )
+							->params( $user_options['gwtoolset-metadata-file-relative-path'] )
 							->parse()
 					)
 					->parse()
@@ -431,7 +431,7 @@ class MetadataMappingHandler extends FormHandler {
 				// no more UploadMediafileJobs need to be created
 				// create a GWTFileBackendCleanupJob that will delete the metadata file in the mwstore
 				$Status = $this->_GWTFileBackend->createCleanupJob(
-					$user_options['gwtoolset-metadata-file-mwstore']
+					$user_options['gwtoolset-metadata-file-relative-path']
 				);
 
 				if ( !$Status->ok ) {
@@ -492,7 +492,7 @@ class MetadataMappingHandler extends FormHandler {
 				'gwtoolset-record-element-name',
 				'gwtoolset-title-identifier',
 				'gwtoolset-url-to-the-media-file',
-				'gwtoolset-metadata-file-mwstore'
+				'gwtoolset-metadata-file-relative-path'
 			)
 		);
 

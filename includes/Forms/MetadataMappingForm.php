@@ -193,8 +193,8 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
-					'name' => 'gwtoolset-metadata-file-mwstore',
-					'value' => Utils::sanitizeUrl( $user_options['gwtoolset-metadata-file-mwstore'] )
+					'name' => 'gwtoolset-metadata-file-relative-path',
+					'value' => Utils::sanitizeUrl( $user_options['gwtoolset-metadata-file-relative-path'] )
 				)
 			) .
 

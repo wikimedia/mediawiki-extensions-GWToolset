@@ -30,16 +30,19 @@ class GWTFileBackendCleanupJob extends Job {
 	 */
 	protected function processJob() {
 		$result = true;
-		global $wgGWTFileBackend, $wgGWTFBMetadataContainer;
+		global $wgGWTFileBackend;
 
 		$GWTFileBackend = new GWTFileBackend(
 			array(
+				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
-				'container' => $wgGWTFBMetadataContainer,
+				'User' => User::newFromName( $this->params['user-name'] )
 			)
 		);
 
-		$Status = $GWTFileBackend->deleteFile( $this->params['gwtoolset-metadata-file-mwstore'] );
+		$Status = $GWTFileBackend->deleteFileFromRelativePath(
+			$this->params['gwtoolset-metadata-file-relative-path']
+		);
 
 		if ( !$Status->ok ) {
 			$this->setLastError( __METHOD__ . ': ' . $Status->getMessage() );
@@ -75,10 +78,15 @@ class GWTFileBackendCleanupJob extends Job {
 	protected function validateParams() {
 		$result = true;
 
-		if ( empty( $this->params['gwtoolset-metadata-file-mwstore'] ) ) {
+		if ( empty( $this->params['gwtoolset-metadata-file-relative-path'] ) ) {
 			$this->setLastError(
-				__METHOD__ . ': no $this->params[\'gwtoolset-metadata-file-mwstore\'] provided'
+				__METHOD__ . ': no $this->params[\'gwtoolset-metadata-file-relative-path\'] provided'
 			);
+			$result = false;
+		}
+
+		if ( empty( $this->params['user-name'] ) ) {
+			$this->setLastError( __METHOD__ . ': no $this->params[\'user-name\'] provided' );
 			$result = false;
 		}
 

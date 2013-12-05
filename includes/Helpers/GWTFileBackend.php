@@ -61,19 +61,23 @@ class GWTFileBackend {
 	/**
 	 * creates a GWTFileBackendCleanupJob that will delete the mwstore file in the FileBackend
 	 *
-	 * @param {string} $mwstore_path
+	 * @param {string} $mwstore_relative_path
 	 * @throws {MWException}
 	 * @return {bool}
 	 */
-	public function createCleanupJob( $mwstore_path = null ) {
+	public function createCleanupJob( $mwstore_relative_path = null ) {
 		$result = false;
 
-		if ( empty( $mwstore_path ) ) {
+		if ( empty( $mwstore_relative_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
 					->parse()
 				);
+		}
+
+		if ( empty( $this->_User ) ) {
+			throw new MWException( wfMessage( 'gwtoolset-no-user' ) );
 		}
 
 		$job = new GWTFileBackendCleanupJob(
@@ -85,7 +89,8 @@ class GWTFileBackend {
 				NS_USER
 			),
 			array(
-				'gwtoolset-metadata-file-mwstore' => Utils::sanitizeString( $mwstore_path )
+				'gwtoolset-metadata-file-relative-path' => Utils::sanitizeString( $mwstore_relative_path ),
+				'user-name' => $this->_User->getName()
 			)
 		);
 
@@ -105,23 +110,23 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * deletes a file, based on an mwstore path, from the FileBackend
+	 * deletes a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param {string} $mwstore_file_path
+	 * @param {string} $mwstore_complete_file_path
 	 * @return {Status}
 	 */
-	public function deleteFile( $mwstore_file_path = null ) {
+	public function deleteFile( $mwstore_complete_file_path = null ) {
 		$result = Status::newGood();
 
-		if ( empty( $mwstore_file_path ) ) {
+		if ( empty( $mwstore_complete_file_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' ) )
 					->parse()
 			);
 		}
 
-		$src = array( 'src' => Utils::sanitizeString( $mwstore_file_path ) );
+		$src = array( 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) );
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			$result = $this->FileBackend->quickDelete( $src );
@@ -133,37 +138,57 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * gets path to store hashes in
-	 *
-	 * @return {null|string} storage directory
+	 * @param {string} $mwstore_relative_path
+	 * @throws {MWException}
+	 * @return {string}
 	 */
-	protected function getHashPath() {
+	public function deleteFileFromRelativePath( $mwstore_relative_path = null ) {
+		if ( empty( $mwstore_relative_path ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
+					->parse()
+			);
+		}
+
+		return $this->deleteFile(
+			$this->getMWStoreCompleteFilePath( $mwstore_relative_path )
+		);
+	}
+
+	/**
+	 * create a filename based on the md5 hash of the tmp_filename.
+	 * add the file extension if it exists
+	 *
+	 * @return {null|string}
+	 */
+	protected function getFilename() {
 		$result = null;
-		$hash_sub_path = $this->getHashSubPath();
 
-		$result =
-			$this->FileBackend->getRootStoragePath() . DIRECTORY_SEPARATOR .
-			$this->_container;
-
-		if ( !empty( $hash_sub_path ) ) {
-			$result .= DIRECTORY_SEPARATOR . $hash_sub_path;
+		if ( !empty( $this->_hash ) ) {
+			$result =
+				$this->_hash .
+				( !empty( $this->_file_extension )
+					? '.' . Utils::sanitizeString( $this->_file_extension )
+					: null );
 		}
 
 		return $result;
 	}
 
 	/**
-	 * gets relative directory for this specific hash
+	 * based on the md5 hash of the tmp_filename, create a hash mapped directory structure
+	 * using the first 3 characters of the md5 hash
 	 *
-	 * @return {null|string} relative directory
+	 * @return {null|string}
 	 */
-	protected function getHashSubPath() {
+	protected function getHashPath() {
 		$result = null;
 
 		if ( !empty( $this->_hash ) ) {
 			$result =
-				substr( $this->_hash, 0, 1 ) . DIRECTORY_SEPARATOR .
-				substr( $this->_hash, 1, 1 ) . DIRECTORY_SEPARATOR .
+				substr( $this->_hash, 0, 1 ) . '/' .
+				substr( $this->_hash, 1, 1 ) . '/' .
 				substr( $this->_hash, 2, 1 );
 		}
 
@@ -171,17 +196,99 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * retrieves the mwstore path to the FileBackend file
+	 * the complete MWStore path to the file.
+	 *
+	 * includes:
+	 * - root storage path
+	 * - container name
+	 * - user name
+	 * - hash path
+	 * - filename
+	 *
+	 * @param {string} $mwstore_relative_path
+	 * should contain:
+	 * - hash path
+	 * - filename
 	 *
 	 * @return {string}
 	 */
-	public function getMWStorePath() {
+	protected function getMWStoreCompleteFilePath( $mwstore_relative_path = null ) {
+		if ( !empty( $mwstore_relative_path ) ) {
+			return
+				$this->getMWStorePath() . '/' .
+				$this->getUserPath() . '/' .
+				$mwstore_relative_path;
+		} else {
+			return
+				$this->getMWStoreFileDirectory() . '/' .
+				$this->getFilename();
+		}
+	}
+
+	/**
+	 * the MWStore directory path to where the file is stored.
+	 *
+	 * includes
+	 * - root storage path
+	 * - container name
+	 * - user name
+	 * - hash path
+	 *
+	 * @return {string}
+	 */
+	protected function getMWStoreFileDirectory() {
 		return
-			$this->getHashPath() . DIRECTORY_SEPARATOR .
-			$this->_hash .
-			( ( !empty( $this->_file_extension ) )
-				? '.' . Utils::sanitizeString( $this->_file_extension )
-				: null );
+			$this->getMWStorePath() . '/' .
+			$this->getUserPath() . '/' .
+			$this->getHashPath();
+	}
+
+	/**
+	 * includes:
+	 * - root storage path
+	 * - container name
+	 *
+	 * the User name is used in order to help limit file access and indicate
+	 * which user submitted the file.
+	 *
+	 * @throws {MWException}
+	 * @return {string}
+	 */
+	public function getMWStorePath() {
+		$result = $this->FileBackend->getRootStoragePath();
+
+		if ( !empty( $this->_container ) ) {
+			$result .= '/' . $this->_container;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * includes:
+	 * - hash path
+	 * - filename
+	 *
+	 * @return {string}
+	 */
+	public function getMWStoreRelativePath() {
+		return
+			$this->getHashPath() . '/' .
+			$this->getFilename();
+	}
+
+	/**
+	 * includes:
+	 * - user name
+	 *
+	 * @throws {MWException}
+	 */
+	protected function getUserPath() {
+		if ( empty( $this->_User ) ) {
+			throw new MWException( wfMessage( 'gwtoolset-no-user' ) );
+		}
+
+		return wfStripIllegalFilenameChars( $this->_User->getName() );
 	}
 
 	/**
@@ -192,7 +299,7 @@ class GWTFileBackend {
 	protected function prepare() {
 		return $this->FileBackend->prepare(
 			array(
-				'dir' => $this->getHashPath(),
+				'dir' => $this->getMWStoreFileDirectory(),
 				'noAccess' => true,
 				'noListing' => true
 			)
@@ -210,31 +317,31 @@ class GWTFileBackend {
 	protected function quickStore( $tmp_file_path = null ) {
 		$params = array(
 			'src' => Utils::sanitizeString( $tmp_file_path ),
-			'dst' => Utils::sanitizeString( $this->getMWStorePath() )
+			'dst' => Utils::sanitizeString( $this->getMWStoreCompleteFilePath() )
 		);
 
 		return $this->FileBackend->quickStore( $params );
 	}
 
 	/**
-	 * retrieves a file, based on an mwstore path, from the FileBackend
+	 * retrieves a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param {string} $mwstore_file_path
+	 * @param {string} $mwstore_complete_file_path
 	 * @throws {MWException}
 	 * @return {null|FSFile}
 	 */
-	public function retrieveFile( $mwstore_file_path = null ) {
+	public function retrieveFile( $mwstore_complete_file_path = null ) {
 		$result = null;
 
-		if ( empty( $mwstore_file_path ) ) {
+		if ( empty( $mwstore_complete_file_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' ) )
 					->parse()
 			);
 		}
 
-		$src = array( 'src' => Utils::sanitizeString( $mwstore_file_path ) );
+		$src = array( 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) );
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			if ( $this->FileBackend->getFileSize( $src ) === 0 ) {
@@ -251,6 +358,25 @@ class GWTFileBackend {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * @param {string} $mwstore_relative_path
+	 * @throws {MWException}
+	 * @return {null|FSFile}
+	 */
+	public function retrieveFileFromRelativePath( $mwstore_relative_path = null ) {
+		if ( empty( $mwstore_relative_path ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
+					->parse()
+			);
+		}
+
+		return $this->retrieveFile(
+			$this->getMWStoreCompleteFilePath( $mwstore_relative_path )
+		);
 	}
 
 	/**
@@ -295,7 +421,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$result = $this->getMWStorePath();
+		$result = $this->getMWStoreRelativePath();
 
 		return $result;
 	}

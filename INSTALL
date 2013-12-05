@@ -72,20 +72,14 @@ You’ll need to set-up a FileBackend configuration for the extension in LocalSe
 configuration below can be used as a default local file system backend.
 
 $wgFileBackends[] = array(
-   'name'           => 'gwtoolset-backend',
-   'class'          => 'FSFileBackend',
-   'lockManager'    => 'nullLockManager',
-   'fileMode'       => 0644,
-   'containerPaths' => array(
-	  'gwtoolset-metadata' => $IP . DIRECTORY_SEPARATOR .
-		 'images' . DIRECTORY_SEPARATOR .
-		 'gwtoolset' . DIRECTORY_SEPARATOR .
-		 'metadata'
-   )
+	'name'           => 'gwtoolset-backend',
+	'class'          => 'FSFileBackend',
+	'lockManager'    => 'nullLockManager',
+	'fileMode'       => 0644,
+	'basePath'       => $IP . '/images/gwtoolset'
 );
 
 $wgGWTFileBackend = 'gwtoolset-backend';
-$wgGWTFBMetadataContainer = 'gwtoolset-metadata';
 $wgGWTFBMaxAge = '1 week';
 
 
