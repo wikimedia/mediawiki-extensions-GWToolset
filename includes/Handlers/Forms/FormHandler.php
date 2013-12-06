@@ -54,21 +54,25 @@ abstract class FormHandler {
 	 * @throws {GWTException}
 	 * the exception message has been filtered
 	 */
-	protected function checkForRequiredFormFields( array &$user_options, array $expected_options ) {
+	protected function checkForRequiredFormFields( array $user_options, array $expected_options ) {
 		$msg = null;
 
+		$count = 0;
 		foreach ( $expected_options as $option ) {
 			if ( !array_key_exists( $option, $user_options ) ) {
 				$msg .= '* ' . $option . PHP_EOL;
+				$count++;
 			}
 
 			if ( is_array( $user_options[$option] ) ) {
 				if ( strlen( reset( $user_options[$option] ) ) < 1 ) {
 					$msg .= '* ' . $option . PHP_EOL;
+					$count++;
 				}
 			} else {
 				if ( strlen( $user_options[$option] ) < 1 ) {
 					$msg .= '* ' . $option . PHP_EOL;
+					$count++;
 				}
 			}
 		}
@@ -77,7 +81,7 @@ abstract class FormHandler {
 			$msg .= $this->SpecialPage->getBackToFormLink();
 
 			throw new GWTException(
-				array( 'gwtoolset-metadata-user-options-error' => array( $msg ) )
+				array( 'gwtoolset-metadata-user-options-error' => array( $msg, $count ) )
 			);
 		}
 	}

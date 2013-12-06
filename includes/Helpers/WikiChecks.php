@@ -46,7 +46,10 @@ class WikiChecks {
 		try {
 			$SpecialPage->checkPermissions();
 		} catch ( PermissionsError $e ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
+			return Status::newFatal(
+				'gwtoolset-permission-not-given',
+				wfMessage( 'gwtoolset-no-upload-by-url' )->escaped()
+			);
 		}
 
 		return Status::newGood();
@@ -152,7 +155,10 @@ class WikiChecks {
 	 */
 	public static function checkUserWikiGroups( SpecialPage $SpecialPage ) {
 		if ( !in_array( Config::$user_group, $SpecialPage->getUser()->getEffectiveGroups() ) ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
+			return Status::newFatal(
+				'gwtoolset-permission-not-given',
+				wfMessage( 'gwtoolset-required-group' )->params( Config::$user_group )->escaped()
+			);
 		}
 
 		return Status::newGood();
@@ -184,7 +190,10 @@ class WikiChecks {
 	 */
 	public static function doesEditTokenMatch( SpecialPage $SpecialPage ) {
 		if ( !$SpecialPage->getUser()->matchEditToken( $SpecialPage->getRequest()->getVal( 'wpEditToken' ) ) ) {
-			return Status::newFatal( 'gwtoolset-permission-not-given', '' );
+			return Status::newFatal(
+				'gwtoolset-permission-not-given',
+				wfMessage( 'gwtoolset-invalid-token' )->escaped()
+			);
 		}
 
 		return Status::newGood();

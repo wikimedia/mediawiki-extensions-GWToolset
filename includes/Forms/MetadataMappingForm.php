@@ -57,7 +57,7 @@ class MetadataMappingForm {
 				array(),
 				$metadata_file_url .
 				wfMessage( 'gwtoolset-record-count' )
-					->params( (int)$user_options['gwtoolset-record-count'] )->escaped()
+					->numParams( (int)$user_options['gwtoolset-record-count'] )->escaped()
 			) .
 
 			Html::rawElement(
@@ -502,7 +502,7 @@ class MetadataMappingForm {
 			Html::rawElement(
 				'h3',
 				array( 'style' => 'margin-top:1em;' ),
-				wfMessage( 'summary' )->escaped()
+				wfMessage( 'gwtoolset-summary-heading' )->escaped()
 			) .
 
 			Html::rawElement(
@@ -514,11 +514,6 @@ class MetadataMappingForm {
 						'type' => 'text',
 						'id' => 'wpSummary',
 						'name' => 'wpSummary',
-						'class' => 'mw-summary',
-						'maxlength' => '255',
-						'title' => wfMessage( 'gwtoolset-summary-tooltip' )->escaped(),
-						'spellcheck' => 'true',
-						'accesskey' => 'b'
 					)
 				)
 			) .

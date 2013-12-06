@@ -76,7 +76,7 @@ class MetadataDetectForm {
 			Html::rawElement(
 				'p',
 				array(),
-				wfMessage( 'gwtoolset-step-1-instructions-2' )
+				wfMessage( 'gwtoolset-step-1-instructions-2' )->parse()
 			) .
 
 			Html::openElement(
@@ -226,7 +226,9 @@ class MetadataDetectForm {
 						) .
 						Html::rawElement( 'br' ) .
 						'<i>' .
-						wfMessage( 'gwtoolset-accepted-file-types' )->escaped() . ' ' .
+						wfMessage( 'gwtoolset-accepted-file-types' )
+							->numParams( count( Config::$accepted_metadata_types ) )
+							->escaped() . ' ' .
 						FileChecks::getAcceptedExtensionsAsList( Config::$accepted_metadata_types ) .
 						Html::rawElement( 'br' ) .
 						wfMessage( 'upload-maxfilesize' )

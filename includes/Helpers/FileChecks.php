@@ -59,7 +59,7 @@ class FileChecks {
 	 *
 	 * @return {array}
 	 */
-	public static function getAcceptedExtensions( array &$accepted_types = array() ) {
+	public static function getAcceptedExtensions( array $accepted_types = array() ) {
 		return array_keys( $accepted_types );
 	}
 
@@ -73,10 +73,11 @@ class FileChecks {
 	 * the string is filtered
 	 * a comma delimited list of accepted file extensions
 	 */
-	public static function getAcceptedExtensionsAsList( array &$accepted_types = array() ) {
+	public static function getAcceptedExtensionsAsList( array $accepted_types = array() ) {
 		$result = null;
 
 		if ( !empty( $accepted_types ) ) {
+			// @todo FIXME: i18n issue: Use Language::listToText()
 			$result = Utils::sanitizeString(
 				implode( ', ', self::getAcceptedExtensions( $accepted_types ) )
 			);
@@ -91,7 +92,7 @@ class FileChecks {
 	 *
 	 * @return {array}
 	 */
-	public static function getAcceptedMimeTypes( array &$accepted_types = array() ) {
+	public static function getAcceptedMimeTypes( array $accepted_types = array() ) {
 		return array_unique( Utils::getArraySecondLevelValues( $accepted_types ) );
 	}
 
@@ -106,7 +107,7 @@ class FileChecks {
 	 * the string is filtered
 	 * a comma delimited list of accepted file mime types
 	 */
-	public static function getFileAcceptAttribute( array &$accepted_types = array() ) {
+	public static function getFileAcceptAttribute( array $accepted_types = array() ) {
 		$result = null;
 
 		if ( !empty( $accepted_types ) && Config::$use_file_accept_attribute ) {
@@ -144,7 +145,7 @@ class FileChecks {
 	 * @param {array} $accepted_extensions
 	 * @return {Status}
 	 */
-	public static function isAcceptedFileExtension( &$File, array $accepted_extensions = array() ) {
+	public static function isAcceptedFileExtension( $File, array $accepted_extensions = array() ) {
 		$msg = null;
 		$extension = null;
 
@@ -292,7 +293,7 @@ class FileChecks {
 	 * @param {File} $File
 	 * @return {Status}
 	 */
-	public static function noFileErrors( File &$File ) {
+	public static function noFileErrors( File $File ) {
 		$msg = null;
 
 		switch ( $File->error ) {

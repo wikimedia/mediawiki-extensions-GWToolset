@@ -394,7 +394,7 @@ class MetadataMappingHandler extends FormHandler {
 				if ( $added_jobs ) {
 					$result =
 						wfMessage( 'gwtoolset-mediafile-jobs-created' )
-							->params( count( $this->_UploadHandler->mediafile_jobs ) )
+							->numParams( count( $this->_UploadHandler->mediafile_jobs ) )
 							->escaped();
 				}
 			}

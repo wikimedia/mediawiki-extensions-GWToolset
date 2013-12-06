@@ -72,7 +72,9 @@ class PreviewForm {
 			Html::rawElement(
 				'p',
 				array(),
-				wfMessage( 'gwtoolset-step-3-instructions-1' )->params( (int)Config::$preview_throttle )->parse()
+				wfMessage( 'gwtoolset-step-3-instructions-1' )
+				->numParams( (int)Config::$preview_throttle )
+				->escaped()
 			) .
 
 			Html::rawElement(
@@ -116,7 +118,8 @@ class PreviewForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-begin',
-					'value' => (int)$user_options['gwtoolset-record-current'] // this difference is intentional
+					// this difference between record-begin and record-current is intentional
+					'value' => (int)$user_options['gwtoolset-record-current']
 				)
 			) .
 
