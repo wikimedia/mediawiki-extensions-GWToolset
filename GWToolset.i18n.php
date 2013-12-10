@@ -32,7 +32,7 @@ $messages['en'] = array(
 $1",
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, or <code>record-count</code>, or <code>record-current</code> not provided.',
 	'gwtoolset-file-backend-maxage-invalid' => 'The maximum age value provided in <code>$wgGWTFBMaxAge</code> is invalid.
-See php.net/manual/en/datetime.formats.relative.php for how to set it correctly.',
+See the [php.net/manual/en/datetime.formats.relative.php PHP manual] for how to set it correctly.',
 	'gwtoolset-fsfile-empty' => 'The file was empty and was deleted.',
 	'gwtoolset-fsfile-retrieval-failure' => 'The file could not be retrieved from URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> not set.',
@@ -81,7 +81,7 @@ See php.net/manual/en/datetime.formats.relative.php for how to set it correctly.
 	'gwtoolset-no-extension' => 'The file that was uploaded does not contain enough information to process the file. Most likely it has no file extension.',
 	'gwtoolset-no-file' => 'No file was received.',
 	'gwtoolset-no-form-field' => 'The expected form field "$1" does not exist.',
-	'gwtoolset-over-max-ini' => 'The file that was uploaded exceeds the <code>upload_max_filesize</code> and/or the <code>post_max_size</code> directive in php.ini.',
+	'gwtoolset-over-max-ini' => 'The file that was uploaded exceeds the <code>upload_max_filesize</code> and/or the <code>post_max_size</code> directive in <code>php.ini</code>.',
 	'gwtoolset-partial-upload' => 'The file was only partially uploaded.',
 	'gwtoolset-php-extension-error' => 'A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop. Examining the list of loaded extensions with <code>phpinfo()</code> may help.',
 	'gwtoolset-unaccepted-extension' => 'The file source does not contain an accepted file extension.',
@@ -94,7 +94,7 @@ See php.net/manual/en/datetime.formats.relative.php for how to set it correctly.
 	/**
 	 * general form
 	 */
-	'gwtoolset-back-text-link' => '⬅ go back to the form',
+	'gwtoolset-back-text-link' => '← go back to the form',
 	'gwtoolset-back-text' => 'Press the browser back button to go back to the form.',
 	'gwtoolset-file-interpretation-error' => 'There was a problem processing the metadata file',
 	'gwtoolset-mediawiki-template' => 'Template $1',
@@ -184,7 +184,7 @@ If you haven’t already done so, please [http://ur1.ca/g600j request] that your
 	'gwtoolset-category' => 'Category',
 	'gwtoolset-create-mapping' => '$1: Creating metadata mapping for $2.',
 	'gwtoolset-example-record' => 'Metadata’s example record’s contents.',
-	'gwtoolset-global-categories' => 'Global Categories',
+	'gwtoolset-global-categories' => 'Global categories',
 	'gwtoolset-global-tooltip' => 'These category entries will be applied globally to all uploaded items.',
 	'gwtoolset-maps-to' => 'Maps to',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'The file extension could not be determined from the file URL: $1.',
@@ -247,12 +247,12 @@ Try another field from the metadata for title and title-identifier, or if possib
 	 * wiki checks
 	 */
 	'gwtoolset-invalid-token' => 'The edit token submitted with the form is invalid.',
-	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Current PHP .ini settings:
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Current <code>php.ini</code> settings:
 
 • <code>upload_max_filesize</code>: $1
 • <code>post_max_size</code>: $2
 
-These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set at "$3". Please adjust the PHP .ini settings as appropriate.',
+These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set at "$3". Please adjust the <code>php.ini</code> settings as appropriate.',
 	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version $1<br />This MediaWiki version is $2.',
 	'gwtoolset-no-upload-by-url' => 'You are not part of a group that has the right to upload by url.',
 	'gwtoolset-permission-not-given' => 'Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).',
@@ -264,13 +264,13 @@ Please make sure <code>$wgEnableAPI</code> is set to <code>true</code> in the <c
 	'gwtoolset-verify-api-writeable' => 'The $1 Extension requires that the wiki API can perform write actions for authorized users.
 
 Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
-	'gwtoolset-verify-curl' => 'The $1 Extension requires that PHP (http://www.php.net/manual/en/curl.setup.php cURL functions) be installed.',
-	'gwtoolset-verify-finfo' => 'The $1 Extension requires that the PHP (http://www.php.net/manual/en/fileinfo.setup.php finfo) extension be installed.',
-	'gwtoolset-verify-php-version' => 'The $1 Extension requires PHP >= 5.3.3.',
-	'gwtoolset-verify-uploads-enabled' => 'The $1 Extension requires that file uploads are enabled.
+	'gwtoolset-verify-curl' => 'The $1 Extension requires that PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] be installed.',
+	'gwtoolset-verify-finfo' => 'The $1 Extension requires that the PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] extension be installed.',
+	'gwtoolset-verify-php-version' => 'The $1 extension requires PHP >= 5.3.3.',
+	'gwtoolset-verify-uploads-enabled' => 'The $1 extension requires that file uploads are enabled.
 
 Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> in <code>LocalSettings.php</code>.',
-	'gwtoolset-verify-xmlreader' => 'The $1 Extension requires that PHP (http://www.php.net/manual/en/xmlreader.setup.php XMLReader) be installed.',
+	'gwtoolset-verify-xmlreader' => 'The $1 Extension requires that PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] be installed.',
 	'gwtoolset-wiki-checks-not-passed' => 'Wiki checks did not pass'
 );
 
