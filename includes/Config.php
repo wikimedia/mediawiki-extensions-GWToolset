@@ -115,6 +115,13 @@ class Config {
 	public static $metadata_file_category = 'GWToolset_Metadata_Sets';
 
 	/**
+	 * @var {string}
+	 * used in conjunction with the job param jobReleaseTimestamp when the job queue
+	 * delayedJobsEnabled() is true, e.g., JobQueueRedis
+	 */
+	public static $metadata_job_delay = '5 minutes';
+
+	/**
 	 * @var {int}
 	 * the maximum number of times the UploadMetadataJob will attempt to add the same
 	 * UploadMediafileJob’s to the job queue. this max is used when the
