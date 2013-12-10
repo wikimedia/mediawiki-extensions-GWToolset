@@ -470,14 +470,7 @@ class UploadHandler {
 		}
 
 		if ( !$Status->isOK() ) {
-			$msg =
-				$Status->getMessage() . PHP_EOL .
-				'original URL: ' .
-				$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file'] .
-				PHP_EOL .
-				'evaluated URL: ' . $options['gwtoolset-url-to-the-media-file'];
-
-			throw new GWTException( $msg );
+			throw new GWTException( $Status->getMessage() );
 		}
 
 		return $Title;
@@ -544,6 +537,7 @@ class UploadHandler {
 	 *
 	 * @param {array} $options
 	 * @param {Title} $Title
+	 * @throws {GWTException}
 	 * @return {Status}
 	 */
 	protected function uploadMediaFileViaUploadFromUrl( array &$options, Title $Title ) {
@@ -575,6 +569,20 @@ class UploadHandler {
 			$options['watch'],
 			$this->_User
 		);
+
+		if ( !$Status->isOK() ) {
+			$msg =
+				$Status->getMessage() . PHP_EOL .
+				'tmp path: ' . $Upload->getTempPath() . PHP_EOL .
+				'original URL: ' .
+				Utils::sanitizeUrl(
+					$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file']
+				) . PHP_EOL .
+				'evaluated URL: ' .
+				Utils::sanitizeUrl( $options['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
+
+			throw new GWTException( $msg );
+		}
 
 		return $Status;
 	}
