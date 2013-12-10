@@ -470,7 +470,16 @@ class UploadHandler {
 		}
 
 		if ( !$Status->isOK() ) {
-			throw new GWTException( $Status->getMessage() );
+			$msg =
+				$Status->getMessage() . PHP_EOL .
+				'original URL: ' .
+				Utils::sanitizeUrl(
+					$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file']
+				) . PHP_EOL .
+				'evaluated URL: ' .
+				Utils::sanitizeUrl( $options['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
+
+			throw new GWTException( $msg );
 		}
 
 		return $Title;
