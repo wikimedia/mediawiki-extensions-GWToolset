@@ -19,7 +19,7 @@ $messages['en'] = array(
 	 */
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, a mass upload tool for GLAMs',
-	'gwtoolset-intro' => 'GWToolset is a MediaWiki extension that allows GLAMs (Galleries, Libraries, Archives and Museums) the ability to mass upload content based on an XML file containing respective metadata about the content. The intent is to allow for a variety of XML schemas. Further information about the project can be found on its [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project project page]. Feel free to contacts us on that page as well. Select one of the menu items above to begin the upload process.',
+	'gwtoolset-intro' => 'GWToolset is a MediaWiki extension that allows GLAMs (Galleries, Libraries, Archives and Museums) the ability to mass upload content based on an XML file containing respective metadata about the content. The intent is to allow for a variety of XML schemas. Further information about the project can be found on its [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project project page]. Feel free to contact us on that page as well. Select one of the menu items above to begin the upload process.',
 
 	/**
 	 * developer issues
@@ -134,7 +134,7 @@ $1',
 	 * step 1 - metadata detect
 	 */
 	'gwtoolset-accepted-file-types' => 'Accepted file {{PLURAL:$1|type|types}}:',
-	'gwtoolset-ensure-well-formed-xml' => 'Make sure the XML File is well-formed with this $1.',
+	'gwtoolset-ensure-well-formed-xml' => 'Make sure the XML file is well-formed with this $1.',
 	'gwtoolset-file-url-invalid' => 'The file URL was invalid; The file does not yet exist in the wiki. You need to first upload the file from your computer if you want to use the file URL reference in the form.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki template "<strong>$1</strong>" does not exist in the wiki.
 
@@ -144,7 +144,7 @@ Either import the template or select another MediaWiki template to use for mappi
 	'gwtoolset-metadata-file-source-info' => '... either a file that has been previously uploaded or a file you wish to upload from your computer.',
 	'gwtoolset-metadata-file-url' => 'Metadata file wiki URL:',
 	'gwtoolset-metadata-file-upload' => 'Metadata file upload:',
-	'gwtoolset-metadata-mapping-bad' => 'There’s a problem with the metadata mapping. Most likely the JSON format is invalid. Try and correct the issue and then submit the form again.
+	'gwtoolset-metadata-mapping-bad' => 'There is a problem with the metadata mapping. Most likely the JSON format is invalid. Try and correct the issue and then submit the form again.
 
 $1.',
 	'gwtoolset-metadata-mapping-invalid-url' => 'The metadata mapping URL supplied, does not match the expect mapping URL path.
@@ -163,7 +163,7 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Make sure you only enter the page title, e.g. the part of the URL after /wiki/',
 	'gwtoolset-record-element-name' => 'What is the XML element that contains each metadata record:',
 	'gwtoolset-step-1-heading' => 'Step 1: Metadata detection',
-	'gwtoolset-step-1-instructions-1' => 'The Metadata upload process consists of 4 steps:',
+	'gwtoolset-step-1-instructions-1' => 'The metadata upload process consists of 4 steps:',
 	'gwtoolset-step-1-instructions-2' => 'In this step, you upload a new metadata file to the wiki. The tool will attempt to extract the metadata fields available in the metadata file, which you will then map to a MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
 	'gwtoolset-step-1-instructions-3' => 'If your media file domain is not listed below, please [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment request] that your media file domain be added to the Wikimedia Commons domain whitelist. The domain whitelist is a list of domains Wikimedia Commons checks against before fetching media files. If your media file domain is not on that list, Wikimedia Commons will not download media files from that domain. The best example, to submit in your request, is an actual link to a media file.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Domain whitelist',
@@ -171,9 +171,9 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata mapping',
 	'gwtoolset-step-1-instructions-li-3' => 'Batch preview',
 	'gwtoolset-step-1-instructions-li-4' => 'Batch upload',
-	'gwtoolset-upload-legend' => 'Upload your metadata file.',
+	'gwtoolset-upload-legend' => 'Upload your metadata file',
 	'gwtoolset-which-mediawiki-template' => 'Which MediaWiki template:',
-	'gwtoolset-which-metadata-mapping' => 'Which Metadata mapping:',
+	'gwtoolset-which-metadata-mapping' => 'Which metadata mapping:',
 	'gwtoolset-xml-error' => 'Failed to load the XML. Please correct the errors below.',
 
 	/**
@@ -182,7 +182,7 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-categories' => 'Enter categories separated by a pipe character ("|")',
 	'gwtoolset-category' => 'Category',
 	'gwtoolset-create-mapping' => '$1: Creating metadata mapping for $2.',
-	'gwtoolset-example-record' => 'Metadata’s example record’s contents.',
+	'gwtoolset-example-record' => 'Metadata\'s example record\'s contents.',
 	'gwtoolset-global-categories' => 'Global categories',
 	'gwtoolset-global-tooltip' => 'These category entries will be applied globally to all uploaded items.',
 	'gwtoolset-maps-to' => 'Maps to',
@@ -196,7 +196,7 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-no-more-records' => "<strong>No more records to process</strong>",
 	'gwtoolset-painted-by' => 'Painted by',
 	'gwtoolset-partner' => 'Partner',
-	'gwtoolset-partner-explanation' => 'Partner templates are pulled into the source field of the MediaWiki template when provided. You can find a list of current Partner Templates on the Category:Source templates page; see link below. Once you’ve found the partner template you wish to use place the URL to it in this field. You can also create a new partner template if necessary.',
+	'gwtoolset-partner-explanation' => 'Partner templates are pulled into the source field of the MediaWiki template when provided. You can find a list of current partner templates on the Category:Source templates page; see link below. Once you have found the partner template you wish to use place the URL to it in this field. You can also create a new partner template if necessary.',
 	'gwtoolset-partner-template' => 'Partner template:',
 	'gwtoolset-phrasing' => 'Phrasing',
 	'gwtoolset-preview' => 'Preview batch',
@@ -211,7 +211,7 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-step-2-instructions-1-li-3' => 'A sample record from the metadata file.',
 	'gwtoolset-step-2-instructions-2' => 'In this step you need to map the metadata fields with the MediaWiki template fields.',
 	'gwtoolset-step-2-instructions-2-li-1' => 'Select a metadata field under the "{{int:gwtoolset-maps-to}}" column that corresponds with a MediaWiki template field under the "{{int:gwtoolset-template-field}}" column.',
-	'gwtoolset-step-2-instructions-2-li-2' => 'You do not need to provide a match for every Mediawiki template field.',
+	'gwtoolset-step-2-instructions-2-li-2' => 'You do not need to provide a match for every MediaWiki template field.',
 	'gwtoolset-reupload-media' => 'Re-upload media from URL',
 	'gwtoolset-reupload-media-explanation' => 'This check box allows you to re-upload media for an item that has already been uploaded to the wiki. If the item already exists, an additional media file will be added to the wiki. If the media file does not yet exist, it will be uploaded whether this checkbox is checked or not.',
 	'gwtoolset-specific-categories' => 'Item specific categories',
@@ -224,10 +224,10 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-step-3-instructions-heading' => 'Step 3: Batch preview',
 	'gwtoolset-step-3-instructions-1' => 'Below are the results of uploading the {{PLURAL:$1|first record|first $1 records}} from the metadata file you selected and mapping {{PLURAL:$1|it|them}} to the MediaWiki template you selected in "{{int:gwtoolset-step-2-heading}}".',
 	'gwtoolset-step-3-instructions-2' => 'Review these pages and if the results meet your expectations, and there are additional records waiting to be uploaded, continue the batch upload process by clicking on the "{{int:gwtoolset-process-batch}}" button below.',
-	'gwtoolset-step-3-instructions-3' => 'If you’re not happy with the results, go back to "{{int:gwtoolset-step-2-heading}}" and adjust the mapping as necessary.
+	'gwtoolset-step-3-instructions-3' => 'If you are not happy with the results, go back to "{{int:gwtoolset-step-2-heading}}" and adjust the mapping as necessary.
 
 If you need to make adjustments to the metadata file itself, go ahead and do so and re-upload it by beginning the process again with "{{int:gwtoolset-step-1-heading}}".',
-	'gwtoolset-title-bad' => "The title created, based on the metadata and mediawiki template mapping is not valid.
+	'gwtoolset-title-bad' => "The title created, based on the metadata and MediaWiki template mapping is not valid.
 
 Try another field from the metadata for title and title-identifier, or if possible, change the metadata where needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] for more information.
 
@@ -237,7 +237,7 @@ Try another field from the metadata for title and title-identifier, or if possib
 	 * step 4 - batch job creation
 	 */
 	'gwtoolset-batchjob-metadata-created' => 'Metadata batch job created. Your metadata file will be analyzed shortly and each item will be uploaded to the wiki in a background process. You can check the page "$1" to see when they have been uploaded.',
-	'gwtoolset-batchjob-metadata-creation-failure' => 'Could not create batchjob for the metadata file.',
+	'gwtoolset-batchjob-metadata-creation-failure' => 'Could not create batch job for the metadata file.',
 	'gwtoolset-create-mediafile' => '$1: Creating mediafile for $2.',
 	'gwtoolset-mediafile-jobs-created' => 'Created $1 mediafile batch {{PLURAL:$1|job|jobs}}.',
 	'gwtoolset-step-4-heading' => 'Step 4: Batch upload',
@@ -253,23 +253,23 @@ Try another field from the metadata for title and title-identifier, or if possib
 
 These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set at "$3". Please adjust the <code>php.ini</code> settings as appropriate.',
 	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version $1<br />This MediaWiki version is $2.',
-	'gwtoolset-no-upload-by-url' => 'You are not part of a group that has the right to upload by url.',
+	'gwtoolset-no-upload-by-url' => 'You are not part of a group that has the right to upload by URL.',
 	'gwtoolset-permission-not-given' => 'Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).',
 	'gwtoolset-user-blocked' => 'Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.',
 	'gwtoolset-required-group' => 'You are not a member of the, $1, group.',
-	'gwtoolset-verify-api-enabled' => 'The $1 Extension requires that the wiki API is enabled.
+	'gwtoolset-verify-api-enabled' => 'The $1 extension requires that the wiki API is enabled.
 
 Please make sure <code>$wgEnableAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
-	'gwtoolset-verify-api-writeable' => 'The $1 Extension requires that the wiki API can perform write actions for authorized users.
+	'gwtoolset-verify-api-writeable' => 'The $1 extension requires that the wiki API can perform write actions for authorized users.
 
 Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
-	'gwtoolset-verify-curl' => 'The $1 Extension requires that PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] be installed.',
-	'gwtoolset-verify-finfo' => 'The $1 Extension requires that the PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] extension be installed.',
+	'gwtoolset-verify-curl' => 'The $1 extension requires that PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] be installed.',
+	'gwtoolset-verify-finfo' => 'The $1 extension requires that the PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] extension be installed.',
 	'gwtoolset-verify-php-version' => 'The $1 extension requires PHP >= 5.3.3.',
 	'gwtoolset-verify-uploads-enabled' => 'The $1 extension requires that file uploads are enabled.
 
 Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> in <code>LocalSettings.php</code>.',
-	'gwtoolset-verify-xmlreader' => 'The $1 Extension requires that PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] be installed.',
+	'gwtoolset-verify-xmlreader' => 'The $1 extension requires that PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] be installed.',
 	'gwtoolset-wiki-checks-not-passed' => 'Wiki checks did not pass'
 );
 
