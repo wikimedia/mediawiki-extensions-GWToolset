@@ -21,6 +21,42 @@ use Html,
 class MetadataDetectForm {
 
 	/**
+	 * @return {null|string}
+	 */
+	public static function getCopyUploadsDomainsAsList() {
+		global $wgCopyUploadsDomains;
+		$result = null;
+
+		if ( !empty( $wgCopyUploadsDomains ) ) {
+			$result = Html::rawElement(
+				'h4',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-3-heading' )->parse()
+			);
+
+			$result .= Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-step-1-instructions-3' )->parse()
+			);
+
+			$result .= Html::openElement( 'ul', array( 'id' => 'gwtoolset-whitelist' ) );
+
+			foreach( $wgCopyUploadsDomains as $domain ) {
+				$result .= Html::rawElement(
+					'li',
+					array(),
+					Utils::sanitizeString( $domain )
+				);
+			}
+
+			$result .= Html::closeElement( 'ul' );
+		}
+
+		return $result;
+	}
+
+	/**
 	 * returns an html form for step 1 : Metadata Detect
 	 *
 	 * @param {SpecialPage} $SpecialPage
@@ -78,6 +114,8 @@ class MetadataDetectForm {
 				array(),
 				wfMessage( 'gwtoolset-step-1-instructions-2' )->parse()
 			) .
+
+			self::getCopyUploadsDomainsAsList() .
 
 			Html::openElement(
 				'form',

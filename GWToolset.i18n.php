@@ -164,10 +164,9 @@ It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-record-element-name' => 'What is the XML element that contains each metadata record:',
 	'gwtoolset-step-1-heading' => 'Step 1: Metadata detection',
 	'gwtoolset-step-1-instructions-1' => 'The Metadata upload process consists of 4 steps:',
-	'gwtoolset-step-1-instructions-2' => 'In this step, you upload a new metadata file to the wiki. The tool will attempt to extract the metadata fields available in the metadata file, which you will then map to a MediaWiki template in "{{int:gwtoolset-step-2-heading}}".
-
-====Domain whitelist====
-If you haven’t already done so, please [http://ur1.ca/g600j request] that your media file domain be added to the commons.wikipedia.com upload from URL whitelist. The whitelist allows commons.wikipedia.com access to your media file domain. The best example is to submit an actual URL to a media file.',
+	'gwtoolset-step-1-instructions-2' => 'In this step, you upload a new metadata file to the wiki. The tool will attempt to extract the metadata fields available in the metadata file, which you will then map to a MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'If your media file domain is not listed below, please [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment request] that your media file domain be added to the Wikimedia Commons domain whitelist. The domain whitelist is a list of domains Wikimedia Commons checks against before fetching media files. If your media file domain is not on that list, Wikimedia Commons will not download media files from that domain. The best example, to submit in your request, is an actual link to a media file.',
+	'gwtoolset-step-1-instructions-3-heading' => 'Domain whitelist',
 	'gwtoolset-step-1-instructions-li-1' => 'Metadata detection',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata mapping',
 	'gwtoolset-step-1-instructions-li-3' => 'Batch preview',
