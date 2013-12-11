@@ -54,7 +54,7 @@ class PreviewForm {
 
 		$step1_link = Linker::link(
 			Title::newFromText( 'Special:GWToolset' ),
-			'Step 1 : Metadata Detect',
+			wfMessage( 'gwtoolset-step-1-heading' ),
 			array(),
 			array( 'gwtoolset-form' => 'metadata-detect' )
 		) . Html::rawElement( 'br' );

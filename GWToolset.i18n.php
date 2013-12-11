@@ -122,7 +122,7 @@ $1',
 	/**
 	 * json
 	 */
-	'gwtoolset-json-error' => 'There was a problem with the JSON. Error: $1.', // keep this for future use when necessary
+	'gwtoolset-json-error' => 'There was a problem with the JSON. Error: $1', // keep this for future use when necessary
 	'gwtoolset-json-error-depth' => 'Maximum stack depth exceeded.',
 	'gwtoolset-json-error-state-mismatch' => 'Underflow or the modes mismatch.',
 	'gwtoolset-json-error-ctrl-char' => 'Unexpected control character found.',
@@ -139,14 +139,14 @@ $1',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki template "<strong>$1</strong>" does not exist in the wiki.
 
 Either import the template or select another MediaWiki template to use for mapping.',
-	'gwtoolset-mediawiki-template-not-found' => 'No MediaWiki template "$1" not found.',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki template "$1" not found.',
 	'gwtoolset-metadata-file-source' => 'Select the metadata file source.',
 	'gwtoolset-metadata-file-source-info' => '... either a file that has been previously uploaded or a file you wish to upload from your computer.',
 	'gwtoolset-metadata-file-url' => 'Metadata file wiki URL:',
 	'gwtoolset-metadata-file-upload' => 'Metadata file upload:',
 	'gwtoolset-metadata-mapping-bad' => 'There is a problem with the metadata mapping. Most likely the JSON format is invalid. Try and correct the issue and then submit the form again.
 
-$1.',
+$1',
 	'gwtoolset-metadata-mapping-invalid-url' => 'The metadata mapping URL supplied, does not match the expect mapping URL path.
 
 * Supplied URL: $1
@@ -248,8 +248,8 @@ Try another field from the metadata for title and title-identifier, or if possib
 	'gwtoolset-invalid-token' => 'The edit token submitted with the form is invalid.',
 	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Current <code>php.ini</code> settings:
 
-• <code>upload_max_filesize</code>: $1
-• <code>post_max_size</code>: $2
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
 
 These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set at "$3". Please adjust the <code>php.ini</code> settings as appropriate.',
 	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version $1<br />This MediaWiki version is $2.',
