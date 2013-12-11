@@ -12,6 +12,7 @@ use Job,
 	JobQueueGroup,
 	GWToolset\Config,
 	GWToolset\Constants,
+	GWToolset\Utils,
 	GWToolset\GWTException,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	MWException,
@@ -65,14 +66,21 @@ class UploadMetadataJob extends Job {
 		$result = false;
 
 		if ( (int)$this->params['attempts'] > (int)Config::$metadata_job_max_attempts ) {
-			throw new MWException(
-				'There is a serious problem with the gwtoolsetUploadMediafileJob job queue' .
+			$job_release =
+				isset( $this->params['jobReleaseTimestamp'] )
+				? Utils::sanitizeString( $this->params['jobReleaseTimestamp'] )
+				: null;
+
+			$msg = 'There is a problem with the gwtoolsetUploadMediafileJob job queue' .
 				'There are > ' . Config::$mediafile_job_queue_max . ' gwtoolsetUploadMediafileJob’s ' .
 				'in the job queue. gwtoolsetUploadMetadataJob has attempted ' .
 				Config::$metadata_job_max_attempts . ' times to add additional ' .
 				'gwtoolsetUploadMediafileJob’s to the job queue, but cannot because the ' .
-				'gwtoolsetUploadMediafileJob’s are not clearing out.'
-			);
+				'gwtoolsetUploadMediafileJob’s are not clearing out.' . PHP_EOL .
+				'metadata job delay: ' . Config::$metadata_job_delay . PHP_EOL .
+				'jobReleaseTimestamp: ' . $job_release;
+
+			throw new MWException( $msg );
 		}
 
 		$job = new UploadMetadataJob(

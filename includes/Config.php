@@ -81,7 +81,7 @@ class Config {
 	 * Config::$metadata_job_max_attempts times to add to the additional
 	 * UploadMediafileJob’s before failing.
 	 */
-	public static $mediafile_job_queue_max = 1000;
+	public static $mediafile_job_queue_max = 3000;
 
 	/**
 	 * @var {array}
@@ -119,7 +119,7 @@ class Config {
 	 * used in conjunction with the job param jobReleaseTimestamp when the job queue
 	 * delayedJobsEnabled() is true, e.g., JobQueueRedis
 	 */
-	public static $metadata_job_delay = '5 minutes';
+	public static $metadata_job_delay = '10 minutes';
 
 	/**
 	 * @var {int}
