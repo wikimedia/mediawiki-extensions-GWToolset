@@ -115,6 +115,17 @@ class MetadataMappingHandler extends FormHandler {
 			)
 		);
 
+		$delayed_enabled =
+			JobQueueGroup::singleton()
+			->get( 'gwtoolsetUploadMetadataJob' )
+			->delayedJobsEnabled();
+
+		if ( $delayed_enabled ) {
+			$job->params['jobReleaseTimestamp'] = strtotime(
+				'+' . Utils::sanitizeString( Config::$metadata_job_delay )
+			);
+		}
+
 		$result = JobQueueGroup::singleton()->push( $job );
 
 		if ( $result ) {
