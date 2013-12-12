@@ -297,7 +297,12 @@ Parameters:
 	'gwtoolset-ignorewarnings' => 'Hint to the developer that appears when ignorewarnings is not set.',
 	'gwtoolset-incorrect-form-handler' => 'A developer message that appears when a module does not specify a form handler that extends GWToolset\\Handlers\\Forms\\FormHandler.',
 	'gwtoolset-job-throttle-exceeded' => 'Developer message that appears when the batch job throttle was exceeded.',
-	'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.',
+	'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.
+
+Used if <code>$accepted_metadata_types</code> (metadata types the extension accepts) is empty.
+
+Parameters:
+* $1 - (Unused) "gwtoolset-no-accepted-types-provided" (untranslatable)',
 	'gwtoolset-no-callback' => 'Hint to the developer that appears when no callback is given.',
 	'gwtoolset-no-comment' => "Hint to the developer that appears when user_options['comment'] is not set.",
 	'gwtoolset-no-field-size' => 'Developer message that appears when no field size was specified for the field. Parameters:
@@ -349,10 +354,13 @@ Parameters:
 * $1 is the extension found.',
 	'gwtoolset-unaccepted-mime-type' => 'User error message that appears when the mime type of the file is not accepted. Parameters:
 * $1 is the interpreted MINE type.',
-	'gwtoolset-unaccepted-mime-type-for-xml' => 'User error message that appears when the mime type of the file is not accepted. Parameters:
-* $1 is the interpreted MIME type. In this case the XML file may not have an XML declaration at the top of the file.',
-	'gwtoolset-back-text-link' => 'gwtoolset-back-text is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.',
-	'gwtoolset-back-text' => 'User message telling the user to use the browser back button to go back to the HTML form. When JavaScript is active this message is replaced with an anchor tag using gwtoolset-back-text-link.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => '{{doc-important|Do not translate <code><nowiki>&lt;?xml version="1.0" encoding="UTF-8"?></nowiki></code> part.}}
+User error message that appears when the mime type of the file is not accepted. Parameters:
+* $1 - the interpreted MIME type. In this case the XML file may not have an XML declaration at the top of the file.',
+	'gwtoolset-back-text-link' => '{{msg-mw|Gwtoolset-back-text}} is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.',
+	'gwtoolset-back-text' => 'User message telling the user to use the browser back button to go back to the HTML form.
+
+When JavaScript is active this message is replaced with an anchor tag using {{msg-mw|Gwtoolset-back-text-link}}.',
 	'gwtoolset-file-interpretation-error' => 'Heading that appears when there was a problem interpreting the metadata file.',
 	'gwtoolset-mediawiki-template' => 'Heading used on the mapping page. Parameters:
 * $1 is the wiki template name that will be used for mapping the metadata to the wiki template.',
@@ -403,7 +411,10 @@ Followed by {{msg-mw|Gwtoolset-metadata-file-source}}.
 Parameters:
 * $1 - link text "XML Validator" (untranslatable). The link points to http://www.w3schools.com/xml/xml_validator.asp',
 	'gwtoolset-file-url-invalid' => 'User error message when the file URL is invalid.',
-	'gwtoolset-mediawiki-template-does-not-exist' => 'Message appears when the MediaWiki template requested to use for maetadata mapping does not exist in the wiki.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'Message appears when the MediaWiki template requested to use for maetadata mapping does not exist in the wiki.
+
+Parameters:
+* $1 - MediaWiki template name',
 	'gwtoolset-mediawiki-template-not-found' => 'User error message when no MediaWiki template is found. Parameters:
 * $1 is the template name that was not found.',
 	'gwtoolset-metadata-file-source' => 'Initial instructions for selecting the file source.
@@ -420,19 +431,30 @@ Preceded by {{msg-mw|Gwtoolset-metadata-file-source}}.
 Followed by the file selector (<code><nowiki><input type="file"></nowiki></code>).',
 	'gwtoolset-metadata-mapping-bad' => 'User error message when there is a problem with the metadata mapping JSON format. Parameters:
 * $1 - the technical error message given by PHP for the specific JSON error',
-	'gwtoolset-metadata-mapping-invalid-url' => 'User error message when the metadata mapping URL supplied does not match the expected mapping URL path. Parameter 1 is the URL provided. Parameter 2 is the expected  path.',
+	'gwtoolset-metadata-mapping-invalid-url' => 'User error message when the metadata mapping URL supplied does not match the expected mapping URL path. Parameters:
+* $1 - the URL provided
+* $2 - the expected path',
 	'gwtoolset-metadata-mapping-not-found' => 'User error message when no metadata mapping was found in the page. Parameters:
 * $1 is the URL to the page.',
 	'gwtoolset-namespace-mismatch' => 'User message that appears when a page title is given that does not reside in the expected namespace. Parameters:
 * $1 is the page title given.
 * $2 is the namespace that title is in.
 * $3 is the naemspace the title should be in.',
-	'gwtoolset-no-xml-element-found' => 'User error message when no XML element was found for mapping.',
+	'gwtoolset-no-xml-element-found' => 'User error message when no XML element was found for mapping.
+
+Refers to {{msg-mw|Gwtoolset-record-element-name}}.
+
+Parameters:
+* $1 - http://www.w3schools.com/xml/xml_validator.asp, a line-break, and {{msg-mw|Gwtoolset-back-text-link}}',
 	'gwtoolset-page-title-contains-url' => 'Appears when the page title being requested contains the URL of the site and not just the page title',
 	'gwtoolset-record-element-name' => 'Label for record element name in the HTML form.
 
-Followed by the "Record element name" inputbox.',
+Followed by the "Record element name" input box.
+
+Also used in {{msg-mw|Gwtoolset-no-xml-element-found}}.',
 	'gwtoolset-step-1-heading' => 'Heading for step 1.
+
+Used in {{msg-mw|Gwtoolset-step-3-instructions-3}}.
 
 See also:
 * {{msg-mw|Gwtoolset-step-1-instructions-li-1}}',
@@ -443,7 +465,9 @@ Followed by the following steps:
 * {{msg-mw|Gwtoolset-step-1-instructions-li-2}}
 * {{msg-mw|Gwtoolset-step-1-instructions-li-3}}
 * {{msg-mw|Gwtoolset-step-1-instructions-li-4}}',
-	'gwtoolset-step-1-instructions-2' => 'Step 1, second instructions paragraph.',
+	'gwtoolset-step-1-instructions-2' => 'Step 1, second instructions paragraph.
+
+Refers to {{msg-mw|Gwtoolset-step-2-heading}}.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Used as <code><nowiki><h4></nowiki></code> heading.',
 	'gwtoolset-step-1-instructions-li-1' => 'Step 1, first step.
 
@@ -475,15 +499,20 @@ Followed by the list box which has the following items (template names):
 	'gwtoolset-categories' => 'Instructions for adding categories in the HTML form.',
 	'gwtoolset-category' => 'Label for category in the HTML form.
 {{Identical|Category}}',
-	'gwtoolset-create-mapping' => 'Summary message used when the extension creates/updates a metadata mapping content page. Parameters:
-* $1 is the extension name.
-* $2 is the user name.',
+	'gwtoolset-create-mapping' => '"Edit summary" message used when the extension creates/updates a metadata mapping content page. Parameters:
+* $1 - the extension name "GWToolset"
+* $2 - the username',
 	'gwtoolset-example-record' => 'Label for the metadata example record.',
 	'gwtoolset-global-categories' => 'Heading for the global categories section in the HTML form.
 {{Identical|Global category}}',
 	'gwtoolset-global-tooltip' => 'Instructions for the HTML form.',
-	'gwtoolset-maps-to' => 'Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.',
-	'gwtoolset-mapping-media-file-url-extension-bad' => 'User error message when the extension could not evaluate the media file URL in order to determine the file extension. Parameter 1 is the URL to the file or the file name given.',
+	'gwtoolset-maps-to' => 'Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.
+
+Used in {{msg-mw|Gwtoolset-step-2-instructions-2-li-1}}.',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'User error message when the extension could not evaluate the media file URL in order to determine the file extension.
+
+Parameters:
+* $1 - the URL to the file or the file name given',
 	'gwtoolset-mapping-media-file-url-bad' => 'User error message when the extension can not evaluate the media file URL. Parameters:
 * $1 is the URL provided.',
 	'gwtoolset-mapping-no-title' => 'User error message when the metadata mapping contains no title.',
@@ -492,19 +521,28 @@ Followed by the list box which has the following items (template names):
 	'gwtoolset-metadata-file' => 'Heading for displaying some information about the metadata file.',
 	'gwtoolset-metadata-mapping-legend' => 'Step 2 legend for the HTML form.',
 	'gwtoolset-no-more-records' => 'User message that appears when there are no more records to process.',
-	'gwtoolset-painted-by' => 'Placeholder text for category phrasing in Step 2 in the HTML form.',
+	'gwtoolset-painted-by' => 'Placeholder text for category phrasing in Step 2 in the HTML form.
+
+Used in {{msg-mw|Gwtoolset-specific-tooltip}}.',
 	'gwtoolset-partner' => 'Heading for the partner section in Step 2 of the HTML form.
 {{Identical|Partner}}',
 	'gwtoolset-partner-explanation' => 'Instructions for the partner section in Step 2 of the HTML form.',
 	'gwtoolset-partner-template' => 'Placeholder text for partner template in Step 2 of the HTML form.',
 	'gwtoolset-phrasing' => 'Table heading for the phrasing field column in the categories section in Step 2 of the HTML form.',
 	'gwtoolset-preview' => 'Text for submit button in Step 2 of the HTML form.',
-	'gwtoolset-process-batch' => 'Text for submit button in Step 3 of the HTML form.',
+	'gwtoolset-process-batch' => 'Text for submit button in Step 3 of the HTML form.
+
+Used in {{msg-mw|Gwtoolset-step-3-instructions-2}}.',
 	'gwtoolset-record-count' => 'User message that indicates the total number of records found in the metadata file. Parameters:
 * $1 is the total number of records found.',
 	'gwtoolset-results' => 'Heading used when results are given.
 {{Identical|Result}}',
 	'gwtoolset-step-2-heading' => 'Step 2 heading.
+
+Used in:
+* {{msg-mw|Gwtoolset-step-3-instructions-1}}
+* {{msg-mw|Gwtoolset-step-1-instructions-2}}
+* {{msg-mw|Gwtoolset-step-3-instructions-3}}
 
 See also:
 * {{msg-mw|Gwtoolset-step-1-instructions-li-2}}',
@@ -515,36 +553,59 @@ See also:
 	'gwtoolset-step-2-instructions-1-li-2' => 'Step 2, first set of instructions, second instruction.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'Step 2, first set of instructions, third instruction.',
 	'gwtoolset-step-2-instructions-2' => 'Step 2, second set of instructions.',
-	'gwtoolset-step-2-instructions-2-li-1' => 'Step 2, second set of instructions, first instruction.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Step 2, second set of instructions, first instruction.
+
+Refers to:
+* {{msg-mw|Gwtoolset-maps-to}}
+* {{msg-mw|Gwtoolset-template-field}}',
 	'gwtoolset-step-2-instructions-2-li-2' => 'Step 2, second set of instructions, second instruction.',
-	'gwtoolset-reupload-media' => 'Label for re-upload media from URL checkbox in Step 2 of the HTML form.',
-	'gwtoolset-reupload-media-explanation' => 'Instructions for the re-upload media from URL checkbox in Step 2 of the HTML form.',
+	'gwtoolset-reupload-media' => 'Label for re-upload media from URL checkbox in Step 2 of the HTML form.
+
+Followed by the following explanation:
+* {{msg-mw|Gwtoolset-reupload-media-explanation}}',
+	'gwtoolset-reupload-media-explanation' => 'Instructions for the re-upload media from URL checkbox in Step 2 of the HTML form.
+
+Preceded by the checkbox label {{msg-mw|Gwtoolset-reupload-media}}.',
 	'gwtoolset-specific-categories' => 'Heading for the item specific categories section in Step 2 of the HTML form.',
-	'gwtoolset-specific-tooltip' => 'Instructions for the item specific categories section in Step 2 of the HTML form.',
-	'gwtoolset-template-field' => 'Table column heading for Step 2 in the HTML form.',
+	'gwtoolset-specific-tooltip' => 'Instructions for the item specific categories section in Step 2 of the HTML form.
+
+Refers to {{msg-mw|Gwtoolset-painted-by}}.',
+	'gwtoolset-template-field' => 'Table column heading for Step 2 in the HTML form.
+
+Used in {{msg-mw|Gwtoolset-step-2-instructions-2-li-1}}.',
 	'gwtoolset-step-3-instructions-heading' => 'Step 3, instructions heading.
 
 See also:
 * {{msg-mw|Gwtoolset-step-1-instructions-li-3}}',
-	'gwtoolset-step-3-instructions-1' => 'Step 3, first set of instructions.',
-	'gwtoolset-step-3-instructions-2' => 'Step 3, second set of instructions.',
-	'gwtoolset-step-3-instructions-3' => 'Step 3, third set of instructions.',
+	'gwtoolset-step-3-instructions-1' => 'Step 3, first set of instructions.
+
+Refers to {{msg-mw|Gwtoolset-step-2-heading}}.',
+	'gwtoolset-step-3-instructions-2' => 'Step 3, second set of instructions.
+
+Refers to {{msg-mw|Gwtoolset-process-batch}}.',
+	'gwtoolset-step-3-instructions-3' => 'Step 3, third set of instructions.
+
+Refers to:
+* {{msg-mw|Gwtoolset-step-2-heading}}
+* {{msg-mw|Gwtoolset-step-1-heading}}',
 	'gwtoolset-title-bad' => 'Message that appears when the title derived from the metadata and mediawiki template mapping is not a valid title',
 	'gwtoolset-batchjob-metadata-created' => 'User message verifying that the metadata batch job was created. Parameters:
-* $1 is a link to a page, Special:NewFiles where the user can use to see if their media files have been uploaded.',
+* $1 - a link to a page, [[Special:NewFiles]] where the user can use to see if their media files have been uploaded',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'User error message that appears when the extension could not create a batchjob for the metadata file.',
-	'gwtoolset-create-mediafile' => 'Summary message used when the extension creates/updates a media file content page. Parameters:
-* $1 - the extension name
+	'gwtoolset-create-mediafile' => '"Edit summary" message used when the extension creates/updates a media file content page. Parameters:
+* $1 - the extension name "GWToolset"
 * $2 - the username',
 	'gwtoolset-mediafile-jobs-created' => 'Message that indicates the number of media file batch jobs created. Parameters:
-* $1 represents that number.',
+* $1 - number of batch jobs',
 	'gwtoolset-step-4-heading' => 'Step 4 heading.
 
 See also:
 * {{msg-mw|Gwtoolset-step-1-instructions-li-4}}',
 	'gwtoolset-invalid-token' => 'User message that appears when the edit token submitted with the form is invalid.',
 	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'User message that appears when the PHP ini settings are less that the wiki’s $wgMaxUploadSize setting.',
-	'gwtoolset-mediawiki-version-invalid' => 'Message appears when the MediaWiki version is too low.',
+	'gwtoolset-mediawiki-version-invalid' => 'Message appears when the MediaWiki version is too low. Parameters:
+* $1 - MediaWiki version required. "1.22c"
+* $2 - MediaWiki version currently using. e.g. "1.21.3"',
 	'gwtoolset-no-upload-by-url' => 'User message that appears when the user is not part of a group that has the right to upload by url.
 
 Used as <code>$1</code> in:
@@ -557,9 +618,13 @@ Parameters:
 	'gwtoolset-required-group' => 'User message that appears when the user is not a member of the required group. Parameters:
 * $1 is the required group.',
 	'gwtoolset-verify-api-enabled' => 'Message that appears when the API has not been enabled. Parameters:
-* $1 - "GWToolset" (untranslatable)',
+* $1 - "GWToolset" (untranslatable)
+See also:
+* {{msg-mw|Gwtoolset-verify-api-writeable}}',
 	'gwtoolset-verify-api-writeable' => 'Message that appears when the API cannot write to the wiki. Parameters:
-* $1 - "GWToolset" (untranslatable)',
+* $1 - "GWToolset" (untranslatable)
+See also:
+* {{msg-mw|Gwtoolset-verify-api-enabled}}',
 	'gwtoolset-verify-curl' => 'Message that appears when PHP cURL is not available. Parameters:
 * $1 - "GWToolset" (untranslatable)',
 	'gwtoolset-verify-finfo' => 'Message that appears when PHP finfo is not available. Parameters:
@@ -674,7 +739,7 @@ $1',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Die MediaWiki-Vorlage „<strong>$1</strong>“ ist im Wiki nicht vorhanden.
 
 Importiere die Vorlage oder wähle eine andere MediaWiki-Vorlage aus, die für das Mapping verwendet werden soll.',
-	'gwtoolset-mediawiki-template-not-found' => 'Keine MediaWiki-Vorlage „$1“ gefunden.',
+	'gwtoolset-mediawiki-template-not-found' => 'Die MediaWiki-Vorlage „$1“ wurde nicht gefunden.',
 	'gwtoolset-metadata-file-source' => 'Wähle die Quelle der Metadatendatei aus.',
 	'gwtoolset-metadata-file-source-info' => '… entweder eine Datei, die kürzlich hochgeladen wurde oder eine Datei, die du von deinem Computer hochladen willst.',
 	'gwtoolset-metadata-file-url' => 'Wiki-URL der Metadatendatei:',
@@ -767,8 +832,8 @@ Versuche für den Titel und die Titelkennung ein anderes Feld aus den Metadaten 
 	'gwtoolset-invalid-token' => 'Der Bearbeitungstoken, der mit dem Formular übermittelt wurde, ist ungültig.',
 	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Aktuelle <code>php.ini</code>-Einstellungen:
 
-• <code>upload_max_filesize</code>: $1
-• <code>post_max_size</code>: $2
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
 
 Diese sind niedriger gesetzt als <code>$wgMaxUploadSize</code> des Wikis, was auf „$3“ festgelegt wurde. Bitte passe die <code>php.ini</code>-Einstellungen dementsprechend an.',
 	'gwtoolset-mediawiki-version-invalid' => 'Diese Erweiterung benötigt die MediaWiki-Version $1.<br />Diese MediaWiki-Version ist $2.',
@@ -891,6 +956,7 @@ $1',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> が設定されていません。',
 	'gwtoolset-incorrect-form-handler' => 'モジュール「$1」は、GWToolset\\Handlers\\Forms\\FormHandler を継承するフォーム ハンドラーを登録していません。',
 	'gwtoolset-job-throttle-exceeded' => '一括処理ジョブのしきい値を超えました。',
+	'gwtoolset-no-accepted-types' => '対応するファイル形式が指定されていません',
 	'gwtoolset-no-callback' => 'このメソッドにコールバックが渡されませんでした。',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> が設定されていません。",
 	'gwtoolset-no-field-size' => 'フィールド「$1」のサイズを指定していません。',
@@ -917,6 +983,7 @@ $1',
 	'gwtoolset-no-user' => '利用者オブジェクトを指定していません。',
 	'gwtoolset-no-xml-element' => 'XMLReader または DOMElement を指定していません。',
 	'gwtoolset-no-xml-source' => 'ローカル XML ソースを指定していません。',
+	'gwtoolset-not-string' => 'メソッドに渡した値は文字列ではありませんでした。渡した値の型は「$1」です。',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 が一致しません。',
 	'gwtoolset-disk-write-failure' => 'サーバーは、ファイルをファイル システムに書き込めませんでした。',
 	'gwtoolset-xml-doctype' => 'XML メタデータ ファイルには <!DOCTYPE> セクションを含めてはいけません。それを除去してから、XML メタデータ ファイルをもう一度アップロードしてください。',
@@ -925,7 +992,15 @@ $1',
 	'gwtoolset-mime-type-mismatch' => 'アップロードしたファイルの拡張子「$1」と MIME タイプ「$2」が一致しません。',
 	'gwtoolset-missing-temp-folder' => '一時フォルダーを利用できません。',
 	'gwtoolset-no-file' => 'ファイルを受信できませんでした。',
+	'gwtoolset-no-form-field' => '予期したフォーム フィールド「$1」が存在しません。',
+	'gwtoolset-partial-upload' => 'ファイルは一部のみがアップロードされました。',
+	'gwtoolset-php-extension-error' => 'PHP の拡張モジュールのいずれかがファイルのアップロードを停止させました。PHP は、どの拡張モジュールがファイルのアップロードを停止させたかを究明する手段を提供しません。読み込まれた拡張モジュールの一覧を <code>phpinfo()</code> で調べると見つかる場合があります。',
+	'gwtoolset-unaccepted-extension' => 'ファイル ソースの拡張子が、対応しているファイル形式のものではありません。',
 	'gwtoolset-unaccepted-extension-specific' => 'ファイル ソースの拡張子「.$1」のファイル形式には対応していません。',
+	'gwtoolset-unaccepted-mime-type' => 'アップロードしたファイルの形式は、対応していない MIME タイプ「$1」と判定されました。',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'アップロードしたファイルは、対応していない MIME タイプ「$1」です。アップロードした XML ファイルの先頭に XML 宣言があることを確認してください。
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-back-text-link' => '← フォームに戻る',
 	'gwtoolset-back-text' => 'フォームに戻るにはブラウザーの戻るボタンを押してください。',
 	'gwtoolset-file-interpretation-error' => 'メタデータ ファイルを処理する際に問題点が発生しました',
@@ -942,7 +1017,9 @@ $1',
 	'gwtoolset-loading' => 'しばらくお待ちください。時間がかかる場合があります。',
 	'gwtoolset-save' => '保存',
 	'gwtoolset-save-mapping' => 'マッピングを保存',
+	'gwtoolset-save-mapping-failed' => '申し訳ありません。リクエストを処理する際に問題点が発生しました。しばらくしてからもう一度お試しください。(エラー メッセージ: $1)',
 	'gwtoolset-save-mapping-succeeded' => 'マッピングを保存しました。',
+	'gwtoolset-save-mapping-name' => 'このマッピングに付ける名前を入力',
 	'gwtoolset-json-error' => 'JSON に問題点がありました。エラー: $1',
 	'gwtoolset-json-error-depth' => 'スタックの深さが最大値を超えました。',
 	'gwtoolset-json-error-ctrl-char' => '予期しない制御文字が見つかりました。',
@@ -951,6 +1028,10 @@ $1',
 	'gwtoolset-json-error-unknown' => '不明なエラーです。',
 	'gwtoolset-accepted-file-types' => '対応しているファイル{{PLURAL:$1|形式}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'こちらの $1 で、XML ファイルが整形式であることを確認してください。',
+	'gwtoolset-file-url-invalid' => 'ファイル URL が無効です。ファイルがウィキ内にまだ存在しません。フォームでファイル URL 参照を使用したい場合は、まず、あなたのコンピューターからファイルをアップロードする必要があります。',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki テンプレート「<strong>$1</strong>」はウィキ内に存在しません。
+
+テンプレートを取り込むか、またはマッピングに使用する別の MediaWiki テンプレートを選択してください。',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki テンプレート「$1」が見つかりません。',
 	'gwtoolset-metadata-file-source' => 'メタデータ ファイル ソースを選択してください。',
 	'gwtoolset-metadata-file-url' => 'メタデータ ファイルがあるウィキの URL:',
@@ -958,12 +1039,19 @@ $1',
 	'gwtoolset-metadata-mapping-bad' => 'メタデータのマッピングで問題点が発生しました。JSON の形式が無効である場合がほとんどです。問題点を修正してから、フォームをもう一度送信してください。
 
 $1',
+	'gwtoolset-metadata-mapping-invalid-url' => '指定したメタデータ マッピング URL は、予期したマッピング URL パスに一致しませんでした。
+
+* 指定した URL: $1
+* 予期した URL: $2',
 	'gwtoolset-metadata-mapping-not-found' => 'メタデータのマッピングが見つかりませんでした。
 
 ページ「<strong>$1</strong>」がウィキ内に存在しません。',
 	'gwtoolset-namespace-mismatch' => 'ページ「<strong>$1</strong>」が誤った名前空間「<strong>$2</strong>」に属しています。
 
 名前空間「<strong>$3</strong>」である必要があります。',
+	'gwtoolset-no-xml-element-found' => 'マッピング用の XML 要素が見つかりません。
+* フォームで「{{int:gwtoolset-record-element-name}}」欄に値を入力しましたか?
+* XML ファイルは整形式ですか? こちらをお試しください: $1',
 	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の /wiki/ の後の部分)。',
 	'gwtoolset-record-element-name' => '各メタデータのレコードを含む XML 要素:',
 	'gwtoolset-step-1-heading' => '手順 1: メタデータの検出',
@@ -980,38 +1068,72 @@ $1',
 	'gwtoolset-xml-error' => 'XML を読み込めませんでした。以下のエラーを修正してください。',
 	'gwtoolset-categories' => 'カテゴリをパイプ文字 ("|") 区切りで入力してください',
 	'gwtoolset-category' => 'カテゴリ',
+	'gwtoolset-create-mapping' => '$1: $2 用のメタデータ マッピングを作成',
 	'gwtoolset-global-categories' => 'グローバル カテゴリ',
 	'gwtoolset-global-tooltip' => 'これらのカテゴリ エントリは、アップロードされた項目すべてにグローバルに適用されます。',
 	'gwtoolset-maps-to' => 'マッピング先',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'ファイル URL からそのファイルの拡張子を判定できませんでした: $1',
+	'gwtoolset-mapping-media-file-url-bad' => 'メディア ファイルの URL を評価できませんでした。この URL では、この拡張機能がまだ処理できない方法でコンテンツを配信しています。指定した URL は「$1」でした。',
+	'gwtoolset-mapping-no-title' => 'メタデータのマッピングが、ページ作成に必要なタイトルを含んでいません。',
+	'gwtoolset-mapping-no-title-identifier' => 'メタデータ マッピングが、固有のページ名作成に使用するタイトル識別子を含んでいません。メタデータのフィールドを MediaWiki テンプレートのパラメーター タイトル識別子にマッピングしたことを確認してください。',
 	'gwtoolset-metadata-field' => 'メタデータのフィールド',
 	'gwtoolset-metadata-file' => 'メタデータ ファイル',
 	'gwtoolset-metadata-mapping-legend' => 'メタデータのマッピング',
 	'gwtoolset-no-more-records' => '<strong>処理すべきレコードはこれ以上ありません</strong>',
 	'gwtoolset-partner' => 'パートナー',
 	'gwtoolset-partner-template' => 'パートナー テンプレート:',
+	'gwtoolset-preview' => '一括処理をプレビュー',
+	'gwtoolset-process-batch' => '一括処理を実行',
 	'gwtoolset-record-count' => 'このメタデータ ファイル内で見つかった総レコード数: {{PLURAL:$1|$1}}',
 	'gwtoolset-results' => '結果',
 	'gwtoolset-step-2-heading' => '手順 2: メタデータのマッピング',
 	'gwtoolset-step-2-instructions-heading' => 'メタデータ フィールドのマッピング',
-	'gwtoolset-step-2-instructions-1-li-1' => 'MediaWiki テンプレート内のフィールドの一覧。', # Fuzzy
+	'gwtoolset-step-2-instructions-1' => '下の内容の説明:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'MediaWiki テンプレート $1 内のフィールドの一覧。',
 	'gwtoolset-step-2-instructions-1-li-2' => 'メタデータ ファイル内で見つかったメタデータ フィールドを含むドロップダウン フィールド。',
 	'gwtoolset-step-2-instructions-1-li-3' => 'メタデータ ファイルから抽出したサンプル レコード。',
 	'gwtoolset-step-2-instructions-2' => 'この手順では、メタデータのフィールドを MediaWiki テンプレートのフィールドにマッピングする必要があります。',
+	'gwtoolset-step-2-instructions-2-li-1' => '「{{int:gwtoolset-template-field}}」列の MediaWiki テンプレートのフィールドに対応する「{{int:gwtoolset-maps-to}}」列のメタデータ フィールドを選択してください。',
+	'gwtoolset-step-2-instructions-2-li-2' => 'マッピング先を、MediaWiki テンプレートのフィールドすべてに対して指定する必要はありません。',
+	'gwtoolset-reupload-media' => 'メディアを URL から再アップロード',
+	'gwtoolset-reupload-media-explanation' => 'このチェックボックスでは、ウィキに既にアップロードされている項目用のメディアを再アップロードできるようにします。項目が既に存在する場合は、新たなメディア ファイルがウィキに追加されます。項目がまだ存在しない場合は、このチェックボックスにチェックを入れているかどうかにかかわらずアップロードされます。',
 	'gwtoolset-specific-categories' => '項目固有のカテゴリ',
 	'gwtoolset-template-field' => 'テンプレートのフィールド',
 	'gwtoolset-step-3-instructions-heading' => '手順 3: 一括処理のプレビュー',
+	'gwtoolset-step-3-instructions-1' => '以下は、あなたが選択して「{{int:gwtoolset-step-2-heading}}」で MediaWiki テンプレートに{{PLURAL:$1|}}マッピングしたメタデータ ファイルから抽出した{{PLURAL:$1|先頭のレコード|先頭の $1 件のレコード}}のアップロード結果です。',
+	'gwtoolset-step-3-instructions-2' => 'これらのページを確認して、期待したものと結果が異なる場合、およびアップロード待ちのレコードがある場合は、下の「{{int:gwtoolset-process-batch}}」ボタンをクリックして一括アップロードの処理を続行してください。',
+	'gwtoolset-step-3-instructions-3' => '結果に問題がある場合は、「{{int:gwtoolset-step-2-heading}}」で前のページに戻って必要に応じてマッピングを調整してください。
+
+メタデータ ファイル自体を調整する必要がある場合は、このまま進み、調整したものを最初の「{{int:gwtoolset-step-1-heading}}」で再アップロードするところからやり直してください。',
+	'gwtoolset-batchjob-metadata-created' => 'メタデータ一括処理ジョブを作成しました。メタデータ ファイルはすぐに解析され、各項目はバックグラウンド プロセスでウィキにアップロードされます。アップロードがいつ完了したか知るには、ページ「$1」を確認してください。',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'メタデータ ファイルの一括処理ジョブを作成できませんでした。',
+	'gwtoolset-create-mediafile' => '$1: $2 用のメディアファイルを作成',
+	'gwtoolset-mediafile-jobs-created' => 'メディアファイル一括処理{{PLURAL:$1|ジョブ}}を $1 件作成しました。',
 	'gwtoolset-step-4-heading' => '手順 4: 一括アップロード',
 	'gwtoolset-invalid-token' => 'フォームから送信された編集トークンが無効です。',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => '現在の <code>php.ini</code> の設定:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+これらはウィキの <code>$wgMaxUploadSize</code> の値「$3」よりも小さい値に設定されています。<code>php.ini</code> の設定を適切なものに変更してください。',
+	'gwtoolset-mediawiki-version-invalid' => 'この拡張機能を使用するには、MediaWiki バージョン $1 が必要です。<br />ご使用中の MediaWiki のバージョンは $2 です。',
 	'gwtoolset-no-upload-by-url' => 'あなたは、URL からアップロードする権限があるグループに属していません。',
 	'gwtoolset-permission-not-given' => 'ログインしていることを確認してください。解決しない場合は、このページを閲覧する権限の付与について管理者にお問い合わせください ($1)。',
+	'gwtoolset-user-blocked' => 'あなたのアカウントは現在ブロックされています。このブロックの問題点を解決するには管理者へお問い合わせください。',
 	'gwtoolset-required-group' => 'あなたはグループ $1 に属していません。',
+	'gwtoolset-verify-api-enabled' => '$1 拡張機能を使用するには、ウィキの API を有効にする必要があります。
+
+<code>$wgEnableAPI</code> の値が、<code>DefaultSettings.php</code> で <code>true</code> に設定されていること、またはその値が <code>LocalSettings.php</code> で <code>true</code> に変更されていることを確認してください。',
 	'gwtoolset-verify-api-writeable' => '$1 拡張機能を使用するには、権限がある利用者がウィキの API で書き込み操作を実行できるようにする必要があります。
 
 <code>$wgEnableWriteAPI</code> の値が、<code>DefaultSettings.php</code> で <code>true</code> に設定されていること、またはその値が <code>LocalSettings.php</code> で <code>true</code> に変更されていることを確認してください。',
 	'gwtoolset-verify-curl' => '$1 拡張機能を使用するには、PHP の [http://www.php.net/manual/en/curl.setup.php cURL 関数]をインストールする必要があります。',
 	'gwtoolset-verify-finfo' => '$1 拡張機能を使用するには、PHP の [http://www.php.net/manual/ja/fileinfo.setup.php finfo] 拡張モジュールをインストールする必要があります。',
-	'gwtoolset-verify-php-version' => '$1 拡張機能には PHP 5.3.3 以降が必要です。',
+	'gwtoolset-verify-php-version' => '$1 拡張機能を使用するには、PHP 5.3.3 以降が必要です。',
+	'gwtoolset-verify-uploads-enabled' => '$1 拡張機能を使用するには、ファイル アップロードを有効にする必要があります。
+
+<code>LocalSettings.php</code> 内で <code>$wgEnableUploads</code> を <code>true</code> に設定していることを確認してください。',
 	'gwtoolset-verify-xmlreader' => '$1 拡張機能を使用するには PHP の [http://www.php.net/manual/ja/xmlreader.setup.php XMLReader] をインストールする必要があります。',
 	'gwtoolset-wiki-checks-not-passed' => 'ウィキが要件を満たしていません',
 );
@@ -1045,14 +1167,120 @@ $messages['ksh'] = array(
 	'gwtoolset-verify-php-version' => 'Dat Zohsazprojramm $1 bruch de Väsjohn 5.3.3 vun PHP, udder hühter.',
 );
 
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset — алатка за масовно подигање за GLAM',
+	'gwtoolset-intro' => 'GWToolset е додаток за МедијаВики што овозможува масовно подигање на содржини од соработки со културно-образовни установи како галерии, библиотеки, архиви и музеи (крат. ГБАМ/GLAM) на XML-податотека што содржи метаподатоци за подигнатото. Намерата е да се овозможат разни XML-шеми. Повеќе информации за проектот ќе најдете на [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project неговата матична страница]. Таму можете и слободно да ни се обратите за било што. Изберете една од ставките во менито погоре за да го започнете подигањето.',
+	'gwtoolset-batchjob-creation-failure' => 'Не можев да создадам збир задачи од типот „$1“.',
+	'gwtoolset-could-not-close-xml' => 'Не можев да го затворам читачот на XML.',
+	'gwtoolset-could-not-open-xml' => 'Не можев да ја отворам XML-податотеката за читање.',
+	'gwtoolset-developer-issue' => 'Обратете се кај програмер. Овој проблем мора да се реши пред да продолжите. Во пријавата на проблемот вклучете го и следниов текст:
+
+$1',
+	'gwtoolset-dom-record-issue' => 'Не е укажан <code>record-element-name</code> или <code>record-count</code>, или пак <code>record-current</code>.',
+	'gwtoolset-no-source-array' => 'Нема укажана изворен строј.',
+	'gwtoolset-no-summary' => 'Нема даден опис.',
+	'gwtoolset-no-template-url' => 'Нема укажана URL на шаблонот за парсирање.',
+	'gwtoolset-no-text' => 'Нема внесено текст.',
+	'gwtoolset-no-title' => 'Нема внесено наслов.',
+	'gwtoolset-no-reupload-media' => "Не е зададено <code>user_options['gwtoolset-reupload-media']</code>.",
+	'gwtoolset-no-url-to-evaluate' => 'Нема укажано URL за проценување.',
+	'gwtoolset-no-url-to-media' => 'Не е зададено <code>url-to-the-media-file</code>.',
+	'gwtoolset-no-user' => 'Нема зададено кориснички објект.',
+	'gwtoolset-no-xml-element' => 'Нема зададено XMLReader или DOMElement.',
+	'gwtoolset-no-xml-source' => 'Нема укажано локален XML-извор.',
+	'gwtoolset-not-string' => 'Укажаната вредност за методот не претставува низа, туку е од типот „$1“.',
+	'gwtoolset-sha1-does-not-match' => 'Контролниот збир SHA-1 не се совпаѓа.',
+	'gwtoolset-disk-write-failure' => 'Опслужувачот не можеше да ја запише податотеката во податотечен систем.',
+	'gwtoolset-back-text-link' => '← назад на образецот',
+	'gwtoolset-back-text' => 'Стиснете на копчето „Назад“ во прелистувачот за да се вратите на образецот.',
+	'gwtoolset-file-interpretation-error' => 'Се појави проблем при обработката на метаподаточната податотека',
+	'gwtoolset-mediawiki-template' => 'Шаблон „$1“',
+	'gwtoolset-metadata-user-options-error' => 'Мора да се {{PLURAL:$2|пополни следново поле|пополнат следниве полиња}} во образецот:
+$1',
+	'gwtoolset-metadata-invalid-template' => 'Не најдов важечки МедијаВики-шаблон.',
+	'gwtoolset-menu-1' => 'Пресликување на метаподатоци',
+	'gwtoolset-technical-error' => 'Се појави техничка грешка.',
+	'gwtoolset-required-field' => 'означува задолжително поле',
+	'gwtoolset-submit' => 'Поднеси',
+	'gwtoolset-summary-heading' => 'Опис',
+	'gwtoolset-cancel' => 'Откажи',
+	'gwtoolset-loading' => 'Ве молиме за трпение. Ова може да потрае.',
+	'gwtoolset-save' => 'Зачувај',
+	'gwtoolset-save-mapping' => 'Зачувај пресликување',
+	'gwtoolset-save-mapping-failed' => 'Нажалост, се појави грешка при обработката на вашето барање. Обидете се подоцна. (Известување за грешката: $1)',
+	'gwtoolset-save-mapping-succeeded' => 'Пресликувањето е зачувано.',
+	'gwtoolset-save-mapping-name' => 'Како би сакале да го наречете ова пресликување?',
+	'gwtoolset-json-error' => 'Се јави проблем со JSON. Грешка: $1.',
+	'gwtoolset-json-error-depth' => 'Надмината е најголемата дозволена длабочина на стогот.',
+	'gwtoolset-json-error-state-mismatch' => 'Потчекорување или несовпаѓање во режимите.',
+	'gwtoolset-json-error-ctrl-char' => 'Пронајден е неочекуван контролен знак.',
+	'gwtoolset-json-error-syntax' => 'Синтаксна грешка: лошо срочен JSON.',
+	'gwtoolset-json-error-utf8' => 'Лошо срочени знаци во UTF-8. Можеби неправилно кодирани.',
+	'gwtoolset-json-error-unknown' => 'Непозната грешка.',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Прифатен податотечен тип|Прифатени податотечни типови}}:',
+	'gwtoolset-ensure-well-formed-xml' => 'Проверете дали XML-податотеката е добро срочена со овој $1.',
+	'gwtoolset-metadata-file-source' => 'Изберете го изворот на метаподаточната подототека.',
+	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
+* Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
+* Дали XML-податотеката е добро срочена? Пробајте го ова $1.',
+	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
+	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
+	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
+	'gwtoolset-step-1-instructions-1' => 'Постапката за подигање на метаподатоци се состои од 4 чекори:',
+	'gwtoolset-step-1-instructions-2' => 'Во овој чекор ја подигате новата метаподаточна податотека на викито. Алатката ќе се обиде ги добие расположивите полиња со метаподатоци од податотеката, што потоа ќе ги пресликате во МедијаВики-шаблонот во „{{int:gwtoolset-step-2-heading}}“.',
+	'gwtoolset-step-1-instructions-3-heading' => 'Список на дозволени домени',
+	'gwtoolset-step-1-instructions-li-1' => 'Пронаоѓање на метаподатоци',
+	'gwtoolset-step-1-instructions-li-2' => 'Пресликување на метаподатоците',
+	'gwtoolset-category' => 'Категорија',
+	'gwtoolset-create-mapping' => '$1: Создавање на пресликување на метаподатоците за $2.',
+	'gwtoolset-example-record' => 'Содржина на записот за пример за метаподатоци.',
+	'gwtoolset-global-categories' => 'Глобални категории',
+	'gwtoolset-global-tooltip' => 'Овие категориски ставки ќе се применат глобално врз сето она што е подигнато.',
+	'gwtoolset-maps-to' => 'Се пресликува во',
+	'gwtoolset-no-more-records' => '<strong>Повеќе нема записи за обработка</strong>',
+	'gwtoolset-painted-by' => 'Насликано од',
+	'gwtoolset-partner' => 'Партнер',
+	'gwtoolset-results' => 'Резултати',
+	'gwtoolset-step-2-heading' => 'Чекор 2: Пресликување на метаподатоците',
+	'gwtoolset-step-2-instructions-heading' => 'Пресликување на метаподаточните полиња',
+	'gwtoolset-step-2-instructions-1' => 'Подолу има:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Список на полиња МедијаВики-шаблонот „$1“.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Расклопни полиња што ги претставуваат полињата во метаподаточната податотека.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Пример за запис од метаподаточната податотека.',
+	'gwtoolset-required-group' => 'Не членувате во групата „$1“.',
+	'gwtoolset-verify-api-enabled' => 'Додатокот „$1“ бара да е овозможен википрилогот (API).
+
+Проверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак е заменето со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-php-version' => 'Додатокот „$1“ бара PHP >= 5.3.3.',
+	'gwtoolset-verify-uploads-enabled' => 'Додатокот „$1“ бара да е овозможено подигање на податотеки.
+
+Проверете дали <code>$wgEnableUploads</code> е наместено на <code>true</code> во <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-xmlreader' => 'Додатокот $1 бара инсталиран [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] со PHP.',
+	'gwtoolset-wiki-checks-not-passed' => 'Не пројде на проверките на викито',
+);
+
 /** Dutch (Nederlands)
+ * @author Siebrand
  * @author Sjoerddebruin
  */
 $messages['nl'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, een hulpprogramma voor het massaal uploaden van bestanden',
+	'gwtoolset-mediawiki-template' => 'Sjabloon $1',
 	'gwtoolset-submit' => 'Opslaan',
 	'gwtoolset-summary-heading' => 'Samenvatting',
 	'gwtoolset-cancel' => 'Annuleren',
 	'gwtoolset-save' => 'Opslaan',
+	'gwtoolset-save-mapping' => 'Koppelingen opslaan',
+	'gwtoolset-save-mapping-succeeded' => 'Uw koppelingen zijn opgeslagen',
+	'gwtoolset-save-mapping-name' => 'Hoe wilt u deze verzameling koppelingen noemen?',
+	'gwtoolset-json-error' => 'Er was een probleem met de JSON. Fout: $1.',
+	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
+	'gwtoolset-category' => 'Categorie',
 );
 
 /** Russian (русский)
@@ -1135,13 +1363,19 @@ $messages['uk'] = array(
 
 $1",
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, або <code>record-count</code>, або <code>record-current</code> не надані.',
+	'gwtoolset-file-backend-maxage-invalid' => 'Максимальне значення віку, передбачене у  <code>$wgGWTFBMaxAge</code>, невірне.
+Подивіться  [php.net/manual/en/datetime.formats.relative.php підручник PHP] за вказівками, які вірно його встановити.',
 	'gwtoolset-fsfile-empty' => 'Файл був порожній і через це його видалено.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Не вдалося отримати файл з URL-адреси  $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code>не встановлено.',
+	'gwtoolset-incorrect-form-handler' => 'Модуль "$1" не зареєстрував обробник форми, який розширює GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => 'Перевищено обмеження частоти створення пакетних завдань.',
 	'gwtoolset-no-accepted-types' => 'Не надано прийнятих типів',
+	'gwtoolset-no-callback' => 'Зворотний виклик не переданий до цього методу.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code>не встановлено.",
 	'gwtoolset-no-field-size' => 'Не зазначено розмір поля для "$1".',
 	'gwtoolset-no-file-backend-name' => "Не надано ім'я файлу бази даних.",
+	'gwtoolset-no-file-backend-container' => "Не забезпечено ім'я контейнера файлу бази даних.",
 	'gwtoolset-no-file-url' => 'Не забезпечено <code>file_url</code> для аналізу.',
 	'gwtoolset-no-form-handler' => 'Не створено форми обробника.',
 	'gwtoolset-no-mapping' => 'Не забезпечено <code>mapping_name</code>.',
@@ -1175,12 +1409,21 @@ $1",
 	'gwtoolset-no-extension' => 'Файл, який було завантажено, не містить достатньої інформації для обробки файлу. Вірогідно він не має розширення.',
 	'gwtoolset-no-file' => 'Файл не був отриманий.',
 	'gwtoolset-no-form-field' => 'Очікуване поле форми "$1" не існує.',
+	'gwtoolset-over-max-ini' => 'Файл, який був завантажений, перевищує <code>upload_max_filesize</code> та/або директиву <code>post_max_size</code> в <code>php.ini</code>.',
 	'gwtoolset-partial-upload' => 'Файл був завантажений лише частково.',
+	'gwtoolset-php-extension-error' => "Розширення PHP зупинило завантаження файлу. PHP не надає способу з'ясувати, яке розширення викликало зупинку завантаження файлу. Перевірка списку запущених розширень з <code>phpinfo()</code> може допомогти.",
 	'gwtoolset-unaccepted-extension' => 'Вихідний файл не містить допустиме розширення файлу.',
 	'gwtoolset-unaccepted-extension-specific' => 'Вихідний файл має неприйнятне розширення файлу ".$1".',
+	'gwtoolset-unaccepted-mime-type' => 'Завантажений файл трактується як файл з MIME типом "$1", що є недопустимим типом MIME.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'Завантажений файл має неприйнятний тип MIME "$1". Файл XML має декларацію XML у верхній частині файлу?
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-back-text-link' => '← повернутися до форми',
+	'gwtoolset-back-text' => 'Натисніть кнопку браузера "назад", щоб повернутися до форми.',
 	'gwtoolset-file-interpretation-error' => 'Сталася помилка обробки метаданих файлу',
 	'gwtoolset-mediawiki-template' => 'Шаблон $1',
+	'gwtoolset-metadata-user-options-error' => '{{PLURAL:$2|Наступне поле|Наступні поля}} форми повинні бути заповнені:
+$1',
 	'gwtoolset-metadata-invalid-template' => 'Не знайдено чинного шаблону Медіавікі.',
 	'gwtoolset-menu-1' => 'Відображення метаданих',
 	'gwtoolset-technical-error' => 'Трапилася технічна помилка.',
@@ -1196,24 +1439,52 @@ $1",
 	'gwtoolset-save-mapping-name' => 'Як би ви хотіли назвати це зіставлення?',
 	'gwtoolset-json-error' => 'Виникла проблема з JSON. Помилка:  $1.',
 	'gwtoolset-json-error-depth' => 'Перевищено максимальну глибину стеку.',
+	'gwtoolset-json-error-state-mismatch' => 'Зникнення або невідповідність режимів.',
 	'gwtoolset-json-error-ctrl-char' => 'Знайдено неочікуваний контрольний символ.',
 	'gwtoolset-json-error-syntax' => 'Синтаксична помилка, неправильний формат JSON.',
+	'gwtoolset-json-error-utf8' => 'Спотворені символи UTF-8. Можливо, неправильно закодовано.',
 	'gwtoolset-json-error-unknown' => 'Невідома помилка.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Допустимий тип файлу|Допустимі типи файлу}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
 	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
-	'gwtoolset-mediawiki-template-not-found' => 'Не знайдено жодного шаблону Медіавікі "$1".',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'Шаблон Медіавікі "<strong>$1</strong>" не існує у цій вікі.
+
+Імпортуйте шаблон або виберіть інший шаблон Медіавікі для використання у зіставленні.',
+	'gwtoolset-mediawiki-template-not-found' => 'Не знайдено шаблону Медіавікі "$1".',
 	'gwtoolset-metadata-file-source' => 'Виберіть джерело файлу метаданих.',
 	'gwtoolset-metadata-file-source-info' => ".. файл, який раніше був завантажений або файл, який ви хочете завантажити з вашого комп'ютера.",
+	'gwtoolset-metadata-file-url' => 'Вікі файлу метаданих URL:',
+	'gwtoolset-metadata-file-upload' => 'Завантаження файлу метаданих:',
+	'gwtoolset-metadata-mapping-bad' => 'Існує проблема з відображенням метаданих. Найвірогідніше невірний формат JSON. Спробуйте виправити проблему і потім знову відправте форму.
+
+
+$1.',
+	'gwtoolset-metadata-mapping-invalid-url' => 'Поставлене URL зіставлення метаданих не збігається з URL очікуваного шляху зіставлення.
+
+* Поставлене URL: $1
+* Очікуване URL: $2',
+	'gwtoolset-metadata-mapping-not-found' => 'Не знайдено зіставлення метаданих.
+
+Сторінка "<strong>$1<strong>" не існує у вікі.',
+	'gwtoolset-namespace-mismatch' => 'Сторінка "<strong>$1<strong>" перебуває у невірному просторі назв "<strong>$2<strong>".
+
+Вона має бути у просторі назв "<strong>$3<strong>".',
+	'gwtoolset-no-xml-element-found' => 'Не знайдено елемент XML для зіставлення.
+* Ви ввели значення у формі для "{{int:gwtoolset-record-element-name}}"?
+* Файл XML вірно сформований? Спробуйте це $1.',
+	'gwtoolset-page-title-contains-url' => 'Сторінка "$1" містить URL усієї вікі. Переконайтеся, що ви ввели заголовок сторінки, наприклад частина URL після  /wiki/',
 	'gwtoolset-record-element-name' => 'Який елемент XML, що містить кожен запис метаданих:',
 	'gwtoolset-step-1-heading' => 'Крок 1: виявлення метаданих',
 	'gwtoolset-step-1-instructions-1' => 'Процес завантаження метаданих складається з 4 кроків:',
+	'gwtoolset-step-1-instructions-2' => 'На цьому кроці ви завантажуєте новий файл метаданих у вікі. Інструмент буде намагатися отримати поля метаданих, наявні у файлі метаданих, які ви потім зіставите з шаблоном Медіавікі у "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3-heading' => 'Білий список доменів',
 	'gwtoolset-step-1-instructions-li-1' => 'Виявлення метаданих',
 	'gwtoolset-step-1-instructions-li-2' => 'Відображення метаданих',
 	'gwtoolset-step-1-instructions-li-3' => 'Пакетний перегляд',
 	'gwtoolset-step-1-instructions-li-4' => 'Пакетне завантеження',
 	'gwtoolset-upload-legend' => 'Завантажте ваш файл метаданих.',
 	'gwtoolset-which-mediawiki-template' => 'Який шаблон Медіавікі:',
+	'gwtoolset-which-metadata-mapping' => 'Які метадані зіставити:',
 	'gwtoolset-xml-error' => 'Не вдалося завантажити XML-документ. Виправте вказані нижче помилки.',
 	'gwtoolset-categories' => 'Введіть категорії, розділені вертикальною рискою ("|")',
 	'gwtoolset-category' => 'Категорія',
@@ -1221,30 +1492,59 @@ $1",
 	'gwtoolset-example-record' => 'Вміст запису прикладу метаданих.',
 	'gwtoolset-global-categories' => 'Глобальні категорії',
 	'gwtoolset-global-tooltip' => 'Записи цих категорій застосовуватимуться глобально до всіх завантажених елементів.',
+	'gwtoolset-maps-to' => 'Зіставлення для',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'Не вдалося визначити розширення файлу з URL файлу: $1.',
+	'gwtoolset-mapping-no-title' => 'Зіставлення метаданих не містить заголовок, який необхідний для того, щоб створити сторінку.',
 	'gwtoolset-metadata-field' => 'Поле метаданих',
 	'gwtoolset-metadata-file' => 'Файл метаданих',
+	'gwtoolset-metadata-mapping-legend' => 'Зіставити ваші метадані',
 	'gwtoolset-no-more-records' => '<strong>Немає більше записів для оброблення</strong>',
+	'gwtoolset-painted-by' => 'Намальовано',
 	'gwtoolset-partner' => 'Партнер',
 	'gwtoolset-partner-template' => 'Шаблон партнера:',
 	'gwtoolset-phrasing' => 'Формулювання',
+	'gwtoolset-preview' => 'Пакетний перегляд',
+	'gwtoolset-process-batch' => 'Пакетна обробка',
 	'gwtoolset-record-count' => 'Всього знайдено записів в цьому файлі метаданих:  {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Результати',
 	'gwtoolset-step-2-heading' => 'Крок 2: Відображення метаданих',
 	'gwtoolset-step-2-instructions-heading' => 'Відображення полів метаданих',
+	'gwtoolset-step-2-instructions-1' => 'Нижче є:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'Список полів у Медіавікі $1.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Розкривний список полів, які представляють поля метаданих знайти у файлі метаданих.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Зразок запису з файлу метаданих.',
+	'gwtoolset-step-2-instructions-2' => 'На цьому кроці необхідно зіставити поля метаданих з полями шаблону Медіавікі.',
+	'gwtoolset-step-2-instructions-2-li-2' => 'Вам не потрібно забезпечувати збіг для кожного поля шаблону Медіавікі.',
+	'gwtoolset-reupload-media' => 'Повторно завантажити медіа з URL',
+	'gwtoolset-reupload-media-explanation' => 'Цей параметр дозволяє вам повторно завантажувати медіа для елемента, яке вже було завантажене у вікі. Якщо елемент вже існує, то додатковий медіа-файл буде доданий у вікі. Якщо медіа-файл ще не існує, то він буде завантажений залежно від того, чи прапорець встановлений чи ні.',
+	'gwtoolset-specific-categories' => 'Специфічні категорії пункту',
 	'gwtoolset-template-field' => 'Поле шаблону',
 	'gwtoolset-step-3-instructions-heading' => 'Крок 3: пакетний перегляд',
+	'gwtoolset-step-3-instructions-1' => 'Нижче наведені результати завантаження {{PLURAL:$1|першого запису|перших $1 записів}} від файлу метаданих, який ви вибрали і зіставлення  {{PLURAL:$1|його|їх}} для вибраного у MediaWiki шаблону "{{int:gwtoolset-крок-2-заголовок}}".',
+	'gwtoolset-step-3-instructions-2' => 'Перегляньте ці сторінки і якщо результати не відповідають вашим очікуванням, і існують додаткові записи, які чекають на завантаження, продовжіть процес пакетного завантаження, натиснувши нижче на кнопку  "{{int:gwtoolset-process-batch}}".',
+	'gwtoolset-batchjob-metadata-created' => 'Пакетне завдання метаданих створено. Ваш файл метаданих буде проаналізовано найближчим часом і кожний елемент буде завантажений на вікі у фоновому режимі. Ви можете перевірити на сторінці "$1" хід їхнього завантаження.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Не вдалося створити пакетне завдання для файлу метаданих.',
 	'gwtoolset-create-mediafile' => '$1: Створення медіафайлу для $2.',
+	'gwtoolset-mediafile-jobs-created' => 'Створено $1 {{PLURAL:$1|пакетне завдання|пакетні завдання|пакетних завдань}} для медіафайлу.',
 	'gwtoolset-step-4-heading' => 'Крок 4: Пакетне завантаження',
+	'gwtoolset-invalid-token' => 'Невірний маркер правки, надісланий із формою.',
 	'gwtoolset-mediawiki-version-invalid' => 'Дане розширення вимагає Медіавікі версії $1<br />Це Медіавікі має версію $2.',
 	'gwtoolset-no-upload-by-url' => 'Ви не є частиною групи, яка має право передати за URL-адресою.',
+	'gwtoolset-permission-not-given' => 'Переконайтеся, що ви ввійшли до системи, або зверніться до адміністратора для того, щоб бути наданий дозвіл на перегляд цієї сторінки ($1).',
 	'gwtoolset-user-blocked' => 'Ваш обліковий запис наразі заблоковано. Будь ласка, зверніться до адміністратора для того, щоб усунути це блокування.',
 	'gwtoolset-required-group' => 'Ви не учасник групи $1.',
+	'gwtoolset-verify-api-enabled' => 'Розширення $1 вимагає увімкненої API вікі.
+
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-api-writeable' => 'Розширення $1 вимагає, аби API вікі могла виконувати дію писання для авторизованих користувачів.
+
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.',
 	'gwtoolset-verify-curl' => 'Розширення $1 потребує, аби PHP [http://www.php.net/manual/en/curl.setup.php cURL функції] були встановлені.',
 	'gwtoolset-verify-finfo' => 'Розширення $1 Extension вимагає, щоби розширення PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] було встановлене.',
 	'gwtoolset-verify-php-version' => 'Розширення $1 потребує PHP версії >= 5.3.3.',
+	'gwtoolset-verify-uploads-enabled' => 'Розширення $1 вимагає увімкненого завантаження файлів.
+
+Переконайтеся, що <code>$wgEnableUploads</code> встановлено як <code>true</code> у  <code>LocalSettings.php</code>.',
 	'gwtoolset-verify-xmlreader' => 'Розширення $1 вимагає, щоб PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] був встановлений.',
 	'gwtoolset-wiki-checks-not-passed' => 'Вікі-перевірки не пройдені',
 );
