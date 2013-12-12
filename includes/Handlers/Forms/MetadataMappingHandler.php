@@ -44,6 +44,7 @@ class MetadataMappingHandler extends FormHandler {
 		'gwtoolset-category-metadata' => array( 'size' => 255 ),
 		'gwtoolset-form' => array( 'size' => 255 ),
 		'gwtoolset-preview' => array( 'size' => 255 ),
+		'gwtoolset-mediafile-throttle' => array( 'size' => 2 ),
 		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
 		'gwtoolset-metadata-file-relative-path' => array( 'size' => 255 ),
 		'gwtoolset-metadata-file-sha1' => array( 'size' => 255 ),
@@ -195,6 +196,18 @@ class MetadataMappingHandler extends FormHandler {
 				!empty( $this->_whitelisted_post['wpSummary'] )
 				? $this->_whitelisted_post['wpSummary']
 				: '',
+
+			'gwtoolset-mediafile-throttle' =>
+				!empty( $this->_whitelisted_post['gwtoolset-mediafile-throttle'] )
+				? Utils::sanitizeNumericRange(
+						$this->_whitelisted_post['gwtoolset-mediafile-throttle'],
+						array(
+							'min' => Config::$mediafile_job_throttle_min,
+							'max' => Config::$mediafile_job_throttle_max,
+							'default' => Config::$mediafile_job_throttle_default
+						)
+					)
+				: Config::$mediafile_job_throttle_default,
 
 			'gwtoolset-mediawiki-template-name' =>
 				!empty( $this->_whitelisted_post['gwtoolset-mediawiki-template-name'] )
@@ -411,8 +424,8 @@ class MetadataMappingHandler extends FormHandler {
 			}
 
 			// at this point
-			// * the UploadMetadataJob has created ( Config::$mediafile_job_throttle ) number of
-			//   UploadMediafileJobs
+			// * the UploadMetadataJob has created ( $user_options['gwtoolset-mediafile-throttle'] )
+			//   number of UploadMediafileJobs
 			// * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
 			//   began with
 			// * $user_options['gwtoolset-record-current'] is the next record that needs to be
@@ -420,7 +433,7 @@ class MetadataMappingHandler extends FormHandler {
 			//
 			// example to illustrate the test
 			// * Config::$preview_throttle                 = 3
-			// * Config::$mediafile_job_throttle           = 10
+			// * $user_options['gwtoolset-mediafile-throttle']   = 10
 			// * $user_options['gwtoolset-record-count']   = 14
 			// * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
 			// * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
@@ -432,7 +445,8 @@ class MetadataMappingHandler extends FormHandler {
 			// * create another UploadMetadataJob that will take care of the last record
 			if (
 				(int)$user_options['gwtoolset-record-count']
-				>= ( (int)$user_options['gwtoolset-record-begin'] + (int)Config::$mediafile_job_throttle )
+				>= ( (int)$user_options['gwtoolset-record-begin'] +
+						(int)$user_options['gwtoolset-mediafile-throttle'] )
 			) {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
 					(int)$user_options['gwtoolset-record-current'];
@@ -508,7 +522,7 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		if ( $user_options['preview'] === true ) {
-			Config::$mediafile_job_throttle = (int)Config::$preview_throttle;
+			$user_options['gwtoolset-mediafile-throttle'] = (int)Config::$preview_throttle;
 			$mediafile_titles = $this->processMetadata( $user_options );
 
 			$result = PreviewForm::getForm(

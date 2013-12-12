@@ -70,9 +70,28 @@ class Config {
 
 	/**
 	 * @var {int}
-	 * the maximum number of mediafile jobs to add to the job queue during this run.
+	 * the number of mediafile jobs to add to the job queue during this run.
 	 */
-	public static $mediafile_job_throttle = 10;
+	public static $mediafile_job_throttle_default = 10;
+
+	/**
+	 * @var {int}
+	 * a min range for the mediafile job throttle.
+	 */
+	public static $mediafile_job_throttle_min = 1;
+
+	/**
+	 * @var {int}
+	 * a max range for the mediafile job throttle.
+	 *
+	 * based on an irc chat with chris steipp. his main concern is about someone setting up
+	 * files that are near the max upload size, approx 1GB, which would likely dos a server
+	 * and use up all of the MediaWiki server’s bandwidth.
+	 *
+	 * @see https://gerrit.wikimedia.org/r/#/c/101008
+	 * @see https://www.assembla.com/spaces/glamwiki/tickets/195-user-controlled-job-throttle
+	 */
+	public static $mediafile_job_throttle_max = 20;
 
 	/**
 	 * @var {int}
@@ -116,10 +135,22 @@ class Config {
 
 	/**
 	 * @var {string}
+	 * this delay is used specifically for each gwtoolsetUploadMetadataJob
+	 *
 	 * used in conjunction with the job param jobReleaseTimestamp when the job queue
 	 * delayedJobsEnabled() is true, e.g., JobQueueRedis
 	 */
-	public static $metadata_job_delay = '3 minutes';
+	public static $metadata_job_delay = '1 minute';
+
+	/**
+	 * @var {string}
+	 * this delay is used specifically when the job queue for gwtoolsetUploadMediafileJobs
+	 * has reached the $mediafile_job_queue_max
+	 *
+	 * used in conjunction with the job param jobReleaseTimestamp when the job queue
+	 * delayedJobsEnabled() is true, e.g., JobQueueRedis
+	 */
+	public static $metadata_job_attempt_delay = '5 minutes';
 
 	/**
 	 * @var {int}

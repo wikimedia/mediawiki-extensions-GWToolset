@@ -226,6 +226,30 @@ class MetadataDetectForm {
 			Html::rawElement(
 				'li',
 				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					wfMessage( 'gwtoolset-mediafile-throttle' )->escaped() .
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'text',
+							'name' => 'gwtoolset-mediafile-throttle',
+							'min' => Config::$mediafile_job_throttle_min,
+							'max' => Config::$mediafile_job_throttle_max,
+							'maxlength' => 2,
+							'size' => 2,
+							'placeholder' => Config::$mediafile_job_throttle_default
+						)
+					)
+				) .
+				Html::rawElement( 'br' ) .
+				wfMessage( 'gwtoolset-mediafile-throttle-description' )->escaped()
+			) .
+
+			Html::rawElement(
+				'li',
+				array(),
 				wfMessage( 'gwtoolset-ensure-well-formed-xml' )->params(
 					Html::rawElement(
 						'a',

@@ -41,6 +41,7 @@ See the [php.net/manual/en/datetime.formats.relative.php PHP manual] for how to 
 	'gwtoolset-no-accepted-types' => 'No accepted types provided',
 	'gwtoolset-no-callback' => 'No callback passed to this method.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> not set.",
+	'gwtoolset-no-default' => 'No default value provided.',
 	'gwtoolset-no-field-size' => 'No field size specified for the field "$1".',
 	'gwtoolset-no-file-backend-name' => 'No file backend name provided.',
 	'gwtoolset-no-file-backend-container' => 'No file backend container name provided.',
@@ -48,7 +49,10 @@ See the [php.net/manual/en/datetime.formats.relative.php PHP manual] for how to 
 	'gwtoolset-no-form-handler' => 'No form handler created.',
 	'gwtoolset-no-mapping' => 'No <code>mapping_name</code> provided.',
 	'gwtoolset-no-mapping-json' => 'No <code>mapping_json</code> provided.',
+	'gwtoolset-no-max' => 'No maximum value provided.',
+	'gwtoolset-no-mediafile-throttle' => 'No mediafile job throttle provided.',
 	'gwtoolset-no-mediawiki-template' => 'No <code>mediawiki-template-name</code> provided.',
+	'gwtoolset-no-min' => 'No minimum value provided.',
 	'gwtoolset-no-module' => 'No module name was specified.',
 	'gwtoolset-no-mwstore-complete-path' => 'No complete file path provided.',
 	'gwtoolset-no-mwstore-relative-path' => 'No relative path provided.',
@@ -136,6 +140,8 @@ $1',
 	'gwtoolset-accepted-file-types' => 'Accepted file {{PLURAL:$1|type|types}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Make sure the XML file is well-formed with this $1.',
 	'gwtoolset-file-url-invalid' => 'The file URL was invalid; The file does not yet exist in the wiki. You need to first upload the file from your computer if you want to use the file URL reference in the form.',
+	'gwtoolset-mediafile-throttle' => 'Mediafile throttle:',
+	'gwtoolset-mediafile-throttle-description' => 'The throttle controls the load Wikimedia Commons will put on your media server during the batch upload. You can set the throttle between 1-20 where the number corresponds to the number of media requests per minute.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki template "<strong>$1</strong>" does not exist in the wiki.
 
 Either import the template or select another MediaWiki template to use for mapping.',
@@ -297,7 +303,9 @@ Parameters:
 	'gwtoolset-ignorewarnings' => 'Hint to the developer that appears when ignorewarnings is not set.',
 	'gwtoolset-incorrect-form-handler' => 'A developer message that appears when a module does not specify a form handler that extends GWToolset\\Handlers\\Forms\\FormHandler.',
 	'gwtoolset-job-throttle-exceeded' => 'Developer message that appears when the batch job throttle was exceeded.',
-	'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.
+	'gwtoolset-mediafile-throttle' => 'Mediafile throttle label for the HTML form.',
+	'gwtoolset-mediafile-throttle-description' => 'User description of the mediafile throttle.',
+'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.
 
 Used if <code>$accepted_metadata_types</code> (metadata types the extension accepts) is empty.
 
@@ -305,6 +313,7 @@ Parameters:
 * $1 - (Unused) "gwtoolset-no-accepted-types-provided" (untranslatable)',
 	'gwtoolset-no-callback' => 'Hint to the developer that appears when no callback is given.',
 	'gwtoolset-no-comment' => "Hint to the developer that appears when user_options['comment'] is not set.",
+	'gwtoolset-no-default' => 'Developer message that appears when no default value was provided.',
 	'gwtoolset-no-field-size' => 'Developer message that appears when no field size was specified for the field. Parameters:
 * $1 is the name field.',
 	'gwtoolset-no-file-backend-name' => 'Message that appears when a web admin does not provide a file backend name.',
@@ -313,7 +322,10 @@ Parameters:
 	'gwtoolset-no-form-handler' => 'Hint to the developer that appears when no form handler was created.',
 	'gwtoolset-no-mapping' => 'Hint to the developer that appears when no mapping_name is provided.',
 	'gwtoolset-no-mapping-json' => 'Hint to the developer that appears when no mapping_json is provided.',
+	'gwtoolset-no-max' => 'Developer message that appears when no maximum value was provided.',
+	'gwtoolset-no-mediafile-throttle' => 'Developer message that appears when no mediafile job throttle was provided.',
 	'gwtoolset-no-mediawiki-template' => 'Hint to the developer that appears when no mediawiki-template-name is provided.',
+	'gwtoolset-no-min' => 'Developer message that appears when no minimum value was provided.',
 	'gwtoolset-no-module' => 'Hint to the developer that appears when no module name was specified.',
 	'gwtoolset-no-mwstore-complete-path' => 'Developer message that appears when no mwstore complete file path provied.',
 	'gwtoolset-no-mwstore-relative-path' => 'Developer message that appears when no mwstore relative path is provided.',

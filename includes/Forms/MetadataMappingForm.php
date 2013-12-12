@@ -155,6 +155,15 @@ class MetadataMappingForm {
 				'input',
 				array(
 					'type' => 'hidden',
+					'name' => 'gwtoolset-mediafile-throttle',
+					'value' => (int)$user_options['gwtoolset-mediafile-throttle']
+				)
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'hidden',
 					'id' => 'gwtoolset-mediawiki-template-name',
 					'name' => 'gwtoolset-mediawiki-template-name',
 					'value' => Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] )

@@ -31,6 +31,7 @@ class MetadataDetectHandler extends FormHandler {
 	protected $_expected_post_fields = array(
 		'gwtoolset-form' => array( 'size' => 255 ),
 		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
+		'gwtoolset-mediafile-throttle' => array( 'size' => 2 ),
 		'gwtoolset-metadata-file-upload' => array( 'size' => 255 ),
 		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
 		'gwtoolset-record-element-name' => array( 'size' => 255 ),
@@ -110,6 +111,18 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function getUserOptions() {
 		return array(
+			'gwtoolset-mediafile-throttle' =>
+				!empty( $this->_whitelisted_post['gwtoolset-mediafile-throttle'] )
+				? Utils::sanitizeNumericRange(
+						$this->_whitelisted_post['gwtoolset-mediafile-throttle'],
+						array(
+							'min' => Config::$mediafile_job_throttle_min,
+							'max' => Config::$mediafile_job_throttle_max,
+							'default' => Config::$mediafile_job_throttle_default
+						)
+					)
+				: Config::$mediafile_job_throttle_default,
+
 			'gwtoolset-mediawiki-template-name' => !empty(
 					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
 				)

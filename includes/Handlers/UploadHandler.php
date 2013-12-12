@@ -500,11 +500,11 @@ class UploadHandler {
 	 * @return {bool}
 	 */
 	public function saveMediafileViaJob(
-		array &$user_options, array $options, array $whitelisted_post
+		array $user_options, array $options, array $whitelisted_post
 	) {
 		$result = false;
 
-		if ( count( $this->mediafile_jobs ) > (int)Config::$mediafile_job_throttle ) {
+		if ( count( $this->mediafile_jobs ) > (int)$user_options['gwtoolset-mediafile-throttle'] ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -646,7 +646,7 @@ class UploadHandler {
 	 * @param {array} $options
 	 * @throws {MWException}
 	 */
-	protected function validateUserOptions( array &$user_options ) {
+	protected function validateUserOptions( array $user_options ) {
 		if ( !isset( $user_options['comment'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -655,10 +655,10 @@ class UploadHandler {
 			);
 		}
 
-		if ( !isset( $user_options['save-as-batch-job'] ) ) {
+		if ( !isset( $user_options['gwtoolset-mediafile-throttle'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-save-as-batch' )->parse() )
+					->params( wfMessage( 'gwtoolset-no-mediafile-throttle' )->parse() )
 					->parse()
 			);
 		}
@@ -667,6 +667,14 @@ class UploadHandler {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-reupload-media' )->parse() )
+					->parse()
+			);
+		}
+
+		if ( !isset( $user_options['save-as-batch-job'] ) ) {
+			throw new MWException(
+				wfMessage( 'gwtoolset-developer-issue' )
+					->params( wfMessage( 'gwtoolset-no-save-as-batch' )->parse() )
 					->parse()
 			);
 		}

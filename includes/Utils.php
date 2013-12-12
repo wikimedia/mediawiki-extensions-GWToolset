@@ -284,6 +284,54 @@ class Utils {
 	}
 
 	/**
+	 * @param {int} $value
+	 * @param {array} $params
+	 * @param {int} $params['min']
+	 * @param {int} $params['max']
+	 * @param {int} $params['default']
+	 * @return {int}
+	 */
+	public static function sanitizeNumericRange( $value, $params ) {
+		if ( !isset( $params['min'] ) ) {
+			throw new MWException(
+				__METHOD__ . ': ' .
+				wfMessage( 'gwtoolset-developer-issue' )
+				->params( wfMessage( 'gwtoolset-no-min' ) )
+				->escaped()
+			);
+		}
+
+		if ( !isset( $params['max'] ) ) {
+			throw new MWException(
+				__METHOD__ . ': ' .
+				wfMessage( 'gwtoolset-developer-issue' )
+				->params( wfMessage( 'gwtoolset-no-max' ) )
+				->escaped()
+			);
+		}
+
+		if ( !isset( $params['min'] ) ) {
+			throw new MWException(
+				__METHOD__ . ': ' .
+				wfMessage( 'gwtoolset-developer-issue' )
+				->params( wfMessage( 'gwtoolset-no-default' ) )
+				->escaped()
+			);
+		}
+
+		$result = (int)$params['default'];
+		$value = (int)$value;
+
+		if ( $value >= (int)$params['min']
+			&& $value <= (int)$params['max']
+		) {
+			$result = $value;
+		}
+
+		return $result;
+	}
+
+	/**
 	 * @param {string} $string
 	 * @return {string|null}
 	 */

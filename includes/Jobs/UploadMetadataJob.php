@@ -105,7 +105,7 @@ class UploadMetadataJob extends Job {
 
 		if ( $delayed_enabled ) {
 			$job->params['jobReleaseTimestamp'] = strtotime(
-				'+' . Utils::sanitizeString( Config::$metadata_job_delay )
+				'+' . Utils::sanitizeString( Config::$metadata_job_attempt_delay )
 			);
 		}
 
