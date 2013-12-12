@@ -562,12 +562,14 @@ class UploadHandler {
 		// Fetch the file - returns a Status Object
 		$Status = $Upload->fetchFile();
 		if ( !$Status->isOk() ) {
+			$Upload->cleanupTempFile();
 			return $Status;
 		}
 
 		// Verify upload - returns a status value via an array
 		$status = $Upload->verifyUpload();
 		if ( $status['status'] !== UploadBase::OK ) {
+			$Upload->cleanupTempFile();
 			return $Upload->convertVerifyErrorToStatus( $status );
 		}
 
@@ -590,6 +592,7 @@ class UploadHandler {
 				'evaluated URL: ' .
 				Utils::sanitizeUrl( $options['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
 
+			$Upload->cleanupTempFile();
 			throw new GWTException( $msg );
 		}
 
