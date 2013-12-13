@@ -303,9 +303,7 @@ Parameters:
 	'gwtoolset-ignorewarnings' => 'Hint to the developer that appears when ignorewarnings is not set.',
 	'gwtoolset-incorrect-form-handler' => 'A developer message that appears when a module does not specify a form handler that extends GWToolset\\Handlers\\Forms\\FormHandler.',
 	'gwtoolset-job-throttle-exceeded' => 'Developer message that appears when the batch job throttle was exceeded.',
-	'gwtoolset-mediafile-throttle' => 'Mediafile throttle label for the HTML form.',
-	'gwtoolset-mediafile-throttle-description' => 'User description of the mediafile throttle.',
-'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.
+	'gwtoolset-no-accepted-types' => 'Hint to the developer that appears when no accepted types are provided.
 
 Used if <code>$accepted_metadata_types</code> (metadata types the extension accepts) is empty.
 
@@ -423,6 +421,8 @@ Followed by {{msg-mw|Gwtoolset-metadata-file-source}}.
 Parameters:
 * $1 - link text "XML Validator" (untranslatable). The link points to http://www.w3schools.com/xml/xml_validator.asp',
 	'gwtoolset-file-url-invalid' => 'User error message when the file URL is invalid.',
+	'gwtoolset-mediafile-throttle' => 'Mediafile throttle label for the HTML form.',
+	'gwtoolset-mediafile-throttle-description' => 'User description of the mediafile throttle.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Message appears when the MediaWiki template requested to use for maetadata mapping does not exist in the wiki.
 
 Parameters:
@@ -889,6 +889,9 @@ $messages['es'] = array(
 	'gwtoolset-could-not-open-xml' => 'No se pudo abrir el archivo XML para su lectura.',
 	'gwtoolset-fsfile-empty' => 'El archivo estaba vacío y se ha eliminado.',
 	'gwtoolset-fsfile-retrieval-failure' => 'No se pudo extraer el archivo del URL $1.',
+	'gwtoolset-no-accepted-types' => 'No se proporcionaron tipos aceptados',
+	'gwtoolset-no-mwstore-complete-path' => 'No se proporcionó una ruta de archivo completa.',
+	'gwtoolset-no-mwstore-relative-path' => 'No se proporcionó una ruta relativa.',
 	'gwtoolset-no-page-title' => 'No se proporcionó el título de la página.',
 	'gwtoolset-no-summary' => 'No se proporcionó el resumen.',
 	'gwtoolset-no-text' => 'No se proporcionó texto.',
@@ -923,6 +926,7 @@ $messages['es'] = array(
 );
 
 /** French (français)
+ * @author Crochet.david
  * @author Gomoko
  * @author Nobody
  */
@@ -936,10 +940,14 @@ $messages['fr'] = array(
 $1",
 	'gwtoolset-no-page-title' => 'Pas de page de titre fournie.',
 	'gwtoolset-sha1-does-not-match' => 'Le hachage SHA-1 ne correspond pas.',
+	'gwtoolset-submit' => 'Soumettre',
+	'gwtoolset-cancel' => 'Annuler',
+	'gwtoolset-json-error' => 'Il y a un problème avec le JSON. Erreur: $1',
+	'gwtoolset-mediawiki-template-not-found' => 'Modèle MediaWiki « $1 » introuvable.',
 	'gwtoolset-step-1-instructions-1' => 'Le processus de téléchargement des métadonnées se déroule en 4 étapes différentes :',
 	'gwtoolset-step-1-instructions-3-heading' => 'Whitelist des Domaines',
 	'gwtoolset-upload-legend' => 'Téléchargez votre fichier de métadonnées.',
-	'gwtoolset-example-record' => 'Exemple du contenu des enregistrement des métadonnées.',
+	'gwtoolset-example-record' => 'Exemple du contenu des enregistrements des métadonnées.',
 	'gwtoolset-step-2-instructions-2-li-2' => "Il n'est pas nécessaire de remplir tous les champs des modèles de MediaWiki.",
 	'gwtoolset-no-upload-by-url' => "Vous ne faites pas partie d'un groupe ayant le droit d'uploader par URL.",
 	'gwtoolset-verify-api-writeable' => "L'extension \$1 nécessite que l'API wiki ait accès aux droits d'écriture pour les utilisateurs autorisés.
@@ -1003,14 +1011,17 @@ $1',
 	'gwtoolset-improper-upload' => 'ファイルを適切にはアップロードできませんでした。',
 	'gwtoolset-mime-type-mismatch' => 'アップロードしたファイルの拡張子「$1」と MIME タイプ「$2」が一致しません。',
 	'gwtoolset-missing-temp-folder' => '一時フォルダーを利用できません。',
+	'gwtoolset-multiple-files' => 'アップロードしたファイルは複数のファイルの情報を含んでいます。1 回の操作で送信できるのは 1 つのファイルのみです。',
+	'gwtoolset-no-extension' => 'アップロードしたファイルには、そのファイルを処理するのに十分な情報がありません。おそらく、ファイルの拡張子がありません。',
 	'gwtoolset-no-file' => 'ファイルを受信できませんでした。',
 	'gwtoolset-no-form-field' => '予期したフォーム フィールド「$1」が存在しません。',
+	'gwtoolset-over-max-ini' => 'アップロードしたファイルのサイズが、<code>php.ini</code> 内の <code>upload_max_filesize</code> ディレクティブおよび <code>post_max_size</code> ディレクティブの両方または一方で指定した上限を超えています。',
 	'gwtoolset-partial-upload' => 'ファイルは一部のみがアップロードされました。',
 	'gwtoolset-php-extension-error' => 'PHP の拡張モジュールのいずれかがファイルのアップロードを停止させました。PHP は、どの拡張モジュールがファイルのアップロードを停止させたかを究明する手段を提供しません。読み込まれた拡張モジュールの一覧を <code>phpinfo()</code> で調べると見つかる場合があります。',
 	'gwtoolset-unaccepted-extension' => 'ファイル ソースの拡張子が、対応しているファイル形式のものではありません。',
 	'gwtoolset-unaccepted-extension-specific' => 'ファイル ソースの拡張子「.$1」のファイル形式には対応していません。',
 	'gwtoolset-unaccepted-mime-type' => 'アップロードしたファイルの形式は、対応していない MIME タイプ「$1」と判定されました。',
-	'gwtoolset-unaccepted-mime-type-for-xml' => 'アップロードしたファイルは、対応していない MIME タイプ「$1」です。アップロードした XML ファイルの先頭に XML 宣言があることを確認してください。
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'アップロードしたファイルの形式は、対応していない MIME タイプ「$1」です。アップロードした XML ファイルの先頭に XML 宣言があることを確認してください。
 
 &lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-back-text-link' => '← フォームに戻る',
@@ -1048,7 +1059,7 @@ $1',
 	'gwtoolset-metadata-file-source' => 'メタデータ ファイル ソースを選択してください。',
 	'gwtoolset-metadata-file-url' => 'メタデータ ファイルがあるウィキの URL:',
 	'gwtoolset-metadata-file-upload' => 'メタデータ ファイルのアップロード:',
-	'gwtoolset-metadata-mapping-bad' => 'メタデータのマッピングで問題点が発生しました。JSON の形式が無効である場合がほとんどです。問題点を修正してから、フォームをもう一度送信してください。
+	'gwtoolset-metadata-mapping-bad' => 'メタデータのマッピングで問題点が発生しました。おそらく、JSON の形式が無効です。問題点を修正してから、フォームをもう一度送信してください。
 
 $1',
 	'gwtoolset-metadata-mapping-invalid-url' => '指定したメタデータ マッピング URL は、予期したマッピング URL パスに一致しませんでした。
@@ -1117,6 +1128,11 @@ $1',
 	'gwtoolset-step-3-instructions-3' => '結果に問題がある場合は、「{{int:gwtoolset-step-2-heading}}」で前のページに戻って必要に応じてマッピングを調整してください。
 
 メタデータ ファイル自体を調整する必要がある場合は、このまま進み、調整したものを最初の「{{int:gwtoolset-step-1-heading}}」で再アップロードするところからやり直してください。',
+	'gwtoolset-title-bad' => 'メタデータと MediaWiki テンプレートのマッピングに基づいて作成したページ名が有効ではありません。
+
+タイトルおよびタイトル識別子についてメタデータの別のフィールドを試すか、または可能であればメタデータの必要な箇所を変更してください。詳細情報は[https://commons.wikimedia.org/wiki/Commons:File_naming ファイルの命名]を参照してください。
+
+<strong>無効なページ名:</strong> $1',
 	'gwtoolset-batchjob-metadata-created' => 'メタデータ一括処理ジョブを作成しました。メタデータ ファイルはすぐに解析され、各項目はバックグラウンド プロセスでウィキにアップロードされます。アップロードがいつ完了したか知るには、ページ「$1」を確認してください。',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'メタデータ ファイルの一括処理ジョブを作成できませんでした。',
 	'gwtoolset-create-mediafile' => '$1: $2 用のメディアファイルを作成',
@@ -1275,6 +1291,20 @@ $1',
 	'gwtoolset-wiki-checks-not-passed' => 'Не пројде на проверките на викито',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'gwtoolset-mediawiki-template-not-found' => 'Templat MediaWiki "$1" tidak dijumpai.',
+);
+
+/** Neapolitan (Napulitano)
+ * @author Chelin
+ */
+$messages['nap'] = array(
+	'gwtoolset-mediawiki-template' => 'Modello $1',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  * @author Sjoerddebruin
@@ -1301,6 +1331,9 @@ $messages['nl'] = array(
 $messages['ru'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, инструмент массовой загрузки для GLAM',
+	'gwtoolset-could-not-open-xml' => 'Не удалось открыть XML-файл для чтения.',
+	'gwtoolset-fsfile-empty' => 'Файл был пустым и был удалён.',
+	'gwtoolset-no-url-to-media' => 'Не установлен <code>url-to-the-media-file</code>.',
 	'gwtoolset-menu-1' => 'Сопоставление метаданных',
 	'gwtoolset-submit' => 'Отправить',
 	'gwtoolset-summary-heading' => 'Описание',
@@ -1561,8 +1594,25 @@ $1.',
 	'gwtoolset-wiki-checks-not-passed' => 'Вікі-перевірки не пройдені',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'gwtoolset-fsfile-empty' => 'די טעקע איז געווען ליידיק און איז געווארן אויסגעמעקט.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> נישט פעסטגעשטעלט.',
+	'gwtoolset-no-page-title' => 'קיין בלאט קעפל נישט באזארגט.',
+	'gwtoolset-no-title' => 'קיין קעפל נישט באזארגט.',
+	'gwtoolset-mediawiki-template' => 'מוסטער „$1“',
+	'gwtoolset-summary-heading' => 'רעזומע',
+	'gwtoolset-cancel' => 'אנולירן',
+	'gwtoolset-save' => 'אויפֿהיטן',
+	'gwtoolset-json-error-unknown' => 'אומבאַקאַנטער פֿעלער',
+	'gwtoolset-category' => 'קאַטעגאָריע',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Liuxinyu970226
+ * @author Shizhao
  */
 $messages['zh-hans'] = array(
 	'gwtoolset' => 'GWToolset',
@@ -1590,6 +1640,7 @@ $1',
 	'gwtoolset-save-mapping-failed' => '抱歉。处理您的请求期间遇到技术问题。请稍后再试。（错误信息：$1）',
 	'gwtoolset-json-error-unknown' => '未知错误。',
 	'gwtoolset-accepted-file-types' => '接受的文件{{PLURAL:$1|格式}}：',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki 模板" $1 "找不到。',
 	'gwtoolset-metadata-file-url' => '元数据文件wikiURL：',
 	'gwtoolset-metadata-file-upload' => '元数据文件上传：',
 );
