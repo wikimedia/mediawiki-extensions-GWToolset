@@ -311,7 +311,11 @@ Parameters:
 * $1 - (Unused) "gwtoolset-no-accepted-types-provided" (untranslatable)',
 	'gwtoolset-no-callback' => 'Hint to the developer that appears when no callback is given.',
 	'gwtoolset-no-comment' => "Hint to the developer that appears when user_options['comment'] is not set.",
-	'gwtoolset-no-default' => 'Developer message that appears when no default value was provided.',
+	'gwtoolset-no-default' => 'Developer message that appears when no default value was provided.
+
+See also:
+* {{msg-mw|Gwtoolset-no-max}}
+* {{msg-mw|Gwtoolset-no-min}}',
 	'gwtoolset-no-field-size' => 'Developer message that appears when no field size was specified for the field. Parameters:
 * $1 is the name field.',
 	'gwtoolset-no-file-backend-name' => 'Message that appears when a web admin does not provide a file backend name.',
@@ -320,10 +324,18 @@ Parameters:
 	'gwtoolset-no-form-handler' => 'Hint to the developer that appears when no form handler was created.',
 	'gwtoolset-no-mapping' => 'Hint to the developer that appears when no mapping_name is provided.',
 	'gwtoolset-no-mapping-json' => 'Hint to the developer that appears when no mapping_json is provided.',
-	'gwtoolset-no-max' => 'Developer message that appears when no maximum value was provided.',
+	'gwtoolset-no-max' => 'Developer message that appears when no maximum value was provided.
+
+See also:
+* {{msg-mw|Gwtoolset-no-min}}
+* {{msg-mw|Gwtoolset-no-default}}',
 	'gwtoolset-no-mediafile-throttle' => 'Developer message that appears when no mediafile job throttle was provided.',
 	'gwtoolset-no-mediawiki-template' => 'Hint to the developer that appears when no mediawiki-template-name is provided.',
-	'gwtoolset-no-min' => 'Developer message that appears when no minimum value was provided.',
+	'gwtoolset-no-min' => 'Developer message that appears when no minimum value was provided.
+
+See also:
+* {{msg-mw|Gwtoolset-no-max}}
+* {{msg-mw|Gwtoolset-no-default}}',
 	'gwtoolset-no-module' => 'Hint to the developer that appears when no module name was specified.',
 	'gwtoolset-no-mwstore-complete-path' => 'Developer message that appears when no mwstore complete file path provied.',
 	'gwtoolset-no-mwstore-relative-path' => 'Developer message that appears when no mwstore relative path is provided.',
@@ -650,6 +662,94 @@ See also:
 	'gwtoolset-wiki-checks-not-passed' => 'Heading used when a wiki requirement is not met.',
 );
 
+/** Catalan (català)
+ * @author KRLS
+ * @author Papapep
+ */
+$messages['ca'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, una eina de càrrega massiva per als projectes GLAM',
+	'gwtoolset-intro' => "GWToolset és una extensió MediaWiki que permet la pujada massiva de contingut GLAM (Galeries, Biblioteques -Libraries-, Arxius i Museus) mitjançant un fitxer XML que conté les metadades del contingut. S'intenta amb això permetre diversos esquemes XML. Més informació del projecte a la seva [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project pàgina]. Contacteu amb nosaltres a la mateixa pàgina. Trieu un dels elements del menú superior per iniciar el procés de pujada.",
+	'gwtoolset-batchjob-creation-failure' => 'No s\'ha pogut crear el treball per lots de tipus "$1".',
+	'gwtoolset-could-not-close-xml' => "No s'ha pogut tancar el lector d'XML.",
+	'gwtoolset-could-not-open-xml' => "No s'ha pogut llegir el fitxer XML.",
+	'gwtoolset-developer-issue' => "$1Contacteu amb el desenvolupador. Aquest error s'ha de corregir abans de continuar. Afegiu el text següent al vostre informe:
+
+$1",
+	'gwtoolset-dom-record-issue' => "No s'ha proporcionat <code>record-element-name</code>, o <code>record-count</code>, o <code>record-current</code>.",
+	'gwtoolset-file-backend-maxage-invalid' => 'L\'edat màxima proporcionada a <code>$wgGWTFBMaxAge</code> no és vàlida.
+Consulteu el [php.net/manual/en/datetime.formats.relative.php manual de PHP] per saber com fer-ho.',
+	'gwtoolset-fsfile-empty' => "El fitxer era buit i s'ha suprimit.",
+	'gwtoolset-fsfile-retrieval-failure' => "No s'ha pogut recuperar el fitxer de la URL $1.",
+	'gwtoolset-ignorewarnings' => "No s'ha definit <code>ignorewarnings</code>.",
+	'gwtoolset-incorrect-form-handler' => 'El mòdul "$1" no ha registrat un gestor de formulari que extengui GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => "S'ha excedit el límit del treball per lots.",
+	'gwtoolset-no-accepted-types' => "No s'ha proporcionat tipus acceptats",
+	'gwtoolset-no-callback' => "No s'ha passat cap crida de retorn a aquest mètode",
+	'gwtoolset-no-comment' => "No s'ha definit <code>user_options['comment']</code>.",
+	'gwtoolset-no-default' => "No s'ha proporcionat cap valor predeterminat.",
+	'gwtoolset-no-field-size' => 'No s\'ha especificat cap mida pel camp "$1".',
+	'gwtoolset-no-file-url' => "No s'ha proporcionat cap <code>file_url</code> per analitzar.",
+	'gwtoolset-no-form-handler' => "No s'ha creat cap gestor de formulari.",
+	'gwtoolset-no-mapping' => "No s'ha proporcionat cap <code>mapping_name</code>.",
+	'gwtoolset-no-mapping-json' => "No s'ha proporcionat cap <code>mapping_json</code>.",
+	'gwtoolset-no-max' => "No s'ha proporcionat un valor màxim.",
+	'gwtoolset-no-mediafile-throttle' => "No s'ha proporcionat un límit pel treballs de fitxers multimèdia.",
+	'gwtoolset-no-mediawiki-template' => "No s'ha proporcionat cap <code>mediawiki-template-name</code>.",
+	'gwtoolset-no-min' => "No s'ha proporcionat cap valor mínim.",
+	'gwtoolset-no-module' => "No s'ha especificat cap nom de mòdul.",
+	'gwtoolset-no-mwstore-complete-path' => "No s'ha proporcionat el camí complet del fitxer.",
+	'gwtoolset-no-mwstore-relative-path' => "No s'ha proporcionat el camí relatiu.",
+	'gwtoolset-no-page-title' => "No s'ha aportat cap títol.",
+	'gwtoolset-no-save-as-batch' => "No s'ha definit <code>user_options['save-as-batch-job']</code>.",
+	'gwtoolset-no-source-array' => "No s'ha proporcionat la matriu origen.",
+	'gwtoolset-no-summary' => "No s'ha proporcionat cap resum.",
+	'gwtoolset-no-template-url' => "No s'ha proporcionat cap URL de plantilla per analitzar.",
+	'gwtoolset-no-text' => "No s'ha proporcionat cap text.",
+	'gwtoolset-no-title' => "No s'ha aportat cap títol.",
+	'gwtoolset-no-reupload-media' => "No s'ha definit <code>user_options['gwtoolset-reupload-media']</code>.",
+	'gwtoolset-no-url-to-evaluate' => "No s'ha proporcionat cap URL per evaluar.",
+	'gwtoolset-no-url-to-media' => "No s'ha definit <code>url-to-the-media-file</code>.",
+	'gwtoolset-no-user' => "No s'ha proporcionat cap objecte d'usuari.",
+	'gwtoolset-no-xml-element' => "No s'ha proporcionat cap XMLReader o DOMElement.",
+	'gwtoolset-no-xml-source' => "No s'ha proporcionat cap origen XML local.",
+	'gwtoolset-not-string' => 'El valor proporcionat al mètode no era un string. Era del tipus "$1".',
+	'gwtoolset-sha1-does-not-match' => "L'SHA-1 no coincideix.",
+	'gwtoolset-disk-write-failure' => 'El servidor no ha pogut escriure el fitxer al sistema de fitxers.',
+	'gwtoolset-xml-doctype' => 'El fitxer XML de metadades no pot contenir una secció <!DOCTYPE>. Elimineu-la i proveu de carregar de nou el fitxer.',
+	'gwtoolset-file-is-empty' => "L'arxiu carregat és buit.",
+	'gwtoolset-improper-upload' => "L'arxiu no s'ha carregat correctament.",
+	'gwtoolset-mime-type-mismatch' => 'No coincideixen l\'extensió de fitxer "$1" i el tipus MIME "$2" pujats.',
+	'gwtoolset-missing-temp-folder' => 'No hi ha disponible cap carpeta temporal.',
+	'gwtoolset-multiple-files' => "El fitxer pujat conté informació de més d'un fitxer. Només es pot pujar un fitxer cada cop.",
+	'gwtoolset-no-extension' => 'El fitxer pujat no conté prou informació per processar-lo. Probablement no té extensió de fitxer.',
+	'gwtoolset-no-file' => "No s'ha rebut cap fitxer.",
+	'gwtoolset-no-form-field' => 'No existeix el camp del formulari "$1" requerit.',
+	'gwtoolset-submit' => 'Envia',
+	'gwtoolset-summary-heading' => 'Resum',
+	'gwtoolset-cancel' => 'Cancel·la',
+	'gwtoolset-loading' => 'Sigues pacient. Això pot trigar una estona.',
+	'gwtoolset-save' => 'Desa',
+	'gwtoolset-json-error-unknown' => 'Error desconegut.',
+	'gwtoolset-mediafile-throttle' => 'Límit de fitxers multimèdia:',
+	'gwtoolset-mediafile-throttle-description' => 'El límit controla la càrrega que tindrà el vostre servidor de fitxers multimèdia en pujar-los per lots al Wikimedia Commons. Podeu definir el límit entre 1 i 20, on el nombre indica el nombre de peticions per minut.',
+	'gwtoolset-step-1-heading' => 'Pas 1: Detecció de metadades',
+	'gwtoolset-step-1-instructions-1' => 'El procés de càrrega de metadades es divideix en 4 passos:',
+	'gwtoolset-step-1-instructions-li-1' => 'Detecció de metadades',
+	'gwtoolset-step-1-instructions-li-3' => 'Previsualització del lot',
+	'gwtoolset-category' => 'Categoria',
+	'gwtoolset-metadata-file' => 'Fitxer de metadades',
+	'gwtoolset-results' => 'Resultats',
+	'gwtoolset-step-3-instructions-heading' => 'Pas 3: Previsualització del lot',
+	'gwtoolset-required-group' => 'No formes part del grup $1.',
+	'gwtoolset-verify-php-version' => "L'extensió $1 requereix PHP >= 5.3.3.",
+	'gwtoolset-verify-uploads-enabled' => "L'extensió \$1 requereix que s'hagi activat la càrrega de fitxers.
+
+Verifiqueu que s'hagi definit <code>\$wgEnableUploads</code> com a <code>true</code> a <code>LocalSettings.php</code>.",
+	'gwtoolset-verify-xmlreader' => "L'extensió $1 requereix que el PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] sigui instal·lat.",
+	'gwtoolset-wiki-checks-not-passed' => 'No ha passat les comprovacions Wiki',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  */
@@ -674,6 +774,7 @@ Zur korrekten Festlegung, siehe das [//php.net/manual/de/datetime.formats.relati
 	'gwtoolset-no-accepted-types' => 'Es wurden keine erlaubten Typen angegeben',
 	'gwtoolset-no-callback' => 'Dieser Methode wurde kein Rückruf übergeben.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> ist nicht festgelegt.",
+	'gwtoolset-no-default' => 'Kein Standardwert angegeben.',
 	'gwtoolset-no-field-size' => 'Für das Feld „$1“ wurde keine Feldgröße angegeben.',
 	'gwtoolset-no-file-backend-name' => 'Es wurde kein Dateibackendname angegeben.',
 	'gwtoolset-no-file-backend-container' => 'Es wurde kein Name für den Dateibackendcontainer angegeben.',
@@ -681,7 +782,10 @@ Zur korrekten Festlegung, siehe das [//php.net/manual/de/datetime.formats.relati
 	'gwtoolset-no-form-handler' => 'Es wurde kein Formularhandler erstellt.',
 	'gwtoolset-no-mapping' => '<code>mapping_name</code> wurde nicht angegeben.',
 	'gwtoolset-no-mapping-json' => '<code>mapping_json</code> wurde nicht angegeben.',
+	'gwtoolset-no-max' => 'Kein maximaler Wert angegeben.',
+	'gwtoolset-no-mediafile-throttle' => 'Es wurde keine Mediendatei-Auftragsdrosselung angegeben.',
 	'gwtoolset-no-mediawiki-template' => '<code>mediawiki-template-name</code> wurde nicht angegeben.',
+	'gwtoolset-no-min' => 'Kein minimaler Wert angegeben.',
 	'gwtoolset-no-module' => 'Es wurde kein Modulname angegeben.',
 	'gwtoolset-no-mwstore-complete-path' => 'Es wurde kein vollständiger Dateipfad angegeben.',
 	'gwtoolset-no-mwstore-relative-path' => 'Es wurde kein relativer Pfad angegeben.',
@@ -748,6 +852,8 @@ $1',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Erlaubter Dateityp|Erlaubte Dateitypen}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Stelle sicher, dass die XML-Datei mit diesem $1 wohlgeformt ist.',
 	'gwtoolset-file-url-invalid' => 'Die Datei-URL war ungültig. Die Datei ist im Wiki noch nicht vorhanden. Du musst die Datei zuerst von deinem Computer hochladen, wenn du die Datei-URL-Referenz im Formular verwenden willst.',
+	'gwtoolset-mediafile-throttle' => 'Mediendatei-Drosselung:',
+	'gwtoolset-mediafile-throttle-description' => 'Die Drosselung, die das Laden von Wikimedia Commons steuert, wird deinen Medienserver während des Stapel-Uploads aufsetzen. Du kannst die Drosselung zwischen 1 und 20 festlegen, wo die Zahl der Zahl der Medienanfragen pro Minute entspricht.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Die MediaWiki-Vorlage „<strong>$1</strong>“ ist im Wiki nicht vorhanden.
 
 Importiere die Vorlage oder wähle eine andere MediaWiki-Vorlage aus, die für das Mapping verwendet werden soll.',
@@ -938,6 +1044,9 @@ $messages['fr'] = array(
 	'gwtoolset-developer-issue' => "Veuillez contacter un développeur. Le message doit être traité avant de continuer. Merci d'ajouter le texte suivant à votre message :
 
 $1",
+	'gwtoolset-no-default' => 'Aucune valeur par défaut fournie.',
+	'gwtoolset-no-max' => 'Aucune valeur maximale fournie.',
+	'gwtoolset-no-min' => 'Aucune valeur minimale fournie.',
 	'gwtoolset-no-page-title' => 'Pas de page de titre fournie.',
 	'gwtoolset-sha1-does-not-match' => 'Le hachage SHA-1 ne correspond pas.',
 	'gwtoolset-submit' => 'Soumettre',
@@ -979,6 +1088,7 @@ $1',
 	'gwtoolset-no-accepted-types' => '対応するファイル形式が指定されていません',
 	'gwtoolset-no-callback' => 'このメソッドにコールバックが渡されませんでした。',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> が設定されていません。",
+	'gwtoolset-no-default' => '既定値を指定していません。',
 	'gwtoolset-no-field-size' => 'フィールド「$1」のサイズを指定していません。',
 	'gwtoolset-no-file-backend-name' => 'ファイル バックエンド名を指定していません。',
 	'gwtoolset-no-file-backend-container' => 'ファイル バックエンド コンテナー名を指定していません。',
@@ -986,7 +1096,10 @@ $1',
 	'gwtoolset-no-form-handler' => 'フォーム ハンドラーを作成していません。',
 	'gwtoolset-no-mapping' => '<code>mapping_name</code> を指定していません。',
 	'gwtoolset-no-mapping-json' => '<code>mapping_json</code> を指定していません。',
+	'gwtoolset-no-max' => '最大値を指定していません。',
+	'gwtoolset-no-mediafile-throttle' => 'メディアファイルのジョブのしきい値を指定していません。',
 	'gwtoolset-no-mediawiki-template' => '<code>mediawiki-template-name<</code> を指定していません。',
+	'gwtoolset-no-min' => '最小値を指定していません。',
 	'gwtoolset-no-module' => 'モジュール名が指定されていませんでした。',
 	'gwtoolset-no-mwstore-complete-path' => 'ファイルの完全なパスを指定していません。',
 	'gwtoolset-no-mwstore-relative-path' => '相対パスを指定していません。',
@@ -1052,6 +1165,8 @@ $1',
 	'gwtoolset-accepted-file-types' => '対応しているファイル{{PLURAL:$1|形式}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'こちらの $1 で、XML ファイルが整形式であることを確認してください。',
 	'gwtoolset-file-url-invalid' => 'ファイル URL が無効です。ファイルがウィキ内にまだ存在しません。フォームでファイル URL 参照を使用したい場合は、まず、あなたのコンピューターからファイルをアップロードする必要があります。',
+	'gwtoolset-mediafile-throttle' => 'メディアファイルのしきい値:',
+	'gwtoolset-mediafile-throttle-description' => 'The throttle controls the load Wikimedia Commons will put on your media server during the batch upload. 1 分あたりのメディア リクエスト回数として 1 から 20 までの値を設定できます。', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki テンプレート「<strong>$1</strong>」はウィキ内に存在しません。
 
 テンプレートを取り込むか、またはマッピングに使用する別の MediaWiki テンプレートを選択してください。',
@@ -1195,6 +1310,40 @@ $messages['ksh'] = array(
 	'gwtoolset-verify-php-version' => 'Dat Zohsazprojramm $1 bruch de Väsjohn 5.3.3 vun PHP, udder hühter.',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, en Tool fir Fichieren a grousser Zuel eropzelueden (speziell fir Galerien, Bibliothéiken, Archiver a Muséeën)',
+	'gwtoolset-fsfile-empty' => 'De Fichier war eidel a gouf geläscht.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> net agestallt.',
+	'gwtoolset-no-comment' => "<code>user_options['comment']</code> net agestallt.",
+	'gwtoolset-no-default' => 'Kee Standard-Wäert uginn.',
+	'gwtoolset-no-max' => 'Kee maximale Wäert uginn.',
+	'gwtoolset-no-summary' => 'Kee Resumé uginn.',
+	'gwtoolset-no-text' => 'Keen Text uginn.',
+	'gwtoolset-no-title' => 'Keen Titel uginn.',
+	'gwtoolset-file-is-empty' => 'Den eropgeluedene Fichier ass eidel.',
+	'gwtoolset-improper-upload' => 'De Fichier gouf net richteg eropgelueden.',
+	'gwtoolset-partial-upload' => 'De Fichier gouf nëmmen deelweis eropgelueden.',
+	'gwtoolset-back-text-link' => '← gitt zréck op de Formulaire',
+	'gwtoolset-mediawiki-template' => 'Schabloun $1',
+	'gwtoolset-summary-heading' => 'Resumé',
+	'gwtoolset-cancel' => 'Ofbriechen',
+	'gwtoolset-loading' => 'Hutt w.e.g. e bësse Gedold. Dëst kann e bëssen daueren.',
+	'gwtoolset-save' => 'Späicheren',
+	'gwtoolset-json-error-unknown' => 'Onbekannte Feeler.',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-Schabloun "$1" net fonnt.',
+	'gwtoolset-category' => 'Kategorie',
+	'gwtoolset-global-categories' => 'Global Kategorien',
+	'gwtoolset-painted-by' => 'Gemoolt vum',
+	'gwtoolset-partner' => 'Partner',
+	'gwtoolset-results' => 'Resultater',
+	'gwtoolset-required-group' => 'Dir sidd net Member vum Grupp $1.',
+	'gwtoolset-verify-php-version' => "D'Erweiderung $1 brauch PHP >= 5.3.3.",
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
@@ -1209,6 +1358,31 @@ $messages['mk'] = array(
 
 $1',
 	'gwtoolset-dom-record-issue' => 'Не е укажан <code>record-element-name</code> или <code>record-count</code>, или пак <code>record-current</code>.',
+	'gwtoolset-fsfile-empty' => 'Податотеката беше празна и затоа беше избришана.',
+	'gwtoolset-fsfile-retrieval-failure' => 'Не можев да ја добијам податотеката од адресата $1.',
+	'gwtoolset-ignorewarnings' => 'Не е зададено <code>ignorewarnings</code>.',
+	'gwtoolset-incorrect-form-handler' => 'Модулот „$1“ нема регистрирано работник со обрасци што го прошируваат GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => 'Надминато е ограничувањето на збирни задачи.',
+	'gwtoolset-no-accepted-types' => 'Нема укажано допуштени типови',
+	'gwtoolset-no-callback' => 'На овој метод не му е зададено отповикување.',
+	'gwtoolset-no-comment' => "Не е зададено <code>user_options['comment']</code>.",
+	'gwtoolset-no-default' => 'Нема укажано стандардна вредност.',
+	'gwtoolset-no-field-size' => 'Нема укажано големина за полето „$1“.',
+	'gwtoolset-no-file-backend-name' => 'Нема укажано име за податотечната задница.',
+	'gwtoolset-no-file-backend-container' => 'Нема укажано име за содржателот на податотечната задница.',
+	'gwtoolset-no-file-url' => 'Нема укажано <code>file_url</code> за парсирање.',
+	'gwtoolset-no-form-handler' => 'Нема создадено работник со обрасци.',
+	'gwtoolset-no-mapping' => 'Нема укажано <code>mapping_name</code>.',
+	'gwtoolset-no-mapping-json' => 'Нема укажано <code>mapping_json</code>.',
+	'gwtoolset-no-max' => 'Нема укажано максимална вредност.',
+	'gwtoolset-no-mediafile-throttle' => 'Нема укажано граница на задачите за медиумските податотеки.',
+	'gwtoolset-no-mediawiki-template' => 'Нема укажано <code>mediawiki-template-name</code>.',
+	'gwtoolset-no-min' => 'Нема укажано минимална вредност.',
+	'gwtoolset-no-module' => 'Немате внесено име на модулот.',
+	'gwtoolset-no-mwstore-complete-path' => 'Нема укажано целосна податотечна патека.',
+	'gwtoolset-no-mwstore-relative-path' => 'Нема укажано релативна патека.',
+	'gwtoolset-no-page-title' => 'Нема укажано наслов на страницата.',
+	'gwtoolset-no-save-as-batch' => "Не е зададен <code>user_options['save-as-batch-job']</code>.",
 	'gwtoolset-no-source-array' => 'Нема укажана изворен строј.',
 	'gwtoolset-no-summary' => 'Нема даден опис.',
 	'gwtoolset-no-template-url' => 'Нема укажана URL на шаблонот за парсирање.',
@@ -1295,7 +1469,205 @@ $1',
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, alat muat naik pukal untuk galeri, perpustakaan, arkib dan muzium',
+	'gwtoolset-intro' => 'GWToolset merupakan sambungan MediaWiki yang membolehkan GLAM (Galeri, Perpustakaan, Arkib dan Muzium) untuk memuat naik kandungan secara pukal berasaskan satu fail XML yang mengandungi metadata untuk kandungan masing-masing. Tujuannya adalah membolehkan berbagai-bagai skema XML. Maklumat lanjut tentang projek ini boleh ditemui di [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project halaman projeknya]. Jangan rasa segan untuk menghubungi kami di halaman itu juga. Pilih salah satu perkara menu di atas untuk memulakan pemuatnaikan.',
+	'gwtoolset-batchjob-creation-failure' => 'Tugas kelompok jenis "$1" tidak dapat diwujudkan.',
+	'gwtoolset-could-not-close-xml' => 'Pembaca XML tidak dapat ditutup.',
+	'gwtoolset-could-not-open-xml' => 'Fail XML tidak dapat dibuka untuk dibaca.',
+	'gwtoolset-developer-issue' => 'Sila hubungi pemaju. Isu ini mesti ditangani sebelum anda boleh teruskan. Sila tambahkan teks yang berikut kepada laporan anda:
+
+$1',
+	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, atau <code>record-count</code>, atau <code>record-current</code> tidak disediakan.',
+	'gwtoolset-file-backend-maxage-invalid' => 'Nilai umur maksimum yang dinyatakan dalam <code>$wgGWTFBMaxAge</code> adalah tidak sah.
+Rujuk [php.net/manual/en/datetime.formats.relative.php manual PHP] untuk cara menetapkannya dengan betul.',
+	'gwtoolset-fsfile-empty' => 'Fail ini kosong dan telah dihapuskan.',
+	'gwtoolset-fsfile-retrieval-failure' => 'Fail tidak dapat diperoleh dari URL $1.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> tidak ditetapkan.',
+	'gwtoolset-incorrect-form-handler' => 'Modul "$1" belum mendaftarkan pengelola barang yang melanjutkan GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => 'Pendikit tugas kelompok dilampaui.',
+	'gwtoolset-no-accepted-types' => 'Tiada jenis diterima yang disediakan',
+	'gwtoolset-no-callback' => 'Tiada panggilan balik disampaikan kepada kaedah ini.',
+	'gwtoolset-no-comment' => "<code>user_options['comment']</code> tidak ditetapkan.",
+	'gwtoolset-no-default' => 'Tiada nilai azali disediakan.',
+	'gwtoolset-no-file-backend-name' => 'Tiada nama belakang fail disediakan.',
+	'gwtoolset-no-file-backend-container' => 'Tiada nama wadah belakang fail disediakan.',
+	'gwtoolset-no-file-url' => 'Tiada <code>file_url</code> disediakan untuk dihuraikan.',
+	'gwtoolset-no-form-handler' => 'Tiada pengelola borang diwujudkan.',
+	'gwtoolset-no-mapping' => 'Tiada <code>mapping_name</code> disediakan.',
+	'gwtoolset-no-mapping-json' => 'Tiada <code>mapping_json</code> disediakan.',
+	'gwtoolset-no-max' => 'Tiada nilai maksimum disediakan.',
+	'gwtoolset-no-mediafile-throttle' => 'Tiada pendikit tugas fail media disediakan.',
+	'gwtoolset-no-mediawiki-template' => 'Tiada <code>mediawiki-template-name</code> disediakan.',
+	'gwtoolset-no-min' => 'Tiada nilai minimum disediakan.',
+	'gwtoolset-no-mwstore-complete-path' => 'Tiada laluan fail lengkap disediakan.',
+	'gwtoolset-no-mwstore-relative-path' => 'Tiada laluan relatif disediakan.',
+	'gwtoolset-no-page-title' => 'Tiada tajuk halaman disediakan.',
+	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> tidak ditetapkan.",
+	'gwtoolset-no-template-url' => 'Tiada URL templat disediakan untuk dihuraikan.',
+	'gwtoolset-no-text' => 'Tiada teks disediakan.',
+	'gwtoolset-no-title' => 'Tiada tajuk disediakan.',
+	'gwtoolset-no-reupload-media' => "<code>user_options['gwtoolset-reupload-media']</code> tidak ditetapkan.",
+	'gwtoolset-no-url-to-evaluate' => 'Tiada URL disediakan untuk penilaian.',
+	'gwtoolset-no-url-to-media' => '<code>url-to-the-media-file</code> tidak ditetapkan.',
+	'gwtoolset-no-user' => 'Tiada objek pengguna disediakan.',
+	'gwtoolset-no-xml-source' => 'Tiada sumber XML tempatan disediakan.',
+	'gwtoolset-not-string' => 'Nilai yang disediakan pada kaedah bukan rentetan. Ia adalah jenis "$1".',
+	'gwtoolset-sha1-does-not-match' => 'SHA-1 tidak sepadan.',
+	'gwtoolset-disk-write-failure' => 'Pelayan tidak dapat menuliskan fail ini kepada sistem fail.',
+	'gwtoolset-xml-doctype' => 'Fail metadata XML tidak boleh mengandungi bahagian <!DOCTYPE>. Alihnya keluar dan cuba memuat naik fail metadata XML itu semula.',
+	'gwtoolset-file-is-empty' => 'Fail yang dimuat naik itu kosong.',
+	'gwtoolset-improper-upload' => 'Fail tidak dimuat naik dengan betul.',
+	'gwtoolset-mime-type-mismatch' => 'Sambungan fail "$1" dan MIME jenis "$2" pada fail yang dimuat naik tidak sepadan.',
+	'gwtoolset-missing-temp-folder' => 'Tiada folder sementara disediakan.',
+	'gwtoolset-multiple-files' => 'Fail yang dimuat naik ini mengandungi maklumat untuk lebih daripada satu fail. Hanya satu fail boleh diserahkan pada satu masa.',
+	'gwtoolset-no-form-field' => 'Ruangan borang "$1" yang dijangka tidak wujud.',
+	'gwtoolset-over-max-ini' => 'Fail yang telah dimuat naik ini melebihi <code>upload_max_filesize</code> dan/atau arahan <code>post_max_size</code> dalam <code>php.ini</code>.',
+	'gwtoolset-partial-upload' => 'Fail ini telah dimuat baik separa-separa sahaja.',
+	'gwtoolset-php-extension-error' => 'Pemuatnaikan fail dihentikan oleh sambungan PHP. PHP tidak menyediakan cara untuk menentukan sambungan mana yang menyebabkan pemuatnaikan terhenti. Penyemakan senarai sambungan yang dimuat dengan <code>phpinfo()</code> mungkin membantu.',
+	'gwtoolset-unaccepted-extension' => 'Sumber fail tidak mengandungi sambungan fail yang diterima.',
+	'gwtoolset-unaccepted-extension-specific' => 'Sumber fail mempunyai sambungan fail ".$1" yang tidak diterima.',
+	'gwtoolset-unaccepted-mime-type' => 'Fail yang dimuat naik ditafsir sebagai memiliki MIME jenis "$1" yang bukan jenis MIME yang diterima.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'Fail yang dimuat naik mempunyai MIME jenis "$1" yang tidak diterima. Adakah fail XML itu mempunyai akuan XML di bahagian atasnya?
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
+	'gwtoolset-back-text-link' => '← kembali ke borang',
+	'gwtoolset-back-text' => 'Tekan butang undur (back) pelayar untuk kembali ke borang.',
+	'gwtoolset-file-interpretation-error' => 'Terdapat masalah ketika memproseskan fail metadata ini',
+	'gwtoolset-mediawiki-template' => 'Templat $1',
+	'gwtoolset-metadata-user-options-error' => '{{PLURAL:$2|Ruangan|Ruangan-ruangan}} borang yang berikut wajib diisi:
+$1',
+	'gwtoolset-menu-1' => 'Pemetaan metadata',
+	'gwtoolset-technical-error' => 'Terdapat kesilapan teknikal.',
+	'gwtoolset-required-field' => 'menandakan ruangan yang perlu diisi',
+	'gwtoolset-submit' => 'Hantar',
+	'gwtoolset-summary-heading' => 'Ringkasan',
+	'gwtoolset-cancel' => 'Batalkan',
+	'gwtoolset-loading' => 'Harap bersabar. Ini mungkin mengambil sedikit masa.',
+	'gwtoolset-save' => 'Simpan',
+	'gwtoolset-save-mapping' => 'Simpan pemetaan',
+	'gwtoolset-save-mapping-failed' => 'Maaf, terdapat masalah ketika memproses permintaan anda. Sila cuba lagi kemudian. (Pesanan ralat: $1)',
+	'gwtoolset-save-mapping-succeeded' => 'Pemetaan anda telah disimpan.',
+	'gwtoolset-save-mapping-name' => 'Namakan pemetaan ini',
+	'gwtoolset-json-error' => 'Terdapat masalah dengan JSON. Ralat: $1',
+	'gwtoolset-json-error-depth' => 'Kedalaman timbunan melebihi maksimum.',
+	'gwtoolset-json-error-ctrl-char' => 'Terdapat aksara kawalan yang tidak dijangka.',
+	'gwtoolset-json-error-utf8' => 'Aksara UTF-8 cacat, mungkin dikodkan dengan tidak betul.',
+	'gwtoolset-json-error-unknown' => 'Ralat yang tidak dikenali.',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Jenis|Jenis-jenis}} fail yang diterima:',
+	'gwtoolset-ensure-well-formed-xml' => 'Pastikan fail XML dibentuk sempurna dengan $1 ini.',
+	'gwtoolset-file-url-invalid' => 'URL fail ini tidak sah; fail berkenaan belum wujud di wiki ini. Anda perlu memuat naik fail dari komputer terlebih dahulu jika anda ingin menggunakan rujukan URL fail di dalam borang.',
+	'gwtoolset-mediafile-throttle' => 'Pendikit fail media:',
+	'gwtoolset-mediafile-throttle-description' => 'Pendikit ini mengawal muatan yang akan diletakkan oleh Wikimedia Commons ke dalam pelayan median anda sewaktu pemuatnaikan berkelompok. Anda boleh melaraskan pendikit dari 1 hingga 20, iaitu bilangan permintaan media seminit.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'Templat MediaWiki "<strong>$1</strong>" tidak wujud di dalam wiki ini.
+
+Import templat itu atau pilih templat MediaWiki yang lain untuk digunakan untuk pemetaan.',
 	'gwtoolset-mediawiki-template-not-found' => 'Templat MediaWiki "$1" tidak dijumpai.',
+	'gwtoolset-metadata-file-source' => 'Pilih sumber fail metadata.',
+	'gwtoolset-metadata-file-source-info' => '... sama ada fail yang dimuat naik terdahulu atau fail yang ingin anda muat naik dari komputer anda.',
+	'gwtoolset-metadata-file-url' => 'URL wiki fail metadata:',
+	'gwtoolset-metadata-file-upload' => 'Muat naik fail metadata:',
+	'gwtoolset-metadata-mapping-bad' => 'Terdapat masalah dengan pemetaan metadata. Mungkin sekali format JSON-nya tidak sah. Cuba betulkan masalah ini, kemudian serahkan semula borang ini.
+
+$1',
+	'gwtoolset-metadata-mapping-not-found' => 'Tiada pemetaan metadata dijumpai.
+
+Halaman "<strong>$1<strong>" tidak wujud di dalam wiki ini.',
+	'gwtoolset-namespace-mismatch' => 'Halaman "<strong>$1<strong>" berada di ruang nama yang salah, iaitu "<strong>$2<strong>".
+
+Ia seharusnya berada di ruang nama "<strong>$3<strong>".',
+	'gwtoolset-no-xml-element-found' => 'Tiada elemen XML dijumpai untuk pemetaan.
+* Adakah anda memasukkan nilai dalam borang untuk "{{int:gwtoolset-record-element-name}}"?
+* Adakah fail, XML itu dibentuk dengan sempurna? Cuba $1 ini.',
+	'gwtoolset-page-title-contains-url' => 'Halaman "$1" mengandungi URL seluruh wiki. Pastikan hanya tajuk halaman yang diisikan, cth. bahagian URL selepas /wiki/',
+	'gwtoolset-record-element-name' => 'Elemen XML yang mengandungi setiap rekod metadata:',
+	'gwtoolset-step-1-heading' => 'Langkah 1: Pengesanan metadata',
+	'gwtoolset-step-1-instructions-1' => 'Proses pemuatnaikan metadata terdiri daripada 4 langkah:',
+	'gwtoolset-step-1-instructions-2' => 'Dalam langkah ini, anda memuat naik fail metadata baru ke dalam wiki. Alatan akan cuba mengeluarkan medan-medan metadata yang terdapat dalam fail metadata itu, yang anda akan kemudian petakan pada templat Mediawiki dalam "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'Jika domain fail media anda tidak tersenarai di bawah, sila [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment memohon] supaya domain fail media anda ditambahkan ke dalam senarai putih domain Wikimedia Commons. Senarai putih domain merupakan senarai domain yang disemak oleh Wikimedia Commons sebelum menerima fail media. Jika domain fail media anda tidak tersenarai, Wikimedia Commons tidak akan memuat turun fail media dari domain itu. Contoh yang terbaik untuk disertakan dalam penyerahan permohonan anda adalah pautan sebenar kepada fail media.',
+	'gwtoolset-step-1-instructions-3-heading' => 'Senarai putih domain',
+	'gwtoolset-step-1-instructions-li-1' => 'Pengesanan metadata',
+	'gwtoolset-step-1-instructions-li-2' => 'Pemetaan metadata',
+	'gwtoolset-step-1-instructions-li-3' => 'Previu kelompok',
+	'gwtoolset-step-1-instructions-li-4' => 'Muat naik berkelompok',
+	'gwtoolset-upload-legend' => 'Muat naik fail metadata anda',
+	'gwtoolset-which-mediawiki-template' => 'Templat MediaWiki:',
+	'gwtoolset-which-metadata-mapping' => 'Pemetaan metadata:',
+	'gwtoolset-xml-error' => 'XML gagal dimuatkan. Sila betulkan ralat-ralat yang berikut.',
+	'gwtoolset-categories' => 'Isikan kategori-kategori secara dipisahkan dengan aksara jalur tegak ("|")',
+	'gwtoolset-category' => 'Kategori',
+	'gwtoolset-create-mapping' => '$1: Melakukan pemetaan metadata untuk $2.',
+	'gwtoolset-example-record' => 'Kandungan rekod contoh metadata.',
+	'gwtoolset-global-categories' => 'Kategori sejagat',
+	'gwtoolset-global-tooltip' => 'Entri-entri kategori ini akan digunakan pada kesemua perkara yang dimuat naik secara sejagat.',
+	'gwtoolset-maps-to' => 'Dipetakan kpd',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'Sambungan fail tidak dapat ditentukan daripada URL fail: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'URL fail media tidak dapat dinilai. URL menyampaikan kandungan secara yang belum dapat dikelola oleh sambungan ini. URL yang diberikan ialah "$1".',
+	'gwtoolset-mapping-no-title' => 'Pemetaan metadata tertinggal tajuknya yang diperlukan untuk mewujudkan halamannya.',
+	'gwtoolset-mapping-no-title-identifier' => 'Pemetaan metadata tidak mengandungi pengecam tajuk yang digunakan untuk mewujudkan tajuk halaman yang unik. Pastikan anda memetakan medan metadata kepada pengecam tajuk parameter templat MediaWiki.',
+	'gwtoolset-metadata-field' => 'Medan metadata',
+	'gwtoolset-metadata-mapping-legend' => 'Petakan metadata anda',
+	'gwtoolset-painted-by' => 'Dilukis oleh',
+	'gwtoolset-partner' => 'Rakan Kongsi',
+	'gwtoolset-partner-explanation' => 'Templat pekongsi ditarik ke dalam medan sumber templat MediaWiki apabila disediakan. Anda boleh mendapati satu senarai templat rakan kongsi semasa pada halaman Kategori:Templat sumber; rujuk pautan di bawah. Setelah menjumpai templat pekongsi yang ingin anda gunakan, letakkan URL-nya ke dalam medan ini. Anda juga boleh mewujudkan templat pekongsi baru jika perlu.',
+	'gwtoolset-partner-template' => 'Templat pekongsi:',
+	'gwtoolset-phrasing' => 'Pernyataan',
+	'gwtoolset-preview' => 'Previu kelompok',
+	'gwtoolset-process-batch' => 'Proses kelompok',
+	'gwtoolset-results' => 'Hasil',
+	'gwtoolset-step-2-heading' => 'Langkah 2: Pemetaan metadata',
+	'gwtoolset-step-2-instructions-heading' => 'Memetakan medan-medan metadata',
+	'gwtoolset-step-2-instructions-1' => 'Yang berikut ialah:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Senarai medan dalam MediaWiki $1.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Ruangan juntai yang mewakili medan-medan metadata yang terdapat pada fail metadata.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Contoh rekod dari fail metadata.',
+	'gwtoolset-step-2-instructions-2' => 'Dalam langkah ini, anda perlu memetakan medan-medan metadata dengan medan-medan templat MediaWiki.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Pilih medan metadata di bawah lajur "{{int:gwtoolset-maps-to}}" yang berpadanan dengan medan templat MediaWiki di bawah lajur "{{int:gwtoolset-template-field}}".',
+	'gwtoolset-step-2-instructions-2-li-2' => 'Anda tidak perlu menyediakan padanan untuk setiap medan templat MediaWiki.',
+	'gwtoolset-reupload-media' => 'Muat naik semula media dari URL',
+	'gwtoolset-reupload-media-explanation' => 'Petak pilihan ini membolehkan anda untuk memuat naik semula media untuk sesuatu perkara yang sudah dimuat naik ke dalam wiki. Jika perkara itu sudah wujud, maka fail media tambahan akan diletakkan pada wiki berkenaan. Jika fail media itu belum wujud, ia akan dimuat naik tidak kira sama ada petak pilihan ini ditandai atau tidak.',
+	'gwtoolset-specific-categories' => 'Kategori khusus perkara',
+	'gwtoolset-template-field' => 'Ruangan templat',
+	'gwtoolset-step-3-instructions-heading' => 'Step 3: Previu kelompok',
+	'gwtoolset-step-3-instructions-1' => 'Yang berikut adalah hasil pemuatnaikan {{PLURAL:$1|rekod pertama|$1 rekod pertama}} dari fail metadata yang telah anda pilih lalu memetakannya kepada templat MediaWiki yang telah anda pilih dalam "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-3-instructions-2' => 'Sila semak halaman-halaman ini. Jika hasilnya memenuhi kehendak anda, malah terdapat rekod-rekod tambahan untuk dimuat naik, sambung proses pemuatnaikan kelompok dengan mengklik butang "{{int:gwtoolset-process-batch}}" di bawah.',
+	'gwtoolset-step-3-instructions-3' => 'Jika anda tidak berpuas hati dengan hasilnya, kembali ke "{{int:gwtoolset-step-2-heading}}" dan laraskan pemetaan sewajarnya.
+
+Jika anda perlu melaraskan fail metadata itu sendiri, silakan berbuat demikian dan muat naiknya semula dengan memulakan semula proses dengan "{{int:gwtoolset-step-1-heading}}".',
+	'gwtoolset-title-bad' => 'Tajuk yang diwujudkan berasaskan pemetaan metadata dan templat MediaWiki itu adalah tidak sah.
+
+Cuba medan lain dari metadata untuk tajuk dan pengecam tajuk, atau jika boleh, ubah metadatanya di mana perlu. Rujuk [https://commons.wikimedia.org/wiki/Commons:File_naming Penamaan fail] untuk maklumat lanjut.
+
+<strong>Tajuk tak sah:</strong> $1.',
+	'gwtoolset-batchjob-metadata-created' => 'Tugas kelompok Metadata diwujudkan. Fail metadata anda akan dianalisa sebentar nanti dan setiap perkara akan dimuat naik ke dalam wiki melalui proses latar belakang. Anda boleh melayari halaman "$1" untuk melihat bila perkara-perkara itu telah dimuat naik.',
+	'gwtoolset-batchjob-metadata-creation-failure' => 'Tugas kelompok tidak dapat diwujudkan untuk fail metadata.',
+	'gwtoolset-step-4-heading' => 'Langkah 4: Muat naik berkelompok',
+	'gwtoolset-invalid-token' => 'Token suntingan yang diserahkan dengan borang ini adalah tidak sah.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Tetapan <code>php.ini</code> semasa:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+Ini ditetapkan lebih rendah daripada <code>$wgMaxUploadSize</code> wiki yang ditetapkan pada "$3". Sila laras tetapan <code>php.ini</code> sewajarnya.',
+	'gwtoolset-mediawiki-version-invalid' => 'Sambungan ini memerlukan MediaWiki versi $1<br />Ini ialah versi $2.',
+	'gwtoolset-no-upload-by-url' => 'Anda bukan anggota kumpulan yang berhak untuk memuat naik melalui URL.',
+	'gwtoolset-permission-not-given' => 'Pastikan anda telah log masuk atau hubungi penyelia untuk mendapat kebenaran untuk melihat halaman ini ($1).',
+	'gwtoolset-user-blocked' => 'Akaun pengguna anda sedang disekat. Sila hubungi penyelia untuk meleraikan isu sekatan ini.',
+	'gwtoolset-required-group' => 'Anda bukan ahli kumpulan $1.',
+	'gwtoolset-verify-api-enabled' => 'Sambungan $1 memerlukan API wiki dihidupkan.
+
+Sila pastikan bahawa <code>$wgEnableAPI</code> disetkan kepada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-api-writeable' => 'Sambungan $1 memerlukan API wiki untuk dapat melakukan penulisan untuk pengguna berdaftar.
+
+Sila pastikan bahawa <code>$wgEnableWriteAPI</code> disetkan pada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-curl' => 'Sambungan $1 memerlukan pemasangan fungsi-fungsi PHP [http://www.php.net/manual/en/curl.setup.php cURL].',
+	'gwtoolset-verify-finfo' => 'Sambungan $1 memerlukan pemasangan sambungan PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo].',
+	'gwtoolset-verify-php-version' => 'Sambungan $1 memerlukan PHP versi 5.3.3 ke atas.',
+	'gwtoolset-verify-uploads-enabled' => 'Sambungan $1 memerlukan pemuatnaikan fail dihidupkan.
+
+Sila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</code> dalam <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-xmlreader' => 'Sambungan $1 memerlukan pemasangan PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader].',
+	'gwtoolset-wiki-checks-not-passed' => 'Wiki tidak lulus pemeriksaan',
 );
 
 /** Neapolitan (Napulitano)
@@ -1306,12 +1678,20 @@ $messages['nap'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Multichill
  * @author Siebrand
  * @author Sjoerddebruin
  */
 $messages['nl'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, een hulpprogramma voor het massaal uploaden van bestanden',
+	'gwtoolset-batchjob-creation-failure' => 'Het is niet gelukt om batchverwerking van type "$1" aan te maken.',
+	'gwtoolset-could-not-close-xml' => 'De XML-lezer kan niet worden gesloten.',
+	'gwtoolset-could-not-open-xml' => 'Het is niet gelukt om het XML-bestand voor lezen te openen.',
+	'gwtoolset-no-default' => 'Geen standaardwaarde gekozen.',
+	'gwtoolset-no-field-size' => 'Geen veldgrootte opgegeven voor het veld " $1 ".',
+	'gwtoolset-sha1-does-not-match' => 'SHA-1 komt niet overeen.',
+	'gwtoolset-disk-write-failure' => 'De server kan het bestand niet schrijven naar een bestandssysteem.',
 	'gwtoolset-mediawiki-template' => 'Sjabloon $1',
 	'gwtoolset-submit' => 'Opslaan',
 	'gwtoolset-summary-heading' => 'Samenvatting',
@@ -1360,11 +1740,63 @@ $messages['ru'] = array(
  * @author Tobulos1
  */
 $messages['sv'] = array(
+	'gwtoolset-fsfile-empty' => 'Filen var tom och togs bort.',
+	'gwtoolset-fsfile-retrieval-failure' => 'Filen kunde inte hämtas från URL $1.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> inte angivna.',
+	'gwtoolset-incorrect-form-handler' => 'Modulen "$1" har inte registrerat en formulärhanterare GWToolset\\Handlers\\Forms\\FormHandler.',
 	'gwtoolset-no-accepted-types' => 'Ingen accepterad typ försedd',
+	'gwtoolset-no-comment' => "<code>user_options['comment']</code> inte angivet.",
+	'gwtoolset-no-default' => 'Inget standardvärde har angetts.',
 	'gwtoolset-no-field-size' => 'Ingen fältstorlek har angetts för fältet "$1".',
+	'gwtoolset-no-file-backend-name' => 'Inget filnamn har angetts.',
+	'gwtoolset-no-file-url' => 'Ingen <code>file_url</code> satt att tolka.',
+	'gwtoolset-no-form-handler' => 'Ingen formulärhanterare skapad.',
+	'gwtoolset-no-mapping' => 'Ingen <code>mapping_name</code> tillhandahålls.',
+	'gwtoolset-no-mapping-json' => 'Ingen <code>mapping_json</code> tillhandahålls.',
+	'gwtoolset-no-max' => 'Inget högsta värde anges.',
+	'gwtoolset-no-mediawiki-template' => 'Ingen <code>mediawiki-mall-namn</code> tillhandahålls.',
+	'gwtoolset-no-min' => 'Inget minsta värde som tillhandahålls.',
+	'gwtoolset-no-module' => 'Ingen modulnamn angavs.',
+	'gwtoolset-no-mwstore-complete-path' => 'Ingen fullständig sökväg anges.',
+	'gwtoolset-no-mwstore-relative-path' => 'Ingen relativ sökväg anges.',
 	'gwtoolset-no-page-title' => 'Ingen sidorubrik har angetts.',
+	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> inte inställd.",
+	'gwtoolset-no-summary' => 'Ingen sammanfattning tillhandahålls.',
+	'gwtoolset-no-template-url' => 'Ingen URL-mall anges för att tolka.',
+	'gwtoolset-no-text' => 'Ingen text tillhandahålls.',
+	'gwtoolset-no-title' => 'Ingen titel tillhandahålls.',
+	'gwtoolset-no-reupload-media' => "<code>user_options['gwtoolset-reupload-media']</code> inte inställd.",
+	'gwtoolset-no-url-to-evaluate' => 'Ingen URL anges för utvärdering.',
+	'gwtoolset-no-url-to-media' => '<code>url-to-the-media-file</code> inte inställd.',
+	'gwtoolset-no-user' => 'Inga användarobjekt anges.',
+	'gwtoolset-no-xml-element' => 'Ingen XMLReader eller DOMElement  tillhandahålls.',
+	'gwtoolset-no-xml-source' => 'Ingen lokal XML-källa tillhandahålls.',
+	'gwtoolset-not-string' => 'Värdet i metoden var inte en sträng. Den är av typ "$1".',
+	'gwtoolset-sha1-does-not-match' => 'SHA-1 matchar inte.',
+	'gwtoolset-disk-write-failure' => 'Servern kunde inte skriva filen till ett filsystem.',
+	'gwtoolset-xml-doctype' => 'XML-metadatafilen får inte innehålla ett <!DOCTYPE> avsnitt. Ta bort den och försök sedan ladda upp XML-metadatafilen igen.',
+	'gwtoolset-file-is-empty' => 'Den uppladdade filen är tom.',
+	'gwtoolset-improper-upload' => 'Filen laddades inte upp korrekt.',
+	'gwtoolset-mime-type-mismatch' => 'Filtillägget "$1" och MIME-typen "$2" av den överförda filen matchar inte.',
+	'gwtoolset-missing-temp-folder' => 'Ingen tillfällig mapp tillgänglig.',
+	'gwtoolset-multiple-files' => 'Filen som laddades upp innehåller information om mer än en fil. Endast en fil kan lämnas in på en gång.',
+	'gwtoolset-no-extension' => 'Filen som laddades innehåller inte tillräckligt med information för att bearbeta filen. Troligen har den ingen filändelse.',
+	'gwtoolset-no-file' => 'Ingen fil mottogs.',
+	'gwtoolset-no-form-field' => 'Det förväntade fältet "$1" finns inte.',
+	'gwtoolset-over-max-ini' => 'Filen som laddades upp överskrider <code>upload_max_filesize</code> och/eller <code>post_max_size</code>-direktivet i <code>php.ini</code>.',
+	'gwtoolset-partial-upload' => 'Filen blev bara delvis uppladdad.',
+	'gwtoolset-php-extension-error' => 'En PHP-tillägg stannade filuppladdningen. PHP ger inte ett sätt att ta reda på vilket tillägg som orsakade filuppladdningens stopp. Granska listan över laddade tillägg med <code>phpinfo()</code>.',
+	'gwtoolset-unaccepted-extension' => 'Källfilen innehåller inte något accepterat filnamnstillägg.',
+	'gwtoolset-unaccepted-extension-specific' => 'Filens källa har det oaccepterade filtillägget ".$1".',
+	'gwtoolset-unaccepted-mime-type' => 'Den uppladdade filen tolkas som att ha MIME-typ "$1", vilket inte är en godkänd MIME-typ.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'Den uppladdade filen har MIME-typ "$1", vilket inte är godkänt. Har XML-filen en XML-deklaration överst i filen?
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
+	'gwtoolset-back-text-link' => '← gå tillbaka till formuläret',
+	'gwtoolset-back-text' => 'Tryck på webbläsarens tillbaka-knapp för att gå tillbaka till formuläret.',
+	'gwtoolset-file-interpretation-error' => 'Det fanns ett problem när filen skulle bearbetas för metadata',
 	'gwtoolset-mediawiki-template' => 'Mall $1',
-	'gwtoolset-metadata-user-options-error' => 'Följande formulär {{PLURAL:$2|fält|fält}} måste fyllas i:
+	'gwtoolset-metadata-user-options-error' => 'Följande formulär {{PLURAL:$1|fält}} måste fyllas i:
 $1', # Fuzzy
 	'gwtoolset-metadata-invalid-template' => 'Ingen giltig MediaWiki-mall har hittats.',
 	'gwtoolset-technical-error' => 'Det var ett tekniskt fel.',
@@ -1376,8 +1808,20 @@ $1', # Fuzzy
 	'gwtoolset-save-mapping-failed' => 'Förlåt. Det uppstod ett problem vid bearbetningen av din begäran. Vänligen försök igen senare. (Felmeddelande: $1)',
 	'gwtoolset-json-error' => 'Det var ett problem med JSON. Fel: $1.',
 	'gwtoolset-json-error-ctrl-char' => 'Oväntad kontrollkaraktär finns.',
+	'gwtoolset-json-error-syntax' => 'Syntaxfel, felaktigt formerad JSON.',
+	'gwtoolset-json-error-utf8' => 'Felaktigt UTF-8-tecken, möjligen felkodat.',
 	'gwtoolset-json-error-unknown' => 'Okänt fel.',
 	'gwtoolset-accepted-file-types' => 'Accepterade fil {{PLURAL:$1|typ|typer}}:',
+	'gwtoolset-ensure-well-formed-xml' => 'Kontrollera att XML-filen är välformad med detta  $1.',
+	'gwtoolset-file-url-invalid' => 'URL-filen var ogiltigt; Filen finns inte ännu på wikin. Du måste först ladda upp filen från din dator om du vill använda filens URL-referens i formuläret.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallen "<strong>$1</strong>" existerar inte på wikin.
+
+Antingen importerar du mallen eller väljer en annan MediaWiki-mall att använda för mappning.',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-mallen "$1" hittades inte.',
+	'gwtoolset-metadata-file-source' => 'Välj metadata-fil som källa.',
+	'gwtoolset-metadata-file-source-info' => '... antingen en fil som har laddats upp tidigare eller en fil som du vill ladda upp från din dator.',
+	'gwtoolset-metadata-file-url' => 'Metadatafil wiki URL:',
+	'gwtoolset-metadata-file-upload' => 'Filuppladdning av Metadata:',
 	'gwtoolset-category' => 'Kategori',
 );
 
@@ -1418,6 +1862,7 @@ $1",
 	'gwtoolset-no-accepted-types' => 'Не надано прийнятих типів',
 	'gwtoolset-no-callback' => 'Зворотний виклик не переданий до цього методу.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code>не встановлено.",
+	'gwtoolset-no-default' => 'Не передбачено типового значення.',
 	'gwtoolset-no-field-size' => 'Не зазначено розмір поля для "$1".',
 	'gwtoolset-no-file-backend-name' => "Не надано ім'я файлу бази даних.",
 	'gwtoolset-no-file-backend-container' => "Не забезпечено ім'я контейнера файлу бази даних.",
@@ -1425,7 +1870,10 @@ $1",
 	'gwtoolset-no-form-handler' => 'Не створено форми обробника.',
 	'gwtoolset-no-mapping' => 'Не забезпечено <code>mapping_name</code>.',
 	'gwtoolset-no-mapping-json' => 'Не забезпечено <code>mapping_json</code>.',
+	'gwtoolset-no-max' => 'Немає максимального значення.',
+	'gwtoolset-no-mediafile-throttle' => 'Не передбачено обмежень обробки медіафайлу.',
 	'gwtoolset-no-mediawiki-template' => 'Не забезпечено <code>mediawiki-template-name</code>.',
+	'gwtoolset-no-min' => 'Немає мінімального значення.',
 	'gwtoolset-no-module' => "Не вказано ім'я модуля.",
 	'gwtoolset-no-mwstore-complete-path' => 'Не надано повного шляху до файлу.',
 	'gwtoolset-no-mwstore-relative-path' => 'Не надано відносного шляху.',
@@ -1492,6 +1940,7 @@ $1',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Допустимий тип файлу|Допустимі типи файлу}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
 	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
+	'gwtoolset-mediafile-throttle' => 'Обмеження медіафайлу:',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Шаблон Медіавікі "<strong>$1</strong>" не існує у цій вікі.
 
 Імпортуйте шаблон або виберіть інший шаблон Медіавікі для використання у зіставленні.',
