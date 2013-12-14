@@ -123,6 +123,7 @@ $wgResourceModules['ext.GWToolset'] = array(
 		'gwtoolset-back-text-link',
 		'gwtoolset-cancel',
 		'gwtoolset-create-mapping',
+		'gwtoolset-create-prefix',
 		'gwtoolset-developer-issue',
 		'gwtoolset-loading',
 		'gwtoolset-save',

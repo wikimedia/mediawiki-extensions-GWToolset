@@ -443,9 +443,14 @@ class UploadHandler {
 		$options['title'] = $this->_MediawikiTemplate->getTitle( $options );
 		$options['ignorewarnings'] = true;
 		$options['watch'] = true;
-		$options['comment'] = wfMessage( 'gwtoolset-create-mediafile' )
-			->params( Constants::EXTENSION_NAME, $this->_User->getName() )
-			->escaped() . PHP_EOL .
+		$options['comment'] =
+			wfMessage( 'gwtoolset-create-mediafile' )
+				->params(
+					wfMessage( 'gwtoolset-create-prefix' )->text(),
+					$this->_User->getName()
+				)
+				->text() .
+			PHP_EOL .
 			trim( $this->user_options['comment'] );
 
 		$options['text'] = $this->getText();

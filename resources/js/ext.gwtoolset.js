@@ -539,7 +539,7 @@
 					),
 				summary = mw.message(
 					'gwtoolset-create-mapping',
-					'GWToolset',
+					mw.message( 'gwtoolset-create-prefix' ).text(),
 					mw.user.getName()
 					)
 					.text(),

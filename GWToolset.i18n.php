@@ -254,6 +254,7 @@ Try another field from the metadata for title and title-identifier, or if possib
 	'gwtoolset-batchjob-metadata-created' => 'Metadata batch job created. Your metadata file will be analyzed shortly and each item will be uploaded to the wiki in a background process. You can check the page "$1" to see when they have been uploaded.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Could not create batch job for the metadata file.',
 	'gwtoolset-create-mediafile' => '$1: Creating mediafile for $2.',
+	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-mediafile-jobs-created' => 'Created $1 mediafile batch {{PLURAL:$1|job|jobs}}.',
 	'gwtoolset-step-4-heading' => 'Step 4: Batch upload',
 
@@ -634,6 +635,7 @@ Refers to:
 	'gwtoolset-create-mediafile' => '"Edit summary" message used when the extension creates/updates a media file content page. Parameters:
 * $1 - the extension name "GWToolset"
 * $2 - the username',
+	'gwtoolset-create-prefix' => 'The name of the project, GWToolset, which can be replaced by a link or other content if necessary via a page Mediawiki:gwtoolset-create-prefix',
 	'gwtoolset-mediafile-jobs-created' => 'Message that indicates the number of media file batch jobs created. Parameters:
 * $1 - number of batch jobs',
 	'gwtoolset-step-4-heading' => 'Step 4 heading.
