@@ -14,3 +14,8 @@ $specialPageAliases = array();
 $specialPageAliases['en'] = array(
 	'GWToolset' => array( 'GWToolset' ),
 );
+
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'GWToolset' => array( 'GWSazhalet' ),
+);

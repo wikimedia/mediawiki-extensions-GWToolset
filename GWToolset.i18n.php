@@ -663,14 +663,16 @@ See also:
 );
 
 /** Catalan (català)
+ * @author ESM
  * @author KRLS
  * @author Papapep
+ * @author QuimGil
  */
 $messages['ca'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, una eina de càrrega massiva per als projectes GLAM',
 	'gwtoolset-intro' => "GWToolset és una extensió MediaWiki que permet la pujada massiva de contingut GLAM (Galeries, Biblioteques -Libraries-, Arxius i Museus) mitjançant un fitxer XML que conté les metadades del contingut. S'intenta amb això permetre diversos esquemes XML. Més informació del projecte a la seva [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project pàgina]. Contacteu amb nosaltres a la mateixa pàgina. Trieu un dels elements del menú superior per iniciar el procés de pujada.",
-	'gwtoolset-batchjob-creation-failure' => 'No s\'ha pogut crear el treball per lots de tipus "$1".',
+	'gwtoolset-batchjob-creation-failure' => 'No s\'ha pogut crear el treball per lots del tipus "$1".',
 	'gwtoolset-could-not-close-xml' => "No s'ha pogut tancar el lector d'XML.",
 	'gwtoolset-could-not-open-xml' => "No s'ha pogut llegir el fitxer XML.",
 	'gwtoolset-developer-issue' => "$1Contacteu amb el desenvolupador. Aquest error s'ha de corregir abans de continuar. Afegiu el text següent al vostre informe:
@@ -689,6 +691,8 @@ Consulteu el [php.net/manual/en/datetime.formats.relative.php manual de PHP] per
 	'gwtoolset-no-comment' => "No s'ha definit <code>user_options['comment']</code>.",
 	'gwtoolset-no-default' => "No s'ha proporcionat cap valor predeterminat.",
 	'gwtoolset-no-field-size' => 'No s\'ha especificat cap mida pel camp "$1".',
+	'gwtoolset-no-file-backend-name' => "No s'ha proporcionat cap nom del rerefons del fitxer.",
+	'gwtoolset-no-file-backend-container' => "No s'ha proporcionat cap nom del contenidor del rerefons del fitxer.",
 	'gwtoolset-no-file-url' => "No s'ha proporcionat cap <code>file_url</code> per analitzar.",
 	'gwtoolset-no-form-handler' => "No s'ha creat cap gestor de formulari.",
 	'gwtoolset-no-mapping' => "No s'ha proporcionat cap <code>mapping_name</code>.",
@@ -700,24 +704,24 @@ Consulteu el [php.net/manual/en/datetime.formats.relative.php manual de PHP] per
 	'gwtoolset-no-module' => "No s'ha especificat cap nom de mòdul.",
 	'gwtoolset-no-mwstore-complete-path' => "No s'ha proporcionat el camí complet del fitxer.",
 	'gwtoolset-no-mwstore-relative-path' => "No s'ha proporcionat el camí relatiu.",
-	'gwtoolset-no-page-title' => "No s'ha aportat cap títol.",
+	'gwtoolset-no-page-title' => "No s'ha proporcionat cap títol de pàgina.",
 	'gwtoolset-no-save-as-batch' => "No s'ha definit <code>user_options['save-as-batch-job']</code>.",
 	'gwtoolset-no-source-array' => "No s'ha proporcionat la matriu origen.",
 	'gwtoolset-no-summary' => "No s'ha proporcionat cap resum.",
 	'gwtoolset-no-template-url' => "No s'ha proporcionat cap URL de plantilla per analitzar.",
 	'gwtoolset-no-text' => "No s'ha proporcionat cap text.",
-	'gwtoolset-no-title' => "No s'ha aportat cap títol.",
+	'gwtoolset-no-title' => "No s'ha proporcionat cap títol.",
 	'gwtoolset-no-reupload-media' => "No s'ha definit <code>user_options['gwtoolset-reupload-media']</code>.",
 	'gwtoolset-no-url-to-evaluate' => "No s'ha proporcionat cap URL per evaluar.",
 	'gwtoolset-no-url-to-media' => "No s'ha definit <code>url-to-the-media-file</code>.",
 	'gwtoolset-no-user' => "No s'ha proporcionat cap objecte d'usuari.",
 	'gwtoolset-no-xml-element' => "No s'ha proporcionat cap XMLReader o DOMElement.",
 	'gwtoolset-no-xml-source' => "No s'ha proporcionat cap origen XML local.",
-	'gwtoolset-not-string' => 'El valor proporcionat al mètode no era un string. Era del tipus "$1".',
+	'gwtoolset-not-string' => 'El valor proporcionat al mètode no és una cadena de text. És del tipus "$1".',
 	'gwtoolset-sha1-does-not-match' => "L'SHA-1 no coincideix.",
 	'gwtoolset-disk-write-failure' => 'El servidor no ha pogut escriure el fitxer al sistema de fitxers.',
-	'gwtoolset-xml-doctype' => 'El fitxer XML de metadades no pot contenir una secció <!DOCTYPE>. Elimineu-la i proveu de carregar de nou el fitxer.',
-	'gwtoolset-file-is-empty' => "L'arxiu carregat és buit.",
+	'gwtoolset-xml-doctype' => 'El fitxer XML de metadades no pot contenir una secció <!DOCTYPE>. Elimineu-la i torneu-ho a provar.',
+	'gwtoolset-file-is-empty' => "L'arxiu pujat és buit.",
 	'gwtoolset-improper-upload' => "L'arxiu no s'ha carregat correctament.",
 	'gwtoolset-mime-type-mismatch' => 'No coincideixen l\'extensió de fitxer "$1" i el tipus MIME "$2" pujats.',
 	'gwtoolset-missing-temp-folder' => 'No hi ha disponible cap carpeta temporal.',
@@ -725,23 +729,155 @@ Consulteu el [php.net/manual/en/datetime.formats.relative.php manual de PHP] per
 	'gwtoolset-no-extension' => 'El fitxer pujat no conté prou informació per processar-lo. Probablement no té extensió de fitxer.',
 	'gwtoolset-no-file' => "No s'ha rebut cap fitxer.",
 	'gwtoolset-no-form-field' => 'No existeix el camp del formulari "$1" requerit.',
+	'gwtoolset-over-max-ini' => 'El fitxer pujat excedeix les directives  <code>upload_max_filesize</code> i/o <code>post_max_size</code> del <code>php.ini</code>.',
+	'gwtoolset-partial-upload' => "El fitxer només s'ha pujat parcialment.",
+	'gwtoolset-php-extension-error' => "Una extensió de PHP ha aturat la càrrega d'arxius. PHP no proporciona la informació per saber quina extensió ha causat el problema. Examinar la llista d'extensions carregades amb <code>phpinfo()</code> pot ajudar.",
+	'gwtoolset-unaccepted-extension' => 'El fitxer origen no conté cap extensió admesa.',
+	'gwtoolset-unaccepted-extension-specific' => 'El fitxer origen té l\'extensió no admesa ".$1".',
+	'gwtoolset-unaccepted-mime-type' => 'S\'interpreta que el fitxer pujat és del tipus MIME "$1", que no s\'accepta.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'El fitxer pujat és del tipus MIME "$1", que no s\'accepta. Hi ha una declaració XML al capdamunt del fitxer XML?
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
+	'gwtoolset-back-text-link' => '← torna al formulari',
+	'gwtoolset-back-text' => "Premeu el botó d'enrere per tornar al formulari.",
+	'gwtoolset-file-interpretation-error' => "S'ha produït un error en processar el fitxer de metadades",
+	'gwtoolset-mediawiki-template' => 'Plantilla $1',
+	'gwtoolset-metadata-user-options-error' => "S'ha d'emplenar el formulari {{PLURAL:$2|field|fields}} a:
+$1",
+	'gwtoolset-metadata-invalid-template' => "No s'ha trobat cap plantilla MediaWiki vàlida.",
+	'gwtoolset-menu-1' => 'Correspondència de les metadades',
+	'gwtoolset-technical-error' => "S'ha produït un error tècnic.",
+	'gwtoolset-required-field' => 'camps obligatoris',
 	'gwtoolset-submit' => 'Envia',
 	'gwtoolset-summary-heading' => 'Resum',
 	'gwtoolset-cancel' => 'Cancel·la',
-	'gwtoolset-loading' => 'Sigues pacient. Això pot trigar una estona.',
+	'gwtoolset-loading' => 'Sigueu pacients, això pot trigar una estona.',
 	'gwtoolset-save' => 'Desa',
-	'gwtoolset-json-error-unknown' => 'Error desconegut.',
+	'gwtoolset-save-mapping' => 'Desa la correspondència',
+	'gwtoolset-save-mapping-failed' => "S'ha produït un error en processar la vostra petició. Torneu-ho a provar. (Missatge d'error: $1)",
+	'gwtoolset-save-mapping-succeeded' => "S'ha desat la vostra correspondència.",
+	'gwtoolset-save-mapping-name' => 'Com voleu anomenar aquesta correspondència?',
+	'gwtoolset-json-error' => "S'ha produït un error amb el JSON. Error: $1",
+	'gwtoolset-json-error-depth' => "S'ha superat el límit màxim de profunditat de la pila.",
+	'gwtoolset-json-error-state-mismatch' => 'Insuficiència o no coincidència de modes.',
+	'gwtoolset-json-error-ctrl-char' => "S'ha trobat un caràcter de control no esperat.",
+	'gwtoolset-json-error-syntax' => 'Error de sintaxi, JSON amb errors de format.',
+	'gwtoolset-json-error-utf8' => 'Caràcters UTF-8 amb errors de format, probablement mal codificats.',
+	'gwtoolset-json-error-unknown' => "S'ha produït un error desconegut.",
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|type|types}}: de fitxer acceptat(s).',
+	'gwtoolset-ensure-well-formed-xml' => 'Assegureu-vos que el fitxer XML té el format adient amb aquest $1.',
+	'gwtoolset-file-url-invalid' => 'La URL del fitxer no és correcta. El fitxer encara no existeix al wiki. Heu de pujar abans el fitxer si voleu emprar la referència de la URL del fitxer al formulari.',
 	'gwtoolset-mediafile-throttle' => 'Límit de fitxers multimèdia:',
 	'gwtoolset-mediafile-throttle-description' => 'El límit controla la càrrega que tindrà el vostre servidor de fitxers multimèdia en pujar-los per lots al Wikimedia Commons. Podeu definir el límit entre 1 i 20, on el nombre indica el nombre de peticions per minut.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'La plantilla "<strong>$1</strong>" no existeix al wiki.
+
+Importeu la plantilla MediaWiki o trieu-ne una altra per utilitzar la correspondència.',
+	'gwtoolset-mediawiki-template-not-found' => 'No s\'ha trobat la plantilla MediaWiki "$1".',
+	'gwtoolset-metadata-file-source' => 'Trieu el fitxer origen de metadades.',
+	'gwtoolset-metadata-file-source-info' => "... un fitxer que s'ha carregat prèviament o un fitxer que voleu carregar des del vostre ordinador.",
+	'gwtoolset-metadata-file-url' => 'URL wiki del fitxer de metadades:',
+	'gwtoolset-metadata-file-upload' => "Càrrega d'arxius de metadades:",
+	'gwtoolset-metadata-mapping-bad' => "S'ha produït un error en la correspondència de metadades. Probablement el format JSON no és correcte. Corregiu-ho i torneu-ho a enviar.
+
+$1",
+	'gwtoolset-metadata-mapping-invalid-url' => 'La URL de correspondència de metadades proporcionada no coincideix amb la URL de correspondència esperada.
+
+* URL proporcionada: $1
+* URL esperada: $2',
+	'gwtoolset-metadata-mapping-not-found' => 'No s\'ha trobat correspondència de metadades.
+
+La pàgina "<strong>$1<strong>" no existeix al wiki.',
+	'gwtoolset-namespace-mismatch' => 'La pàgina "<strong>$1<strong>" és en un namespace erroni "<strong>$2<strong>".
+
+Hauria de ser al namespace "<strong>$3<strong>".',
+	'gwtoolset-no-xml-element-found' => 'No s\'ha trobat cap element XML coincident.
+* Heu posat un valor al formulari per a "{{int:gwtoolset-record-element-name}}"?
+* Té el format correcte el fitxer XML? Proveu això $1.',
+	'gwtoolset-page-title-contains-url' => 'La pàgina "$1" conté la URL de la pàgina wiki. Assegureu-vos d\'entrar només el títol de la pàgina, per exemple la part de l\'URL després de  /wiki/',
+	'gwtoolset-record-element-name' => "Quin és l'element XML que conté cada registre de metadades:",
 	'gwtoolset-step-1-heading' => 'Pas 1: Detecció de metadades',
 	'gwtoolset-step-1-instructions-1' => 'El procés de càrrega de metadades es divideix en 4 passos:',
+	'gwtoolset-step-1-instructions-2' => 'En aquest pas pugeu un nou fitxer de metadades al wiki. L\'eina intentarà extreure els camps de metadades disponibles en el fitxer de metadades, que llavors s\'aplicaran a una plantilla MediaWiki a "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => "Si el vostre domini de fitxers multimèdia no es troba a la llista a continuació, si us plau, [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment sol·liciteu] que sigui afegit a la llista blanca de dominis a Wikimedia Commons. Aquesta llista és comprovada abans d'obtenir els fitxers multimèdia. Si el vostre domini no està en aquesta llista, Wikimedia Commons no baixarà els fitxers multimèdia d'aquell domini. El millor exemple que podeu presentar en la vostra sol·licitud és un enllaç a un dels vostres fitxers multimèdia.",
+	'gwtoolset-step-1-instructions-3-heading' => 'Llista blanca de dominis',
 	'gwtoolset-step-1-instructions-li-1' => 'Detecció de metadades',
+	'gwtoolset-step-1-instructions-li-2' => 'Correspondència de les metadades',
 	'gwtoolset-step-1-instructions-li-3' => 'Previsualització del lot',
+	'gwtoolset-step-1-instructions-li-4' => 'Pujada per lots',
+	'gwtoolset-upload-legend' => 'Pugeu el vostre fitxer de metadades',
+	'gwtoolset-which-mediawiki-template' => 'Quina plantilla MediaWiki:',
+	'gwtoolset-which-metadata-mapping' => 'Quina correspondència de metadades:',
+	'gwtoolset-xml-error' => "S'ha produït un error en carregar l'XML. Corregiu els següents errors.",
+	'gwtoolset-categories' => 'Poseu les categories separades pel caràcter de barra vertical ("|")',
 	'gwtoolset-category' => 'Categoria',
+	'gwtoolset-create-mapping' => "$1: s'està creant la correspondència de metadades per a $2.",
+	'gwtoolset-example-record' => "Registres d'exemple de metadades.",
+	'gwtoolset-global-categories' => 'Categories globals',
+	'gwtoolset-global-tooltip' => "Aquestes categories s'aplicaran globalment a tots els elements pujats.",
+	'gwtoolset-maps-to' => 'Té correspondència amb',
+	'gwtoolset-mapping-media-file-url-extension-bad' => "No s'ha pogut determinar l'extensió del fitxer de la URL: $1.",
+	'gwtoolset-mapping-media-file-url-bad' => 'La URL del fitxer multimèdia no ha pogut ser avaluada. La URL proveeix el contingut en un format que encara no està suportat per l\'extensió. L\'URL proveïda és "$1".',
+	'gwtoolset-mapping-no-title' => "L'assignació de metadades no conté cap títol, el qual és necessari per a crear la pàgina.",
+	'gwtoolset-mapping-no-title-identifier' => "L'assignació de metadades no conté cap títol identificador, el qual és utilitzat per crear un títol de pàgina útil. Assegureu-vos que assigneu un camp de metadades per al paràmetre de títol identificador a la plantilla MediaWiki.",
+	'gwtoolset-metadata-field' => 'Fitxer de metadades',
 	'gwtoolset-metadata-file' => 'Fitxer de metadades',
+	'gwtoolset-metadata-mapping-legend' => 'Assigneu les vostres metadades',
+	'gwtoolset-no-more-records' => '<strong>No hi ha més registres per processar</strong>',
+	'gwtoolset-painted-by' => 'Pintat per',
+	'gwtoolset-partner' => 'Soci',
+	'gwtoolset-partner-template' => 'Plantilla associada:',
+	'gwtoolset-phrasing' => 'Fraseig',
+	'gwtoolset-preview' => 'Vista prèvia de lots',
+	'gwtoolset-process-batch' => 'Processa el lot',
+	'gwtoolset-record-count' => 'Nombre total de registres trobats en aquest fitxer de metadades:  {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Resultats',
+	'gwtoolset-step-2-heading' => 'Pas 2: assignació de metadades',
+	'gwtoolset-step-2-instructions-heading' => 'Assignar els camps de metadades',
+	'gwtoolset-step-2-instructions-1' => 'A continuació és/són:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Una llista dels camps al MediaWiki  $1 .',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Camps desplegables que representen els camps de metadades trobats en el fitxer de metadades.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Un registre de mostra del fitxer de metadades.',
+	'gwtoolset-step-2-instructions-2' => 'En aquest pas cal que assigneu els camps de metadades amb els camps de la plantilla de MediaWiki.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Selecciona un camp de metadades de la columna {{int:gwtoolset-maps-to}} que es correspongui amb un camp de plantilla de MediaWiki de la columna {{int:gwtoolset-template-field}}',
+	'gwtoolset-step-2-instructions-2-li-2' => 'No cal que proveïu un valor per a cada camp de la plantilla de MediaWiki.',
+	'gwtoolset-reupload-media' => "Torna a penjar els arxius multimèdia des de l'URL",
+	'gwtoolset-reupload-media-explanation' => "Aquesta casella de selecció us permet tornar a pujar fitxers multimèdia pujats anteriorment al wiki. Si l'element ja existeix s'afegirà un fitxer addicional al wiki. Si no existeix, es pujarà el fitxer tant si s'ha marcat la casella com si no.",
+	'gwtoolset-specific-categories' => "Categories específiques de l'element",
+	'gwtoolset-template-field' => 'Camp de plantilla',
 	'gwtoolset-step-3-instructions-heading' => 'Pas 3: Previsualització del lot',
-	'gwtoolset-required-group' => 'No formes part del grup $1.',
+	'gwtoolset-step-3-instructions-3' => 'Si no us agrada el resultat, torneu a "{{int:gwtoolset-step-2-heading}}" i ajusteu les assignacions com calgui.
+
+Si necessiteu modificar el fitxer de metadades, continueu i torneu-lo a pujar començant el procés un altre cop amb "{{int:gwtoolset-step-1-heading}}".',
+	'gwtoolset-title-bad' => "El títol creat segons les metadades i l'assignació de la plantilla MediaWiki no és correcte.
+
+Proveu un altre camp de les metadades pel títol i identificador del títol o, si és possible, modifiqueu les metadades. Més informació a [https://commons.wikimedia.org/wiki/Commons:File_naming noms de fitxer].
+
+<strong>Títol no vàlid:</strong> $1.",
+	'gwtoolset-batchjob-metadata-created' => 'S\'ha creat el trebal per lots de metadades. S\'analitzarà en breu el vostre fitxer de metadades i es pujarà cada element al wiki en un procés de fons. Podeu consultar la pàgina "$1" per veure si s\'han carregat.',
+	'gwtoolset-batchjob-metadata-creation-failure' => "No s'ha pogut crear el treball per lots pel fitxer de metadades.",
+	'gwtoolset-create-mediafile' => "$1: s'està creant el fitxer multimèdia per a $2.",
+	'gwtoolset-mediafile-jobs-created' => "S'ha creat $1 {{PLURAL:$1|tasca|tasques}} de fitxers multimèdia per lots.",
+	'gwtoolset-step-4-heading' => 'Pujada per lots',
+	'gwtoolset-invalid-token' => "El testimoni d'edició enviat amb el formulari no és correcte.",
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Paràmetres actuals de <code>php.ini</code>:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+Aquests són inferiors que el <code>$wgMaxUploadSize</code> del wiki, que està definit a "$3". Corregiu el valor de <code>php.ini</code> al valor adient.',
+	'gwtoolset-mediawiki-version-invalid' => 'Aquestà extensió requereix la versió $1 del MediaWiki</br>Aquest MediaWiki és de la versió $2.',
+	'gwtoolset-no-upload-by-url' => 'No teniu permisos de grup per a fer pujades per URL.',
+	'gwtoolset-permission-not-given' => 'Registreu-vos o contacteu amb un administrador per tenir permisos per veure aquesta pàgina ($1).',
+	'gwtoolset-user-blocked' => "S'ha blocat el vostre compte d'usuari. Contacteu amb un administrador per arreglar-ho.",
+	'gwtoolset-required-group' => 'No formeu part del grup $1.',
+	'gwtoolset-verify-api-enabled' => "L'extensió \$1 requereix que s'hagi habilitat l'API wiki.
+
+Assegureu-vos que <code>\$wgEnableAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.",
+	'gwtoolset-verify-api-writeable' => 'L\'extensió $1 requereix que l\'API wiki pugui fer escriptures pels usuaris autoritzats.
+
+Assegureu-vos que <code>$wgEnableWriteAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-curl' => "L'extensió $1 requereix que s'hagi instal·lat les [http://www.php.net/manual/en/curl.setup.php funcions cURL] del PHP.",
+	'gwtoolset-verify-finfo' => "L'extensió $1 requereix que s'hagi instal·lat l'extensió [http://www.php.net/manual/en/fileinfo.setup.php finfo] del PHP.",
 	'gwtoolset-verify-php-version' => "L'extensió $1 requereix PHP >= 5.3.3.",
 	'gwtoolset-verify-uploads-enabled' => "L'extensió \$1 requereix que s'hagi activat la càrrega de fitxers.
 
@@ -1034,11 +1170,13 @@ $messages['es'] = array(
 /** French (français)
  * @author Crochet.david
  * @author Gomoko
+ * @author Jean-Frédéric
  * @author Nobody
  */
 $messages['fr'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, un outil d’import en masse pour GLAMs',
+	'gwtoolset-intro' => "GWToolset est une extension MediaWiki permettant aux institutions culturelles (''GLAM'' − bibliothèques, archives, musées et galeries) de téléverser en masse des contenus en se basant sur un fichier XML contenant les métadonnées de ces contenus. Le but est d’autoriser une grande variété de schémas XML. De plus amples informations sur le projet sont disponibles sur [https://commons.wikimedia.org/wiki/Commons:GLAMwiki_Toolset_Project la page projet]. N’hésitez pas à nous contacter aussi via cette page. Choisissez l’un des éléments dans le menu ci-dessus et c’est parti pour le processus de téléversement.",
 	'gwtoolset-could-not-close-xml' => 'Impossible de fermer le lecteur XML.',
 	'gwtoolset-could-not-open-xml' => 'Impossible de lire le fichier XML.',
 	'gwtoolset-developer-issue' => "Veuillez contacter un développeur. Le message doit être traité avant de continuer. Merci d'ajouter le texte suivant à votre message :
@@ -1064,6 +1202,44 @@ $1",
 Vérifiez que le paramètre <code>\$wgEnableWriteAPI</code> soit défini à <code>true</code> dans le fichier <code>DefaultSettings.php</code> et dans le fichier <code>LocalSettings.php</code>.",
 	'gwtoolset-verify-curl' => "L'extension $1 requiert l'installation des [http://www.php.net/manual/fr/curl.setup.php fonctions PHP cURL].",
 	'gwtoolset-verify-finfo' => "L'extension $1 requiert l'installation de l'extension PHP [http://www.php.net/manual/fr/fileinfo.setup.php Finfo]",
+);
+
+/** Hebrew (עברית)
+ * @author NLIGuy
+ */
+$messages['he'] = array(
+	'gwtoolset' => 'ארגז כלי גלאם-ויקי',
+	'gwtoolset-desc' => 'ארגז כלי גלאם-ויקי, כלי להעלאה מסיבית לויקישיתוף למוסדות GLAM (ספריות, ארכיונים, מוזיאונים, גלריות)',
+	'gwtoolset-could-not-close-xml' => 'לא יכול לסגור את קורה ה-XML.',
+	'gwtoolset-developer-issue' => 'אנא צרו קשר עם מפתח. יש להתייחס לבעיה זו לפני שתוכלו להמשיך. נא להוסיף את הטקסט הבא לדיווח שלכם:
+
+$1',
+	'gwtoolset-file-backend-maxage-invalid' => 'ערך הגיל המרבי הנתון ב<code>$wgGWTFBMaxAge</code> אינו חוקי. עיין ב- [php.net/manual/en/datetime.formats.relative.php PHP manual] בכדי להגדירו בצורה נכונה.',
+	'gwtoolset-fsfile-retrieval-failure' => 'לא היתה אפשרות לאחזר את הקובץ מ- URL  $1 .',
+	'gwtoolset-incorrect-form-handler' => 'המודול " $1 " לא רשם form handler שמרחיב את GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => "ג'וב האצווה חרגה מצוואר הבקבוק (throttle).",
+	'gwtoolset-no-accepted-types' => 'לא סופקו טיפוסים מקובלים.',
+	'gwtoolset-no-field-size' => 'לא צויין גודל שדה עבור שדה " $1 ".',
+	'gwtoolset-no-file-backend-name' => 'לא סופק שם לקובצי backend.',
+	'gwtoolset-no-file-backend-container' => 'לא סופק שם מיכל לקובצי backend.',
+	'gwtoolset-no-file-url' => 'לא סופק <code>file_url</code> לניתוח.',
+	'gwtoolset-no-form-handler' => 'לא נוצר form handler.',
+	'gwtoolset-no-mapping' => 'לא סופק <code>mapping_name</code>.',
+	'gwtoolset-no-mapping-json' => 'לא סופק <code>mapping_json</code>.',
+	'gwtoolset-no-max' => 'לא ניתן ערך מרבי.',
+	'gwtoolset-no-mediafile-throttle' => 'לא סופק צוואר בקבוק ל-mediafile job.',
+	'gwtoolset-no-mediawiki-template' => 'לא סופק <code>mediawiki-template-name</code>.',
+	'gwtoolset-no-min' => 'לא ניתן ערך מינימלי.',
+	'gwtoolset-no-module' => 'שם המודול לא צוין.',
+	'gwtoolset-no-mwstore-complete-path' => 'לא סופק נתיב מלא לקובץ.',
+	'gwtoolset-no-mwstore-relative-path' => 'לא צוין נתיב יחסי.',
+	'gwtoolset-no-page-title' => 'לא סופקה כותרת לדף.',
+	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> לא הוגדר.",
+	'gwtoolset-no-source-array' => 'לא סופק מערך מקור.',
+	'gwtoolset-no-summary' => 'לא סופק תקציר.',
+	'gwtoolset-no-template-url' => 'לא סופקה תבנית קישור לניתוח.',
+	'gwtoolset-no-text' => 'לא סופק טקסט.',
+	'gwtoolset-no-title' => 'לא סופקה כותרת.',
 );
 
 /** Japanese (日本語)
@@ -1688,6 +1864,8 @@ $messages['nl'] = array(
 	'gwtoolset-batchjob-creation-failure' => 'Het is niet gelukt om batchverwerking van type "$1" aan te maken.',
 	'gwtoolset-could-not-close-xml' => 'De XML-lezer kan niet worden gesloten.',
 	'gwtoolset-could-not-open-xml' => 'Het is niet gelukt om het XML-bestand voor lezen te openen.',
+	'gwtoolset-fsfile-retrieval-failure' => 'Het bestand kon niet worden opgehaald vanaf URL $1.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> is niet ingesteld.',
 	'gwtoolset-no-default' => 'Geen standaardwaarde gekozen.',
 	'gwtoolset-no-field-size' => 'Geen veldgrootte opgegeven voor het veld " $1 ".',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 komt niet overeen.',
@@ -1703,6 +1881,7 @@ $messages['nl'] = array(
 	'gwtoolset-json-error' => 'Er was een probleem met de JSON. Fout: $1.',
 	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
 	'gwtoolset-category' => 'Categorie',
+	'gwtoolset-required-group' => 'Je bent geen lid van de, $1, groep.',
 );
 
 /** Russian (русский)
@@ -1737,9 +1916,17 @@ $messages['ru'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author Tobulos1
  */
 $messages['sv'] = array(
+	'gwtoolset-batchjob-creation-failure' => 'Gick inte att skapa ett batch-jobb av typen "$1".',
+	'gwtoolset-could-not-close-xml' => 'Kunde inte stänga av XML-läsaren.',
+	'gwtoolset-could-not-open-xml' => 'Kunde inte öppna XML-filen för läsning.',
+	'gwtoolset-developer-issue' => 'Vänligen kontakta en utvecklare. Detta problem måste åtgärdas innan du kan fortsätta. Lägg till följande text i rapporten:
+
+
+$1',
 	'gwtoolset-fsfile-empty' => 'Filen var tom och togs bort.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Filen kunde inte hämtas från URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> inte angivna.',
@@ -1823,6 +2010,16 @@ Antingen importerar du mallen eller väljer en annan MediaWiki-mall att använda
 	'gwtoolset-metadata-file-url' => 'Metadatafil wiki URL:',
 	'gwtoolset-metadata-file-upload' => 'Filuppladdning av Metadata:',
 	'gwtoolset-category' => 'Kategori',
+	'gwtoolset-preview' => 'Förhandsgranska massuppladdning',
+	'gwtoolset-record-count' => 'Totalt antal poster funna i denna metadatafil:  {{PLURAL:$1|$1}}.',
+	'gwtoolset-results' => 'Resultat',
+	'gwtoolset-step-2-instructions-1' => 'Nedan är:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'En lista över fälten i MediaWiki $1.',
+	'gwtoolset-template-field' => 'Mallfält',
+	'gwtoolset-step-3-instructions-heading' => 'Steg 3: Förhandsgranska massuppladdning',
+	'gwtoolset-step-4-heading' => 'Steg 4: Massuppladdning',
+	'gwtoolset-invalid-token' => 'Redigeringstoken som lämnades in med formuläret är ogiltig.',
+	'gwtoolset-required-group' => 'Du är inte medlem av grupp $1.',
 );
 
 /** Telugu (తెలుగు)
@@ -1941,6 +2138,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
 	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
 	'gwtoolset-mediafile-throttle' => 'Обмеження медіафайлу:',
+	'gwtoolset-mediafile-throttle-description' => 'Обмеження контролює навантаження Вікісховища, яке буде покладене на ваш медіа-сервер під час пакетного завантаження. Ви можете встановити обмеження у межах 1-20, де число відповідає вибраному числу медіазапитів за хвилину.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Шаблон Медіавікі "<strong>$1</strong>" не існує у цій вікі.
 
 Імпортуйте шаблон або виберіть інший шаблон Медіавікі для використання у зіставленні.',
@@ -2008,6 +2206,7 @@ $1.',
 	'gwtoolset-step-2-instructions-1-li-2' => 'Розкривний список полів, які представляють поля метаданих знайти у файлі метаданих.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'Зразок запису з файлу метаданих.',
 	'gwtoolset-step-2-instructions-2' => 'На цьому кроці необхідно зіставити поля метаданих з полями шаблону Медіавікі.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Виберіть поле метаданих під стовпчиком "{{int:gwtoolset-maps-to}}", яке відповідає полю шаблону Медіавікі під стовпцем "{{int:gwtoolset-template-field}}".',
 	'gwtoolset-step-2-instructions-2-li-2' => 'Вам не потрібно забезпечувати збіг для кожного поля шаблону Медіавікі.',
 	'gwtoolset-reupload-media' => 'Повторно завантажити медіа з URL',
 	'gwtoolset-reupload-media-explanation' => 'Цей параметр дозволяє вам повторно завантажувати медіа для елемента, яке вже було завантажене у вікі. Якщо елемент вже існує, то додатковий медіа-файл буде доданий у вікі. Якщо медіа-файл ще не існує, то він буде завантажений залежно від того, чи прапорець встановлений чи ні.',
