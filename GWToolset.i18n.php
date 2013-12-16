@@ -22,6 +22,15 @@ $messages['en'] = array(
 	'gwtoolset-intro' => 'GWToolset is a MediaWiki extension that allows GLAMs (Galleries, Libraries, Archives and Museums) the ability to mass upload content based on an XML file containing respective metadata about the content. The intent is to allow for a variety of XML schemas. Further information about the project can be found on its [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project project page]. Feel free to contact us on that page as well. Select one of the menu items above to begin the upload process.',
 
 	/**
+	 * permission labels
+	 */
+	'right-gwtoolset' => 'Use GWToolset',
+	'action-gwtoolset' => 'use gwtoolset',
+	'group-gwtoolset' => 'GWToolset users',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset user}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset users',
+
+	/**
 	 * developer issues
 	 */
 	'gwtoolset-batchjob-creation-failure' => 'Could not create a batch job of type "$1".',
@@ -284,6 +293,10 @@ Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> 
  * @author dan-nl
  */
 $messages['qqq'] = array(
+	'action-gwtoolset' => '{{doc-action|gwtoolset}}',
+	'group-gwtoolset' => '{{doc-group|upwizcampeditors}}',
+	'group-gwtoolset-member' => '{{doc-group|gwtoolset|member}}',
+	'grouppage-gwtoolset' => '{{doc-group|gwtoolset|page}}',
 	'gwtoolset' => 'extension name',
 	'gwtoolset-desc' => '{{desc|name=GWToolset|url=https://www.mediawiki.org/wiki/Extension:GWToolset}}',
 	'gwtoolset-intro' => 'Introduction paragraph for the extension used on the initial [[Special:GWToolset]] landing page.',
@@ -477,6 +490,7 @@ Parameters:
 Followed by the "Record element name" input box.
 
 Also used in {{msg-mw|Gwtoolset-no-xml-element-found}}.',
+	'right-gwtoolset' => '{{doc-right|gwtoolset}}',
 	'gwtoolset-step-1-heading' => 'Heading for step 1.
 
 Used in {{msg-mw|Gwtoolset-step-3-instructions-3}}.
