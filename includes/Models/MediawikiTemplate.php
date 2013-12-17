@@ -13,11 +13,7 @@ use Html,
 	GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
-	GWToolset\Helpers\FileChecks,
-	MWException,
-	ReflectionClass,
-	ReflectionProperty,
-	ResultWrapper;
+	MWException;
 
 class MediawikiTemplate implements ModelInterface {
 

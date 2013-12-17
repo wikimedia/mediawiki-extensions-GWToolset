@@ -8,13 +8,9 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use Content,
-	DOMDocument,
-	DOMXPath,
-	GWToolset\GWTException,
-	GWToolset\Utils,
+use
+GWToolset\GWTException,
 	Html,
-	Linker,
 	MWException,
 	XMLReader;
 

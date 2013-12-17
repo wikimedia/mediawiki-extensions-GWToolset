@@ -8,19 +8,11 @@
  */
 
 namespace GWToolset;
-use ErrorException,
-	GWToolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	GWToolset\MediaWiki\Api\Client,
-	Html,
+use
+GWToolset\MediaWiki\Api\Client,
 	Language,
 	MWException,
-	SpecialPage,
-	Status,
-	Title,
-	RecursiveArrayIterator,
-	RecursiveIteratorIterator;
+	Title;
 
 class Utils {
 

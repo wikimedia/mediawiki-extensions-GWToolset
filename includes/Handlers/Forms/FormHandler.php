@@ -8,11 +8,9 @@
  */
 namespace GWToolset\Handlers\Forms;
 use	GWToolset\GWTException,
-	GWToolset\Utils,
 	GWToolset\Helpers\WikiChecks,
 	Html,
-	MWException,
-	SpecialPage;
+	MWException;
 
 abstract class FormHandler {
 

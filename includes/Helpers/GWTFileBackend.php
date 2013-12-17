@@ -10,7 +10,6 @@
 namespace GWToolset\Helpers;
 use FileBackendGroup,
 	GWToolset\Jobs\GWTFileBackendCleanupJob,
-	GWToolset\Config,
 	GWToolset\Constants,
 	GWToolset\Utils,
 	JobQueueGroup,

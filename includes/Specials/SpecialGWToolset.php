@@ -8,16 +8,13 @@
  */
 
 namespace GWToolset;
-use GWToolset\Constants,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	GWToolset\Handlers\Forms\FormHandler,
+use
+GWToolset\Handlers\Forms\FormHandler,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	Html,
 	Linker,
 	MWException,
-	PermissionsError,
 	SpecialPage,
 	Title;
 

@@ -8,15 +8,11 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use Content,
-	DOMElement,
+use
+DOMElement,
 	GWToolset\Config,
-	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Utils,
-	GWToolset\Models\Mapping,
-	GWToolset\Models\MediawikiTemplate,
 	MWException,
-	SpecialPage,
 	XMLReader;
 
 class XmlMappingHandler extends XmlHandler {

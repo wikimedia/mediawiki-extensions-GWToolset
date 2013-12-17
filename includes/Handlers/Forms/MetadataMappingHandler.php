@@ -16,8 +16,6 @@ use FSFile,
 	GWToolset\Constants,
 	GWToolset\Utils,
 	GWToolset\Forms\PreviewForm,
-	GWToolset\GWTException,
-	GWToolset\Handlers\Forms\FormHandler,
 	GWToolset\Handlers\UploadHandler,
 	GWToolset\Handlers\Xml\XmlMappingHandler,
 	GWToolset\Helpers\GWTFileBackend,
@@ -29,9 +27,7 @@ use FSFile,
 	JobQueueGroup,
 	Linker,
 	MWException,
-	SpecialPage,
-	Title,
-	User;
+	Title;
 
 class MetadataMappingHandler extends FormHandler {
 

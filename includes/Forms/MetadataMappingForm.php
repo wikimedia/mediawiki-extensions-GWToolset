@@ -11,8 +11,6 @@ use Html,
 	GWToolset\Config,
 	GWToolset\Utils,
 	GWToolset\Handlers\Forms\FormHandler,
-	GWToolset\Helpers\FileChecks,
-	IContextSource,
 	Linker,
 	Title;
 

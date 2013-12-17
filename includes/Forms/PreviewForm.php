@@ -9,7 +9,6 @@
 namespace GWToolset\Forms;
 use GWToolset\Config,
 	GWToolset\Utils,
-	GWToolset\Helpers\FileChecks,
 	Html,
 	IContextSource,
 	Linker,

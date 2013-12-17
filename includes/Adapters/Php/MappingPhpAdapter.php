@@ -10,7 +10,6 @@
 namespace GWToolset\Adapters\Php;
 use GWToolset\Adapters\DataAdapterInterface,
 	GWToolset\GWTException,
-	Revision,
 	Title,
 	WikiPage;
 

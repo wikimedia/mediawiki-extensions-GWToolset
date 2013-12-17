@@ -8,8 +8,8 @@
  */
 
 namespace GWToolset;
-use GWToolset\Config,
-	GWToolset\Helpers\GWTFileBackend,
+use
+GWToolset\Helpers\GWTFileBackend,
 	Maintenance,
 	MWException;
 
