@@ -44,7 +44,6 @@ abstract class XmlHandler {
 			'prefix : ' . $reader->prefix . Html::rawElement( 'br' ) .
 			'value : ' . $reader->value . Html::rawElement( 'br' ) .
 			'xmlLang : ' . $reader->xmlLang . Html::rawElement( 'br' );
-			Html::rawElement( 'br' );
 	}
 
 	/**
