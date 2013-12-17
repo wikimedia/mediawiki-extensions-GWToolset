@@ -155,7 +155,7 @@ class XmlMappingHandler extends XmlHandler {
 		foreach ( $DOMNodeList as $DOMNodeElement ) {
 
 			// if the current element is not one that was mapped, skip it
-			if ( !key_exists(
+			if ( !array_key_exists(
 					$DOMNodeElement->tagName,
 					$this->_Mapping->target_dom_elements_mapped
 			) ) {

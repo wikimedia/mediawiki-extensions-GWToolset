@@ -415,7 +415,7 @@ class XmlDetectHandler extends XmlHandler {
 			);
 		} elseif ( count( $selected_options ) > 1 ) {
 			foreach ( $selected_options as $option ) {
-				if ( key_exists( $option, $this->_metadata_example_dom_nodes ) ) {
+				if ( array_key_exists( $option, $this->_metadata_example_dom_nodes ) ) {
 					if ( !$first_row_placed ) {
 						$result .= $this->getFirstRow( $parameter, $parameter_as_id, $required, $option );
 						$first_row_placed = true;
