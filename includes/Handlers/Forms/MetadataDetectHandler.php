@@ -21,6 +21,7 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Utils,
 	FSFile,
+	MWException,
 	Php\File;
 
 class MetadataDetectHandler extends FormHandler {
