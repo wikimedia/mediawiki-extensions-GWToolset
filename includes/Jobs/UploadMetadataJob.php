@@ -63,8 +63,6 @@ class UploadMetadataJob extends Job {
 	 * @return {bool}
 	 */
 	protected function recreateMetadataJob() {
-		$result = false;
-
 		if ( (int)$this->params['attempts'] > (int)Config::$metadata_job_max_attempts ) {
 			$job_release =
 				isset( $this->params['jobReleaseTimestamp'] )
@@ -109,7 +107,7 @@ class UploadMetadataJob extends Job {
 			);
 		}
 
-		$result = JobQueueGroup::singleton()->push( $job );
+		return JobQueueGroup::singleton()->push( $job );
 	}
 
 	/**
