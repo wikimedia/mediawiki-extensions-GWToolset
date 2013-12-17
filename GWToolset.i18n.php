@@ -299,7 +299,7 @@ $messages['qqq'] = array(
 	'gwtoolset-intro' => 'Introduction paragraph for the extension used on the initial [[Special:GWToolset]] landing page.',
 	'right-gwtoolset' => '{{doc-right|gwtoolset}}',
 	'action-gwtoolset' => '{{doc-action|gwtoolset}}',
-	'group-gwtoolset' => '{{doc-group|upwizcampeditors}}',
+	'group-gwtoolset' => '{{doc-group|gwtoolset}}',
 	'group-gwtoolset-member' => '{{doc-group|gwtoolset|member}}',
 	'grouppage-gwtoolset' => '{{doc-group|gwtoolset|page}}',
 	'gwtoolset-batchjob-creation-failure' => 'Message that appears when the extension could not create a batch job. Parameters:
@@ -413,7 +413,7 @@ Parameters:
 	'gwtoolset-technical-error' => 'Heading for error messages of a technical nature.',
 	'gwtoolset-required-field' => 'Denotes required field.
 
-Preceded by a red "<span style="color:red">*</span>"',
+Preceded by a red "<span style="color:red">*</span>" (and a whitespace)',
 	'gwtoolset-submit' => 'Submit button text for metadata forms.
 {{Identical|Submit}}',
 	'gwtoolset-summary-heading' => 'Summary heading for the metadata mapping form.
@@ -689,6 +689,11 @@ $messages['ca'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, una eina de càrrega massiva per als projectes GLAM',
 	'gwtoolset-intro' => "GWToolset és una extensió MediaWiki que permet la pujada massiva de contingut GLAM (Galeries, Biblioteques -Libraries-, Arxius i Museus) mitjançant un fitxer XML que conté les metadades del contingut. S'intenta amb això permetre diversos esquemes XML. Més informació del projecte a la seva [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project pàgina]. Contacteu amb nosaltres a la mateixa pàgina. Trieu un dels elements del menú superior per iniciar el procés de pujada.",
+	'right-gwtoolset' => 'Utilitza el GWToolset',
+	'action-gwtoolset' => 'utilitza el gwtoolset',
+	'group-gwtoolset' => 'Usuaris del GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Usuari del GWToolset}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:Usuaris del GWToolset',
 	'gwtoolset-batchjob-creation-failure' => 'No s\'ha pogut crear el treball per lots del tipus "$1".',
 	'gwtoolset-could-not-close-xml' => "No s'ha pogut tancar el lector d'XML.",
 	'gwtoolset-could-not-open-xml' => "No s'ha pogut llegir el fitxer XML.",
@@ -1204,6 +1209,11 @@ $messages['fr'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, un outil d’import en masse pour GLAMs',
 	'gwtoolset-intro' => "GWToolset est une extension MediaWiki permettant aux institutions culturelles (''GLAM'' − bibliothèques, archives, musées et galeries) de téléverser en masse des contenus en se basant sur un fichier XML contenant les métadonnées de ces contenus. Le but est d’autoriser une grande variété de schémas XML. De plus amples informations sur le projet sont disponibles sur [https://commons.wikimedia.org/wiki/Commons:GLAMwiki_Toolset_Project la page projet]. N’hésitez pas à nous contacter aussi via cette page. Choisissez l’un des éléments dans le menu ci-dessus et c’est parti pour le processus de téléversement.",
+	'right-gwtoolset' => 'Utiliser GWToolset',
+	'action-gwtoolset' => 'utiliser gwtoolset',
+	'group-gwtoolset' => 'Utilisateurs de GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Utilisateur|Utilisatrice}} de GWToolset',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset users',
 	'gwtoolset-batchjob-creation-failure' => 'Impossible de crée un traitement par lot de type « $1 ».',
 	'gwtoolset-could-not-close-xml' => 'Impossible de fermer le lecteur XML.',
 	'gwtoolset-could-not-open-xml' => 'Impossible de lire le fichier XML.',
@@ -1309,7 +1319,9 @@ Importez le modèle, ou sélectionnez un autre modèle MediaWiki à utiliser pou
 	'gwtoolset-metadata-file-source-info' => '… soit un fichier qui a été préalablement importé ou un fichier que vous voulez importer depuis votre machine.',
 	'gwtoolset-metadata-file-url' => 'URL du wiki du fichier de métadonnées :',
 	'gwtoolset-metadata-file-upload' => 'Import du fichier de métadonnées :',
-	'gwtoolset-metadata-mapping-bad' => 'Il y a un problème avec la correspondance des métadonnées. Le plus vraisemblable est que le format JSON n’est pas valide. Essayez de corriger le problème puis soumettez de nouveau le formulaire.', # Fuzzy
+	'gwtoolset-metadata-mapping-bad' => 'Il y a un problème avec la correspondance des métadonnées. Le plus vraisemblable est que le format JSON n’est pas valide. Essayez de corriger le problème puis soumettez de nouveau le formulaire.
+
+$1',
 	'gwtoolset-metadata-mapping-invalid-url' => 'L’URL de correspondance des métadonnées fournie ne correspond pas au chemin d’URL de correspondance attendu.
 
 * URL fournie : $1
@@ -1320,12 +1332,31 @@ La page « <strong>$1<strong> » n’existe pas dans le wiki.',
 	'gwtoolset-namespace-mismatch' => 'La page « <strong>$1<strong> » est dans le mauvais espace de noms « <strong>$2<strong> ».
 
 Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
+	'gwtoolset-no-xml-element-found' => 'Aucun élément XML trouvé pour la correspondance.
+* Avez-vous saisi une valeur dans le formulaire pour « {{int:gwtoolset-record-element-name}} » ?
+* Le fichier XML est-il bien formé ? Essayez cela $1.',
+	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après /wiki/',
+	'gwtoolset-record-element-name' => 'Quel est l’élément XML qui contient chaque enregistrement de métadonnée :',
+	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
 	'gwtoolset-step-1-instructions-1' => 'Le processus de téléchargement des métadonnées se déroule en 4 étapes différentes :',
+	'gwtoolset-step-1-instructions-2' => 'Dans cette étape, vous importez un nouveau fichier de métadonnées dans le wiki. L’outil essayera d’extraire les champs de métadonnées disponibles dans le fichier, que vous ferez ensuite correspondre avec un modèle de MediaWiki dans « {{int:gwtoolset-step-2-heading}} ».',
 	'gwtoolset-step-1-instructions-3-heading' => 'Whitelist des Domaines',
+	'gwtoolset-step-1-instructions-li-1' => 'Détection des métadonnées',
+	'gwtoolset-step-1-instructions-li-2' => 'Correspondance des métadonnées',
+	'gwtoolset-step-1-instructions-li-3' => 'Aperçu du lot',
+	'gwtoolset-step-1-instructions-li-4' => 'Import du lot',
 	'gwtoolset-upload-legend' => 'Téléchargez votre fichier de métadonnées.',
+	'gwtoolset-which-mediawiki-template' => 'Quel modèle de MediaWiki :',
+	'gwtoolset-which-metadata-mapping' => 'Quelle correspondance de métadonnées :',
+	'gwtoolset-xml-error' => 'Échec au chargement du XML. Veuillez corriger les erreurs ci-dessous.',
+	'gwtoolset-categories' => 'Entrer les catégories séparées par un caractère barre verticale ("|")',
 	'gwtoolset-category' => 'Catégorie',
+	'gwtoolset-create-mapping' => '$1 : Création de la correspondance des métadonnées pour $2.',
 	'gwtoolset-example-record' => 'Exemple du contenu des enregistrements des métadonnées.',
 	'gwtoolset-global-categories' => 'Catégories globales',
+	'gwtoolset-global-tooltip' => 'Ces entrées de catégorie s’appliqueront globalement à tous les éléments importés.',
+	'gwtoolset-maps-to' => 'Correspond à',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'L’extension du fichier ne peut pas être déterminée pour l’URL de fichier : $1',
 	'gwtoolset-results' => 'Résultats',
 	'gwtoolset-step-2-instructions-2-li-2' => "Il n'est pas nécessaire de remplir tous les champs des modèles de MediaWiki.",
 	'gwtoolset-no-upload-by-url' => "Vous ne faites pas partie d'un groupe ayant le droit d'uploader par URL.",
@@ -1392,6 +1423,11 @@ $messages['ja'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset - GLAM 用の一括アップロード ツール',
 	'gwtoolset-intro' => 'GWToolset は、GLAM (美術館、図書館、記録保管所、博物館) がコンテンツを一括アップロードできるようにする MediaWiki 拡張機能です。この一括アップロードは、コンテンツそれぞれについてのメタデータを含む XML ファイルに基づいて行われます。さまざまな XML スキーマに対応することを意図しています。プロジェクトについての詳細情報は、[https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project プロジェクト ページ]にあります。そちらのページでもご遠慮なくお問い合わせください。アップロード作業を開始するには、上のメニュー項目から 1 つ選択してください。',
+	'right-gwtoolset' => 'GWToolsetを使用',
+	'action-gwtoolset' => 'gwtoolsetの使用',
+	'group-gwtoolset' => 'GWToolset 利用者',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset 利用者}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset 利用者',
 	'gwtoolset-batchjob-creation-failure' => '種類「$1」の一括処理のジョブを作成できませんでした。',
 	'gwtoolset-could-not-close-xml' => 'XML リーダーを閉じることができませんでした。',
 	'gwtoolset-could-not-open-xml' => 'XML ファイルを読み取り用で開くことができませんでした。',
@@ -1635,6 +1671,11 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, en Tool fir Fichieren a grousser Zuel eropzelueden (speziell fir Galerien, Bibliothéiken, Archiver a Muséeën)',
+	'right-gwtoolset' => 'GWToolset benotzen',
+	'action-gwtoolset' => 'gwtoolset ze benotzen',
+	'group-gwtoolset' => 'GWToolset-Benotzer',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset-Benotzer|GWToolset-Benotzerin}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset-Benotzer',
 	'gwtoolset-could-not-open-xml' => 'Den XML-Fichier konnt net fir ze liesen opgemaach ginn.',
 	'gwtoolset-fsfile-empty' => 'De Fichier war eidel a gouf geläscht.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> net agestallt.',
@@ -1646,6 +1687,7 @@ $messages['lb'] = array(
 	'gwtoolset-no-summary' => 'Kee Resumé uginn.',
 	'gwtoolset-no-text' => 'Keen Text uginn.',
 	'gwtoolset-no-title' => 'Keen Titel uginn.',
+	'gwtoolset-sha1-does-not-match' => 'Den SHA-1 ass net richteg.',
 	'gwtoolset-file-is-empty' => 'Den eropgeluedene Fichier ass eidel.',
 	'gwtoolset-improper-upload' => 'De Fichier gouf net richteg eropgelueden.',
 	'gwtoolset-partial-upload' => 'De Fichier gouf nëmmen deelweis eropgelueden.',
@@ -1657,6 +1699,7 @@ $messages['lb'] = array(
 	'gwtoolset-cancel' => 'Ofbriechen',
 	'gwtoolset-loading' => 'Hutt w.e.g. e bësse Gedold. Dëst kann e bëssen daueren.',
 	'gwtoolset-save' => 'Späicheren',
+	'gwtoolset-json-error' => 'Et gouf e Problem mam JSON. Feeler: $1',
 	'gwtoolset-json-error-syntax' => 'Synthax-Feeler,JSON falsch zesummegesat.',
 	'gwtoolset-json-error-unknown' => 'Onbekannte Feeler.',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-Schabloun "$1" net fonnt.',
@@ -1669,6 +1712,7 @@ $messages['lb'] = array(
 	'gwtoolset-results' => 'Resultater',
 	'gwtoolset-step-2-instructions-1-li-1' => 'Eng Lëscht vun de Felder an der MediaWiki $1.',
 	'gwtoolset-template-field' => 'Feld vun der Schabloun',
+	'gwtoolset-user-blocked' => 'Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.',
 	'gwtoolset-required-group' => 'Dir sidd net Member vum Grupp $1.',
 	'gwtoolset-verify-php-version' => "D'Erweiderung $1 brauch PHP >= 5.3.3.",
 );
@@ -2079,10 +2123,19 @@ $messages['ru'] = array(
 
 /** Swedish (svenska)
  * @author Jopparn
+ * @author LeiLar
  * @author Lokal Profil
  * @author Tobulos1
  */
 $messages['sv'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, ett massuppladdningsverktyg för GLAM-institutioner',
+	'gwtoolset-intro' => 'GWToolset är ett MediaWiki-tillägg som ger GLAM (gallerier, bibliotek, arkiv och museer) möjlighet att massuppladda innehåll baserat på en XML-fil som innehåller metadata om respektive del av innehållet. Avsikten är att möjliggöra för en mängd olika XML-scheman. Ytterligare information om projektet kan hittas på dess [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project projektsida]. Du är välkommen att kontakta oss på den sidan också. Välj en av menyposterna ovan för att börja ladda upp.',
+	'right-gwtoolset' => 'Använd GWToolset',
+	'action-gwtoolset' => 'använda gwtoolset',
+	'group-gwtoolset' => 'GWToolset-användare',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset-användare}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset-användare',
 	'gwtoolset-batchjob-creation-failure' => 'Gick inte att skapa ett batch-jobb av typen "$1".',
 	'gwtoolset-could-not-close-xml' => 'Kunde inte stänga av XML-läsaren.',
 	'gwtoolset-could-not-open-xml' => 'Kunde inte öppna XML-filen för läsning.',
@@ -2090,6 +2143,8 @@ $messages['sv'] = array(
 
 
 $1',
+	'gwtoolset-file-backend-maxage-invalid' => 'Maximalt värdet för ålder i <code>$wgGWTFBMaxAge</code> är ogiltigt.
+Se [php.net/manual/en/datetime.formats.relative.php PHP-manualen] för hur du ställer in det korrekt.',
 	'gwtoolset-fsfile-empty' => 'Filen var tom och togs bort.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Filen kunde inte hämtas från URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> inte angivna.',
@@ -2160,7 +2215,7 @@ $1',
 	'gwtoolset-save-mapping' => 'Spara mappning',
 	'gwtoolset-save-mapping-failed' => 'Förlåt. Det uppstod ett problem vid bearbetningen av din begäran. Vänligen försök igen senare. (Felmeddelande: $1)',
 	'gwtoolset-save-mapping-succeeded' => 'Din mappning har sparats.',
-	'gwtoolset-save-mapping-name' => 'Vad vill du döpa denna mappning?',
+	'gwtoolset-save-mapping-name' => 'Vad vill du kalla denna mappning?',
 	'gwtoolset-json-error' => 'Det var ett problem med JSON. Fel: $1.',
 	'gwtoolset-json-error-ctrl-char' => 'Oväntad kontrollkaraktär finns.',
 	'gwtoolset-json-error-syntax' => 'Syntaxfel, felaktigt formerad JSON.',
@@ -2190,16 +2245,23 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande $1.',
 	'gwtoolset-category' => 'Kategori',
+	'gwtoolset-partner-template' => 'Mall för partner:',
 	'gwtoolset-preview' => 'Förhandsgranska massuppladdning',
 	'gwtoolset-record-count' => 'Totalt antal poster funna i denna metadatafil:  {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Resultat',
 	'gwtoolset-step-2-instructions-1' => 'Nedan är:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'En lista över fälten i MediaWiki $1.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'En exempelpost från metadatafilen.',
+	'gwtoolset-reupload-media' => 'Återuppladda media från URL',
 	'gwtoolset-template-field' => 'Mallfält',
 	'gwtoolset-step-3-instructions-heading' => 'Steg 3: Förhandsgranska massuppladdning',
 	'gwtoolset-step-4-heading' => 'Steg 4: Massuppladdning',
 	'gwtoolset-invalid-token' => 'Redigeringstoken som lämnades in med formuläret är ogiltig.',
+	'gwtoolset-user-blocked' => 'Ditt konto är för närvarande blockerat. Kontakta en administratör för att korrigera blockeringsproblemet.',
 	'gwtoolset-required-group' => 'Du är inte medlem av grupp $1.',
+	'gwtoolset-verify-api-enabled' => '$1-tillägget kräver att wikins API är aktiverat.
+
+Kontrollera att <code>$wgEnableAPI</code> är inställd på <code>true</code> i den <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
 );
 
 /** Telugu (తెలుగు)
@@ -2354,6 +2416,7 @@ $1.',
 	'gwtoolset-step-1-heading' => 'Крок 1: виявлення метаданих',
 	'gwtoolset-step-1-instructions-1' => 'Процес завантаження метаданих складається з 4 кроків:',
 	'gwtoolset-step-1-instructions-2' => 'На цьому кроці ви завантажуєте новий файл метаданих у вікі. Інструмент буде намагатися отримати поля метаданих, наявні у файлі метаданих, які ви потім зіставите з шаблоном Медіавікі у "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'Якщо ваш мультимедійний файл відсутній у списку нижче, то перевірте [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment request] чи домен вашого файлу доданий у білий список доменів Вікісховища. Білий список доменів - це перелік доменів, який Вікісховище читає перед отриманням медіафайлів. Якщо домен вашого медіафайлу відсутній у списку, то Вікісховище не завантажуватиме жодного файлу з нього. Найкращим зразком перевірки дії вашого запиту є фактичне посилання на медіафайл.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Білий список доменів',
 	'gwtoolset-step-1-instructions-li-1' => 'Виявлення метаданих',
 	'gwtoolset-step-1-instructions-li-2' => 'Відображення метаданих',
@@ -2371,7 +2434,9 @@ $1.',
 	'gwtoolset-global-tooltip' => 'Записи цих категорій застосовуватимуться глобально до всіх завантажених елементів.',
 	'gwtoolset-maps-to' => 'Зіставлення для',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'Не вдалося визначити розширення файлу з URL файлу: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'URL медіафайлу неможливо визначити. URL надає вміст таким способом, який не опрацьовується цим розширенням. Надана URL була "$1".',
 	'gwtoolset-mapping-no-title' => 'Зіставлення метаданих не містить заголовок, який необхідний для того, щоб створити сторінку.',
+	'gwtoolset-mapping-no-title-identifier' => 'Зіставлення метаданих не містить ідентифікатор заголовку, який використовується для створення унікальної титульної сторінки. Переконайтеся, що ви призначити поле метаданих для ідентифікатора заголовку параметричного шаблону Медіавікі.',
 	'gwtoolset-metadata-field' => 'Поле метаданих',
 	'gwtoolset-metadata-file' => 'Файл метаданих',
 	'gwtoolset-metadata-mapping-legend' => 'Зіставити ваші метадані',

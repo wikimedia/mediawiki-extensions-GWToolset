@@ -24,3 +24,8 @@ $specialPageAliases['ar'] = array(
 $specialPageAliases['diq'] = array(
 	'GWToolset' => array( 'GWSazhalet' ),
 );
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'GWToolset' => array( 'GW工具集' ),
+);
