@@ -311,8 +311,8 @@ class MetadataDetectForm {
 				Html::rawElement(
 					'span',
 					array( 'class' => 'required' ),
-					'* '
-				) .
+					'*'
+				) . ' ' .
 				wfMessage( 'gwtoolset-required-field' )->escaped()
 			) .
 

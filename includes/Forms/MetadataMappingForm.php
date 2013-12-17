@@ -338,7 +338,7 @@ class MetadataMappingForm {
 					'span',
 					array( 'class' => 'required' ),
 					'*'
-				) .
+				) . ' ' .
 				wfMessage( 'gwtoolset-required-field' )->escaped()
 			) .
 
