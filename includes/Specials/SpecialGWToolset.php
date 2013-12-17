@@ -159,7 +159,7 @@ class SpecialGWToolset extends SpecialPage {
 		$this->module_key = null;
 		$gwtoolset_form = $this->getRequest()->getVal( 'gwtoolset-form' );
 
-		if ( key_exists( $gwtoolset_form, $this->_registered_modules ) ) {
+		if ( array_key_exists( $gwtoolset_form, $this->_registered_modules ) ) {
 			$this->module_key = $gwtoolset_form;
 		}
 

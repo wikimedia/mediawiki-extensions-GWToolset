@@ -82,7 +82,7 @@ class GWTFileBackendCleanup extends Maintenance {
 			);
 
 			if (
-				key_exists( $extension, Config::$accepted_metadata_types )
+				array_key_exists( $extension, Config::$accepted_metadata_types )
 				&& wfTimestamp( TS_UNIX, $timestamp ) < $cutoff
 			) {
 				$Status = $GWTFileBackend->deleteFile( $mwstore_file_path );
