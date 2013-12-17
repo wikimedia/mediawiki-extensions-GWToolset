@@ -14,7 +14,6 @@ use GWToolset\Config,
 	MimeMagic,
 	MWException,
 	Php\File,
-	OutputPage,
 	Status,
 	UploadBase;
 

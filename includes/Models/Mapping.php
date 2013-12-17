@@ -12,9 +12,7 @@ use GWToolset\Adapters\DataAdapterInterface,
 	GWtoolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
-	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiPages,
-	Language,
 	Linker;
 
 class Mapping implements ModelInterface {

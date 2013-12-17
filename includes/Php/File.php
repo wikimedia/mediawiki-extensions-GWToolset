@@ -8,8 +8,8 @@
  */
 
 namespace Php;
-use finfo,
-	GWToolset\GWTException,
+use
+GWToolset\GWTException,
 	GWToolset\Utils,
 	MimeMagic,
 	MWException;

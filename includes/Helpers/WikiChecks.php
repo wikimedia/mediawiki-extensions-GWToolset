@@ -11,13 +11,10 @@ namespace GWToolset\Helpers;
 use GWToolset\Config,
 	GWToolset\Constants,
 	GWToolset\Utils,
-	Html,
 	MWException,
 	PermissionsError,
 	SpecialPage,
-	Status,
-	User,
-	UserBlockedError;
+	Status;
 
 /**
  * provides several methods for verifying :

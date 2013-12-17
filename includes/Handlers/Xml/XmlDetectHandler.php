@@ -8,17 +8,15 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use Content,
-	DOMElement,
+use
+DOMElement,
 	GWToolset\GWTException,
-	GWToolset\Helpers\GWTFileBackend,
 	GWToolset\Utils,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	Html,
 	MWException,
 	Sanitizer,
-	SpecialPage,
 	XMLReader;
 
 /**

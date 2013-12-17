@@ -14,9 +14,6 @@ use ApiMain,
 	GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
-	MimeMagic,
-	MWException,
-	MWHttpRequest,
 	Title;
 
 class MediawikiTemplatePhpAdapter implements DataAdapterInterface {

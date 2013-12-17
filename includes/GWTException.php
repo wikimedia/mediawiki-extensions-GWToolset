@@ -8,8 +8,7 @@
  */
 
 namespace GWToolset;
-use Exception,
-	GWToolset\Utils;
+use Exception;
 
 class GWTException extends Exception {
 
