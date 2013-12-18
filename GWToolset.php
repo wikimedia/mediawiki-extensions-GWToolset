@@ -44,11 +44,6 @@ $wgNamespacesWithSubpages[NS_GWTOOLSET_TALK] = true;
 // add user permissions
 $wgGroupPermissions["gwtoolset"]["gwtoolset"] = true;
 $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
-$wgGroupPermissions['sysop']['gwtoolset'] = true;
-
-// make sure sysop can add/remove gwtoolset group
-$wgAddGroups['sysop'][] = 'gwtoolset';
-$wgRemoveGroups['sysop'][] = 'gwtoolset';
 
 // add autoloader classes
 $wgAutoloadClasses = $wgAutoloadClasses + array(
