@@ -33,9 +33,6 @@ $wgGWToolsetDir = realpath( __DIR__ );
 if ( !defined( 'NS_GWTOOLSET' ) ) {
 	define( 'NS_GWTOOLSET', 490 );
 	define( 'NS_GWTOOLSET_TALK', NS_GWTOOLSET + 1 );
-} else {
-	echo 'Namespace conflict. Either another extension or configuration has already defined the namespace NS_GWTOOLSET.';
-	exit();
 }
 
 $wgExtraNamespaces[NS_GWTOOLSET] = 'GWToolset';

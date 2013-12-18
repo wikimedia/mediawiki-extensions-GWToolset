@@ -9,6 +9,6 @@
 $namespaceNames = array();
 
 $namespaceNames['en'] = array(
-	NS_GWTOOLSET       => 'GWToolset',
-	NS_GWTOOLSET_TALK  => 'GWToolset_talk'
+	490 => 'GWToolset',
+	491 => 'GWToolset_talk'
 );
