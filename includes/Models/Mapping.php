@@ -77,6 +77,8 @@ class Mapping implements ModelInterface {
 	 *
 	 * @return {array}
 	 * the keys and values within the array are not filtered
+	 *
+	 * @throws {GWTException}
 	 */
 	public function getJsonAsArray( array &$options = array() ) {
 		try {

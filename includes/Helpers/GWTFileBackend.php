@@ -111,6 +111,7 @@ class GWTFileBackend {
 	 *
 	 * @param {string} $mwstore_complete_file_path
 	 * @return {Status}
+	 * @throws {MWException}
 	 */
 	public function deleteFile( $mwstore_complete_file_path = null ) {
 		if ( empty( $mwstore_complete_file_path ) ) {
@@ -439,6 +440,7 @@ class GWTFileBackend {
 	 * sets up the file backend
 	 *
 	 * @param {array} $params
+	 * @throws {MWException}
 	 */
 	protected function setupFileBackend( array $params ) {
 		if ( empty( $params['file-backend-name'] ) ) {

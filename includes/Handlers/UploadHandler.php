@@ -494,6 +494,7 @@ class UploadHandler {
 	 * @param {array} $whitelisted_post
 	 *
 	 * @return {bool}
+	 * @throws {MWException}
 	 */
 	public function saveMediafileViaJob(
 		array $user_options, array $options, array $whitelisted_post

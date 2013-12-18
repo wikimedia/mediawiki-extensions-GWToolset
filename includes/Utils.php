@@ -281,6 +281,7 @@ class Utils {
 	 * @param {int} $params['max']
 	 * @param {int} $params['default']
 	 * @return {int}
+	 * @throws {MWException}
 	 */
 	public static function sanitizeNumericRange( $value, $params ) {
 		if ( !isset( $params['min'] ) ) {
@@ -325,6 +326,7 @@ class Utils {
 	/**
 	 * @param {string} $string
 	 * @return {string|null}
+	 * @throws {MWException}
 	 */
 	public static function sanitizeString( $string ) {
 		// is_string thought some form fields were booleans instead of strings

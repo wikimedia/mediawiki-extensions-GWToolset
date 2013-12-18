@@ -11,8 +11,8 @@ namespace GWToolset;
 class Hooks {
 
 	/**
-	 * @param $list array
-	 * @return bool
+	 * @param {array} $list
+	 * @return {bool}
 	 */
 	public static function onCanonicalNamespaces( &$list ) {
 		$list[NS_GWTOOLSET] = 'GWToolset';
@@ -20,6 +20,10 @@ class Hooks {
 		return true;
 	}
 
+	/**
+	 * @param {array} $files
+	 * @return {bool}
+	 */
 	public static function onUnitTestsList( &$files ) {
 		global $wgGWToolsetDir;
 		$files = array_merge( $files, glob( $wgGWToolsetDir . '/tests/phpunit/*Test.php' ) );

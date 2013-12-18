@@ -8,13 +8,18 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use
-GWToolset\GWTException,
+use GWToolset\GWTException,
+	GWToolset\Helpers\GWTFileBackend,
 	Html,
 	MWException,
 	XMLReader;
 
 abstract class XmlHandler {
+
+	/**
+	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 */
+	protected $_GWTFileBackend;
 
 	public abstract function __construct();
 
@@ -127,7 +132,7 @@ abstract class XmlHandler {
 
 		while ( $XMLReader->read() ) {
 			if ( $XMLReader->nodeType === XMLReader::DOC_TYPE ) {
-				if ( $this->_GWTFileBackend instanceof \GWToolset\Helpers\GWTFileBackend ) {
+				if ( $this->_GWTFileBackend instanceof GWTFileBackend ) {
 					$mwstore_relative_path = $this->_GWTFileBackend->getMWStoreRelativePath();
 
 					if ( $mwstore_relative_path !== null ) {

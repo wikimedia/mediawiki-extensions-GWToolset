@@ -56,6 +56,7 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
+	 * @throws {MWException}
 	 * @return {bool}
 	 */
 	protected function recreateMetadataJob() {
