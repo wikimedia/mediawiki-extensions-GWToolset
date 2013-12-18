@@ -13,8 +13,12 @@ GWToolset\Helpers\GWTFileBackend,
 	Maintenance,
 	MWException;
 
-chdir( '../../../maintenance' );
-require_once './Maintenance.php';
+$IP = getenv( 'MW_INSTALL_PATH' );
+if ( $IP === false ) {
+	$IP = dirname( __FILE__ ) . '/../../..';
+}
+require_once( "$IP/maintenance/Maintenance.php" );
+
 
 /**
  * Maintenance script to remove abandoned or outdated metadata files from the temporary
