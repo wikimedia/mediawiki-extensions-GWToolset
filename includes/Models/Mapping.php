@@ -12,7 +12,6 @@ use GWToolset\Adapters\DataAdapterInterface,
 	GWtoolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
-	GWToolset\Helpers\WikiPages,
 	Linker;
 
 class Mapping implements ModelInterface {
@@ -80,8 +79,6 @@ class Mapping implements ModelInterface {
 	 * the keys and values within the array are not filtered
 	 */
 	public function getJsonAsArray( array &$options = array() ) {
-		$result = array();
-
 		try {
 			$result = json_decode( $this->mapping_json, true );
 			Utils::jsonCheckForError();
@@ -238,7 +235,7 @@ class Mapping implements ModelInterface {
 	}
 
 	public function setTargetElements() {
-		foreach ( $this->mapping_array as $key => $value ) {
+		foreach ( $this->mapping_array as $value ) {
 			foreach ( $value as $item ) {
 				if ( !in_array( $item, $this->target_dom_elements ) && !empty( $item ) ) {
 					$this->target_dom_elements[] = $item;

@@ -31,6 +31,8 @@ use FSFile,
 
 class MetadataMappingHandler extends FormHandler {
 
+	protected $_GWTFileBackend;
+
 	/**
 	 * @var {array}
 	 */
@@ -95,8 +97,6 @@ class MetadataMappingHandler extends FormHandler {
 	 * the html string has been escaped and parsed by wfMessage
 	 */
 	protected function createMetadataBatchJob() {
-		$result = false;
-
 		$job = new UploadMetadataJob(
 			Title::newFromText(
 				$this->User->getName() . '/' .
@@ -333,8 +333,6 @@ class MetadataMappingHandler extends FormHandler {
 	 * an array of mediafile Title(s)
 	 */
 	protected function processMetadata( array &$user_options ) {
-		$result = array();
-
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
 		$this->_Mapping->mapping_array =
 			$this->_MediawikiTemplate->getMappingFromArray( $this->_whitelisted_post );
@@ -481,7 +479,6 @@ class MetadataMappingHandler extends FormHandler {
 	 */
 	public function processRequest( array $original_post = array() ) {
 		$result = null;
-		$mediafile_titles = array();
 
 		if ( empty( $original_post ) ) {
 			$original_post = $_POST;

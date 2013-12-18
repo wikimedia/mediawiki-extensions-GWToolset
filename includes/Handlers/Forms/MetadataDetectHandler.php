@@ -82,19 +82,15 @@ class MetadataDetectHandler extends FormHandler {
 	 * mediawiki template parameters with metadata elements in the
 	 * <select>s
 	 *
-	 * @param {array} $user_options
-	 * an array of user options that was submitted in the html form
-	 *
 	 * @return {string}
 	 * the values within the table rows have been filtered
 	 */
-	public function getMetadataAsHtmlSelectsInTableRows( array &$user_options ) {
+	public function getMetadataAsHtmlSelectsInTableRows() {
 		$result = null;
 
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $parameter => $value ) {
 			$result .= $this->XmlDetectHandler->getMetadataAsTableCells(
 				$parameter,
-				$this->_MediawikiTemplate,
 				$this->_Mapping
 			);
 		}

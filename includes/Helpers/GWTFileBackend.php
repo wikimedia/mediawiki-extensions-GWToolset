@@ -65,8 +65,6 @@ class GWTFileBackend {
 	 * @return {bool}
 	 */
 	public function createCleanupJob( $mwstore_relative_path = null ) {
-		$result = false;
-
 		if ( empty( $mwstore_relative_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -115,8 +113,6 @@ class GWTFileBackend {
 	 * @return {Status}
 	 */
 	public function deleteFile( $mwstore_complete_file_path = null ) {
-		$result = Status::newGood();
-
 		if ( empty( $mwstore_complete_file_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

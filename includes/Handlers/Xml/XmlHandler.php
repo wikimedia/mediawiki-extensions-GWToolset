@@ -104,7 +104,6 @@ abstract class XmlHandler {
 		array &$user_options, $file_path_local = null, $callback = null
 	) {
 		$result = array();
-		$read_result = array( 'Title' => null, 'stop-reading' => false );
 
 		if ( empty( $callback ) ) {
 			throw new MWException(

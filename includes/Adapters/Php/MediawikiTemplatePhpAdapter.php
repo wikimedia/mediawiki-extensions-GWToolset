@@ -98,7 +98,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 */
 	protected function retrieveTemplateData( Title $Title ) {
 		$result = null;
-		$api_result = array();
+
 		global $wgRequest;
 
 		$Api = new ApiMain(

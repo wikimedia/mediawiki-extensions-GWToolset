@@ -9,7 +9,6 @@
 
 namespace GWToolset;
 use
-GWToolset\MediaWiki\Api\Client,
 	Language,
 	MWException,
 	Title;
@@ -26,7 +25,7 @@ class Utils {
 		$values = array();
 
 		foreach ( $array as $keys ) {
-			foreach ( $keys as $key => $value ) {
+			foreach ( $keys as $value ) {
 				$values[] = $value;
 			}
 		}
@@ -338,8 +337,7 @@ class Utils {
 			);
 		}
 
-		$result = trim( $string );
-		$result = filter_var( $string, FILTER_SANITIZE_STRING );
+		$result = filter_var( trim( $string ), FILTER_SANITIZE_STRING );
 
 		if ( !$result ) {
 			$result = null;

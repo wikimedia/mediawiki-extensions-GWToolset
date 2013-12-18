@@ -48,15 +48,11 @@ class UploadMetadataJob extends Job {
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
-		$result = false;
-
 		$MetadataMappingHandler = new MetadataMappingHandler(
 			array( 'User' => User::newFromName( $this->params['user-name'] ) )
 		);
 
-		$result = $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'] );
-
-		return $result;
+		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'] );
 	}
 
 	/**

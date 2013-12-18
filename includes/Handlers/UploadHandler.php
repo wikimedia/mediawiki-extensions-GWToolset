@@ -171,7 +171,6 @@ class UploadHandler {
 	 * the resulting wiki text is filtered
 	 */
 	protected function addItemSpecificCategories() {
-		$category_count = 0;
 		$phrase = null;
 		$metadata = null;
 		$result = null;
@@ -243,7 +242,6 @@ class UploadHandler {
 	 */
 	protected function evaluateMediafileUrl( $url ) {
 		$result = array( 'content-type' => null, 'extension' => null, 'url' => null );
-		$pathinfo = array();
 
 		if ( empty( $url ) ) {
 			throw new GWTException( 'gwtoolset-no-url-to-evaluate' );
@@ -500,7 +498,6 @@ class UploadHandler {
 	public function saveMediafileViaJob(
 		array $user_options, array $options, array $whitelisted_post
 	) {
-		$result = false;
 
 		if ( count( $this->mediafile_jobs ) > (int)$user_options['gwtoolset-mediafile-throttle'] ) {
 			throw new MWException(
@@ -532,9 +529,7 @@ class UploadHandler {
 		);
 
 		$this->mediafile_jobs[] = $job;
-		$result = true;
-
-		return $result;
+		return true;
 	}
 
 	/**

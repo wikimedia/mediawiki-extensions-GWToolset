@@ -142,9 +142,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * values provided by the DOMElement
 	 */
 	protected function getDOMElementMapped( DOMElement $DOMElement ) {
-
 		$elements_mapped = array();
-		$is_url = false;
 		$DOMNodeList = $DOMElement->getElementsByTagName( '*' );
 
 		// cycle over all of the elements in the record element provided

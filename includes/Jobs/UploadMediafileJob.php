@@ -42,8 +42,6 @@ class UploadMediafileJob extends Job {
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
-		$result = false;
-
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$MediawikiTemplate->getMediaWikiTemplate(
 			$this->params['user-options']['gwtoolset-mediawiki-template-name']
@@ -77,9 +75,7 @@ class UploadMediafileJob extends Job {
 		$Metadata->metadata_raw = $this->params['options']['metadata-raw'];
 		$Metadata->metadata_as_array = $this->params['options']['metadata-as-array'];
 
-		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
-
-		return $result;
+		return $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
 	}
 
 	/**

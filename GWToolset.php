@@ -8,7 +8,6 @@
  */
 
 namespace GWToolset;
-use GWToolset\Helpers\WikiChecks;
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo 'This file is part of a MediaWiki extension; it is not a valid entry point. To install this extension, follow the instructions in the INSTALL file.';

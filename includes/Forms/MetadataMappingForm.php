@@ -298,7 +298,7 @@ class MetadataMappingForm {
 				Html::rawElement(
 					'tbody',
 					array(),
-					$Handler->getMetadataAsHtmlSelectsInTableRows( $user_options )
+					$Handler->getMetadataAsHtmlSelectsInTableRows()
 				)
 			) .
 

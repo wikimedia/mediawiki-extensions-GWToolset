@@ -110,7 +110,7 @@ class WikiChecks {
 	 * @param {string} $memory_limit
 	 */
 	public static function checkMemoryLimit( $memory_limit = null ) {
-		global $wgMemoryLimit, $wgUseImageMagick;
+		global $wgUseImageMagick;
 
 		if ( empty( $memory_limit ) ) {
 			$memory_limit = Config::$memory_limit;

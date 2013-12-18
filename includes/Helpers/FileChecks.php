@@ -255,7 +255,7 @@ class FileChecks {
 			return $Status;
 		}
 
-		$Status = self::mimeTypeAndExtensionMatch( $File, $accepted_types );
+		$Status = self::mimeTypeAndExtensionMatch( $File );
 		if ( !$Status->ok ) {
 			return $Status;
 		}
@@ -269,7 +269,7 @@ class FileChecks {
 	 * @param {File} $File
 	 * @return {Status}
 	 */
-	public static function mimeTypeAndExtensionMatch( File $File, array $accepted_types = array() ) {
+	public static function mimeTypeAndExtensionMatch( File $File ) {
 		if ( !isset( $File->pathinfo['extension'] ) || empty( $File->pathinfo['extension'] ) ) {
 			return Status::newFatal( 'gwtoolset-unaccepted-extension' );
 		}

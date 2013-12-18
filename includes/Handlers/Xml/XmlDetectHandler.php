@@ -365,15 +365,12 @@ class XmlDetectHandler extends XmlHandler {
 	 * @param {string} $parameter
 	 * a mediawiki template parameter, e.g. in Template:Artwork, artist
 	 *
-	 * @param {MediawikiTemplate} $MediawikiTemplate
 	 * @param {Mapping} $Mapping
 	 *
 	 * @return {string}
 	 * the values within the table row have been filtered
 	 */
-	public function getMetadataAsTableCells(
-		$parameter, MediawikiTemplate $MediawikiTemplate, Mapping $Mapping
-	) {
+	public function getMetadataAsTableCells( $parameter, Mapping $Mapping ) {
 		$result = null;
 		$selected_options = array();
 		$parameter_as_id = Utils::normalizeSpace( $parameter );
