@@ -684,6 +684,7 @@ See also:
  * @author KRLS
  * @author Papapep
  * @author QuimGil
+ * @author Toniher
  */
 $messages['ca'] = array(
 	'gwtoolset' => 'GWToolset',
@@ -847,7 +848,7 @@ Hauria de ser al namespace "<strong>$3<strong>".',
 	'gwtoolset-no-more-records' => '<strong>No hi ha més registres per processar</strong>',
 	'gwtoolset-painted-by' => 'Pintat per',
 	'gwtoolset-partner' => 'Soci',
-	'gwtoolset-partner-explanation' => 'Quan són proveïdes, les plantilles de coŀlaboradors s\'integren al codi de la plantilla de MediaWiki. Podeu trobar una llista de plantilles de coŀlaboradors a la pàgina de la categoria "Source templates"; vegeu el següent enllaç. Un cop trobada la plantilla de coŀlaborador desitjada, afegiu en aquest camp la seva URL. Si s\'escau, també podeu crear una nova plantilla de coŀlaborador.',
+	'gwtoolset-partner-explanation' => 'Quan són proveïdes, les plantilles de col·laboradors s\'integren al codi de la plantilla de MediaWiki. Podeu trobar una llista de plantilles de col·laboradors a la pàgina de la categoria "Source templates"; vegeu el següent enllaç. Un cop trobada la plantilla de col·laborador desitjada, afegiu en aquest camp la seva URL. Si s\'escau, també podeu crear una nova plantilla de col·laborador.',
 	'gwtoolset-partner-template' => "Plantilla d'associat:",
 	'gwtoolset-phrasing' => 'Fraseig',
 	'gwtoolset-preview' => 'Vista prèvia de lots',
@@ -1200,6 +1201,14 @@ $messages['es'] = array(
 	'gwtoolset-mediawiki-version-invalid' => 'Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.',
 );
 
+/** Finnish (suomi)
+ * @author Stryn
+ */
+$messages['fi'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-save' => 'Tallenna',
+);
+
 /** French (français)
  * @author Crochet.david
  * @author Gomoko
@@ -1373,7 +1382,15 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-record-count' => 'Nombre total d’enregistrements trouvée dans ce fichier de métadonnées : {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Résultats',
 	'gwtoolset-step-2-heading' => 'Étape 2 : Correspondance des métadonnées',
+	'gwtoolset-step-2-instructions-heading' => 'Correspondance des champs de métadonnées',
+	'gwtoolset-step-2-instructions-1' => 'Ci-dessous se trouve(nt) :',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Une liste des champs dans le $1 de MediaWiki',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Champs déroulants qui représentent les champs de métadonnées trouvés dans le fichier de métadonnées.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Un enregistrement exemple pour le fichier de métadonnées.',
+	'gwtoolset-step-2-instructions-2' => 'Dans cette étape, vous devez manipuler les champs de métadonnées avec les champs du modèle MediaWiki.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Sélectionner un champ de métadonnées dans la colonne « {{int:gwtoolset-maps-to}} » qui correspond avec un champ du modèle de MediaWiki dans la colonne « {{int:gwtoolset-template-field}} ».',
 	'gwtoolset-step-2-instructions-2-li-2' => "Il n'est pas nécessaire de remplir tous les champs des modèles de MediaWiki.",
+	'gwtoolset-reupload-media' => 'Recharger le fichier média depuis l’URL',
 	'gwtoolset-step-3-instructions-heading' => 'Étape 3 : Prévisualisation du lot',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Impossible de créer un traitement par lot pour le fichier de métadonnées.',
 	'gwtoolset-create-mediafile' => '$1 : Création du fichier de média pour $2 en cours.',
@@ -1409,32 +1426,33 @@ Assurez-vous que <code>$wgEnableUploads</code> est défini à <code>true</code> 
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author NLIGuy
  */
 $messages['he'] = array(
-	'gwtoolset' => 'ארגז כלי גלאם-ויקי',
-	'gwtoolset-desc' => 'ארגז כלי גלאם-ויקי, כלי להעלאה מסיבית לויקישיתוף למוסדות GLAM (ספריות, ארכיונים, מוזיאונים, גלריות)',
-	'gwtoolset-could-not-close-xml' => 'לא יכול לסגור את קורה ה-XML.',
-	'gwtoolset-developer-issue' => 'אנא צרו קשר עם מפתח. יש להתייחס לבעיה זו לפני שתוכלו להמשיך. נא להוסיף את הטקסט הבא לדיווח שלכם:
+	'gwtoolset' => 'ארגז כלי גלאם־ויקי',
+	'gwtoolset-desc' => 'ארגז כלי גלאם-ויקי, כלי להעלאה המונית לוויקישיתוף בשביל מוסדות GLAM (ספריות, ארכיונים, מוזיאונים, גלריות)',
+	'gwtoolset-could-not-close-xml' => 'לא יכול לסגור את קורא ה־XML.',
+	'gwtoolset-developer-issue' => 'נא ליצור קשר עם מפתח. יש להתייחס לבעיה הזאת לפני שאפשר יהיה להמשיך. נא להוסיף את הטקסט הבא לדיווח שלכם:
 
 $1',
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, או <code>record-count</code>, או <code>record-current</code> לא סופקו.',
-	'gwtoolset-file-backend-maxage-invalid' => 'ערך הגיל המרבי הנתון ב<code>$wgGWTFBMaxAge</code> אינו חוקי. עיין ב- [php.net/manual/en/datetime.formats.relative.php PHP manual] בכדי להגדירו בצורה נכונה.',
-	'gwtoolset-fsfile-retrieval-failure' => 'לא היתה אפשרות לאחזר את הקובץ מ- URL  $1 .',
+	'gwtoolset-file-backend-maxage-invalid' => 'ערך הגיל המרבי הנתון ב<code>$wgGWTFBMaxAge</code> אינו תקין. עיין ב־ [php.net/manual/en/datetime.formats.relative.php PHP manual] כדי להגדירו בצורה נכונה.',
+	'gwtoolset-fsfile-retrieval-failure' => 'לא הייתה אפשרות לאחזר את הקובץ מהכתובת $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> לא הוגדר.',
-	'gwtoolset-incorrect-form-handler' => 'המודול " $1 " לא רשם form handler שמרחיב את GWToolset\\Handlers\\Forms\\FormHandler.',
-	'gwtoolset-job-throttle-exceeded' => "ג'וב האצווה חרגה מצוואר הבקבוק (throttle).",
+	'gwtoolset-incorrect-form-handler' => 'המודול "$1" לא רשם מטפל טפסים (form handler) שמרחיב את GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => 'מחסום המשימות (batch job throttle) הגיע לסף.',
 	'gwtoolset-no-accepted-types' => 'לא סופקו טיפוסים מקובלים.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> לא הוגדר.",
-	'gwtoolset-no-field-size' => 'לא צויין גודל שדה עבור שדה " $1 ".',
-	'gwtoolset-no-file-backend-name' => 'לא סופק שם לקובצי backend.',
-	'gwtoolset-no-file-backend-container' => 'לא סופק שם מיכל לקובצי backend.',
-	'gwtoolset-no-file-url' => 'לא סופק <code>file_url</code> לניתוח.',
-	'gwtoolset-no-form-handler' => 'לא נוצר form handler.',
+	'gwtoolset-no-field-size' => 'לא צוין גודל שדה עבור שדה "$1".',
+	'gwtoolset-no-file-backend-name' => 'לא סופק שם לשרת קבצים (file backend).',
+	'gwtoolset-no-file-backend-container' => 'לא סופק שם מכל לשרת קבצים (file backend container name).',
+	'gwtoolset-no-file-url' => 'לא סופק <code>file_url</code> לפענוח.',
+	'gwtoolset-no-form-handler' => 'לא נוצר מטפל טפסים (form handler).',
 	'gwtoolset-no-mapping' => 'לא סופק <code>mapping_name</code>.',
 	'gwtoolset-no-mapping-json' => 'לא סופק <code>mapping_json</code>.',
 	'gwtoolset-no-max' => 'לא ניתן ערך מרבי.',
-	'gwtoolset-no-mediafile-throttle' => 'לא סופק צוואר בקבוק ל-mediafile job.',
+	'gwtoolset-no-mediafile-throttle' => 'לא סופק מחסום למשימות קובצי מדיה.',
 	'gwtoolset-no-mediawiki-template' => 'לא סופק <code>mediawiki-template-name</code>.',
 	'gwtoolset-no-min' => 'לא ניתן ערך מינימלי.',
 	'gwtoolset-no-module' => 'שם המודול לא צוין.',
@@ -1444,14 +1462,14 @@ $1',
 	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> לא הוגדר.",
 	'gwtoolset-no-source-array' => 'לא סופק מערך מקור.',
 	'gwtoolset-no-summary' => 'לא סופק תקציר.',
-	'gwtoolset-no-template-url' => 'לא סופקה תבנית קישור לניתוח.',
+	'gwtoolset-no-template-url' => 'לא סופקה תבנית קישור לפענוח.',
 	'gwtoolset-no-text' => 'לא סופק טקסט.',
 	'gwtoolset-no-title' => 'לא סופקה כותרת.',
 	'gwtoolset-no-reupload-media' => "<code>user_options['gwtoolset-reupload-media']</code> לא הוגדר.",
 	'gwtoolset-no-url-to-media' => '<code>url-to-the-media-file</code> לא הוגדר.',
 	'gwtoolset-no-user' => 'לא סופק אובייקט משתמש.',
 	'gwtoolset-no-xml-element' => 'לא סופק XMLReader או DOMElement.',
-	'gwtoolset-no-xml-source' => 'לא סופק מקור XML לוקאלי.',
+	'gwtoolset-no-xml-source' => 'לא סופק מקור XML מקומי.',
 	'gwtoolset-not-string' => 'הערך שסופק למתודה לא היה מחרוזת. הוא מסוג "$1".',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 אינו תואם.',
 	'gwtoolset-disk-write-failure' => 'השרת לא הצליח לכתוב את הקובץ אל מערכת קבצים.',
@@ -2142,13 +2160,18 @@ $messages['nap'] = array(
 $messages['nl'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, een hulpprogramma voor het massaal uploaden van bestanden',
+	'right-gwtoolset' => 'GLAMWiki Toolset gebruiken',
+	'action-gwtoolset' => 'GLAMWiki Toolset te gebruiken',
+	'group-gwtoolset' => 'GWToolsetgebruikers',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolsetgebruiker}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolsetgebruikers',
 	'gwtoolset-batchjob-creation-failure' => 'Het is niet gelukt om batchverwerking van type "$1" aan te maken.',
 	'gwtoolset-could-not-close-xml' => 'De XML-lezer kan niet worden gesloten.',
 	'gwtoolset-could-not-open-xml' => 'Het is niet gelukt om het XML-bestand voor lezen te openen.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Het bestand kon niet worden opgehaald vanaf URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> is niet ingesteld.',
 	'gwtoolset-no-default' => 'Geen standaardwaarde gekozen.',
-	'gwtoolset-no-field-size' => 'Geen veldgrootte opgegeven voor het veld " $1 ".',
+	'gwtoolset-no-field-size' => 'Geen veldgrootte opgegeven voor het veld "$1".',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 komt niet overeen.',
 	'gwtoolset-disk-write-failure' => 'De server kan het bestand niet schrijven naar een bestandssysteem.',
 	'gwtoolset-mediawiki-template' => 'Sjabloon $1',
@@ -2161,8 +2184,21 @@ $messages['nl'] = array(
 	'gwtoolset-save-mapping-name' => 'Hoe wilt u deze verzameling koppelingen noemen?',
 	'gwtoolset-json-error' => 'Er was een probleem met de JSON. Fout: $1.',
 	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
+	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
 	'gwtoolset-category' => 'Categorie',
-	'gwtoolset-required-group' => 'Je bent geen lid van de, $1, groep.',
+	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'gwtoolset-submit' => 'سپارل',
+	'gwtoolset-summary-heading' => 'لنډيز',
+	'gwtoolset-cancel' => 'ناگارل',
+	'gwtoolset-save' => 'خوندي کول',
+	'gwtoolset-category' => 'وېشنيزه',
+	'gwtoolset-results' => 'پايلې',
 );
 
 /** Russian (русский)
@@ -2527,6 +2563,7 @@ $1.',
 	'gwtoolset-no-more-records' => '<strong>Немає більше записів для оброблення</strong>',
 	'gwtoolset-painted-by' => 'Намальовано',
 	'gwtoolset-partner' => 'Партнер',
+	'gwtoolset-partner-explanation' => 'Шаблони партнерів беруться у поле джерела шаблону Медіавікі, коли це передбачено. Ви можете знайти список поточних шаблонів партнера на сторінці Категорія:Шаблони джерела; див. посилання нижче. Як тільки ви знайшли партнера шаблон, який ви хочете використовувати, розмістіть URL-адресу в цьому полі. Ви також можете створити новий шаблон партнера за необхідності.',
 	'gwtoolset-partner-template' => 'Шаблон партнера:',
 	'gwtoolset-phrasing' => 'Формулювання',
 	'gwtoolset-preview' => 'Пакетний перегляд',
@@ -2545,10 +2582,19 @@ $1.',
 	'gwtoolset-reupload-media' => 'Повторно завантажити медіа з URL',
 	'gwtoolset-reupload-media-explanation' => 'Цей параметр дозволяє вам повторно завантажувати медіа для елемента, яке вже було завантажене у вікі. Якщо елемент вже існує, то додатковий медіа-файл буде доданий у вікі. Якщо медіа-файл ще не існує, то він буде завантажений залежно від того, чи прапорець встановлений чи ні.',
 	'gwtoolset-specific-categories' => 'Специфічні категорії пункту',
+	'gwtoolset-specific-tooltip' => 'За допомогою таких полів можна вжити конструкцію (необов\'язково) плюс поле метаданих як елемент категорії  для кожного окремо завантаженого елемента. Наприклад, якщо файл метаданих містить пункт для автора кожного запису, то ви можете додати його як елемент категорії для кожного запису, що змінить значення, специфічні для кожного запису. Можна також додати фразу на кшталт <em>{{int:gwtoolset-painted-by}}</em>" і потім поле метаданих автора, яке принесе "<em>{{int:gwtoolset-painted-by}} <artist name></em>" як категорію для кожного запису.',
 	'gwtoolset-template-field' => 'Поле шаблону',
 	'gwtoolset-step-3-instructions-heading' => 'Крок 3: пакетний перегляд',
 	'gwtoolset-step-3-instructions-1' => 'Нижче наведені результати завантаження {{PLURAL:$1|першого запису|перших $1 записів}} від файлу метаданих, який ви вибрали і зіставлення  {{PLURAL:$1|його|їх}} для вибраного у MediaWiki шаблону "{{int:gwtoolset-крок-2-заголовок}}".',
 	'gwtoolset-step-3-instructions-2' => 'Перегляньте ці сторінки і якщо результати не відповідають вашим очікуванням, і існують додаткові записи, які чекають на завантаження, продовжіть процес пакетного завантаження, натиснувши нижче на кнопку  "{{int:gwtoolset-process-batch}}".',
+	'gwtoolset-step-3-instructions-3' => 'Якщо ви не задоволені результатами, то поверніться до "{{int:gwtoolset-step-2-heading}}" та відрегулюйте відображення у разі потреби.
+
+Якщо вам необхідно внести корективи у сам файл метаданих, то перейдіть вперед, зробіть потрібні зміни і завантажте його знову на початку процесу з "{{int:gwtoolset-step-1-heading}}".',
+	'gwtoolset-title-bad' => 'Заголовок створено на основі метаданих, бо зіставлення шаблону Медіавікі не діє.
+
+Спробуйте інше поле метаданих для заголовку і ідентифікатора заголовку, або, якщо це можливо, відредагуйте метадані там, де це необхідно. Див.  [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] для отримання додаткової інформації.
+
+<strong>Пошкоджених назва:</strong> $1.',
 	'gwtoolset-batchjob-metadata-created' => 'Пакетне завдання метаданих створено. Ваш файл метаданих буде проаналізовано найближчим часом і кожний елемент буде завантажений на вікі у фоновому режимі. Ви можете перевірити на сторінці "$1" хід їхнього завантаження.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Не вдалося створити пакетне завдання для файлу метаданих.',
 	'gwtoolset-create-mediafile' => '$1: Створення медіафайлу для $2.',
@@ -2556,6 +2602,12 @@ $1.',
 	'gwtoolset-mediafile-jobs-created' => 'Створено $1 {{PLURAL:$1|пакетне завдання|пакетні завдання|пакетних завдань}} для медіафайлу.',
 	'gwtoolset-step-4-heading' => 'Крок 4: Пакетне завантаження',
 	'gwtoolset-invalid-token' => 'Невірний маркер правки, надісланий із формою.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Чинні налаштування <code>php.ini</code>:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+Вони установлені нижче, ніж  <code>$wgMaxUploadSize</code> для вікі, який заданий як "$3". Будь ласка, відрегулюйте налаштування <code>php.ini</code> залежно від даних.',
 	'gwtoolset-mediawiki-version-invalid' => 'Дане розширення вимагає Медіавікі версії $1<br />Це Медіавікі має версію $2.',
 	'gwtoolset-no-upload-by-url' => 'Ви не є частиною групи, яка має право передати за URL-адресою.',
 	'gwtoolset-permission-not-given' => 'Переконайтеся, що ви ввійшли до системи, або зверніться до адміністратора для того, щоб бути наданий дозвіл на перегляд цієї сторінки ($1).',
@@ -2598,10 +2650,16 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Liuxinyu970226
  * @author Shizhao
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset，一个用于GLAM的大量上传工具',
+	'right-gwtoolset' => '使用GWToolset',
+	'action-gwtoolset' => '使用GWToolset',
+	'group-gwtoolset' => 'GWToolset用户',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset用户}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset用户',
 	'gwtoolset-could-not-close-xml' => '不能关闭XML阅读器。',
 	'gwtoolset-could-not-open-xml' => '不能打开XML文件用于阅读。',
 	'gwtoolset-developer-issue' => '请联系开发人员。此问题必须在您继续之前解决。请在反馈时标注以下错误代码：
@@ -2635,6 +2693,7 @@ $1',
 	'gwtoolset-mediawiki-template' => '模板$1',
 	'gwtoolset-menu-1' => '元数据映射',
 	'gwtoolset-technical-error' => '这里有一个技术问题。',
+	'gwtoolset-required-field' => '表示必填的字段',
 	'gwtoolset-submit' => '提交',
 	'gwtoolset-summary-heading' => '摘要',
 	'gwtoolset-cancel' => '取消',
@@ -2653,4 +2712,5 @@ $1',
 	'gwtoolset-maps-to' => '映射至',
 	'gwtoolset-metadata-file' => '元数据文件',
 	'gwtoolset-reupload-media' => '从URL重新上传媒体文件',
+	'gwtoolset-create-prefix' => 'GWToolset',
 );
