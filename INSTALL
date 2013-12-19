@@ -7,10 +7,13 @@ GWToolset Install
    a. php.ini
    b. DefaultSettings.php
    c. LocalSettings.php
-   d. FileBackend
-   e. FileBackend Security
-   f. Assign Users
-   g. Image Folder Permissions
+      i.   enable uploads and url uploading
+      ii.  load the extension
+      iii. add/remove groups
+      iv.  FileBackend
+   d. FileBackend Security
+   e. Assign Users
+   f. Image Folder Permissions
 4. Hidden Categories
 
 
@@ -57,8 +60,14 @@ _enable uploads and url uploading_
 _load the extension_
 * `require_once "$IP/extensions/GWToolset/GWToolset.php";`
 
+_add/remove groups_
+Depending on the permissions you have set-up in your wiki, you may need to give admins
+or another user group the ability to add the ‘gwtoolset’ group to other user accounts.
+this can be accomplished by adding something similar to the following:
+* $wgAddGroups['sysop'][] = 'gwtoolset';
+* $wgRemoveGroups['sysop'][] = 'gwtoolset';
 
-### FileBackend
+_FileBackend_
 The extension makes use of a file backend to temporarily store metada files for processing.
 Once the extension finishes processing the metadata file, a cleanup job is run in order to
 delete the metadata file from the file backend. Sometimes orphaned files can remain in the file
