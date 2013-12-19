@@ -206,7 +206,7 @@ class Config {
 	 * @var {string}
 	 * user right required, e.g. "block" or "delete"
 	 */
-	public static $special_page_restriction = 'upload_by_url';
+	public static $special_page_restriction = 'gwtoolset';
 
 	/**
 	 * @see SpecialPage __constructor
@@ -235,21 +235,15 @@ class Config {
 	public static $use_file_accept_attribute = true;
 
 	/**
-	 * @var {string}
-	 * the user group the user must be a member of in order to be able to use this extension
-	 * @see GWToolset\Helpers\WikiChecks\checkUserWikiGroups
-	 */
-	public static $user_group = 'gwtoolset';
-
-	/**
 	 * @var {array}
 	 * user permissions required in order to be able to use this extension
 	 * @see GWToolset\Helpers\WikiChecks\checkUserPermissions
 	 */
 	public static $user_permissions = array(
+		'edit',
+		'gwtoolset',
 		'upload',
-		'upload_by_url',
-		'edit'
+		'upload_by_url'
 	);
 
 }

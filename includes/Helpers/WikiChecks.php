@@ -12,7 +12,6 @@ use GWToolset\Config,
 	GWToolset\Constants,
 	GWToolset\Utils,
 	MWException,
-	PermissionsError,
 	SpecialPage,
 	Status;
 
@@ -40,14 +39,7 @@ class WikiChecks {
 	 * @return {Status}
 	 */
 	public static function canUserViewPage( SpecialPage $SpecialPage ) {
-		try {
-			$SpecialPage->checkPermissions();
-		} catch ( PermissionsError $e ) {
-			return Status::newFatal(
-				'gwtoolset-permission-not-given',
-				wfMessage( 'gwtoolset-no-upload-by-url' )->escaped()
-			);
-		}
+		$SpecialPage->checkPermissions();
 
 		return Status::newGood();
 	}
@@ -139,23 +131,6 @@ class WikiChecks {
 			|| version_compare( PHP_VERSION, '5.3.3', '<' )
 		) {
 			return Status::newFatal( 'gwtoolset-verify-php-version', Constants::EXTENSION_NAME );
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * Make sure the user is a member of a group that can access this extension
-	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
-	 */
-	public static function checkUserWikiGroups( SpecialPage $SpecialPage ) {
-		if ( !in_array( Config::$user_group, $SpecialPage->getUser()->getEffectiveGroups() ) ) {
-			return Status::newFatal(
-				'gwtoolset-permission-not-given',
-				wfMessage( 'gwtoolset-required-group' )->params( Config::$user_group )->escaped()
-			);
 		}
 
 		return Status::newGood();
@@ -292,11 +267,6 @@ class WikiChecks {
 		}
 
 		$Status = self::canUserViewPage( $SpecialPage );
-		if ( !$Status->ok ) {
-			return $Status;
-		}
-
-		$Status = self::checkUserWikiGroups( $SpecialPage );
 		if ( !$Status->ok ) {
 			return $Status;
 		}

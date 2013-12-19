@@ -269,7 +269,6 @@ Try another field from the metadata for title and title-identifier, or if possib
 
 These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set at "$3". Please adjust the <code>php.ini</code> settings as appropriate.',
 	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version $1<br />This MediaWiki version is $2.',
-	'gwtoolset-no-upload-by-url' => 'You are not part of a group that has the right to upload by URL.',
 	'gwtoolset-permission-not-given' => 'Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).',
 	'gwtoolset-user-blocked' => 'Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.',
 	'gwtoolset-required-group' => 'You are not a member of the, $1, group.',
