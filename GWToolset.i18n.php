@@ -294,14 +294,24 @@ Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> 
  * @author dan-nl
  */
 $messages['qqq'] = array(
-	'gwtoolset' => 'extension name',
-	'gwtoolset-desc' => '{{desc|name=GWToolset|url=https://www.mediawiki.org/wiki/Extension:GWToolset}}',
-	'gwtoolset-intro' => 'Introduction paragraph for the extension used on the initial [[Special:GWToolset]] landing page.',
-	'right-gwtoolset' => '{{doc-right|gwtoolset}}',
-	'action-gwtoolset' => '{{doc-action|gwtoolset}}',
-	'group-gwtoolset' => '{{doc-group|gwtoolset}}',
-	'group-gwtoolset-member' => '{{doc-group|gwtoolset|member}}',
-	'grouppage-gwtoolset' => '{{doc-group|gwtoolset|page}}',
+	'gwtoolset' => 'Extension name.
+
+GWToolset is short for GLAMWiki Toolset.',
+	'gwtoolset-desc' => '{{desc|name=GWToolset|url=https://www.mediawiki.org/wiki/Extension:GWToolset}}
+GWToolset is short for GLAMWiki Toolset.',
+	'gwtoolset-intro' => 'Introduction paragraph for the extension used on the initial [[Special:GWToolset]] landing page.
+
+GWToolset is short for GLAMWiki Toolset.',
+	'right-gwtoolset' => '{{doc-right|gwtoolset}}
+GWToolset is short for GLAMWiki Toolset.',
+	'action-gwtoolset' => '{{doc-action|gwtoolset}}
+GWToolset is short for GLAMWiki Toolset.',
+	'group-gwtoolset' => '{{doc-group|gwtoolset}}
+GWToolset is short for GLAMWiki Toolset.',
+	'group-gwtoolset-member' => '{{doc-group|gwtoolset|member}}
+GWToolset is short for GLAMWiki Toolset.',
+	'grouppage-gwtoolset' => '{{doc-group|gwtoolset|page}}
+GWToolset is short for GLAMWiki Toolset.',
 	'gwtoolset-batchjob-creation-failure' => 'Message that appears when the extension could not create a batch job. Parameters:
 * $1 - the type of batch job.',
 	'gwtoolset-could-not-close-xml' => 'Hint to the developer that appears when could not close the XMLReader.',
@@ -635,7 +645,9 @@ Refers to:
 	'gwtoolset-create-mediafile' => '"Edit summary" message used when the extension creates/updates a media file content page. Parameters:
 * $1 - the extension name "GWToolset"
 * $2 - the username',
-	'gwtoolset-create-prefix' => 'The name of the project, GWToolset, which can be replaced by a link or other content if necessary via a page Mediawiki:gwtoolset-create-prefix',
+	'gwtoolset-create-prefix' => 'The name of the project, GWToolset, which can be replaced by a link or other content if necessary via a page Mediawiki:gwtoolset-create-prefix
+
+GWToolset is short for GLAMWiki Toolset.',
 	'gwtoolset-mediafile-jobs-created' => 'Message that indicates the number of media file batch jobs created. Parameters:
 * $1 - number of batch jobs',
 	'gwtoolset-step-4-heading' => 'Step 4 heading.
@@ -1486,10 +1498,36 @@ $messages['it'] = array(
 	'group-gwtoolset' => 'Utenti GWToolset',
 	'group-gwtoolset-member' => '{{GENDER:$1|utente GWToolset}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:Utenti GWToolset',
+	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, o <code>record-count</code>, o <code>record-current</code> non fornito.',
 	'gwtoolset-fsfile-empty' => 'Il file era vuoto ed è stato cancellato.',
+	'gwtoolset-fsfile-retrieval-failure' => "Il file non può essere recuperato dall'URL $1.",
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> non impostato.',
+	'gwtoolset-no-accepted-types' => 'Nessun tipo accettato fornito',
+	'gwtoolset-no-comment' => "<code>user_options['comment']</code> non impostato.",
 	'gwtoolset-no-default' => 'Nessun valore predefinito fornito.',
+	'gwtoolset-no-field-size' => 'Nessuna dimensione specificata per il campo "$1".',
+	'gwtoolset-no-file-backend-name' => 'Nessun nome file backend fornito.',
+	'gwtoolset-no-file-backend-container' => 'Nessun nome contenitore file backend fornito.',
+	'gwtoolset-no-file-url' => 'Nessun <code>file_url</code> fornito da analizzare.',
+	'gwtoolset-no-form-handler' => 'Nessun gestore del modulo creato.',
+	'gwtoolset-no-mapping' => 'Nessun <code>mapping_name</code> fornito.',
+	'gwtoolset-no-mapping-json' => 'Nessun <code>mapping_json</code> fornito.',
+	'gwtoolset-no-max' => 'Nessun valore massimo fornito.',
+	'gwtoolset-no-mediawiki-template' => 'Nessun <code>mediawiki-template-name</code> fornito.',
+	'gwtoolset-no-min' => 'Nessuna valore minimo fornito.',
+	'gwtoolset-no-module' => 'Nessun nome del modulo è stato specificato.',
+	'gwtoolset-no-mwstore-complete-path' => 'Nessun percorso completo del file fornito.',
+	'gwtoolset-no-mwstore-relative-path' => 'Nessun percorso relativo fornito.',
+	'gwtoolset-no-page-title' => 'Nessun titolo pagina fornito.',
+	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> non impostato.",
+	'gwtoolset-no-summary' => 'Nessun oggetto fornito.',
+	'gwtoolset-no-template-url' => 'Nessun URL template fornito da analizzare.',
 	'gwtoolset-no-text' => 'Nessun testo fornito.',
 	'gwtoolset-no-title' => 'Nessun titolo fornito.',
+	'gwtoolset-no-reupload-media' => "<code>user_options['gwtoolset-reupload-media']</code> non impostato.",
+	'gwtoolset-no-url-to-evaluate' => 'Nessun URL fornito per la valutazione.',
+	'gwtoolset-no-url-to-media' => '<code>url-to-the-media-file</code> non impostato.',
+	'gwtoolset-no-user' => 'Nessun oggetto utente fornito.',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 non corrisponde.',
 	'gwtoolset-file-is-empty' => 'Il file caricato è vuoto.',
 	'gwtoolset-improper-upload' => 'Il file non è stato caricato correttamente.',
@@ -1735,6 +1773,32 @@ $1',
 <code>LocalSettings.php</code> 内で <code>$wgEnableUploads</code> を <code>true</code> に設定していることを確認してください。',
 	'gwtoolset-verify-xmlreader' => '$1 拡張機能を使用するには PHP の [http://www.php.net/manual/ja/xmlreader.setup.php XMLReader] をインストールする必要があります。',
 	'gwtoolset-wiki-checks-not-passed' => 'ウィキが要件を満たしていません',
+);
+
+/** Korean (한국어)
+ * @author Hym411
+ */
+$messages['ko'] = array(
+	'gwtoolset' => 'GW도구모음',
+	'gwtoolset-desc' => 'GW 도구모음, GLAM을 위한 대량 업로드 도구',
+	'gwtoolset-intro' => 'GW도구모음은 GLAM(갤러리, 도서관, 기록 보관소 및 박물관)의 메타데이터가 있는 XML 파일 기반으로 파일을 대량으로 올릴 수 있는 미디어위키 확장 기능입니다. XML 스키마의 다양성을 위해 추진되는 이 프로젝트는, [//commons.wikimedia.org/wiki/Commons:GLAMToolset_project 프로젝트 문서]에서 더 많은 정보를 찾아볼 수 있습니다. 해당 페이지에서 연락해 주세요. 업로드 절차를 진행하기 위해, 위의 메뉴 버튼을 눌러 진행해 주세요.',
+	'right-gwtoolset' => 'GW도구모음 사용',
+	'action-gwtoolset' => 'GW도구모음 사용',
+	'group-gwtoolset' => 'GW도구모음 사용자',
+	'group-gwtoolset-member' => 'GW도구모음 사용자', # Fuzzy
+	'grouppage-gwtoolset' => '{{ns:project}}:GW툴셋 사용자',
+	'gwtoolset-batchjob-creation-failure' => '"$1" 형식의 일괄 작업을 생성할 수 없습니다.',
+	'gwtoolset-could-not-open-xml' => 'XML 파일을 읽어올 수 없습니다.',
+	'gwtoolset-developer-issue' => '개발자와 연락해 주십시오. 계속하기 전에 이 문제를 해결해야 합니다. 개발자에게 알릴 때 다음 내용을 추가해 주십시오:
+
+$1',
+	'gwtoolset-file-is-empty' => '올려진 파일이 비어있습니다.',
+	'gwtoolset-improper-upload' => '파일이 정상적으로 업로드되지 않았습니다.',
+	'gwtoolset-missing-temp-folder' => '임시 폴더를 사용할 수 없습니다.',
+	'gwtoolset-multiple-files' => '업로드된 파일이 두개 이상의 파일의 정보를 포함하고 있습니다. 한번에 하나의 파일만 올릴 수 있습니다.',
+	'gwtoolset-no-extension' => '올려진 파일에 충분한 파일 정보가 없어 처리하지 못했습니다. 파일 확장자가 없을 수 있습니다.',
+	'gwtoolset-no-file' => '파일이 없습니다.',
+	'gwtoolset-no-form-field' => '예상되는 형식 필드 "$1"이 존재하지 않습니다.',
 );
 
 /** Colognian (Ripoarisch)
@@ -2185,7 +2249,26 @@ $messages['nl'] = array(
 	'gwtoolset-json-error' => 'Er was een probleem met de JSON. Fout: $1.',
 	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
 	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
+	'gwtoolset-step-1-heading' => 'Stap 1: Metadata detecteren',
 	'gwtoolset-category' => 'Categorie',
+	'gwtoolset-painted-by' => 'Geschilderd door',
+	'gwtoolset-partner' => 'Partner',
+	'gwtoolset-partner-template' => 'Partnersjabloon:',
+	'gwtoolset-results' => 'Resultaten',
+	'gwtoolset-step-2-heading' => 'Stap 2: Metadata toewijzen',
+	'gwtoolset-step-2-instructions-heading' => 'Metadatavelden koppelen',
+	'gwtoolset-step-2-instructions-1' => 'Hieronder is/zijn:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Een lijst van de velden in de MediaWikipagina $1.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Keuzelijstvelden die gevonden zijn in het bestand met metadata die de metadatavelden representeren .',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Een voorbeeldrecord van het metadatabestand.',
+	'gwtoolset-step-2-instructions-2' => 'In deze stap moet ik de metadatavelden koppelen met een velden uit de MediaWikisjabloon.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Selecteer een metadataveld in de kolom "{{int:gwtoolset-maps-to}}" dat overeenkomt met een veld in de MediaWikisjabloon in de kolom "{{int:gwtoolset-template-field}}".',
+	'gwtoolset-step-2-instructions-2-li-2' => 'U hoeft niet voor ieder MediaWikisjabloonveld een koppeling te maken.',
+	'gwtoolset-reupload-media' => 'Media opnieuw uploaden van URL',
+	'gwtoolset-reupload-media-explanation' => 'Door dit selectievakje aan te vinken kunt u media opnieuw uploaden voor een item dat al is geüpload naar de wiki. Als het item al bestaat, wordt een extra mediabestand toegevoegd aan de wiki. Als het mediabestand nog niet bestaat, wordt het geüpload of dit selectievakje is ingeschakeld of niet.',
+	'gwtoolset-specific-categories' => 'Itemspecifieke categorieën',
+	'gwtoolset-template-field' => 'Sjabloonveld',
+	'gwtoolset-step-3-instructions-heading' => 'Stap 3: Voorvertoning van de taak',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
 );
 
@@ -2246,6 +2329,7 @@ $messages['ru'] = array(
  * @author LeiLar
  * @author Lokal Profil
  * @author Tobulos1
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'gwtoolset' => 'GWToolset',
@@ -2365,6 +2449,11 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande $1.',
 	'gwtoolset-category' => 'Kategori',
+	'gwtoolset-global-categories' => 'Globala kategorier',
+	'gwtoolset-metadata-field' => 'Metadatafält',
+	'gwtoolset-metadata-file' => 'Metadatafil',
+	'gwtoolset-painted-by' => 'Målad av',
+	'gwtoolset-partner' => 'Partner',
 	'gwtoolset-partner-template' => 'Mall för partner:',
 	'gwtoolset-preview' => 'Förhandsgranska massuppladdning',
 	'gwtoolset-record-count' => 'Totalt antal poster funna i denna metadatafil:  {{PLURAL:$1|$1}}.',
@@ -2627,6 +2716,57 @@ $1.',
 Переконайтеся, що <code>$wgEnableUploads</code> встановлено як <code>true</code> у  <code>LocalSettings.php</code>.',
 	'gwtoolset-verify-xmlreader' => 'Розширення $1 вимагає, щоб PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] був встановлений.',
 	'gwtoolset-wiki-checks-not-passed' => 'Вікі-перевірки не пройдені',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'gwtoolset-submit' => 'Gửi',
+	'gwtoolset-summary-heading' => 'Tóm tắt',
+	'gwtoolset-cancel' => 'Hủy bỏ',
+	'gwtoolset-save' => 'Lưu',
+	'gwtoolset-save-mapping' => 'Lưu ánh xạ',
+	'gwtoolset-save-mapping-succeeded' => 'Ánh xạ của bạn đã được lưu.',
+	'gwtoolset-save-mapping-name' => 'Bạn muốn gọi ánh xạ này là gì?',
+	'gwtoolset-json-error-unknown' => 'Lỗi không xác định.',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Kiểu|Các kiểu}} tập tin được chấp nhận:',
+	'gwtoolset-step-1-heading' => 'Bước 1: Phát hiện siêu dữ liệu',
+	'gwtoolset-step-1-instructions-3-heading' => 'Danh sách trắng tên miền',
+	'gwtoolset-step-1-instructions-li-1' => 'Phát hiện siêu dữ liệu',
+	'gwtoolset-step-1-instructions-li-2' => 'Ánh xạ siêu dữ liệu',
+	'gwtoolset-step-1-instructions-li-3' => 'Xem trước hàng loạt',
+	'gwtoolset-step-1-instructions-li-4' => 'Tải lên hàng loạt',
+	'gwtoolset-upload-legend' => 'Tải lên tập tin siêu dữ liệu của bạn',
+	'gwtoolset-which-mediawiki-template' => 'Bản mẫu MediaWiki:',
+	'gwtoolset-which-metadata-mapping' => 'Ánh xạ siêu dữ liệu:',
+	'gwtoolset-categories' => 'Nhập các thể loại với dấu ống (“|”) phân cách',
+	'gwtoolset-category' => 'Thể loại',
+	'gwtoolset-create-mapping' => '$1: Đang đưa siêu dữ liệu vào ánh xạ cho $2.',
+	'gwtoolset-global-categories' => 'Thể loại toàn cầu',
+	'gwtoolset-maps-to' => 'Ánh xạ vào',
+	'gwtoolset-metadata-field' => 'Ô siêu dữ liệu',
+	'gwtoolset-metadata-file' => 'Tập tin siêu dữ liệu',
+	'gwtoolset-metadata-mapping-legend' => 'Đưa siêu dữ liệu của bạn vào ánh xạ',
+	'gwtoolset-partner' => 'Cùng đôi',
+	'gwtoolset-partner-template' => 'Bản mẫu cùng đôi:',
+	'gwtoolset-preview' => 'Xem trước hàng loạt',
+	'gwtoolset-process-batch' => 'Xử lý hàng loạt',
+	'gwtoolset-results' => 'Kết quả',
+	'gwtoolset-step-2-heading' => 'Bước 2: Ánh xạ siêu dữ liệu',
+	'gwtoolset-step-2-instructions-heading' => 'Đưa các ô siêu dữ liệu vào ánh xạ',
+	'gwtoolset-step-2-instructions-1' => 'Dưới đây có:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'Trang sách các ô trong $1 của MediaWiki.',
+	'gwtoolset-reupload-media' => 'Tải phương tiện lên lại từ URL',
+	'gwtoolset-template-field' => 'Ô bản mẫu',
+	'gwtoolset-step-3-instructions-heading' => 'Bước 3: Xem trước hàng loạt',
+	'gwtoolset-create-mediafile' => '$1: Đang tạo tập tin phương tiện cho $2.',
+	'gwtoolset-step-4-heading' => 'Bước 4: Tải lên hàng loạt',
+	'gwtoolset-mediawiki-version-invalid' => 'Phần mở rộng này cần MediaWiki $1<br />Trang này đang chạy MediaWiki $2.',
+	'gwtoolset-required-group' => 'Bạn không phải thuộc nhóm $1.',
+	'gwtoolset-verify-php-version' => 'Phần mở rộng $1 cần PHP ≥ 5.3.3.',
+	'gwtoolset-verify-xmlreader' => 'Phần mở rộng $1 cần cài đặt [http://www.php.net/manual/xmlreader.setup.php XMLReader] vào PHP.',
+	'gwtoolset-wiki-checks-not-passed' => 'Các kiểm tra wiki bị thất bại',
 );
 
 /** Yiddish (ייִדיש)
