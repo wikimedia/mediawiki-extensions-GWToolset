@@ -1785,6 +1785,7 @@ $1',
 );
 
 /** Korean (한국어)
+ * @author Clockoon
  * @author Hym411
  */
 $messages['ko'] = array(
@@ -1801,7 +1802,7 @@ $messages['ko'] = array(
 	'gwtoolset-developer-issue' => '개발자와 연락해 주십시오. 계속하기 전에 이 문제를 해결해야 합니다. 개발자에게 알릴 때 다음 내용을 추가해 주십시오:
 
 $1',
-	'gwtoolset-file-is-empty' => '올려진 파일이 비어있습니다.',
+	'gwtoolset-file-is-empty' => '빈 파일을 업로드했습니다.',
 	'gwtoolset-improper-upload' => '파일이 정상적으로 업로드되지 않았습니다.',
 	'gwtoolset-missing-temp-folder' => '임시 폴더를 사용할 수 없습니다.',
 	'gwtoolset-multiple-files' => '업로드된 파일이 두개 이상의 파일의 정보를 포함하고 있습니다. 한번에 하나의 파일만 올릴 수 있습니다.',
@@ -2771,6 +2772,9 @@ $1.',
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'gwtoolset-mediawiki-template' => 'Bản mẫu $1',
+	'gwtoolset-metadata-invalid-template' => 'Không tìm thấy bản mẫu MediaWiki hợp lệ.',
+	'gwtoolset-menu-1' => 'Ánh xạ siêu dữ liệu',
 	'gwtoolset-submit' => 'Gửi',
 	'gwtoolset-summary-heading' => 'Tóm tắt',
 	'gwtoolset-cancel' => 'Hủy bỏ',
