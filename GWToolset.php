@@ -8,11 +8,18 @@
  */
 
 namespace GWToolset;
+use GWToolset\Constants;
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo 'This file is part of a MediaWiki extension; it is not a valid entry point. To install this extension, follow the instructions in the INSTALL file.';
 	exit();
 }
+
+// set extension directory reference to this directory
+$wgGWToolsetDir = realpath( __DIR__ );
+
+// load extension constants
+require_once $wgGWToolsetDir . '/includes/Constants.php';
 
 // register extension metadata with MediaWiki
 $wgExtensionCredits['media'][] = array(
@@ -21,11 +28,8 @@ $wgExtensionCredits['media'][] = array(
 	'name' => 'GWToolset',
 	'path' => __FILE__,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:GWToolset',
-	'version' => '0.0.1-dev'
+	'version' => Constants::EXTENSION_VERSION
 );
-
-// set extension directory reference to this directory
-$wgGWToolsetDir = realpath( __DIR__ );
 
 // define namespaces
 // @see http://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
@@ -48,7 +52,6 @@ $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
 // add autoloader classes
 $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',
-	'GWToolset\Constants' => $wgGWToolsetDir . '/includes/Constants.php',
 	'GWToolset\GWTException' => $wgGWToolsetDir . '/includes/GWTException.php',
 	'GWToolset\Utils' => $wgGWToolsetDir . '/includes/Utils.php',
 	'GWToolset\Adapters\DataAdapterInterface' => $wgGWToolsetDir . '/includes/Adapters/DataAdapterInterface.php',
