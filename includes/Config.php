@@ -50,11 +50,6 @@ class Config {
 	public static $http_timeout = 1200;
 
 	/**
-	 * @var {string}
-	 */
-	public static $http_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1';
-
-	/**
 	 * @var {int}
 	 * 1.25e7 or 12,500,000 default
 	 */

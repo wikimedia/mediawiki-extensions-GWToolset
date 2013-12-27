@@ -16,6 +16,7 @@ use ContentHandler,
 	GWToolset\Helpers\FileChecks,
 	GWToolset\Helpers\WikiChecks,
 	GWToolset\Jobs\UploadMediafileJob,
+	Http,
 	MimeMagic,
 	MWException,
 	MWHttpRequest,
@@ -252,7 +253,9 @@ class UploadHandler {
 			array(
 				'method' => 'HEAD',
 				'followRedirects' => true,
-				'userAgent' => Config::$http_agent
+				'userAgent' => Http::userAgent() . ' ' .
+					Constants::EXTENSION_NAME . '/' .
+					Constants::EXTENSION_VERSION
 			)
 		);
 
