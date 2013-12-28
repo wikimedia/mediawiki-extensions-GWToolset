@@ -686,6 +686,13 @@ See also:
 	'gwtoolset-wiki-checks-not-passed' => 'Heading used when a wiki requirement is not met.',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Gitartha.bordoloi
+ */
+$messages['as'] = array(
+	'gwtoolset-results' => 'ফলাফল',
+);
+
 /** Catalan (català)
  * @author ESM
  * @author KRLS
@@ -2059,6 +2066,7 @@ $1',
 	'gwtoolset-step-2-instructions-1-li-2' => 'Расклопни полиња што ги претставуваат полињата во метаподаточната податотека.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'Пример за запис од метаподаточната податотека.',
 	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-step-4-heading' => 'Чекор 4: Збирно подигање',
 	'gwtoolset-required-group' => 'Не членувате во групата „$1“.',
 	'gwtoolset-verify-api-enabled' => 'Додатокот „$1“ бара да е овозможен википрилогот (API).
 
@@ -2358,6 +2366,7 @@ $messages['nl'] = array(
 	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
 	'gwtoolset-step-1-heading' => 'Stap 1: Metadata detecteren',
 	'gwtoolset-category' => 'Categorie',
+	'gwtoolset-no-more-records' => '<strong>Geen records meer te verwerken</strong>',
 	'gwtoolset-painted-by' => 'Geschilderd door',
 	'gwtoolset-partner' => 'Partner',
 	'gwtoolset-partner-template' => 'Partnersjabloon:',
@@ -2376,6 +2385,7 @@ $messages['nl'] = array(
 	'gwtoolset-specific-categories' => 'Itemspecifieke categorieën',
 	'gwtoolset-template-field' => 'Sjabloonveld',
 	'gwtoolset-step-3-instructions-heading' => 'Stap 3: Voorvertoning van de taak',
+	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
 );
 
