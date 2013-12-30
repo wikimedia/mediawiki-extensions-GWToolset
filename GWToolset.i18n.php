@@ -1213,6 +1213,19 @@ $messages['es'] = array(
 	'gwtoolset-mediawiki-version-invalid' => 'Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.',
 );
 
+/** Persian (فارسی)
+ * @author Reza1615
+ */
+$messages['fa'] = array(
+	'gwtoolset-submit' => 'ثبت',
+	'gwtoolset-summary-heading' => 'خلاصه',
+	'gwtoolset-cancel' => 'لغو',
+	'gwtoolset-save' => 'ذخیره',
+	'gwtoolset-json-error-unknown' => 'خطای ناشناخته.',
+	'gwtoolset-category' => 'رده',
+	'gwtoolset-results' => 'نتایج',
+);
+
 /** Finnish (suomi)
  * @author Stryn
  */
@@ -1364,6 +1377,7 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
 	'gwtoolset-step-1-instructions-1' => 'Le processus de téléchargement des métadonnées se déroule en 4 étapes différentes :',
 	'gwtoolset-step-1-instructions-2' => 'Dans cette étape, vous importez un nouveau fichier de métadonnées dans le wiki. L’outil essayera d’extraire les champs de métadonnées disponibles dans le fichier, que vous ferez ensuite correspondre avec un modèle de MediaWiki dans « {{int:gwtoolset-step-2-heading}} ».',
+	'gwtoolset-step-1-instructions-3' => 'Si votre domaine de fichier média n’est pas listé ci-dessous, veuillez [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment demander] que votre domaine de fichier média soit ajouté à la liste blanche. La liste blanche des domaines est une liste de domaines que Wikimédia Communs vérifie avant d’analyser les fichiers média. Si votre domaine de fichier média n’est pas dans cette liste, Wikimédia Communs ne téléchargera pas de fichiers média de ce domaine. Le meilleur exemple, pour envoyer votre demande, est un lien réel vers le fichier média.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Whitelist des Domaines',
 	'gwtoolset-step-1-instructions-li-1' => 'Détection des métadonnées',
 	'gwtoolset-step-1-instructions-li-2' => 'Correspondance des métadonnées',
@@ -1381,12 +1395,16 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-global-tooltip' => 'Ces entrées de catégorie s’appliqueront globalement à tous les éléments importés.',
 	'gwtoolset-maps-to' => 'Correspond à',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'L’extension du fichier ne peut pas être déterminée pour l’URL de fichier : $1',
+	'gwtoolset-mapping-media-file-url-bad' => 'L’URL du fichier média n’a pas pu être évaluée. L’URL fournit le contenu d’une manière qui n’est pas encore gérée par cette extension. L’URL fournie était « $1 ».',
+	'gwtoolset-mapping-no-title' => 'La correspondance des métadonnées ne contient aucun titre, lequel est nécessaire afin de créer la page.',
+	'gwtoolset-mapping-no-title-identifier' => 'La correspondance des métadonnées ne contient pas d’identifiant de titre, lequel est utilisé pour créer un titre de page unique. Assurez-vous d’avoir fait correspondre un champ de métadonnées au paramètre identifiant de titre du modèle de MédiaWiki.',
 	'gwtoolset-metadata-field' => 'Champ de métadonnées',
 	'gwtoolset-metadata-file' => 'Fichier de métadonnées',
 	'gwtoolset-metadata-mapping-legend' => 'Faites la correspondance avec vos métadonnées',
 	'gwtoolset-no-more-records' => '<strong>Plus aucun enregistrement à traiter</strong>',
 	'gwtoolset-painted-by' => 'Painted by',
 	'gwtoolset-partner' => 'Partenaire',
+	'gwtoolset-partner-explanation' => 'Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels sur la page Category:Source templates ; voyez le lien ci-dessous. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.',
 	'gwtoolset-partner-template' => 'Modèle du partenaire :',
 	'gwtoolset-phrasing' => 'Formulation',
 	'gwtoolset-preview' => 'Prévisualiser le lot',
@@ -1403,7 +1421,22 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-step-2-instructions-2-li-1' => 'Sélectionner un champ de métadonnées dans la colonne « {{int:gwtoolset-maps-to}} » qui correspond avec un champ du modèle de MediaWiki dans la colonne « {{int:gwtoolset-template-field}} ».',
 	'gwtoolset-step-2-instructions-2-li-2' => "Il n'est pas nécessaire de remplir tous les champs des modèles de MediaWiki.",
 	'gwtoolset-reupload-media' => 'Recharger le fichier média depuis l’URL',
+	'gwtoolset-reupload-media-explanation' => 'Cette case à cocher vous permet de recharger le fichier média pour un élément qui a déjà été chargé sur le wiki. Si l’élément existe déjà, un fichier média supplémentaire sera ajouté au wiki. Si le fichier média n’existe pas encore, il sera téléchargé, que cette case soit cochée ou non.',
+	'gwtoolset-specific-categories' => 'Catégories spécifiques d’élément',
+	'gwtoolset-specific-tooltip' => 'En utilisant les champs qui suivent, vous pouvez appliquer une phrase (facultative) plus un champ de métadonnées comme entrée de catégorie pour chaque élément importé, individuellement. Par exemple, si le fichier de métadonnées contient un élément pour l’artiste de chaque enregistrement, vous pouvez l’ajouter comme une entrée de catégorie pour chaque enregistrement qui prendra la valeur spécifique à chaque enregistrement. Vous pouvez aussi ajouter une phrase comme « <em>{{int:gwtoolset-painted-by}}</em> » et puis le champ de métadonnées de l’artiste, que vous rendriez par « <em>{{int:gwtoolset-painted-by}} <nom de l’artiste></em> » comme catégorie pour chaque enregistrement.',
+	'gwtoolset-template-field' => 'Champ du modèle',
 	'gwtoolset-step-3-instructions-heading' => 'Étape 3 : Prévisualisation du lot',
+	'gwtoolset-step-3-instructions-1' => 'Voici ci-dessous les résultats du téléchargement {{PLURAL:$1|du premier enregistrement|des $1 premiers enregistrements}} depuis le fichier de métadonnées que vous avez choisi et {{PLURAL:$1|sa|leur}} correspondance avec le modèle de MédiaWiki que vous avez choisi dans « {{int:gwtoolset-step-2-heading}} ».',
+	'gwtoolset-step-3-instructions-2' => 'Regardez ces pages et si les résultats correspondent à vos attentes, et qu’il y a d’autres enregistrements en attente d’import, continuez le traitement du chargement par lot en cliquant sur le bouton « {{int:gwtoolset-process-batch}} » ci-dessous.',
+	'gwtoolset-step-3-instructions-3' => 'Si vous n’êtes pas satisfait des résultats, retournez à « {{int:gwtoolset-step-2-heading}} »  et corrigez la correspondance en fonction.
+
+Si vous devez faire des ajustements au fichier de métadonnées lui-même, retournez le faire puis rechargez-le en recommençant le traitement avec « {{int:gwtoolset-step-1-heading}} ».',
+	'gwtoolset-title-bad' => 'Le titre créé, d’après les métadonnées et la correspondance du modèle de MédiaWiki, n’est pas valide.
+
+Essayez un autre champ pour les métadonnées du titre et de l’identifiant du titre, ou si possible, modifiez les médatonnées quand cela est nécessaire. Voyez [https://commons.wikimedia.org/wiki/Commons:File_naming Nommage des fichiers] pour plus d’information.
+
+<strong>Titre non valide :</strong> $1.',
+	'gwtoolset-batchjob-metadata-created' => 'Traitement du lot de métadonnées créé. Votre fichier de métadonnées sera analysé prochainement et chaque élément sera chargé dans le wiki en tâche de fond. Vous pouvez vérifier la page « $1 » pour voir s’ils ont été importés.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'Impossible de créer un traitement par lot pour le fichier de métadonnées.',
 	'gwtoolset-create-mediafile' => '$1 : Création du fichier de média pour $2 en cours.',
 	'gwtoolset-create-prefix' => 'GWToolset',
@@ -2061,9 +2094,12 @@ $1',
 Увезете го или одберете друг ваков шаблон за пресликување.',
 	'gwtoolset-mediawiki-template-not-found' => 'МедијаВики-шаблонот „$1“ не постои.',
 	'gwtoolset-metadata-file-source' => 'Изберете го изворот на метаподаточната подототека.',
+	'gwtoolset-metadata-file-source-info' => '... или веќе подигната податотека или податотека што сакате да ја подигнете од вашиот сметач.',
 	'gwtoolset-metadata-file-url' => 'URL на викито на медаподатоците:',
 	'gwtoolset-metadata-file-upload' => 'Подигање на метаподаточна податотека:',
-	'gwtoolset-metadata-mapping-bad' => 'Се јави проблем со пресликувањето на медаподатоците. Најверојатно имате неважечки JSON-формат. Обидете се да го исправите проблемот, па повторно поднесете го образецот.', # Fuzzy
+	'gwtoolset-metadata-mapping-bad' => 'Се јави проблем со пресликувањето на медаподатоците. Најверојатно имате неважечки JSON-формат. Обидете се да го исправите проблемот, па повторно поднесете го образецот.
+
+$1',
 	'gwtoolset-metadata-mapping-invalid-url' => 'Укажаната URL за пресликување на метаподатоците не се совпаѓа со очекуваната патека.
 
 * Укажана URL: $1
@@ -2071,6 +2107,9 @@ $1',
 	'gwtoolset-metadata-mapping-not-found' => 'Не пронајдов метаподаточно пресликување.
 
 Страницата „<strong>$1<strong>“ не постои на викито.',
+	'gwtoolset-namespace-mismatch' => 'Страницата „<strong>$1<strong>“ е во погрешниот именски простор „<strong>$2<strong>“.
+
+Треба да биде во именскиот простор „<strong>$3<strong>“.',
 	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
 * Дали XML-податотеката е добро срочена? Пробајте го ова $1.',
@@ -2079,15 +2118,24 @@ $1',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
 	'gwtoolset-step-1-instructions-1' => 'Постапката за подигање на метаподатоци се состои од 4 чекори:',
 	'gwtoolset-step-1-instructions-2' => 'Во овој чекор ја подигате новата метаподаточна податотека на викито. Алатката ќе се обиде ги добие расположивите полиња со метаподатоци од податотеката, што потоа ќе ги пресликате во МедијаВики-шаблонот во „{{int:gwtoolset-step-2-heading}}“.',
+	'gwtoolset-step-1-instructions-3' => 'Ако доменот на доменот на вашата медиумска податотека не е наведен подолу, тогаш [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment побарајте] да биде ставен во списокот на дозволени домени на Ризницата. Ако не биде на него, тогаш Ризницата нема да презема податотеки од тој домен. Најдобро е во барањето да ја наведете фактичката врска на податотеката.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Список на дозволени домени',
 	'gwtoolset-step-1-instructions-li-1' => 'Пронаоѓање на метаподатоци',
 	'gwtoolset-step-1-instructions-li-2' => 'Пресликување на метаподатоците',
+	'gwtoolset-step-1-instructions-li-3' => 'Пакетен преглед',
+	'gwtoolset-step-1-instructions-li-4' => 'Пакетно подигање',
+	'gwtoolset-upload-legend' => 'Подигнете ја метаподаточната податотека',
+	'gwtoolset-which-mediawiki-template' => 'Кој МедијаВики-шаблон:',
+	'gwtoolset-which-metadata-mapping' => 'Кое метаподаточно пресликување:',
+	'gwtoolset-xml-error' => 'Не успеав да го вчирам XML. Исправете ги долунаведените грешки.',
+	'gwtoolset-categories' => 'Внесете ги категориите, одделувајќи ги со исправена црта („|“)',
 	'gwtoolset-category' => 'Категорија',
 	'gwtoolset-create-mapping' => '$1: Создавање на пресликување на метаподатоците за $2.',
 	'gwtoolset-example-record' => 'Содржина на записот за пример за метаподатоци.',
 	'gwtoolset-global-categories' => 'Глобални категории',
 	'gwtoolset-global-tooltip' => 'Овие категориски ставки ќе се применат глобално врз сето она што е подигнато.',
 	'gwtoolset-maps-to' => 'Се пресликува во',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'Не можев да ја утврдам наставката на податотеката од нејзината URL: $1.',
 	'gwtoolset-metadata-field' => 'Метаподаточно поле',
 	'gwtoolset-metadata-file' => 'Метаподаточна податотека',
 	'gwtoolset-metadata-mapping-legend' => 'Пресликајте ги вашите метаподатоци',
