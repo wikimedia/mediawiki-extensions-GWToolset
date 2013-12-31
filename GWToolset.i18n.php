@@ -25,7 +25,7 @@ $messages['en'] = array(
 	 * permission labels
 	 */
 	'right-gwtoolset' => 'Use GWToolset',
-	'action-gwtoolset' => 'use gwtoolset',
+	'action-gwtoolset' => 'use GWToolset',
 	'group-gwtoolset' => 'GWToolset users',
 	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset user}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset users',
@@ -271,7 +271,7 @@ These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set
 	'gwtoolset-mediawiki-version-invalid' => 'This extension requires MediaWiki version $1<br />This MediaWiki version is $2.',
 	'gwtoolset-permission-not-given' => 'Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).',
 	'gwtoolset-user-blocked' => 'Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.',
-	'gwtoolset-required-group' => 'You are not a member of the, $1, group.',
+	'gwtoolset-required-group' => 'You are not a member of the $1 group.',
 	'gwtoolset-verify-api-enabled' => 'The $1 extension requires that the wiki API is enabled.
 
 Please make sure <code>$wgEnableAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
