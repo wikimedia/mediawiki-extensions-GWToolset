@@ -150,7 +150,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Make sure the XML file is well-formed with this $1.',
 	'gwtoolset-file-url-invalid' => 'The file URL was invalid; The file does not yet exist in the wiki. You need to first upload the file from your computer if you want to use the file URL reference in the form.',
 	'gwtoolset-mediafile-throttle' => 'Mediafile throttle:',
-	'gwtoolset-mediafile-throttle-description' => 'The throttle controls the load Wikimedia Commons will put on your media server during the batch upload. You can set the throttle between 1-20 where the number corresponds to the number of media requests per minute.',
+	'gwtoolset-mediafile-throttle-description' => 'After the batch preview, in step 3, GWToolset uploads the remaining records in your batch upload via background jobs. The mediafile throttle controls the number of mediafile requests Wikimedia Commons will make against your mediafile server each time a background job is run. You can set the mediafile throttle between 1-20. For example, if the total number of records in your batch upload is 100 and you set the throttle to 20, Wikimedia Commons will run 5 background jobs in order to process your entire batch upload. The time between each background upload job varies depending on server load and configuration; we anticipate that on Wikimedia Commons a GWToolset background job will run at least every 5 minutes.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki template "<strong>$1</strong>" does not exist in the wiki.
 
 Either import the template or select another MediaWiki template to use for mapping.',
@@ -174,7 +174,8 @@ The page "<strong>$1<strong>" does not exist in the wiki.',
 It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'No XML element found for mapping.
 * Did you enter a value in the form for "{{int:gwtoolset-record-element-name}}"?
-* Is the XML file well-formed? Try this $1.',
+* Is the XML file well-formed? Try this $1.
+$2',
 	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Make sure you only enter the page title, e.g. the part of the URL after /wiki/',
 	'gwtoolset-record-element-name' => 'What is the XML element that contains each metadata record:',
 	'gwtoolset-step-1-heading' => 'Step 1: Metadata detection',
@@ -494,7 +495,8 @@ Followed by the file selector (<code><nowiki><input type="file"></nowiki></code>
 Refers to {{msg-mw|Gwtoolset-record-element-name}}.
 
 Parameters:
-* $1 - http://www.w3schools.com/xml/xml_validator.asp, a line-break, and {{msg-mw|Gwtoolset-back-text-link}}',
+* $1 - http://www.w3schools.com/xml/xml_validator.asp
+* $2 - {{msg-mw|Gwtoolset-back-text-link}}',
 	'gwtoolset-page-title-contains-url' => 'Appears when the page title being requested contains the URL of the site and not just the page title',
 	'gwtoolset-record-element-name' => 'Label for record element name in the HTML form.
 
