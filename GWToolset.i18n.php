@@ -1659,7 +1659,7 @@ $messages['ja'] = array(
 	'gwtoolset-desc' => 'GWToolset - GLAM 用の一括アップロード ツール',
 	'gwtoolset-intro' => 'GWToolset は、GLAM (美術館、図書館、記録保管所、博物館) がコンテンツを一括アップロードできるようにする MediaWiki 拡張機能です。この一括アップロードは、コンテンツそれぞれについてのメタデータを含む XML ファイルに基づいて行われます。さまざまな XML スキーマに対応することを意図しています。プロジェクトについての詳細情報は、[https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project プロジェクト ページ]にあります。そちらのページでもご遠慮なくお問い合わせください。アップロード作業を開始するには、上のメニュー項目から 1 つ選択してください。',
 	'right-gwtoolset' => 'GWToolsetを使用',
-	'action-gwtoolset' => 'gwtoolsetの使用',
+	'action-gwtoolset' => 'GWToolsetの使用',
 	'group-gwtoolset' => 'GWToolset 利用者',
 	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset 利用者}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset 利用者',
@@ -2136,12 +2136,21 @@ $1',
 	'gwtoolset-global-tooltip' => 'Овие категориски ставки ќе се применат глобално врз сето она што е подигнато.',
 	'gwtoolset-maps-to' => 'Се пресликува во',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'Не можев да ја утврдам наставката на податотеката од нејзината URL: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'Не можев да ја проценам URL-адресата на медиумската податотека. Ја нуди содржината на начин што сè уште не може да се обработи со овој додаток. Укажаната URL-адреса гласеше „$1“.',
+	'gwtoolset-mapping-no-title' => 'Медапотаточното пресликување нема наслов, кој е потребен за да се создаде страницата.',
+	'gwtoolset-mapping-no-title-identifier' => 'Метаподаточното пресликување нема назнака за наслов, која е потребна за да се создаде единствен  наслов на страницата. Внимавајте да пресликате метаподаточно поле во назнаката за наслов во параметарот на МедијаВики-шаблонот.',
 	'gwtoolset-metadata-field' => 'Метаподаточно поле',
 	'gwtoolset-metadata-file' => 'Метаподаточна податотека',
 	'gwtoolset-metadata-mapping-legend' => 'Пресликајте ги вашите метаподатоци',
 	'gwtoolset-no-more-records' => '<strong>Повеќе нема записи за обработка</strong>',
 	'gwtoolset-painted-by' => 'Насликано од',
 	'gwtoolset-partner' => 'Партнер',
+	'gwtoolset-partner-explanation' => 'Партнерските шаблони се преземаат и ставаат во полето за извор во МедијаВики-шаблонот, кога ги има. Список на тековни партнерски шаблони ќе најдете во страницата за шаблони за извори (погл. врската подолу). Штом имате партнерски шаблон што сакате да го употребите, во ова поле ставете ја неговата URL-адреса. Можете да создадете и нов партнерски шаблон, ако има потреба.',
+	'gwtoolset-partner-template' => 'Партнерски шаблон:',
+	'gwtoolset-phrasing' => 'Израз',
+	'gwtoolset-preview' => 'Прегледајте го пакетот',
+	'gwtoolset-process-batch' => 'Обработи го пакетот',
+	'gwtoolset-record-count' => 'Вкупно записи пронајдени во оваа метаподаточна податотека: {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Резултати',
 	'gwtoolset-step-2-heading' => 'Чекор 2: Пресликување на метаподатоците',
 	'gwtoolset-step-2-instructions-heading' => 'Пресликување на метаподаточните полиња',
@@ -2149,12 +2158,50 @@ $1',
 	'gwtoolset-step-2-instructions-1-li-1' => 'Список на полиња МедијаВики-шаблонот „$1“.',
 	'gwtoolset-step-2-instructions-1-li-2' => 'Расклопни полиња што ги претставуваат полињата во метаподаточната податотека.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'Пример за запис од метаподаточната податотека.',
+	'gwtoolset-step-2-instructions-2' => 'Во овој чекор ќе треба да ги пресликате метаподататочните полиња од полињата од МедијаВики-шаблонот.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Одберете медатподаточно поле од колоната „{{int:gwtoolset-maps-to}}“ што соодветствува на полето во МедијаВики-шаблонот во колоната „{{int:gwtoolset-template-field}}“.',
+	'gwtoolset-step-2-instructions-2-li-2' => 'Не морате да дадете совпаѓања за сите полиња во МедијаВики-шаблонот.',
+	'gwtoolset-reupload-media' => 'Преподигни ја податотеката од URL',
+	'gwtoolset-reupload-media-explanation' => 'Овој штикларник ви овозможува да преподигате медиумски податотеки (слики и снимки) за објект што веќе е подигнат на викито. Ако објектот веќе постои, во викито ќе биде додадена уште една податотека. Ако истата сè уште не постои, ќе биде подигната без оглед на тоа дали е штиклирано полево.',
+	'gwtoolset-specific-categories' => 'Наменски категории за објекти',
+	'gwtoolset-specific-tooltip' => 'Со следниве полиња можете да укажете израз (незадолжително) како и категориски запис за секој поединечен подигнат објект. На пример, ако метаподаточната податотека содржи елемент за изведувач во секој запис, можете да го додадете како категориски запис кај секој од нив, што ќе ја смени вредноста што се однесува на секој од записите. Можете и да додадете израз како „<em>{{int:gwtoolset-painted-by}}</em>“, а потоа метаподаточното поле за изведувач, што би дало „<em>{{int:gwtoolset-painted-by}} <име на изведувачот></em>“ како категорија за секој запис.',
+	'gwtoolset-template-field' => 'Шаблонско поле',
+	'gwtoolset-step-3-instructions-heading' => 'Step 3: Преглед на пакетот',
+	'gwtoolset-step-3-instructions-1' => 'Подолу се наведени резултатите од подигањето на {{PLURAL:$1|првиот запис|првите $1 записи}} од метаподаточната податотека што ја одбравте и {{PLURAL:$1|неговото|нивните}} пресликувања од МедијаВики-шаблонот што го одбравте во „{{int:gwtoolset-step-2-heading}}“.',
+	'gwtoolset-step-3-instructions-2' => 'Прегледајте ги странициве и, ако резултатите одговараат на вашите очекувања и има уште записи што чекаат на подигање, продолжете со пакетното подигање, стискајќи на копчето „{{int:gwtoolset-process-batch}}“ подолу.',
+	'gwtoolset-step-3-instructions-3' => 'Ако не ви се допаѓаат резултатите, вратете се на „{{int:gwtoolset-step-2-heading}}“ и прилагодете го пресликувањето.
+
+Ако треба да ја прилагодите самата метаподаточна податотека, тогаш направете го тоа, па преподигнете ја, започнувајќи ја постапката одново со „{{int:gwtoolset-step-1-heading}}“.',
+	'gwtoolset-title-bad' => 'Создадениот наслов, заснован на пресликувањето од МедијаВики-шаблонот и метаподатоците не е важечки.
+
+Пробајте со друго поле од метаподатоците за наслов и наслов-назнака, или, ако е можно, изменете ги метаподатоците според потребите. Повеќе информации ќе добиете на страницата „[https://commons.wikimedia.org/wiki/Commons:File_naming Именување на податотеки]“.
+
+<strong>Неважечки наслов:</strong> $1.',
+	'gwtoolset-batchjob-metadata-created' => 'Создадена е пакетната задача за метаподатоците. Вашата метаподаточна податотека ќе биде набргу изанализирана, па секој објект ќе биде подигнат на викито со позадинска постапка. Можете да ја погледнете страницата „$1“ за да видите дали се подигнати.',
+	'gwtoolset-batchjob-metadata-creation-failure' => 'Не можев да создадам пакетна задача за метаподаточната податотека.',
+	'gwtoolset-create-mediafile' => '$1: Создавање на медиумска податотека за $2.',
 	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-mediafile-jobs-created' => '{{PLURAL:$1|Создадена е една пакетна задача|Создадени се $1 пакетни задачи}} за медиумски податотеки.',
 	'gwtoolset-step-4-heading' => 'Чекор 4: Збирно подигање',
+	'gwtoolset-invalid-token' => 'Шифрата на уредувањето поднесена со образецот е неважечка.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Тековни поставки на <code>php.ini</code>:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+Тие се зададени пониско од <code>$wgMaxUploadSize</code> на викито, што е зададено на „$3“. Прилагодете ги поставките на <code>php.ini</code>.',
+	'gwtoolset-mediawiki-version-invalid' => 'Додатоков бара МедијаВики со верзија $1<br />Оваа верзија е $2.',
+	'gwtoolset-permission-not-given' => 'Проверете дали сте најавени или обратете се кај администратор за да ви даде дозвола да ја гледате страницава ($1).',
+	'gwtoolset-user-blocked' => 'Вашата корисничка сметка е моментално блокирана. Обратете се кај администратор за да го средите проблемот.',
 	'gwtoolset-required-group' => 'Не членувате во групата „$1“.',
 	'gwtoolset-verify-api-enabled' => 'Додатокот „$1“ бара да е овозможен википрилогот (API).
 
 Проверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак е заменето со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-api-writeable' => 'Додатокот „$1“ бара википрилогот да може да запишува за овластени корисници.
+
+Внимавајте <code>$wgEnableWriteAPI</code> да биде наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак да е презапишано со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-curl' => 'Додатокот „$1“ бара да бидат инсталирани [http://www.php.net/manual/en/curl.setup.php функциите на cURL] во PHP.',
+	'gwtoolset-verify-finfo' => 'Додатокот „$1“ бара да е инсталиран додатокот „[http://www.php.net/manual/en/fileinfo.setup.php finfo]“ за PHP.',
 	'gwtoolset-verify-php-version' => 'Додатокот „$1“ бара PHP >= 5.3.3.',
 	'gwtoolset-verify-uploads-enabled' => 'Додатокот „$1“ бара да е овозможено подигање на податотеки.
 
@@ -3072,4 +3119,13 @@ $1',
 	'gwtoolset-metadata-file' => '元数据文件',
 	'gwtoolset-reupload-media' => '从URL重新上传媒体文件',
 	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-required-group' => '您不是$1组的成员。',
+);
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author Liuxinyu970226
+ */
+$messages['zh-hant'] = array(
+	'action-gwtoolset' => '通過gwtoolset',
+	'gwtoolset-required-group' => '您並非$1組成員。',
 );
