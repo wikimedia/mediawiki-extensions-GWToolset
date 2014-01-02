@@ -1037,7 +1037,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Stelle sicher, dass die XML-Datei mit diesem $1 wohlgeformt ist.',
 	'gwtoolset-file-url-invalid' => 'Die Datei-URL war ungültig. Die Datei ist im Wiki noch nicht vorhanden. Du musst die Datei zuerst von deinem Computer hochladen, wenn du die Datei-URL-Referenz im Formular verwenden willst.',
 	'gwtoolset-mediafile-throttle' => 'Mediendatei-Drosselung:',
-	'gwtoolset-mediafile-throttle-description' => 'Die Drosselung, die das Laden von Wikimedia Commons steuert, wird deinen Medienserver während des Stapel-Uploads aufsetzen. Du kannst die Drosselung zwischen 1 und 20 festlegen, wo die Zahl der Zahl der Medienanfragen pro Minute entspricht.',
+	'gwtoolset-mediafile-throttle-description' => 'Nach der Stapelvorschau in Schritt 3 lädt GWToolset die verbleibenden Einträge in deinem Stapel-Upload mithilfe von Hintergrundaufträgen hoch. Die Mediendateidrosselung steuert die Anzahl der Mediendateianfragen, die Wikimedia Commons jedes Mal mit deinem Mediendateiserver durchführt, wenn ein Hintergrundauftrag läuft. Du kannst die Mediendateidrosselung zwischen 1 und 20 festlegen. Falls beispielsweise die Gesamtzahl der Einträge in deinem Stapel-Upload 100 beträgt und du die Grenze auf 20 festgelegt hast, führt Wikimedia Commons 5 Hintergrundaufträge aus, um deinen gesamten Stapel-Upload zu verarbeiten. Die Zeit zwischen jedem Hintergrund-Hochladeauftrag ist abhängig von der Serverladezeit und der Konfiguration; wir gehen davon aus, dass auf Wikimedia Commons mindestens alle 5 Minuten ein GWToolset-Hintergrundauftrag ausgeführt wird.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Die MediaWiki-Vorlage „<strong>$1</strong>“ ist im Wiki nicht vorhanden.
 
 Importiere die Vorlage oder wähle eine andere MediaWiki-Vorlage aus, die für das Mapping verwendet werden soll.',
@@ -1061,7 +1061,8 @@ Die Seite „<strong>$1</strong>“ ist im Wiki nicht vorhanden.',
 Sie sollte im Namensraum „<strong>$3</strong>“ sein.',
 	'gwtoolset-no-xml-element-found' => 'Es wurde kein XML-Element zum Mappen gefunden.
 * Hast du im Formular einen Wert für „{{int:gwtoolset-record-element-name}}“ angegeben?
-* Ist die XML-Datei wohlgeformt? Versuche dieses $1.',
+* Ist die XML-Datei wohlgeformt? Versuche dieses $1.
+$2',
 	'gwtoolset-page-title-contains-url' => 'Die Seite „$1“ enthält die vollständige Wiki-URL. Stelle sicher, dass du nur den Seitentitel eingibst, z.&nbsp;B. den Teil der URL nach /wiki/.',
 	'gwtoolset-record-element-name' => 'Was ist das XML-Element, das jeden Metadateneintrag enthält:',
 	'gwtoolset-step-1-heading' => 'Schritt 1: Metadaten-Erkennung',
@@ -1349,7 +1350,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Assurez-vous que le fichier XML est bien formé avec ce $1.',
 	'gwtoolset-file-url-invalid' => 'Le fichier URL était non valide ; ce fichier n’existe pas encore dans le wiki. Vous devez d’abord importer le fichier depuis votre machine si vous voulez utiliser la référence d’URL du fichier dans ce formulaire.',
 	'gwtoolset-mediafile-throttle' => 'Accélérateur de fichier média :',
-	'gwtoolset-mediafile-throttle-description' => 'L’accélérateur contrôle la charge que Wikimedia Communs imposera à votre serveur de média lors de l’import en masse. Vous pouvez fixer l’accélérateur entre 1 et 20, avec le nombre correspondant au nombre de requêtes de média par minute.',
+	'gwtoolset-mediafile-throttle-description' => 'Après l’aperçu du lot, dans l’étape 3, GWToolset importe les enregistrements restants dans votre import de lot via des traitements en tâche de fond. L’accélérateur de fichier média contrôle le nombre de requêtes de fichiers média que Wikimédia Communs fera à votre serveur de fichiers média chaque fois qu’un traitement en tâche de fond est exécuté. Vous pouvez fixer l’accélérateur de fichiers média entre 1 et 20. Par exemple, si le nombre total d’enregistrements de votre import de lot est de 100 et que vous avez fixé l’accélérateur à 20, Wikimédia Communs fera tourner 5 traitements en tâche de fond pour exécuter l’ensemble de votre import de lot. Le temps entre chaque traitement en tâche de fond dépend de la charge du serveur et de la configuration ; nous avons prévu que sur Wikimédia Communs un traitement en tâche de fond de GWToolset tournera au moins toutes les 5 minutes.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Le modèle MediaWiki "<strong>$1</strong>" n’existe pas dans le wiki.
 
 Importez le modèle, ou sélectionnez un autre modèle MediaWiki à utiliser pour la correspondance.',
@@ -1373,7 +1374,8 @@ La page « <strong>$1<strong> » n’existe pas dans le wiki.',
 Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-no-xml-element-found' => 'Aucun élément XML trouvé pour la correspondance.
 * Avez-vous saisi une valeur dans le formulaire pour « {{int:gwtoolset-record-element-name}} » ?
-* Le fichier XML est-il bien formé ? Essayez cela $1.',
+* Le fichier XML est-il bien formé ? Essayez cela $1.
+$2',
 	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après /wiki/',
 	'gwtoolset-record-element-name' => 'Quel est l’élément XML qui contient chaque enregistrement de métadonnée :',
 	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
@@ -1483,31 +1485,33 @@ $messages['fy'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author AvrahamKatz
+ * @author Guycn2
  * @author NLIGuy
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'gwtoolset' => 'ארגז כלי גלאם־ויקי',
 	'gwtoolset-desc' => 'ארגז כלי גלאם-ויקי, כלי להעלאה המונית לוויקישיתוף בשביל מוסדות GLAM (ספריות, ארכיונים, מוזיאונים, גלריות)',
-	'gwtoolset-intro' => 'ארגז כלי גלאם-ויקי הינו הרחבה של MediaWiki אשר נותנת לגלאם (גלריות, ספריות, ארכיונים ומוזיאונים) את האפשרות להעלות חומר בכמויות המבוסס על קובץ XML המכיל מטא-נתונים מתאימים לגבי החומר. הכוונה היא לאפשר למגוון של סכמות XML. מידע נוסף לגבי הפרוייקט יכול להימצא בעמוד הפרוייקט [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project]. הרגישו חופשי ליצור איתנו קשר גם בעמוד זה. יש לבחור אחד מפרטי התפריטים מעל על מנת להתחיל את תהליך ההלאה.',
-	'right-gwtoolset' => 'השתמש בארגז כלי גלאם-ויקי',
-	'action-gwtoolset' => 'השתמש בארגז כלי גלאם-ויקי',
+	'gwtoolset-intro' => 'ארגז כלי גלאם־ויקי היא הרחבה של MediaWiki שנותנת למוסדות גלאם (גלריות, ספריות, ארכיונים ומוזיאונים) את האפשרות להעלות חומר רב המבוסס על קובץ XML המכיל מטא־נתונים מתאימים לגבי החומר. הכוונה היא לאפשר למגוון של סכֵמות XML. אפשר למצוא מידע נוסף לגבי המיזם ב[https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project עמוד המיזם]. הרגישו חופשיים ליצור אתנו קשר גם בעמוד זה. יש לבחור אחד מפריטי התפריטים מעל כדי להתחיל את תהליך.',
+	'right-gwtoolset' => 'שימוש בארגז כלי גלאם־ויקי.',
+	'action-gwtoolset' => 'להשתמש בארגז כלי גלאם־ויקי',
 	'group-gwtoolset' => 'משתמשי ארגז כלי גלאם-ויקי',
-	'group-gwtoolset-member' => '{{GENDER:$1|משתמש|משתמשת}} ארגז כלי גלאם-ויקי',
+	'group-gwtoolset-member' => '{{GENDER:$1|משתמש|משתמשת}} ארגז כלי גלאם־ויקי',
 	'gwtoolset-could-not-close-xml' => 'לא יכול לסגור את קורא ה־XML.',
-	'gwtoolset-could-not-open-xml' => 'לא ניתן לפתוח את קובץ הXML לקריאה.',
+	'gwtoolset-could-not-open-xml' => 'לא ניתן לפתוח את קובץ ה־XML לקריאה.',
 	'gwtoolset-developer-issue' => 'נא ליצור קשר עם מפתח. יש להתייחס לבעיה הזאת לפני שאפשר יהיה להמשיך. נא להוסיף את הטקסט הבא לדיווח שלכם:
 
 $1',
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, או <code>record-count</code>, או <code>record-current</code> לא סופקו.',
 	'gwtoolset-file-backend-maxage-invalid' => 'ערך הגיל המרבי הנתון ב<code>$wgGWTFBMaxAge</code> אינו תקין. עיין ב־ [php.net/manual/en/datetime.formats.relative.php PHP manual] כדי להגדירו בצורה נכונה.',
-	'gwtoolset-fsfile-empty' => 'הקובץ נמצא ריק ולכן נמחק.',
+	'gwtoolset-fsfile-empty' => 'הקובץ היה ריק ולכן נמחק.',
 	'gwtoolset-fsfile-retrieval-failure' => 'לא הייתה אפשרות לאחזר את הקובץ מהכתובת $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> לא הוגדר.',
 	'gwtoolset-incorrect-form-handler' => 'המודול "$1" לא רשם מטפל טפסים (form handler) שמרחיב את GWToolset\\Handlers\\Forms\\FormHandler.',
 	'gwtoolset-job-throttle-exceeded' => 'מחסום המשימות (batch job throttle) הגיע לסף.',
 	'gwtoolset-no-accepted-types' => 'לא סופקו טיפוסים מקובלים.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> לא הוגדר.",
-	'gwtoolset-no-default' => 'לא סופק ערך ברירת מחדל',
+	'gwtoolset-no-default' => 'לא סופק ערך התחלתי.',
 	'gwtoolset-no-field-size' => 'לא צוין גודל שדה עבור שדה "$1".',
 	'gwtoolset-no-file-backend-name' => 'לא סופק שם לשרת קבצים (file backend).',
 	'gwtoolset-no-file-backend-container' => 'לא סופק שם מכל לשרת קבצים (file backend container name).',
@@ -1537,53 +1541,57 @@ $1',
 	'gwtoolset-not-string' => 'הערך שסופק למתודה לא היה מחרוזת. הוא מסוג "$1".',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 אינו תואם.',
 	'gwtoolset-disk-write-failure' => 'השרת לא הצליח לכתוב את הקובץ אל מערכת קבצים.',
-	'gwtoolset-file-is-empty' => 'הקובץ שהועלה הינו ריק.',
+	'gwtoolset-file-is-empty' => 'הקובץ שהועלה ריק.',
 	'gwtoolset-improper-upload' => 'הקובץ לא הועלה כראוי.',
-	'gwtoolset-missing-temp-folder' => 'לא נמצאה תיקיה זמנית זמינה.',
+	'gwtoolset-missing-temp-folder' => 'אין תיקייה זמנית זמינה.',
 	'gwtoolset-multiple-files' => 'הקובץ שהועלה מכיל מידע לגבי יותר מקובץ אחד. רק קובץ אחד יכול להתקבל בכל פעם.',
-	'gwtoolset-no-extension' => 'הקובץ שהועלה לא מכיל מספיק מידע על מנת לעבדו. ככל הנראה לקובץ אין כל סיומת.',
+	'gwtoolset-no-extension' => 'הקובץ שהועלה לא מכיל מספיק מידע כדי לעבדו. ככל הנראה לקובץ אין כל סיומת.',
 	'gwtoolset-no-file' => 'לא התקבל שום קובץ.',
 	'gwtoolset-partial-upload' => 'הקובץ הועלה חלקית.',
-	'gwtoolset-menu-1' => 'מיפוי המטא-נתונים',
-	'gwtoolset-technical-error' => 'קרתה שגיאה טכנית.',
-	'gwtoolset-required-field' => 'מציין את השדה הדרוש',
-	'gwtoolset-submit' => 'שלח',
+	'gwtoolset-back-text-link' => '→ חזרה לטופס',
+	'gwtoolset-menu-1' => 'מיפוי המטא־נתונים',
+	'gwtoolset-technical-error' => 'אירעה שגיאה טכנית.',
+	'gwtoolset-required-field' => 'מציין שדה דרוש',
+	'gwtoolset-submit' => 'שליחה',
 	'gwtoolset-summary-heading' => 'תקציר',
 	'gwtoolset-cancel' => 'ביטול',
-	'gwtoolset-loading' => 'נא להתאזר בסבלנות. זה עלול לקחת זמן מה.',
-	'gwtoolset-save' => 'שמור',
+	'gwtoolset-loading' => 'נא להתאזר בסבלנות. זה עלול לקחת זמן־מה.',
+	'gwtoolset-save' => 'שמירה',
 	'gwtoolset-save-mapping' => 'שמירת מיפוי',
-	'gwtoolset-save-mapping-failed' => 'מצטערים. קרתה תקלה בעת עיבוד בקשתכם. אנא נסו שוב מאוחר יותר. (הודעת שגיאה: $1)',
+	'gwtoolset-save-mapping-failed' => 'מצטערים. אירעה תקלה בעת עיבוד בקשתכם. נא לנסות שוב מאוחר יותר. (הודעת שגיאה: $1)',
 	'gwtoolset-save-mapping-succeeded' => 'המיפוי שלך נשמר.',
-	'gwtoolset-save-mapping-name' => 'כיצד תרצה לקרוא למיפוי זה?',
-	'gwtoolset-json-error' => 'קרתה תקלה עם ה JSON. שגיאה: $1',
+	'gwtoolset-save-mapping-name' => 'איך ברצונך לקרוא למיפוי זה?',
+	'gwtoolset-json-error' => 'אירעה בעיה עם ה־JSON. שגיאה: $1',
 	'gwtoolset-json-error-unknown' => 'שגיאה לא ידועה.',
-	'gwtoolset-file-url-invalid' => 'הלינק של הקובץ אינו חוקי. הקובץ אינו קיים עדיין בויקי. יש להעלות את הקובץ תחילה ממחשבך אם ברצונך להשתמש בלינק לקובץ בטופס.',
-	'gwtoolset-metadata-file-source-info' => '... או קובץ שהועלה כבר או קובץ שברצונך להעלות ממחשבך.',
+	'gwtoolset-file-url-invalid' => 'הכתובת של הקובץ אינה חוקית; הקובץ אינו קיים עדיין בוויקי. יש להעלות את הקובץ תחילה מהמחשב שלך אם ברצונך להשתמש בכתובת הקובץ בטופס.',
+	'gwtoolset-metadata-file-source-info' => '... או קובץ שהועלה כבר או קובץ שברצונך להעלות מהמחשב שלך.',
 	'gwtoolset-category' => 'קטגוריה',
-	'gwtoolset-example-record' => 'תכולת רשומת דוגמת המטא-נתונים.',
+	'gwtoolset-example-record' => 'תכולת הרשומה לדוגמה של המטא־נתונים.',
 	'gwtoolset-global-categories' => 'קטגוריות גלובליות',
-	'gwtoolset-global-tooltip' => 'רישום קטגוריות אלו יחולו גלובלית על כל הפרטים המועלאים.',
-	'gwtoolset-maps-to' => 'מפה ל...',
-	'gwtoolset-mapping-media-file-url-extension-bad' => 'סיומת הקובץ לא יכולה להיקבע מהלינק לקובץ: $1',
-	'gwtoolset-mapping-media-file-url-bad' => 'כתובת קובץ המדיה לא יכולה ליהיות מוערכת. הלינק מעביר את התוכן בצורה שלא נתמכת עדיין על ידי הסיומת הזאת. הכתובת שניתנה הינה "$1"',
-	'gwtoolset-mapping-no-title' => 'מיפוי המטא-נתונים אינו מכיל כותר, אשר נחוץ על מנת ליצור את העמוד.',
-	'gwtoolset-mapping-no-title-identifier' => 'מיפוי המטא-נתונים אינו מכיל מזהה כותר, אשר משומש על מנת ליצור כותר עמוד ייחודי. אנא וודאו שמיפיתם את שדה המטא-נתונים לפרמטר מזהה הכותר של התבנית של MediaWiki',
-	'gwtoolset-metadata-field' => 'שדה מטא-נתונים',
-	'gwtoolset-metadata-file' => 'קובץ מטא-נתונים',
-	'gwtoolset-metadata-mapping-legend' => 'מפה את המטא-נתונים שלך',
-	'gwtoolset-no-more-records' => '<strong>אין יותר רשומות על מנת להמשיך</strong>',
-	'gwtoolset-painted-by' => 'צויר על ידי',
-	'gwtoolset-partner' => 'פרטנר',
-	'gwtoolset-partner-explanation' => 'תבניות הפרטנר נמשכות לשדה המקור של תבנית הMediaWiki כאשר הן מסופקות. ניתן למצוא רשימה של תבניות פרטנר נוכחיות בקטגוריית: עמוד תבניות המקור; ראה לינק למטה. ברגע שמצאת את תבנית הפרטנר שברצונך להשתמש בה שים את הכתובת ברשומה זו. ניתן גם ליצור תבנית פרטנר חדשה אם נחוץ.',
+	'gwtoolset-global-tooltip' => 'עיולי הקטגוריות האלה יחולו גלובלית לכל הפריטים המוּעלים.',
+	'gwtoolset-maps-to' => 'ממפה ל...',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'לא ניתן היה לזהות את סיומת הקובץ מהכתובת לקובץ: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'לא ניתן היה לחשב את כתובת קובץ המדיה. הכתובת מעבירה את התוכן בצורה שלא נתמכת עדיין על־ידי הסיומת הזאת. הכתובת שניתנה היא "$1".',
+	'gwtoolset-mapping-no-title' => 'מיפוי המטא-נתונים אינו מכיל כותרת, אשר נחוצה כדי ליצור את העמוד.',
+	'gwtoolset-mapping-no-title-identifier' => 'מיפוי המטא־נתונים אינו מכיל מזהה כותרת, אשר משמש ליצירת כותרת עמוד ייחודית. נא לוודא שמיפיתם את שדה המטא־נתונים לפרמטר מזהה הכותר התבנית של מדיה־ויקי.',
+	'gwtoolset-metadata-field' => 'שדה מטא־נתונים',
+	'gwtoolset-metadata-file' => 'קובץ מטא־נתונים',
+	'gwtoolset-metadata-mapping-legend' => 'מיפוי המטא־נתונים שלך',
+	'gwtoolset-no-more-records' => '<strong>אין עוד רשומות לעבד</strong>',
+	'gwtoolset-painted-by' => 'צויר על־ידי',
+	'gwtoolset-partner' => 'שותף',
+	'gwtoolset-partner-explanation' => 'תבניות השותפים נמשכות לשדה המקור של תבנית המדיה־ויקי כאשר הן מסופקות. ניתן למצוא רשימה של תבניות שותפים נוכחיות בקטגוריה Source templates page; ראה קישור להלן. ברגע שמצאת את תבנית השותף שברצונך להשתמש בה, שים את הכתובת בשדה הזה. ניתן גם ליצור תבנית שותף חדשה אם נחוץ.',
 	'gwtoolset-partner-template' => 'תבנית שותף:',
 	'gwtoolset-phrasing' => 'ניסוח',
-	'gwtoolset-preview' => 'תצוגה מקדימה של אצוה',
+	'gwtoolset-preview' => 'תצוגה מקדימה של אצווה',
 	'gwtoolset-process-batch' => 'אצוות תהליך',
-	'gwtoolset-record-count' => 'מספר כולל של רשומות שנמצאו בקובץ המטא-נתונים: $1', # Fuzzy
+	'gwtoolset-record-count' => 'מספר כולל של רשומות שנמצאו בקובץ המטא-נתונים: {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'תוצאות',
-	'gwtoolset-step-2-heading' => 'שלב 2: מיפוי המטא-נתונים',
-	'gwtoolset-reupload-media-explanation' => 'תיבת הסימון הזאת נותנת לך להעלות מחדש מדיה עבור פריט שכבר הועלה לויקי. אם הפריט קיים כבר, קובץ מדיה חדש יתווסף לויקי. אם קובץ המדיה עוד לא קיים, הוא יועלה אם התיבה מסומנת.',
+	'gwtoolset-step-2-heading' => 'שלב 2: מיפוי מטא־נתונים',
+	'gwtoolset-reupload-media-explanation' => 'תיבת הסימון הזאת נותנת לך להעלות מחדש מדיה עבור פריט שכבר הועלה לוויקי. אם הפריט קיים כבר, קובץ מדיה חדש יתווסף לוןויקי. אם קובץ המדיה עוד לא קיים, הוא יועלה אם התיבה מסומנת ואם לאו.',
+	'gwtoolset-template-field' => 'שדה תבנית',
+	'gwtoolset-required-group' => 'אין לך חברות בקבוצה $1.',
+	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי לא צלחו',
 );
 
 /** Italian (italiano)
@@ -1781,7 +1789,7 @@ $1',
 名前空間「<strong>$3</strong>」である必要があります。',
 	'gwtoolset-no-xml-element-found' => 'マッピング用の XML 要素が見つかりません。
 * フォームで「{{int:gwtoolset-record-element-name}}」欄に値を入力しましたか?
-* XML ファイルは整形式ですか? こちらをお試しください: $1',
+* XML ファイルは整形式ですか? こちらをお試しください: $1', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の /wiki/ の後の部分)。',
 	'gwtoolset-record-element-name' => '各メタデータのレコードを含む XML 要素:',
 	'gwtoolset-step-1-heading' => '手順 1: メタデータの検出',
@@ -1967,6 +1975,7 @@ $messages['lb'] = array(
 	'gwtoolset-json-error-syntax' => 'Synthax-Feeler,JSON falsch zesummegesat.',
 	'gwtoolset-json-error-unknown' => 'Onbekannte Feeler.',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-Schabloun "$1" net fonnt.',
+	'gwtoolset-metadata-file-url' => 'Wiki-URL vum Metadata-Fichier:',
 	'gwtoolset-category' => 'Kategorie',
 	'gwtoolset-global-categories' => 'Global Kategorien',
 	'gwtoolset-global-tooltip' => 'Dës Kategorie gi global fir all eropgelueden Elementer applizéiert.',
@@ -1977,6 +1986,7 @@ $messages['lb'] = array(
 	'gwtoolset-step-2-instructions-1-li-1' => 'Eng Lëscht vun de Felder an der MediaWiki $1.',
 	'gwtoolset-template-field' => 'Feld vun der Schabloun',
 	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-mediawiki-version-invalid' => "Dës Erweiderung brauch d'Mediawiki-Versioun $1<br />Dës MediaWiki Versioun ass $2.",
 	'gwtoolset-user-blocked' => 'Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.',
 	'gwtoolset-required-group' => 'Dir sidd net Member vum Grupp $1.',
 	'gwtoolset-verify-php-version' => "D'Erweiderung $1 brauch PHP >= 5.3.3.",
@@ -2090,7 +2100,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Проверете дали XML-податотеката е добро срочена со овој $1.',
 	'gwtoolset-file-url-invalid' => 'Податотеката има неважчеки URL. Таа сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.',
 	'gwtoolset-mediafile-throttle' => 'Делотворност:',
-	'gwtoolset-mediafile-throttle-description' => 'Делотворноста го опишува работниот обем (оптоварувањето) што Ризницата ќе му го наметне на вашиот медиумски опслужувач во текот на групното подигање. Можете да зададете број од 1 до 20, што претставува број на податотечни барања во минута.',
+	'gwtoolset-mediafile-throttle-description' => 'Делотворноста го опишува работниот обем (оптоварувањето) што Ризницата ќе му го наметне на вашиот медиумски опслужувач во текот на групното подигање. Можете да зададете број од 1 до 20, што претставува број на податотечни барања во минута.', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'МедијаВики-шаблонот „<strong>$1</strong>“ не постои на викито.
 
 Увезете го или одберете друг ваков шаблон за пресликување.',
@@ -2114,7 +2124,7 @@ $1',
 Треба да биде во именскиот простор „<strong>$3<strong>“.',
 	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
-* Дали XML-податотеката е добро срочена? Пробајте го ова $1.',
+* Дали XML-податотеката е добро срочена? Пробајте го ова $1.', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
 	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
@@ -2421,7 +2431,9 @@ Sila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</c
  * @author Chelin
  */
 $messages['nap'] = array(
+	'action-gwtoolset' => 'ausare GWToolset',
 	'gwtoolset-mediawiki-template' => 'Modello $1',
+	'gwtoolset-required-group' => 'Nun sii membro d"o gruppo utente $1.',
 );
 
 /** Dutch (Nederlands)
@@ -2697,7 +2709,7 @@ Sidan "<strong>$1<strong>" finns inte på wikin.',
 Den borde vara i namnrymden "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Inget XML-element kunde hittas för mappningen.
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
-* Är XML-filen välformaterad? Pröva följande $1.',
+* Är XML-filen välformaterad? Pröva följande $1.', # Fuzzy
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
 	'gwtoolset-upload-legend' => 'Ladda upp din metadatafil',
 	'gwtoolset-which-mediawiki-template' => 'Vilken MediaWiki-mall:',
