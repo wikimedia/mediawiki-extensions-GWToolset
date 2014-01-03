@@ -404,7 +404,9 @@ See also:
 	'gwtoolset-unaccepted-mime-type-for-xml' => '{{doc-important|Do not translate <code><nowiki>&lt;?xml version="1.0" encoding="UTF-8"?></nowiki></code> part.}}
 User error message that appears when the mime type of the file is not accepted. Parameters:
 * $1 - the interpreted MIME type. In this case the XML file may not have an XML declaration at the top of the file.',
-	'gwtoolset-back-text-link' => '{{msg-mw|Gwtoolset-back-text}} is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.',
+	'gwtoolset-back-text-link' => '{{msg-mw|Gwtoolset-back-text}} is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.
+
+Used as <code>$2</code> in {{msg-mw|Gwtoolset-no-xml-element-found}}.',
 	'gwtoolset-back-text' => 'User message telling the user to use the browser back button to go back to the HTML form.
 
 When JavaScript is active this message is replaced with an anchor tag using {{msg-mw|Gwtoolset-back-text-link}}.',
@@ -1789,7 +1791,8 @@ $1',
 名前空間「<strong>$3</strong>」である必要があります。',
 	'gwtoolset-no-xml-element-found' => 'マッピング用の XML 要素が見つかりません。
 * フォームで「{{int:gwtoolset-record-element-name}}」欄に値を入力しましたか?
-* XML ファイルは整形式ですか? こちらをお試しください: $1', # Fuzzy
+* XML ファイルは整形式ですか? こちらをお試しください: $1
+$2',
 	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の /wiki/ の後の部分)。',
 	'gwtoolset-record-element-name' => '各メタデータのレコードを含む XML 要素:',
 	'gwtoolset-step-1-heading' => '手順 1: メタデータの検出',
@@ -2100,7 +2103,7 @@ $1',
 	'gwtoolset-ensure-well-formed-xml' => 'Проверете дали XML-податотеката е добро срочена со овој $1.',
 	'gwtoolset-file-url-invalid' => 'Податотеката има неважчеки URL. Таа сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.',
 	'gwtoolset-mediafile-throttle' => 'Делотворност:',
-	'gwtoolset-mediafile-throttle-description' => 'Делотворноста го опишува работниот обем (оптоварувањето) што Ризницата ќе му го наметне на вашиот медиумски опслужувач во текот на групното подигање. Можете да зададете број од 1 до 20, што претставува број на податотечни барања во минута.', # Fuzzy
+	'gwtoolset-mediafile-throttle-description' => 'По пакетниот пеглед, во чекор 3, GWToolset ги подига преостанатите записи преку позадински задачи. Делотворноста го контролира бројот на податотеки што Ризницата ќе ги подига (постава барања) на опслужвачот во дадена задача. Можете да зададете број од 1 до 20. На пример, ако во пакетното подигање сакате да подигнете вкупно 100 податотеки, а укажете делотворност 20, тоа значи дека Ризницата ќе пушти 5 позадински задачи за да го подигне целиот пакет. Временското растојание помеѓу секоја пакетна задача зависи од оптовареноста на опслужувачот и поставките. Очекуваме ова да биде барем на секои 5 минути.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'МедијаВики-шаблонот „<strong>$1</strong>“ не постои на викито.
 
 Увезете го или одберете друг ваков шаблон за пресликување.',
@@ -2124,7 +2127,8 @@ $1',
 Треба да биде во именскиот простор „<strong>$3<strong>“.',
 	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
-* Дали XML-податотеката е добро срочена? Пробајте го ова $1.', # Fuzzy
+* Дали XML-податотеката е добро срочена? Пробајте го ова $1.
+$2',
 	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
 	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
@@ -2846,7 +2850,7 @@ $1",
 	'gwtoolset-back-text' => 'Натисніть кнопку браузера "назад", щоб повернутися до форми.',
 	'gwtoolset-file-interpretation-error' => 'Сталася помилка обробки метаданих файлу',
 	'gwtoolset-mediawiki-template' => 'Шаблон $1',
-	'gwtoolset-metadata-user-options-error' => '{{PLURAL:$2|Наступне поле|Наступні поля}} форми повинні бути заповнені:
+	'gwtoolset-metadata-user-options-error' => '{{PLURAL:$2|1=Наступне поле|Наступні поля}} форми повинні бути заповнені:
 $1',
 	'gwtoolset-metadata-invalid-template' => 'Не знайдено чинного шаблону Медіавікі.',
 	'gwtoolset-menu-1' => 'Відображення метаданих',
@@ -2868,7 +2872,7 @@ $1',
 	'gwtoolset-json-error-syntax' => 'Синтаксична помилка, неправильний формат JSON.',
 	'gwtoolset-json-error-utf8' => 'Спотворені символи UTF-8. Можливо, неправильно закодовано.',
 	'gwtoolset-json-error-unknown' => 'Невідома помилка.',
-	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Допустимий тип файлу|Допустимі типи файлу}}:',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|1=Допустимий тип файлу|Допустимі типи файлу}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
 	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
 	'gwtoolset-mediafile-throttle' => 'Обмеження медіафайлу:',
@@ -2897,7 +2901,8 @@ $1.',
 Вона має бути у просторі назв "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Не знайдено елемент XML для зіставлення.
 * Ви ввели значення у формі для "{{int:gwtoolset-record-element-name}}"?
-* Файл XML вірно сформований? Спробуйте це $1.',
+* Файл XML вірно сформований? Спробуйте це $1.
+$2',
 	'gwtoolset-page-title-contains-url' => 'Сторінка "$1" містить URL усієї вікі. Переконайтеся, що ви ввели заголовок сторінки, наприклад частина URL після  /wiki/',
 	'gwtoolset-record-element-name' => 'Який елемент XML, що містить кожен запис метаданих:',
 	'gwtoolset-step-1-heading' => 'Крок 1: виявлення метаданих',
@@ -2952,7 +2957,7 @@ $1.',
 	'gwtoolset-specific-tooltip' => 'За допомогою таких полів можна вжити конструкцію (необов\'язково) плюс поле метаданих як елемент категорії  для кожного окремо завантаженого елемента. Наприклад, якщо файл метаданих містить пункт для автора кожного запису, то ви можете додати його як елемент категорії для кожного запису, що змінить значення, специфічні для кожного запису. Можна також додати фразу на кшталт <em>{{int:gwtoolset-painted-by}}</em>" і потім поле метаданих автора, яке принесе "<em>{{int:gwtoolset-painted-by}} <artist name></em>" як категорію для кожного запису.',
 	'gwtoolset-template-field' => 'Поле шаблону',
 	'gwtoolset-step-3-instructions-heading' => 'Крок 3: пакетний перегляд',
-	'gwtoolset-step-3-instructions-1' => 'Нижче наведені результати завантаження {{PLURAL:$1|першого запису|перших $1 записів}} від файлу метаданих, який ви вибрали і зіставлення  {{PLURAL:$1|його|їх}} для вибраного у MediaWiki шаблону "{{int:gwtoolset-крок-2-заголовок}}".',
+	'gwtoolset-step-3-instructions-1' => 'Нижче наведені результати завантаження {{PLURAL:$1|1=першого запису|перших $1 записів}} від файлу метаданих, який ви вибрали і зіставлення  {{PLURAL:$1|1=його|їх}} для вибраного у MediaWiki шаблону "{{int:gwtoolset-крок-2-заголовок}}".',
 	'gwtoolset-step-3-instructions-2' => 'Перегляньте ці сторінки і якщо результати не відповідають вашим очікуванням, і існують додаткові записи, які чекають на завантаження, продовжіть процес пакетного завантаження, натиснувши нижче на кнопку  "{{int:gwtoolset-process-batch}}".',
 	'gwtoolset-step-3-instructions-3' => 'Якщо ви не задоволені результатами, то поверніться до "{{int:gwtoolset-step-2-heading}}" та відрегулюйте відображення у разі потреби.
 
