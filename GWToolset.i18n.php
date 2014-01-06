@@ -1355,6 +1355,15 @@ $messages['fa'] = array(
 	'gwtoolset-create-mediafile' => '$1: ایجاد پوشهٔ مدیا برای $2.',
 	'gwtoolset-mediafile-jobs-created' => 'ایجاد گروه پوشهٔ مدیا $1 {{PLURAL:$1|job|jobs}}.',
 	'gwtoolset-step-4-heading' => 'مرحلهٔ ۴: انتقال گروه',
+	'gwtoolset-user-blocked' => 'حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.',
+	'gwtoolset-required-group' => 'شما عضو گروه $1 نیستید.',
+	'gwtoolset-verify-curl' => 'گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/curl.setup.php cURL functions] است.',
+	'gwtoolset-verify-finfo' => 'گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/fileinfo.setup.php finfo] است.',
+	'gwtoolset-verify-php-version' => 'گسترهٔ $1 نیازمند پی‌اچ‌پی >= ۵.۳.۳ است.',
+	'gwtoolset-verify-uploads-enabled' => 'گسترهٔ $1 نیازمند انتقالات پوشه‌ای فعال است.
+لطفاً مطمئن شوید که <code>$wgEnableUploads</code> به <code>true</code> در <code>LocalSettings.php</code> تنظیم شده است.',
+	'gwtoolset-verify-xmlreader' => 'گسترهٔ $1 نیازمند نصب پی‌اچ‌پی [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] است.',
+	'gwtoolset-wiki-checks-not-passed' => 'بررسی‌های ویکی پذیرفته نشده.',
 );
 
 /** Finnish (suomi)
