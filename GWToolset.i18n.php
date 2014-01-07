@@ -697,6 +697,17 @@ $messages['as'] = array(
 	'gwtoolset-results' => 'ফলাফল',
 );
 
+/** Breton (brezhoneg)
+ * @author Y-M D
+ */
+$messages['br'] = array(
+	'gwtoolset-submit' => 'Kas',
+	'gwtoolset-cancel' => 'Nullañ',
+	'gwtoolset-save' => 'Enrollañ',
+	'gwtoolset-json-error-unknown' => 'Fazi dianav.',
+	'gwtoolset-category' => 'Rummad',
+);
+
 /** Catalan (català)
  * @author ESM
  * @author KRLS
