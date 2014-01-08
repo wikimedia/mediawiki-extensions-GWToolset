@@ -1236,6 +1236,7 @@ $messages['es'] = array(
 
 /** Persian (فارسی)
  * @author Armin1392
+ * @author Ebraminio
  * @author Reza1615
  */
 $messages['fa'] = array(
@@ -1350,7 +1351,7 @@ $messages['fa'] = array(
 	'gwtoolset-painted-by' => 'نقاشی شده توسط',
 	'gwtoolset-partner' => 'شریک',
 	'gwtoolset-partner-template' => 'الگوی شریک:',
-	'gwtoolset-phrasing' => 'بیان کردن',
+	'gwtoolset-phrasing' => 'بیان‌کردن',
 	'gwtoolset-preview' => 'پیش‌نمایش گروه',
 	'gwtoolset-process-batch' => 'پردازش گروه',
 	'gwtoolset-results' => 'نتایج',
