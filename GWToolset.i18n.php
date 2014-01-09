@@ -2860,7 +2860,8 @@ Sidan "<strong>$1<strong>" finns inte på wikin.',
 Den borde vara i namnrymden "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Inget XML-element kunde hittas för mappningen.
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
-* Är XML-filen välformaterad? Pröva följande $1.', # Fuzzy
+* Är XML-filen välformaterad? Pröva följande $1.
+$2',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
 	'gwtoolset-upload-legend' => 'Ladda upp din metadatafil',
 	'gwtoolset-which-mediawiki-template' => 'Vilken MediaWiki-mall:',
