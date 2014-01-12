@@ -203,7 +203,7 @@ $2',
 	'gwtoolset-global-tooltip' => 'These category entries will be applied globally to all uploaded items.',
 	'gwtoolset-maps-to' => 'Maps to',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'The file extension could not be determined from the file URL: $1.',
-	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension. URL given was "$1".',
+	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension or there was an HTTP Request issue. URL given was "$1". HTTP Request error "$2"',
 	'gwtoolset-mapping-no-title' => 'The metadata mapping contains no title, which is needed in order to create the page.',
 	'gwtoolset-mapping-no-title-identifier' => 'The metadata mapping contains no title identifier, which is used to create a unique page title. Make sure you map a metadata field to the MediaWiki template parameter title identifier.',
 	'gwtoolset-metadata-field' => 'Metadata field',
@@ -567,7 +567,8 @@ Used in {{msg-mw|Gwtoolset-step-2-instructions-2-li-1}}.',
 Parameters:
 * $1 - the URL to the file or the file name given',
 	'gwtoolset-mapping-media-file-url-bad' => 'User error message when the extension can not evaluate the media file URL. Parameters:
-* $1 is the URL provided.',
+* $1 is the URL provided.
+* $2 is the HTTP Request error message.',
 	'gwtoolset-mapping-no-title' => 'User error message when the metadata mapping contains no title.',
 	'gwtoolset-mapping-no-title-identifier' => 'User error message when the metadata mapping contains no title identifier.',
 	'gwtoolset-metadata-field' => 'Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.',

@@ -242,29 +242,32 @@ class UploadHandler {
 	 *   $result['url']
 	 */
 	protected function evaluateMediafileUrl( $url ) {
+		global $wgCopyUploadProxy;
 		$result = array( 'content-type' => null, 'extension' => null, 'url' => null );
 
 		if ( empty( $url ) ) {
 			throw new GWTException( 'gwtoolset-no-url-to-evaluate' );
 		}
 
-		$Http = MWHttpRequest::factory(
-			$url,
-			array(
-				'method' => 'HEAD',
-				'followRedirects' => true,
-				'userAgent' => Http::userAgent() . ' ' .
-					Constants::EXTENSION_NAME . '/' .
-					Constants::EXTENSION_VERSION
-			)
+		$options = array(
+			'method' => 'HEAD',
+			'followRedirects' => true,
+			'userAgent' => Http::userAgent() . ' ' .
+				Constants::EXTENSION_NAME . '/' .
+				Constants::EXTENSION_VERSION
 		);
 
+		if ( $wgCopyUploadProxy !== false ) {
+			$options['proxy'] = $wgCopyUploadProxy;
+		}
+
+		$Http = MWHttpRequest::factory( $url, $options );
 		$Status = $Http->execute();
 
 		if ( !$Status->ok ) {
 			throw new GWTException(
 				array(
-					'gwtoolset-mapping-media-file-url-bad' => array( $url )
+					'gwtoolset-mapping-media-file-url-bad' => array( $url, $Status->getMessage() )
 				)
 			);
 		}
@@ -301,7 +304,7 @@ class UploadHandler {
 
 		if ( empty( $options['url'] ) ) {
 			throw new GWTException(
-				array( 'gwtoolset-mapping-media-file-url-bad' => array( $options['url'] ) )
+				array( 'gwtoolset-mapping-media-file-url-bad' => array( $options['url'], '' ) )
 			);
 		}
 
