@@ -1387,14 +1387,14 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'gwtoolset' => 'GWToolset',
-	'gwtoolset-desc' => 'GWTyökalut, GLAM-massatallennustyökalu',
-	'gwtoolset-intro' => 'GWTyökalut on MediaWiki-laajennus, jonka avulla GLAMit (galleriat, kirjastot, arkistot ja museot) voivat massatallentaa sisältöä Wikimedia Commonsiin vastaavat metatiedot sisältävän XML-tiedoston avulla. Tavoitteena on tarjota useita erilaisia XML-skeemoja. Lisätietoja hankkeesta löytyy [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project projektisivulta]. Ota yhteyttä kyseisen sivun kautta. Valitse jokin yllä olevista valikkovaihtoehdoista latausprosessin käynnistämiseksi.',
+	'gwtoolset-desc' => 'GWTyökalut, GLAM-massalataustyökalu',
+	'gwtoolset-intro' => 'GWTyökalut on MediaWiki-laajennus, jonka avulla GLAMit (galleriat, kirjastot, arkistot ja museot) voivat massaladata sisältöä Wikimedia Commonsiin vastaavat metatiedot sisältävän XML-tiedoston avulla. Tavoitteena on tarjota useita myös erilaisia XML-skeemoja. Lisätietoja hankkeesta löytyy [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project projektisivulta]. Ota yhteyttä kyseisen sivun kautta. Valitse jokin yllä olevan valikon vaihtoehdoista latausprosessin käynnistämiseksi.',
 	'right-gwtoolset' => 'Käytä GWTyökaluja',
 	'action-gwtoolset' => 'käytä GWTyökaluja',
 	'group-gwtoolset' => 'GWTyökalujen käyttäjät',
 	'group-gwtoolset-member' => '{{GENDER:$1|GWTyökalujen käyttäjä}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:GWTyökalujen käyttäjät',
-	'gwtoolset-batchjob-creation-failure' => 'Ei voitu luoda "$1"-tyyppistä massatallennustyötä.',
+	'gwtoolset-batchjob-creation-failure' => 'Ei voitu luoda "$1"-tyyppistä massalataustyötä.',
 	'gwtoolset-could-not-close-xml' => 'XML-lukijaa ei voitu sulkea.',
 	'gwtoolset-could-not-open-xml' => 'Ei voitu avata XML-tiedostoa lukutilaan.',
 	'gwtoolset-developer-issue' => 'Ota yhteyttä kehittäjään. Asia on käsiteltävä ennen kuin voit jatkaa. Lisää seuraava teksti raporttiin:
@@ -1405,10 +1405,11 @@ Katso [php.net/manual/en/datetime.formats.relative.php PHP-käsikirjasta] miten 
 	'gwtoolset-fsfile-empty' => 'Tiedosto oli tyhjä ja poistettiin.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Tiedostoa ei voitu hakea URL-osoitteesta $1 .',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> ei ole asetettu.',
-	'gwtoolset-no-accepted-types' => 'Ei annettu hyväksyttyä tyyppiä.',
+	'gwtoolset-no-accepted-types' => 'Ei ole annettu hyväksyttyä tyyppiä.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> ei ole asetettu.",
 	'gwtoolset-no-default' => 'Oletusarvoa ei ole annettu.',
 	'gwtoolset-no-field-size' => 'Kentälle "$1" ei ole määritetty kokoa.',
+	'gwtoolset-no-file-url' => '<code>file_url</code> ei ole annettu jäsennettäväksi.',
 	'gwtoolset-no-form-handler' => 'Lomakkeenkäsittelijää ei ole luotu.',
 	'gwtoolset-no-mapping' => '<code>mapping_name</code> ei ole annettu.',
 	'gwtoolset-no-mapping-json' => '<code>mapping_json</code> ei ole annettu.',
@@ -1441,9 +1442,99 @@ Katso [php.net/manual/en/datetime.formats.relative.php PHP-käsikirjasta] miten 
 	'gwtoolset-no-extension' => 'Ladattu tiedosto ei sisällä tarpeeksi tietoja tiedoston käsittelemiseksi. Todennäköisesti sillä ei ole tiedostopäätettä.',
 	'gwtoolset-no-file' => 'Tiedostoa ei saatu.',
 	'gwtoolset-no-form-field' => 'Odotettua lomakekenttää "$1" ei ole olemassa.',
-	'gwtoolset-over-max-ini' => 'Ladattu tiedosto ylittää <code>upload_max_filesize</code> ja/tai <code>post_max_size</code> säännön <code>php.ini</code>-tiedostossa.',
+	'gwtoolset-over-max-ini' => 'Ladattu tiedosto ylittää <code>upload_max_filesize</code> ja/tai <code>post_max_size</code> direktiivin <code>php.ini</code>-tiedostossa.',
 	'gwtoolset-partial-upload' => 'Tiedosto ladattiin vain osittain.',
+	'gwtoolset-php-extension-error' => 'PHP-laajennus pysäytti tiedoston lataamisen. PHP ei tarjoa keinoa selvittää, mikä laajennus sen aiheutti. Ladattujen laajennusten luettelon tarkastelemisesta <code>phpinfo()</code> avulla voi olla apua.',
+	'gwtoolset-unaccepted-extension' => 'Lähdetiedosto ei sisällä hyväksyttyä tiedostotunnistetta.',
+	'gwtoolset-unaccepted-extension-specific' => 'Lähdetiedostossa on odottamaton tiedostotunniste ".$1".',
+	'gwtoolset-unaccepted-mime-type' => 'Ladatussa tiedostossa tulkitaan olevan MIME-tyyppi "$1", joka ei ole hyväksytty tyyppi.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'Ladatussa tiedostossa on MIME-tyyppi "$1", joka ei ole hyväksytty tyyppi. Onko XML-tiedoston alussa XML-määritys?
+
+<?xml version="1.0" encoding="UTF-8"?>',
+	'gwtoolset-back-text-link' => '← siirry takaisin lomakkeeseen',
+	'gwtoolset-back-text' => 'Paina selaimen takaisin-painiketta palataksesi lomakkeeseen.',
+	'gwtoolset-file-interpretation-error' => 'Metatietotiedoston käsittelemisessä tapahtui virhe.',
+	'gwtoolset-mediawiki-template' => 'Malli $1',
+	'gwtoolset-metadata-user-options-error' => 'Oheisen lomakkeen {{PLURAL:$2|kenttä|kentät}} on täytettävä:
+$1',
+	'gwtoolset-metadata-invalid-template' => 'Ei löytynyt kelvollista MediaWiki-mallinetta.',
+	'gwtoolset-menu-1' => 'Metatietojen määritykset',
+	'gwtoolset-technical-error' => 'Tapahtui tekninen virhe.',
+	'gwtoolset-required-field' => 'tarkoittaa pakollista kenttää',
+	'gwtoolset-submit' => 'Lähetä',
+	'gwtoolset-summary-heading' => 'Yhteenveto',
+	'gwtoolset-cancel' => 'Peruuta',
+	'gwtoolset-loading' => 'Ole kärsivällinen. Tämä voi kestää jonkin aikaa.',
 	'gwtoolset-save' => 'Tallenna',
+	'gwtoolset-save-mapping' => 'Tallenna määritys',
+	'gwtoolset-save-mapping-failed' => 'Pahoittelut. Virhe käsiteltäessä pyyntöä. Yritä myöhemmin uudelleen. (Virheilmoitus: $1)',
+	'gwtoolset-save-mapping-succeeded' => 'Määrityksesi on tallennettu.',
+	'gwtoolset-save-mapping-name' => 'Miten haluaisit nimetä tämän määrityksen?',
+	'gwtoolset-json-error' => 'Virhe JSONin kanssa. Virhe: $1',
+	'gwtoolset-json-error-depth' => 'Maksimi pinon syvyys ylitetty.',
+	'gwtoolset-json-error-ctrl-char' => 'Odottamaton ohjausmerkki löytynyt.',
+	'gwtoolset-json-error-syntax' => 'Syntaksivirhe, väärin muotoiltu JSON.',
+	'gwtoolset-json-error-utf8' => 'Virheellisiä UTF-8 merkkejä, mahdollisesti väärin koodattu.',
+	'gwtoolset-json-error-unknown' => 'Tuntematon virhe.',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Hyväksytty tiedostotyyppi|Hyväksytyt tiedostotyypit}}:',
+	'gwtoolset-ensure-well-formed-xml' => 'Varmista, että XML-tiedosto on hyvin muodostettu tämän $1 kanssa.',
+	'gwtoolset-file-url-invalid' => 'Tiedoston URL-osoite oli virheellinen: tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viittausta lomakkeella.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallinetta "<strong>$1</strong>" ei ole Wikimedia Commosissa.
+Tuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-mallinetta "$1" ei löytynyt.',
+	'gwtoolset-metadata-file-source' => 'Valitse metatietojen lähdetiedosto.',
+	'gwtoolset-metadata-file-source-info' => '... joko aikaisemmin ladattu tiedosto tai tiedosto, jonka haluat lähettää tietokoneeltasi.',
+	'gwtoolset-metadata-file-url' => 'Metatietotiedoston URL-osoite Wikimedia Commonsissa:',
+	'gwtoolset-metadata-file-upload' => 'Metatietotiedoston lataaminen:',
+	'gwtoolset-metadata-mapping-bad' => 'Metatietojen määrityksessä on ongelma. Todennäköisesti JSON-muoto ei kelpaa. Yritä korjata ongelma ja lähettää lomake uudelleen.
+
+$1',
+	'gwtoolset-metadata-mapping-invalid-url' => 'Ehdotettu metatietojen määrityksen URL-osoite ei vastaa odotettua määrityksen URL-polkua.
+
+* Ehdotettu URL: $1 
+* Odotetu URL: $2',
+	'gwtoolset-metadata-mapping-not-found' => 'Metatietomääritystä ei löytynyt.
+
+Sivua "<strong>$1<strong>" ei ole Wikimedia Commonsissa.',
+	'gwtoolset-namespace-mismatch' => 'Sivu "<strong>$1<strong>" on väärässä nimiavaruudessa "<strong>$2<strong>".
+
+Sen kuuluisi olla nimiavaruudessa "<strong>$3<strong>".',
+	'gwtoolset-no-xml-element-found' => 'Ei löytynyt määritykseen tarvittavaa XML-elementtiä.
+* Syötitkö lomakkeella arvon elementille "{{int:gwtoolset-record-elementti-nimi}}"?
+* Onko XML-tiedosto oikein muotoiltu? Kokeile tätä $1.
+$2',
+	'gwtoolset-page-title-contains-url' => 'Sivu "$1" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin /wiki/ jälkeen',
+	'gwtoolset-record-element-name' => 'Mikä on XML-elementti, joka sisältää kaikki metatietotietueet:',
+	'gwtoolset-step-1-heading' => 'Vaihe 1: Metatietojen tunnistus',
+	'gwtoolset-step-1-instructions-1' => 'Metatietojen latausprosessi koostuu 4 vaiheesta:',
+	'gwtoolset-step-1-instructions-2' => 'Tässä vaiheessa voit ladata uuden metatietotiedoston wikiin. Työkalu yrittää poimia metatietokentiksi käytettävissä metatietoja tiedostosta, jotka sitten yhdistetään MediaWiki-mallineeseen "{{int:gwtoolset-vaihe-2-otsikon}}".',
+	'gwtoolset-step-1-instructions-li-1' => 'Metatietojen tunnistaminen',
+	'gwtoolset-step-1-instructions-li-2' => 'Metatietojen määritykset',
+	'gwtoolset-step-1-instructions-li-3' => 'Erän esikatselu',
+	'gwtoolset-step-1-instructions-li-4' => 'Erän lähetys',
+	'gwtoolset-upload-legend' => 'Lähetä metatietotiedostosi',
+	'gwtoolset-which-mediawiki-template' => 'Mikä MediaWiki-malline:',
+	'gwtoolset-which-metadata-mapping' => 'Mikä metatietomääritys:',
+	'gwtoolset-xml-error' => 'XML-tiedoston lataaminen epäonnistui. Korjaa seuraavat virheet.',
+	'gwtoolset-categories' => 'Anna luokat erotettuna pystyviivalla ("|")',
+	'gwtoolset-category' => 'Luokka',
+	'gwtoolset-create-mapping' => '$1: Luodaan metatietojen määritys käyttäjälle $2.',
+	'gwtoolset-template-field' => 'Mallineen kenttä',
+	'gwtoolset-step-3-instructions-heading' => 'Vaihe 3: Erän esikatselu',
+	'gwtoolset-step-3-instructions-3' => 'Jos et ole tyytyväinen tuloksiin, palaa "{{int:gwtoolset-step-2-otsikon}}" ja säädä vastaavuuksia tarvittaessa.
+
+Jos haluat tehdä muutoksia metatietotiedostoon, tee korjaukset ja lataa tiedosto uudelleen alkaen kohdasta "{{int:gwtoolset-vaihe-1-otsikon}}".',
+	'gwtoolset-title-bad' => 'Metatietojen ja MediaWiki-mallineen pohjalta luotu otsikko ei kelpaa.
+
+Kokeile käyttää toista metatietokenttää otsikkona ja otsikon tunnisteena, tai muuta mahdollisuuksien mukaan metatietoja. Lisätietoja [https://commons.wikimedia.org/wiki/Commons:File_naming Tiedostojen nimeäminen].
+
+<strong>Virheellinen otsikko:</strong>$1.',
+	'gwtoolset-create-prefix' => 'GWTyökalut',
+	'gwtoolset-step-4-heading' => 'Vaihe 4: Massalataus',
+	'gwtoolset-mediawiki-version-invalid' => 'Tämä laajennus edellyttää MediaWikin versiota $1<br />Tämän MediaWikin versio on $2 .',
+	'gwtoolset-permission-not-given' => 'Varmista, että olet kirjautunut sisään tai ota yhteys järjestelmänvalvojaan, jotta sinulle voidaan myöntää lupa nähdä tämä sivu ($1).',
+	'gwtoolset-user-blocked' => 'Tilisi on tällä hetkellä estetty. Pyydä järjestelmänvalvojaa poistamaan esto.',
+	'gwtoolset-required-group' => 'Et ole ryhmän $1 jäsen.',
 );
 
 /** French (français)
@@ -2094,6 +2185,7 @@ $2',
 /** Korean (한국어)
  * @author Clockoon
  * @author Hym411
+ * @author Priviet
  */
 $messages['ko'] = array(
 	'gwtoolset' => 'GW도구모음',
@@ -2116,6 +2208,38 @@ $1',
 	'gwtoolset-no-extension' => '올려진 파일에 충분한 파일 정보가 없어 처리하지 못했습니다. 파일 확장자가 없을 수 있습니다.',
 	'gwtoolset-no-file' => '파일이 없습니다.',
 	'gwtoolset-no-form-field' => '예상되는 형식 필드 "$1"이 존재하지 않습니다.',
+	'gwtoolset-mediawiki-template' => '틀 $1',
+	'gwtoolset-menu-1' => '메타 데이터 매핑',
+	'gwtoolset-technical-error' => '기술적인 오류가 있었습니다.',
+	'gwtoolset-required-field' => '필수 필드를 나타냅니다.',
+	'gwtoolset-submit' => '제출',
+	'gwtoolset-summary-heading' => '요약',
+	'gwtoolset-cancel' => '취소',
+	'gwtoolset-loading' => '잠시 기다려 주십시오. 시간이 걸릴 수 있습니다.',
+	'gwtoolset-save' => '저장',
+	'gwtoolset-save-mapping' => '매핑 저장',
+	'gwtoolset-save-mapping-failed' => '죄송합니다. 귀하의 요청을 처리하는 도중 문제가 발생했습니다. 나중에 다시 시도 하십시오. (오류 메시지: $1)',
+	'gwtoolset-save-mapping-succeeded' => '매핑을 저장하였습니다.',
+	'gwtoolset-save-mapping-name' => '매핑의 이름을 무엇으로 하시겠습니까?',
+	'gwtoolset-json-error' => 'JSON에 문제가 있었습니다. 오류:$1',
+	'gwtoolset-json-error-depth' => '스택 깊이 최대값을 초과하였습니다.',
+	'gwtoolset-json-error-state-mismatch' => '언더플로우 혹은 모드가 일치하지 않습니다.',
+	'gwtoolset-json-error-ctrl-char' => '예기치 않은 제어 문자를 발견하였습니다.',
+	'gwtoolset-json-error-syntax' => '구문 오류, 잘못된 JSON입니다.',
+	'gwtoolset-json-error-utf8' => '잘못된 UTF-8 문자, 제대로 인코딩되지 않았을 가능성이 있습니다.',
+	'gwtoolset-json-error-unknown' => '알 수 없는 오류.',
+	'gwtoolset-accepted-file-types' => '허용되는 파일{{PLURAL:$1|형식}}:',
+	'gwtoolset-step-1-instructions-3-heading' => '도메인 화이트리스트',
+	'gwtoolset-step-1-instructions-li-1' => '메타데이터 감지',
+	'gwtoolset-step-1-instructions-li-2' => '메타데이터 매핑',
+	'gwtoolset-step-1-instructions-li-3' => '일괄 처리 미리보기',
+	'gwtoolset-step-1-instructions-li-4' => '일괄 업로드',
+	'gwtoolset-upload-legend' => '메타데이터 파일을 업로드하기',
+	'gwtoolset-which-mediawiki-template' => '미디어위키 틀:',
+	'gwtoolset-which-metadata-mapping' => '메타데이터 매핑:',
+	'gwtoolset-xml-error' => 'XML을 로드하지 못했습니다. 아래 오류를 수정하시기 바랍니다.',
+	'gwtoolset-categories' => '파이프 문자("|")로 구분된 카테고리를 입력하세요.',
+	'gwtoolset-category' => '분류',
 );
 
 /** Colognian (Ripoarisch)
