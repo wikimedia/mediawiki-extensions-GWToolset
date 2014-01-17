@@ -2361,7 +2361,7 @@ $messages['mk'] = array(
 	'group-gwtoolset' => 'Корисници на GWToolset',
 	'group-gwtoolset-member' => '{{GENDER:$1|Корисник на GWToolset}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:Корисници на GWToolset',
-	'gwtoolset-batchjob-creation-failure' => 'Не можев да создадам збир задачи од типот „$1“.',
+	'gwtoolset-batchjob-creation-failure' => 'Не можев да создадам пакет задачи од типот „$1“.',
 	'gwtoolset-could-not-close-xml' => 'Не можев да го затворам читачот на XML.',
 	'gwtoolset-could-not-open-xml' => 'Не можев да ја отворам XML-податотеката за читање.',
 	'gwtoolset-developer-issue' => 'Обратете се кај програмер. Овој проблем мора да се реши пред да продолжите. Во пријавата на проблемот вклучете го и следниов текст:
@@ -2374,7 +2374,7 @@ $1',
 	'gwtoolset-fsfile-retrieval-failure' => 'Не можев да ја добијам податотеката од адресата $1.',
 	'gwtoolset-ignorewarnings' => 'Не е зададено <code>ignorewarnings</code>.',
 	'gwtoolset-incorrect-form-handler' => 'Модулот „$1“ нема регистрирано работник со обрасци што го прошируваат GWToolset\\Handlers\\Forms\\FormHandler.',
-	'gwtoolset-job-throttle-exceeded' => 'Надминато е ограничувањето на збирни задачи.',
+	'gwtoolset-job-throttle-exceeded' => 'Надминато е ограничувањето на пакетни задачи.',
 	'gwtoolset-no-accepted-types' => 'Нема укажано допуштени типови',
 	'gwtoolset-no-callback' => 'На овој метод не му е зададено отповикување.',
 	'gwtoolset-no-comment' => "Не е зададено <code>user_options['comment']</code>.",
@@ -2570,13 +2570,13 @@ $2',
 	'gwtoolset-verify-api-writeable' => 'Додатокот „$1“ бара википрилогот да може да запишува за овластени корисници.
 
 Внимавајте <code>$wgEnableWriteAPI</code> да биде наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак да е презапишано со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
-	'gwtoolset-verify-curl' => 'Додатокот „$1“ бара да бидат инсталирани [http://www.php.net/manual/en/curl.setup.php функциите на cURL] во PHP.',
-	'gwtoolset-verify-finfo' => 'Додатокот „$1“ бара да е инсталиран додатокот „[http://www.php.net/manual/en/fileinfo.setup.php finfo]“ за PHP.',
+	'gwtoolset-verify-curl' => 'Додатокот „$1“ бара да бидат воспоставени [http://www.php.net/manual/en/curl.setup.php функциите на cURL] во PHP.',
+	'gwtoolset-verify-finfo' => 'Додатокот „$1“ бара да е воспоставен додатокот „[http://www.php.net/manual/en/fileinfo.setup.php finfo]“ за PHP.',
 	'gwtoolset-verify-php-version' => 'Додатокот „$1“ бара PHP >= 5.3.3.',
 	'gwtoolset-verify-uploads-enabled' => 'Додатокот „$1“ бара да е овозможено подигање на податотеки.
 
 Проверете дали <code>$wgEnableUploads</code> е наместено на <code>true</code> во <code>LocalSettings.php</code>.',
-	'gwtoolset-verify-xmlreader' => 'Додатокот $1 бара инсталиран [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] со PHP.',
+	'gwtoolset-verify-xmlreader' => 'Додатокот $1 бара воспоставен [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] со PHP.',
 	'gwtoolset-wiki-checks-not-passed' => 'Не пројде на проверките на викито',
 );
 
@@ -3076,6 +3076,7 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande $1.
 $2',
+	'gwtoolset-step-1-instructions-3-heading' => 'Vitlista för domäner',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
 	'gwtoolset-upload-legend' => 'Ladda upp din metadatafil',
 	'gwtoolset-which-mediawiki-template' => 'Vilken MediaWiki-mall:',
