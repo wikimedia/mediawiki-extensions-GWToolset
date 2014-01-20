@@ -2436,16 +2436,46 @@ $2',
 	'gwtoolset-reupload-media' => 'URL에서 미디어를 다시 업로드하기',
 	'gwtoolset-reupload-media-explanation' => '이 확인란은 위키에 이미 올려진 항목인 미디어를 다시 업로드 할 수 있게 해줍니다.만약 항목이 이미 존재한다면 추가할 미디어 파일은 위키에 올라갈 것입니다. 미디어 파일이 존재하지 않는다면 확인란의 체크 여부에 관계 없이 올라갈 것입니다.',
 	'gwtoolset-specific-categories' => '항목의 특정 분류',
+	'gwtoolset-specific-tooltip' => '다음 필드를 사용하여 구절(선택 사항)과 개별적으로 올려진 항목에 대한 분류 항목으로서의 메타데이터 필드에 적용할 수 있습니다. 예를 들어, 메타이이터가 각각의 레코드의 아티스트에 대한 요소를 포함하고 있다면, 각각의 특수한 레코드 값으로 바꿀 각각의 레코드에 대한 분류 항목으로서 추가할 수 있습니다. 또한 "<em>{{int:gwtoolset-painted-by}}</em>" 같은 구절도 추가할 수 있으며 각각의 레코드에 대한 분류로서 "<em>{{int:gwtoolset-painted-by}} <artist name></em>"를 산출할 아티스트 메타데이터를 추가 할 수 있습니다.',
 	'gwtoolset-template-field' => '틀 필드',
 	'gwtoolset-step-3-instructions-heading' => '단계3: 일괄 처리 미리 보기',
+	'gwtoolset-step-3-instructions-1' => '아래는 당신이 선택한 메타데이터 파일의 {{PLURAL:$1|첫 레코드|첫 $1 레코드}}와 당신이 "{{int:gwtoolset-step-2-heading}}"에서 선택한 미디어위키 틀에 {{PLURAL:$1|그것}}을 매핑한 것에 대한 올리기 결과이며',
+	'gwtoolset-step-3-instructions-2' => '이 페이지를 검토해서 결과가 예상했던 것과 같고 업로드 대기중인 추가 레코드가 있다면 아래의 "{{int:gwtoolset-process-batch}}" 버튼을 클릭하여 일괄 처리 작업을 계속하세요.',
+	'gwtoolset-step-3-instructions-3' => '결과에 만족하지 못한다면 "{{int:gwtoolset-step-2-heading}}"로 돌아가 매핑을 반드시 조정하세요.
+
+메타데이터 파일 조정을 필요로 한다면 앞으로 가서 조정한 후 "{{int:gwtoolset-step-1-heading}}"로 다시 처리하기 시작하여 재업로드해 주세요.',
+	'gwtoolset-title-bad' => '제목이 만들어졌으며 메타데이터에 기초하여 미디어위키 틀 매핑이 유효하지 않습니다.
+<strong>유효하지 않은 제목:</strong> $1.',
+	'gwtoolset-batchjob-metadata-created' => '메타데이터 일괄 처리 작업을 만들었습니다. 당신의 메타데이터 파일을 간단히 분석하고 각각의 항목을 위키에 백그라운드 프로세스로 올립니다. 항목이 올려졌을 때 "$1" 문서를 확인할 수 있습니다.',
 	'gwtoolset-batchjob-metadata-creation-failure' => '메타데이터 파일을 위한 일괄 처리 작업을 만들 수 없습니다.',
 	'gwtoolset-create-mediafile' => '$1: $2 사용자를 위한 미디어파일을 만들기',
 	'gwtoolset-create-prefix' => 'GW도구모음',
 	'gwtoolset-mediafile-jobs-created' => '$1 미디어 파일 일괄 처리 {{PLURAL:$1|작업}} 만들기',
 	'gwtoolset-step-4-heading' => '단계 4: 일괄 업로드',
 	'gwtoolset-invalid-token' => '양식과 제출된 편집 토큰이 유효하지 않습니다.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => '현재 <code>php.ini</code>의 설정:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+이것은 "$3"로 설정된 위키의 <code>$wgMaxUploadSize</code>보다 낮게 설정돼있습니다. <code>php.ini</code>를 적절하게 조정해주세요.',
+	'gwtoolset-mediawiki-version-invalid' => '이 확장 기능은 미디어위키 $1 버전을 필요로 합니다<br />이 미디어위키 버전은 $2입니다.',
+	'gwtoolset-permission-not-given' => '이 문서($1)를 보려면 로그인 상태인지 확인하거나 관리자에게 문의하세요.',
+	'gwtoolset-user-blocked' => '당신의 사용자 계정은 현재 차단되어 있습니다. 차단 문제를 수정하려면 관리자에게 문의하세요.',
 	'gwtoolset-required-group' => '$1 그룹에 속해있지 않습니다.',
+	'gwtoolset-verify-api-enabled' => '$1 확장 기능은 위키 API가 활성화되야 합니다.
+
+<code>$wgEnableAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.',
+	'gwtoolset-verify-api-writeable' => '$1 확장기능은 위키 API가 권한이 있는 사용자 쓰기 명령을 수행할 수 있어야 합니다.
+
+<code>$wgEnableWriteAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.',
+	'gwtoolset-verify-curl' => '$1 확장 기능은  PHP [http://www.php.net/manual/en/curl.setup.php cURL 함수]가 설치되어 있어야 합니다.',
+	'gwtoolset-verify-finfo' => '$1 확장 기능은  PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] 확장기능이 설치되어 있어야 합니다.',
 	'gwtoolset-verify-php-version' => '$1 확장 기능은 PHP>=5.3.3.을 필요로 합니다.',
+	'gwtoolset-verify-uploads-enabled' => '$1 확장 기능은 파일 올리기가 활성화되어 있어야 합니다.
+
+<code>$wgEnableUploads</code>가 <code>LocalSettings.php</code>에서 <code>true</code>로 설정되어 있는지 확인하세요.',
+	'gwtoolset-verify-xmlreader' => '$1 확장 기능은 PHP [http://www.php.net/manual/en/xmlreader.setup.php XML리더]을 설치해야 합니다.',
 	'gwtoolset-wiki-checks-not-passed' => '위키 검사를 통과하지 못했습니다.',
 );
 
