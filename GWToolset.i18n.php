@@ -699,14 +699,29 @@ $messages['as'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Y-M D
  */
 $messages['br'] = array(
+	'gwtoolset' => 'GWToolset',
+	'right-gwtoolset' => 'Implijout GWToolset',
+	'action-gwtoolset' => 'implijout GWToolset',
+	'group-gwtoolset' => 'Implijerien GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Implijer GWToolset|Implijerez GWToolset}}',
+	'gwtoolset-could-not-close-xml' => "N'eus ket bet gallet serriñ al lenner XML.",
+	'gwtoolset-fsfile-empty' => 'Goullo e oa ar restr ha dilamet e oa bet.',
+	'gwtoolset-no-default' => "N'eus bet pourchaset talvoud dre ziouer ebet.",
+	'gwtoolset-no-field-size' => 'N\'eo ket bet diferet ment ar vaezienn evit ar vaezienn "$1".',
 	'gwtoolset-submit' => 'Kas',
 	'gwtoolset-cancel' => 'Nullañ',
 	'gwtoolset-save' => 'Enrollañ',
 	'gwtoolset-json-error-unknown' => 'Fazi dianav.',
 	'gwtoolset-category' => 'Rummad',
+	'gwtoolset-partner' => 'Keveler',
+	'gwtoolset-results' => "Disoc'hoù",
+	'gwtoolset-step-2-instructions-1-li-1' => 'Ur roll eus ar maeziennoù er Mediawiki $1.',
+	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-required-group' => "N'oc'h ket un ezel eus ar strollad $1.",
 );
 
 /** Catalan (català)
@@ -941,6 +956,13 @@ Assegureu-vos que <code>$wgEnableWriteAPI</code> té el valor <code>true</code> 
 Verifiqueu que s'hagi definit <code>\$wgEnableUploads</code> com a <code>true</code> a <code>LocalSettings.php</code>.",
 	'gwtoolset-verify-xmlreader' => "L'extensió $1 requereix que el PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] sigui instal·lat.",
 	'gwtoolset-wiki-checks-not-passed' => 'No ha passat les comprovacions Wiki',
+);
+
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'gwtoolset-summary-heading' => 'Цунах лаьцна',
 );
 
 /** German (Deutsch)
@@ -3131,6 +3153,11 @@ $messages['ps'] = array(
 $messages['ru'] = array(
 	'gwtoolset' => 'GWToolset',
 	'gwtoolset-desc' => 'GWToolset, инструмент массовой загрузки для GLAM',
+	'right-gwtoolset' => 'Использовать GWToolset',
+	'action-gwtoolset' => 'использовать GWToolset',
+	'group-gwtoolset' => 'Пользователи GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Пользователь GWToolset}}',
+	'grouppage-gwtoolset' => '{{ns:project}}:Пользователи GWToolset',
 	'gwtoolset-could-not-open-xml' => 'Не удалось открыть XML-файл для чтения.',
 	'gwtoolset-fsfile-empty' => 'Файл был пустым и был удалён.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Не удалось получить файл с URL-адреса $1.',
