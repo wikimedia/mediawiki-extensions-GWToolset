@@ -3678,6 +3678,7 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Liuxinyu970226
+ * @author Qiyue2001
  * @author Shizhao
  * @author Yfdyh000
  */
@@ -3722,12 +3723,14 @@ $1',
 	'gwtoolset-php-extension-error' => '一个PHP拓展阻止了文件上传。PHP无法确定哪个PHP拓展致使上传被阻止。请测试所有拓展中的<code>phpinfo()</code>部分以获取帮助。',
 	'gwtoolset-back-text-link' => '←回到窗口',
 	'gwtoolset-mediawiki-template' => '模板$1',
+	'gwtoolset-metadata-invalid-template' => '未找到有效的 MediaWiki 模板。',
 	'gwtoolset-menu-1' => '元数据映射',
 	'gwtoolset-technical-error' => '这里有一个技术问题。',
 	'gwtoolset-required-field' => '表示必填的字段',
 	'gwtoolset-submit' => '提交',
 	'gwtoolset-summary-heading' => '摘要',
 	'gwtoolset-cancel' => '取消',
+	'gwtoolset-loading' => '请耐心等待。这可能需要一段时间。',
 	'gwtoolset-save' => '保存',
 	'gwtoolset-save-mapping' => '保存映射',
 	'gwtoolset-save-mapping-failed' => '抱歉。处理您的请求期间遇到技术问题。请稍后再试。（错误信息：$1）',
@@ -3751,13 +3754,24 @@ $1',
 	'gwtoolset-create-mapping' => '$1：创建用于$2的元数据映射。',
 	'gwtoolset-global-categories' => '全局分类',
 	'gwtoolset-maps-to' => '映射至',
+	'gwtoolset-metadata-field' => '元数据字段',
 	'gwtoolset-metadata-file' => '元数据文件',
+	'gwtoolset-metadata-mapping-legend' => '映射您的元数据',
+	'gwtoolset-no-more-records' => '<strong>没有要处理的更多记录</strong>',
 	'gwtoolset-partner' => '合作伙伴',
 	'gwtoolset-partner-template' => '合作伙伴模板：',
+	'gwtoolset-phrasing' => '句式',
+	'gwtoolset-preview' => '预览批处理',
 	'gwtoolset-results' => '结果',
 	'gwtoolset-step-2-heading' => '第2步：元数据映射',
+	'gwtoolset-step-2-instructions-heading' => '映射元数据字段',
+	'gwtoolset-step-2-instructions-1' => '下面是：',
+	'gwtoolset-step-2-instructions-1-li-3' => '来自元数据文件的记录示范。',
 	'gwtoolset-reupload-media' => '从URL重新上传媒体文件',
+	'gwtoolset-template-field' => '模板字段',
+	'gwtoolset-step-3-instructions-heading' => '第3步：预览批处理',
 	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-step-4-heading' => '第4步：批量上传',
 	'gwtoolset-invalid-token' => '编辑令牌在标记无效的情况下被提交。',
 	'gwtoolset-maxuploadsize-exceeds-ini-settings' => '当前的<code>php.ini</code>设置：
 * <code>upload_max_filesize</code>：$1
