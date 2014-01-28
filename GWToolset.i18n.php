@@ -3038,6 +3038,7 @@ $messages['nap'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author AvatarTeam
  * @author Multichill
  * @author Siebrand
  * @author Sjoerddebruin
@@ -3095,6 +3096,7 @@ $messages['nl'] = array(
 	'gwtoolset-partial-upload' => 'Het bestand is slechts gedeeltelijk geüpload.',
 	'gwtoolset-back-text-link' => '← terug naar het formulier',
 	'gwtoolset-mediawiki-template' => 'Sjabloon $1',
+	'gwtoolset-metadata-invalid-template' => 'Geen geldig MediaWiki sjabloon gevonden.',
 	'gwtoolset-menu-1' => 'Metadatakoppeling',
 	'gwtoolset-technical-error' => 'Er is een technische fout opgetreden.',
 	'gwtoolset-required-field' => 'vereist veld',
@@ -3697,6 +3699,7 @@ $messages['zh-hans'] = array(
 $1',
 	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>、<code>record-count</code>和/或<code>record-current</code>尚不支持。',
 	'gwtoolset-fsfile-empty' => '文件是空的且已删除。',
+	'gwtoolset-fsfile-retrieval-failure' => '无法从URL$1中检索该文件。',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code>未设置。',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code>未设置。",
 	'gwtoolset-no-default' => '没有提供默认值。',
@@ -3721,6 +3724,9 @@ $1',
 	'gwtoolset-improper-upload' => '未正确上传文件。',
 	'gwtoolset-no-file' => '没有收到文件。',
 	'gwtoolset-php-extension-error' => '一个PHP拓展阻止了文件上传。PHP无法确定哪个PHP拓展致使上传被阻止。请测试所有拓展中的<code>phpinfo()</code>部分以获取帮助。',
+	'gwtoolset-unaccepted-mime-type' => '上传的文件被认定拥有MIME格式“$1”，目前尚不支持此种MIME格式。',
+	'gwtoolset-unaccepted-mime-type-for-xml' => '上传的文件被认定拥有MIME格式“$1”，目前尚不支持。难道XML文件的顶部拥有以下XML字段？
+&lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-back-text-link' => '←回到窗口',
 	'gwtoolset-mediawiki-template' => '模板$1',
 	'gwtoolset-metadata-invalid-template' => '未找到有效的 MediaWiki 模板。',
@@ -3737,6 +3743,7 @@ $1',
 	'gwtoolset-json-error-syntax' => '语法错误，不正确的JSON。',
 	'gwtoolset-json-error-unknown' => '未知错误。',
 	'gwtoolset-accepted-file-types' => '接受的文件{{PLURAL:$1|格式}}：',
+	'gwtoolset-mediafile-throttle' => '元文件节流阀：',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki 模板" $1 "找不到。',
 	'gwtoolset-metadata-file-source' => '选择元数据文件源。',
 	'gwtoolset-metadata-file-url' => '元数据文件wikiURL：',
@@ -3758,6 +3765,7 @@ $1',
 	'gwtoolset-metadata-file' => '元数据文件',
 	'gwtoolset-metadata-mapping-legend' => '映射您的元数据',
 	'gwtoolset-no-more-records' => '<strong>没有要处理的更多记录</strong>',
+	'gwtoolset-painted-by' => '上色者',
 	'gwtoolset-partner' => '合作伙伴',
 	'gwtoolset-partner-template' => '合作伙伴模板：',
 	'gwtoolset-phrasing' => '句式',
