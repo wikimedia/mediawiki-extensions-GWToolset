@@ -2050,20 +2050,20 @@ $1',
 	'gwtoolset-step-3-instructions-3' => 'אם אינך שבע רצון מהתוצאות, חזור ל"{{int:gwtoolset-step-2-heading}}" והתאם את המיפוי לפי הצורך.
 
 אם עליך לבצע שינויים בקובץ מטה-נתונים עצמו, כנס לקובץ ובצע את השינויים, לאחר מכן העלה אותו מחדש על-ידי תחילת התהליך מחדש מ"{{int:gwtoolset-step-1-heading}}".',
-	'gwtoolset-title-bad' => 'הכותרת שנוצרה, מתבססת על המטה-נתונים ומיפוי תבנית מדיה-ויקי אינה תקינה.
+	'gwtoolset-title-bad' => "הכותרת, שנוצרה על סמך המטא־נתונים ומיפוי תבנית מדיה־ויקי, אינה תקינה.
 
-נסה שדה אחר מן המטה-נתונים עבור הכותרת ומזהה-כותרת, או אם אפשר שנה את המטה-נתונים היכן שצריך. ראה [Https://commons.wikimedia.org/wiki/Commons:File_naming שם קובץ] לקבלת מידע נוסף.
+יש לנסות שדה אחר מהמטא־נתונים עבור כותרת ומזהה־כותרת, או אם אפשר, לשנות את המטא־נתונים היכן שצריך. ר' [https://commons.wikimedia.org/wiki/Commons:File_naming מדריך למתן שמות לקבצים] לקבלת מידע נוסף.
 
-<strong>כותרת לא חוקית:</strong> $1.',
+<strong>כותרת בלתי־תקינה:</strong> $1.",
 	'gwtoolset-create-prefix' => 'ארגז כלי גלאם־ויקי',
 	'gwtoolset-step-4-heading' => 'צעד 4: ההעלאת אצווה',
-	'gwtoolset-invalid-token' => 'האסימון העריכה שנשלח עם הטופס אינו חוקי.',
-	'gwtoolset-permission-not-given' => 'ודא כי אתה מחובר או פנה אל מנהל מערכת כדי לקבל הרשאה להציג דף זה ($1).',
-	'gwtoolset-user-blocked' => 'חשבון המשתמש שלך חסום כרגע. אנא צרו קשר עם מנהל מערכת כדי לתקן את עילת חסימה.',
-	'gwtoolset-required-group' => 'אין לך חברות בקבוצה $1.',
+	'gwtoolset-invalid-token' => 'אסימון העריכה שנשלח עם הטופס אינו תקין.',
+	'gwtoolset-permission-not-given' => 'נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).',
+	'gwtoolset-user-blocked' => 'חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל כדי לתקן את זה.',
+	'gwtoolset-required-group' => 'חשבונך אינו חלק מהקבוצה $1.',
 	'gwtoolset-verify-php-version' => 'ההרחבה $1 דורשת PHP בגרסה 5.3.3 לפחות.',
-	'gwtoolset-verify-xmlreader' => 'הרחבת $1 דורשת שה-PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן',
-	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי לא צלחו',
+	'gwtoolset-verify-xmlreader' => 'הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן',
+	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי נכשלו',
 );
 
 /** Italian (italiano)
