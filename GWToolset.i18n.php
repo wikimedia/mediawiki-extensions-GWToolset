@@ -243,7 +243,7 @@ $2',
 	'gwtoolset-step-3-instructions-3' => 'If you are not happy with the results, go back to "{{int:gwtoolset-step-2-heading}}" and adjust the mapping as necessary.
 
 If you need to make adjustments to the metadata file itself, go ahead and do so and re-upload it by beginning the process again with "{{int:gwtoolset-step-1-heading}}".',
-	'gwtoolset-title-bad' => "The title created, based on the metadata and MediaWiki template mapping is not valid.
+	'gwtoolset-title-bad' => "The title, which was created based on the metadata and the MediaWiki template mapping, is not valid.
 
 Try another field from the metadata for title and title-identifier, or if possible, change the metadata where needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] for more information.
 
