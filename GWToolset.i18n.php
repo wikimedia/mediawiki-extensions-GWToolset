@@ -3829,6 +3829,7 @@ $1',
 	'gwtoolset-metadata-file-url' => '元数据文件wikiURL：',
 	'gwtoolset-metadata-file-upload' => '元数据文件上传：',
 	'gwtoolset-step-1-heading' => '第1步：元数据检测',
+	'gwtoolset-step-1-instructions-3' => '如果您的媒体文件域未在下方列出，请[https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment 在此]申请在维基共享资源域白名单中加入您的媒体文件域。域白名单是维基共享资源检查反例的媒体文件的例外列表。如果您的媒体文件域未在此列表上，维基共享资源将不会在此域下载媒体文件。最好的提交您申请的例子是实际连接一个媒体文件。',
 	'gwtoolset-step-1-instructions-3-heading' => '域名白名单',
 	'gwtoolset-step-1-instructions-li-1' => '元数据检测',
 	'gwtoolset-step-1-instructions-li-2' => '元数据映射',
@@ -3884,6 +3885,9 @@ $1',
  */
 $messages['zh-hant'] = array(
 	'action-gwtoolset' => '通過gwtoolset',
+	'gwtoolset-unaccepted-mime-type-for-xml' => '已確認上載檔案擁有MIME類型「$1」，並且尚無法支援。XML檔案頁頂是否有以下XML位元聲明？
+&lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-mapping-media-file-url-bad' => '不能計算該媒體檔案的 URL。該 URL 提供的內容不由該擴展尚未處理的方式，或者是一個 HTTP 要求的問題。給予 URL 是" $1 "。HTTP 要求錯誤" $2 "',
+	'gwtoolset-step-2-instructions-1' => '以下為：',
 	'gwtoolset-required-group' => '您並非$1組成員。',
 );
