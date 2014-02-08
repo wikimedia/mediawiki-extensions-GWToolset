@@ -3229,6 +3229,31 @@ $messages['ps'] = array(
 	'gwtoolset-results' => 'پايلې',
 );
 
+/** Brazilian Portuguese (português do Brasil)
+ * @author 555
+ */
+$messages['pt-br'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, uma ferramenta de uploads em massa para GLAMs',
+	'gwtoolset-intro' => 'GWToolset é uma extensão do MediaWiki que permite que GLAMs (sigla em inglês para Glaerias, Bibliotecas, Arquivos e Museus) o envio em grandes blocos de arquivos a partir de um arquivo XML que contenha metadados relativos a tais arquivos. A intenção é ter suporte a uma grande quantia de esquemas em XML. Informações adicionais sobre o projeto podem ser encontradas em sua [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project página descritiva]. Fique à vontade para também a utilizar para entrar em contato conosco. Selecione um dos menus a seguir para iniciar o processo de upload.',
+	'right-gwtoolset' => 'Usar as ferramentas GWToolset',
+	'action-gwtoolset' => 'usar as ferramentas GWToolset',
+	'group-gwtoolset' => 'Usuários da GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Usuário|Usuária|Usuário}} da GWToolset',
+	'grouppage-gwtoolset' => '{{ns:project}}:Usuários da GWToolset',
+	'gwtoolset-batchjob-creation-failure' => 'Não foi possível criar um trabalho em lotes do tipo "$1".',
+	'gwtoolset-could-not-close-xml' => 'Não foi possível fechar o leitor XML',
+	'gwtoolset-could-not-open-xml' => 'Não foi possível abrir o aquivo XML para leitura.',
+	'gwtoolset-developer-issue' => 'Entre em contato com um desenvolvedor, esse problema precisa ser corrigido antes de prosseguir. Adicione o seguinte texto em seu relato:
+
+$1',
+	'gwtoolset-dom-record-issue' => 'Não foi inserido ou um <code>record-element-name</code> ou <code>record-count</code> ou <code>record-current</code>.',
+	'gwtoolset-file-backend-maxage-invalid' => 'O valor máximo de idade fornecido em <code>$wgGWTFBMaxAge</code> é inválido. Veja o [php.net/manual/en/datetime.formats.relative.php manual do PHP] para saber como defini-lo corretamente.',
+	'gwtoolset-fsfile-empty' => 'O arquivo foi eliminado por estar vazio.',
+	'gwtoolset-fsfile-retrieval-failure' => 'Não foi possível obter o arquivo a partir do URL $1.',
+	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> não foi definido.',
+);
+
 /** Russian (русский)
  * @author Okras
  */
