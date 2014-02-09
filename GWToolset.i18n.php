@@ -966,6 +966,7 @@ $messages['ce'] = array(
 );
 
 /** German (Deutsch)
+ * @author Blafasel42
  * @author Metalhead64
  */
 $messages['de'] = array(
@@ -1158,9 +1159,9 @@ $2',
 	'gwtoolset-step-3-instructions-3' => 'Falls du mit den Ergebnissen nicht zufrieden bist, gehe zurück zu „{{int:gwtoolset-step-2-heading}}“ und passe das Mapping nach Bedarf an.
 
 Falls du Anpassungen an der Metadaten-Datei selber durchführen musst, mache dies und lade sie erneut hoch, indem du den Prozess mit „{{int:gwtoolset-step-1-heading}}“ beginnst.',
-	'gwtoolset-title-bad' => 'Der erstellte Titel, basierend auf den Metadaten und dem MediaWiki-Vorlagenmapping, ist nicht gültig.
+	'gwtoolset-title-bad' => 'Der basierend auf den Metadaten und dem MediaWiki-Vorlagenmapping erstellte Titel ist nicht gültig.
 
-Versuche für den Titel und die Titelkennung ein anderes Feld aus den Metadaten oder ändere nach Bedarf Metadaten, falls möglich. Siehe die Seite „[https://commons.wikimedia.org/wiki/Commons:Dateibenennung Dateibenennung]“ für mehr Informationen.
+Versuche für den Titel und die Titelkennung ein anderes Feld aus den Metadaten zu verwenden oder ändere nach Bedarf Metadaten, falls möglich. Siehe die Seite „[https://commons.wikimedia.org/wiki/Commons:Dateibenennung Dateibenennung]“ für mehr Informationen.
 
 <strong>Ungültiger Titel:</strong> $1.',
 	'gwtoolset-batchjob-metadata-created' => 'Der Metadaten-Stapelauftrag wurde erstellt. Deine Metadaten-Datei wird in Kürze analysiert und jedes Objekt wird auf das Wiki in einem Hintergrundprozess hochgeladen. Du kannst die Seite „$1“ überprüfen, um zu sehen, wann sie hochgeladen wurden.',
