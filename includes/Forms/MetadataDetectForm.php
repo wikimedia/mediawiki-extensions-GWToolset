@@ -67,6 +67,7 @@ class MetadataDetectForm {
 	public static function getForm( SpecialPage $SpecialPage ) {
 		$namespace = Utils::getNamespaceName( Config::$metadata_namespace );
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
+		$user = $SpecialPage->getUser();
 
 		return
 			Html::rawElement(
@@ -81,7 +82,7 @@ class MetadataDetectForm {
 				wfMessage( 'gwtoolset-step-1-instructions-1' )->escaped()
 			) .
 
-		Html::openElement( 'ol' ) .
+			Html::openElement( 'ol' ) .
 
 			Html::rawElement(
 				'li',
@@ -109,7 +110,6 @@ class MetadataDetectForm {
 
 			Html::closeElement( 'ol' ) .
 
-			$user = $SpecialPage->getUser();
 			Html::rawElement(
 				'p',
 				array(),
