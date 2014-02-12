@@ -1,4 +1,4 @@
-<?php
+/<?php
 /**
  * GWToolset
  *
@@ -174,7 +174,7 @@ The page "<strong>$1<strong>" does not exist in the wiki.',
 It should be in the namespace "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'No XML element found for mapping.
 * Did you enter a value in the form for "{{int:gwtoolset-record-element-name}}"?
-* Is the XML file well-formed? Try this $1.
+* Is the XML file well-formed? Try this [$1 XML validator].
 $2',
 	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Make sure you only enter the page title, e.g. the part of the URL after /wiki/',
 	'gwtoolset-record-element-name' => 'What is the XML element that contains each metadata record:',
