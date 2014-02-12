@@ -109,10 +109,11 @@ class MetadataDetectForm {
 
 			Html::closeElement( 'ol' ) .
 
+			$user = $SpecialPage->getUser();
 			Html::rawElement(
 				'p',
 				array(),
-				wfMessage( 'gwtoolset-step-1-instructions-2' )->parse()
+				wfMessage( 'gwtoolset-step-1-instructions-2', $user->getName() )->parse()
 			) .
 
 			self::getCopyUploadsDomainsAsList() .
@@ -149,7 +150,7 @@ class MetadataDetectForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'wpEditToken',
-					'value' => $SpecialPage->getUser()->getEditToken()
+					'value' => $user->getEditToken()
 				)
 			) .
 
