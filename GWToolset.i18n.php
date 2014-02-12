@@ -1101,12 +1101,12 @@ Sie sollte im Namensraum „<strong>$3</strong>“ sein.',
 	'gwtoolset-no-xml-element-found' => 'Es wurde kein XML-Element zum Mappen gefunden.
 * Hast du im Formular einen Wert für „{{int:gwtoolset-record-element-name}}“ angegeben?
 * Ist die XML-Datei wohlgeformt? Versuche dieses $1.
-$2',
+$2', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'Die Seite „$1“ enthält die vollständige Wiki-URL. Stelle sicher, dass du nur den Seitentitel eingibst, z.&nbsp;B. den Teil der URL nach /wiki/.',
 	'gwtoolset-record-element-name' => 'Was ist das XML-Element, das jeden Metadateneintrag enthält:',
 	'gwtoolset-step-1-heading' => 'Schritt 1: Metadaten-Erkennung',
 	'gwtoolset-step-1-instructions-1' => 'Der Metadaten-Hochladeprozess besteht aus 4 Schritten:',
-	'gwtoolset-step-1-instructions-2' => 'In diesem Schritt ladest du eine neue Metadatendatei auf das Wiki hoch. Das Werkzeug wird versuchen, die in der Metadatendatei vorhandenen Metadatenfelder zu extrahieren, die du dann zu einer MediaWiki-Vorlage in „{{int:gwtoolset-step-2-heading}}“ mappst.',
+	'gwtoolset-step-1-instructions-2' => 'In diesem Schritt ladest {{GENDER:$1|du}} eine neue Metadatendatei auf das Wiki hoch. Das Werkzeug wird versuchen, die in der Metadatendatei vorhandenen Metadatenfelder zu extrahieren, die du dann zu einer MediaWiki-Vorlage in „{{int:gwtoolset-step-2-heading}}“ mappst.',
 	'gwtoolset-step-1-instructions-3' => 'Falls deine Mediendateidomain unten nicht aufgelistet ist, stelle bitte eine [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment Anfrage], dass deine Mediendateidomain zur Wikimedia-Commons-Domain-Whitelist hinzugefügt wird. Die Domain-Whitelist ist eine Liste von Domains, die Wikimedia Commons vor dem Abrufen von Mediendateien gegenprüft. Falls deine Mediendateidomain nicht auf dieser Liste ist, wird Wikimedia Commons keine Mediendateien von dieser Domain herunterladen. Das beste Beispiel zum Einreichen deiner Anfrage ist ein tatsächlicher Link zu einer Mediendatei.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Domain-Whitelist',
 	'gwtoolset-step-1-instructions-li-1' => 'Metadaten-Erkennung',
@@ -1770,12 +1770,12 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-no-xml-element-found' => 'Aucun élément XML trouvé pour la correspondance.
 * Avez-vous saisi une valeur dans le formulaire pour « {{int:gwtoolset-record-element-name}} » ?
 * Le fichier XML est-il bien formé ? Essayez cela $1.
-$2',
+$2', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après /wiki/',
 	'gwtoolset-record-element-name' => 'Quel est l’élément XML qui contient chaque enregistrement de métadonnée :',
 	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
 	'gwtoolset-step-1-instructions-1' => 'Le processus de téléchargement des métadonnées se déroule en 4 étapes différentes :',
-	'gwtoolset-step-1-instructions-2' => 'Dans cette étape, vous importez un nouveau fichier de métadonnées dans le wiki. L’outil essayera d’extraire les champs de métadonnées disponibles dans le fichier, que vous ferez ensuite correspondre avec un modèle de MediaWiki dans « {{int:gwtoolset-step-2-heading}} ».',
+	'gwtoolset-step-1-instructions-2' => 'Dans cette étape, {{GENDER:$1|vous importez}} un nouveau fichier de métadonnées dans le wiki. L’outil essayera d’extraire les champs de métadonnées disponibles dans le fichier, que vous ferez ensuite correspondre avec un modèle de MediaWiki dans « {{int:gwtoolset-step-2-heading}} ».',
 	'gwtoolset-step-1-instructions-3' => 'Si votre domaine de fichier média n’est pas listé ci-dessous, veuillez [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment demander] que votre domaine de fichier média soit ajouté à la liste blanche. La liste blanche des domaines est une liste de domaines que Wikimédia Communs vérifie avant d’analyser les fichiers média. Si votre domaine de fichier média n’est pas dans cette liste, Wikimédia Communs ne téléchargera pas de fichiers média de ce domaine. Le meilleur exemple, pour envoyer votre demande, est un lien réel vers le fichier média.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Whitelist des Domaines',
 	'gwtoolset-step-1-instructions-li-1' => 'Détection des métadonnées',
@@ -2044,6 +2044,7 @@ $1',
 	'gwtoolset-record-count' => 'מספר כולל של רשומות שנמצאו בקובץ המטא-נתונים: {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'תוצאות',
 	'gwtoolset-step-2-heading' => 'צעד 2: מיפוי מטא־נתונים',
+	'gwtoolset-step-2-instructions-heading' => 'מיפוי שדות המטא־נתונים',
 	'gwtoolset-step-2-instructions-1-li-1' => 'רשימת השדות במדיה־ויקי $1.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'רשומה לדוגמה מתוך קובץ המטא־נתונים.',
 	'gwtoolset-reupload-media' => 'העלאה מחדש של מדיה מ־URL',
@@ -2061,6 +2062,8 @@ $1',
 	'gwtoolset-create-prefix' => 'ארגז כלי גלאם־ויקי',
 	'gwtoolset-step-4-heading' => 'צעד 4: ההעלאת אצווה',
 	'gwtoolset-invalid-token' => 'אסימון העריכה שנשלח עם הטופס אינו תקין.',
+	'gwtoolset-mediawiki-version-invalid' => 'ההרחבה הזאת דורשת שימוש במדיה־ויקי $1<br />
+הגרסה של מדיה־ויקי כאן היא $2.',
 	'gwtoolset-permission-not-given' => 'נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).',
 	'gwtoolset-user-blocked' => 'חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל כדי לתקן את זה.',
 	'gwtoolset-required-group' => 'חשבונך אינו חלק מהקבוצה $1.',
@@ -2801,12 +2804,12 @@ $1',
 	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
 * Дали XML-податотеката е добро срочена? Пробајте го ова $1.
-$2',
+$2', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
 	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
 	'gwtoolset-step-1-instructions-1' => 'Постапката за подигање на метаподатоци се состои од 4 чекори:',
-	'gwtoolset-step-1-instructions-2' => 'Во овој чекор ја подигате новата метаподаточна податотека на викито. Алатката ќе се обиде ги добие расположивите полиња со метаподатоци од податотеката, што потоа ќе ги пресликате во МедијаВики-шаблонот во „{{int:gwtoolset-step-2-heading}}“.',
+	'gwtoolset-step-1-instructions-2' => 'Во овој чекор {{GENDER:$1|ја подигате}} новата метаподаточна податотека на викито. Алатката ќе се обиде ги добие расположивите полиња со метаподатоци од податотеката, што потоа ќе ги пресликате во МедијаВики-шаблонот во „{{int:gwtoolset-step-2-heading}}“.',
 	'gwtoolset-step-1-instructions-3' => 'Ако доменот на доменот на вашата медиумска податотека не е наведен подолу, тогаш [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment побарајте] да биде ставен во списокот на дозволени домени на Ризницата. Ако не биде на него, тогаш Ризницата нема да презема податотеки од тој домен. Најдобро е во барањето да ја наведете фактичката врска на податотеката.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Список на дозволени домени',
 	'gwtoolset-step-1-instructions-li-1' => 'Пронаоѓање на метаподатоци',
@@ -3897,8 +3900,8 @@ $1',
 	'gwtoolset-mediawiki-version-invalid' => '此拓展需要MediaWiki版本$1<br />当前MediaWiki版本$2',
 	'gwtoolset-user-blocked' => '您的用户账户已被封禁。请与管理员联络以寻求解禁。',
 	'gwtoolset-required-group' => '您不是$1组的成员。',
-	'gwtoolset-verify-api-enabled' => '$1拓展要求wiki API被启用。
-请确保<code>DefaultSettings.php</code>文件的<code>$wgEnableAPI</code>设置是<code>true</code>或在<code>LocalSettings.php</code>文件重写至<code>true</code>。',
+	'gwtoolset-verify-api-enabled' => '$1拓展要求wiki API被启用。请确保<code>DefaultSettings.php</code>文件的<code>$wgEnableAPI</code>设置是<code>true</code>或在<code>LocalSettings.php</code>文件重写至<code>true</code>。',
+	'gwtoolset-verify-api-writeable' => '$1拓展要求wiki API对获权用户能够执行写入动作。请确保<code>DefaultSettings.php</code>文件的<code>$wgEnableWriteAPI</code>设置是<code>true</code>或在<code>LocalSettings.php</code>文件重写至<code>true</code>。',
 	'gwtoolset-verify-curl' => '$1扩展要求安装PHP[http://www.php.net/manual/en/curl.setup.php cURL函数]。',
 	'gwtoolset-verify-finfo' => '$1扩展要求安装PHP[http://www.php.net/manual/en/fileinfo.setup.php finfo]拓展。',
 	'gwtoolset-verify-php-version' => '$1拓展需要PHP版本至少5.3.3。',
