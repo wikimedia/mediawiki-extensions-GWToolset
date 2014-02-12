@@ -454,11 +454,13 @@ class XmlDetectHandler extends XmlHandler {
 		}
 
 		if ( empty( $this->_metadata_example_dom_element ) ) {
-			$msg1 = 'http://www.w3schools.com/xml/xml_validator.asp';
-			$msg2 = $this->_SpecialPage->getBackToFormLink();
-
 			throw new GWTException(
-				array( 'gwtoolset-no-xml-element-found' => array( $msg1, $msg2 ) )
+				array(
+					'gwtoolset-no-xml-element-found' => array(
+						'http://www.w3schools.com/xml/xml_validator.asp',
+						$this->_SpecialPage->getBackToFormLink()
+					)
+				)
 			);
 		}
 
