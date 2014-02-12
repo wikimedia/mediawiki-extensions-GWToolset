@@ -162,7 +162,7 @@ Either import the template or select another MediaWiki template to use for mappi
 	'gwtoolset-metadata-mapping-bad' => 'There is a problem with the metadata mapping. Most likely the JSON format is invalid. Try and correct the issue and then submit the form again.
 
 $1',
-	'gwtoolset-metadata-mapping-invalid-url' => 'The metadata mapping URL supplied, does not match the expect mapping URL path.
+	'gwtoolset-metadata-mapping-invalid-url' => 'The supplied metadata mapping URL does not match the expected mapping URL path.
 
 * Supplied URL: $1
 * Expected URL: $2',
