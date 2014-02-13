@@ -1100,8 +1100,8 @@ Die Seite „<strong>$1</strong>“ ist im Wiki nicht vorhanden.',
 Sie sollte im Namensraum „<strong>$3</strong>“ sein.',
 	'gwtoolset-no-xml-element-found' => 'Es wurde kein XML-Element zum Mappen gefunden.
 * Hast du im Formular einen Wert für „{{int:gwtoolset-record-element-name}}“ angegeben?
-* Ist die XML-Datei wohlgeformt? Versuche dieses $1.
-$2', # Fuzzy
+* Ist die XML-Datei wohlgeformt? Versuche diesen [$1 XML-Validator].
+$2',
 	'gwtoolset-page-title-contains-url' => 'Die Seite „$1“ enthält die vollständige Wiki-URL. Stelle sicher, dass du nur den Seitentitel eingibst, z.&nbsp;B. den Teil der URL nach /wiki/.',
 	'gwtoolset-record-element-name' => 'Was ist das XML-Element, das jeden Metadateneintrag enthält:',
 	'gwtoolset-step-1-heading' => 'Schritt 1: Metadaten-Erkennung',
@@ -1769,8 +1769,8 @@ La page « <strong>$1<strong> » n’existe pas dans le wiki.',
 Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 	'gwtoolset-no-xml-element-found' => 'Aucun élément XML trouvé pour la correspondance.
 * Avez-vous saisi une valeur dans le formulaire pour « {{int:gwtoolset-record-element-name}} » ?
-* Le fichier XML est-il bien formé ? Essayez cela $1.
-$2', # Fuzzy
+* Le fichier XML est-il bien formé ? Essayez ce [$1 validateur XML].
+$2',
 	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après /wiki/',
 	'gwtoolset-record-element-name' => 'Quel est l’élément XML qui contient chaque enregistrement de métadonnée :',
 	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
@@ -2267,13 +2267,13 @@ $1',
 名前空間「<strong>$3</strong>」である必要があります。',
 	'gwtoolset-no-xml-element-found' => 'マッピング用の XML 要素が見つかりません。
 * フォームで「{{int:gwtoolset-record-element-name}}」欄に値を入力しましたか?
-* XML ファイルは整形式ですか? こちらをお試しください: $1
+* XML ファイルが整形式かどうか、こちらで検証してください: [$1 XML Validator]
 $2',
 	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の /wiki/ の後の部分)。',
 	'gwtoolset-record-element-name' => '各メタデータのレコードを含む XML 要素:',
 	'gwtoolset-step-1-heading' => '手順 1: メタデータの検出',
 	'gwtoolset-step-1-instructions-1' => 'メタデータのアップロード作業には以下の 4 つの手順があります:',
-	'gwtoolset-step-1-instructions-2' => 'この手順では、ウィキにメタデータ ファイルを新たにアップロードします。このツールはメタデータ ファイルから利用できるメタデータ フィールドの抽出を試みます。次の「{{int:gwtoolset-step-2-heading}}」で、これらのフィールドを MediaWiki テンプレートにマッピングします。',
+	'gwtoolset-step-1-instructions-2' => 'この手順では、ウィキにメタデータ ファイルを新たに{{GENDER:$1|アップロードします}}。このツールはメタデータ ファイルから利用できるメタデータ フィールドの抽出を試みます。次の「{{int:gwtoolset-step-2-heading}}」で、これらのフィールドを MediaWiki テンプレートにマッピングします。',
 	'gwtoolset-step-1-instructions-3-heading' => 'ドメイン ホワイトリスト',
 	'gwtoolset-step-1-instructions-li-1' => 'メタデータの検出',
 	'gwtoolset-step-1-instructions-li-2' => 'メタデータのマッピング',
@@ -2491,13 +2491,13 @@ $1',
 "<strong>$3<strong>" 이름공간이어야 합니다.',
 	'gwtoolset-no-xml-element-found' => 'XML 요소를 매핑에서 찾을 수 없습니다.
 * 양식에 "{{int:gwtoolset-record-element-name}}"의 값을 입력하셨나요?
-* XML 파일이 정형식입니까? $1 도구를 사용해보세요.
+* XML 파일이 정형식입니까? [$1 XML validator] 도구를 사용해보세요.
 $2',
 	'gwtoolset-page-title-contains-url' => '"$1" 문서는 전체 위키 URL을 포함하고 있습니다.문서 제목만을 입력했는지 확인하세요. (예) URL의 /wiki/의 뒷부분',
 	'gwtoolset-record-element-name' => '메타데이터 기록을 포함하는 XML 요소:',
 	'gwtoolset-step-1-heading' => '단계1: 메타데이터 검색',
 	'gwtoolset-step-1-instructions-1' => '메타데이터 올리기 과정은 4단계로 구성됩니다.',
-	'gwtoolset-step-1-instructions-2' => '이 단계에서 위키에 새로운 메타데이터 파일을 올립니다. 이 도구는 메타데이터 파일에서 사용할 수 있는 메타데이터 필드 추출을 시도합니다. "{{int:gwtoolset-step-2-heading}}"로 메타위키 틀에 매핑합니다.',
+	'gwtoolset-step-1-instructions-2' => '이 단계에서 위키에 새로운 메타데이터 파일을 {{GENDER:$1|올립니다}}. 이 도구는 메타데이터 파일에서 사용할 수 있는 메타데이터 필드 추출을 시도합니다. "{{int:gwtoolset-step-2-heading}}"로 메타위키 틀에 매핑합니다.',
 	'gwtoolset-step-1-instructions-3' => '만약 미디어 파일 도메인이 아래 목록에 없다면 당신의 미디어 파일 도메인이 위키미디어 공용 화이트리스트에 추가될 수 있도록 [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment 요청]해주세요. 미디어파일 도메인이 해당 목록에 없다면 위키미디어 공용은 해당 도메인에서 미디어 파일을 내려받을 것입니다. 당신의 요청을 제출하는 최고의 예시가 미디어파일에 연결할 실제 링크입니다.',
 	'gwtoolset-step-1-instructions-3-heading' => '도메인 화이트리스트',
 	'gwtoolset-step-1-instructions-li-1' => '메타데이터 감지',
@@ -2803,8 +2803,8 @@ $1',
 Треба да биде во именскиот простор „<strong>$3<strong>“.',
 	'gwtoolset-no-xml-element-found' => 'Не пронајдов XML-елемент за пресликување.
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
-* Дали XML-податотеката е добро срочена? Пробајте го ова $1.
-$2', # Fuzzy
+* Дали XML-податотеката е добро срочена? Пробајте го овој [$1 проверувач на XML].
+$2',
 	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
 	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
