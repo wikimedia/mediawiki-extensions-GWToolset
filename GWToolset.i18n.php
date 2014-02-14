@@ -3328,6 +3328,7 @@ $messages['sv'] = array(
 
 
 $1',
+	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, <code>record-count</code>, eller <code>record-current</code> inte angivet.',
 	'gwtoolset-file-backend-maxage-invalid' => 'Maximalt värdet för ålder i <code>$wgGWTFBMaxAge</code> är ogiltigt.
 Se [php.net/manual/en/datetime.formats.relative.php PHP-manualen] för hur du ställer in det korrekt.',
 	'gwtoolset-fsfile-empty' => 'Filen var tom och togs bort.',
@@ -3428,7 +3429,7 @@ Sidan "<strong>$1<strong>" finns inte på wikin.',
 Den borde vara i namnrymden "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Inget XML-element kunde hittas för mappningen.
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
-* Är XML-filen välformaterad? Pröva följande $1.
+* Är XML-filen välformaterad? Pröva följande [$1 XML-validator].
 $2',
 	'gwtoolset-step-1-instructions-3-heading' => 'Vitlista för domäner',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
@@ -3465,11 +3466,15 @@ $2',
 	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-step-4-heading' => 'Steg 4: Massuppladdning',
 	'gwtoolset-invalid-token' => 'Redigeringstoken som lämnades in med formuläret är ogiltig.',
+	'gwtoolset-mediawiki-version-invalid' => 'Detta tillägg kräver MediaWiki-version $1<br />Denna MediaWiki-version är $2.',
 	'gwtoolset-user-blocked' => 'Ditt konto är för närvarande blockerat. Kontakta en administratör för att korrigera blockeringsproblemet.',
 	'gwtoolset-required-group' => 'Du är inte medlem av grupp $1.',
 	'gwtoolset-verify-api-enabled' => '$1-tillägget kräver att wikins API är aktiverat.
 
 Kontrollera att <code>$wgEnableAPI</code> är inställd på <code>true</code> i den <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
+	'gwtoolset-verify-curl' => '$1-tillägget kräver att PHP [http://www.php.net/manual/en/curl.setup.php cURL-funktionerna] är installerade.',
+	'gwtoolset-verify-finfo' => '$1-tillägget kräver att tillägget PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] är installerat.',
+	'gwtoolset-verify-php-version' => '$1-tillägget kräver PHP >= 5.3.3.',
 );
 
 /** Telugu (తెలుగు)
@@ -3618,13 +3623,13 @@ $1.',
 Вона має бути у просторі назв "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Не знайдено елемент XML для зіставлення.
 * Ви ввели значення у формі для "{{int:gwtoolset-record-element-name}}"?
-* Файл XML вірно сформований? Спробуйте це $1.
+* Файл XML вірно сформований? Спробуйте цей [$1 XML validator].
 $2',
 	'gwtoolset-page-title-contains-url' => 'Сторінка "$1" містить URL усієї вікі. Переконайтеся, що ви ввели заголовок сторінки, наприклад частина URL після  /wiki/',
 	'gwtoolset-record-element-name' => 'Який елемент XML, що містить кожен запис метаданих:',
 	'gwtoolset-step-1-heading' => 'Крок 1: виявлення метаданих',
 	'gwtoolset-step-1-instructions-1' => 'Процес завантаження метаданих складається з 4 кроків:',
-	'gwtoolset-step-1-instructions-2' => 'На цьому кроці ви завантажуєте новий файл метаданих у вікі. Інструмент буде намагатися отримати поля метаданих, наявні у файлі метаданих, які ви потім зіставите з шаблоном Медіавікі у "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-2' => 'На цьому кроці  {{GENDER:$1|ви}} завантажуєте новий файл метаданих у вікі. Інструмент буде намагатися отримати поля метаданих, наявні у файлі метаданих, які ви потім зіставите з шаблоном Медіавікі у "{{int:gwtoolset-step-2-heading}}".',
 	'gwtoolset-step-1-instructions-3' => 'Якщо ваш мультимедійний файл відсутній у списку нижче, то перевірте [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment request] чи домен вашого файлу доданий у білий список доменів Вікісховища. Білий список доменів - це перелік доменів, який Вікісховище читає перед отриманням медіафайлів. Якщо домен вашого медіафайлу відсутній у списку, то Вікісховище не завантажуватиме жодного файлу з нього. Найкращим зразком перевірки дії вашого запиту є фактичне посилання на медіафайл.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Білий список доменів',
 	'gwtoolset-step-1-instructions-li-1' => 'Виявлення метаданих',
