@@ -2003,6 +2003,10 @@ $1',
 	'gwtoolset-metadata-mapping-bad' => 'קיימת בעיה עם מיפוי המטא־נתונים. קרוב לוודאי שתבנית ה־JSON אינה תקינה. נא לנסות לתקן את הבעיה ולאחר מכן לשלוח את הטופס שוב.
 
 $1',
+	'gwtoolset-metadata-mapping-invalid-url' => 'כתובת מיפוי המטא־נתונים שניתנה אינה תואמת לנתיב המיפוי המצופה.
+
+# הכתובת שניתנה: $1
+* הכתובת המצופה: $2',
 	'gwtoolset-metadata-mapping-not-found' => 'לא נמצא מיפוי מטא־נתונים.
 
 הדף "<strong>$1<strong>" לא נמצא בוויקי.',
@@ -2013,6 +2017,7 @@ $1',
 	'gwtoolset-record-element-name' => 'מהו רכיב ה־XML המכיל כל רשומת מטא־נתונים:',
 	'gwtoolset-step-1-heading' => 'צעד 1: זיהוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-1' => 'תהליך העלאת המטה-נתונים כולל 4 צעדים:',
+	'gwtoolset-step-1-instructions-3-heading' => 'רשימה לבנה של מתחמים',
 	'gwtoolset-step-1-instructions-li-1' => 'זיהוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-li-2' => 'מיפוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-li-3' => 'תצוגה מקדימה של אצווה',
@@ -2021,7 +2026,9 @@ $1',
 	'gwtoolset-which-mediawiki-template' => 'איזו תבנית מדיה־ויקי:',
 	'gwtoolset-which-metadata-mapping' => 'איזה מיפוי מטא־נתונים:',
 	'gwtoolset-xml-error' => 'טעינת ה־XML נכשלה. נא לתקן את השגיאות הבאות.',
+	'gwtoolset-categories' => 'נא להזין קטגוריות מופרדות בתו "|"',
 	'gwtoolset-category' => 'קטגוריה',
+	'gwtoolset-create-mapping' => '$1: יצירת מיפוי מטא־נתונים עבור $2.',
 	'gwtoolset-example-record' => 'תכולת הרשומה לדוגמה של המטא־נתונים.',
 	'gwtoolset-global-categories' => 'קטגוריות גלובליות',
 	'gwtoolset-global-tooltip' => 'עיולי הקטגוריות האלה יחולו גלובלית לכל הפריטים המוּעלים.',
@@ -2047,8 +2054,10 @@ $1',
 	'gwtoolset-step-2-instructions-heading' => 'מיפוי שדות המטא־נתונים',
 	'gwtoolset-step-2-instructions-1-li-1' => 'רשימת השדות במדיה־ויקי $1.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'רשומה לדוגמה מתוך קובץ המטא־נתונים.',
+	'gwtoolset-step-2-instructions-2-li-2' => 'אין צורך לספר התאמה לכל שדה של תבנית מדיה־ויקי.',
 	'gwtoolset-reupload-media' => 'העלאה מחדש של מדיה מ־URL',
 	'gwtoolset-reupload-media-explanation' => 'תיבת הסימון הזאת נותנת לך להעלות מחדש מדיה עבור פריט שכבר הועלה לוויקי. אם הפריט קיים כבר, קובץ מדיה חדש יתווסף לוןויקי. אם קובץ המדיה עוד לא קיים, הוא יועלה אם התיבה מסומנת ואם לאו.',
+	'gwtoolset-specific-categories' => 'קטגוריה ייחודיות לפריט',
 	'gwtoolset-template-field' => 'שדה תבנית',
 	'gwtoolset-step-3-instructions-heading' => 'צעד 3: תצוגה מקדימה של אצווה',
 	'gwtoolset-step-3-instructions-3' => 'אם אינך שבע רצון מהתוצאות, חזור ל"{{int:gwtoolset-step-2-heading}}" והתאם את המיפוי לפי הצורך.
@@ -2059,6 +2068,8 @@ $1',
 יש לנסות שדה אחר מהמטא־נתונים עבור כותרת ומזהה־כותרת, או אם אפשר, לשנות את המטא־נתונים היכן שצריך. ר' [https://commons.wikimedia.org/wiki/Commons:File_naming מדריך למתן שמות לקבצים] לקבלת מידע נוסף.
 
 <strong>כותרת בלתי־תקינה:</strong> $1.",
+	'gwtoolset-batchjob-metadata-creation-failure' => 'לא היה ניתן ליצור משימת אצווה לקובץ המטא־נתונים.',
+	'gwtoolset-create-mediafile' => '$1: יצירת קובץ מדיה עבור $2.',
 	'gwtoolset-create-prefix' => 'ארגז כלי גלאם־ויקי',
 	'gwtoolset-step-4-heading' => 'צעד 4: ההעלאת אצווה',
 	'gwtoolset-invalid-token' => 'אסימון העריכה שנשלח עם הטופס אינו תקין.',
@@ -2067,6 +2078,8 @@ $1',
 	'gwtoolset-permission-not-given' => 'נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).',
 	'gwtoolset-user-blocked' => 'חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל כדי לתקן את זה.',
 	'gwtoolset-required-group' => 'חשבונך אינו חלק מהקבוצה $1.',
+	'gwtoolset-verify-curl' => 'ההרחבה $1 דורשת ש[http://www.php.net/manual/en/curl.setup.php פונקציות cURL] של PHP יהיו מותקנות.',
+	'gwtoolset-verify-finfo' => 'ההרחבה $1 דורשת שההרחבה [http://www.php.net/manual/en/fileinfo.setup.php finfo] ל PHP תהיה מותקנת.',
 	'gwtoolset-verify-php-version' => 'ההרחבה $1 דורשת PHP בגרסה 5.3.3 לפחות.',
 	'gwtoolset-verify-xmlreader' => 'הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן',
 	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי נכשלו',
@@ -3223,6 +3236,33 @@ $messages['nl'] = array(
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ * @author Rzuwig
+ */
+$messages['pl'] = array(
+	'right-gwtoolset' => 'Używanie GWToolset',
+	'group-gwtoolset' => 'Użytkownicy GWToolset',
+	'gwtoolset-fsfile-empty' => 'Plik był pusty i został skasowany.',
+	'gwtoolset-no-page-title' => 'Nie podano tytułu strony.',
+	'gwtoolset-no-file' => 'Plik nie został odebrany.',
+	'gwtoolset-partial-upload' => 'Plik został tylko częściowo przesłany.',
+	'gwtoolset-back-text-link' => '← powrót do formularz',
+	'gwtoolset-mediawiki-template' => 'Szablon $1',
+	'gwtoolset-submit' => 'Wyślij',
+	'gwtoolset-summary-heading' => 'Podsumowanie',
+	'gwtoolset-cancel' => 'Anuluj',
+	'gwtoolset-loading' => 'Prosimy o cierpliwość. To może zająć trochę czasu.',
+	'gwtoolset-save' => 'Zapisz',
+	'gwtoolset-json-error-syntax' => 'Błąd składni, nieprawidłowy format JSON.',
+	'gwtoolset-json-error-unknown' => 'Nieznany błąd.',
+	'gwtoolset-category' => 'Kategoria',
+	'gwtoolset-results' => 'Wyniki',
+	'gwtoolset-create-prefix' => 'GWToolset',
+	'gwtoolset-required-group' => 'Nie jesteś członkiem grupy $1.',
+	'gwtoolset-verify-php-version' => 'Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3.',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
@@ -3306,6 +3346,7 @@ $messages['ru'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Ainali
  * @author Jopparn
  * @author LeiLar
  * @author Lokal Profil
@@ -3431,7 +3472,11 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande [$1 XML-validator].
 $2',
+	'gwtoolset-step-1-heading' => 'Steg 1: Känna igen metadata',
+	'gwtoolset-step-1-instructions-1' => 'Uppladdningsprocessen för metadata består av 4 steg:',
+	'gwtoolset-step-1-instructions-2' => 'I detta steg, {{GENDER:$1|laddar du upp}} en ny metadatafil till wikin. Verktyget kommer att försöka extrahera metadatafält som finns i metadatafilen som du sedan kommer att matcha mot en MediaWikimall i "{{int:gwtoolset-step-2-heading}}".',
 	'gwtoolset-step-1-instructions-3-heading' => 'Vitlista för domäner',
+	'gwtoolset-step-1-instructions-li-1' => 'Känna igen metadata',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
 	'gwtoolset-upload-legend' => 'Ladda upp din metadatafil',
 	'gwtoolset-which-mediawiki-template' => 'Vilken MediaWiki-mall:',
@@ -3441,6 +3486,7 @@ $2',
 	'gwtoolset-category' => 'Kategori',
 	'gwtoolset-create-mapping' => '$1: Skapar metadata-mappning för $2.',
 	'gwtoolset-global-categories' => 'Globala kategorier',
+	'gwtoolset-global-tooltip' => 'Dessa kategoriposter kommer att läggas till globalt på alla uppladdade objekt.',
 	'gwtoolset-maps-to' => 'Mappar till',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'Filtillägget kunde inte fastställas från filens URL: $1.',
 	'gwtoolset-metadata-field' => 'Metadatafält',
@@ -3458,7 +3504,10 @@ $2',
 	'gwtoolset-step-2-instructions-1' => 'Nedan är:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'En lista över fälten i MediaWiki $1.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'En exempelpost från metadatafilen.',
+	'gwtoolset-step-2-instructions-2' => 'I det här steget ska du matcha metadatafälten med MediaWikimallfälten.',
+	'gwtoolset-step-2-instructions-2-li-2' => 'Du behöver inte hitta en matchning för varenda fält i Mediawikimallen.',
 	'gwtoolset-reupload-media' => 'Återuppladda media från URL',
+	'gwtoolset-reupload-media-explanation' => 'Denna kryssrutan låter dig återupplada media för ett objekt som redan har laddats upp på wikin. Om objektet redan finns kommer en ytterligare mediafil att läggas till wikin. Om mediafilen inte finns kommer den att laddas upp oavsett om kryssrutan är ikryssad eller ej.',
 	'gwtoolset-specific-categories' => 'Objektsspecifika kategorier',
 	'gwtoolset-template-field' => 'Mallfält',
 	'gwtoolset-step-3-instructions-heading' => 'Steg 3: Förhandsgranska massuppladdning',
