@@ -3363,7 +3363,7 @@ $messages['sv'] = array(
 	'group-gwtoolset' => 'GWToolset-användare',
 	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset-användare}}',
 	'grouppage-gwtoolset' => '{{ns:project}}:GWToolset-användare',
-	'gwtoolset-batchjob-creation-failure' => 'Gick inte att skapa ett massuppladdningsjobb av typen "$1".',
+	'gwtoolset-batchjob-creation-failure' => 'Gick inte att skapa ett batch-jobb av typen "$1".',
 	'gwtoolset-could-not-close-xml' => 'Kunde inte stänga av XML-läsaren.',
 	'gwtoolset-could-not-open-xml' => 'Kunde inte öppna XML-filen för läsning.',
 	'gwtoolset-developer-issue' => 'Vänligen kontakta en utvecklare. Detta problem måste åtgärdas innan du kan fortsätta. Lägg till följande text i rapporten:
@@ -3377,7 +3377,9 @@ Se [php.net/manual/en/datetime.formats.relative.php PHP-manualen] för hur du st
 	'gwtoolset-fsfile-retrieval-failure' => 'Filen kunde inte hämtas från URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> inte angivet.',
 	'gwtoolset-incorrect-form-handler' => 'Modulen "$1" har inte registrerat en formulärhanterare GWToolset\\Handlers\\Forms\\FormHandler.',
+	'gwtoolset-job-throttle-exceeded' => 'Batch-jobbsreglaget har överskridits.',
 	'gwtoolset-no-accepted-types' => 'Inga accepterat typer tillhandahålls',
+	'gwtoolset-no-callback' => 'Ingen callback-funktion har skickats till den här metoden.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> inte angivet.",
 	'gwtoolset-no-default' => 'Inget standardvärde har angetts.',
 	'gwtoolset-no-field-size' => 'Ingen fältstorlek har angetts för fältet "$1".',
@@ -3387,6 +3389,7 @@ Se [php.net/manual/en/datetime.formats.relative.php PHP-manualen] för hur du st
 	'gwtoolset-no-mapping' => 'Inget <code>mapping_name</code> har angetts.',
 	'gwtoolset-no-mapping-json' => 'Ingen <code>mapping_json</code> har angetts.',
 	'gwtoolset-no-max' => 'Inget högsta värde har angetts.',
+	'gwtoolset-no-mediafile-throttle' => 'Inget mediefilsreglage angavs.',
 	'gwtoolset-no-mediawiki-template' => 'Ingen <code>mediawiki-mall-namn</code> har angetts.',
 	'gwtoolset-no-min' => 'Inget minsta värde har angetts.',
 	'gwtoolset-no-module' => 'Inget modulnamn specificerades.',
@@ -3394,6 +3397,7 @@ Se [php.net/manual/en/datetime.formats.relative.php PHP-manualen] för hur du st
 	'gwtoolset-no-mwstore-relative-path' => 'Ingen relativ sökväg har angetts.',
 	'gwtoolset-no-page-title' => 'Ingen sidorubrik har angetts.',
 	'gwtoolset-no-save-as-batch' => "<code>user_options['save-as-batch-job']</code> inte inställd.",
+	'gwtoolset-no-source-array' => 'Ingen källtabell tillhandahölls.',
 	'gwtoolset-no-summary' => 'Ingen sammanfattning har angetts.',
 	'gwtoolset-no-template-url' => 'Ingen URL-mall har angetts för att tolka.',
 	'gwtoolset-no-text' => 'Ingen text har angetts.',
@@ -3445,6 +3449,7 @@ $1',
 	'gwtoolset-save-mapping-succeeded' => 'Din mappning har sparats.',
 	'gwtoolset-save-mapping-name' => 'Vad vill du kalla denna mappning?',
 	'gwtoolset-json-error' => 'Det var ett problem med JSON. Fel: $1.',
+	'gwtoolset-json-error-depth' => 'Det maximala stack-djupet överskreds.',
 	'gwtoolset-json-error-ctrl-char' => 'Oväntat kontrolltecken hittat.',
 	'gwtoolset-json-error-syntax' => 'Syntaxfel, felaktigt formerad JSON.',
 	'gwtoolset-json-error-utf8' => 'Felaktigt UTF-8-tecken, möjligen felkodat.',
@@ -3452,6 +3457,8 @@ $1',
 	'gwtoolset-accepted-file-types' => 'Accepterade fil{{PLURAL:$1|typ|typer}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Kontrollera att XML-filen är välformad med detta $1.',
 	'gwtoolset-file-url-invalid' => 'URL-filen var ogiltigt; Filen finns ännu inte på wikin. Du måste först ladda upp filen från din dator om du vill använda filens URL-referens i formuläret.',
+	'gwtoolset-mediafile-throttle' => 'Mediefilsreglage:',
+	'gwtoolset-mediafile-throttle-description' => 'Efter förhandsvisningen av batchen, i steg 3, laddar GWToolset upp de kvarvarande posterna i din batch-uppladdning genom bakgrundsjobb. Mediefilsreglaget kontrollerar antalet mediefilförfrågningar Wikimeida Commons gör mot din mediefilserver var gång ett bakgrundsjobb körs. Du kan sätta mediefilsreglaget till ett värde mellan 1 och 20. Till exempel, om det totala antalet poster i din batch-uppladning är 100 och du sätter ditt reglage till 20, kör Wikimedia Commons 5 bakgrundsjobb för att behandla hela din batch-uppladdning. Tiden mellan vart bakgrundsjobb varierar beroende på serverbelastning och konfigureringar; vi räknar med att det på Wikimedia Commons kommer att köras ett bakgrundsjobb för GWToolset åtminstone var 5:e minut.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallen "<strong>$1</strong>" existerar inte på wikin.
 
 Antingen importerar du mallen eller väljer en annan MediaWiki-mall att använda för mappning.',
@@ -3463,6 +3470,10 @@ Antingen importerar du mallen eller väljer en annan MediaWiki-mall att använda
 	'gwtoolset-metadata-mapping-bad' => 'Det finns ett problem med metadata-mappning. Troligtvis är JSON-formatet ogiltigt. Försök korrigera problemet och skicka sedan in formuläret igen.
 
 $1',
+	'gwtoolset-metadata-mapping-invalid-url' => 'Den angivna URL:en för metadatamappningen stämmer inte med den förväntade mappnings-URL:en.
+
+* Angiven URL: $1
+* Förväntad URL: $2',
 	'gwtoolset-metadata-mapping-not-found' => 'Ingen metadata-mappning hittades.
 
 Sidan "<strong>$1<strong>" finns inte på wikin.',
@@ -3473,12 +3484,18 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande [$1 XML-validator].
 $2',
+	'gwtoolset-page-title-contains-url' => 'Sidan "$1" innehåller hela wiki-URL:en. Se till att du enbart anger sidtiteln, dvs. den delen av URL:en som kommer efter /wiki/',
+	'gwtoolset-record-element-name' => 'Vilket är XML-elementet som innehåller var metadatapost:',
 	'gwtoolset-step-1-heading' => 'Steg 1: Känna igen metadata',
 	'gwtoolset-step-1-instructions-1' => 'Uppladdningsprocessen för metadata består av 4 steg:',
 	'gwtoolset-step-1-instructions-2' => 'I detta steg, {{GENDER:$1|laddar du upp}} en ny metadatafil till wikin. Verktyget kommer att försöka extrahera metadatafält som finns i metadatafilen som du sedan kommer att matcha mot en MediaWikimall i "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'Om domänen för dina mediefiler inte finns listad nedan, [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment begär] 
+att din mediefil-domän vitlistas på Wikimedia Commons. Vitlistan är en lista över domäner vilken Wikimedia Commons jämför emot innan mediefilerna hämtas. Om domänen för dina mediefiler inte finns på den listan kommer Wikimedia Commons inte att ladda ner filer från den domänen. Det bästa exemplet, när du skickar in din begäran, är en faktisk länk till en mediefil.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Vitlista för domäner',
 	'gwtoolset-step-1-instructions-li-1' => 'Känna igen metadata',
 	'gwtoolset-step-1-instructions-li-2' => 'Metadata-mappning',
+	'gwtoolset-step-1-instructions-li-3' => 'Batch-förhandsgranskning',
+	'gwtoolset-step-1-instructions-li-4' => 'Batch-uppladdning',
 	'gwtoolset-upload-legend' => 'Ladda upp din metadatafil',
 	'gwtoolset-which-mediawiki-template' => 'Vilken MediaWiki-mall:',
 	'gwtoolset-which-metadata-mapping' => 'Vilken metadata-mappning:',
@@ -3486,45 +3503,83 @@ $2',
 	'gwtoolset-categories' => 'Ange kategorier avgränsade med ett vertikalstreck ("|")',
 	'gwtoolset-category' => 'Kategori',
 	'gwtoolset-create-mapping' => '$1: Skapar metadata-mappning för $2.',
+	'gwtoolset-example-record' => 'Exempelinnehåll för metadataposten.',
 	'gwtoolset-global-categories' => 'Globala kategorier',
 	'gwtoolset-global-tooltip' => 'Dessa kategoriposter kommer att läggas till globalt på alla uppladdade objekt.',
 	'gwtoolset-maps-to' => 'Mappar till',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'Filtillägget kunde inte fastställas från filens URL: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'URL:en för mediefilen kunde inte utvärderas. URL:en levererar innehållet på ett sätt som ännu inte kan hanteras av detta tillägget eller uppstod ett fel under HTTP-begäran. Den angivna URL:en var "$1". Fel för HTTP-begäran "$2"',
+	'gwtoolset-mapping-no-title' => 'Metadatamappningen innehåller ingen titel vilket krävs för att skapa sidan.',
+	'gwtoolset-mapping-no-title-identifier' => 'Metadatamappningen innehåller inget titel-id som kan användas för att skapa en unik sidtitel. Se till att du mappar ett metadatafält till MediaWiki-mallens fält för titel-id.',
 	'gwtoolset-metadata-field' => 'Metadatafält',
 	'gwtoolset-metadata-file' => 'Metadatafil',
 	'gwtoolset-metadata-mapping-legend' => 'Mappa din metadata',
 	'gwtoolset-no-more-records' => '<strong>Inga fler poster att bearbeta</strong>',
 	'gwtoolset-painted-by' => 'Målad av',
 	'gwtoolset-partner' => 'Partner',
+	'gwtoolset-partner-explanation' => 'Partner-mallar stoppas in källfältet i MediaWiki-mallen om angivna. Du hittar en lista över aktuella partner-mallar på Category:Source templates sidan; se länken nedan. När du har hittat den partner-mall di önskar använda ange URL:en till den i detta fältet. Du kan även skapa en ny partner-mall vid behov.',
 	'gwtoolset-partner-template' => 'Mall för partner:',
-	'gwtoolset-preview' => 'Förhandsgranska massuppladdning',
+	'gwtoolset-phrasing' => 'Frasering',
+	'gwtoolset-preview' => 'Förhandsgranska batch',
+	'gwtoolset-process-batch' => 'Bearbeta batch',
 	'gwtoolset-record-count' => 'Totalt antal poster funna i denna metadatafil:  {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Resultat',
 	'gwtoolset-step-2-heading' => 'Steg 2: Metadata-mappning',
 	'gwtoolset-step-2-instructions-heading' => 'Mappning av metadatafälten',
 	'gwtoolset-step-2-instructions-1' => 'Nedan är:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'En lista över fälten i MediaWiki $1.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Rullgardinsfält som representerar de metadatafält som hittades i metadatafilen.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'En exempelpost från metadatafilen.',
 	'gwtoolset-step-2-instructions-2' => 'I det här steget ska du matcha metadatafälten med MediaWikimallfälten.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Välj ett metadatafält i "{{int:gwtoolset-maps-to}}"-kolumnen som motsvarar ett fält i MediaWiki-mallen i "{{int:gwtoolset-template-field}}"-kolumnen.',
 	'gwtoolset-step-2-instructions-2-li-2' => 'Du behöver inte hitta en matchning för varenda fält i Mediawikimallen.',
 	'gwtoolset-reupload-media' => 'Återuppladda media från URL',
 	'gwtoolset-reupload-media-explanation' => 'Denna kryssrutan låter dig återupplada media för ett objekt som redan har laddats upp på wikin. Om objektet redan finns kommer en ytterligare mediafil att läggas till wikin. Om mediafilen inte finns kommer den att laddas upp oavsett om kryssrutan är ikryssad eller ej.',
 	'gwtoolset-specific-categories' => 'Objektsspecifika kategorier',
+	'gwtoolset-specific-tooltip' => 'Med följande fält kan du använda en fras (valfritt) plus ett metadatafält som kategori för vart enskilt objekt som laddas upp. Exempelvis om metadatafilen innehåller ett värde för konstnären av var post, då kan du lägga till detta som en kategoriuppgift för alla poster vilket automatiskt ändras till det specifika värdet för var post. Du kan även lägga till en fras som exempelvis "<em>{{int:gwtoolset-painted-by}}</em>" och sedan konstnärens metadatafält, vilket skulle ge "<em>{{int:gwtoolset-painted-by}} <konstnärsnamnet></em>" som kategorin för var post.',
 	'gwtoolset-template-field' => 'Mallfält',
-	'gwtoolset-step-3-instructions-heading' => 'Steg 3: Förhandsgranska massuppladdning',
+	'gwtoolset-step-3-instructions-heading' => 'Steg 3: Förhandsgranskning av batchen',
+	'gwtoolset-step-3-instructions-1' => 'Nedan visas resultatet av uppladdningen av {{PLURAL:$1|den första posten|de första $1 posterna}} från den valda metadatafilen och mappningen av {{PLURAL:$1|det|dem}} till den MediaWiki-mall du valde i "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-3-instructions-2' => 'Granska dessa sidor och om resultatet uppfyller dina förväntningar, och det finns ytterligare poster som väntar på att laddas upp, fortsätt batch-uppladdningsprocessen genom att klicka på "{{int:gwtoolset-process-batch}}"-knappen nedan.',
+	'gwtoolset-step-3-instructions-3' => 'Om du inte är nöjd med resultaten, gå tillbaka till "{{int:gwtoolset-step-2-heading}}" och justera mappningen som behövs.
+
+Om du behöver göra redigeringar av själva metadatafilen, gör detta och ladda upp den igen genom att påbörja processen igen med "{{int:gwtoolset-step-1-heading}}".',
+	'gwtoolset-title-bad' => 'Titeln, som skapades utifrån metadatan och mappningen till MediaWiki-mallen, är inte giltig.
+
+Prova ett annat fält från metadatan för titel och titel-id, eller om möjligt, ändra metadatan där det behövs. Se [https://commons.wikimedia.org/wiki/Commons:File_naming Filnamngivning] för mer information.
+
+<strong>Ogiltig titel:</strong> $1.',
+	'gwtoolset-batchjob-metadata-created' => 'Batch-jobb för metadata skapat. Din metadatafil kommer strax att analyseras och vart objekt kommer att laddas upp till wikin i bakgrunden. Du kan kolla på sidan "$1" för att se när de har laddats upp.',
+	'gwtoolset-batchjob-metadata-creation-failure' => 'Kunde inte skapa ett batch-jobb för metadatafilen.',
 	'gwtoolset-create-mediafile' => '$1: Skapar mediafil för $2.',
 	'gwtoolset-create-prefix' => 'GWToolset',
-	'gwtoolset-step-4-heading' => 'Steg 4: Massuppladdning',
+	'gwtoolset-mediafile-jobs-created' => 'Skapade $1 mediefil-batch-{{PLURAL:$1|jobb}}.',
+	'gwtoolset-step-4-heading' => 'Steg 4: Batch-uppladdning',
 	'gwtoolset-invalid-token' => 'Redigeringstoken som lämnades in med formuläret är ogiltig.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'Aktuella <code>php.ini</code>-inställningar:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+Dessa har satts lägre än wikins <code>$wgMaxUploadSize</code>, vilken är satt till "$3". Vänligen justera <code>php.ini</code>-inställningarna efter behov.',
 	'gwtoolset-mediawiki-version-invalid' => 'Detta tillägg kräver MediaWiki-version $1<br />Denna MediaWiki-version är $2.',
+	'gwtoolset-permission-not-given' => 'Kontrollera att du är inloggad eller kontakta en administratör för att få behörighet att se denna sida ($1).',
 	'gwtoolset-user-blocked' => 'Ditt konto är för närvarande blockerat. Kontakta en administratör för att korrigera blockeringsproblemet.',
 	'gwtoolset-required-group' => 'Du är inte medlem av grupp $1.',
 	'gwtoolset-verify-api-enabled' => '$1-tillägget kräver att wikins API är aktiverat.
 
 Kontrollera att <code>$wgEnableAPI</code> är inställd på <code>true</code> i den <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
+	'gwtoolset-verify-api-writeable' => '$1-tillägget kräver att wikins API kan utföra skriv-åtgärder för behöriga användare.
+
+Kontrollera att <code>$wgEnableWriteAPI</code> har satts till <code>true</code> i <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
 	'gwtoolset-verify-curl' => '$1-tillägget kräver att PHP [http://www.php.net/manual/en/curl.setup.php cURL-funktionerna] är installerade.',
 	'gwtoolset-verify-finfo' => '$1-tillägget kräver att tillägget PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] är installerat.',
 	'gwtoolset-verify-php-version' => '$1-tillägget kräver PHP >= 5.3.3.',
+	'gwtoolset-verify-uploads-enabled' => '$1-tillägget kräver att filuppladdningar är aktiverade.
+
+Kontrollera att <code>$wgEnableUploads</code> har satts till <code>true</code> i <code>LocalSettings.php</code>.',
+	'gwtoolset-verify-xmlreader' => '$1-tillägget kräver att PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] är installerat.',
+	'gwtoolset-wiki-checks-not-passed' => 'Wiki-kontrollerna misslyckades',
 );
 
 /** Telugu (తెలుగు)
