@@ -20,9 +20,19 @@ $specialPageAliases['ar'] = array(
 	'GWToolset' => array( 'أدوات_ج_و' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'GWToolset' => array( 'ادوات_ج_و' ),
+);
+
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'GWToolset' => array( 'GWSazhalet' ),
+);
+
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'GWToolset' => array( 'ابزارهای_جی‌دبلیو' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */
