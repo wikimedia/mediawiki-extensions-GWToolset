@@ -1423,6 +1423,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>هیچ سوابقی برای پردازش نیست<strong>',
 	'gwtoolset-painted-by' => 'نقاشی شده توسط',
 	'gwtoolset-partner' => 'شریک',
+	'gwtoolset-partner-explanation' => 'الگوهای شریک درون زمینهٔ منبع الگوی مدیا‌ویکی هنگامی که ارائه شد،کشیده شد. شما می‌توانید فهرست الگوهای شریک فعلی را در دسته پیدا کنید: صفحهٔ الگوهای منبع؛ لینک زیر را مشاهده کنید. هنگامی که الگوی شزیک مورد‌نظر خود را برای استفاده از محل يوآر‌ال در این زمینه پیدا کرده‌اید. شما همچنین می‌توانید اگر لازم بود، الگوی شریک جدیدی را ایجاد کنید.',
 	'gwtoolset-partner-template' => 'الگوی شریک:',
 	'gwtoolset-phrasing' => 'بیان‌کردن',
 	'gwtoolset-preview' => 'پیش‌نمایش گروه',
@@ -1442,6 +1443,7 @@ $2',
 	'gwtoolset-reupload-media' => 'انتقال دوبارهٔ رسانه از یوآر‌ال',
 	'gwtoolset-reupload-media-explanation' => 'این جعبهٔ بررسی برای انتقال دوبارهٔ رسانه برای موردی که انتقال داده‌شده به ویکی به شما اجازه می‌دهد. اگر در حال حاضر این مورد وجود دارد، یک پوشهٔ رسانه‌ای اضافی به ویکی اضافه خواهد شد. اگر پوشهٔ رسانه‌ای هنوز وجود ندارد،  چه جعبهٔ بررسی، بررسی شده باشد یا نه، انتقال داده خواهد شد.',
 	'gwtoolset-specific-categories' => 'دسته‌بندی‌های موردی خاص',
+	'gwtoolset-specific-tooltip' => 'با استفاده از زمینه‌های زیر شما می‌توانید یک عبارت (اختیاری) به‌ اضافهٔ یک زمینهٔ فراداده به عنوان ورود دسته برای هر مورد انتقال شدهٔ جداگانه، درخواست کنید. برای مثال، اگر پوشهٔ فراداده شامل یک عنصر برای هنرمند هر سابقه باشد، شما می‌توانستید آن را به عنوان ورود دسته برای هر سابقه‌ای که تغییر خواهد کرد به مقدار ویژه‌ایبرای هر سابقه، اضافه کنید. همچنین می‌توانستید عبارتی مثل "<em>{{int:gwtoolset-painted-by}}</em>" اضافه کنید و سپس زمینهٔ فرادادهٔ هنرمند، که به عنوان دسته برای هر سابقه حاصل داده "<em>{{int:gwtoolset-painted-by}}.',
 	'gwtoolset-template-field' => 'زمینهٔ الگو',
 	'gwtoolset-step-3-instructions-heading' => 'مرحلهٔ ۳: پیش‌نمایش گروه',
 	'gwtoolset-step-3-instructions-1' => 'در زیر نتایج انتقال {{PLURAL:$1|اولین سابقه|اولین $1 سوابق}} از پوشهٔ فراداده‌ای که انتخاب کرده‌اید و نقشه‌برداری {{PLURAL:$1|این|آنها}} برای الگوی مدیاویکی که در "{{int:gwtoolset-step-2-heading}}" انتخاب کرده‌اید.',
@@ -2016,6 +2018,10 @@ $1',
 	'gwtoolset-namespace-mismatch' => 'הדף "<strong>$1<strong>" נמצא במרחב השם השגוי "<strong>$2<strong>".
 
 הדף צריך להיות במרחב השם "<strong>$3<strong>".',
+	'gwtoolset-no-xml-element-found' => 'לא נמצא אלמנט XML למיפוי.
+* האם הזנת ערך בטופס עבור "{{int:gwtoolset-record-element-name}}"?
+* האם ה־XML תקין? נא לנסות את [$1 בודק ה־XML] הזה.
+$2',
 	'gwtoolset-page-title-contains-url' => 'הדף $1 מכיל את כל כתובת ה־URL. יש להקפיד להזין רק את כותרת הדף, למשל את החלק של ה־URL שאחרי /wiki/',
 	'gwtoolset-record-element-name' => 'מהו רכיב ה־XML המכיל כל רשומת מטא־נתונים:',
 	'gwtoolset-step-1-heading' => 'צעד 1: זיהוי המטא־נתונים',
@@ -3351,6 +3357,26 @@ $messages['ru'] = array(
 	'gwtoolset-step-2-heading' => 'Шаг 2: Сопоставление метаданных',
 	'gwtoolset-verify-php-version' => 'Расширение $1 требует PHP >= 5.3.3.',
 	'gwtoolset-wiki-checks-not-passed' => 'Вики-проверки не пройдены',
+);
+
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'gwtoolset-metadata-mapping-invalid-url' => 'The supplied metadata mapping URL disna match the expected mapping URL path.
+
+* Supplied URL: $1
+* Expected URL: $2',
+	'gwtoolset-no-xml-element-found' => 'No XML element foond fer mapping.
+* Did ye enter ae value in the form fer "{{int:gwtoolset-record-element-name}}"?
+* Is the XML file weel-formed? Try this [$1 XML validator].
+$2',
+	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|you upload}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that you will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-title-bad' => 'The title, that wis creatit based on the metadata an the MediaWiki template mapping, is no valid.
+
+Try anither field fae the metadata fer title an title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer more information.
+
+<strong>Invalid title:</strong> $1.',
 );
 
 /** Swedish (svenska)
