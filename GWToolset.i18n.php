@@ -3151,6 +3151,7 @@ $messages['nap'] = array(
  * @author Multichill
  * @author Siebrand
  * @author Sjoerddebruin
+ * @author Southparkfan
  */
 $messages['nl'] = array(
 	'gwtoolset' => 'GWToolset',
@@ -3226,7 +3227,9 @@ $1',
 	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
 	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
 	'gwtoolset-step-1-heading' => 'Stap 1: Metadata detecteren',
+	'gwtoolset-step-1-instructions-li-4' => 'Massale upload',
 	'gwtoolset-category' => 'Categorie',
+	'gwtoolset-global-categories' => 'Globale categorieën',
 	'gwtoolset-no-more-records' => '<strong>Geen records meer te verwerken</strong>',
 	'gwtoolset-painted-by' => 'Geschilderd door',
 	'gwtoolset-partner' => 'Partner',
@@ -3331,8 +3334,11 @@ $messages['ru'] = array(
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code>не задано.',
 	'gwtoolset-no-url-to-media' => 'Не установлен <code>url-to-the-media-file</code>.',
 	'gwtoolset-file-is-empty' => 'Загруженный файл пуст.',
+	'gwtoolset-improper-upload' => 'Файл не был загружен правильно.',
+	'gwtoolset-missing-temp-folder' => 'Временная папка недоступна.',
 	'gwtoolset-no-file' => 'Файл не был получен.',
 	'gwtoolset-partial-upload' => 'Файл был загружен только частично.',
+	'gwtoolset-back-text-link' => '← вернуться к форме',
 	'gwtoolset-mediawiki-template' => 'Шаблон $1',
 	'gwtoolset-menu-1' => 'Сопоставление метаданных',
 	'gwtoolset-submit' => 'Отправить',
@@ -3343,9 +3349,11 @@ $messages['ru'] = array(
 	'gwtoolset-save-mapping-succeeded' => 'Ваше сопоставление было сохранено.',
 	'gwtoolset-save-mapping-name' => 'Как вы хотите назвать это сопоставление?',
 	'gwtoolset-json-error-unknown' => 'Неизвестная ошибка.',
+	'gwtoolset-step-1-instructions-li-1' => 'Описание метаданных',
 	'gwtoolset-step-1-instructions-li-2' => 'Сопоставление метаданных',
 	'gwtoolset-step-1-instructions-li-3' => 'Пакетный предпросмотр',
 	'gwtoolset-step-1-instructions-li-4' => 'Пакетная загрузка',
+	'gwtoolset-upload-legend' => 'Загрузите ваш файл метаданных',
 	'gwtoolset-which-metadata-mapping' => 'Какие метаданные сопоставить:',
 	'gwtoolset-category' => 'Категория',
 	'gwtoolset-global-categories' => 'Глобальные категории',
@@ -3355,6 +3363,8 @@ $messages['ru'] = array(
 	'gwtoolset-partner' => 'Партнёр',
 	'gwtoolset-results' => 'Результаты',
 	'gwtoolset-step-2-heading' => 'Шаг 2: Сопоставление метаданных',
+	'gwtoolset-template-field' => 'Поле шаблона',
+	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-verify-php-version' => 'Расширение $1 требует PHP >= 5.3.3.',
 	'gwtoolset-wiki-checks-not-passed' => 'Вики-проверки не пройдены',
 );
