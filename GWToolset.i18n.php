@@ -1602,12 +1602,12 @@ Sen kuuluisi olla nimiavaruudessa "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Ei löytynyt määritykseen tarvittavaa XML-elementtiä.
 * Syötitkö lomakkeella arvon elementille "{{int:gwtoolset-record-elementti-nimi}}"?
 * Onko XML-tiedosto oikein muotoiltu? Kokeile tätä $1.
-$2',
+$2', # Fuzzy
 	'gwtoolset-page-title-contains-url' => 'Sivu "$1" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin /wiki/ jälkeen',
 	'gwtoolset-record-element-name' => 'Mikä on XML-elementti, joka sisältää kaikki metatietotietueet:',
 	'gwtoolset-step-1-heading' => 'Vaihe 1: Metatietojen tunnistus',
 	'gwtoolset-step-1-instructions-1' => 'Metatietojen latausprosessi koostuu 4 vaiheesta:',
-	'gwtoolset-step-1-instructions-2' => 'Tässä vaiheessa voit ladata uuden metatietotiedoston wikiin. Työkalu yrittää poimia metatietokentiksi käytettävissä metatietoja tiedostosta, jotka sitten yhdistetään MediaWiki-mallineeseen "{{int:gwtoolset-vaihe-2-otsikon}}".',
+	'gwtoolset-step-1-instructions-2' => 'Tässä vaiheessa voit ladata uuden metatietotiedoston wikiin. Työkalu yrittää poimia metatietokentiksi käytettävissä metatietoja tiedostosta, jotka sitten yhdistetään MediaWiki-mallineeseen "{{int:gwtoolset-vaihe-2-otsikon}}".', # Fuzzy
 	'gwtoolset-step-1-instructions-li-1' => 'Metatietojen tunnistaminen',
 	'gwtoolset-step-1-instructions-li-2' => 'Metatietojen määritykset',
 	'gwtoolset-step-1-instructions-li-3' => 'Erän esikatselu',
@@ -1619,6 +1619,16 @@ $2',
 	'gwtoolset-categories' => 'Anna luokat erotettuna pystyviivalla ("|")',
 	'gwtoolset-category' => 'Luokka',
 	'gwtoolset-create-mapping' => '$1: Luodaan metatietojen määritys käyttäjälle $2.',
+	'gwtoolset-step-2-instructions-1' => 'Alla on:',
+	'gwtoolset-step-2-instructions-1-li-1' => 'MediaWiki-kenttien luettelo $1 .',
+	'gwtoolset-step-2-instructions-1-li-2' => 'Pudotusvalikon kentät, jotka edustavat metatietokenttiä metatietotiedostossa.',
+	'gwtoolset-step-2-instructions-1-li-3' => 'Näytetietue metatietotiedostosta.',
+	'gwtoolset-step-2-instructions-2' => 'Tässä vaiheessa yhdistät metatietokentät MediaWiki-mallineen kenttiin.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'Valitse "{{int:gwtoolset-maps-to}}"-sarakkeesta metatietokenttä, joka vastaa MediaWiki-mallineen vastaavaa kenttää sarakkeessa "{{int:gwtoolset-template-field}}".',
+	'gwtoolset-step-2-instructions-2-li-2' => 'Kaikille MediaWiki-mallineen kentille ei tarvitse antaa vastinetta.',
+	'gwtoolset-reupload-media' => 'Lataa media uudelleen palvelimelle URLista',
+	'gwtoolset-reupload-media-explanation' => 'Tämän valintaruudun avulla voit ladata uudelleen median nimikkeelle, joka on jo ladattu wikiin. Jos nimike on jo olemassa, wikiin lisätään uusi mediatiedosto. Jos mediatiedostoa ei vielä ole, se ladataan, oli tämä valintaruutu valittuna tai ei.',
+	'gwtoolset-specific-categories' => 'Nimikekohtaiset luokat',
 	'gwtoolset-template-field' => 'Mallineen kenttä',
 	'gwtoolset-step-3-instructions-heading' => 'Vaihe 3: Erän esikatselu',
 	'gwtoolset-step-3-instructions-3' => 'Jos et ole tyytyväinen tuloksiin, palaa "{{int:gwtoolset-step-2-otsikon}}" ja säädä vastaavuuksia tarvittaessa.
