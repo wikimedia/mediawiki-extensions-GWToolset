@@ -3267,12 +3267,13 @@ $1',
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Jacenty359
  * @author Rzuwig
  */
 $messages['pl'] = array(
 	'right-gwtoolset' => 'Używanie GWToolset',
 	'group-gwtoolset' => 'Użytkownicy GWToolset',
-	'group-gwtoolset-member' => '{{GENDER:$1|użytkownik|użytkowniczka}} GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|GWToolset użytkownik}}',
 	'gwtoolset-fsfile-empty' => 'Plik był pusty i został skasowany.',
 	'gwtoolset-no-page-title' => 'Nie podano tytułu strony.',
 	'gwtoolset-no-file' => 'Plik nie został odebrany.',
