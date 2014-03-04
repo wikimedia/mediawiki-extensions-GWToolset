@@ -3263,6 +3263,7 @@ $1',
 	'gwtoolset-step-3-instructions-heading' => 'Stap 3: Voorvertoning van de taak',
 	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
+	'gwtoolset-verify-php-version' => 'De $1-extensie vereist PHP 5.3.3 of hoger.',
 );
 
 /** Polish (polski)
@@ -3395,12 +3396,12 @@ $messages['sco'] = array(
 * Did ye enter ae value in the form fer "{{int:gwtoolset-record-element-name}}"?
 * Is the XML file weel-formed? Try this [$1 XML validator].
 $2',
-	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|you upload}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that you will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
-	'gwtoolset-title-bad' => 'The title, that wis creatit based on the metadata an the MediaWiki template mapping, is no valid.
+	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|ye uplaid}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that ye will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-title-bad' => 'The title, that wis cræftit based oan the metadata n the MediaWiki template mappin, isna valid.
 
-Try anither field fae the metadata fer title an title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer more information.
+Try anither field fae the metadata fer title n title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer mair information.
 
-<strong>Invalid title:</strong> $1.',
+<strong>Onvalid title:</strong> $1.',
 );
 
 /** Swedish (svenska)
