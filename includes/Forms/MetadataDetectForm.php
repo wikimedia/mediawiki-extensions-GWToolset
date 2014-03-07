@@ -37,7 +37,10 @@ class MetadataDetectForm {
 			$result .= Html::rawElement(
 				'p',
 				array(),
-				wfMessage( 'gwtoolset-step-1-instructions-3' )->parse()
+				wfMessage(
+					'gwtoolset-step-1-instructions-3',
+					'https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment'
+				)->parse()
 			);
 
 			$result .= Html::openElement( 'ul', array( 'id' => 'gwtoolset-whitelist' ) );
