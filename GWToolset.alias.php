@@ -39,3 +39,8 @@ $specialPageAliases['fa'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'GWToolset' => array( 'GW工具集' ),
 );
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'GWToolset' => array( 'GW工具組' ),
+);

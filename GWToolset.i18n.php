@@ -3148,11 +3148,13 @@ Sila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</c
 );
 
 /** Neapolitan (Napulitano)
+ * @author C.R.
  * @author Chelin
  */
 $messages['nap'] = array(
 	'action-gwtoolset' => 'ausare GWToolset',
 	'gwtoolset-mediawiki-template' => 'Modello $1',
+	'gwtoolset-step-1-instructions-3' => "Si 'o dumminio vuosto 'e file multimediale nun è annummerato ccà abbascio, [$1 addimannate] ca fosse mpizzato int&#39;'a lista janca 'e dumminie 'e Wikimedia Commons. Chesta lista è na lista 'e dumminie ca Wikimedia Commons cuntrolla apprimma 'e se piglià 'e file multimediale. Si 'o dumminio vuosto nun è dint'a sta lista, Wikimedia Commons nun scarrecarrà 'e file multimediale 'e chillu dumminio. 'O cchiù meglio esempio p'apprisentà na richiesta è nu link a nu file multimediale.",
 	'gwtoolset-required-group' => 'Nun sii membro d"o gruppo utente $1.',
 );
 
@@ -3396,6 +3398,7 @@ $messages['sco'] = array(
 * Is the XML file weel-formed? Try this [$1 XML validator].
 $2',
 	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|ye uplaid}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that ye will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => "Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be added til the Wikimedia Commyns domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commyns checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commyns 'll no doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual link til ae media file.",
 	'gwtoolset-title-bad' => 'The title, that wis cræftit based oan the metadata n the MediaWiki template mappin, isna valid.
 
 Try anither field fae the metadata fer title n title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer mair information.
