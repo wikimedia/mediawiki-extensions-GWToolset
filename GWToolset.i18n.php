@@ -1897,6 +1897,7 @@ $messages['fy'] = array(
  * @author AvrahamKatz
  * @author Danny-w
  * @author Guycn2
+ * @author Inkbug
  * @author NLIGuy
  * @author YaronSh
  * @author Yona b
@@ -2037,6 +2038,7 @@ $2',
 	'gwtoolset-step-1-heading' => 'צעד 1: זיהוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-1' => 'תהליך העלאת המטה-נתונים כולל 4 צעדים:',
 	'gwtoolset-step-1-instructions-2' => 'בצעד הזה {{GENDER:$1|אתה|את}} מעלה קובץ מטא־נתונים חדש לוויקי. הכלי הזה ינסה למפות את שדות המטא־נתונים בקובץ המטא־נתונים, שלאחר מכן {{GENDER:$1|תמפה|תמפי}} לתבנית מדיה־ויקי בצעד "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'אם המתחם של קובץ המדיה לא רשום למטה, צריך [$1 לבקש] שמתחם קובץ המדיה יתווסף לרשימה הלבנה של המתחמים של ויקישיתוף. הרשימה הלבנה של המתחמים היא רשימה של מתחמים שויקישיתוף בודקת לפני שהיא לוקחת את קבצי המדיה. אם המתחם של קובץ המדיה אינו ברשימה, ויקישיתוף לא תוכל להוריד קבצי מדיה מהמתחם ההוא. הדוגמה הכי טובה לשים בבקשה היא קישור אמיתי לקובץ מדיה.',
 	'gwtoolset-step-1-instructions-3-heading' => 'רשימה לבנה של מתחמים',
 	'gwtoolset-step-1-instructions-li-1' => 'זיהוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-li-2' => 'מיפוי המטא־נתונים',
@@ -2092,18 +2094,35 @@ $2',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'לא היה ניתן ליצור משימת אצווה לקובץ המטא־נתונים.',
 	'gwtoolset-create-mediafile' => '$1: יצירת קובץ מדיה עבור $2.',
 	'gwtoolset-create-prefix' => 'ארגז כלי גלאם־ויקי',
+	'gwtoolset-mediafile-jobs-created' => '{{PLURAL:$1|נוצר משימת אצווה אחת|נוצרו $1 משימות אצווה}} של קבצי מדיה.',
 	'gwtoolset-step-4-heading' => 'צעד 4: ההעלאת אצווה',
 	'gwtoolset-invalid-token' => 'אסימון העריכה שנשלח עם הטופס אינו תקין.',
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'הגדרות <code>php.ini</code> נוכחיות:
+
+* <code>upload_max_filesize</code>: $1
+* <code>post_max_size</code>: $2
+
+אלה מוגדרים כנמוכים יותר מאשר הגדרת <code>$wgMaxUploadSize</code> של הוויקי, אשר מוגדרת כ־"$3". יש לשנות את הגדרות <code>php.ini</code> לפי הצורך.',
 	'gwtoolset-mediawiki-version-invalid' => 'ההרחבה הזאת דורשת שימוש במדיה־ויקי $1<br />
 הגרסה של מדיה־ויקי כאן היא $2.',
 	'gwtoolset-permission-not-given' => 'נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).',
 	'gwtoolset-user-blocked' => 'חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל כדי לתקן את זה.',
 	'gwtoolset-required-group' => 'חשבונך אינו חלק מהקבוצה $1.',
+	'gwtoolset-verify-api-enabled' => 'הרחבת $1 מצריכה שה־API של הוויקי יופעל.
+
+אנא וודאו שהגדרת <code>$wgEnableAPI</code> מוגדרת כ־<code>true</code> בקובץ <code>DefaultSettings.php</code> או שהיא נדרסה לערך <code>true</code> בקובץ <code>LocalSettings.php</code>.',
 	'gwtoolset-verify-curl' => 'ההרחבה $1 דורשת ש[http://www.php.net/manual/en/curl.setup.php פונקציות cURL] של PHP יהיו מותקנות.',
 	'gwtoolset-verify-finfo' => 'ההרחבה $1 דורשת שההרחבה [http://www.php.net/manual/en/fileinfo.setup.php finfo] ל PHP תהיה מותקנת.',
 	'gwtoolset-verify-php-version' => 'ההרחבה $1 דורשת PHP בגרסה 5.3.3 לפחות.',
 	'gwtoolset-verify-xmlreader' => 'הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן',
 	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי נכשלו',
+);
+
+/** Hindi (हिन्दी)
+ * @author Adithyavr
+ */
+$messages['hi'] = array(
+	'gwtoolset-step-1-instructions-3' => 'यदि आपकी मीडिया फ़ाइल डोमेन के नीचे सूचीबद्ध नहीं है, कृपया [ $1  अनुरोध] कि आपके मीडिया फ़ाइल डोमेन विकिमीडिया कॉमन्स डोमेन श्वेत सूची करने के लिए जोड़ा जा सकता। विकिमीडिया कॉमन्स के खिलाफ जाँच करता डोमेन की एक सूची डोमेन श्वेतसूची है मीडिया फ़ाइलें ला रहा है से पहले। यदि आपकी मीडिया फ़ाइल डोमेन उस सूची में नहीं है, विकिमीडिया कॉमन्स उस डोमेन से मीडिया फ़ाइलें डाउनलोड नहीं करेगा। सबसे अच्छा उदाहरण में आपके अनुरोध, प्रस्तुत करने के लिए, कोई मीडिया फ़ाइल के लिए एक वास्तविक कड़ी है।',
 );
 
 /** Italian (italiano)
