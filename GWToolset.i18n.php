@@ -3412,12 +3412,12 @@ $messages['sco'] = array(
 
 * Supplied URL: $1
 * Expected URL: $2',
-	'gwtoolset-no-xml-element-found' => 'No XML element foond fer mapping.
+	'gwtoolset-no-xml-element-found' => 'Naw XML element foond fer mappin.
 * Did ye enter ae value in the form fer "{{int:gwtoolset-record-element-name}}"?
-* Is the XML file weel-formed? Try this [$1 XML validator].
+* Is the XML file weel-formed? Gie this ae gae [$1 XML valeedater].
 $2',
 	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|ye uplaid}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that ye will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
-	'gwtoolset-step-1-instructions-3' => "Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be added til the Wikimedia Commyns domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commyns checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commyns 'll no doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual link til ae media file.",
+	'gwtoolset-step-1-instructions-3' => "Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be added til the Wikimedia Commyns domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commyns checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commyns 'll naw doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual link til ae media file.",
 	'gwtoolset-title-bad' => 'The title, that wis cræftit based oan the metadata n the MediaWiki template mappin, isna valid.
 
 Try anither field fae the metadata fer title n title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer mair information.
