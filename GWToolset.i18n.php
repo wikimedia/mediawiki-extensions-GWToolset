@@ -3180,6 +3180,7 @@ $messages['nap'] = array(
 /** Dutch (Nederlands)
  * @author Arent
  * @author AvatarTeam
+ * @author JurgenNL
  * @author Multichill
  * @author Siebrand
  * @author Sjoerddebruin
@@ -3283,7 +3284,7 @@ $1',
 	'gwtoolset-step-3-instructions-heading' => 'Stap 3: Voorvertoning van de taak',
 	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
-	'gwtoolset-verify-php-version' => 'De $1-extensie vereist PHP 5.3.3 of hoger.',
+	'gwtoolset-verify-php-version' => 'De uitbreiding $1 vereist PHP 5.3.3 of hoger.',
 );
 
 /** Polish (polski)
