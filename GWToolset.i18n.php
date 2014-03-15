@@ -2077,10 +2077,12 @@ $2',
 	'gwtoolset-step-2-instructions-1' => 'להלן הוא/הם:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'רשימת השדות במדיה־ויקי $1.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'רשומה לדוגמה מתוך קובץ המטא־נתונים.',
+	'gwtoolset-step-2-instructions-2-li-1' => 'נא לבחור תחת העמודה "{{int:gwtoolset-maps-to}}" שדה מטא־נתונים שמתאים לתבנית מדיה־ויקי בעמודה "{{int:gwtoolset-template-field}}".',
 	'gwtoolset-step-2-instructions-2-li-2' => 'אין צורך לספר התאמה לכל שדה של תבנית מדיה־ויקי.',
 	'gwtoolset-reupload-media' => 'העלאה מחדש של מדיה מ־URL',
 	'gwtoolset-reupload-media-explanation' => 'תיבת הסימון הזאת נותנת לך להעלות מחדש מדיה עבור פריט שכבר הועלה לוויקי. אם הפריט קיים כבר, קובץ מדיה חדש יתווסף לוןויקי. אם קובץ המדיה עוד לא קיים, הוא יועלה אם התיבה מסומנת ואם לאו.',
 	'gwtoolset-specific-categories' => 'קטגוריה ייחודיות לפריט',
+	'gwtoolset-specific-tooltip' => 'באמצעות השדות הבאים אפשר להחיל משפט (לא חובה) ושדה מטא־נתונים בתור עיול בקטגוריה עבור כל פריט שמועלה. למשל, אם קובץ המטא־נתונים מכיל פריט עבור האמן של כל תקליט, אפשר להוסיף את זה בתור קטגוריה לכל תקליט שישתנה לערך הפרטני לכל תקליט. אפשר גם להוסיף משפט כגון "<em>{{int:gwtoolset-painted-by}}</em>" ואז את שדה האמן, וזה ייתן "<em>{{int:gwtoolset-painted-by}} <שם האמון></em>" בתור קטגוריה לכל תקליט.',
 	'gwtoolset-template-field' => 'שדה תבנית',
 	'gwtoolset-step-3-instructions-heading' => 'צעד 3: תצוגה מקדימה של אצווה',
 	'gwtoolset-step-3-instructions-3' => 'אם אינך שבע רצון מהתוצאות, חזור ל"{{int:gwtoolset-step-2-heading}}" והתאם את המיפוי לפי הצורך.
@@ -3285,6 +3287,23 @@ $1',
 	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
 	'gwtoolset-verify-php-version' => 'De uitbreiding $1 vereist PHP 5.3.3 of hoger.',
+);
+
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'gwtoolset' => 'GWToolset',
+	'gwtoolset-desc' => 'GWToolset, una aisina d’impòrt en massa per GLAMs',
+	'right-gwtoolset' => 'Utilizar GWToolset',
+	'action-gwtoolset' => 'utilizar gwtoolset',
+	'group-gwtoolset' => 'Utilizaires de GWToolset',
+	'group-gwtoolset-member' => '{{GENDER:$1|Utilizaire|Utilizaira}} de GWToolset',
+	'grouppage-gwtoolset' => '{{ns:project}}:Utilizaires de GWToolset',
+	'gwtoolset-batchjob-creation-failure' => 'Impossible de crear un tractament per lòt de tipe « $1 ».',
+	'gwtoolset-could-not-close-xml' => 'Impossible de tampar lo lector XML.',
+	'gwtoolset-could-not-open-xml' => 'Impossible de legir lo fichièr XML.',
+	'gwtoolset-fsfile-empty' => 'Lo fichièr èra void e es estat suprimit.',
 );
 
 /** Polish (polski)
