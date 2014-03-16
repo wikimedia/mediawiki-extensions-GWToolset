@@ -275,10 +275,10 @@ These are set lower than the wiki\'s <code>$wgMaxUploadSize</code>, which is set
 	'gwtoolset-required-group' => 'You are not a member of the $1 group.',
 	'gwtoolset-verify-api-enabled' => 'The $1 extension requires that the wiki API is enabled.
 
-Please make sure <code>$wgEnableAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
+Please make sure that <code>$wgEnableAPI</code> is set to <code>true</code>.',
 	'gwtoolset-verify-api-writeable' => 'The $1 extension requires that the wiki API can perform write actions for authorized users.
 
-Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
+Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>.',
 	'gwtoolset-verify-curl' => 'The $1 extension requires that PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] be installed.',
 	'gwtoolset-verify-finfo' => 'The $1 extension requires that the PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] extension be installed.',
 	'gwtoolset-verify-php-version' => 'The $1 extension requires PHP >= 5.3.3.',
