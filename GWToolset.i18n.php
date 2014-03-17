@@ -700,6 +700,16 @@ $messages['as'] = array(
 	'gwtoolset-results' => 'ফলাফল',
 );
 
+/** Tibetan (བོད་ཡིག)
+ * @author Phurbutsering
+ */
+$messages['bo'] = array(
+	'gwtoolset-verify-api-enabled' => 'ཝེ་ཁེ་ API དེ་མཐུན་རྐྱེན་སྦྱོར་བར་ $1 རྒྱ་སྐྱེད་འདུས་ཚིག་དགོས།
+ངེས་གཏན་གྱི་ <code>$wgEnableWriteAPI</code> དེ་<code>true</code>ལ་བཟོ་རོགས།',
+	'gwtoolset-verify-api-writeable' => 'ཝེ་ཁེ་ API ཡིས་བཀའ་ཁྲོལ་ཡོད་པའི་སྤྱོད་མིར་བྱ་ལས་སྤེལ་བར་ངེས་པར་དུ་དགོས་པའི་ $1 རྒྱ་སྐྱེད་ཚིག།
+ངེས་གཏན་གྱི་ <code>$wgEnableWriteAPI</code> དེ་<code>true</code>ལ་བཟོ་རོགས།',
+);
+
 /** Breton (brezhoneg)
  * @author Fohanno
  * @author Y-M D
@@ -1185,10 +1195,10 @@ Diese sind niedriger gesetzt als <code>$wgMaxUploadSize</code> des Wikis, was au
 	'gwtoolset-required-group' => 'Du bist kein Mitglied der Gruppe „$1“.',
 	'gwtoolset-verify-api-enabled' => 'Die Erweiterung „$1“ erfordert, dass die Wiki-API aktiviert ist.
 
-Bitte stelle sicher, dass <code>$wgEnableAPI</code> in der Datei „<code>DefaultSettings.php</code>“ auf <code>true</code> festgelegt ist  oder mit <code>true</code> in der Datei „<code>LocalSettings.php</code>“ überschrieben wurde.',
+Bitte stelle sicher, dass <code>$wgEnableAPI</code> auf <code>true</code> festgelegt ist.',
 	'gwtoolset-verify-api-writeable' => 'Die Erweiterung „$1“ erfordert, dass die Wiki-API Schreibaktionen für berechtigte Benutzer durchführen kann.
 
-Bitte stelle sicher, dass <code>$wgEnableWriteAPI</code> in der Datei „<code>DefaultSettings.php</code>“ auf <code>true</code> festgelegt ist oder in der Datei „<code>LocalSettings.php</code>“ mit <code>true</code> überschrieben wurde.',
+Bitte stelle sicher, dass <code>$wgEnableWriteAPI</code> auf <code>true</code> festgelegt ist.',
 	'gwtoolset-verify-curl' => 'Die Erweiterung „$1“ erfordert, dass die PHP-[http://www.php.net/manual/de/curl.setup.php cURL-Funktionen] installiert sind.',
 	'gwtoolset-verify-finfo' => 'Die Erweiterung „$1“ erfordert, dass die PHP-[http://www.php.net/manual/de/fileinfo.setup.php finfo]-Erweiterung installiert ist.',
 	'gwtoolset-verify-php-version' => 'Die Erweiterung „$1“ benötigt PHP >= 5.3.3.',
@@ -1469,9 +1479,9 @@ $2',
 	'gwtoolset-user-blocked' => 'حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.',
 	'gwtoolset-required-group' => 'شما عضو گروه $1 نیستید.',
 	'gwtoolset-verify-api-enabled' => 'گسترهٔ $1 نیازمند این است که ای‌پی‌آی ویکی فعال شود.
-لطفاً مطمئن شوید که <code>true</code> در پوشهٔ‌ <code>DefaultSettings.php</code>،به <code>$wgEnableAPI</code> تنظیم شده است یا به <code>true</code> در پوشهٔ <code>LocalSettings.php</code> نادیده گرفته‌ شده‌است.',
+لطفاً مطمئن شوید که <code>$wgEnableAPI</code> به <code>true</code> تنظیم شده‌است.',
 	'gwtoolset-verify-api-writeable' => 'گسترهٔ $1 نیازمند این است که ای‌پی‌آی ویکی می تواند عملیات نوشتن را برای مجاز کردن کاربران انجام دهد.
-لطفاً مطمئن شوید که <code>$wgEnableWriteAPI</code> به <code>true</code> در پوشهٔ <code>DefaultSettings.php</code> تنظیم شده‌است یا به <code>true</code> در پوشهٔ <code>LocalSettings.php</code> نادیده گرفته شده‌است.',
+لطفاً مطمئن شوید که <code>$wgEnableWriteAPI</code> به <code>true</code> تنظیم شده‌است.',
 	'gwtoolset-verify-curl' => 'گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/curl.setup.php cURL functions] است.',
 	'gwtoolset-verify-finfo' => 'گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/fileinfo.setup.php finfo] است.',
 	'gwtoolset-verify-php-version' => 'گسترهٔ $1 نیازمند پی‌اچ‌پی >= ۵.۳.۳ است.',
@@ -1651,6 +1661,7 @@ Kokeile käyttää toista metatietokenttää otsikkona ja otsikon tunnisteena, t
  * @author Crochet.david
  * @author Gomoko
  * @author Jean-Frédéric
+ * @author Maxim21
  * @author Moyg
  * @author Nobody
  * @author VIGNERON
@@ -1869,10 +1880,10 @@ Ils sont positionnés inférieurs au paramètre <code>$wgMaxUploadSize</code> du
 	'gwtoolset-required-group' => 'Vous n’êtes pas membre du groupe utilisateur « $1 ».',
 	'gwtoolset-verify-api-enabled' => 'L’extension $1 nécessite que l’API du wiki soit activée.
 
-Assurez-vous que <code>$wgEnableAPI</code> est positionné à <code>true</code> dans le fichier <code>DefaultSettings.php</code> ou est surchargé à <code>true</code> dans le fichier <code>LocalSettings.php</code>.',
-	'gwtoolset-verify-api-writeable' => "L'extension \$1 nécessite que l'API wiki ait accès aux droits d'écriture pour les utilisateurs autorisés.
+Assurez-vous que <code>$wgEnableAPI</code> est positionné à <code>true</code>.',
+	'gwtoolset-verify-api-writeable' => "L'extension \$1 nécessite que l'API wiki ait les droits d'écriture pour les utilisateurs autorisés.
 
-Vérifiez que le paramètre <code>\$wgEnableWriteAPI</code> soit défini à <code>true</code> dans le fichier <code>DefaultSettings.php</code> et dans le fichier <code>LocalSettings.php</code>.",
+Vérifiez que le paramètre <code>\$wgEnableWriteAPI</code> est défini à <code>true</code>.",
 	'gwtoolset-verify-curl' => "L'extension $1 requiert l'installation des [http://www.php.net/manual/fr/curl.setup.php fonctions PHP cURL].",
 	'gwtoolset-verify-finfo' => "L'extension $1 requiert l'installation de l'extension PHP [http://www.php.net/manual/fr/fileinfo.setup.php Finfo]",
 	'gwtoolset-verify-php-version' => 'L’extension $1 nécessite PHP >= 5.3.3.',
@@ -2076,7 +2087,9 @@ $2',
 	'gwtoolset-step-2-instructions-heading' => 'מיפוי שדות המטא־נתונים',
 	'gwtoolset-step-2-instructions-1' => 'להלן הוא/הם:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'רשימת השדות במדיה־ויקי $1.',
+	'gwtoolset-step-2-instructions-1-li-2' => 'שדות בתפריט שמייצגים מטא־נתונים בקובץ המטא־נתונים.',
 	'gwtoolset-step-2-instructions-1-li-3' => 'רשומה לדוגמה מתוך קובץ המטא־נתונים.',
+	'gwtoolset-step-2-instructions-2' => 'בצעד הזה יש למפות שדות מטא־נתונים לשדות תבנית מדיה־ויקי.',
 	'gwtoolset-step-2-instructions-2-li-1' => 'נא לבחור תחת העמודה "{{int:gwtoolset-maps-to}}" שדה מטא־נתונים שמתאים לתבנית מדיה־ויקי בעמודה "{{int:gwtoolset-template-field}}".',
 	'gwtoolset-step-2-instructions-2-li-2' => 'אין צורך לספר התאמה לכל שדה של תבנית מדיה־ויקי.',
 	'gwtoolset-reupload-media' => 'העלאה מחדש של מדיה מ־URL',
@@ -2085,6 +2098,8 @@ $2',
 	'gwtoolset-specific-tooltip' => 'באמצעות השדות הבאים אפשר להחיל משפט (לא חובה) ושדה מטא־נתונים בתור עיול בקטגוריה עבור כל פריט שמועלה. למשל, אם קובץ המטא־נתונים מכיל פריט עבור האמן של כל תקליט, אפשר להוסיף את זה בתור קטגוריה לכל תקליט שישתנה לערך הפרטני לכל תקליט. אפשר גם להוסיף משפט כגון "<em>{{int:gwtoolset-painted-by}}</em>" ואז את שדה האמן, וזה ייתן "<em>{{int:gwtoolset-painted-by}} <שם האמון></em>" בתור קטגוריה לכל תקליט.',
 	'gwtoolset-template-field' => 'שדה תבנית',
 	'gwtoolset-step-3-instructions-heading' => 'צעד 3: תצוגה מקדימה של אצווה',
+	'gwtoolset-step-3-instructions-1' => 'להלן התוצאות של העלאת {{PLURAL:$1|הרשומה הראשונה|$1 הרשומות הראשונות}} מתוך קובץ המטא־נתונים שבחרת {{PLURAL:$1|ומיפויה|ומיפוין}} לתבנית מדיה־ויקי שבחרת ב"{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-3-instructions-2' => 'נא לסקור את הדפים האלה. אם התוצאה מתאימה לציפיות שלך ויש עוד רשומות שממתינות להעלאה, אפשר להמשיך את העלאת האצווה באמצעות לחיצה על כפתור "{{int:gwtoolset-process-batch}}" להלן.',
 	'gwtoolset-step-3-instructions-3' => 'אם אינך שבע רצון מהתוצאות, חזור ל"{{int:gwtoolset-step-2-heading}}" והתאם את המיפוי לפי הצורך.
 
 אם עליך לבצע שינויים בקובץ מטה-נתונים עצמו, כנס לקובץ ובצע את השינויים, לאחר מכן העלה אותו מחדש על-ידי תחילת התהליך מחדש מ"{{int:gwtoolset-step-1-heading}}".',
@@ -2093,6 +2108,7 @@ $2',
 יש לנסות שדה אחר מהמטא־נתונים עבור כותרת ומזהה־כותרת, או אם אפשר, לשנות את המטא־נתונים היכן שצריך. ר' [https://commons.wikimedia.org/wiki/Commons:File_naming מדריך למתן שמות לקבצים] לקבלת מידע נוסף.
 
 <strong>כותרת בלתי־תקינה:</strong> $1.",
+	'gwtoolset-batchjob-metadata-created' => 'משימת אצווה של מטא־נתונים נוצרה. קובץ המטא־נתונים שלך ינותח בקרוב וכל פריט יועלה לוויקי בתהליך רקע. אפשר לצפות בדף "$1" כדי לראות אם הם כבר הועלו.',
 	'gwtoolset-batchjob-metadata-creation-failure' => 'לא היה ניתן ליצור משימת אצווה לקובץ המטא־נתונים.',
 	'gwtoolset-create-mediafile' => '$1: יצירת קובץ מדיה עבור $2.',
 	'gwtoolset-create-prefix' => 'ארגז כלי גלאם־ויקי',
@@ -2112,10 +2128,16 @@ $2',
 	'gwtoolset-required-group' => 'חשבונך אינו חלק מהקבוצה $1.',
 	'gwtoolset-verify-api-enabled' => 'הרחבת $1 מצריכה שה־API של הוויקי יופעל.
 
-אנא וודאו שהגדרת <code>$wgEnableAPI</code> מוגדרת כ־<code>true</code> בקובץ <code>DefaultSettings.php</code> או שהיא נדרסה לערך <code>true</code> בקובץ <code>LocalSettings.php</code>.',
+נא לוודא ש־<code dir="ltr">$wgEnableAPI</code> מוגדר ל־<code>true</code>.',
+	'gwtoolset-verify-api-writeable' => 'ההרחבה $1 דורשת שה־API של הוויקי יוכל לבצע פעולות של משתמשים מורשים.
+
+נא לוודא ש־<code dir="ltr">$wgEnableWriteAPI</code> מוגדר ל־<code>true</code>.',
 	'gwtoolset-verify-curl' => 'ההרחבה $1 דורשת ש[http://www.php.net/manual/en/curl.setup.php פונקציות cURL] של PHP יהיו מותקנות.',
 	'gwtoolset-verify-finfo' => 'ההרחבה $1 דורשת שההרחבה [http://www.php.net/manual/en/fileinfo.setup.php finfo] ל PHP תהיה מותקנת.',
 	'gwtoolset-verify-php-version' => 'ההרחבה $1 דורשת PHP בגרסה 5.3.3 לפחות.',
+	'gwtoolset-verify-uploads-enabled' => 'ההרחבה $1 דורשת שהעלאת קבצים תהיה מופעלת.
+
+נא לוודא כי <code dir="ltr">$wgEnableUploads</code> מוגדר ל־<code>true</code>.',
 	'gwtoolset-verify-xmlreader' => 'הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן',
 	'gwtoolset-wiki-checks-not-passed' => 'בדיקות הוויקי נכשלו',
 );
@@ -2401,10 +2423,10 @@ $2',
 	'gwtoolset-required-group' => 'あなたはグループ $1 に属していません。',
 	'gwtoolset-verify-api-enabled' => '$1 拡張機能を使用するには、ウィキの API を有効にする必要があります。
 
-<code>$wgEnableAPI</code> の値が、<code>DefaultSettings.php</code> で <code>true</code> に設定されていること、またはその値が <code>LocalSettings.php</code> で <code>true</code> に変更されていることを確認してください。',
+<code>$wgEnableAPI</code> の値が <code>true</code> に設定されていることを確認してください。',
 	'gwtoolset-verify-api-writeable' => '$1 拡張機能を使用するには、権限がある利用者がウィキの API で書き込み操作を実行できるようにする必要があります。
 
-<code>$wgEnableWriteAPI</code> の値が、<code>DefaultSettings.php</code> で <code>true</code> に設定されていること、またはその値が <code>LocalSettings.php</code> で <code>true</code> に変更されていることを確認してください。',
+<code>$wgEnableWriteAPI</code> の値が <code>true</code> に設定されていることを確認してください。',
 	'gwtoolset-verify-curl' => '$1 拡張機能を使用するには、PHP の [http://www.php.net/manual/en/curl.setup.php cURL 関数]をインストールする必要があります。',
 	'gwtoolset-verify-finfo' => '$1 拡張機能を使用するには、PHP の [http://www.php.net/manual/ja/fileinfo.setup.php finfo] 拡張モジュールをインストールする必要があります。',
 	'gwtoolset-verify-php-version' => '$1 拡張機能を使用するには、PHP 5.3.3 以降が必要です。',
@@ -2726,6 +2748,18 @@ $messages['lb'] = array(
 	'gwtoolset-verify-php-version' => "D'Erweiderung $1 brauch PHP >= 5.3.3.",
 );
 
+/** Latvian (latviešu)
+ * @author Srolanh
+ */
+$messages['lv'] = array(
+	'gwtoolset-verify-api-enabled' => 'Paplašinājumam $1 vajādzīgs iespējots API.
+
+Lūdzu, pārliecinieties, ka  <code>$wgEnableAPI</code> ir iestatīts uz <code>true</code>.',
+	'gwtoolset-verify-api-writeable' => 'Paplašinājumam $1 vajadzīgs, lai API var veikt rakstīšanas darbības autorizētiem lietotājiem.
+
+Lūdzu, pārliecinieties, ka <code>$wgEnableWriteAPI</code> ir iestatīts uz <code>true</code>.',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
@@ -2943,10 +2977,10 @@ $2',
 	'gwtoolset-required-group' => 'Не членувате во групата „$1“.',
 	'gwtoolset-verify-api-enabled' => 'Додатокот „$1“ бара да е овозможен википрилогот (API).
 
-Проверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак е заменето со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
+Проверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code>.',
 	'gwtoolset-verify-api-writeable' => 'Додатокот „$1“ бара википрилогот да може да запишува за овластени корисници.
 
-Внимавајте <code>$wgEnableWriteAPI</code> да биде наместено на <code>true</code> во податотеката <code>DefaultSettings.php</code> или пак да е презапишано со <code>true</code> во податотеката <code>LocalSettings.php</code>.',
+Внимавајте <code>$wgEnableWriteAPI</code> да биде наместено на <code>true</code>.',
 	'gwtoolset-verify-curl' => 'Додатокот „$1“ бара да бидат воспоставени [http://www.php.net/manual/en/curl.setup.php функциите на cURL] во PHP.',
 	'gwtoolset-verify-finfo' => 'Додатокот „$1“ бара да е воспоставен додатокот „[http://www.php.net/manual/en/fileinfo.setup.php finfo]“ за PHP.',
 	'gwtoolset-verify-php-version' => 'Додатокот „$1“ бара PHP >= 5.3.3.',
@@ -3443,6 +3477,12 @@ $2',
 Try anither field fae the metadata fer title n title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer mair information.
 
 <strong>Onvalid title:</strong> $1.',
+	'gwtoolset-verify-api-enabled' => 'The $1 extension needs the wiki API tae be enabled.
+
+Please mak sair that <code>$wgEnableAPI</code> is set til <code>true</code>.',
+	'gwtoolset-verify-api-writeable' => 'The $1 extension needs the wiki API tae be able tae perform write actions fer permittit uisers.
+
+Please mak sair that <code>$wgEnableWriteAPI</code> is set til <code>true</code>.',
 );
 
 /** Swedish (svenska)
