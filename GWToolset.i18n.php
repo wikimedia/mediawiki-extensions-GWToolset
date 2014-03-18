@@ -3707,10 +3707,10 @@ Dessa har satts lägre än wikins <code>$wgMaxUploadSize</code>, vilken är satt
 	'gwtoolset-required-group' => 'Du är inte medlem av grupp $1.',
 	'gwtoolset-verify-api-enabled' => '$1-tillägget kräver att wikins API är aktiverat.
 
-Kontrollera att <code>$wgEnableAPI</code> är inställd på <code>true</code> i den <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
+Kontrollera att <code>$wgEnableAPI</code> är inställd på <code>true</code> i den <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.', # Fuzzy
 	'gwtoolset-verify-api-writeable' => '$1-tillägget kräver att wikins API kan utföra skriv-åtgärder för behöriga användare.
 
-Kontrollera att <code>$wgEnableWriteAPI</code> har satts till <code>true</code> i <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.',
+Kontrollera att <code>$wgEnableWriteAPI</code> har satts till <code>true</code> i <code>DefaultSettings.php</code>-filen eller åsidosätts till <code>true</code> i <code>LocalSettings.php</code>-filen.', # Fuzzy
 	'gwtoolset-verify-curl' => '$1-tillägget kräver att PHP [http://www.php.net/manual/en/curl.setup.php cURL-funktionerna] är installerade.',
 	'gwtoolset-verify-finfo' => '$1-tillägget kräver att tillägget PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] är installerat.',
 	'gwtoolset-verify-php-version' => '$1-tillägget kräver PHP >= 5.3.3.',
