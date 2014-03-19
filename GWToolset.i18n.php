@@ -1406,7 +1406,7 @@ $2',
 	'gwtoolset-step-1-heading' => 'مرحلهٔ ۱: تشخیص فراداده',
 	'gwtoolset-step-1-instructions-1' => 'روند انتقال فراداده شامل ۴ مرحله است:',
 	'gwtoolset-step-1-instructions-2' => 'در این مرحله، یک پوشهٔ فرادادهٔ جدید را به ویکی {{GENDER:$1|شما منتقل می‌کنید}}. ابزار برای خلاصهٔ زمینه‌های فرادادهٔ در دسترس در پوشهٔ فراداه کوشش خواهدکرد، که سپس شما برای یک الگوی مدیاویکی در "{{int:gwtoolset-step-2-heading}}" نقشه‌برداری خواهیدکرد.',
-	'gwtoolset-step-1-instructions-3' => 'اگر دامنهٔ پوشهٔ مدیا شما در زیر فهرست نشده‌‌است، لطفاً [$1 request] که دامنهٔ پوشهٔ مدیا فهرست سفید اضافه می‌شود. دامنهٔ فهرست سفید، فهرست دامنه‌های بررسی اشتراکات ویکی‌مدیا است علیه قبل از گرفتن پوشه‌های مدیا. اگر دامنهٔ پوشهٔ مدیا شما در آن فهرست نیست، اشتراکات ویکی‌مدیا، پوشه‌های مدیا از آن دامنه را دانلود نخواهد کرد. بهترین مثال، برای اٰرائهٔ در درخواست شما، یک لینک واقعی برای پوشهٔ مدیا است.',
+	'gwtoolset-step-1-instructions-3' => 'اگر دامنهٔ پوشهٔ مدیا شما در زیر فهرست نشده‌‌است، لطفاً [$1 request] که دامنهٔ پوشهٔ مدیا فهرست سفید اضافه می‌شود. دامنهٔ فهرست سفید، فهرست دامنه‌های بررسی اشتراکات ویکی‌مدیا است علیه قبل از گرفتن پوشه‌های مدیا. اگر دامنهٔ پوشهٔ مدیا شما در آن فهرست نیست، اشتراکات ویکی‌مدیا، پوشه‌های مدیا از آن دامنه را دانلود نخواهد کرد. بهترین مثال، برای اٰرائهٔ در درخواست شما، یک پیوند واقعی برای پوشهٔ مدیا است.',
 	'gwtoolset-step-1-instructions-3-heading' => 'حیطهٔ فهرست سفید',
 	'gwtoolset-step-1-instructions-li-1' => 'تشخیص فراداده',
 	'gwtoolset-step-1-instructions-li-2' => 'نقشهٔ فراداده',
@@ -1433,7 +1433,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>هیچ سوابقی برای پردازش نیست<strong>',
 	'gwtoolset-painted-by' => 'نقاشی شده توسط',
 	'gwtoolset-partner' => 'شریک',
-	'gwtoolset-partner-explanation' => 'الگوهای شریک درون زمینهٔ منبع الگوی مدیا‌ویکی هنگامی که ارائه شد،کشیده شد. شما می‌توانید فهرست الگوهای شریک فعلی را در دسته پیدا کنید: صفحهٔ الگوهای منبع؛ لینک زیر را مشاهده کنید. هنگامی که الگوی شزیک مورد‌نظر خود را برای استفاده از محل يوآر‌ال در این زمینه پیدا کرده‌اید. شما همچنین می‌توانید اگر لازم بود، الگوی شریک جدیدی را ایجاد کنید.',
+	'gwtoolset-partner-explanation' => 'الگوهای شریک درون زمینهٔ منبع الگوی مدیا‌ویکی هنگامی که ارائه شد،کشیده شد. شما می‌توانید فهرست الگوهای شریک فعلی را در دسته پیدا کنید: صفحهٔ الگوهای منبع؛ پیوند زیر را مشاهده کنید. هنگامی که الگوی شزیک مورد‌نظر خود را برای استفاده از محل يوآر‌ال در این زمینه پیدا کرده‌اید. شما همچنین می‌توانید اگر لازم بود، الگوی شریک جدیدی را ایجاد کنید.',
 	'gwtoolset-partner-template' => 'الگوی شریک:',
 	'gwtoolset-phrasing' => 'بیان‌کردن',
 	'gwtoolset-preview' => 'پیش‌نمایش گروه',
@@ -3218,6 +3218,7 @@ $messages['nap'] = array(
  * @author AvatarTeam
  * @author JurgenNL
  * @author Multichill
+ * @author Niknetniko
  * @author Siebrand
  * @author Sjoerddebruin
  * @author Southparkfan
@@ -3274,6 +3275,7 @@ $1',
 	'gwtoolset-improper-upload' => 'De bestandsupload is mislukt.',
 	'gwtoolset-mime-type-mismatch' => 'De bestandsextensie "$1" het MIME-type "$2" van het geüploade bestand komen niet overeen.',
 	'gwtoolset-missing-temp-folder' => 'Geen tijdelijke map beschikbaar.',
+	'gwtoolset-no-extension' => 'Het geüploade bestand bevat niet voldoende informatie om het te verwerken. Het heeft waarschijnlijk geen bestandsextensie.',
 	'gwtoolset-no-file' => 'Er is geen bestand ontvangen.',
 	'gwtoolset-no-form-field' => 'Het verwachte formulierveld "$1" bestaat niet.',
 	'gwtoolset-partial-upload' => 'Het bestand is slechts gedeeltelijk geüpload.',
