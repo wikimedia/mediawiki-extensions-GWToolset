@@ -163,17 +163,20 @@ class UploadHandler {
 	}
 
 	/**
-	 * creates wiki text category entries.
-	 * these categories represent specific categories for this
-	 * specific media file rather than global categories
-	 * that are applied to all of the media files being uploaded.
+	 * creates wikitext category entries.
+	 *
+	 * these categories represent specific categories for a single media file
+	 * rather than global categories that are applied to all media files being
+	 * uploaded.
+	 *
+	 * no category is added to the $result if only a category-phrase is given.
+	 * either a category-phrase and a category-metadata value must be provided
+	 * or only a category-metadata value.
 	 *
 	 * @return {null|string}
-	 * the resulting wiki text is filtered
+	 * the resulting wiki text is sanitized
 	 */
 	protected function addItemSpecificCategories() {
-		$phrase = null;
-		$metadata = null;
 		$result = null;
 
 		if ( !empty( $this->user_options['gwtoolset-category-metadata'] ) ) {
@@ -181,26 +184,30 @@ class UploadHandler {
 
 			for ( $i = 0; $i < $category_count; $i += 1 ) {
 				$phrase = null;
-				$metadata = null;
+				$metadata_values = array();
 
 				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
-					$phrase = Utils::sanitizeString( $this->user_options['gwtoolset-category-phrase'][$i] ) . ' ';
+					$phrase =
+						Utils::sanitizeString(
+							$this->user_options['gwtoolset-category-phrase'][$i]
+						) .
+						' ';
 				}
 
 				if ( !empty( $this->user_options['gwtoolset-category-metadata'][$i] ) ) {
-					$metadata =
-						$this->_Metadata->getConcatenatedField(
+					$metadata_values =
+						$this->_Metadata->getFieldValuesAsArray(
 							$this->user_options['gwtoolset-category-metadata'][$i]
 						);
 				}
 
-				if ( !empty( $metadata ) ) {
+				foreach( $metadata_values as $metadata_value ) {
 					$result .=
 						'[[' .
 							Utils::getNamespaceName( NS_CATEGORY ) .
 							Utils::stripIllegalCategoryChars( $phrase ) .
-							Utils::stripIllegalCategoryChars( $metadata ) .
-						']]';
+							Utils::stripIllegalCategoryChars( $metadata_value ) .
+						']]' . PHP_EOL;
 				}
 			}
 		}

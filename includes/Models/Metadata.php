@@ -50,18 +50,16 @@ class Metadata implements ModelInterface {
 	}
 
 	/**
-	 * locates an element within the metadata and concatenates its values when there is more than
-	 * one of the same element within the metadata
+	 * locates an element within the metadata, which can sometimes be repeated
+	 * in a single metadata record, and creates an array of the values it finds
 	 *
-	 * @todo should we cache the concatenated fields or pre-populate all of them?
+	 * @param {string} $field
 	 *
-	 * @param {string}
-	 *
-	 * @return {null|string}
-	 * the string is filtered
+	 * @return {array}
+	 * the elements within the array are sanitized
 	 */
-	public function getConcatenatedField( $field = null ) {
-		$result = null;
+	public function getFieldValuesAsArray( $field = null ) {
+		$result = array();
 
 		if ( empty( $field ) || !is_string( $field ) ) {
 			return $result;
@@ -74,15 +72,38 @@ class Metadata implements ModelInterface {
 				}
 
 				if ( strpos( $value, '://' ) !== false ) {
-					$result .=
-						Utils::sanitizeUrl( $value ) .
-						Config::$metadata_separator .
-						' ';
+					$result[] = Utils::sanitizeUrl( $value );
 				} else {
-					$result .= Utils::sanitizeString( $value ) . Config::$metadata_separator . ' ';
+					$result[] = Utils::sanitizeString( $value );
 				}
 			}
 		}
+
+		return $result;
+	}
+
+	/**
+	 * locates an element within the metadata and concatenates its values when
+	 * there is more than one of the same element within the metadata
+	 *
+	 * @todo should we cache the concatenated fields or pre-populate all of them?
+	 *
+	 * @param {string} $field
+	 *
+	 * @return {null|string}
+	 * the string is sanitized
+	 */
+	public function getFieldValuesConcatenated( $field = null ) {
+		$result = null;
+
+		if ( empty( $field ) || !is_string( $field ) ) {
+			return $result;
+		}
+
+		$result = implode(
+			Config::$metadata_separator . ' ',
+			$this->getFieldValuesAsArray( $field )
+		);
 
 		$result = rtrim( $result, Config::$metadata_separator );
 
