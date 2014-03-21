@@ -47,7 +47,7 @@ See the [php.net/manual/en/datetime.formats.relative.php PHP manual] for how to 
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> not set.',
 	'gwtoolset-incorrect-form-handler' => 'The module "$1" has not registered a form handler extending GWToolset\Handlers\Forms\FormHandler.',
 	'gwtoolset-job-throttle-exceeded' => 'The batch job throttle was exceeded.',
-	'gwtoolset-no-accepted-types' => 'No accepted types provided',
+	'gwtoolset-no-accepted-types' => 'No accepted types provided.',
 	'gwtoolset-no-callback' => 'No callback passed to this method.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> not set.",
 	'gwtoolset-no-default' => 'No default value provided.',
@@ -109,7 +109,7 @@ See the [php.net/manual/en/datetime.formats.relative.php PHP manual] for how to 
 	 */
 	'gwtoolset-back-text-link' => '← go back to the form',
 	'gwtoolset-back-text' => 'Press the browser back button to go back to the form.',
-	'gwtoolset-file-interpretation-error' => 'There was a problem processing the metadata file',
+	'gwtoolset-file-interpretation-error' => 'There was a problem processing the metadata file.',
 	'gwtoolset-mediawiki-template' => 'Template $1',
 	'gwtoolset-metadata-user-options-error' => 'The following form {{PLURAL:$2|field|fields}} must be filled in:
 $1',
@@ -128,7 +128,7 @@ $1',
 	'gwtoolset-loading' => 'Please be patient. This may take a while.',
 	'gwtoolset-save' => 'Save',
 	'gwtoolset-save-mapping' => 'Save mapping',
-	'gwtoolset-save-mapping-failed' => 'Sorry. There was a problem processing your request. Please try again later. (Error message: $1)',
+	'gwtoolset-save-mapping-failed' => 'Sorry. There was a problem processing your request. Please try again later. Error message: $1.',
 	'gwtoolset-save-mapping-succeeded' => 'Your mapping has been saved.',
 	'gwtoolset-save-mapping-name' => 'How would you like to name this mapping?',
 
@@ -148,9 +148,9 @@ $1',
 	 */
 	'gwtoolset-accepted-file-types' => 'Accepted file {{PLURAL:$1|type|types}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Make sure the XML file is well-formed with this $1.',
-	'gwtoolset-file-url-invalid' => 'The file URL was invalid; The file does not yet exist in the wiki. You need to first upload the file from your computer if you want to use the file URL reference in the form.',
+	'gwtoolset-file-url-invalid' => 'The file does not yet exist in the wiki. You need to first upload the file from your computer if you want to use the file URL reference in the form.',
 	'gwtoolset-mediafile-throttle' => 'Mediafile throttle:',
-	'gwtoolset-mediafile-throttle-description' => 'After the batch preview, in step 3, GWToolset uploads the remaining records in your batch upload via background jobs. The mediafile throttle controls the number of mediafile requests Wikimedia Commons will make against your mediafile server each time a background job is run. You can set the mediafile throttle between 1-20. For example, if the total number of records in your batch upload is 100 and you set the throttle to 20, Wikimedia Commons will run 5 background jobs in order to process your entire batch upload. The time between each background upload job varies depending on server load and configuration; we anticipate that on Wikimedia Commons a GWToolset background job will run at least every 5 minutes.',
+	'gwtoolset-mediafile-throttle-description' => 'After the batch preview, in step 3, GWToolset uploads the remaining records in your batch upload via background jobs. The mediafile throttle controls the number of mediafile requests Wikimedia Commons will make against your mediafile server each time a background job is run. You can set the mediafile throttle between 1-20. For example, if the total number of records in your batch upload is 100 and you set the throttle to 20, Wikimedia Commons will run 5 background jobs in order to process your entire batch upload. The time between each background upload job varies depending on server load and configuration. We anticipate that on Wikimedia Commons a GWToolset background job will run at least every 5 minutes.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki template "<strong>$1</strong>" does not exist in the wiki.
 
 Either import the template or select another MediaWiki template to use for mapping.',
@@ -176,7 +176,7 @@ It should be in the namespace "<strong>$3<strong>".',
 * Did you enter a value in the form for "{{int:gwtoolset-record-element-name}}"?
 * Is the XML file well-formed? Try this [$1 XML validator].
 $2',
-	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Make sure you only enter the page title, e.g. the part of the URL after /wiki/',
+	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Make sure you only enter the page title, e.g. the part of the URL after <code>/wiki/</code>.',
 	'gwtoolset-record-element-name' => 'What is the XML element that contains each metadata record:',
 	'gwtoolset-step-1-heading' => 'Step 1: Metadata detection',
 	'gwtoolset-step-1-instructions-1' => 'The metadata upload process consists of 4 steps:',
@@ -195,7 +195,7 @@ $2',
 	/**
 	 * step 2 - metadata mapping
 	 */
-	'gwtoolset-categories' => 'Enter categories separated by a pipe character ("|")',
+	'gwtoolset-categories' => 'Enter categories separated by a pipe character ("|").',
 	'gwtoolset-category' => 'Category',
 	'gwtoolset-create-mapping' => '$1: Creating metadata mapping for $2.',
 	'gwtoolset-example-record' => 'Metadata\'s example record\'s contents.',
@@ -203,7 +203,7 @@ $2',
 	'gwtoolset-global-tooltip' => 'These category entries will be applied globally to all uploaded items.',
 	'gwtoolset-maps-to' => 'Maps to',
 	'gwtoolset-mapping-media-file-url-extension-bad' => 'The file extension could not be determined from the file URL: $1.',
-	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension or there was an HTTP Request issue. URL given was "$1". HTTP Request error "$2"',
+	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension or there was an HTTP request issue. URL given was "$1". HTTP request error "$2".',
 	'gwtoolset-mapping-no-title' => 'The metadata mapping contains no title, which is needed in order to create the page.',
 	'gwtoolset-mapping-no-title-identifier' => 'The metadata mapping contains no title identifier, which is used to create a unique page title. Make sure you map a metadata field to the MediaWiki template parameter title identifier.',
 	'gwtoolset-metadata-field' => 'Metadata field',
@@ -212,7 +212,7 @@ $2',
 	'gwtoolset-no-more-records' => "<strong>No more records to process</strong>",
 	'gwtoolset-painted-by' => 'Painted by',
 	'gwtoolset-partner' => 'Partner',
-	'gwtoolset-partner-explanation' => 'Partner templates are pulled into the source field of the MediaWiki template when provided. You can find a list of current partner templates on the Category:Source templates page; see link below. Once you have found the partner template you wish to use place the URL to it in this field. You can also create a new partner template if necessary.',
+	'gwtoolset-partner-explanation' => 'Partner templates are pulled into the source field of the MediaWiki template when provided. You can find a list of current partner templates in the category [[:Category:Source templates|source templates]]. Once you have found the partner template you wish to use place the URL to it in this field. You can also create a new partner template if necessary.',
 	'gwtoolset-partner-template' => 'Partner template:',
 	'gwtoolset-phrasing' => 'Phrasing',
 	'gwtoolset-preview' => 'Preview batch',
@@ -1398,7 +1398,7 @@ $1',
 	'gwtoolset-namespace-mismatch' => 'صفحهٔ "<strong>$1<strong>" در فضای نام اشتباه "<strong>$2<strong>" است.
 باید در فضای نام  "<strong>$3<strong>" باشد.',
 	'gwtoolset-no-xml-element-found' => 'هیچ عنصر ایکس‌ام‌ال برای نقشه‌برداری پیدا نشد.
-* آیا مقداری در فرم برای "{{int:gwtoolset-record-element-name}}" وارد کردید؟ 
+* آیا مقداری در فرم برای "{{int:gwtoolset-record-element-name}}" وارد کردید؟
 * آیا پوشهٔ ایکس‌ام‌ال به خوبی شکل گرفته‌است؟ [$1 ایکس‌ام‌ال سنج] را امتحان کنید.
 $2',
 	'gwtoolset-page-title-contains-url' => 'صفحهٔ "$1" شامل یوآر‌ال ویکی کامل است. مطمئن شوید شما فقط عنوان صفحه را وارد کردید، برای مثال قسمت یوآر‌ال پس از /wiki/',
@@ -1470,7 +1470,7 @@ $2',
 	'gwtoolset-mediafile-jobs-created' => 'ایجاد گروه پوشهٔ مدیا $1 {{PLURAL:$1|job|jobs}}.',
 	'gwtoolset-step-4-heading' => 'مرحلهٔ ۴: انتقال گروه',
 	'gwtoolset-invalid-token' => 'نماد ویرایش ارائه شده با فرم نامعتبر است.',
-	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'تنظیمات فعلی <code>php.ini</code>: 
+	'gwtoolset-maxuploadsize-exceeds-ini-settings' => 'تنظیمات فعلی <code>php.ini</code>:
 * <code>upload_max_filesize</code>: $1
 * <code>post_max_size</code>: $2
 این‌ها کمتر از <code>$wgMaxUploadSize</code> ویکی تنظیم شده‌اند، که در "$3" تنظیم شده‌است. لطفاً برای صحت تنظیمات <code>php.ini</code> را تنظیم کنید.',
@@ -1601,7 +1601,7 @@ Tuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.',
 $1',
 	'gwtoolset-metadata-mapping-invalid-url' => 'Ehdotettu metatietojen määrityksen URL-osoite ei vastaa odotettua määrityksen URL-polkua.
 
-* Ehdotettu URL: $1 
+* Ehdotettu URL: $1
 * Odotetu URL: $2',
 	'gwtoolset-metadata-mapping-not-found' => 'Metatietomääritystä ei löytynyt.
 
@@ -2507,7 +2507,7 @@ $1',
 	'gwtoolset-no-extension' => '올려진 파일에 충분한 파일 정보가 없어 처리하지 못했습니다. 파일 확장자가 없을 수 있습니다.',
 	'gwtoolset-no-file' => '파일이 없습니다.',
 	'gwtoolset-no-form-field' => '예상되는 형식 필드 "$1"이 존재하지 않습니다.',
-	'gwtoolset-over-max-ini' => '업로드된 파일이 
+	'gwtoolset-over-max-ini' => '업로드된 파일이
 <code>php.ini</code> 내의 <code>upload_max_filesize</code> 디렉티브 또는/그리고 <code>post_max_size</code>을 초과했습니다.',
 	'gwtoolset-partial-upload' => '파일의 일부만 올렸습니다.',
 	'gwtoolset-php-extension-error' => 'PHP 확장기능이 파일 올리기를 중지시켰습니다. PHP는 어느 확장 기능이 파일 올리기를 멈추었는지 확정할 방법을 제공하지 않습니다. <code>phpinfo()</code>로 로드된 확장기능의 목록을 검사하는 것이 도움이 될 수 있습니다.',
@@ -3630,7 +3630,7 @@ $2',
 	'gwtoolset-step-1-heading' => 'Steg 1: Känna igen metadata',
 	'gwtoolset-step-1-instructions-1' => 'Uppladdningsprocessen för metadata består av 4 steg:',
 	'gwtoolset-step-1-instructions-2' => 'I detta steg, {{GENDER:$1|laddar du upp}} en ny metadatafil till wikin. Verktyget kommer att försöka extrahera metadatafält som finns i metadatafilen som du sedan kommer att matcha mot en MediaWikimall i "{{int:gwtoolset-step-2-heading}}".',
-	'gwtoolset-step-1-instructions-3' => 'Om domänen för dina mediefiler inte finns listad nedan, [$1 begär] 
+	'gwtoolset-step-1-instructions-3' => 'Om domänen för dina mediefiler inte finns listad nedan, [$1 begär]
 att din mediefil-domän vitlistas på Wikimedia Commons. Vitlistan är en lista över domäner vilken Wikimedia Commons jämför emot innan mediefilerna hämtas. Om domänen för dina mediefiler inte finns på den listan kommer Wikimedia Commons inte att ladda ner filer från den domänen. Det bästa exemplet, när du skickar in din begäran, är en faktisk länk till en mediefil.',
 	'gwtoolset-step-1-instructions-3-heading' => 'Vitlista för domäner',
 	'gwtoolset-step-1-instructions-li-1' => 'Känna igen metadata',
