@@ -291,6 +291,7 @@ Please make sure that <code>$wgEnableUploads</code> is set to <code>true</code> 
 
 /** Message documentation (Message documentation)
  * @author Shirayuki
+ * @author Siebrand
  * @author dan-nl
  */
 $messages['qqq'] = array(
@@ -443,7 +444,9 @@ Preceded by a red "<span style="color:red">*</span>" (and a whitespace)',
 	'gwtoolset-json-error' => 'Appears when there is a problem with a JSON value. Parameters:
 * $1 is one of the gwtoolset-json-error- error messages, which already contain a full stop.',
 	'gwtoolset-json-error-depth' => 'User error message when the maximum stack depth is exceeded.',
-	'gwtoolset-json-error-state-mismatch' => 'User error message when underflow or the modes mismatch.',
+	'gwtoolset-json-error-state-mismatch' => "User error message when underflow or the modes mismatch.
+
+'''Underflow''': A data-processing error arising when the absolute value of a computed quantity is smaller than the limits of precision of the computing device, retaining at least one significant digit.",
 	'gwtoolset-json-error-ctrl-char' => 'User error message when an unexpected control character has been found.',
 	'gwtoolset-json-error-syntax' => 'User error message when there is a syntax error; a malformed JSON.',
 	'gwtoolset-json-error-utf8' => 'User error message when there are malformed UTF-8 characters, possibly incorrectly encoded.',
@@ -846,7 +849,7 @@ $1",
 	'gwtoolset-json-error-unknown' => "S'ha produït un error desconegut.",
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|type|types}}: de fitxer acceptat(s).',
 	'gwtoolset-ensure-well-formed-xml' => 'Assegureu-vos que el fitxer XML té el format adient amb aquest $1.',
-	'gwtoolset-file-url-invalid' => 'La URL del fitxer no és correcta. El fitxer encara no existeix al wiki. Heu de pujar abans el fitxer si voleu emprar la referència de la URL del fitxer al formulari.',
+	'gwtoolset-file-url-invalid' => 'La URL del fitxer no és correcta. El fitxer encara no existeix al wiki. Heu de pujar abans el fitxer si voleu emprar la referència de la URL del fitxer al formulari.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Límit de fitxers multimèdia:',
 	'gwtoolset-mediafile-throttle-description' => 'El límit controla la càrrega que tindrà el vostre servidor de fitxers multimèdia en pujar-los per lots al Wikimedia Commons. Podeu definir el límit entre 1 i 20, on el nombre indica el nombre de peticions per minut.', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'La plantilla "<strong>$1</strong>" no existeix al wiki.
@@ -873,7 +876,7 @@ Hauria de ser al namespace "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'No s\'ha trobat cap element XML coincident.
 * Heu posat un valor al formulari per a "{{int:gwtoolset-record-element-name}}"?
 * Té el format correcte el fitxer XML? Proveu això $1.', # Fuzzy
-	'gwtoolset-page-title-contains-url' => 'La pàgina "$1" conté la URL de la pàgina wiki. Assegureu-vos d\'entrar només el títol de la pàgina, per exemple la part de l\'URL després de  /wiki/',
+	'gwtoolset-page-title-contains-url' => 'La pàgina "$1" conté la URL de la pàgina wiki. Assegureu-vos d\'entrar només el títol de la pàgina, per exemple la part de l\'URL després de  <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => "Quin és l'element XML que conté cada registre de metadades:",
 	'gwtoolset-step-1-heading' => 'Pas 1: Detecció de metadades',
 	'gwtoolset-step-1-instructions-1' => 'El procés de càrrega de metadades es divideix en 4 passos:',
@@ -905,7 +908,7 @@ Hauria de ser al namespace "<strong>$3<strong>".',
 	'gwtoolset-no-more-records' => '<strong>No hi ha més registres per processar</strong>',
 	'gwtoolset-painted-by' => 'Pintat per',
 	'gwtoolset-partner' => 'Soci',
-	'gwtoolset-partner-explanation' => 'Quan són proveïdes, les plantilles de col·laboradors s\'integren al codi de la plantilla de MediaWiki. Podeu trobar una llista de plantilles de col·laboradors a la pàgina de la categoria "Source templates"; vegeu el següent enllaç. Un cop trobada la plantilla de col·laborador desitjada, afegiu en aquest camp la seva URL. Si s\'escau, també podeu crear una nova plantilla de col·laborador.',
+	'gwtoolset-partner-explanation' => 'Quan són proveïdes, les plantilles de col·laboradors s\'integren al codi de la plantilla de MediaWiki. Podeu trobar una llista de plantilles de col·laboradors a la pàgina de la categoria "Source templates"; vegeu el següent enllaç. Un cop trobada la plantilla de col·laborador desitjada, afegiu en aquest camp la seva URL. Si s\'escau, també podeu crear una nova plantilla de col·laborador.', # Fuzzy
 	'gwtoolset-partner-template' => "Plantilla d'associat:",
 	'gwtoolset-phrasing' => 'Fraseig',
 	'gwtoolset-preview' => 'Vista prèvia de lots',
@@ -956,10 +959,10 @@ Aquests són inferiors que el <code>$wgMaxUploadSize</code> del wiki, que està 
 	'gwtoolset-required-group' => 'No formeu part del grup $1.',
 	'gwtoolset-verify-api-enabled' => "L'extensió \$1 requereix que s'hagi habilitat l'API wiki.
 
-Assegureu-vos que <code>\$wgEnableAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.",
+Assegureu-vos que <code>\$wgEnableAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.", # Fuzzy
 	'gwtoolset-verify-api-writeable' => 'L\'extensió $1 requereix que l\'API wiki pugui fer escriptures pels usuaris autoritzats.
 
-Assegureu-vos que <code>$wgEnableWriteAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.',
+Assegureu-vos que <code>$wgEnableWriteAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.', # Fuzzy
 	'gwtoolset-verify-curl' => "L'extensió $1 requereix que s'hagi instal·lat les [http://www.php.net/manual/en/curl.setup.php funcions cURL] del PHP.",
 	'gwtoolset-verify-finfo' => "L'extensió $1 requereix que s'hagi instal·lat l'extensió [http://www.php.net/manual/en/fileinfo.setup.php finfo] del PHP.",
 	'gwtoolset-verify-php-version' => "L'extensió $1 requereix PHP >= 5.3.3.",
@@ -1084,7 +1087,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Unbekannter Fehler.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Erlaubter Dateityp|Erlaubte Dateitypen}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Stelle sicher, dass die XML-Datei mit diesem $1 wohlgeformt ist.',
-	'gwtoolset-file-url-invalid' => 'Die Datei-URL war ungültig. Die Datei ist im Wiki noch nicht vorhanden. Du musst die Datei zuerst von deinem Computer hochladen, wenn du die Datei-URL-Referenz im Formular verwenden willst.',
+	'gwtoolset-file-url-invalid' => 'Die Datei ist im Wiki noch nicht vorhanden. Du musst die Datei zuerst von deinem Computer hochladen, wenn du die Datei-URL-Referenz im Formular verwenden willst.',
 	'gwtoolset-mediafile-throttle' => 'Mediendatei-Drosselung:',
 	'gwtoolset-mediafile-throttle-description' => 'Nach der Stapelvorschau in Schritt 3 lädt GWToolset die verbleibenden Einträge in deinem Stapel-Upload mithilfe von Hintergrundaufträgen hoch. Die Mediendateidrosselung steuert die Anzahl der Mediendateianfragen, die Wikimedia Commons jedes Mal mit deinem Mediendateiserver durchführt, wenn ein Hintergrundauftrag läuft. Du kannst die Mediendateidrosselung zwischen 1 und 20 festlegen. Falls beispielsweise die Gesamtzahl der Einträge in deinem Stapel-Upload 100 beträgt und du die Grenze auf 20 festgelegt hast, führt Wikimedia Commons 5 Hintergrundaufträge aus, um deinen gesamten Stapel-Upload zu verarbeiten. Die Zeit zwischen jedem Hintergrund-Hochladeauftrag ist abhängig von der Serverladezeit und der Konfiguration; wir gehen davon aus, dass auf Wikimedia Commons mindestens alle 5 Minuten ein GWToolset-Hintergrundauftrag ausgeführt wird.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Die MediaWiki-Vorlage „<strong>$1</strong>“ ist im Wiki nicht vorhanden.
@@ -1112,7 +1115,7 @@ Sie sollte im Namensraum „<strong>$3</strong>“ sein.',
 * Hast du im Formular einen Wert für „{{int:gwtoolset-record-element-name}}“ angegeben?
 * Ist die XML-Datei wohlgeformt? Versuche diesen [$1 XML-Validator].
 $2',
-	'gwtoolset-page-title-contains-url' => 'Die Seite „$1“ enthält die vollständige Wiki-URL. Stelle sicher, dass du nur den Seitentitel eingibst, z.&nbsp;B. den Teil der URL nach /wiki/.',
+	'gwtoolset-page-title-contains-url' => 'Die Seite „$1“ enthält die vollständige Wiki-URL. Stelle sicher, dass du nur den Seitentitel eingibst, z.&nbsp;B. den Teil der URL nach <code>/wiki/</code>.',
 	'gwtoolset-record-element-name' => 'Was ist das XML-Element, das jeden Metadateneintrag enthält:',
 	'gwtoolset-step-1-heading' => 'Schritt 1: Metadaten-Erkennung',
 	'gwtoolset-step-1-instructions-1' => 'Der Metadaten-Hochladeprozess besteht aus 4 Schritten:',
@@ -1144,7 +1147,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Keine weiteren Einträge zur Verarbeitung</strong>',
 	'gwtoolset-painted-by' => 'Gemalt von',
 	'gwtoolset-partner' => 'Partner',
-	'gwtoolset-partner-explanation' => 'Partnervorlagen werden in das Quellenfeld der MediaWiki-Vorlage gezogen, falls angegeben. Du kannst eine Liste mit aktuellen Partnervorlagen in der untenstehenden Kategorie finden. Sobald du die gewünschte Partnervorlage gefunden hast, platziere die URL in dieses Feld. Du kannst auch, falls nötig, eine neue Partnervorlage erstellen.',
+	'gwtoolset-partner-explanation' => 'Partnervorlagen werden in das Quellenfeld der MediaWiki-Vorlage gezogen, falls angegeben. Du kannst eine Liste mit aktuellen Partnervorlagen in der Kategorie „[[:Category:Source templates|Quellenvorlagen]]“ finden. Sobald du die gewünschte Partnervorlage gefunden hast, platziere die URL in dieses Feld. Du kannst auch, falls nötig, eine neue Partnervorlage erstellen.',
 	'gwtoolset-partner-template' => 'Partnervorlage:',
 	'gwtoolset-phrasing' => 'Ausdruck',
 	'gwtoolset-preview' => 'Stapel-Vorschau',
@@ -1249,11 +1252,14 @@ $messages['es'] = array(
 	'gwtoolset-back-text' => 'Pulse el botón «atrás» del navegador para volver al formulario.',
 	'gwtoolset-file-interpretation-error' => 'Ocurrió un problema al procesar el archivo de metadatos',
 	'gwtoolset-mediawiki-template' => 'Plantilla $1',
+	'gwtoolset-metadata-invalid-template' => 'No se encontró ninguna plantilla de MediaWiki válida.',
+	'gwtoolset-menu-1' => 'Correspondencia de metadatos',
 	'gwtoolset-technical-error' => 'Ocurrió un error técnico.',
 	'gwtoolset-required-field' => 'indica un campo obligatorio',
 	'gwtoolset-submit' => 'Enviar',
 	'gwtoolset-summary-heading' => 'Resumen',
 	'gwtoolset-cancel' => 'Cancelar',
+	'gwtoolset-loading' => 'Esto puede tardar un poco, espera.',
 	'gwtoolset-save' => 'Guardar',
 	'gwtoolset-save-mapping-failed' => 'Se ha producido un problema al procesar la solicitud. Inténtalo de nuevo más tarde. (Mensaje de error: $1)',
 	'gwtoolset-json-error-unknown' => 'Ocurrió un error desconocido.',
@@ -1261,16 +1267,19 @@ $messages['es'] = array(
 	'gwtoolset-mediawiki-template-not-found' => 'No se encontró la plantilla de MediaWiki «$1».',
 	'gwtoolset-step-1-heading' => 'Paso 1: detección de metadatos',
 	'gwtoolset-step-1-instructions-1' => 'El proceso de carga de metadatos consiste de cuatro pasos:',
+	'gwtoolset-step-1-instructions-li-1' => 'Detección de metadatos',
 	'gwtoolset-category' => 'Categoría',
 	'gwtoolset-global-categories' => 'Categorías globales',
 	'gwtoolset-metadata-field' => 'Campo de metadatos',
 	'gwtoolset-metadata-file' => 'Archivo de metadatos',
 	'gwtoolset-results' => 'Resultados',
 	'gwtoolset-step-2-instructions-1-li-1' => 'Una lista de los campos en $1 de MediaWiki.',
+	'gwtoolset-specific-categories' => 'Categorías específicas de elemento',
 	'gwtoolset-template-field' => 'Campo de plantilla',
 	'gwtoolset-step-3-instructions-heading' => 'Paso 3: previsualización del lote',
 	'gwtoolset-step-4-heading' => 'Paso 4: carga del lote',
 	'gwtoolset-mediawiki-version-invalid' => 'Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.',
+	'gwtoolset-verify-php-version' => 'La extensión $1 requiere PHP >= 5.3.3.',
 );
 
 /** Persian (فارسی)
@@ -1378,7 +1387,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'خطای ناشناخته.',
 	'gwtoolset-accepted-file-types' => 'پوشهٔ قبول شدهٔ {{PLURAL:$1|type|types}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'مطمئن شوید که پوشهٔ ایکس‌ام‌ال با $1 به خوبی شکل گرفته است.',
-	'gwtoolset-file-url-invalid' => 'یوآر‌ال پوشه نامعتبر بود; پوشه هنوز در ویکی وجود ندارد. شما نیاز دارید ابتدا پوشه را از کامپیوتر خود انتقال دهید اگر می‌خواهید از منبع یوآرال پوشه در فرم استفاده کنید.',
+	'gwtoolset-file-url-invalid' => 'یوآر‌ال پوشه نامعتبر بود; پوشه هنوز در ویکی وجود ندارد. شما نیاز دارید ابتدا پوشه را از کامپیوتر خود انتقال دهید اگر می‌خواهید از منبع یوآرال پوشه در فرم استفاده کنید.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'سرکوب مدیافایل:',
 	'gwtoolset-mediafile-throttle-description' => 'پس از پیش‌‌نمایش دسته، در مرحلهٔ ۳، جی‌دبلیو‌تول‌ست، سوابق باقیمانده را در دستهٔ انتقالات شما از طریق مشاغل پس‌زمینه انتقال می‌دهد.گاز مدیافایل کنترل می‌کند تعداد درخواست‌های مدیافایل را که مشترکات ویکی‌مدیا علیه سرور مدیافایل شما خواهد بود که هر زمان یک شغل پیش‌زمینه اجرا می‌شود.شما می‌توانید گاز مدیافایل را بین ۱ـ۲۰ تنظیم می‌کند. برای مثال، اگر تعداد کل سوابق در دستهٔ انتقال شما ۱۰۰ است و شما گاز را به ۲۰ تنظیم می‌کنید، مشترکات ویکی‌مدیا ۵ شغل پیش‌زمینه را پردازش کل دستهٔ انتقال شما اجرا خواهد کرد. زمان بین هر انتقال انواع شغل‌ها بستگی به بارگذاری سرور و پیکربندی دارد؛ ما پیش‌بینی می‌کنیم که در مشترکات ویکی‌مدیا یک شغل پس‌زمینه جی‌دبلیو‌تول‌ست حداقل هر ۵ دقیقه اجرا خواهد شد.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'الگوی مدیاویکی "<strong>$1</strong>" در ویکی وجود ندارد.
@@ -1401,7 +1410,7 @@ $1',
 * آیا مقداری در فرم برای "{{int:gwtoolset-record-element-name}}" وارد کردید؟
 * آیا پوشهٔ ایکس‌ام‌ال به خوبی شکل گرفته‌است؟ [$1 ایکس‌ام‌ال سنج] را امتحان کنید.
 $2',
-	'gwtoolset-page-title-contains-url' => 'صفحهٔ "$1" شامل یوآر‌ال ویکی کامل است. مطمئن شوید شما فقط عنوان صفحه را وارد کردید، برای مثال قسمت یوآر‌ال پس از /wiki/',
+	'gwtoolset-page-title-contains-url' => 'صفحهٔ "$1" شامل یوآر‌ال ویکی کامل است. مطمئن شوید شما فقط عنوان صفحه را وارد کردید، برای مثال قسمت یوآر‌ال پس از <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'عنصر ایکس‌ام‌الی که شامل هر سابقهٔ فراداده است، چیست:',
 	'gwtoolset-step-1-heading' => 'مرحلهٔ ۱: تشخیص فراداده',
 	'gwtoolset-step-1-instructions-1' => 'روند انتقال فراداده شامل ۴ مرحله است:',
@@ -1433,7 +1442,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>هیچ سوابقی برای پردازش نیست<strong>',
 	'gwtoolset-painted-by' => 'نقاشی شده توسط',
 	'gwtoolset-partner' => 'شریک',
-	'gwtoolset-partner-explanation' => 'الگوهای شریک درون زمینهٔ منبع الگوی مدیا‌ویکی هنگامی که ارائه شد،کشیده شد. شما می‌توانید فهرست الگوهای شریک فعلی را در دسته پیدا کنید: صفحهٔ الگوهای منبع؛ پیوند زیر را مشاهده کنید. هنگامی که الگوی شزیک مورد‌نظر خود را برای استفاده از محل يوآر‌ال در این زمینه پیدا کرده‌اید. شما همچنین می‌توانید اگر لازم بود، الگوی شریک جدیدی را ایجاد کنید.',
+	'gwtoolset-partner-explanation' => 'الگوهای شریک درون زمینهٔ منبع الگوی مدیا‌ویکی هنگامی که ارائه شد،کشیده شد. شما می‌توانید فهرست الگوهای شریک فعلی را در دسته پیدا کنید: صفحهٔ الگوهای منبع؛ پیوند زیر را مشاهده کنید. هنگامی که الگوی شزیک مورد‌نظر خود را برای استفاده از محل يوآر‌ال در این زمینه پیدا کرده‌اید. شما همچنین می‌توانید اگر لازم بود، الگوی شریک جدیدی را ایجاد کنید.', # Fuzzy
 	'gwtoolset-partner-template' => 'الگوی شریک:',
 	'gwtoolset-phrasing' => 'بیان‌کردن',
 	'gwtoolset-preview' => 'پیش‌نمایش گروه',
@@ -1588,7 +1597,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Tuntematon virhe.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Hyväksytty tiedostotyyppi|Hyväksytyt tiedostotyypit}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Varmista, että XML-tiedosto on hyvin muodostettu tämän $1 kanssa.',
-	'gwtoolset-file-url-invalid' => 'Tiedoston URL-osoite oli virheellinen: tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viittausta lomakkeella.',
+	'gwtoolset-file-url-invalid' => 'Tiedoston URL-osoite oli virheellinen: tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viittausta lomakkeella.', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallinetta "<strong>$1</strong>" ei ole Wikimedia Commosissa.
 Tuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-mallinetta "$1" ei löytynyt.',
@@ -1613,7 +1622,7 @@ Sen kuuluisi olla nimiavaruudessa "<strong>$3<strong>".',
 * Syötitkö lomakkeella arvon elementille "{{int:gwtoolset-record-elementti-nimi}}"?
 * Onko XML-tiedosto oikein muotoiltu? Kokeile tätä $1.
 $2', # Fuzzy
-	'gwtoolset-page-title-contains-url' => 'Sivu "$1" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin /wiki/ jälkeen',
+	'gwtoolset-page-title-contains-url' => 'Sivu "$1" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin <code>/wiki/</code> jälkeen',
 	'gwtoolset-record-element-name' => 'Mikä on XML-elementti, joka sisältää kaikki metatietotietueet:',
 	'gwtoolset-step-1-heading' => 'Vaihe 1: Metatietojen tunnistus',
 	'gwtoolset-step-1-instructions-1' => 'Metatietojen latausprosessi koostuu 4 vaiheesta:',
@@ -1769,7 +1778,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Erreur inconnue.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Type de fichier accepté|Types de fichier acceptés}} :',
 	'gwtoolset-ensure-well-formed-xml' => 'Assurez-vous que le fichier XML est bien formé avec ce $1.',
-	'gwtoolset-file-url-invalid' => 'Le fichier URL était non valide ; ce fichier n’existe pas encore dans le wiki. Vous devez d’abord importer le fichier depuis votre machine si vous voulez utiliser la référence d’URL du fichier dans ce formulaire.',
+	'gwtoolset-file-url-invalid' => 'Le fichier URL était non valide ; ce fichier n’existe pas encore dans le wiki. Vous devez d’abord importer le fichier depuis votre machine si vous voulez utiliser la référence d’URL du fichier dans ce formulaire.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Accélérateur de fichier média :',
 	'gwtoolset-mediafile-throttle-description' => 'Après l’aperçu du lot, dans l’étape 3, GWToolset importe les enregistrements restants dans votre import de lot via des traitements en tâche de fond. L’accélérateur de fichier média contrôle le nombre de requêtes de fichiers média que Wikimédia Communs fera à votre serveur de fichiers média chaque fois qu’un traitement en tâche de fond est exécuté. Vous pouvez fixer l’accélérateur de fichiers média entre 1 et 20. Par exemple, si le nombre total d’enregistrements de votre import de lot est de 100 et que vous avez fixé l’accélérateur à 20, Wikimédia Communs fera tourner 5 traitements en tâche de fond pour exécuter l’ensemble de votre import de lot. Le temps entre chaque traitement en tâche de fond dépend de la charge du serveur et de la configuration ; nous avons prévu que sur Wikimédia Communs un traitement en tâche de fond de GWToolset tournera au moins toutes les 5 minutes.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Le modèle MediaWiki "<strong>$1</strong>" n’existe pas dans le wiki.
@@ -1797,7 +1806,7 @@ Elle devrait être dans l’espace de noms « <strong>$3<strong> ».',
 * Avez-vous saisi une valeur dans le formulaire pour « {{int:gwtoolset-record-element-name}} » ?
 * Le fichier XML est-il bien formé ? Essayez ce [$1 validateur XML].
 $2',
-	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après /wiki/',
+	'gwtoolset-page-title-contains-url' => 'La page « $1 » contient l’URL complète du wiki. Assurez-vous de n’entrer que le titre de la page, par ex. la partie de l’URL après <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'Quel est l’élément XML qui contient chaque enregistrement de métadonnée :',
 	'gwtoolset-step-1-heading' => 'Étape 1 : Détection des métadonnées',
 	'gwtoolset-step-1-instructions-1' => 'Le processus de téléchargement des métadonnées se déroule en 4 étapes différentes :',
@@ -1829,7 +1838,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Plus aucun enregistrement à traiter</strong>',
 	'gwtoolset-painted-by' => 'Painted by',
 	'gwtoolset-partner' => 'Partenaire',
-	'gwtoolset-partner-explanation' => 'Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels sur la page Category:Source templates ; voyez le lien ci-dessous. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.',
+	'gwtoolset-partner-explanation' => 'Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels sur la page Category:Source templates ; voyez le lien ci-dessous. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.', # Fuzzy
 	'gwtoolset-partner-template' => 'Modèle du partenaire :',
 	'gwtoolset-phrasing' => 'Formulation',
 	'gwtoolset-preview' => 'Prévisualiser le lot',
@@ -2016,7 +2025,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'שגיאה לא ידועה.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|סוג קובץ מורשה|סוגי קובץ מורשים}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'יש לוודא כי קובץ ה־XML בנוי נכון עם ה־$1 הזה.',
-	'gwtoolset-file-url-invalid' => 'הכתובת של הקובץ אינה חוקית; הקובץ אינו קיים עדיין בוויקי. יש להעלות את הקובץ תחילה מהמחשב שלך אם ברצונך להשתמש בכתובת הקובץ בטופס.',
+	'gwtoolset-file-url-invalid' => 'הקובץ אינו עדיין אינו קיים בוויקי. יש להעלות את הקובץ תחילה מהמחשב שלך אם ברצונך להשתמש בכתובת הקובץ בטופס.',
 	'gwtoolset-mediafile-throttle' => 'מצערת Mediafile:',
 	'gwtoolset-mediafile-throttle-description' => "לאחר התצוגה המקדימה של אצווה, בצעד מס' 3, GWToolset מעלה את הרשומות הנותרות בהעלאה אצווה בתהליך שרץ ברקע. מצערת קבצי המדיה (mediafile throttle) שולטת במספר הבקשות לקובצי מדיה שוויקישיתוף יעשה מול שרת קובצי המדיה בכל פעם שתהליך רץ ברקע. באפשרותך להגדיר את מצערת קובצי המדיה לערך שבין 1–20. לדוגמה, אם המספר הכולל של רשומות בהעלאת אצווה הוא 100 ומוגדרת מצערת של 20, ויקישיתוף יריץ 5 משימות ברקע כדי לעבד את כל אצוות ההעלאה שלך. הזמן בין כל משימת העלאה ברקע משתנה בהתאם עומס בשרת וההגדרות שלו; אנו צופים כי בוויקישיתוף, משימת GWToolset תופעל ברקע מדי 5 דקות לפחות.",
 	'gwtoolset-mediawiki-template-does-not-exist' => 'תבנית מדיה־ויקי "<strong>$1</strong>" אינה קיימת בוויקי.
@@ -2044,7 +2053,7 @@ $1',
 * האם הזנת ערך בטופס עבור "{{int:gwtoolset-record-element-name}}"?
 * האם ה־XML תקין? נא לנסות את [$1 בודק ה־XML] הזה.
 $2',
-	'gwtoolset-page-title-contains-url' => 'הדף $1 מכיל את כל כתובת ה־URL. יש להקפיד להזין רק את כותרת הדף, למשל את החלק של ה־URL שאחרי /wiki/',
+	'gwtoolset-page-title-contains-url' => 'הדף $1 מכיל את כל כתובת ה־URL. יש להקפיד להזין רק את כותרת הדף, למשל את החלק של ה־URL שאחרי <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'מהו רכיב ה־XML המכיל כל רשומת מטא־נתונים:',
 	'gwtoolset-step-1-heading' => 'צעד 1: זיהוי המטא־נתונים',
 	'gwtoolset-step-1-instructions-1' => 'תהליך העלאת המטה-נתונים כולל 4 צעדים:',
@@ -2076,7 +2085,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>אין עוד רשומות לעיבוד</strong>',
 	'gwtoolset-painted-by' => 'צויר על־ידי',
 	'gwtoolset-partner' => 'שותף',
-	'gwtoolset-partner-explanation' => 'תבניות השותפים נמשכות לשדה המקור של תבנית המדיה־ויקי כאשר הן מסופקות. ניתן למצוא רשימה של תבניות שותפים נוכחיות בקטגוריה Source templates page; ראה קישור להלן. ברגע שמצאת את תבנית השותף שברצונך להשתמש בה, שים את הכתובת בשדה הזה. ניתן גם ליצור תבנית שותף חדשה אם נחוץ.',
+	'gwtoolset-partner-explanation' => 'תבניות השותפים נמשכות לשדה המקור של תבנית המדיה־ויקי כאשר הן מסופקות. ניתן למצוא רשימה של תבניות שותפים נוכחיות בקטגוריה [[:Category:Source templates|source templates]]. ברגע שמצאת את תבנית השותף שברצונך להשתמש בה, שים את הכתובת בשדה הזה. ניתן גם ליצור תבנית שותף חדשה אם נחוץ.',
 	'gwtoolset-partner-template' => 'תבנית שותף:',
 	'gwtoolset-phrasing' => 'ניסוח',
 	'gwtoolset-preview' => 'תצוגה מקדימה של אצווה',
@@ -2319,7 +2328,7 @@ $1',
 	'gwtoolset-json-error-unknown' => '不明なエラーです。',
 	'gwtoolset-accepted-file-types' => '対応しているファイル{{PLURAL:$1|形式}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'こちらの $1 で、XML ファイルが整形式であることを確認してください。',
-	'gwtoolset-file-url-invalid' => 'ファイル URL が無効です。ファイルがウィキ内にまだ存在しません。フォームでファイル URL 参照を使用したい場合は、まず、あなたのコンピューターからファイルをアップロードする必要があります。',
+	'gwtoolset-file-url-invalid' => 'ファイル URL が無効です。ファイルがウィキ内にまだ存在しません。フォームでファイル URL 参照を使用したい場合は、まず、あなたのコンピューターからファイルをアップロードする必要があります。', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'メディアファイルのしきい値:',
 	'gwtoolset-mediafile-throttle-description' => 'The throttle controls the load Wikimedia Commons will put on your media server during the batch upload. 1 分あたりのメディア リクエスト回数として 1 から 20 までの値を設定できます。', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki テンプレート「<strong>$1</strong>」はウィキ内に存在しません。
@@ -2346,7 +2355,7 @@ $1',
 * フォームで「{{int:gwtoolset-record-element-name}}」欄に値を入力しましたか?
 * XML ファイルが整形式かどうか、こちらで検証してください: [$1 XML Validator]
 $2',
-	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の /wiki/ の後の部分)。',
+	'gwtoolset-page-title-contains-url' => 'ページ「$1」はウィキの完全な URL を含んでいます。ページ名のみを入力するようにしてください (例: URL の <code>/wiki/</code> の後の部分)。',
 	'gwtoolset-record-element-name' => '各メタデータのレコードを含む XML 要素:',
 	'gwtoolset-step-1-heading' => '手順 1: メタデータの検出',
 	'gwtoolset-step-1-instructions-1' => 'メタデータのアップロード作業には以下の 4 つの手順があります:',
@@ -2542,7 +2551,7 @@ $1',
 	'gwtoolset-json-error-unknown' => '알 수 없는 오류.',
 	'gwtoolset-accepted-file-types' => '허용되는 파일{{PLURAL:$1|형식}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'XML 파일이 올바른 형식인지 $1로 확인해주세요.',
-	'gwtoolset-file-url-invalid' => '파일 URL이 유효하지 않습니다; 파일이 아직 위키에 존재하지 않습니다. 양식에서 파일 URL 참조를 사용하려면 먼저 당신의 컴퓨터에서 파일을 올려야 합니다.',
+	'gwtoolset-file-url-invalid' => '파일 URL이 유효하지 않습니다; 파일이 아직 위키에 존재하지 않습니다. 양식에서 파일 URL 참조를 사용하려면 먼저 당신의 컴퓨터에서 파일을 올려야 합니다.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => '미디어파일 스로틀:',
 	'gwtoolset-mediafile-throttle-description' => '일괄 처리 미리보기 후, 단계 3에서 GW도구모음이 백그라운드 작업을 통해 일괄 처리 업로드에서 잔여 기록을 업로드했습니다. 미디어파일 스로틀은 위키미디어 공용이 백그라운드 작업이 동작하고 있을 때마다 당신의 미디어파일 서버에 대한 미디어파일 요청 수를 관리합니다. 미디어파일 스로틀을 1-20 사이로 설정할 수 있습니다. 위키미디어 공용은 전체 일괄 처리 업로드 작업을 처리하기 위하여 다섯 백그라운드 작업을 실행합니다. 백그라운드 작업 간 시간은 서버 부하나 설정에 따라 달라질 수 있습니다. 저희는 위키미디어 공용에서 GW도구모음 백그라운드 작어이 최소 5분마다 실행되기를 기대하고 있습니다.',
 	'gwtoolset-mediawiki-template-does-not-exist' => '미디어위키 틀 "<strong>$1</strong>"이 위키에 존재하지 않습니다.
@@ -2570,7 +2579,7 @@ $1',
 * 양식에 "{{int:gwtoolset-record-element-name}}"의 값을 입력하셨나요?
 * XML 파일이 정형식입니까? [$1 XML validator] 도구를 사용해보세요.
 $2',
-	'gwtoolset-page-title-contains-url' => '"$1" 문서는 전체 위키 URL을 포함하고 있습니다.문서 제목만을 입력했는지 확인하세요. (예) URL의 /wiki/의 뒷부분',
+	'gwtoolset-page-title-contains-url' => '"$1" 문서는 전체 위키 URL을 포함하고 있습니다.문서 제목만을 입력했는지 확인하세요. (예) URL의 <code>/wiki/</code>의 뒷부분',
 	'gwtoolset-record-element-name' => '메타데이터 기록을 포함하는 XML 요소:',
 	'gwtoolset-step-1-heading' => '단계1: 메타데이터 검색',
 	'gwtoolset-step-1-instructions-1' => '메타데이터 올리기 과정은 4단계로 구성됩니다.',
@@ -2602,7 +2611,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>진행할 레코드가 더 이상 없습니다</strong>',
 	'gwtoolset-painted-by' => '그림',
 	'gwtoolset-partner' => '파트너',
-	'gwtoolset-partner-explanation' => '파트너 틀은 제공됐을 때 미디어위키 틀의 소스 필드를 넣었습니다. 분류에서 현재 파트너 틀 목록을 찾을 수 있습니다:출처 틀 문서; 아래 링크를 참조하세요. 파트너 틀을 찾으면 이 필드에 URL을 넣을 수 있습니다. 필요하다면 새로운 파트너 틀을 만들 수 있습니다.',
+	'gwtoolset-partner-explanation' => '파트너 틀은 제공됐을 때 미디어위키 틀의 소스 필드를 넣었습니다. 분류에서 현재 파트너 틀 목록을 찾을 수 있습니다:출처 틀 문서; 아래 링크를 참조하세요. 파트너 틀을 찾으면 이 필드에 URL을 넣을 수 있습니다. 필요하다면 새로운 파트너 틀을 만들 수 있습니다.', # Fuzzy
 	'gwtoolset-partner-template' => '파트너 틀:',
 	'gwtoolset-phrasing' => '프레이징',
 	'gwtoolset-preview' => '미리보기 일괄 처리',
@@ -2650,10 +2659,10 @@ $2',
 	'gwtoolset-required-group' => '$1 그룹에 속해있지 않습니다.',
 	'gwtoolset-verify-api-enabled' => '$1 확장 기능은 위키 API가 활성화되야 합니다.
 
-<code>$wgEnableAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.',
+<code>$wgEnableAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.', # Fuzzy
 	'gwtoolset-verify-api-writeable' => '$1 확장기능은 위키 API가 권한이 있는 사용자 쓰기 명령을 수행할 수 있어야 합니다.
 
-<code>$wgEnableWriteAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.',
+<code>$wgEnableWriteAPI</code>가 <code>DefaultSettings.php</code> 파일에서 <code>true</code>로 설정되어 있거나 <code>LocalSettings.php</code> 파일에서 <code>true</code>로 오버라이드되어 있는지 확인하세요.', # Fuzzy
 	'gwtoolset-verify-curl' => '$1 확장 기능은  PHP [http://www.php.net/manual/en/curl.setup.php cURL 함수]가 설치되어 있어야 합니다.',
 	'gwtoolset-verify-finfo' => '$1 확장 기능은  PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] 확장기능이 설치되어 있어야 합니다.',
 	'gwtoolset-verify-php-version' => '$1 확장 기능은 PHP>=5.3.3.을 필요로 합니다.',
@@ -2866,7 +2875,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Непозната грешка.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Прифатен податотечен тип|Прифатени податотечни типови}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Проверете дали XML-податотеката е добро срочена со овој $1.',
-	'gwtoolset-file-url-invalid' => 'Податотеката има неважчеки URL. Таа сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.',
+	'gwtoolset-file-url-invalid' => 'Податотеката има неважчеки URL. Таа сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Делотворност:',
 	'gwtoolset-mediafile-throttle-description' => 'По пакетниот пеглед, во чекор 3, GWToolset ги подига преостанатите записи преку позадински задачи. Делотворноста го контролира бројот на податотеки што Ризницата ќе ги подига (постава барања) на опслужвачот во дадена задача. Можете да зададете број од 1 до 20. На пример, ако во пакетното подигање сакате да подигнете вкупно 100 податотеки, а укажете делотворност 20, тоа значи дека Ризницата ќе пушти 5 позадински задачи за да го подигне целиот пакет. Временското растојание помеѓу секоја пакетна задача зависи од оптовареноста на опслужувачот и поставките. Очекуваме ова да биде барем на секои 5 минути.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'МедијаВики-шаблонот „<strong>$1</strong>“ не постои на викито.
@@ -2894,7 +2903,7 @@ $1',
 * Дали во образецот внесовте вредност за „{{int:gwtoolset-record-element-name}}“?
 * Дали XML-податотеката е добро срочена? Пробајте го овој [$1 проверувач на XML].
 $2',
-	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по /wiki/.',
+	'gwtoolset-page-title-contains-url' => 'Страницата „$1“ ја содржи целата URL на викито. Се внесува само насловот на страницата, т.е. зборовите од адресата по <code>/wiki/</code>.',
 	'gwtoolset-record-element-name' => 'Кој XML-елемент го содржи секој метаподаточен запис:',
 	'gwtoolset-step-1-heading' => 'Чекор 1: Пронаоѓање на метаподатоци',
 	'gwtoolset-step-1-instructions-1' => 'Постапката за подигање на метаподатоци се состои од 4 чекори:',
@@ -2926,7 +2935,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Повеќе нема записи за обработка</strong>',
 	'gwtoolset-painted-by' => 'Насликано од',
 	'gwtoolset-partner' => 'Партнер',
-	'gwtoolset-partner-explanation' => 'Партнерските шаблони се преземаат и ставаат во полето за извор во МедијаВики-шаблонот, кога ги има. Список на тековни партнерски шаблони ќе најдете во страницата за шаблони за извори (погл. врската подолу). Штом имате партнерски шаблон што сакате да го употребите, во ова поле ставете ја неговата URL-адреса. Можете да создадете и нов партнерски шаблон, ако има потреба.',
+	'gwtoolset-partner-explanation' => 'Партнерските шаблони се преземаат и ставаат во полето за извор во МедијаВики-шаблонот, кога ги има. Список на тековни партнерски шаблони ќе најдете во страницата за шаблони за извори (погл. врската подолу). Штом имате партнерски шаблон што сакате да го употребите, во ова поле ставете ја неговата URL-адреса. Можете да создадете и нов партнерски шаблон, ако има потреба.', # Fuzzy
 	'gwtoolset-partner-template' => 'Партнерски шаблон:',
 	'gwtoolset-phrasing' => 'Израз',
 	'gwtoolset-preview' => 'Прегледајте го пакетот',
@@ -3089,7 +3098,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Ralat yang tidak dikenali.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Jenis|Jenis-jenis}} fail yang diterima:',
 	'gwtoolset-ensure-well-formed-xml' => 'Pastikan fail XML dibentuk sempurna dengan $1 ini.',
-	'gwtoolset-file-url-invalid' => 'URL fail ini tidak sah; fail berkenaan belum wujud di wiki ini. Anda perlu memuat naik fail dari komputer terlebih dahulu jika anda ingin menggunakan rujukan URL fail di dalam borang.',
+	'gwtoolset-file-url-invalid' => 'URL fail ini tidak sah; fail berkenaan belum wujud di wiki ini. Anda perlu memuat naik fail dari komputer terlebih dahulu jika anda ingin menggunakan rujukan URL fail di dalam borang.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Pendikit fail media:',
 	'gwtoolset-mediafile-throttle-description' => 'Pendikit ini mengawal muatan yang akan diletakkan oleh Wikimedia Commons ke dalam pelayan median anda sewaktu pemuatnaikan berkelompok. Anda boleh melaraskan pendikit dari 1 hingga 20, iaitu bilangan permintaan media seminit.', # Fuzzy
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Templat MediaWiki "<strong>$1</strong>" tidak wujud di dalam wiki ini.
@@ -3112,7 +3121,7 @@ Ia seharusnya berada di ruang nama "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Tiada elemen XML dijumpai untuk pemetaan.
 * Adakah anda memasukkan nilai dalam borang untuk "{{int:gwtoolset-record-element-name}}"?
 * Adakah fail, XML itu dibentuk dengan sempurna? Cuba $1 ini.', # Fuzzy
-	'gwtoolset-page-title-contains-url' => 'Halaman "$1" mengandungi URL seluruh wiki. Pastikan hanya tajuk halaman yang diisikan, cth. bahagian URL selepas /wiki/',
+	'gwtoolset-page-title-contains-url' => 'Halaman "$1" mengandungi URL seluruh wiki. Pastikan hanya tajuk halaman yang diisikan, cth. bahagian URL selepas <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'Elemen XML yang mengandungi setiap rekod metadata:',
 	'gwtoolset-step-1-heading' => 'Langkah 1: Pengesanan metadata',
 	'gwtoolset-step-1-instructions-1' => 'Proses pemuatnaikan metadata terdiri daripada 4 langkah:',
@@ -3142,7 +3151,7 @@ Ia seharusnya berada di ruang nama "<strong>$3<strong>".',
 	'gwtoolset-metadata-mapping-legend' => 'Petakan metadata anda',
 	'gwtoolset-painted-by' => 'Dilukis oleh',
 	'gwtoolset-partner' => 'Rakan Kongsi',
-	'gwtoolset-partner-explanation' => 'Templat pekongsi ditarik ke dalam medan sumber templat MediaWiki apabila disediakan. Anda boleh mendapati satu senarai templat rakan kongsi semasa pada halaman Kategori:Templat sumber; rujuk pautan di bawah. Setelah menjumpai templat pekongsi yang ingin anda gunakan, letakkan URL-nya ke dalam medan ini. Anda juga boleh mewujudkan templat pekongsi baru jika perlu.',
+	'gwtoolset-partner-explanation' => 'Templat pekongsi ditarik ke dalam medan sumber templat MediaWiki apabila disediakan. Anda boleh mendapati satu senarai templat rakan kongsi semasa pada halaman Kategori:Templat sumber; rujuk pautan di bawah. Setelah menjumpai templat pekongsi yang ingin anda gunakan, letakkan URL-nya ke dalam medan ini. Anda juga boleh mewujudkan templat pekongsi baru jika perlu.', # Fuzzy
 	'gwtoolset-partner-template' => 'Templat pekongsi:',
 	'gwtoolset-phrasing' => 'Pernyataan',
 	'gwtoolset-preview' => 'Previu kelompok',
@@ -3188,10 +3197,10 @@ Ini ditetapkan lebih rendah daripada <code>$wgMaxUploadSize</code> wiki yang dit
 	'gwtoolset-required-group' => 'Anda bukan ahli kumpulan $1.',
 	'gwtoolset-verify-api-enabled' => 'Sambungan $1 memerlukan API wiki dihidupkan.
 
-Sila pastikan bahawa <code>$wgEnableAPI</code> disetkan kepada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.',
+Sila pastikan bahawa <code>$wgEnableAPI</code> disetkan kepada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.', # Fuzzy
 	'gwtoolset-verify-api-writeable' => 'Sambungan $1 memerlukan API wiki untuk dapat melakukan penulisan untuk pengguna berdaftar.
 
-Sila pastikan bahawa <code>$wgEnableWriteAPI</code> disetkan pada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.',
+Sila pastikan bahawa <code>$wgEnableWriteAPI</code> disetkan pada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.', # Fuzzy
 	'gwtoolset-verify-curl' => 'Sambungan $1 memerlukan pemasangan fungsi-fungsi PHP [http://www.php.net/manual/en/curl.setup.php cURL].',
 	'gwtoolset-verify-finfo' => 'Sambungan $1 memerlukan pemasangan sambungan PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo].',
 	'gwtoolset-verify-php-version' => 'Sambungan $1 memerlukan PHP versi 5.3.3 ke atas.',
@@ -3238,9 +3247,17 @@ $messages['nl'] = array(
 	'gwtoolset-developer-issue' => 'Neem contact op met een ontwikkelaar. Dit probleem moet worden aangepakt voordat u kunt doorgaan. Voeg de volgende tekst aan het rapport:
 
 $1',
+	'gwtoolset-dom-record-issue' => '<code>record-element-name</code>, of <code>record-count</code>, of <code>record-current</code> niet opgegeven.',
+	'gwtoolset-file-backend-maxage-invalid' => 'De maximale duur in <code>$wgGWTFBMaxAge</code> is ongeldig.
+Zie het [php.net/manual/en/datetime.formats.relative.php PHP-handboek] voor hoe deze waarde correct in te stellen.',
 	'gwtoolset-fsfile-empty' => 'Het bestand was leeg en is verwijderd.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Het bestand kon niet worden opgehaald vanaf URL $1.',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> is niet ingesteld.',
+	'gwtoolset-incorrect-form-handler' => 'De module "$1" heeft geen geregistreerde formulierafhandeling die GWToolset\\Handlers\\Forms\\FormHandler uitbreidt.',
+	'gwtoolset-job-throttle-exceeded' => 'Het maximale aantal taken in een bepaalde tijd is overschreden.',
+	'gwtoolset-no-accepted-types' => 'Geen geaccepteerde typen opgegeven.',
+	'gwtoolset-no-callback' => 'Geen callback opgegeven voor deze methode.',
+	'gwtoolset-no-comment' => "<code>user_options['comment']</code> is niet ingesteld.",
 	'gwtoolset-no-default' => 'Geen standaardwaarde gekozen.',
 	'gwtoolset-no-field-size' => 'Geen veldgrootte opgegeven voor het veld "$1".',
 	'gwtoolset-no-file-backend-name' => 'Er is geen naam voor een bestandsbackend opgegeven.',
@@ -3250,6 +3267,7 @@ $1',
 	'gwtoolset-no-mapping' => 'Er is geen <code>mapping_name</code> opgegeven.',
 	'gwtoolset-no-mapping-json' => 'Er is geen <code>mapping_json</code> opgegeven.',
 	'gwtoolset-no-max' => 'Er is geen maximale waarde opgegeven.',
+	'gwtoolset-no-mediafile-throttle' => 'Geen maximaal aantal te verwerken mediataken per tijdseenheid opgegeven.',
 	'gwtoolset-no-mediawiki-template' => 'Er is geen <code>mediawiki-template-name</code> opgegeven.',
 	'gwtoolset-no-min' => 'Er is geen minimale waarde opgegeven.',
 	'gwtoolset-no-module' => 'Er is geen modulenaam opgegeven.',
@@ -3271,16 +3289,30 @@ $1',
 	'gwtoolset-not-string' => 'De opgegeven waarde voor de methode was geen tekst, maar van het type "$1".',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1 komt niet overeen.',
 	'gwtoolset-disk-write-failure' => 'De server kan het bestand niet schrijven naar een bestandssysteem.',
+	'gwtoolset-xml-doctype' => 'Het bestand met XML-metadata mag de sectie <!DOCTYPE> niet bevatten. Verwijder deze en probeer het bestand met XML-metadata daarna opnieuw te uploaden.',
 	'gwtoolset-file-is-empty' => 'Het geüploade bestand is leeg.',
 	'gwtoolset-improper-upload' => 'De bestandsupload is mislukt.',
 	'gwtoolset-mime-type-mismatch' => 'De bestandsextensie "$1" het MIME-type "$2" van het geüploade bestand komen niet overeen.',
 	'gwtoolset-missing-temp-folder' => 'Geen tijdelijke map beschikbaar.',
+	'gwtoolset-multiple-files' => 'Het geüploade bestand bevat gegevens over meer dan één bestand. Er kan slechts één bestand tegelijkertijd ingediend worden.',
 	'gwtoolset-no-extension' => 'Het geüploade bestand bevat niet voldoende informatie om het te verwerken. Het heeft waarschijnlijk geen bestandsextensie.',
 	'gwtoolset-no-file' => 'Er is geen bestand ontvangen.',
 	'gwtoolset-no-form-field' => 'Het verwachte formulierveld "$1" bestaat niet.',
+	'gwtoolset-over-max-ini' => 'Het geüploade bestand overschrijdt <code>upload_max_filesize</code> en/of <code>post_max_size</code> in <code>php.ini</code>.',
 	'gwtoolset-partial-upload' => 'Het bestand is slechts gedeeltelijk geüpload.',
+	'gwtoolset-php-extension-error' => 'De bestandsupload is beëindigd door een uitbreiding van PHP. PHP heeft geen mogelijkheid om te bepalen door welke uitbreiding de upload is beëindigd. U kunt het best de lijst met geladen uitbreidingen bekijken via <code>phpinfo()</code>.',
+	'gwtoolset-unaccepted-extension' => 'Het bestand heeft geen bestandsextensie die is toegestaan.',
+	'gwtoolset-unaccepted-extension-specific' => 'Het bestand heeft een bestandsextensie die niet is toegestaan: ".$1".',
+	'gwtoolset-unaccepted-mime-type' => 'Het geüploade bestand lijkt het MIME-type "$1" te hebben. Dit MIME-type is niet toegestaan.',
+	'gwtoolset-unaccepted-mime-type-for-xml' => 'Het geüploade bestand lijkt het MIME-type "$1" te hebben. Dit MIME-type is niet toegestaan. Heeft het XML-bestand een XML-declaratie bovenaan in het bestand?
+
+&lt;?xml version="1.0" encoding="UTF-8"?>',
 	'gwtoolset-back-text-link' => '← terug naar het formulier',
+	'gwtoolset-back-text' => 'Klik op de knop "Terug" in uw browser om terug te gaan naar het formulier.',
+	'gwtoolset-file-interpretation-error' => 'Er is een probleem opgetreden tijdens het verwerken van het bestand met metadata.',
 	'gwtoolset-mediawiki-template' => 'Sjabloon $1',
+	'gwtoolset-metadata-user-options-error' => '{{PLURAL:$2|Het volgende veld is|De volgende velden zijn}} vereist:
+$1',
 	'gwtoolset-metadata-invalid-template' => 'Geen geldig MediaWiki sjabloon gevonden.',
 	'gwtoolset-menu-1' => 'Metadatakoppeling',
 	'gwtoolset-technical-error' => 'Er is een technische fout opgetreden.',
@@ -3296,15 +3328,75 @@ $1',
 	'gwtoolset-save-mapping-name' => 'Hoe wilt u deze verzameling koppelingen noemen?',
 	'gwtoolset-json-error' => 'Er was een probleem met de JSON. Fout: $1.',
 	'gwtoolset-json-error-depth' => 'Maximale stapeldiepte overschreden.',
+	'gwtoolset-json-error-state-mismatch' => 'Leegloop of de modi komen niet overeen.',
+	'gwtoolset-json-error-ctrl-char' => 'Onverwachte stuurcode gevonden.',
+	'gwtoolset-json-error-syntax' => 'Syntaxisfout, ongeldige JSON.',
+	'gwtoolset-json-error-utf8' => 'Ongeldige UTF-8 tekens, mogelijk onjuist gecodeerd.',
 	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
+	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Aanvaard bestandstype|Aanvaarde bestandstypen}}:',
+	'gwtoolset-ensure-well-formed-xml' => 'Zorg ervoor dat het XML-bestand correct is opgemaakt met deze $1',
+	'gwtoolset-file-url-invalid' => 'De bestands-URL was ongeldig. Het bestand bestaat niet in de wiki. U moet het bestand eerst uploaden vanaf uw computer als u in het formulier de URL-referentie wilt gebruiken.', # Fuzzy
+	'gwtoolset-mediafile-throttle' => 'Beperking mediabestanden per tijdseenheid:',
+	'gwtoolset-mediafile-throttle-description' => 'Na het controleren van de partij in stap 3, uploadt GWToolset de resterende records in de achtergrond. De beperking voor het aantal mediabestanden per tijdseenheid bepaalt het aantal mediabestandsverzoeken dat Wikimedia Commons maakt naar uw mediaserver tijdens het uitvoeren van een taak in de achtergrond. U kunt de beperking voor het aantal mediabestanden per tijdseenheid instellen tussen 1 en 20. Als het aantal records in uw partij bijvoorbeeld 100 is, en u stelt de beperking in op 20, dan moet Wikimedia Commons 5 achtergrondtaken uitvoeren om uw volledige partij te verwerken. De tijd tussen iedere achtergrondtaak kan variëren, afhankelijk van hoe druk de server is.  Wij verwachten dat op Wikimedia Commons tenminste iedere vijf minuten een achtergrondtaak van GWToolset kan draaien.',
+	'gwtoolset-mediawiki-template-does-not-exist' => 'De MediaWikisjabloon "<strong>$1</strong>" bestaat niet in deze wiki.
+
+Importeer het sjabloon of selecteer een andere MediaWikisjabloon die gebruikt wordt voor de toewijzing.',
+	'gwtoolset-mediawiki-template-not-found' => 'MediaWikisjabloon "$1" niet gevonden.',
+	'gwtoolset-metadata-file-source' => 'Select het metadatabestand voor de bron.',
+	'gwtoolset-metadata-file-source-info' => '... een bestand dat eerder is geüpload of een bestand dat u wilt uploaden van uw computer.',
+	'gwtoolset-metadata-file-url' => 'Wiki-URL voor metadatabestand:',
+	'gwtoolset-metadata-file-upload' => 'Metadatabestand uploaden:',
+	'gwtoolset-metadata-mapping-bad' => 'Er is een probleem met de toewijzing van de metadata. Het is waarschijnlijk dat de JSON-opmaak onjuist is. Probeer de fout te corrigeren en sla daarna het formulier opnieuw op.', # Fuzzy
+	'gwtoolset-metadata-mapping-invalid-url' => 'De opgegeven URL voor de metadatatoewijzing komt niet overeen met het verwachte URL-pad voor de toewijzing.
+
+* Opgegeven URL: $1
+* Verwachte URL: $2',
+	'gwtoolset-metadata-mapping-not-found' => 'Er is geen metadatatoewijzing gevonden.
+
+De pagina "<strong>$1<strong>" bestaat niet in de wiki.',
+	'gwtoolset-namespace-mismatch' => 'De pagina "<strong>$1<strong>" staat in de verkeerde naamruimte "<strong>$2<strong>".
+
+Deze hoort in de naamruimte "<strong>$3<strong>" te staan.',
+	'gwtoolset-no-xml-element-found' => 'Er is geen XML-element gevonden voor de toewijzing.
+* Hebt u een waarde ingevoerd in het formulier voor "{{int:gwtoolset-record-element-name}}"?
+* Is het XML-bestand correct opgemaakt? Probeer deze [$1 XML-validator].
+$2',
+	'gwtoolset-page-title-contains-url' => 'De pagina "$1" bevat de volldige wiki-URL. Zorg ervoor dat u alleen de paginanaam opgeeft, het deel van de URL na "<code>/wiki/</code>".',
+	'gwtoolset-record-element-name' => 'Wat het het XML-element dat ieder metadatarecord bevat:',
 	'gwtoolset-step-1-heading' => 'Stap 1: Metadata detecteren',
+	'gwtoolset-step-1-instructions-1' => 'Het proces voor het upload van de metadata bestaat uit vier stappen:',
+	'gwtoolset-step-1-instructions-3-heading' => 'Witte lijst met domeinen',
+	'gwtoolset-step-1-instructions-li-1' => 'Metadatadetectie',
+	'gwtoolset-step-1-instructions-li-2' => 'Metadatatoewijzing',
+	'gwtoolset-step-1-instructions-li-3' => 'Voorvertoning partij',
 	'gwtoolset-step-1-instructions-li-4' => 'Massale upload',
+	'gwtoolset-upload-legend' => 'Upload uw metadatabestand',
+	'gwtoolset-which-mediawiki-template' => 'Welke MediaWikisjabloon:',
+	'gwtoolset-which-metadata-mapping' => 'Welke metadatatoewijzing:',
+	'gwtoolset-xml-error' => 'Het XML-bestand kon niet geladen worden. Corrigeer de onderstaande problemen.',
+	'gwtoolset-categories' => 'Voer categorieen in, gescheiden door het teken "|".',
 	'gwtoolset-category' => 'Categorie',
+	'gwtoolset-create-mapping' => '$1: Metadatatoewijzing voor $2.',
+	'gwtoolset-example-record' => 'Inhoud van een voorbeeldrecord met metadata.',
 	'gwtoolset-global-categories' => 'Globale categorieën',
+	'gwtoolset-global-tooltip' => 'Deze categorieën worden toegewezen aan alle geüploade items.',
+	'gwtoolset-maps-to' => 'Toegewezen aan',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'De bestandsextensie kon niet worden vastgesteld op basis van de bestands-URL: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'De mediawiki-URL kon niet worden verwerkt. De URL levert inhoud op een wijze die nog niet verwerkt kan worden door deze uitbreiding, of er was een probleem met het HTTP-verzoek. De opgegeven URL is "$1". HTTP-verzoekfout "$2".',
+	'gwtoolset-mapping-no-title' => 'De metadatatoewijzing bevat geen naam. Dit is nodig om de pagina aan te maken.',
+	'gwtoolset-mapping-no-title-identifier' => 'De metadatatoewijzing bevat geen naam-ID, dat wordt gebruikt om een unieke paginanaam te maken. Zorg ervoor dat u een metadataveld toewijst aan de parameter "title identifier" van de MediaWikisjabloon.',
+	'gwtoolset-metadata-field' => 'Metadataveld',
+	'gwtoolset-metadata-file' => 'Metadatabestand',
+	'gwtoolset-metadata-mapping-legend' => 'Uw metadata toewijzen',
 	'gwtoolset-no-more-records' => '<strong>Geen records meer te verwerken</strong>',
 	'gwtoolset-painted-by' => 'Geschilderd door',
 	'gwtoolset-partner' => 'Partner',
+	'gwtoolset-partner-explanation' => 'Partnersjablonen worden toegevoegd aan het bronveld van de MediaWikisjabloon als deze is opgegeven. U vindt een lijst met huidige partnersjablonen op de pagina van de categorie [[:Category:Source templates|bronsjablonen]]. Zodra u  de partnersjabloon die u wenst te gebruiken hebt gevonden, plaats u de URL in dit veld. U kunt eventueel ook een nieuwe partnersjabloon maken.', # Fuzzy
 	'gwtoolset-partner-template' => 'Partnersjabloon:',
+	'gwtoolset-phrasing' => 'Frasering',
+	'gwtoolset-preview' => 'Voorvertoning partij',
+	'gwtoolset-process-batch' => 'Partij verwerken',
+	'gwtoolset-record-count' => 'Totaal aantal records in dit metadatabestand: {{PLURAL:$1|$1}}.',
 	'gwtoolset-results' => 'Resultaten',
 	'gwtoolset-step-2-heading' => 'Stap 2: Metadata toewijzen',
 	'gwtoolset-step-2-instructions-heading' => 'Metadatavelden koppelen',
@@ -3597,7 +3689,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Okänt fel.',
 	'gwtoolset-accepted-file-types' => 'Accepterade fil{{PLURAL:$1|typ|typer}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Kontrollera att XML-filen är välformad med detta $1.',
-	'gwtoolset-file-url-invalid' => 'URL-filen var ogiltigt; Filen finns ännu inte på wikin. Du måste först ladda upp filen från din dator om du vill använda filens URL-referens i formuläret.',
+	'gwtoolset-file-url-invalid' => 'URL-filen var ogiltigt; Filen finns ännu inte på wikin. Du måste först ladda upp filen från din dator om du vill använda filens URL-referens i formuläret.', # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Mediefilsreglage:',
 	'gwtoolset-mediafile-throttle-description' => 'Efter förhandsvisningen av batchen, i steg 3, laddar GWToolset upp de kvarvarande posterna i din batch-uppladdning genom bakgrundsjobb. Mediefilsreglaget kontrollerar antalet mediefilförfrågningar Wikimeida Commons gör mot din mediefilserver var gång ett bakgrundsjobb körs. Du kan sätta mediefilsreglaget till ett värde mellan 1 och 20. Till exempel, om det totala antalet poster i din batch-uppladning är 100 och du sätter ditt reglage till 20, kör Wikimedia Commons 5 bakgrundsjobb för att behandla hela din batch-uppladdning. Tiden mellan vart bakgrundsjobb varierar beroende på serverbelastning och konfigureringar; vi räknar med att det på Wikimedia Commons kommer att köras ett bakgrundsjobb för GWToolset åtminstone var 5:e minut.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallen "<strong>$1</strong>" existerar inte på wikin.
@@ -3625,7 +3717,7 @@ Den borde vara i namnrymden "<strong>$3<strong>".',
 * Angav du ett värde i formuläret för "{{int:gwtoolset-record-element-name}}"?
 * Är XML-filen välformaterad? Pröva följande [$1 XML-validator].
 $2',
-	'gwtoolset-page-title-contains-url' => 'Sidan "$1" innehåller hela wiki-URL:en. Se till att du enbart anger sidtiteln, dvs. den delen av URL:en som kommer efter /wiki/',
+	'gwtoolset-page-title-contains-url' => 'Sidan "$1" innehåller hela wiki-URL:en. Se till att du enbart anger sidtiteln, dvs. den delen av URL:en som kommer efter <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'Vilket är XML-elementet som innehåller var metadatapost:',
 	'gwtoolset-step-1-heading' => 'Steg 1: Känna igen metadata',
 	'gwtoolset-step-1-instructions-1' => 'Uppladdningsprocessen för metadata består av 4 steg:',
@@ -3658,7 +3750,7 @@ att din mediefil-domän vitlistas på Wikimedia Commons. Vitlistan är en lista 
 	'gwtoolset-no-more-records' => '<strong>Inga fler poster att bearbeta</strong>',
 	'gwtoolset-painted-by' => 'Målad av',
 	'gwtoolset-partner' => 'Partner',
-	'gwtoolset-partner-explanation' => 'Partner-mallar stoppas in källfältet i MediaWiki-mallen om angivna. Du hittar en lista över aktuella partner-mallar på Category:Source templates sidan; se länken nedan. När du har hittat den partner-mall di önskar använda ange URL:en till den i detta fältet. Du kan även skapa en ny partner-mall vid behov.',
+	'gwtoolset-partner-explanation' => 'Partner-mallar stoppas in källfältet i MediaWiki-mallen om angivna. Du hittar en lista över aktuella partner-mallar på Category:Source templates sidan; se länken nedan. När du har hittat den partner-mall di önskar använda ange URL:en till den i detta fältet. Du kan även skapa en ny partner-mall vid behov.', # Fuzzy
 	'gwtoolset-partner-template' => 'Mall för partner:',
 	'gwtoolset-phrasing' => 'Frasering',
 	'gwtoolset-preview' => 'Förhandsgranska batch',
@@ -3842,7 +3934,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Невідома помилка.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|1=Допустимий тип файлу|Допустимі типи файлу}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
-	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
+	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.", # Fuzzy
 	'gwtoolset-mediafile-throttle' => 'Обмеження медіафайлу:',
 	'gwtoolset-mediafile-throttle-description' => 'Обмеження контролює навантаження Вікісховища, яке буде покладене на ваш медіа-сервер під час пакетного завантаження. Ви можете встановити обмеження у межах 1-20, де число відповідає вибраному числу медіазапитів за хвилину.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Шаблон Медіавікі "<strong>$1</strong>" не існує у цій вікі.
@@ -3871,7 +3963,7 @@ $1.',
 * Ви ввели значення у формі для "{{int:gwtoolset-record-element-name}}"?
 * Файл XML вірно сформований? Спробуйте цей [$1 XML validator].
 $2',
-	'gwtoolset-page-title-contains-url' => 'Сторінка "$1" містить URL усієї вікі. Переконайтеся, що ви ввели заголовок сторінки, наприклад частина URL після  /wiki/',
+	'gwtoolset-page-title-contains-url' => 'Сторінка "$1" містить URL усієї вікі. Переконайтеся, що ви ввели заголовок сторінки, наприклад частина URL після  <code>/wiki/</code>',
 	'gwtoolset-record-element-name' => 'Який елемент XML, що містить кожен запис метаданих:',
 	'gwtoolset-step-1-heading' => 'Крок 1: виявлення метаданих',
 	'gwtoolset-step-1-instructions-1' => 'Процес завантаження метаданих складається з 4 кроків:',
@@ -3903,7 +3995,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Немає більше записів для оброблення</strong>',
 	'gwtoolset-painted-by' => 'Намальовано',
 	'gwtoolset-partner' => 'Партнер',
-	'gwtoolset-partner-explanation' => 'Шаблони партнерів беруться у поле джерела шаблону Медіавікі, коли це передбачено. Ви можете знайти список поточних шаблонів партнера на сторінці Категорія:Шаблони джерела; див. посилання нижче. Як тільки ви знайшли партнера шаблон, який ви хочете використовувати, розмістіть URL-адресу в цьому полі. Ви також можете створити новий шаблон партнера за необхідності.',
+	'gwtoolset-partner-explanation' => 'Шаблони партнерів беруться у поле джерела шаблону Медіавікі, коли це передбачено. Ви можете знайти список поточних шаблонів партнера на сторінці Категорія:Шаблони джерела; див. посилання нижче. Як тільки ви знайшли партнера шаблон, який ви хочете використовувати, розмістіть URL-адресу в цьому полі. Ви також можете створити новий шаблон партнера за необхідності.', # Fuzzy
 	'gwtoolset-partner-template' => 'Шаблон партнера:',
 	'gwtoolset-phrasing' => 'Формулювання',
 	'gwtoolset-preview' => 'Пакетний перегляд',
@@ -3954,10 +4046,10 @@ $2',
 	'gwtoolset-required-group' => 'Ви не учасник групи $1.',
 	'gwtoolset-verify-api-enabled' => 'Розширення $1 вимагає увімкненої API вікі.
 
-Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.',
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.', # Fuzzy
 	'gwtoolset-verify-api-writeable' => 'Розширення $1 вимагає, аби API вікі могла виконувати дію писання для авторизованих користувачів.
 
-Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.',
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.', # Fuzzy
 	'gwtoolset-verify-curl' => 'Розширення $1 потребує, аби PHP [http://www.php.net/manual/en/curl.setup.php cURL функції] були встановлені.',
 	'gwtoolset-verify-finfo' => 'Розширення $1 Extension вимагає, щоби розширення PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] було встановлене.',
 	'gwtoolset-verify-php-version' => 'Розширення $1 потребує PHP версії >= 5.3.3.',
