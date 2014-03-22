@@ -1484,7 +1484,7 @@ $2',
 * <code>post_max_size</code>: $2
 این‌ها کمتر از <code>$wgMaxUploadSize</code> ویکی تنظیم شده‌اند، که در "$3" تنظیم شده‌است. لطفاً برای صحت تنظیمات <code>php.ini</code> را تنظیم کنید.',
 	'gwtoolset-mediawiki-version-invalid' => 'گستره نیازمند نسخهٔ $1<br /> مدیاویکی است،این نسخهٔ مدیاویکی $2 است.',
-	'gwtoolset-permission-not-given' => 'مطمئن شوید که شما وارد شده‌اید یا برای تایید مجوز برای مشاهدهٔ‌ این صفحه ($1)، با سرپرست تماس بگیرید.',
+	'gwtoolset-permission-not-given' => 'مطمئن شوید که شما وارد شده‌اید یا برای تأیید مجوز برای مشاهدهٔ‌ این صفحه ($1)، با سرپرست تماس بگیرید.',
 	'gwtoolset-user-blocked' => 'حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.',
 	'gwtoolset-required-group' => 'شما عضو گروه $1 نیستید.',
 	'gwtoolset-verify-api-enabled' => 'گسترهٔ $1 نیازمند این است که ای‌پی‌آی ویکی فعال شود.
@@ -2153,8 +2153,10 @@ $2',
 
 /** Hindi (हिन्दी)
  * @author Adithyavr
+ * @author Wikiuser13
  */
 $messages['hi'] = array(
+	'gwtoolset-no-accepted-types' => 'कोई स्वीकृत प्रकार प्रदान की।',
 	'gwtoolset-step-1-instructions-3' => 'यदि आपकी मीडिया फ़ाइल डोमेन के नीचे सूचीबद्ध नहीं है, कृपया [ $1  अनुरोध] कि आपके मीडिया फ़ाइल डोमेन विकिमीडिया कॉमन्स डोमेन श्वेत सूची करने के लिए जोड़ा जा सकता। विकिमीडिया कॉमन्स के खिलाफ जाँच करता डोमेन की एक सूची डोमेन श्वेतसूची है मीडिया फ़ाइलें ला रहा है से पहले। यदि आपकी मीडिया फ़ाइल डोमेन उस सूची में नहीं है, विकिमीडिया कॉमन्स उस डोमेन से मीडिया फ़ाइलें डाउनलोड नहीं करेगा। सबसे अच्छा उदाहरण में आपके अनुरोध, प्रस्तुत करने के लिए, कोई मीडिया फ़ाइल के लिए एक वास्तविक कड़ी है।',
 );
 
@@ -2875,7 +2877,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Непозната грешка.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Прифатен податотечен тип|Прифатени податотечни типови}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Проверете дали XML-податотеката е добро срочена со овој $1.',
-	'gwtoolset-file-url-invalid' => 'Податотеката има неважчеки URL. Таа сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.', # Fuzzy
+	'gwtoolset-file-url-invalid' => 'Податотеката сè уште не постои на викито. Ќе треба прво да ја подигнете од сметачот ако сакате во образецот да користите навод за нејзиниот податотечен URL.',
 	'gwtoolset-mediafile-throttle' => 'Делотворност:',
 	'gwtoolset-mediafile-throttle-description' => 'По пакетниот пеглед, во чекор 3, GWToolset ги подига преостанатите записи преку позадински задачи. Делотворноста го контролира бројот на податотеки што Ризницата ќе ги подига (постава барања) на опслужвачот во дадена задача. Можете да зададете број од 1 до 20. На пример, ако во пакетното подигање сакате да подигнете вкупно 100 податотеки, а укажете делотворност 20, тоа значи дека Ризницата ќе пушти 5 позадински задачи за да го подигне целиот пакет. Временското растојание помеѓу секоја пакетна задача зависи од оптовареноста на опслужувачот и поставките. Очекуваме ова да биде барем на секои 5 минути.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'МедијаВики-шаблонот „<strong>$1</strong>“ не постои на викито.
@@ -2935,7 +2937,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Повеќе нема записи за обработка</strong>',
 	'gwtoolset-painted-by' => 'Насликано од',
 	'gwtoolset-partner' => 'Партнер',
-	'gwtoolset-partner-explanation' => 'Партнерските шаблони се преземаат и ставаат во полето за извор во МедијаВики-шаблонот, кога ги има. Список на тековни партнерски шаблони ќе најдете во страницата за шаблони за извори (погл. врската подолу). Штом имате партнерски шаблон што сакате да го употребите, во ова поле ставете ја неговата URL-адреса. Можете да создадете и нов партнерски шаблон, ако има потреба.', # Fuzzy
+	'gwtoolset-partner-explanation' => 'Партнерските шаблони се преземаат и ставаат во полето за извор во МедијаВики-шаблонот, кога ги има. Список на тековни партнерски шаблони ќе најдете во во категоријата [[:Category:Source templates|за шаблони за извори]] (погл. врската подолу). Штом имате партнерски шаблон што сакате да го употребите, во ова поле ставете ја неговата URL-адреса. Можете да создадете и нов партнерски шаблон, ако има потреба.',
 	'gwtoolset-partner-template' => 'Партнерски шаблон:',
 	'gwtoolset-phrasing' => 'Израз',
 	'gwtoolset-preview' => 'Прегледајте го пакетот',
@@ -3335,7 +3337,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Onbekende fout.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Aanvaard bestandstype|Aanvaarde bestandstypen}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Zorg ervoor dat het XML-bestand correct is opgemaakt met deze $1',
-	'gwtoolset-file-url-invalid' => 'De bestands-URL was ongeldig. Het bestand bestaat niet in de wiki. U moet het bestand eerst uploaden vanaf uw computer als u in het formulier de URL-referentie wilt gebruiken.', # Fuzzy
+	'gwtoolset-file-url-invalid' => 'Het bestand bestaat niet in de wiki. U moet het bestand eerst uploaden vanaf uw computer als u in het formulier de URL-referentie wilt gebruiken.',
 	'gwtoolset-mediafile-throttle' => 'Beperking mediabestanden per tijdseenheid:',
 	'gwtoolset-mediafile-throttle-description' => 'Na het controleren van de partij in stap 3, uploadt GWToolset de resterende records in de achtergrond. De beperking voor het aantal mediabestanden per tijdseenheid bepaalt het aantal mediabestandsverzoeken dat Wikimedia Commons maakt naar uw mediaserver tijdens het uitvoeren van een taak in de achtergrond. U kunt de beperking voor het aantal mediabestanden per tijdseenheid instellen tussen 1 en 20. Als het aantal records in uw partij bijvoorbeeld 100 is, en u stelt de beperking in op 20, dan moet Wikimedia Commons 5 achtergrondtaken uitvoeren om uw volledige partij te verwerken. De tijd tussen iedere achtergrondtaak kan variëren, afhankelijk van hoe druk de server is.  Wij verwachten dat op Wikimedia Commons tenminste iedere vijf minuten een achtergrondtaak van GWToolset kan draaien.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'De MediaWikisjabloon "<strong>$1</strong>" bestaat niet in deze wiki.
@@ -3361,7 +3363,7 @@ Deze hoort in de naamruimte "<strong>$3<strong>" te staan.',
 * Hebt u een waarde ingevoerd in het formulier voor "{{int:gwtoolset-record-element-name}}"?
 * Is het XML-bestand correct opgemaakt? Probeer deze [$1 XML-validator].
 $2',
-	'gwtoolset-page-title-contains-url' => 'De pagina "$1" bevat de volldige wiki-URL. Zorg ervoor dat u alleen de paginanaam opgeeft, het deel van de URL na "<code>/wiki/</code>".',
+	'gwtoolset-page-title-contains-url' => 'De pagina "$1" bevat de volledige wiki-URL. Zorg ervoor dat u alleen de paginanaam opgeeft, het deel van de URL na "<code>/wiki/</code>".',
 	'gwtoolset-record-element-name' => 'Wat het het XML-element dat ieder metadatarecord bevat:',
 	'gwtoolset-step-1-heading' => 'Stap 1: Metadata detecteren',
 	'gwtoolset-step-1-instructions-1' => 'Het proces voor het upload van de metadata bestaat uit vier stappen:',
@@ -3391,7 +3393,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Geen records meer te verwerken</strong>',
 	'gwtoolset-painted-by' => 'Geschilderd door',
 	'gwtoolset-partner' => 'Partner',
-	'gwtoolset-partner-explanation' => 'Partnersjablonen worden toegevoegd aan het bronveld van de MediaWikisjabloon als deze is opgegeven. U vindt een lijst met huidige partnersjablonen op de pagina van de categorie [[:Category:Source templates|bronsjablonen]]. Zodra u  de partnersjabloon die u wenst te gebruiken hebt gevonden, plaats u de URL in dit veld. U kunt eventueel ook een nieuwe partnersjabloon maken.', # Fuzzy
+	'gwtoolset-partner-explanation' => 'Partnersjablonen worden toegevoegd aan het bronveld van de MediaWikisjabloon als deze is opgegeven. U vindt een lijst met huidige partnersjablonen op de pagina van de categorie [[:Category:Source templates|bronsjablonen]]. Zodra u  de partnersjabloon die u wenst te gebruiken hebt gevonden, plaats u de URL in dit veld. U kunt eventueel ook een nieuwe partnersjabloon maken.',
 	'gwtoolset-partner-template' => 'Partnersjabloon:',
 	'gwtoolset-phrasing' => 'Frasering',
 	'gwtoolset-preview' => 'Voorvertoning partij',
@@ -3473,6 +3475,13 @@ $messages['ps'] = array(
 	'gwtoolset-save' => 'خوندي کول',
 	'gwtoolset-category' => 'وېشنيزه',
 	'gwtoolset-results' => 'پايلې',
+);
+
+/** Portuguese (português)
+ * @author Imperadeiro98
+ */
+$messages['pt'] = array(
+	'gwtoolset-save-mapping-failed' => 'Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
