@@ -2743,6 +2743,7 @@ $messages['lb'] = array(
 	'gwtoolset-json-error-unknown' => 'Onbekannte Feeler.',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-Schabloun "$1" net fonnt.',
 	'gwtoolset-metadata-file-url' => 'Wiki-URL vum Metadata-Fichier:',
+	'gwtoolset-categories' => 'Gitt Kategorien an, trennt se mam Pipe-Symbol ("|").',
 	'gwtoolset-category' => 'Kategorie',
 	'gwtoolset-global-categories' => 'Global Kategorien',
 	'gwtoolset-global-tooltip' => 'Dës Kategorie gi global fir all eropgelueden Elementer applizéiert.',
@@ -3565,6 +3566,11 @@ $messages['ru'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
+	'gwtoolset-no-accepted-types' => 'Nae acceptit types providit.',
+	'gwtoolset-file-interpretation-error' => 'Thaur wis ae proablem processin the metadata file.',
+	'gwtoolset-save-mapping-failed' => 'Sairrie. Thaur wis ae proablem processin yer request. Please gie it anither gae later. Mistak message: $1.',
+	'gwtoolset-file-url-invalid' => 'The file disna yet exeest in the wiki. Ye first need tae uplaid the file fae yer computer gif ye want tae uise the file URL referance in the form.',
+	'gwtoolset-mediafile-throttle-description' => 'Efter the batch luikower, in step 3, GWToolset uplaids the remainin records in yer batch uplaid bi wa o backgroond jobs. The mediafile throttle controls the nummer o mediafile requests that Wikimedia Commyns will mak again yer mediafile server ilka time ae backgroond job is rin. Ye can set the mediafile throttle til atween 1-20. Fer example, gif the total nummer o records in yer batch uplaid is 100 n you set the throttle til 20, Wikimedia Commyns will rin 5 backgroond jobs sae aes tae process yr entire batch uplaid. The time atween ilka backgroond uplaid job varies dependin oan server laid n confeeguration. We anteecipate that oan Wikimedia Commyns ae GWToolset backgroond job will rin at least ilka 5 minutes.',
 	'gwtoolset-metadata-mapping-invalid-url' => 'The supplied metadata mapping URL disna match the expected mapping URL path.
 
 * Supplied URL: $1
@@ -3573,8 +3579,12 @@ $messages['sco'] = array(
 * Did ye enter ae value in the form fer "{{int:gwtoolset-record-element-name}}"?
 * Is the XML file weel-formed? Gie this ae gae [$1 XML valeedater].
 $2',
+	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Mak sair that ye yinlie enter the page title, e.g. the pairt o the URL efter <code>/wiki/</code>.',
 	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|ye uplaid}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that ye will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
 	'gwtoolset-step-1-instructions-3' => "Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be added til the Wikimedia Commyns domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commyns checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commyns 'll naw doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual link til ae media file.",
+	'gwtoolset-categories' => 'Enter categeries separatit bi ae pipe chairacter ("|").',
+	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL coudna be evaluated. The URL delivers the content in ae waa that isna yet haunled bi this extension or thaur wis aen HTTP request issue. The URL gien wis "$1". HTTP request mistak "$2".',
+	'gwtoolset-partner-explanation' => "Pairtner templates ar pulled intil the soorce field o the MediaWiki template whan providit. Ye can fynd ae leet o nou pairtner templates in the categerie [[:Category:Source templates|soorce templates]]. Yince ye'v foond the pairtner template that ye wish tae uise pit the URL fer it in this field. Forby ye can cræft ae new pairtner template gif need be.",
 	'gwtoolset-title-bad' => 'The title, that wis cræftit based oan the metadata n the MediaWiki template mappin, isna valid.
 
 Try anither field fae the metadata fer title n title-identifier, or gif possible, chynge the metadata whaur needed. See [https://commons.wikimedia.org/wiki/Commons:File_naming File naming] fer mair information.
