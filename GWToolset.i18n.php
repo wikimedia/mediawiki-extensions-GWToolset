@@ -1524,6 +1524,7 @@ Katso [php.net/manual/en/datetime.formats.relative.php PHP-käsikirjasta] miten 
 	'gwtoolset-fsfile-empty' => 'Tiedosto oli tyhjä ja poistettiin.',
 	'gwtoolset-fsfile-retrieval-failure' => 'Tiedostoa ei voitu hakea URL-osoitteesta $1 .',
 	'gwtoolset-ignorewarnings' => '<code>ignorewarnings</code> ei ole asetettu.',
+	'gwtoolset-job-throttle-exceeded' => 'Eräajon rajoitukset ylittyivät.',
 	'gwtoolset-no-accepted-types' => 'Ei ole annettu hyväksyttyä tyyppiä.',
 	'gwtoolset-no-comment' => "<code>user_options['comment']</code> ei ole asetettu.",
 	'gwtoolset-no-default' => 'Oletusarvoa ei ole annettu.',
@@ -1597,7 +1598,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Tuntematon virhe.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Hyväksytty tiedostotyyppi|Hyväksytyt tiedostotyypit}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Varmista, että XML-tiedosto on hyvin muodostettu tämän $1 kanssa.',
-	'gwtoolset-file-url-invalid' => 'Tiedoston URL-osoite oli virheellinen: tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viittausta lomakkeella.', # Fuzzy
+	'gwtoolset-file-url-invalid' => 'Tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viitettä lomakkeella.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'MediaWiki-mallinetta "<strong>$1</strong>" ei ole Wikimedia Commosissa.
 Tuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.',
 	'gwtoolset-mediawiki-template-not-found' => 'MediaWiki-mallinetta "$1" ei löytynyt.',
@@ -1619,14 +1620,16 @@ Sivua "<strong>$1<strong>" ei ole Wikimedia Commonsissa.',
 
 Sen kuuluisi olla nimiavaruudessa "<strong>$3<strong>".',
 	'gwtoolset-no-xml-element-found' => 'Ei löytynyt määritykseen tarvittavaa XML-elementtiä.
-* Syötitkö lomakkeella arvon elementille "{{int:gwtoolset-record-elementti-nimi}}"?
-* Onko XML-tiedosto oikein muotoiltu? Kokeile tätä $1.
-$2', # Fuzzy
+* Syötitkö lomakkeella arvon elementille "{{int:gwtoolset-record-element-name}}"?
+* Onko XML-tiedosto oikein muotoiltu? Kokeile tätä  [$1 XML-validaattoria].
+$2',
 	'gwtoolset-page-title-contains-url' => 'Sivu "$1" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin <code>/wiki/</code> jälkeen',
 	'gwtoolset-record-element-name' => 'Mikä on XML-elementti, joka sisältää kaikki metatietotietueet:',
 	'gwtoolset-step-1-heading' => 'Vaihe 1: Metatietojen tunnistus',
 	'gwtoolset-step-1-instructions-1' => 'Metatietojen latausprosessi koostuu 4 vaiheesta:',
-	'gwtoolset-step-1-instructions-2' => 'Tässä vaiheessa voit ladata uuden metatietotiedoston wikiin. Työkalu yrittää poimia metatietokentiksi käytettävissä metatietoja tiedostosta, jotka sitten yhdistetään MediaWiki-mallineeseen "{{int:gwtoolset-vaihe-2-otsikon}}".', # Fuzzy
+	'gwtoolset-step-1-instructions-2' => 'Tässä vaiheessa voit  {{GENDER:$1|ladata}} uuden metatietotiedoston wikiin. Työkalu yrittää poimia tiedostosta metatietokenttiä yhdistettäväksi MediaWiki-mallineeseen "{{int:gwtoolset-step-2-heading}}".',
+	'gwtoolset-step-1-instructions-3' => 'Jos mediatiedostojesi verkkotunnus ei ole luettelossa, [$1 pyydä] että se lisätään Wikimedia Commonsin hyväksyttyjen verkkotunnusten luetteloon. Haettaessa mediatiedostoja Wikimedia Commons tarkistaa, että verkkotunnus löytyy hyväksyttyjen verkkotunnusten luettelosta. Jos mediatiedostojen verkkotunnus ei ole luettelossa, Wikimedia Commons ei lataa mediatiedostoja kyseisestä verkkotunnuksesta. Paras esimerkki esittäessäsi pyyntöä on linkki olemassaolevaan tiedostoon.',
+	'gwtoolset-step-1-instructions-3-heading' => 'Hyväksyttyjen verkkotunnusten luettelo',
 	'gwtoolset-step-1-instructions-li-1' => 'Metatietojen tunnistaminen',
 	'gwtoolset-step-1-instructions-li-2' => 'Metatietojen määritykset',
 	'gwtoolset-step-1-instructions-li-3' => 'Erän esikatselu',
@@ -1638,6 +1641,19 @@ $2', # Fuzzy
 	'gwtoolset-categories' => 'Anna luokat erotettuna pystyviivalla ("|")',
 	'gwtoolset-category' => 'Luokka',
 	'gwtoolset-create-mapping' => '$1: Luodaan metatietojen määritys käyttäjälle $2.',
+	'gwtoolset-example-record' => 'Metatietojen esimerkkitietueen sisältö',
+	'gwtoolset-global-categories' => 'Globaalit luokat',
+	'gwtoolset-global-tooltip' => 'Näitä luokkia käytetään kaikkiin ladattuihin kohteisiin.',
+	'gwtoolset-mapping-media-file-url-extension-bad' => 'Tiedostopäätettä ei voitu päätellä tiedoston URLin perusteella: $1.',
+	'gwtoolset-mapping-media-file-url-bad' => 'Mediatiedoston URL-osoitetta ei voitu arvioida. URL-osoite tuottaa sisällön niin, ettei tämä laajennus voi vielä käsitellä sitä tai HTTP-pyynnössä oli ongelma. Annettu URL-osoite oli " $1 ". HTTP-pyynnön virhe " $2 ".',
+	'gwtoolset-mapping-no-title' => 'Metatietojen määrityksessä ei ollut otsikkoa. Se vaaditaan sivun luomiseksi.',
+	'gwtoolset-mapping-no-title-identifier' => 'Metatietojen määrityksessä ei ollut otsikon tunnistetta, jota käytetään uniikin sivuotsikon luomiseen. Varmista, että yhdistät metatietokentän MediaWiki-mallineen otsikon tunnisteeseen.',
+	'gwtoolset-metadata-field' => 'Metatietokenttä',
+	'gwtoolset-metadata-file' => 'Metatietotiedosto',
+	'gwtoolset-painted-by' => 'Maalannut',
+	'gwtoolset-partner' => 'Kumppani',
+	'gwtoolset-step-2-heading' => 'Vaihe 2: Metatietojen määrittely',
+	'gwtoolset-step-2-instructions-heading' => 'Metatietokenttien määrittely',
 	'gwtoolset-step-2-instructions-1' => 'Alla on:',
 	'gwtoolset-step-2-instructions-1-li-1' => 'MediaWiki-kenttien luettelo $1 .',
 	'gwtoolset-step-2-instructions-1-li-2' => 'Pudotusvalikon kentät, jotka edustavat metatietokenttiä metatietotiedostossa.',
@@ -1648,6 +1664,7 @@ $2', # Fuzzy
 	'gwtoolset-reupload-media' => 'Lataa media uudelleen palvelimelle URLista',
 	'gwtoolset-reupload-media-explanation' => 'Tämän valintaruudun avulla voit ladata uudelleen median nimikkeelle, joka on jo ladattu wikiin. Jos nimike on jo olemassa, wikiin lisätään uusi mediatiedosto. Jos mediatiedostoa ei vielä ole, se ladataan, oli tämä valintaruutu valittuna tai ei.',
 	'gwtoolset-specific-categories' => 'Nimikekohtaiset luokat',
+	'gwtoolset-specific-tooltip' => 'Seuraavien kenttien avulla voit määritellä (valinnaisen) lauseen ja metatietokentän luokaksi kullekin ladattavalle kohteelle. Esimerkiksi jos metatietotiedostossa on elementti taiteilija kullekin tietueelle, voit lisätä sen luokaksi niin että kukin tietue saa vastaavan arvon. Voit myös lisätä lauseen kuten "<em>{{int:gwtoolset-painted-by}}</em>" ja sen jälkeen metatietokentän taiteilija, joka tuottaa lauseen"<em>{{int:gwtoolset-maalattu-jäseneltä}} <artist name></em>" kullekin tietueelle.',
 	'gwtoolset-template-field' => 'Mallineen kenttä',
 	'gwtoolset-step-3-instructions-heading' => 'Vaihe 3: Erän esikatselu',
 	'gwtoolset-step-3-instructions-3' => 'Jos et ole tyytyväinen tuloksiin, palaa "{{int:gwtoolset-step-2-otsikon}}" ja säädä vastaavuuksia tarvittaessa.
@@ -1658,12 +1675,29 @@ Jos haluat tehdä muutoksia metatietotiedostoon, tee korjaukset ja lataa tiedost
 Kokeile käyttää toista metatietokenttää otsikkona ja otsikon tunnisteena, tai muuta mahdollisuuksien mukaan metatietoja. Lisätietoja [https://commons.wikimedia.org/wiki/Commons:File_naming Tiedostojen nimeäminen].
 
 <strong>Virheellinen otsikko:</strong>$1.',
+	'gwtoolset-batchjob-metadata-creation-failure' => 'Metatietotiedoston eräajoa ei voitu luoda.',
+	'gwtoolset-create-mediafile' => '$1: Luodaan mediatiedosto kohteelle $2.',
 	'gwtoolset-create-prefix' => 'GWTyökalut',
+	'gwtoolset-mediafile-jobs-created' => 'Luotiin $1 mediatiedostojen erä{{PLURAL:$1|ajo|ajoa}}.',
 	'gwtoolset-step-4-heading' => 'Vaihe 4: Massalataus',
 	'gwtoolset-mediawiki-version-invalid' => 'Tämä laajennus edellyttää MediaWikin versiota $1<br />Tämän MediaWikin versio on $2 .',
 	'gwtoolset-permission-not-given' => 'Varmista, että olet kirjautunut sisään tai ota yhteys järjestelmänvalvojaan, jotta sinulle voidaan myöntää lupa nähdä tämä sivu ($1).',
 	'gwtoolset-user-blocked' => 'Tilisi on tällä hetkellä estetty. Pyydä järjestelmänvalvojaa poistamaan esto.',
 	'gwtoolset-required-group' => 'Et ole ryhmän $1 jäsen.',
+	'gwtoolset-verify-api-enabled' => '$1 laajennus vaatii, että API on käytössä.
+
+Varmista, että <code>$wgEnableAPI</code>-asetus on <code>true</code>.',
+	'gwtoolset-verify-api-writeable' => '$1 laajennus vaatii, että wikin API saa kirjoittaa valtuutettujen käyttäjien nimissä.
+
+Varmista, että <code>$wgEnableWriteAPI</code>-asetus on <code>true</code>.',
+	'gwtoolset-verify-curl' => '$1-laajennus vaatii, että PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] on asennettu.',
+	'gwtoolset-verify-finfo' => '$1 vaatii, että PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo]-laajennus on asennettu.',
+	'gwtoolset-verify-php-version' => '$1 laajennus vaatii PHP-version >= 5.3.3.',
+	'gwtoolset-verify-uploads-enabled' => '$1 laajennus vaatii, että tiedostolataukset on sallittu.
+
+Varmista, että <code>$wgEnableUploads</code>-asetus on <code>true</code> <code>LocalSettings.php</code>:ssa.',
+	'gwtoolset-verify-xmlreader' => '$1 vaatii, että PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] on asennettu.',
+	'gwtoolset-wiki-checks-not-passed' => 'Ei läpäissyt wikin tarkistuksia',
 );
 
 /** French (français)
@@ -1778,7 +1812,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Erreur inconnue.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|Type de fichier accepté|Types de fichier acceptés}} :',
 	'gwtoolset-ensure-well-formed-xml' => 'Assurez-vous que le fichier XML est bien formé avec ce $1.',
-	'gwtoolset-file-url-invalid' => 'Le fichier URL était non valide ; ce fichier n’existe pas encore dans le wiki. Vous devez d’abord importer le fichier depuis votre machine si vous voulez utiliser la référence d’URL du fichier dans ce formulaire.', # Fuzzy
+	'gwtoolset-file-url-invalid' => 'Le fichier n’existe pas encore dans le wiki. Vous devez d’abord importer le fichier depuis votre machine si vous voulez utiliser la référence d’URL du fichier dans ce formulaire.',
 	'gwtoolset-mediafile-throttle' => 'Accélérateur de fichier média :',
 	'gwtoolset-mediafile-throttle-description' => 'Après l’aperçu du lot, dans l’étape 3, GWToolset importe les enregistrements restants dans votre import de lot via des traitements en tâche de fond. L’accélérateur de fichier média contrôle le nombre de requêtes de fichiers média que Wikimédia Communs fera à votre serveur de fichiers média chaque fois qu’un traitement en tâche de fond est exécuté. Vous pouvez fixer l’accélérateur de fichiers média entre 1 et 20. Par exemple, si le nombre total d’enregistrements de votre import de lot est de 100 et que vous avez fixé l’accélérateur à 20, Wikimédia Communs fera tourner 5 traitements en tâche de fond pour exécuter l’ensemble de votre import de lot. Le temps entre chaque traitement en tâche de fond dépend de la charge du serveur et de la configuration ; nous avons prévu que sur Wikimédia Communs un traitement en tâche de fond de GWToolset tournera au moins toutes les 5 minutes.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Le modèle MediaWiki "<strong>$1</strong>" n’existe pas dans le wiki.
@@ -1838,7 +1872,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Plus aucun enregistrement à traiter</strong>',
 	'gwtoolset-painted-by' => 'Painted by',
 	'gwtoolset-partner' => 'Partenaire',
-	'gwtoolset-partner-explanation' => 'Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels sur la page Category:Source templates ; voyez le lien ci-dessous. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.', # Fuzzy
+	'gwtoolset-partner-explanation' => 'Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels dans la catégorie [[:Category:Source templates|source templates]]. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.',
 	'gwtoolset-partner-template' => 'Modèle du partenaire :',
 	'gwtoolset-phrasing' => 'Formulation',
 	'gwtoolset-preview' => 'Prévisualiser le lot',
@@ -3349,7 +3383,9 @@ Importeer het sjabloon of selecteer een andere MediaWikisjabloon die gebruikt wo
 	'gwtoolset-metadata-file-source-info' => '... een bestand dat eerder is geüpload of een bestand dat u wilt uploaden van uw computer.',
 	'gwtoolset-metadata-file-url' => 'Wiki-URL voor metadatabestand:',
 	'gwtoolset-metadata-file-upload' => 'Metadatabestand uploaden:',
-	'gwtoolset-metadata-mapping-bad' => 'Er is een probleem met de toewijzing van de metadata. Het is waarschijnlijk dat de JSON-opmaak onjuist is. Probeer de fout te corrigeren en sla daarna het formulier opnieuw op.', # Fuzzy
+	'gwtoolset-metadata-mapping-bad' => 'Er is een probleem met de toewijzing van de metadata. Het is waarschijnlijk dat de JSON-opmaak onjuist is. Probeer de fout te corrigeren en sla daarna het formulier opnieuw op.
+
+$1',
 	'gwtoolset-metadata-mapping-invalid-url' => 'De opgegeven URL voor de metadatatoewijzing komt niet overeen met het verwachte URL-pad voor de toewijzing.
 
 * Opgegeven URL: $1
@@ -3418,6 +3454,7 @@ $2',
 	'gwtoolset-create-prefix' => 'GWToolset',
 	'gwtoolset-required-group' => 'U bent geen lid van de groep $1.',
 	'gwtoolset-verify-php-version' => 'De uitbreiding $1 vereist PHP 5.3.3 of hoger.',
+	'gwtoolset-wiki-checks-not-passed' => 'De wikicontroles zijn niet geslaagd',
 );
 
 /** Occitan (occitan)
@@ -3953,7 +3990,7 @@ $1',
 	'gwtoolset-json-error-unknown' => 'Невідома помилка.',
 	'gwtoolset-accepted-file-types' => '{{PLURAL:$1|1=Допустимий тип файлу|Допустимі типи файлу}}:',
 	'gwtoolset-ensure-well-formed-xml' => 'Переконайтеся, що файл XML — вірно сформований з цим  $1.',
-	'gwtoolset-file-url-invalid' => "URL-адреса файлу хибна. Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.", # Fuzzy
+	'gwtoolset-file-url-invalid' => "Файл ще не існує в вікі. Ви повинні спочатку завантажити файл з комп'ютера, якщо потрібно використати посилання на URL-адресу файлу у формі.",
 	'gwtoolset-mediafile-throttle' => 'Обмеження медіафайлу:',
 	'gwtoolset-mediafile-throttle-description' => 'Обмеження контролює навантаження Вікісховища, яке буде покладене на ваш медіа-сервер під час пакетного завантаження. Ви можете встановити обмеження у межах 1-20, де число відповідає вибраному числу медіазапитів за хвилину.',
 	'gwtoolset-mediawiki-template-does-not-exist' => 'Шаблон Медіавікі "<strong>$1</strong>" не існує у цій вікі.
@@ -4014,7 +4051,7 @@ $2',
 	'gwtoolset-no-more-records' => '<strong>Немає більше записів для оброблення</strong>',
 	'gwtoolset-painted-by' => 'Намальовано',
 	'gwtoolset-partner' => 'Партнер',
-	'gwtoolset-partner-explanation' => 'Шаблони партнерів беруться у поле джерела шаблону Медіавікі, коли це передбачено. Ви можете знайти список поточних шаблонів партнера на сторінці Категорія:Шаблони джерела; див. посилання нижче. Як тільки ви знайшли партнера шаблон, який ви хочете використовувати, розмістіть URL-адресу в цьому полі. Ви також можете створити новий шаблон партнера за необхідності.', # Fuzzy
+	'gwtoolset-partner-explanation' => 'Шаблони партнерів беруться у поле джерела шаблону Медіавікі, коли це передбачено. Ви можете знайти список поточних шаблонів партнера на сторінці Категорія [[:Category:Source templates|шаблони джерела]].  Як тільки ви знайшли партнера шаблон, який ви хочете використовувати, розмістіть URL-адресу в цьому полі. Ви також можете створити новий шаблон партнера за необхідності.',
 	'gwtoolset-partner-template' => 'Шаблон партнера:',
 	'gwtoolset-phrasing' => 'Формулювання',
 	'gwtoolset-preview' => 'Пакетний перегляд',
@@ -4065,10 +4102,10 @@ $2',
 	'gwtoolset-required-group' => 'Ви не учасник групи $1.',
 	'gwtoolset-verify-api-enabled' => 'Розширення $1 вимагає увімкненої API вікі.
 
-Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.', # Fuzzy
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code>.',
 	'gwtoolset-verify-api-writeable' => 'Розширення $1 вимагає, аби API вікі могла виконувати дію писання для авторизованих користувачів.
 
-Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code> у файлі  <code>DefaultSettings.php</code> або переписано на <code>true</code> у файлі <code>LocalSettings.php</code>.', # Fuzzy
+Переконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code>.',
 	'gwtoolset-verify-curl' => 'Розширення $1 потребує, аби PHP [http://www.php.net/manual/en/curl.setup.php cURL функції] були встановлені.',
 	'gwtoolset-verify-finfo' => 'Розширення $1 Extension вимагає, щоби розширення PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] було встановлене.',
 	'gwtoolset-verify-php-version' => 'Розширення $1 потребує PHP версії >= 5.3.3.',
@@ -4197,6 +4234,7 @@ $1',
 	'gwtoolset-sha1-does-not-match' => 'SHA-1无法匹配。',
 	'gwtoolset-file-is-empty' => '上传的文件是空的。',
 	'gwtoolset-improper-upload' => '未正确上传文件。',
+	'gwtoolset-missing-temp-folder' => '没有临时文件夹可用。',
 	'gwtoolset-no-file' => '没有收到文件。',
 	'gwtoolset-php-extension-error' => '一个PHP拓展阻止了文件上传。PHP无法确定哪个PHP拓展致使上传被阻止。请测试所有拓展中的<code>phpinfo()</code>部分以获取帮助。',
 	'gwtoolset-unaccepted-mime-type' => '上传的文件被认定拥有MIME格式“$1”，目前尚不支持此种MIME格式。',
