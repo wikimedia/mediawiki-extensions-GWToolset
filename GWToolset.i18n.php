@@ -1218,7 +1218,7 @@ Bitte stelle sicher, dass <code>$wgEnableUploads</code> in <code>LocalSettings.p
 $messages['en-gb'] = array(
 	'gwtoolset-verify-api-writeable' => 'The $1 extension requires that the wiki API can perform write actions for authorised users.
 
-Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code> in the <code>DefaultSettings.php</code> file or is overridden to <code>true</code> in the <code>LocalSettings.php</code> file.',
+Please make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>.',
 );
 
 /** Spanish (español)
@@ -3619,7 +3619,7 @@ $messages['sco'] = array(
 $2',
 	'gwtoolset-page-title-contains-url' => 'The page "$1" contains the entire wiki URL. Mak sair that ye yinlie enter the page title, e.g. the pairt o the URL efter <code>/wiki/</code>.',
 	'gwtoolset-step-1-instructions-2' => 'In this step, {{GENDER:$1|ye uplaid}} ae new metadata file til the wiki. The tuil will attempt tae extract the metadata fields available in the metadata file, that ye will then map til ae MediaWiki template in "{{int:gwtoolset-step-2-heading}}".',
-	'gwtoolset-step-1-instructions-3' => "Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be added til the Wikimedia Commyns domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commyns checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commyns 'll naw doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual link til ae media file.",
+	'gwtoolset-step-1-instructions-3' => 'Gif yer media file domain isna leeted ablo, please [$1 request] that yer media file domain be eikit til the Wikimedia Commons domain whiteleet. The domain whiteleet is ae leet o domains that Wikimedia Commons checks again afore fetchin media files. Gif yer media file domain isna oan that leet, Wikimedia Commons will na doonlaid media files fae that domain. The best example, tae haun in wi yer request, is aen actual airtin til ae media file.',
 	'gwtoolset-categories' => 'Enter categeries separatit bi ae pipe chairacter ("|").',
 	'gwtoolset-mapping-media-file-url-bad' => 'The media file URL coudna be evaluated. The URL delivers the content in ae waa that isna yet haunled bi this extension or thaur wis aen HTTP request issue. The URL gien wis "$1". HTTP request mistak "$2".',
 	'gwtoolset-partner-explanation' => "Pairtner templates ar pulled intil the soorce field o the MediaWiki template whan providit. Ye can fynd ae leet o nou pairtner templates in the categerie [[:Category:Source templates|soorce templates]]. Yince ye'v foond the pairtner template that ye wish tae uise pit the URL fer it in this field. Forby ye can cræft ae new pairtner template gif need be.",
