@@ -337,6 +337,8 @@ class Utils {
 	 * @return {string|null}
 	 */
 	public static function sanitizeString( $string, array $options = array() ) {
+		global $wgContLang;
+
 		// is_string thought some form fields were booleans instead of strings
 		if ( !gettype( $string ) === 'string' ) {
 			throw new MWException(
@@ -352,6 +354,8 @@ class Utils {
 		if ( !$result ) {
 			$result = null;
 		}
+
+		$result = $wgContLang->normalize( $result );
 
 		return $result;
 	}
