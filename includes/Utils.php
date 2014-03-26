@@ -8,9 +8,9 @@
  */
 
 namespace GWToolset;
-use
-	Language,
+use Language,
 	MWException,
+	Sanitizer,
 	Title;
 
 class Utils {
@@ -324,11 +324,19 @@ class Utils {
 	}
 
 	/**
+	 * note: FILTER_SANITIZE_STRING may encode quotes, depending on the php.ini
+	 * settings, so if you wish it not to do so, e.g. wiki title, pass in
+	 * $options as array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
+	 *
 	 * @param {string} $string
-	 * @return {string|null}
+	 *
+	 * @param {array} $options
+	 * Filter options
+	 *
 	 * @throws {MWException}
+	 * @return {string|null}
 	 */
-	public static function sanitizeString( $string ) {
+	public static function sanitizeString( $string, array $options = array() ) {
 		// is_string thought some form fields were booleans instead of strings
 		if ( !gettype( $string ) === 'string' ) {
 			throw new MWException(
@@ -339,7 +347,7 @@ class Utils {
 			);
 		}
 
-		$result = filter_var( trim( $string ), FILTER_SANITIZE_STRING );
+		$result = filter_var( trim( $string ), FILTER_SANITIZE_STRING, $options );
 
 		if ( !$result ) {
 			$result = null;
@@ -353,11 +361,15 @@ class Utils {
 	 * it as %20 or replacing it with +
 	 *
 	 * @param {string} $url
+	 *
+	 * @param {array} $options
+	 * Filter options
+	 *
 	 * @return {string|null}
 	 */
-	public static function sanitizeUrl( $url ) {
+	public static function sanitizeUrl( $url, array $options = array() ) {
 		$result = self::sanitizeString( $url );
-		$result = filter_var( $result, FILTER_SANITIZE_URL );
+		$result = filter_var( $result, FILTER_SANITIZE_URL, $options );
 		return $result;
 	}
 
@@ -379,49 +391,19 @@ class Utils {
 	}
 
 	/**
-	 * replaces illegal characters in a title with a replacement character, defaults to ‘-’.
-	 * illegal characters are based on Commons:File_naming and other bad title articles.
-	 * Title::secureAndSplit() allows some of these characters.
-	 *
-	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
-	 * @see http://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(technical_restrictions)
-	 * @see http://www.mediawiki.org/wiki/Help:Bad_title
-	 * @see http://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist
+	 * makes sure that the provided title is a valid wiki title
+	 * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
 	 *
 	 * @param {string} $title
 	 *
-	 * @param {array} $options
-	 *
-	 * @param {boolean} $options['allow-subpage']
-	 * allows for the ‘/’ subpage character
-	 *
-	 * @param {string} $options['replacement']
-	 * the character used to replace illegal characters; defaults to ‘-’
-	 *
-	 * @return {string} the string is not filtered
+	 * @return {string}
+	 * the string is not sanitized
 	 */
-	public static function stripIllegalTitleChars( $title, array $options = array() ) {
-		$option_defaults = array(
-			'allow-subpage' => false,
-			'replacement' => '-'
-		);
+	public static function stripIllegalTitleChars( $title ) {
+		$title = Sanitizer::decodeCharReferences( $title );
+		$title = wfStripIllegalFilenameChars( $title );
 
-		$options = array_merge( $option_defaults, $options );
-
-		$illegal_chars = array(
-			'#','<','>','[',']','|','{','}',':','¬','`','!','"','£','$','^','&','*',
-			'(',')','+','=','~','?',',',Config::$metadata_separator,';',"'",'@'
-		);
-
-		if ( !$options['allow-subpage'] ) {
-			$illegal_chars[] = '/';
-		}
-
-		return str_replace(
-			$illegal_chars,
-			$options['replacement'],
-			$title
-		);
+		return $title;
 	}
 
 }
