@@ -128,10 +128,40 @@ class MediawikiTemplate implements ModelInterface {
 	}
 
 	/**
+	 * creates wiki text for the GWToolset parameters
+	 *
+	 * @todo move this into a GWToolsetTemplate model
+	 *
+	 * @return {string}
+	 * the result is sanitized
+	 */
+	public function getGWToolsetTemplateAsWikiText() {
+		return
+			'<!-- GWToolset Template -->' . PHP_EOL .
+			'{{Uploaded with GWToolset' . PHP_EOL .
+			' | gwtoolset-title-|identifier = ' .
+					Utils::sanitizeString(
+						$this->mediawiki_template_array['gwtoolset-title-identifier']
+					) . PHP_EOL .
+			' | gwtoolset-url-to-the-media-file = ' .
+					Utils::sanitizeString(
+						$this->mediawiki_template_array['gwtoolset-url-to-the-media-file']
+					) . PHP_EOL .
+			'}}'
+		;
+
+	}
+
+	/**
 	 * creates wiki text for a given mediawiki template.
 	 * creates the mediawiki template section of the template.
 	 * this does not include categories, raw metadata, or raw
 	 * mapping information, which are added via other methods.
+	 *
+	 * @todo move the $parameter['gwtoolset-title-identifier']
+	 * and $parameter['gwtoolset-url-to-the-media-file'] out of the
+	 * $this->mediawiki_template_array and into their own
+	 * gwtoolset_template_array
 	 *
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
@@ -139,13 +169,15 @@ class MediawikiTemplate implements ModelInterface {
 	 * @return {string}
 	 * the resulting wiki text is filtered
 	 */
-	public function getTemplate( array &$user_options ) {
+	public function getTemplateAsWikiText( array &$user_options ) {
 		$result = '<!-- Mediawiki Template -->' . PHP_EOL;
 		$sections = null;
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
 
 		foreach ( $this->mediawiki_template_array as $parameter => $content ) {
-			if ( empty( $content ) ) {
+			if ( $parameter === 'gwtoolset-title-identifier'
+				|| $parameter === 'gwtoolset-url-to-the-media-file'
+			) {
 				continue;
 			}
 
@@ -445,8 +477,6 @@ class MediawikiTemplate implements ModelInterface {
 
 		$this->mediawiki_template_json = $result['mediawiki_template_json'];
 		$this->mediawiki_template_array = json_decode( $this->mediawiki_template_json, true );
-
-		ksort( $this->mediawiki_template_array );
 
 		// add aditional mediawiki template fields that the extension needs
 		$this->mediawiki_template_array['gwtoolset-title-identifier'] = null;

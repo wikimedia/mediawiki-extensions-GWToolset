@@ -125,6 +125,7 @@ class UploadHandler {
 	 */
 	protected function addMetadata() {
 		return
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
 			'<!-- Metadata Mapped -->' . PHP_EOL .
 			'<!-- <metadata_mapped_json>' .
 			json_encode( $this->_MediawikiTemplate->mediawiki_template_array ) .
@@ -144,10 +145,11 @@ class UploadHandler {
 	 * the resulting wiki text is filtered
 	 */
 	protected function addGlobalCategories() {
-		$result = null;
+		$result =
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
+			'<!-- Categories -->' . PHP_EOL;
 
 		if ( !empty( $this->user_options['categories'] ) ) {
-			$result .= '<!-- Categories -->' . PHP_EOL;
 			$categories = explode( Config::$category_separator, $this->user_options['categories'] );
 
 			foreach ( $categories as $category ) {
@@ -155,7 +157,7 @@ class UploadHandler {
 						'[[' .
 							Utils::getNamespaceName( NS_CATEGORY ) .
 							Utils::stripIllegalCategoryChars( Utils::sanitizeString( $category ) ) .
-						']]';
+						']]' . PHP_EOL;
 			}
 		}
 
@@ -353,12 +355,15 @@ class UploadHandler {
 	 * @return {string}
 	 * except for the metadata, the resulting wiki text is filtered
 	 */
-	protected function getText() {
+	protected function getWikiText() {
 		return
-			$this->_MediawikiTemplate->getTemplate( $this->user_options ) . PHP_EOL . PHP_EOL .
+			'=={{int:filedesc}}==' . PHP_EOL . PHP_EOL .
+			$this->_MediawikiTemplate->getTemplateAsWikiText( $this->user_options ) .
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
+			$this->_MediawikiTemplate->getGWToolsetTemplateAsWikiText() .
+			$this->addMetadata() .
 			$this->addGlobalCategories() .
-			$this->addItemSpecificCategories() . PHP_EOL . PHP_EOL .
-			$this->addMetadata();
+			$this->addItemSpecificCategories();
 	}
 
 	/**
@@ -457,7 +462,7 @@ class UploadHandler {
 			PHP_EOL .
 			trim( $this->user_options['comment'] );
 
-		$options['text'] = $this->getText();
+		$options['text'] = $this->getWikiText();
 
 		WikiChecks::increaseHTTPTimeout();
 		$this->validatePageOptions( $options );
