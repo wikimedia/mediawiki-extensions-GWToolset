@@ -1,0 +1,30 @@
+{
+    "@metadata": {
+        "authors": [
+            "Chrumps",
+            "Jacenty359",
+            "Rzuwig"
+        ]
+    },
+    "right-gwtoolset": "Używanie GWToolset",
+    "group-gwtoolset": "Użytkownicy GWToolset",
+    "group-gwtoolset-member": "{{GENDER:$1|GWToolset użytkownik}}",
+    "gwtoolset-fsfile-empty": "Plik był pusty i został skasowany.",
+    "gwtoolset-no-page-title": "Nie podano tytułu strony.",
+    "gwtoolset-no-file": "Plik nie został odebrany.",
+    "gwtoolset-partial-upload": "Plik został tylko częściowo przesłany.",
+    "gwtoolset-back-text-link": "← powrót do formularz",
+    "gwtoolset-mediawiki-template": "Szablon $1",
+    "gwtoolset-submit": "Wyślij",
+    "gwtoolset-summary-heading": "Podsumowanie",
+    "gwtoolset-cancel": "Anuluj",
+    "gwtoolset-loading": "Prosimy o cierpliwość. To może zająć trochę czasu.",
+    "gwtoolset-save": "Zapisz",
+    "gwtoolset-json-error-syntax": "Błąd składni, nieprawidłowy format JSON.",
+    "gwtoolset-json-error-unknown": "Nieznany błąd.",
+    "gwtoolset-category": "Kategoria",
+    "gwtoolset-results": "Wyniki",
+    "gwtoolset-create-prefix": "GWToolset",
+    "gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
+    "gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3."
+}

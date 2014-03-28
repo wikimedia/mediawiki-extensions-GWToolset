@@ -1,0 +1,30 @@
+{
+    "@metadata": {
+        "authors": [
+            "Purodha"
+        ]
+    },
+    "gwtoolset": "<i lang=\"en\" xml:lang=\"en\">GWToolset</i>",
+    "gwtoolset-fsfile-empty": "Di Dattei wohr läddesch un es jäz fott jeschmeße.",
+    "gwtoolset-no-comment": "<code>user_options['comment']</code> es nit jasaz.",
+    "gwtoolset-no-mapping": "Keine <code lang=\"en\" xml:lang=\"en\">mapping_name</code> aanjjovve.",
+    "gwtoolset-no-title": "Ed es keine Tettel aanjejovve.",
+    "gwtoolset-disk-write-failure": "Di Dattei lehß sesch nit schpeischere.",
+    "gwtoolset-improper-upload": "Di Dattei es nit öhndlesch huhjelaade woode.",
+    "gwtoolset-back-text-link": "← Jangk retuur noh däm Fommolaa.",
+    "gwtoolset-mediawiki-template": "De Schablohn $1",
+    "gwtoolset-required-field": "Dat Fäld es nüüdesch.",
+    "gwtoolset-submit": "Lohß Jonn!",
+    "gwtoolset-summary-heading": "Zosammejefaß",
+    "gwtoolset-cancel": "Ophüre!",
+    "gwtoolset-save": "Faßhalde",
+    "gwtoolset-json-error-unknown": "Ene Fähler, dä mer nit kenne.",
+    "gwtoolset-step-1-instructions-li-4": "Ene Pöngel huhlaade",
+    "gwtoolset-category": "Saachjropp",
+    "gwtoolset-global-categories": "Jemeinsam Saachjroppe",
+    "gwtoolset-process-batch": "Lohß jonn!",
+    "gwtoolset-results": "Erus jekumme es",
+    "gwtoolset-step-3-instructions-heading": "Schrett 3: Dä Pöngel beloore",
+    "gwtoolset-step-4-heading": "Schrett 4: Ene Pöngel huhlaade",
+    "gwtoolset-verify-php-version": "Dat Zohsazprojramm $1 bruch de Väsjohn 5.3.3 vun PHP, udder hühter."
+}

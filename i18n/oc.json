@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cedric31"
+        ]
+    },
+    "gwtoolset": "GWToolset",
+    "gwtoolset-desc": "GWToolset, una aisina d’impòrt en massa per GLAMs",
+    "right-gwtoolset": "Utilizar GWToolset",
+    "action-gwtoolset": "utilizar gwtoolset",
+    "group-gwtoolset": "Utilizaires de GWToolset",
+    "group-gwtoolset-member": "{{GENDER:$1|Utilizaire|Utilizaira}} de GWToolset",
+    "grouppage-gwtoolset": "{{ns:project}}:Utilizaires de GWToolset",
+    "gwtoolset-batchjob-creation-failure": "Impossible de crear un tractament per lòt de tipe « $1 ».",
+    "gwtoolset-could-not-close-xml": "Impossible de tampar lo lector XML.",
+    "gwtoolset-could-not-open-xml": "Impossible de legir lo fichièr XML.",
+    "gwtoolset-fsfile-empty": "Lo fichièr èra void e es estat suprimit."
+}

@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Fohanno",
+            "Y-M D"
+        ]
+    },
+    "gwtoolset": "GWToolset",
+    "right-gwtoolset": "Implijout GWToolset",
+    "action-gwtoolset": "implijout GWToolset",
+    "group-gwtoolset": "Implijerien GWToolset",
+    "group-gwtoolset-member": "{{GENDER:$1|Implijer GWToolset|Implijerez GWToolset}}",
+    "gwtoolset-could-not-close-xml": "N'eus ket bet gallet serriñ al lenner XML.",
+    "gwtoolset-fsfile-empty": "Goullo e oa ar restr ha dilamet e oa bet.",
+    "gwtoolset-no-default": "N'eus bet pourchaset talvoud dre ziouer ebet.",
+    "gwtoolset-no-field-size": "N'eo ket bet diferet ment ar vaezienn evit ar vaezienn \"$1\".",
+    "gwtoolset-submit": "Kas",
+    "gwtoolset-cancel": "Nullañ",
+    "gwtoolset-save": "Enrollañ",
+    "gwtoolset-json-error-unknown": "Fazi dianav.",
+    "gwtoolset-category": "Rummad",
+    "gwtoolset-partner": "Keveler",
+    "gwtoolset-results": "Disoc'hoù",
+    "gwtoolset-step-2-instructions-1-li-1": "Ur roll eus ar maeziennoù er Mediawiki $1.",
+    "gwtoolset-create-prefix": "GWToolset",
+    "gwtoolset-required-group": "N'oc'h ket un ezel eus ar strollad $1."
+}

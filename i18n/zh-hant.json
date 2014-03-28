@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "EagerLin",
+            "Liuxinyu970226"
+        ]
+    },
+    "action-gwtoolset": "通過gwtoolset",
+    "gwtoolset-unaccepted-mime-type-for-xml": "已確認上載檔案擁有MIME類型「$1」，並且尚無法支援。XML檔案頁頂是否有以下XML位元聲明？\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+    "gwtoolset-mapping-media-file-url-bad": "不能計算該媒體檔案的 URL。該 URL 提供的內容不由該擴展尚未處理的方式，或者是一個 HTTP 要求的問題。給予 URL 是\" $1 \"。HTTP 要求錯誤\" $2 \"",
+    "gwtoolset-step-2-instructions-1": "以下為：",
+    "gwtoolset-required-group": "您並非$1組成員。",
+    "gwtoolset-verify-api-enabled": "$1擴展要求wiki API啟用。請確信於<code>DefaultSettings.php</code>檔案之<code>$wgEnableAPI</code>設定為<code>true</code>或於<code>LocalSettings.php</code>檔案重寫為<code>true</code>。"
+}

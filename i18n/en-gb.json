@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorised users.\n\nPlease make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>."
+}
