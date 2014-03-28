@@ -57,6 +57,6 @@
     "gwtoolset-template-field": "Campo de plantilla",
     "gwtoolset-step-3-instructions-heading": "Paso 3: previsualización del lote",
     "gwtoolset-step-4-heading": "Paso 4: carga del lote",
-    "gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.",
-    "gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3."
+    "gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1\u003Cbr /\u003ELa versión actual de MediaWiki es $2.",
+    "gwtoolset-verify-php-version": "La extensión $1 requiere PHP \u003E= 5.3.3."
 }

@@ -4,5 +4,5 @@
             "Shirayuki"
         ]
     },
-    "gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorised users.\n\nPlease make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>."
+    "gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorised users.\n\nPlease make sure that \u003Ccode\u003E$wgEnableWriteAPI\u003C/code\u003E is set to \u003Ccode\u003Etrue\u003C/code\u003E."
 }

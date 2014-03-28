@@ -14,8 +14,8 @@
     "gwtoolset-could-not-open-xml": "Не удалось открыть XML-файл для чтения.",
     "gwtoolset-fsfile-empty": "Файл был пустым и был удалён.",
     "gwtoolset-fsfile-retrieval-failure": "Не удалось получить файл с URL-адреса $1.",
-    "gwtoolset-ignorewarnings": "<code>ignorewarnings</code>не задано.",
-    "gwtoolset-no-url-to-media": "Не установлен <code>url-to-the-media-file</code>.",
+    "gwtoolset-ignorewarnings": "\u003Ccode\u003Eignorewarnings\u003C/code\u003Eне задано.",
+    "gwtoolset-no-url-to-media": "Не установлен \u003Ccode\u003Eurl-to-the-media-file\u003C/code\u003E.",
     "gwtoolset-file-is-empty": "Загруженный файл пуст.",
     "gwtoolset-improper-upload": "Файл не был загружен правильно.",
     "gwtoolset-missing-temp-folder": "Временная папка недоступна.",
@@ -48,6 +48,6 @@
     "gwtoolset-step-2-heading": "Шаг 2: Сопоставление метаданных",
     "gwtoolset-template-field": "Поле шаблона",
     "gwtoolset-create-prefix": "GWToolset",
-    "gwtoolset-verify-php-version": "Расширение $1 требует PHP >= 5.3.3.",
+    "gwtoolset-verify-php-version": "Расширение $1 требует PHP \u003E= 5.3.3.",
     "gwtoolset-wiki-checks-not-passed": "Вики-проверки не пройдены"
 }

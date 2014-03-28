@@ -16,9 +16,9 @@
     "gwtoolset-could-not-close-xml": "Não foi possível fechar o leitor XML",
     "gwtoolset-could-not-open-xml": "Não foi possível abrir o aquivo XML para leitura.",
     "gwtoolset-developer-issue": "Entre em contato com um desenvolvedor, esse problema precisa ser corrigido antes de prosseguir. Adicione o seguinte texto em seu relato:\n\n$1",
-    "gwtoolset-dom-record-issue": "Não foi inserido ou um <code>record-element-name</code> ou <code>record-count</code> ou <code>record-current</code>.",
-    "gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade fornecido em <code>$wgGWTFBMaxAge</code> é inválido. Veja o [php.net/manual/en/datetime.formats.relative.php manual do PHP] para saber como defini-lo corretamente.",
+    "gwtoolset-dom-record-issue": "Não foi inserido ou um \u003Ccode\u003Erecord-element-name\u003C/code\u003E ou \u003Ccode\u003Erecord-count\u003C/code\u003E ou \u003Ccode\u003Erecord-current\u003C/code\u003E.",
+    "gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade fornecido em \u003Ccode\u003E$wgGWTFBMaxAge\u003C/code\u003E é inválido. Veja o [php.net/manual/en/datetime.formats.relative.php manual do PHP] para saber como defini-lo corretamente.",
     "gwtoolset-fsfile-empty": "O arquivo foi eliminado por estar vazio.",
     "gwtoolset-fsfile-retrieval-failure": "Não foi possível obter o arquivo a partir do URL $1.",
-    "gwtoolset-ignorewarnings": "<code>ignorewarnings</code> não foi definido."
+    "gwtoolset-ignorewarnings": "\u003Ccode\u003Eignorewarnings\u003C/code\u003E não foi definido."
 }

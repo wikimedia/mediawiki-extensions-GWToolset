@@ -13,12 +13,12 @@
     "grouppage-gwtoolset": "{{ns:project}}:GWToolset-Benotzer",
     "gwtoolset-could-not-open-xml": "Den XML-Fichier konnt net fir ze liesen opgemaach ginn.",
     "gwtoolset-fsfile-empty": "De Fichier war eidel a gouf geläscht.",
-    "gwtoolset-ignorewarnings": "<code>ignorewarnings</code> net agestallt.",
-    "gwtoolset-no-comment": "<code>user_options['comment']</code> net agestallt.",
+    "gwtoolset-ignorewarnings": "\u003Ccode\u003Eignorewarnings\u003C/code\u003E net agestallt.",
+    "gwtoolset-no-comment": "\u003Ccode\u003Euser_options['comment']\u003C/code\u003E net agestallt.",
     "gwtoolset-no-default": "Kee Standard-Wäert uginn.",
     "gwtoolset-no-max": "Kee maximale Wäert uginn.",
     "gwtoolset-no-page-title": "Kee Säitentitel uginn.",
-    "gwtoolset-no-save-as-batch": "<code>user_options['save-as-batch-job']</code> net agestallt.",
+    "gwtoolset-no-save-as-batch": "\u003Ccode\u003Euser_options['save-as-batch-job']\u003C/code\u003E net agestallt.",
     "gwtoolset-no-summary": "Kee Resumé uginn.",
     "gwtoolset-no-text": "Keen Text uginn.",
     "gwtoolset-no-title": "Keen Titel uginn.",
@@ -50,8 +50,8 @@
     "gwtoolset-step-2-instructions-1-li-1": "Eng Lëscht vun de Felder an der MediaWiki $1.",
     "gwtoolset-template-field": "Feld vun der Schabloun",
     "gwtoolset-create-prefix": "GWToolset",
-    "gwtoolset-mediawiki-version-invalid": "Dës Erweiderung brauch d'Mediawiki-Versioun $1<br />Dës MediaWiki Versioun ass $2.",
+    "gwtoolset-mediawiki-version-invalid": "Dës Erweiderung brauch d'Mediawiki-Versioun $1\u003Cbr /\u003EDës MediaWiki Versioun ass $2.",
     "gwtoolset-user-blocked": "Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.",
     "gwtoolset-required-group": "Dir sidd net Member vum Grupp $1.",
-    "gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP >= 5.3.3."
+    "gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP \u003E= 5.3.3."
 }

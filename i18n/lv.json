@@ -4,6 +4,6 @@
             "Srolanh"
         ]
     },
-    "gwtoolset-verify-api-enabled": "Paplašinājumam $1 vajādzīgs iespējots API.\n\nLūdzu, pārliecinieties, ka  <code>$wgEnableAPI</code> ir iestatīts uz <code>true</code>.",
-    "gwtoolset-verify-api-writeable": "Paplašinājumam $1 vajadzīgs, lai API var veikt rakstīšanas darbības autorizētiem lietotājiem.\n\nLūdzu, pārliecinieties, ka <code>$wgEnableWriteAPI</code> ir iestatīts uz <code>true</code>."
+    "gwtoolset-verify-api-enabled": "Paplašinājumam $1 vajādzīgs iespējots API.\n\nLūdzu, pārliecinieties, ka  \u003Ccode\u003E$wgEnableAPI\u003C/code\u003E ir iestatīts uz \u003Ccode\u003Etrue\u003C/code\u003E.",
+    "gwtoolset-verify-api-writeable": "Paplašinājumam $1 vajadzīgs, lai API var veikt rakstīšanas darbības autorizētiem lietotājiem.\n\nLūdzu, pārliecinieties, ka \u003Ccode\u003E$wgEnableWriteAPI\u003C/code\u003E ir iestatīts uz \u003Ccode\u003Etrue\u003C/code\u003E."
 }
