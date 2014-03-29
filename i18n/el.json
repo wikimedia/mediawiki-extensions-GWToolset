@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Geraki"
+        ]
+    },
+    "gwtoolset-page-title-contains-url": "Η σελίδα \"$1\" περιέχει ολόκληρη τη διεύθυνση URL του wiki. Βεβαιωθείτε ότι εισάγετε μόνο τον τίτλο της σελίδας, π.χ. το τμήμα του URL μετά  το <code>/wiki/</code>."
+}
