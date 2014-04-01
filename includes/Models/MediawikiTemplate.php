@@ -442,7 +442,13 @@ class MediawikiTemplate implements ModelInterface {
 		}
 	}
 
-	public function populateFromArray( array &$metadata = array() ) {
+	/**
+	 * populate $this->mediawiki_template_array keys with matching values
+	 * found in the provided metadata
+	 *
+	 * @param {array} $metadata
+	 */
+	public function populateFromArray( array $metadata = array() ) {
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
 			$this->mediawiki_template_array[$parameter] = null;
 			$parameter_as_id = Utils::normalizeSpace( $parameter );

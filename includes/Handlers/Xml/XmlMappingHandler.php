@@ -204,13 +204,30 @@ class XmlMappingHandler extends XmlHandler {
 					}
 				} else {
 					if ( !isset( $elements_mapped[$template_parameter] ) ) {
-						$elements_mapped[$template_parameter] =
-							$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+						if ( $template_parameter === 'gwtoolset-title-identifier'
+							|| $template_parameter === 'title'
+						) {
+							$elements_mapped[$template_parameter] =
+								$this->getFilteredNodeValue(
+									$DOMNodeElement,
+									$is_url,
+									array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
+								);
+						} else {
+							$elements_mapped[$template_parameter] =
+								$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+						}
 					} else {
-						if ( $template_parameter === 'gwtoolset-title-identifier' ) {
+						if ( $template_parameter === 'gwtoolset-title-identifier'
+							|| $template_parameter === 'title'
+						) {
 							$elements_mapped[$template_parameter] .=
 								Config::$title_separator .
-								$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
+								$this->getFilteredNodeValue(
+									$DOMNodeElement,
+									$is_url,
+									array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
+								);
 
 						// url-to-the-media-file should only be evaluated once
 						// when $elements_mapped['gwtoolset-url-to-the-media-file'] is not set
@@ -251,18 +268,26 @@ class XmlMappingHandler extends XmlHandler {
 
 	/**
 	 * @param {DOMElement} $DOMNodeElement
+	 *
 	 * @param {bool} $is_url
 	 *
+	 * @param {array} $options
+	 * Fiter options
+	 *
 	 * @return {string}
-	 * the string has been filtered
+	 * the string has been sanitized
 	 */
-	protected function getFilteredNodeValue( DOMElement &$DOMNodeElement, $is_url = false ) {
+	protected function getFilteredNodeValue(
+		DOMElement &$DOMNodeElement,
+		$is_url = false,
+		array $options = array()
+	) {
 		$result = null;
 
 		if ( $is_url ) {
-			$result = Utils::sanitizeUrl( $DOMNodeElement->nodeValue );
+			$result = Utils::sanitizeUrl( $DOMNodeElement->nodeValue, $options );
 		} else {
-			$result = Utils::sanitizeString( $DOMNodeElement->nodeValue );
+			$result = Utils::sanitizeString( $DOMNodeElement->nodeValue, $options );
 		}
 
 		return $result;
