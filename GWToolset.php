@@ -98,6 +98,7 @@ $wgSpecialPageGroups['GWToolset'] = 'media';
 // add hooks
 $wgHooks['CanonicalNamespaces'][] = 'GWToolset\Hooks::onCanonicalNamespaces';
 $wgHooks['UnitTestsList'][] = 'GWToolset\Hooks::onUnitTestsList';
+$wgHooks['CodeEditorGetPageLanguage'][] = 'GWToolset\Hooks::onCodeEditorGetPageLanguage';
 
 // add jobs
 $wgJobClasses['gwtoolsetGWTFileBackendCleanupJob'] = 'GWToolset\Jobs\GWTFileBackendCleanupJob';

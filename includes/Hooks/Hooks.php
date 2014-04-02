@@ -29,4 +29,19 @@ class Hooks {
 		$files = array_merge( $files, glob( $wgGWToolsetDir . '/tests/phpunit/*Test.php' ) );
 		return true;
 	}
+
+	/**
+	 * Declares JSON as the code editor language for GWToolset: pages.
+	 *
+	 * This hook only runs if the CodeEditor extension is enabled.
+	 * @param Title $title
+	 * @param string &$lang Page language.
+	 * @return bool
+	 */
+	static function onCodeEditorGetPageLanguage( $title, &$lang ) {
+		if ( $title->inNamespace( NS_GWTOOLSET ) ) {
+			$lang = 'json';
+		}
+		return true;
+	}
 }
