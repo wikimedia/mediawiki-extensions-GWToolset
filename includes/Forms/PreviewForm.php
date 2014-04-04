@@ -51,14 +51,16 @@ class PreviewForm {
 				Html::rawElement( 'br' )
 			: wfMessage( 'gwtoolset-no-more-records' )->parse() . Html::rawElement( 'br' );
 
-		$step1_link = Linker::link(
+		$step1_link = Html::rawElement( 'li', array(), Linker::link(
 			Title::newFromText( 'Special:GWToolset' ),
 			wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
 			array(),
 			array( 'gwtoolset-form' => 'metadata-detect' )
-		) . Html::rawElement( 'br' );
+		) );
 
-		$step2_link = Html::rawElement( 'span', array( 'id' =>'step2-link' ), ' ' );
+		$step2_link = Html::rawElement( 'li', array(),
+			Html::rawElement( 'span', array( 'id' =>'step2-link' ), ' ' )
+		);
 
 		return
 			Html::rawElement(
@@ -140,8 +142,7 @@ class PreviewForm {
 
 			Html::closeElement( 'form' ) .
 
-			$step1_link .
-			$step2_link;
+			Html::rawElement( 'ul', array(), $step1_link . $step2_link );
 	}
 
 	/**
