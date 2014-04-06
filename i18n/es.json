@@ -1,11 +1,15 @@
 {
     "@metadata": {
         "authors": [
-            "Fitoschido"
+            "Fitoschido",
+            "Frammm"
         ]
     },
     "gwtoolset": "GWToolset",
     "gwtoolset-desc": "GWToolset, una herramienta de carga por lotes para los GLAM",
+    "right-gwtoolset": "Usar GWToolset",
+    "action-gwtoolset": "usar GWToolset",
+    "group-gwtoolset": "Usuarios de GWToolset",
     "gwtoolset-batchjob-creation-failure": "No se pudo crear una tarea de lote del tipo «$1».",
     "gwtoolset-could-not-close-xml": "No se pudo cerrar el lector de XML.",
     "gwtoolset-could-not-open-xml": "No se pudo abrir el archivo XML para su lectura.",
@@ -13,13 +17,18 @@
     "gwtoolset-fsfile-retrieval-failure": "No se pudo extraer el archivo del URL $1.",
     "gwtoolset-no-accepted-types": "No se proporcionaron tipos aceptados",
     "gwtoolset-no-field-size": "No se especificó el tamaño para el campo «$1».",
+    "gwtoolset-no-max": "No se proporcionó un valor máximo.",
+    "gwtoolset-no-min": "No se proporcionó un valor mínimo.",
     "gwtoolset-no-module": "No se especificó ningún nombre de módulo.",
     "gwtoolset-no-mwstore-complete-path": "No se proporcionó una ruta de archivo completa.",
     "gwtoolset-no-mwstore-relative-path": "No se proporcionó una ruta relativa.",
     "gwtoolset-no-page-title": "No se proporcionó el título de la página.",
     "gwtoolset-no-summary": "No se proporcionó el resumen.",
+    "gwtoolset-no-template-url": "No hay ninguna plantilla URL proporcionada para analizar.",
     "gwtoolset-no-text": "No se proporcionó texto.",
     "gwtoolset-no-title": "No se proporcionó un título.",
+    "gwtoolset-no-url-to-evaluate": "No se proporcionó un URL que evaluar.",
+    "gwtoolset-no-xml-source": "Ninguna fuente XML local proporcionada.",
     "gwtoolset-sha1-does-not-match": "El SHA-1 no coincide.",
     "gwtoolset-disk-write-failure": "El servidor no pudo escribir el archivo en un sistema de archivos.",
     "gwtoolset-file-is-empty": "El archivo cargado está vacío.",
@@ -27,6 +36,7 @@
     "gwtoolset-mime-type-mismatch": "La extensión del archivo «$1» y el tipo MIME «$2» del archivo cargado no coinciden.",
     "gwtoolset-missing-temp-folder": "No hay ninguna carpeta temporal disponible.",
     "gwtoolset-no-file": "No se recibió ningún archivo.",
+    "gwtoolset-no-form-field": "El campo de formulario esperado \" $1 \" no existe.",
     "gwtoolset-back-text-link": "← regresar al formulario",
     "gwtoolset-back-text": "Pulse el botón «atrás» del navegador para volver al formulario.",
     "gwtoolset-file-interpretation-error": "Ocurrió un problema al procesar el archivo de metadatos",
@@ -57,6 +67,6 @@
     "gwtoolset-template-field": "Campo de plantilla",
     "gwtoolset-step-3-instructions-heading": "Paso 3: previsualización del lote",
     "gwtoolset-step-4-heading": "Paso 4: carga del lote",
-    "gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1\u003Cbr /\u003ELa versión actual de MediaWiki es $2.",
-    "gwtoolset-verify-php-version": "La extensión $1 requiere PHP \u003E= 5.3.3."
+    "gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.",
+    "gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3."
 }

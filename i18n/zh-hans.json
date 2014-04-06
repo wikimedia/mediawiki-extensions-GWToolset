@@ -4,7 +4,8 @@
             "Liuxinyu970226",
             "Qiyue2001",
             "Shizhao",
-            "Yfdyh000"
+            "Yfdyh000",
+            "Hzy980512"
         ]
     },
     "gwtoolset": "GWToolset",
@@ -29,12 +30,15 @@
     "gwtoolset-no-default": "没有提供默认值。",
     "gwtoolset-no-file-backend-name": "没有提供文件后台名。",
     "gwtoolset-no-file-url": "没有<code>file_url</code>提供解析。",
+    "gwtoolset-no-form-handler": "没有创建表格处理器。",
     "gwtoolset-no-mapping": "没有提供<code>mapping_name</code>。",
     "gwtoolset-no-mapping-json": "没有提供<code>mapping_json</code>。",
     "gwtoolset-no-max": "没有提供最大值。",
     "gwtoolset-no-mediawiki-template": "没有提供<code>mediawiki-template-name</code>。",
     "gwtoolset-no-min": "没有提供最小值。",
     "gwtoolset-no-module": "没有提供模块名。",
+    "gwtoolset-no-mwstore-complete-path": "没有提供完整文件路径。",
+    "gwtoolset-no-mwstore-relative-path": "没有提供相对文件路径。",
     "gwtoolset-no-page-title": "没有页面标题提供。",
     "gwtoolset-no-save-as-batch": "<code>user_options['save-as-batch-job']</code>未设置。",
     "gwtoolset-no-summary": "没有提供摘要。",

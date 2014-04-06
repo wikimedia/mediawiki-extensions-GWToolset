@@ -97,6 +97,7 @@
     "gwtoolset-save-mapping-name": "Vad vill du kalla denna mappning?",
     "gwtoolset-json-error": "Det var ett problem med JSON. Fel: $1.",
     "gwtoolset-json-error-depth": "Det maximala stack-djupet överskreds.",
+    "gwtoolset-json-error-state-mismatch": "Underflöde eller felaktighet motsvarighet i läget.",
     "gwtoolset-json-error-ctrl-char": "Oväntat kontrolltecken hittat.",
     "gwtoolset-json-error-syntax": "Syntaxfel, felaktigt formerad JSON.",
     "gwtoolset-json-error-utf8": "Felaktigt UTF-8-tecken, möjligen felkodat.",
