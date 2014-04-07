@@ -214,10 +214,14 @@ class MediawikiTemplate implements ModelInterface {
 				$content = trim( $content );
 
 				if ( $parameter === 'institution' ) {
-					$sections .= sprintf(
+					if ( trim( $content ) === '' ) {
+						$sections .= PHP_EOL;
+					} else {
+						$sections .= sprintf(
 							$this->_sub_templates['institution'],
 							Utils::sanitizeString( $content )
 						) . PHP_EOL;
+					}
 				} elseif ( $parameter === 'artist' ) {
 					// assumes that there could be more than one creator and uses the
 					// configured metadata separator to determine that
@@ -228,16 +232,20 @@ class MediawikiTemplate implements ModelInterface {
 						// no other assumptions are made other than this one
 						$creator = explode( ',', $creator, 2 );
 
-						if ( count( $creator ) === 2 ) {
-							$creator = trim( $creator[1] ) . ' ' . trim( $creator[0] );
+						if ( count( $creator ) <= 1 && trim( $creator[0] ) === '' ) {
+							$sections .= PHP_EOL;
 						} else {
-							$creator = trim( $creator[0] );
-						}
+							if ( count( $creator ) === 2 ) {
+								$creator = trim( $creator[1] ) . ' ' . trim( $creator[0] );
+							} else {
+								$creator = trim( $creator[0] );
+							}
 
-						$sections .= sprintf(
+							$sections .= sprintf(
 								$this->_sub_templates['creator'],
 								Utils::sanitizeString( $creator )
 							) . PHP_EOL;
+						}
 					}
 				} elseif ( $parameter === 'permission' ) {
 					// http://commons.wikimedia.org/wiki/Category:Creative_Commons_licenses
