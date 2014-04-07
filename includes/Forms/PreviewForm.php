@@ -219,7 +219,8 @@ class PreviewForm {
 				$result .= Html::rawElement(
 					'li',
 					array(),
-					Linker::link( $Title, null, array( 'target' => '_blank' ) )
+					// Use linkKnown to guard against slave lag for new uploads.
+					Linker::linkKnown( $Title, null, array( 'target' => '_blank' ) )
 				);
 			}
 		}

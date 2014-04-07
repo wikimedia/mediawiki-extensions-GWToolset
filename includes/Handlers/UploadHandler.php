@@ -593,6 +593,9 @@ class UploadHandler {
 			$this->_User
 		);
 
+		// Page may very well exist now where it previously didn't
+		$Title->resetArticleID( false );
+
 		if ( !$Status->isOK() ) {
 			$msg =
 				$Status->getMessage() . PHP_EOL .
