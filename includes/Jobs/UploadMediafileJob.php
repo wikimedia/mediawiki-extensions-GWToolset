@@ -55,7 +55,6 @@ class UploadMediafileJob extends Job {
 		$Mapping->reverseMap();
 
 		$Metadata = new Metadata( new MetadataPhpAdapter() );
-
 		$User = User::newFromName( $this->params['user-name'] );
 
 		$UploadHandler = new UploadHandler(
@@ -75,7 +74,13 @@ class UploadMediafileJob extends Job {
 		$Metadata->metadata_raw = $this->params['options']['metadata-raw'];
 		$Metadata->metadata_as_array = $this->params['options']['metadata-as-array'];
 
-		return $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
+		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
+
+		if ( $result === null ) {
+			$result = false;
+		}
+
+		return $result;
 	}
 
 	/**

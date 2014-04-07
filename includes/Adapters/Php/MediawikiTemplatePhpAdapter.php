@@ -109,7 +109,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 				$wgRequest,
 				array(
 					'action' => 'templatedata',
-					'titles' => $Title->getBaseTitle()
+					'titles' => $Title->getPrefixedText()
 				),
 				false // not posted
 			),

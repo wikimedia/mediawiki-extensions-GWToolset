@@ -167,7 +167,7 @@
 	"gwtoolset-step-2-instructions-2-li-1": "Step 2, second set of instructions, first instruction.\n\nRefers to:\n* {{msg-mw|Gwtoolset-maps-to}}\n* {{msg-mw|Gwtoolset-template-field}}",
 	"gwtoolset-step-2-instructions-2-li-2": "Step 2, second set of instructions, second instruction.",
 	"gwtoolset-reupload-media": "Label for re-upload media from URL checkbox in Step 2 of the HTML form.\n\nFollowed by the following explanation:\n* {{msg-mw|Gwtoolset-reupload-media-explanation}}",
-	"gwtoolset-reupload-media-explanation": "Instructions for the re-upload media from URL checkbox in Step 2 of the HTML form.\n\nPreceded by the checkbox label {{msg-mw|Gwtoolset-reupload-media}}.",
+	"gwtoolset-reupload-media-explanation": "An explanation for the re-upload media from URL checkbox in Step 2 of the HTML form.\n\nPreceded by the checkbox label {{msg-mw|Gwtoolset-reupload-media}}.",
 	"gwtoolset-specific-categories": "Heading for the item specific categories section in Step 2 of the HTML form.",
 	"gwtoolset-specific-tooltip": "Instructions for the item specific categories section in Step 2 of the HTML form.\n\nRefers to {{msg-mw|Gwtoolset-painted-by}}.",
 	"gwtoolset-template-field": "Table column heading for Step 2 in the HTML form.\n\nUsed in {{msg-mw|Gwtoolset-step-2-instructions-2-li-1}}.",

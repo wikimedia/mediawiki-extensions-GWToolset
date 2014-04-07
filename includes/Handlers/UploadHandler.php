@@ -8,7 +8,9 @@
  */
 
 namespace GWToolset\Handlers;
-use ContentHandler,
+use ApiMain,
+	ContentHandler,
+	DerivativeRequest,
 	GWToolset\Config,
 	GWToolset\Constants,
 	GWToolset\GWTException,
@@ -456,6 +458,53 @@ class UploadHandler {
 		return $result;
 	}
 
+	/**
+	 * find out if anyone, besides the current user,
+	 * has contributed to a given Title
+	 *
+	 * @param {Title} $Title
+	 * @return {bool}
+	 */
+	protected function otherContributors( Title $Title ) {
+		global $wgRequest;
+
+		$Api = new ApiMain(
+			new DerivativeRequest(
+				$wgRequest,
+				array(
+					'action' => 'query',
+					'prop' => 'contributors',
+					'titles' => $Title->getPrefixedText()
+				),
+				false // not posted
+			),
+			false // disable write
+		);
+
+		$Api->execute();
+
+		$api_result = $Api->getResultData();
+		$api_result = Utils::objectToArray( $api_result );
+
+		if ( isset( $api_result['query']['pages'] )
+			&& count( $api_result['query']['pages'] ) === 1
+		) {
+			$api_result = array_shift( $api_result['query']['pages'] );
+
+			if ( !isset( $api_result['anoncontributors'] )
+				&& count( $api_result['contributors'] ) == 1
+			) {
+				if ( $api_result['contributors'][0]['name']
+					== $this->_User->getName()
+				) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
 	public function reset() {
 		$this->_File = null;
 		$this->_Mapping = null;
@@ -541,9 +590,11 @@ class UploadHandler {
 			}
 
 			if ( $Status->isOk() ) {
-				$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
-				$Page = new WikiPage( $Title );
-				$Status = $Page->doEditContent( $Content, $upload_params['comment'], 0, false, $this->_User );
+				if ( !$this->otherContributors( $Title ) ) {
+					$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
+					$Page = WikiPage::factory( $Title );
+					$Status = $Page->doEditContent( $Content, $upload_params['comment'], 0, false, $this->_User );
+				}
 			}
 		}
 
