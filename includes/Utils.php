@@ -398,12 +398,27 @@ class Utils {
 	 * makes sure that the provided title is a valid wiki title
 	 * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
 	 *
+	 * wfStripIllegalFilenameChars doesn’t just replace /, \,
+	 * it removes any part of the string before it. some titles contain these characters
+	 * as part of the metadata value; e.g., when the value is a URL. we don’t want to
+	 * truncate those strings; instead we want to preserve the legal characters.
+	 *
 	 * @param {string} $title
+	 *
+	 * @param {array}  $options
+	 * @param {string} $options['replacement']
+	 * the character used to replace illegal characters; defaults to ‘-’
 	 *
 	 * @return {string}
 	 * the string is not sanitized
 	 */
-	public static function stripIllegalTitleChars( $title ) {
+	public static function stripIllegalTitleChars( $title, array $options = array() ) {
+		$illegal_chars = array( '/', '\\' );
+		$option_defaults = array( 'replacement' => '-' );
+
+		$options = array_merge( $option_defaults, $options );
+
+		$title = str_replace( $illegal_chars, $options['replacement'], $title );
 		$title = Sanitizer::decodeCharReferences( $title );
 		$title = wfStripIllegalFilenameChars( $title );
 
