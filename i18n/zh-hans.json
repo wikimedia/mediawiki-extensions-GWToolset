@@ -26,6 +26,7 @@
     "gwtoolset-incorrect-form-handler": "模块“$1”未注册成一个用于GWToolset\\Handlers\\Forms\\FormHandler的表单处理程序。",
     "gwtoolset-job-throttle-exceeded": "批处理工作节流阀超限了。",
     "gwtoolset-no-accepted-types": "没有提供接受的格式。",
+    "gwtoolset-no-callback": "没有通过此方法的回调。",
     "gwtoolset-no-comment": "<code>user_options['comment']</code>未设置。",
     "gwtoolset-no-default": "没有提供默认值。",
     "gwtoolset-no-file-backend-name": "没有提供文件后台名。",

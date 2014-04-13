@@ -39,6 +39,7 @@
     "gwtoolset-json-error-unknown": "Onbekannte Feeler.",
     "gwtoolset-mediawiki-template-not-found": "MediaWiki-Schabloun \"$1\" net fonnt.",
     "gwtoolset-metadata-file-url": "Wiki-URL vum Metadata-Fichier:",
+    "gwtoolset-namespace-mismatch": "D'Säit \"<strong>$1</strong>\" ass am falschen Nummraum \"<strong>$2</strong>\".\n\n\"<strong>$1</strong>\" soll am Nummraum \"<strong>$3</strong>\" sinn.",
     "gwtoolset-categories": "Gitt Kategorien an, trennt se mam Pipe-Symbol (\"|\").",
     "gwtoolset-category": "Kategorie",
     "gwtoolset-global-categories": "Global Kategorien",
