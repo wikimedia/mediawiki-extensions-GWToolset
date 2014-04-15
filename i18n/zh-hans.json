@@ -89,6 +89,7 @@
     "gwtoolset-metadata-file-source": "选择元数据文件源。",
     "gwtoolset-metadata-file-url": "元数据文件wikiURL：",
     "gwtoolset-metadata-file-upload": "元数据文件上传：",
+    "gwtoolset-metadata-mapping-not-found": "未发现元数据映射。\n页面“<strong>$1</strong>”在此wiki中不存在。",
     "gwtoolset-namespace-mismatch": "页面“<strong>$1</strong>”位于错误的名字空间“<strong>$2</strong>”中。\n它应该位于名字空间“<strong>$3</strong>”中。",
     "gwtoolset-step-1-heading": "第1步：元数据检测",
     "gwtoolset-step-1-instructions-1": "元数据上传过程包括以下4个步骤：",
