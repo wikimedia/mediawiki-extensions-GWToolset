@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Veeven"
-        ]
-    },
-    "gwtoolset-summary-heading": "సారాంశం",
-    "gwtoolset-cancel": "రద్దుచేయి",
-    "gwtoolset-loading": "దయచేసి ఓపిక వహించండి. ఇది కొంతసేపు పట్టవచ్చు.",
-    "gwtoolset-save": "భద్రపరచు",
-    "gwtoolset-category": "వర్గం",
-    "gwtoolset-global-categories": "సార్వత్రిక వర్గాలు",
-    "gwtoolset-results": "ఫలితాలు"
+	"@metadata": {
+		"authors": [
+			"Veeven"
+		]
+	},
+	"gwtoolset-summary-heading": "సారాంశం",
+	"gwtoolset-cancel": "రద్దుచేయి",
+	"gwtoolset-loading": "దయచేసి ఓపిక వహించండి. ఇది కొంతసేపు పట్టవచ్చు.",
+	"gwtoolset-save": "భద్రపరచు",
+	"gwtoolset-category": "వర్గం",
+	"gwtoolset-global-categories": "సార్వత్రిక వర్గాలు",
+	"gwtoolset-results": "ఫలితాలు"
 }

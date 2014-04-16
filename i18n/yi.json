@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "פוילישער"
-        ]
-    },
-    "gwtoolset-fsfile-empty": "די טעקע איז געווען ליידיק און איז געווארן אויסגעמעקט.",
-    "gwtoolset-ignorewarnings": "<code>ignorewarnings</code> נישט פעסטגעשטעלט.",
-    "gwtoolset-no-max": "קייו מאקסימאלן ווערט נישט פארזארגט.",
-    "gwtoolset-no-page-title": "קיין בלאט קעפל נישט באזארגט.",
-    "gwtoolset-no-title": "קיין קעפל נישט באזארגט.",
-    "gwtoolset-mediawiki-template": "מוסטער „$1“",
-    "gwtoolset-summary-heading": "רעזומע",
-    "gwtoolset-cancel": "אנולירן",
-    "gwtoolset-save": "אויפֿהיטן",
-    "gwtoolset-json-error-unknown": "אומבאַקאַנטער פֿעלער",
-    "gwtoolset-mediawiki-template-not-found": "מעדיעוויקי מוסטער \"$1\" נישט געטראפן.",
-    "gwtoolset-category": "קאַטעגאָריע"
+	"@metadata": {
+		"authors": [
+			"פוילישער"
+		]
+	},
+	"gwtoolset-fsfile-empty": "די טעקע איז געווען ליידיק און איז געווארן אויסגעמעקט.",
+	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> נישט פעסטגעשטעלט.",
+	"gwtoolset-no-max": "קייו מאקסימאלן ווערט נישט פארזארגט.",
+	"gwtoolset-no-page-title": "קיין בלאט קעפל נישט באזארגט.",
+	"gwtoolset-no-title": "קיין קעפל נישט באזארגט.",
+	"gwtoolset-mediawiki-template": "מוסטער „$1“",
+	"gwtoolset-summary-heading": "רעזומע",
+	"gwtoolset-cancel": "אנולירן",
+	"gwtoolset-save": "אויפֿהיטן",
+	"gwtoolset-json-error-unknown": "אומבאַקאַנטער פֿעלער",
+	"gwtoolset-mediawiki-template-not-found": "מעדיעוויקי מוסטער \"$1\" נישט געטראפן.",
+	"gwtoolset-category": "קאַטעגאָריע"
 }

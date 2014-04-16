@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Imperadeiro98"
-        ]
-    },
-    "gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1."
+	"@metadata": {
+		"authors": [
+			"Imperadeiro98"
+		]
+	},
+	"gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1."
 }

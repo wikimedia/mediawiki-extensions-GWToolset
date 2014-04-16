@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kening Aldgilles"
-        ]
-    },
-    "gwtoolset-cancel": "Ofbrekke",
-    "gwtoolset-loading": "In amerijke. It kin in skoft duorje.",
-    "gwtoolset-save": "Fêstlizze"
+	"@metadata": {
+		"authors": [
+			"Kening Aldgilles"
+		]
+	},
+	"gwtoolset-cancel": "Ofbrekke",
+	"gwtoolset-loading": "In amerijke. It kin in skoft duorje.",
+	"gwtoolset-save": "Fêstlizze"
 }

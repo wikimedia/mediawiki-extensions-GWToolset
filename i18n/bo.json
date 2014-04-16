@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Phurbutsering"
-        ]
-    },
-    "gwtoolset-verify-api-enabled": "ཝེ་ཁེ་ API དེ་མཐུན་རྐྱེན་སྦྱོར་བར་ $1 རྒྱ་སྐྱེད་འདུས་ཚིག་དགོས།\nངེས་གཏན་གྱི་ \u003Ccode\u003E$wgEnableWriteAPI\u003C/code\u003E དེ་\u003Ccode\u003Etrue\u003C/code\u003Eལ་བཟོ་རོགས།",
-    "gwtoolset-verify-api-writeable": "ཝེ་ཁེ་ API ཡིས་བཀའ་ཁྲོལ་ཡོད་པའི་སྤྱོད་མིར་བྱ་ལས་སྤེལ་བར་ངེས་པར་དུ་དགོས་པའི་ $1 རྒྱ་སྐྱེད་ཚིག།\nངེས་གཏན་གྱི་ \u003Ccode\u003E$wgEnableWriteAPI\u003C/code\u003E དེ་\u003Ccode\u003Etrue\u003C/code\u003Eལ་བཟོ་རོགས།"
+	"@metadata": {
+		"authors": [
+			"Phurbutsering"
+		]
+	},
+	"gwtoolset-verify-api-enabled": "ཝེ་ཁེ་ API དེ་མཐུན་རྐྱེན་སྦྱོར་བར་ $1 རྒྱ་སྐྱེད་འདུས་ཚིག་དགོས།\nངེས་གཏན་གྱི་ <code>$wgEnableWriteAPI</code> དེ་<code>true</code>ལ་བཟོ་རོགས།",
+	"gwtoolset-verify-api-writeable": "ཝེ་ཁེ་ API ཡིས་བཀའ་ཁྲོལ་ཡོད་པའི་སྤྱོད་མིར་བྱ་ལས་སྤེལ་བར་ངེས་པར་དུ་དགོས་པའི་ $1 རྒྱ་སྐྱེད་ཚིག།\nངེས་གཏན་གྱི་ <code>$wgEnableWriteAPI</code> དེ་<code>true</code>ལ་བཟོ་རོགས།"
 }
