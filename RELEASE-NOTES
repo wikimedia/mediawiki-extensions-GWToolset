@@ -1,12 +1,23 @@
-== GWToolset 0.1.2 ==
+== GWToolset 0.1.3 ==
+scheduled deploy: Tuesday, 15 April 2014
 
 
-=== assembla/260 ===
-Categorisation, unwanted concatenation
-https://www.assembla.com/spaces/glamwiki/tickets/209
-https://gerrit.wikimedia.org/r/#/c/119467/
+=== bug/58507 ===
+Mark GWToolset namespace as being json for code editor
+gerrit: https://gerrit.wikimedia.org/r/#/c/123159/
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=58507
 
-sometimes the metadata field specified for an item specific category
-occurs several times within a metadata record. the application was
-concatenating those values into one category entry. the desired goal
-is to create a category entry for each occurance.
+=== bug/63168 ===
+Correct the format of the wikitext output
+gerrit: https://gerrit.wikimedia.org/r/#q,dd0757d5,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63168
+
+=== bug/62870 ===
+make sure unicode characters are normalized
+gerrit: https://gerrit.wikimedia.org/r/#q,d1e32990,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62870
+
+=== bug/62909 ===
+relax wiki title restrictions
+gerrit: https://gerrit.wikimedia.org/r/#q,cc0705be,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
