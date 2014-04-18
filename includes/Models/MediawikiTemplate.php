@@ -388,6 +388,7 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	public function getTitle( array &$options ) {
 		$result = null;
+		$file_extension_length = 0;
 
 		if ( empty( $this->mediawiki_template_array['gwtoolset-title-identifier'] ) ) {
 			throw new GWTException( 'gwtoolset-mapping-no-title-identifier' );
@@ -426,7 +427,7 @@ class MediawikiTemplate implements ModelInterface {
 		$result .= $this->mediawiki_template_array['gwtoolset-title-identifier'];
 		$result .= '.' . $options['evaluated-media-file-extension'];
 
-		if ( $result > Config::$title_max_length ) {
+		if ( strlen( $result ) > Config::$title_max_length ) {
 			$result = substr(
 				$this->mediawiki_template_array['gwtoolset-title-identifier'],
 				0,
