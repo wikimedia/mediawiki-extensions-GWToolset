@@ -152,7 +152,7 @@ class MediawikiTemplate implements ModelInterface {
 		return
 			'<!-- GWToolset Template -->' . PHP_EOL .
 			'{{Uploaded with GWToolset' . PHP_EOL .
-			' | gwtoolset-title-|identifier = ' .
+			' | gwtoolset-title-identifier = ' .
 					Utils::sanitizeString(
 						$this->mediawiki_template_array['gwtoolset-title-identifier']
 					) . PHP_EOL .

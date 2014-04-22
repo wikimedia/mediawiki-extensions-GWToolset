@@ -12,6 +12,7 @@ use GWToolset\Config,
 	Html,
 	IContextSource,
 	Linker,
+	ParserOptions,
 	Title;
 
 class PreviewForm {
@@ -26,8 +27,9 @@ class PreviewForm {
 	 *
 	 * @param {array} $expected_post_fields
 	 *
-	 * @param {array} $mediafile_titles
-	 * a collection of MediaWiki Title objects
+	 * @param {array} $metadata_items
+	 * each item is either a Title object or an array containing
+	 * categories, a Title object, and the wikitext for the item
 	 *
 	 * @return {string}
 	 * an html form that is filtered
@@ -36,11 +38,10 @@ class PreviewForm {
 		IContextSource $Context,
 		array $user_options,
 		array $expected_post_fields,
-		array $mediafile_titles
+		array $metadata_items
 	) {
 		$process_button =
-			(int)$user_options['gwtoolset-record-count'] > (int)Config::$preview_throttle
-			? Html::rawElement(
+			Html::rawElement(
 					'input',
 					array(
 						'type' => 'submit',
@@ -48,8 +49,7 @@ class PreviewForm {
 						'value' => wfMessage( 'gwtoolset-process-batch' )->escaped()
 					)
 				) .
-				Html::rawElement( 'br' )
-			: wfMessage( 'gwtoolset-no-more-records' )->parse() . Html::rawElement( 'br' );
+				Html::rawElement( 'br' );
 
 		$step1_link = Html::rawElement( 'li', array(), Linker::link(
 			Title::newFromText( 'Special:GWToolset' ),
@@ -69,7 +69,6 @@ class PreviewForm {
 				wfMessage( 'gwtoolset-step-3-instructions-heading' )->escaped()
 			) .
 
-
 			Html::rawElement(
 				'p',
 				array(),
@@ -77,14 +76,6 @@ class PreviewForm {
 				->numParams( (int)Config::$preview_throttle )
 				->escaped()
 			) .
-
-			Html::rawElement(
-				'h3',
-				array(),
-				wfMessage( 'gwtoolset-results' )->escaped()
-			) .
-
-			self::getTitlesAsList( $mediafile_titles ) .
 
 			Html::openElement(
 				'form',
@@ -119,8 +110,7 @@ class PreviewForm {
 				array(
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-begin',
-					// this difference between record-begin and record-current is intentional
-					'value' => (int)$user_options['gwtoolset-record-current']
+					'value' => 1
 				)
 			) .
 
@@ -132,17 +122,25 @@ class PreviewForm {
 				wfMessage( 'gwtoolset-step-3-instructions-2' )->parse()
 			) .
 
+			wfMessage( 'gwtoolset-step-3-instructions-3' )->parse() .
+
+			Html::rawElement( 'ul', array(), $step1_link . $step2_link ) .
+
 			Html::rawElement(
 				'p',
 				array(),
 				$process_button
 			) .
 
-			wfMessage( 'gwtoolset-step-3-instructions-3' )->parse() .
-
 			Html::closeElement( 'form' ) .
 
-			Html::rawElement( 'ul', array(), $step1_link . $step2_link );
+			self::getMetadataAsWikitext( $metadata_items, $Context ) .
+
+			Html::rawElement(
+				'a',
+				array( 'id' => 'gwtoolset-back-to-top', 'href' => '#top' ),
+				wfMessage( 'gwtoolset-back-to-top' )
+			);
 	}
 
 	/**
@@ -205,16 +203,16 @@ class PreviewForm {
 	 * Title(s), which are the result of processing the metadata file
 	 * with the mapping information given in step 2 : Metadata Mapping
 	 *
-	 * @param {array} $mediafile_titles
+	 * @param {array} $metadata_items
 	 * a collection of MediaWiki Title objects
 	 *
 	 * @return {string}
 	 * the string contains a Title link assumed to be filtered by Title
 	 */
-	public static function getTitlesAsList( array $mediafile_titles ) {
+	public static function getMetadataAsTitleList( array $metadata_items ) {
 		$result = Html::openElement( 'ul' );
 
-		foreach ( $mediafile_titles as $Title ) {
+		foreach ( $metadata_items as $Title ) {
 			if ( $Title instanceof Title ) {
 				$result .= Html::rawElement(
 					'li',
@@ -226,6 +224,86 @@ class PreviewForm {
 		}
 
 		$result .= Html::closeElement( 'ul' );
+
+		return $result;
+	}
+
+	/**
+	 * a decorator method that creates an HTML preview of the metadata items
+	 * after they have been mapped into the chosen MediaWiki template.
+	 * No mediafile is shown in order to avoid issues with downloading
+	 * large mediafiles.
+	 *
+	 * @param {array} $metadata_items
+	 * each item is an array containing
+	 * $item['categories'] {array}
+	 * $item['Title'] {Title}
+	 * $item['wikitext'] {string}
+	 *
+	 * @param {IContextSource} $Context
+	 *
+	 * @return {string}
+	 */
+	public static function getMetadataAsWikitext(
+		array $metadata_items,
+		IContextSource $Context
+	) {
+		$result = null;
+		global $wgParser;
+		$Skin = $Context->getSkin();
+		$Output = $Context->getOutput();
+
+		$parser_options = ParserOptions::newFromContext( $Context );
+		$parser_options->setEditSection( false );
+		$parser_options->setIsPreview( true );
+
+		foreach ( $metadata_items as $item ) {
+			$parser_options->setTargetLanguage(
+				$item['Title']->getPageLanguage()
+			);
+
+			$parser_out = $wgParser->parse(
+				$item['wikitext'], $item['Title'],
+				$parser_options
+			);
+
+			$lang = $item['Title']->getPageViewLanguage();
+			$Output->setCategoryLinks( $item['categories'] );
+
+			$result .=
+				Html::openElement(
+					'div',
+					array(
+						'class' => 'mw-content-' . $lang->getDir(),
+						'dir' => $lang->getDir(),
+						'lang' => $lang->getHtmlCode(),
+					)
+				) .
+
+				Html::rawElement(
+					'h2',
+					array( 'class' => 'preview-title' ),
+					$item['Title']
+				) .
+
+				Html::rawElement(
+					'div',
+					array( 'class' => 'preview-image-placeholder' ),
+					Html::rawElement(
+						'h4',
+						array(),
+						wfMessage( 'gwtoolset-preview-mediafile-placeholder-heading' )
+					) .
+					wfMessage( 'gwtoolset-preview-mediafile-placeholder-text' )
+				) .
+
+				$parser_out->getText() .
+				$Skin->getCategories() .
+				Html::closeElement( 'div' );
+		}
+
+		// set the page caterogies to nothing
+		$Output->setCategoryLinks( array() );
 
 		return $result;
 	}

@@ -290,9 +290,9 @@ class MetadataMappingHandler extends FormHandler {
 	 *   {array} $options['metadata-mapped-to-mediawiki-template']
 	 *   {string} $options['metadata-raw']
 	 *
-	 * @return {null|Title|bool}
+	 * @return {bool|array|null|Title}
 	 */
-	public function processMatchingElement( array &$user_options, array $options ) {
+	public function processMatchingElement( array $user_options, array $options ) {
 		$result = null;
 
 		$this->_MediawikiTemplate->metadata_raw = $options['metadata-raw'];
@@ -309,6 +309,8 @@ class MetadataMappingHandler extends FormHandler {
 				$options,
 				$this->_whitelisted_post
 			);
+		} else if ( $user_options['preview'] ) {
+			$result = $this->_UploadHandler->getPreview( $user_options );
 		} else {
 			$result = $this->_UploadHandler->saveMediafileAsContent( $user_options );
 		}
@@ -510,13 +512,13 @@ class MetadataMappingHandler extends FormHandler {
 
 		if ( $user_options['preview'] === true ) {
 			$user_options['gwtoolset-mediafile-throttle'] = (int)Config::$preview_throttle;
-			$mediafile_titles = $this->processMetadata( $user_options );
+			$metadata_items = $this->processMetadata( $user_options );
 
 			$result = PreviewForm::getForm(
 				$this->SpecialPage->getContext(),
 				$user_options,
 				$this->_expected_post_fields,
-				$mediafile_titles
+				$metadata_items
 			);
 		} else {
 			$user_options['save-as-batch-job'] = true;

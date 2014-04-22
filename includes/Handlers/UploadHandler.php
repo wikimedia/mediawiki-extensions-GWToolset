@@ -20,6 +20,7 @@ use ContentHandler,
 	MimeMagic,
 	MWException,
 	MWHttpRequest,
+	Status,
 	Title,
 	UploadBase,
 	UploadFromUrl,
@@ -36,6 +37,16 @@ class UploadHandler {
 	 * @var {GWToolset\Helpers\GWTFileBackend}
 	 */
 	protected $_GWTFileBackend;
+
+	/**
+	 * @var {array}
+	 */
+	protected $_global_categories;
+
+	/**
+	 * @var {array}
+	 */
+	protected $_item_specific_categories;
 
 	/**
 	 * @var {GWToolset\Modles\Mapping}
@@ -142,23 +153,31 @@ class UploadHandler {
 	 * that are applied to all of the media files being uploaded.
 	 *
 	 * @return {null|string}
-	 * the resulting wiki text is filtered
+	 * sanitized
 	 */
 	protected function addGlobalCategories() {
+		$result = null;
+
+		$this->setGlobalCategories();
+		$categories = $this->_global_categories;
+
+		if ( empty( $categories ) ) {
+			return $result;
+		}
+
 		$result =
-			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
-			'<!-- Categories -->' . PHP_EOL;
+			PHP_EOL . PHP_EOL .
+			'<!-- ' .
+			wfMessage( 'gwtoolset-global-categories' )->escaped() .
+			' -->' .
+			PHP_EOL;
 
-		if ( !empty( $this->user_options['categories'] ) ) {
-			$categories = explode( Config::$category_separator, $this->user_options['categories'] );
-
-			foreach ( $categories as $category ) {
-				$result .=
-						'[[' .
-							Utils::getNamespaceName( NS_CATEGORY ) .
-							Utils::stripIllegalCategoryChars( Utils::sanitizeString( $category ) ) .
-						']]' . PHP_EOL;
-			}
+		foreach ( $categories as $category ) {
+			$result .=
+				'[[' .
+					Utils::getNamespaceName( NS_CATEGORY ) .
+					$category .
+				']]' . PHP_EOL;
 		}
 
 		return $result;
@@ -176,42 +195,30 @@ class UploadHandler {
 	 * or only a category-metadata value.
 	 *
 	 * @return {null|string}
-	 * the resulting wiki text is sanitized
+	 * sanitized
 	 */
 	protected function addItemSpecificCategories() {
 		$result = null;
 
-		if ( !empty( $this->user_options['gwtoolset-category-metadata'] ) ) {
-			$category_count = count( $this->user_options['gwtoolset-category-metadata'] );
+		$this->setItemSpecificCategories();
+		$categories = $this->_item_specific_categories;
 
-			for ( $i = 0; $i < $category_count; $i += 1 ) {
-				$phrase = null;
-				$metadata_values = array();
+		if ( empty( $categories ) ) {
+			return $result;
+		}
 
-				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
-					$phrase =
-						Utils::sanitizeString(
-							$this->user_options['gwtoolset-category-phrase'][$i]
-						) .
-						' ';
-				}
+		$result =
+			PHP_EOL . PHP_EOL .
+			'<!-- ' .
+			wfMessage( 'gwtoolset-specific-categories' )->escaped() .
+			' -->' .
+			PHP_EOL;
 
-				if ( !empty( $this->user_options['gwtoolset-category-metadata'][$i] ) ) {
-					$metadata_values =
-						$this->_Metadata->getFieldValuesAsArray(
-							$this->user_options['gwtoolset-category-metadata'][$i]
-						);
-				}
-
-				foreach( $metadata_values as $metadata_value ) {
-					$result .=
-						'[[' .
-							Utils::getNamespaceName( NS_CATEGORY ) .
-							Utils::stripIllegalCategoryChars( $phrase ) .
-							Utils::stripIllegalCategoryChars( $metadata_value ) .
-						']]' . PHP_EOL;
-				}
-			}
+		foreach( $categories as $category ) {
+			$result .= '[[' .
+				Utils::getNamespaceName( NS_CATEGORY ) .
+				$category .
+			']]' . PHP_EOL;
 		}
 
 		return $result;
@@ -243,9 +250,11 @@ class UploadHandler {
 	 *   $url = 'http://images.memorix.nl/gam/thumb/150x150/115165d2-1267-7db5-4abb-54d273c47a81.jpg';
 	 *
 	 * @param {string} $url
+	 *
 	 * @throws {GWTException}
+	 *
 	 * @return {array}
-	 * the values in the array are not filtered
+	 *   the values in the array are not filtered
 	 *   $result['content-type']
 	 *   $result['extension']
 	 *   $result['url']
@@ -289,6 +298,27 @@ class UploadHandler {
 			throw new GWTException(
 				array( 'gwtoolset-mapping-media-file-url-extension-bad' => array( $url ) )
 			);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * @return {array}
+	 */
+	protected function getCategoriesForPreview() {
+		$result = array();
+
+		$categories = array_merge(
+			$this->_global_categories,
+			$this->_item_specific_categories
+		);
+
+		// $Output->setCategoryLinks requires an array with the category name
+		// as the key and a sortkey as the value;  not sure what the are valid
+		// sortkey values, but 0 seems to work well
+		foreach( $categories as $category ) {
+			$result[$category] = 0;
 		}
 
 		return $result;
@@ -348,6 +378,44 @@ class UploadHandler {
 	}
 
 	/**
+	 * @return {array}
+	 */
+	protected function getUploadParams() {
+		$result = array();
+
+		$result['gwtoolset-url-to-the-media-file'] =
+			$this->_MediawikiTemplate->mediawiki_template_array[
+				'gwtoolset-url-to-the-media-file'
+			];
+
+		$evaluated_url = $this->evaluateMediafileUrl(
+			$result['gwtoolset-url-to-the-media-file']
+		);
+
+		$this->verifyUploadDomain( $evaluated_url['url'] );
+		$result['gwtoolset-url-to-the-media-file'] = $evaluated_url['url'];
+		$result['evaluated-media-file-extension'] = $evaluated_url['extension'];
+
+		$result['title'] = $this->_MediawikiTemplate->getTitle( $result );
+		$result['ignorewarnings'] = true;
+		$result['watch'] = true;
+
+		$result['comment'] =
+			wfMessage( 'gwtoolset-create-mediafile' )
+				->params(
+					wfMessage( 'gwtoolset-create-prefix' )->text(),
+					$this->_User->getName()
+				)
+				->text() .
+			PHP_EOL .
+			trim( $this->user_options['comment'] );
+
+		$result['text'] = $this->getWikiText();
+
+		return $result;
+	}
+
+	/**
 	 * creates the wiki text for the media file page.
 	 * concatenates several pieces of information in order to create the wiki
 	 * text for the mediafile wiki text
@@ -362,6 +430,7 @@ class UploadHandler {
 			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
 			$this->_MediawikiTemplate->getGWToolsetTemplateAsWikiText() .
 			$this->addMetadata() .
+			PHP_EOL . PHP_EOL .
 			$this->addGlobalCategories() .
 			$this->addItemSpecificCategories();
 	}
@@ -427,6 +496,24 @@ class UploadHandler {
 	}
 
 	/**
+	 * @param {array} $user_options
+	 * @return {array}
+	 */
+	public function getPreview( array $user_options ) {
+		$this->validateUserOptions( $user_options );
+		$this->user_options = $user_options;
+
+		$upload_params = $this->getUploadParams();
+		$this->validateUploadParams( $upload_params );
+
+		return array(
+			'categories' => $this->getCategoriesForPreview(),
+			'Title' => $this->getTitle( $upload_params['title'] ),
+			'wikitext' => $upload_params['text']
+		);
+	}
+
+	/**
 	 * @todo does ContentHandler filter $options['text']?
 	 * @todo does WikiPage filter $options['comment']?
 	 *
@@ -434,52 +521,29 @@ class UploadHandler {
 	 * @throws {GWTException}
 	 * @return {null|Title}
 	 */
-	public function saveMediafileAsContent( array &$user_options ) {
-		$Title = null;
-		$Status = null;
-		$options = array();
+	public function saveMediafileAsContent( array $user_options ) {
+		$Status = Status::newGood();
 
 		$this->validateUserOptions( $user_options );
 		$this->user_options = $user_options;
 
-		$options['gwtoolset-url-to-the-media-file'] =
-			$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file'];
+		$upload_params = $this->getUploadParams();
+		$this->validateUploadParams( $upload_params );
 
-		$evaluated_url = $this->evaluateMediafileUrl( $options['gwtoolset-url-to-the-media-file'] );
-		$options['gwtoolset-url-to-the-media-file'] = $evaluated_url['url'];
-		$options['evaluated-media-file-extension'] = $evaluated_url['extension'];
-
-		$options['title'] = $this->_MediawikiTemplate->getTitle( $options );
-		$options['ignorewarnings'] = true;
-		$options['watch'] = true;
-		$options['comment'] =
-			wfMessage( 'gwtoolset-create-mediafile' )
-				->params(
-					wfMessage( 'gwtoolset-create-prefix' )->text(),
-					$this->_User->getName()
-				)
-				->text() .
-			PHP_EOL .
-			trim( $this->user_options['comment'] );
-
-		$options['text'] = $this->getWikiText();
-
-		WikiChecks::increaseHTTPTimeout();
-		$this->validatePageOptions( $options );
-		$Title = $this->getTitle( $options['title'] );
+		$Title = $this->getTitle( $upload_params['title'] );
 
 		if ( !$Title->isKnown() ) {
-			$Status = $this->uploadMediaFileViaUploadFromUrl( $options, $Title );
+			$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
 		} else {
 			if ( $this->user_options['gwtoolset-reupload-media'] === true ) {
 				// this will re-upload the mediafile, but will not change the page contents
-				$Status = $this->uploadMediaFileViaUploadFromUrl( $options, $Title );
+				$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
 			}
 
-			if ( $Status === null || $Status->isOk() ) {
-				$Content = ContentHandler::makeContent( $options['text'], $Title );
+			if ( $Status->isOk() ) {
+				$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
 				$Page = new WikiPage( $Title );
-				$Status = $Page->doEditContent( $Content, $options['comment'], 0, false, $this->_User );
+				$Status = $Page->doEditContent( $Content, $upload_params['comment'], 0, false, $this->_User );
 			}
 		}
 
@@ -491,7 +555,7 @@ class UploadHandler {
 					$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file']
 				) . PHP_EOL .
 				'evaluated URL: ' .
-				Utils::sanitizeUrl( $options['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
+				Utils::sanitizeUrl( $upload_params['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
 
 			throw new GWTException( $msg );
 		}
@@ -552,6 +616,80 @@ class UploadHandler {
 	}
 
 	/**
+	 * processes user_options['categories']
+	 *
+	 * creates sanitized categories, which have been
+	 * stripped of illegal category characters
+	 */
+	protected function setGlobalCategories() {
+		$categories = array();
+		$this->_global_categories = array();
+
+		if ( !empty( $this->user_options['categories'] ) ) {
+			$categories = explode(
+				Config::$category_separator,
+				$this->user_options['categories']
+			);
+		}
+
+		foreach( $categories as $key => $item ) {
+			$this->_global_categories[$key] =
+				Utils::stripIllegalCategoryChars(
+					Utils::sanitizeString( $item )
+				);
+		}
+	}
+
+	/**
+	 * processes user_options['gwtoolset-category-metadata']
+	 * and user_options['gwtoolset-category-phrase']
+	 *
+	 * creates sanitized categories, which have been
+	 * stripped of illegal category characters
+	 */
+	protected function setItemSpecificCategories() {
+		$this->_item_specific_categories = array();
+
+		if ( !empty( $this->user_options['gwtoolset-category-metadata'] ) ) {
+			$category_count = count( $this->user_options['gwtoolset-category-metadata'] );
+
+			for ( $i = 0; $i < $category_count; $i += 1 ) {
+				$phrase = null;
+				$metadata_values = array();
+
+				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
+					$phrase = $this->user_options['gwtoolset-category-phrase'][$i];
+				}
+
+				if ( !empty( $this->user_options['gwtoolset-category-metadata'][$i] ) ) {
+					$metadata_values =
+						$this->_Metadata->getFieldValuesAsArray(
+							$this->user_options['gwtoolset-category-metadata'][$i]
+						);
+				}
+
+				foreach( $metadata_values as $metadata_value ) {
+					if ( !empty( $phrase ) ) {
+						$this->_item_specific_categories[] =
+							Utils::stripIllegalCategoryChars(
+								Utils::sanitizeString( $phrase )
+							) .
+							' ' .
+							Utils::stripIllegalCategoryChars(
+								Utils::sanitizeString( $metadata_value )
+							);
+					} else {
+						$this->_item_specific_categories[] =
+							Utils::stripIllegalCategoryChars(
+								Utils::sanitizeString( $metadata_value )
+							);
+					}
+				}
+			}
+		}
+	}
+
+	/**
 	 * @todo does UploadFromUrl filter $options['gwtoolset-url-to-the-media-file']
 	 * @todo does UploadFromUrl filter $options['comment']
 	 * @todo does UploadFromUrl filter $options['text']
@@ -564,6 +702,7 @@ class UploadHandler {
 	protected function uploadMediaFileViaUploadFromUrl( array &$options, Title $Title ) {
 		// Initialize this object and the upload object
 		$Upload = new UploadFromUrl();
+		WikiChecks::increaseHTTPTimeout();
 
 		$Upload->initialize(
 			$Title->getBaseText(),
@@ -624,7 +763,7 @@ class UploadHandler {
 	 * @param {array} $options
 	 * @throws {MWException}
 	 */
-	protected function validatePageOptions( array &$options ) {
+	protected function validateUploadParams( array &$options ) {
 		if ( !isset( $options['ignorewarnings'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -694,4 +833,21 @@ class UploadHandler {
 			);
 		}
 	}
+
+	/**
+	 * verifies whether or not the wiki will allow the copy of content from
+	 * the given URL. If not, a request to add the domain to the
+	 * $wgCopyUploadsDomains array needs to be made.
+	 *
+	 * @param {string} $url
+	 * @throws {GWTException}
+	 */
+	protected function verifyUploadDomain( $url ) {
+		if ( !UploadFromUrl::isAllowedHost( $url ) ) {
+			throw new GWTException(
+				wfMessage( 'upload-copy-upload-invalid-domain' )->escaped()
+			);
+		}
+	}
+
 }

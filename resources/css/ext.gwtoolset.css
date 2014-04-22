@@ -71,3 +71,22 @@ td.add-metadata, td.subtract-metadata {
 	padding: 7px 0 7px 18px;
 	overflow: auto;
 }
+
+div#content .preview-title {
+	font-weight: bold;
+	border: none;
+	margin-top: 2em;
+}
+
+.preview-image-placeholder {
+	background-color: #f9f9f9;
+	width: 300px;
+	padding: 40px 0 270px 20px;
+	border: 1px solid #aaa;
+}
+
+#gwtoolset-back-to-top {
+	display: block;
+	margin: 2em 0 1em 0;
+	text-align: right;
+}

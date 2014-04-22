@@ -176,6 +176,10 @@
 			this.$form.on( 'submit', this.handleFormSubmit );
 		},
 
+		backToTop: function () {
+			$( '#gwtoolset-back-to-top' ).on( 'click', this.handleBackToTop );
+		},
+
 		addSaveMappingButton: function () {
 			if ( this.$templateTableTbody.length === 1 ) {
 				this.$templateTableTbody.append( this.$saveMappingButton );
@@ -323,6 +327,14 @@
 
 		/**
 		 * @param {Event} evt
+		 */
+		handleBackToTop: function ( evt ) {
+			evt.preventDefault();
+			$( 'body' ).animate( { scrollTop: 0 }, 'slow' );
+		},
+
+		/**
+		 * @param {Event} evt
 		 * @param {Object} data
 		 */
 		handleButtonAddClick: function ( evt, data ) {
@@ -443,6 +455,7 @@
 			this.addSaveMappingButton();
 			this.addButtons();
 			this.restoreJsFormFields();
+			this.backToTop();
 		},
 
 		removeCookies: function () {
