@@ -52,7 +52,20 @@ class MediawikiTemplate implements ModelInterface {
 	protected $_sub_templates = array(
 		'language' => '{{%s|%s}}',
 		'institution' => '{{Institution:%s}}',
-		'creator' => '{{Creator:%s}}'
+		'creator' => array(
+			'template' => '{{Creator:%s}}',
+			'parameters' => array(
+				'artist',
+				'author',
+				'Author',
+				'composer',
+				'lyrics_writer',
+				'performer',
+				'photographer',
+				'printer',
+				'publisher'
+			)
+		)
 	);
 
 	/**
@@ -222,7 +235,7 @@ class MediawikiTemplate implements ModelInterface {
 							Utils::sanitizeString( $content )
 						) . PHP_EOL;
 					}
-				} elseif ( $parameter === 'artist' ) {
+				} elseif ( in_array( $parameter, $this->_sub_templates['creator']['parameters'] ) ) {
 					// assumes that there could be more than one creator and uses the
 					// configured metadata separator to determine that
 					$creators = explode( Config::$metadata_separator, $content );
@@ -242,7 +255,7 @@ class MediawikiTemplate implements ModelInterface {
 							}
 
 							$sections .= sprintf(
-								$this->_sub_templates['creator'],
+								$this->_sub_templates['creator']['template'],
 								Utils::sanitizeString( $creator )
 							) . PHP_EOL;
 						}
