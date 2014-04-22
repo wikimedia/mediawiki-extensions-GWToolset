@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras"
+			"Okras",
+			"Meshkov.a"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -11,11 +12,14 @@
 	"group-gwtoolset": "Пользователи GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|Пользователь GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Пользователи GWToolset",
+	"gwtoolset-could-not-close-xml": "Не удалось закрыть средство чтения XML.",
 	"gwtoolset-could-not-open-xml": "Не удалось открыть XML-файл для чтения.",
 	"gwtoolset-fsfile-empty": "Файл был пустым и был удалён.",
 	"gwtoolset-fsfile-retrieval-failure": "Не удалось получить файл с URL-адреса $1.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code>не задано.",
 	"gwtoolset-no-url-to-media": "Не установлен <code>url-to-the-media-file</code>.",
+	"gwtoolset-sha1-does-not-match": "SHA-1 не совпадают.",
+	"gwtoolset-disk-write-failure": "Серверу не удалось записать файл в файловую систему.",
 	"gwtoolset-file-is-empty": "Загруженный файл пуст.",
 	"gwtoolset-improper-upload": "Файл не был загружен правильно.",
 	"gwtoolset-missing-temp-folder": "Временная папка недоступна.",
@@ -39,6 +43,7 @@
 	"gwtoolset-upload-legend": "Загрузите ваш файл метаданных",
 	"gwtoolset-which-metadata-mapping": "Какие метаданные сопоставить:",
 	"gwtoolset-category": "Категория",
+	"gwtoolset-example-record": "Метаданные пример записи.",
 	"gwtoolset-global-categories": "Глобальные категории",
 	"gwtoolset-maps-to": "Сопоставление для",
 	"gwtoolset-metadata-field": "Поле метаданных",
