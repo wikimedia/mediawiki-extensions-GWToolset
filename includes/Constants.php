@@ -12,7 +12,7 @@ namespace GWToolset;
 class Constants {
 
 	const EXTENSION_NAME = 'GWToolset';
-	const EXTENSION_VERSION = '0.1.3';
+	const EXTENSION_VERSION = '0.2.0';
 	const REQUIRED_MEDIAWIKI_VERSION = '1.22c';
 	const USE_FILEBACKEND = true;
 

@@ -1,23 +1,15 @@
-== GWToolset 0.1.3 ==
-scheduled deploy: Tuesday, 15 April 2014
+== GWToolset 0.2.0 ==
+MediaWiki_1.24/wmf2
+scheduled deploy: Tuesday, 29 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf2#GWToolset
 
+=== fix MediawikiTemplate::getTitle() method ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/127211/
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=64086
 
-=== bug/58507 ===
-Mark GWToolset namespace as being json for code editor
-gerrit: https://gerrit.wikimedia.org/r/#/c/123159/
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=58507
+=== Update i18n shim ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/128092/
 
-=== bug/63168 ===
-Correct the format of the wikitext output
-gerrit: https://gerrit.wikimedia.org/r/#q,dd0757d5,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63168
-
-=== bug/62870 ===
-make sure unicode characters are normalized
-gerrit: https://gerrit.wikimedia.org/r/#q,d1e32990,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62870
-
-=== bug/62909 ===
-relax wiki title restrictions
-gerrit: https://gerrit.wikimedia.org/r/#q,cc0705be,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+=== auto-add additional mediawiki template parameters as creator template values ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/125552/
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63822

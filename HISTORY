@@ -1,8 +1,61 @@
+== GWToolset 0.1.5 ==
+MediaWiki_1.24/wmf1
+deployed: Tuesday, 22 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf1#GWToolset
+
+=== version update ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/125922/
+
+=== wfStripIllegalFilenameChars truncates title ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/125401/
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+
+
+
+== GWToolset 0.1.4 ==
+MediaWiki_1.23/wmf22
+deployed: Tuesday, 15 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf22#GWToolset
+
+=== fix inconsistency in GWToolset directory reference ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/124351/
+
+=== Fix some minor HTML issues ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/124012/
+
+
+
+== GWToolset 0.1.3 ==
+MediaWiki_1.23/wmf21
+deployed: Tuesday, 08 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf21#GWToolset
+
+=== Mark GWToolset namespace as being json for code editor ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/123159/
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=58507
+
+=== Correct the format of the wikitext output ===
+gerrit: https://gerrit.wikimedia.org/r/#q,dd0757d5,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63168
+
+=== make sure unicode characters are normalized ===
+gerrit: https://gerrit.wikimedia.org/r/#q,d1e32990,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62870
+
+=== relax wiki title restrictions ===
+gerrit: https://gerrit.wikimedia.org/r/#q,cc0705be,n,z
+bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+
+
+
 == GWToolset 0.1.2 ==
+MediaWiki_1.23/wmf20
 deployed: Tuesday, 01 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf20#GWToolset
 
+=== Fix various inconsistencies in messages ===
+gerrit: https://gerrit.wikimedia.org/r/#/c/120003/
 
-=== assembla/260 ===
-Categorisation, unwanted concatenation
+=== don’t concatenate item specific categories ===
 gerrit: https://gerrit.wikimedia.org/r/#/c/119467/
 assembla: https://www.assembla.com/spaces/glamwiki/tickets/209
