@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"gwtoolset-cancel": "Откажи",
+	"gwtoolset-save": "Сачувај",
+	"gwtoolset-json-error-unknown": "Непозната грешка."
+}
