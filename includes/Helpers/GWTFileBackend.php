@@ -14,6 +14,7 @@ use FileBackendGroup,
 	GWToolset\Utils,
 	JobQueueGroup,
 	MWException,
+	Exception,
 	Php\File,
 	Status,
 	Title,
@@ -91,19 +92,17 @@ class GWTFileBackend {
 			)
 		);
 
-		$result = JobQueueGroup::singleton()->push( $job );
-
-		if ( $result ) {
-			$result = Status::newGood();
-		} else {
-			$result = Status::newFatal(
+		try {
+			JobQueueGroup::singleton()->push( $job );
+		} catch ( Exception $e ) {
+			return Status::newFatal(
 				wfMessage( 'gwtoolset-batchjob-creation-failure' )
 					->params( 'GWTFileBackendCleanupJob' )
 					->parse()
 			);
 		}
 
-		return $result;
+		return Status::newGood();
 	}
 
 	/**

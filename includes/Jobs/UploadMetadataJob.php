@@ -16,6 +16,7 @@ use Job,
 	GWToolset\GWTException,
 	GWToolset\Handlers\Forms\MetadataMappingHandler,
 	MWException,
+	Exception,
 	Title,
 	User;
 
@@ -104,7 +105,7 @@ class UploadMetadataJob extends Job {
 			);
 		}
 
-		return JobQueueGroup::singleton()->push( $job );
+		JobQueueGroup::singleton()->push( $job );
 	}
 
 	/**
@@ -124,15 +125,16 @@ class UploadMetadataJob extends Job {
 		// gwtoolsetUploadMediafileJob’s. if it does, re-create the UploadMetadataJob
 		// in order to try again later to add the UploadMediafileJob’s
 		if ( (int)$job_queue_size > (int)Config::$mediafile_job_queue_max ) {
-			$result = $this->recreateMetadataJob();
-
-			if ( !$result ) {
+			$result = true;
+			try {
+				$this->recreateMetadataJob();
+			} catch ( Exception $e ) {
+				$result = false;
 				$this->setLastError(
 					__METHOD__ . ': ' .
 					wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped()
 				);
 			}
-
 			return $result;
 		}
 

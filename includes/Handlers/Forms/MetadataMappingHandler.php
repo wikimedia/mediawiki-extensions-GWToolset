@@ -127,25 +127,17 @@ class MetadataMappingHandler extends FormHandler {
 			}
 		}
 
-		$result = JobQueueGroup::singleton()->push( $job );
+		JobQueueGroup::singleton()->push( $job );
 
-		if ( $result ) {
-			$newFilesLink = Linker::link(
-				Title::newFromText( 'Special:NewFiles' ),
-				null,
-				array( 'target' => '_blank' )
-			);
+		$newFilesLink = Linker::link(
+			Title::newFromText( 'Special:NewFiles' ),
+			null,
+			array( 'target' => '_blank' )
+		);
 
-			$result = wfMessage( 'gwtoolset-batchjob-metadata-created' )
-				->rawParams( $newFilesLink )
-				->parse();
-		} else {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped() )
-					->parse()
-			);
-		}
+		$result = wfMessage( 'gwtoolset-batchjob-metadata-created' )
+			->rawParams( $newFilesLink )
+			->parse();
 
 		return $result;
 	}
@@ -411,14 +403,12 @@ class MetadataMappingHandler extends FormHandler {
 		if ( PHP_SAPI === 'cli' || empty( $this->SpecialPage ) ) {
 			// add jobs created earlier by $this->_UploadHandler::saveMediafileViaJob to the JobQueue
 			if ( count( $this->_UploadHandler->mediafile_jobs ) > 0 ) {
-				$added_jobs = JobQueueGroup::singleton()->push( $this->_UploadHandler->mediafile_jobs );
+				JobQueueGroup::singleton()->push( $this->_UploadHandler->mediafile_jobs );
 
-				if ( $added_jobs ) {
-					$result =
-						wfMessage( 'gwtoolset-mediafile-jobs-created' )
-							->numParams( count( $this->_UploadHandler->mediafile_jobs ) )
-							->escaped();
-				}
+				$result =
+					wfMessage( 'gwtoolset-mediafile-jobs-created' )
+						->numParams( count( $this->_UploadHandler->mediafile_jobs ) )
+						->escaped();
 			}
 
 			// at this point
