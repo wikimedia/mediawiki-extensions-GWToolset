@@ -3,7 +3,8 @@
 		"authors": [
 			"Clockoon",
 			"Hym411",
-			"Priviet"
+			"Priviet",
+			"아라"
 		]
 	},
 	"gwtoolset": "GW도구모음",
@@ -104,7 +105,7 @@
 	"gwtoolset-ensure-well-formed-xml": "XML 파일이 올바른 형식인지 $1로 확인해주세요.",
 	"gwtoolset-file-url-invalid": "파일 URL이 유효하지 않습니다; 파일이 아직 위키에 존재하지 않습니다. 양식에서 파일 URL 참조를 사용하려면 먼저 당신의 컴퓨터에서 파일을 올려야 합니다.",
 	"gwtoolset-mediafile-throttle": "미디어파일 스로틀:",
-	"gwtoolset-mediafile-throttle-description": "일괄 처리 미리보기 후, 단계 3에서 GW도구모음이 백그라운드 작업을 통해 일괄 처리 업로드에서 잔여 기록을 업로드했습니다. 미디어파일 스로틀은 위키미디어 공용이 백그라운드 작업이 동작하고 있을 때마다 당신의 미디어파일 서버에 대한 미디어파일 요청 수를 관리합니다. 미디어파일 스로틀을 1-20 사이로 설정할 수 있습니다. 위키미디어 공용은 전체 일괄 처리 업로드 작업을 처리하기 위하여 다섯 백그라운드 작업을 실행합니다. 백그라운드 작업 간 시간은 서버 부하나 설정에 따라 달라질 수 있습니다. 저희는 위키미디어 공용에서 GW도구모음 백그라운드 작어이 최소 5분마다 실행되기를 기대하고 있습니다.",
+	"gwtoolset-mediafile-throttle-description": "일괄 처리 미리 보기 후, 단계 3에서 GW도구모음이 백그라운드 작업을 통해 일괄 처리 업로드에서 잔여 기록을 업로드했습니다. 미디어파일 스로틀은 위키미디어 공용이 백그라운드 작업이 동작하고 있을 때마다 당신의 미디어파일 서버에 대한 미디어파일 요청 수를 관리합니다. 미디어파일 스로틀을 1-20 사이로 설정할 수 있습니다. 위키미디어 공용은 전체 일괄 처리 업로드 작업을 처리하기 위하여 다섯 백그라운드 작업을 실행합니다. 백그라운드 작업 간 시간은 서버 부하나 설정에 따라 달라질 수 있습니다. 저희는 위키미디어 공용에서 GW도구모음 백그라운드 작어이 최소 5분마다 실행되기를 기대하고 있습니다.",
 	"gwtoolset-mediawiki-template-does-not-exist": "미디어위키 틀 \"<strong>$1</strong>\"이 위키에 존재하지 않습니다.\n\n틀을 가져오고 매핑을 위해 사용할 다른 미디어위키 틀을 선택해주세요",
 	"gwtoolset-mediawiki-template-not-found": "미디어위키 틀 \"$1\"을 찾을 수 없습니다.",
 	"gwtoolset-metadata-file-source": "메타데이터 파일 출처를 선택해주세요.",
@@ -125,7 +126,7 @@
 	"gwtoolset-step-1-instructions-3-heading": "도메인 화이트리스트",
 	"gwtoolset-step-1-instructions-li-1": "메타데이터 감지",
 	"gwtoolset-step-1-instructions-li-2": "메타데이터 매핑",
-	"gwtoolset-step-1-instructions-li-3": "일괄 처리 미리보기",
+	"gwtoolset-step-1-instructions-li-3": "일괄 처리 미리 보기",
 	"gwtoolset-step-1-instructions-li-4": "일괄 업로드",
 	"gwtoolset-upload-legend": "메타데이터 파일을 업로드하기",
 	"gwtoolset-which-mediawiki-template": "미디어위키 틀:",
@@ -151,10 +152,9 @@
 	"gwtoolset-partner-explanation": "파트너 틀은 제공됐을 때 미디어위키 틀의 소스 필드를 넣었습니다. 분류에서 현재 파트너 틀 목록을 찾을 수 있습니다:출처 틀 문서; 아래 링크를 참조하세요. 파트너 틀을 찾으면 이 필드에 URL을 넣을 수 있습니다. 필요하다면 새로운 파트너 틀을 만들 수 있습니다.",
 	"gwtoolset-partner-template": "파트너 틀:",
 	"gwtoolset-phrasing": "프레이징",
-	"gwtoolset-preview": "미리보기 일괄 처리",
+	"gwtoolset-preview": "미리 보기 일괄 처리",
 	"gwtoolset-process-batch": "프로세스 일괄 처리",
 	"gwtoolset-record-count": "이 메타데이터 파일의 레코드 총 개수: {{PLURAL:$1|$1}}",
-	"gwtoolset-results": "결과",
 	"gwtoolset-step-2-heading": "단계 2: 메타데이터 매핑",
 	"gwtoolset-step-2-instructions-heading": "매핑 메타데이터 필드",
 	"gwtoolset-step-2-instructions-1": "다음은:",
