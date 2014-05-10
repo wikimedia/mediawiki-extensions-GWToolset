@@ -86,6 +86,11 @@ class UploadHandler {
 	public $mediafile_jobs;
 
 	/**
+	 * @var {null|bool}
+	 */
+	protected $otherContributors;
+
+	/**
 	 * @var {array}
 	 */
 	public $user_options;
@@ -209,6 +214,73 @@ class UploadHandler {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * allows the original uploader to upload a new version
+	 * of the mediafile when:
+	 *
+	 * - no other contributors have contributed or made alterations
+	 * - the mediafile being uploaded is not the same as the title’s most
+	 *   recently associated mediafile
+	 * - the mediafile being uploaded is not associated with another title
+	 *
+	 * @todo how to handle $warnings['exists']['warning'] === 'was-deleted'.
+	 * because it was deleted there are no contributors in the array coming
+	 * back from the api call
+	 *
+	 * @param {UploadBase} $upload
+	 * @param {Title} $title
+	 * @return {Status}
+	 */
+	protected function checkUploadWarnings( UploadBase $upload, Title $title ) {
+		$status = Status::newGood();
+		$warnings = $upload->checkWarnings();
+
+		if (
+			isset( $warnings['exists'] )
+			&& isset( $warnings['exists']['warning'] )
+		) {
+			if ( $warnings['exists']['warning'] === 'exists' ) {
+				// check if another contributor has altered this title
+				if ( $this->otherContributors( $title ) ) {
+					$msg =
+						wfMessage( 'gwtoolset-mediafile-other-contributors' )
+							->params( $warnings['exists']['file']->getTitle() )
+							->escaped();
+
+					$status = Status::newFatal( $msg );
+
+				// this title’s most recent mediafile is the same as the one being uploaded
+				} else if (
+					$upload->getTempFileSha1Base36() ===
+					$warnings['exists']['file']->getSha1()
+				) {
+					$msg =
+						wfMessage( 'gwtoolset-mediafile-duplicate-same-title' )
+							->params( $warnings['exists']['file']->getTitle() )
+							->escaped();
+
+					$status = Status::newFatal( $msg );
+				}
+			}
+		}
+
+		// another title has this mediafile
+		if (
+			$status->isOK()
+			&& isset( $warnings['duplicate'] )
+			&& count( $warnings['duplicate'] ) > 0
+		) {
+			$msg =
+				wfMessage( 'gwtoolset-mediafile-duplicate-another-title' )
+					->params( $warnings['duplicate'][0]->getTitle() )
+					->escaped();
+
+			$status = Status::newFatal( $msg );
+		}
+
+		return $status;
 	}
 
 	/**
@@ -451,6 +523,10 @@ class UploadHandler {
 	protected function otherContributors( Title $Title ) {
 		global $wgRequest;
 
+		if ( is_bool( $this->otherContributors ) ) {
+			return $this->otherContributors;
+		}
+
 		$Api = new ApiMain(
 			new DerivativeRequest(
 				$wgRequest,
@@ -480,12 +556,16 @@ class UploadHandler {
 				if ( $api_result['contributors'][0]['name']
 					== $this->_User->getName()
 				) {
-					return false;
+					$this->otherContributors = false;
+
+					return $this->otherContributors;
 				}
 			}
 		}
 
-		return true;
+		$this->otherContributors = true;
+
+		return $this->otherContributors;
 	}
 
 	public function reset() {
@@ -496,6 +576,7 @@ class UploadHandler {
 		$this->_UploadBase = null;
 
 		$this->mediafile_jobs = array();
+		$this->otherContributors = null;
 		$this->user_options = array();
 	}
 
@@ -565,18 +646,34 @@ class UploadHandler {
 		$Title = $this->getTitle( $upload_params['title'] );
 
 		if ( !$Title->isKnown() ) {
+			// upload new content and mediafile
+			$this->otherContributors = false;
 			$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
 		} else {
+			// re-upload the mediafile
 			if ( $this->user_options['gwtoolset-reupload-media'] === true ) {
-				// this will re-upload the mediafile, but will not change the page contents
 				$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
 			}
 
+			// upload new page content if no one else has edited the title
 			if ( $Status->isOk() ) {
 				if ( !$this->otherContributors( $Title ) ) {
 					$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
 					$Page = WikiPage::factory( $Title );
-					$Status = $Page->doEditContent( $Content, $upload_params['comment'], 0, false, $this->_User );
+					$Status = $Page->doEditContent(
+						$Content,
+						$upload_params['comment'],
+						0,
+						false,
+						$this->_User
+					);
+				} else {
+					$msg =
+						wfMessage( 'gwtoolset-mediafile-other-contributors' )
+							->params( $Title )
+							->escaped();
+
+					$Status = Status::newFatal( $msg );
 				}
 			}
 		}
@@ -586,10 +683,12 @@ class UploadHandler {
 				$Status->getMessage() . PHP_EOL .
 				'original URL: ' .
 				Utils::sanitizeUrl(
-					$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file']
+					$this
+						->_MediawikiTemplate
+						->mediawiki_template_array['gwtoolset-url-to-the-media-file']
 				) . PHP_EOL .
 				'evaluated URL: ' .
-				Utils::sanitizeUrl( $upload_params['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
+				Utils::sanitizeUrl( $upload_params['gwtoolset-url-to-the-media-file'] );
 
 			throw new GWTException( $msg );
 		}
@@ -724,42 +823,47 @@ class UploadHandler {
 	}
 
 	/**
-	 * @todo does UploadFromUrl filter $options['gwtoolset-url-to-the-media-file']
-	 * @todo does UploadFromUrl filter $options['comment']
-	 * @todo does UploadFromUrl filter $options['text']
-	 *
 	 * @param {array} $options
 	 * @param {Title} $Title
-	 * @throws {GWTException}
 	 * @return {Status}
 	 */
-	protected function uploadMediaFileViaUploadFromUrl( array &$options, Title $Title ) {
-		// Initialize this object and the upload object
-		$Upload = new UploadFromUrl();
+	protected function uploadMediaFileViaUploadFromUrl(
+		array $options,
+		Title $Title
+	) {
+		// Initialize the upload object
+		$upload = new UploadFromUrl();
 		WikiChecks::increaseHTTPTimeout();
 
-		$Upload->initialize(
+		$upload->initialize(
 			$Title->getBaseText(),
 			$options['gwtoolset-url-to-the-media-file'],
 			false
 		);
 
 		// Fetch the file - returns a Status Object
-		$Status = $Upload->fetchFile();
-		if ( !$Status->isOk() ) {
-			$Upload->cleanupTempFile();
-			return $Status;
+		$status = $upload->fetchFile();
+		if ( !$status->isOk() ) {
+			$upload->cleanupTempFile();
+			return $status;
 		}
 
 		// Verify upload - returns a status value via an array
-		$status = $Upload->verifyUpload();
+		$status = $upload->verifyUpload();
 		if ( $status['status'] !== UploadBase::OK ) {
-			$Upload->cleanupTempFile();
-			return $Upload->convertVerifyErrorToStatus( $status );
+			$upload->cleanupTempFile();
+			return $upload->convertVerifyErrorToStatus( $status );
+		}
+
+		// Check upload warnings
+		$status = $this->checkUploadWarnings( $upload, $Title );
+		if ( !$status->isOk() ) {
+			$upload->cleanupTempFile();
+			return $status;
 		}
 
 		// Perform the upload - returns FileRepoStatus Object
-		$Status = $Upload->performUpload(
+		$status = $upload->performUpload(
 			$options['comment'],
 			$options['text'],
 			$options['watch'],
@@ -769,22 +873,16 @@ class UploadHandler {
 		// Page may very well exist now where it previously didn't
 		$Title->resetArticleID( false );
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$msg =
-				$Status->getMessage() . PHP_EOL .
-				'tmp path: ' . $Upload->getTempPath() . PHP_EOL .
-				'original URL: ' .
-				Utils::sanitizeUrl(
-					$this->_MediawikiTemplate->mediawiki_template_array['gwtoolset-url-to-the-media-file']
-				) . PHP_EOL .
-				'evaluated URL: ' .
-				Utils::sanitizeUrl( $options['gwtoolset-url-to-the-media-file'] ) . PHP_EOL;
+				$status->getMessage() . PHP_EOL . ' ' .
+				'tmp path: ' . $upload->getTempPath() . PHP_EOL;
 
-			$Upload->cleanupTempFile();
-			throw new GWTException( $msg );
+			$upload->cleanupTempFile();
+			$status = Status::newFatal( $msg );
 		}
 
-		return $Status;
+		return $status;
 	}
 
 	/**
