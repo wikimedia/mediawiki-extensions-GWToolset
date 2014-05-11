@@ -89,5 +89,6 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Paso 4: carga del lote",
 	"gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.",
+	"gwtoolset-required-group": "No formas parte del grupo $1.",
 	"gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3."
 }

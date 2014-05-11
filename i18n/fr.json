@@ -7,7 +7,8 @@
 			"Maxim21",
 			"Moyg",
 			"Nobody",
-			"VIGNERON"
+			"VIGNERON",
+			"Brunoperel"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -171,7 +172,7 @@
 	"gwtoolset-step-2-instructions-2-li-1": "Sélectionner un champ de métadonnées dans la colonne « {{int:gwtoolset-maps-to}} » qui correspond avec un champ du modèle de MediaWiki dans la colonne « {{int:gwtoolset-template-field}} ».",
 	"gwtoolset-step-2-instructions-2-li-2": "Il n'est pas nécessaire de remplir tous les champs des modèles de MediaWiki.",
 	"gwtoolset-reupload-media": "Recharger le fichier média depuis l’URL",
-	"gwtoolset-reupload-media-explanation": "Cette case à cocher vous permet de recharger le fichier média pour un élément qui a déjà été chargé sur le wiki. Si l’élément existe déjà, un fichier média supplémentaire sera ajouté au wiki. Si le fichier média n’existe pas encore, il sera téléchargé, que cette case soit cochée ou non.",
+	"gwtoolset-reupload-media-explanation": "Cette case à cocher vous permet de ré-envoyer un fichier média pour un élément qui a déjà été chargé sur le wiki. Si l’élément existe déjà car vous déjà envoyé un média, un fichier média supplémentaire sera ajouté au wiki. Si quelqu'un d'autre a déjà envoyé une nouvelle version du fichier média, votre envoi sera ignoré. Si le fichier média n’existe pas encore sur le wiki, il sera envoyé dans tous les cas, que cette case soit cochée ou non.",
 	"gwtoolset-specific-categories": "Catégories spécifiques d’élément",
 	"gwtoolset-specific-tooltip": "En utilisant les champs qui suivent, vous pouvez appliquer une phrase (facultative) plus un champ de métadonnées comme entrée de catégorie pour chaque élément importé, individuellement. Par exemple, si le fichier de métadonnées contient un élément pour l’artiste de chaque enregistrement, vous pouvez l’ajouter comme une entrée de catégorie pour chaque enregistrement qui prendra la valeur spécifique à chaque enregistrement. Vous pouvez aussi ajouter une phrase comme « <em>{{int:gwtoolset-painted-by}}</em> » et puis le champ de métadonnées de l’artiste, que vous rendriez par « <em>{{int:gwtoolset-painted-by}} <nom de l’artiste></em> » comme catégorie pour chaque enregistrement.",
 	"gwtoolset-template-field": "Champ du modèle",
