@@ -138,15 +138,14 @@ class UploadHandler {
 	 */
 	protected function addMetadata() {
 		return
-			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
-			'<!-- Metadata Mapped -->' . PHP_EOL .
 			'<!-- <metadata_mapped_json>' .
 			json_encode( $this->_MediawikiTemplate->mediawiki_template_array ) .
-			'</metadata_mapped_json> -->' . PHP_EOL . PHP_EOL .
-			'<!-- Metadata Raw -->' . PHP_EOL .
+			'</metadata_mapped_json> -->' .
+			PHP_EOL . PHP_EOL .
 			'<!-- <metadata_raw>' . PHP_EOL .
 			htmlspecialchars( $this->_MediawikiTemplate->metadata_raw, ENT_QUOTES, 'UTF-8' ) . PHP_EOL .
-			'</metadata_raw> -->' . PHP_EOL;
+			'</metadata_raw> -->' .
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
 	}
 
 	/**
@@ -154,11 +153,11 @@ class UploadHandler {
 	 * these categories represent global categories
 	 * that are applied to all of the media files being uploaded.
 	 *
-	 * @return {null|string}
+	 * @return {string}
 	 * sanitized
 	 */
 	protected function addGlobalCategories() {
-		$result = null;
+		$result = '';
 
 		$this->setGlobalCategories();
 		$categories = $this->_global_categories;
@@ -166,13 +165,6 @@ class UploadHandler {
 		if ( empty( $categories ) ) {
 			return $result;
 		}
-
-		$result =
-			PHP_EOL . PHP_EOL .
-			'<!-- ' .
-			wfMessage( 'gwtoolset-global-categories' )->escaped() .
-			' -->' .
-			PHP_EOL;
 
 		foreach ( $categories as $category ) {
 			$result .=
@@ -196,11 +188,11 @@ class UploadHandler {
 	 * either a category-phrase and a category-metadata value must be provided
 	 * or only a category-metadata value.
 	 *
-	 * @return {null|string}
+	 * @return {string}
 	 * sanitized
 	 */
 	protected function addItemSpecificCategories() {
-		$result = null;
+		$result = '';
 
 		$this->setItemSpecificCategories();
 		$categories = $this->_item_specific_categories;
@@ -208,13 +200,6 @@ class UploadHandler {
 		if ( empty( $categories ) ) {
 			return $result;
 		}
-
-		$result =
-			PHP_EOL . PHP_EOL .
-			'<!-- ' .
-			wfMessage( 'gwtoolset-specific-categories' )->escaped() .
-			' -->' .
-			PHP_EOL;
 
 		foreach( $categories as $category ) {
 			$result .= '[[' .
@@ -429,10 +414,8 @@ class UploadHandler {
 		return
 			'=={{int:filedesc}}==' . PHP_EOL . PHP_EOL .
 			$this->_MediawikiTemplate->getTemplateAsWikiText( $this->user_options ) .
-			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL .
 			$this->_MediawikiTemplate->getGWToolsetTemplateAsWikiText() .
 			$this->addMetadata() .
-			PHP_EOL . PHP_EOL .
 			$this->addGlobalCategories() .
 			$this->addItemSpecificCategories();
 	}

@@ -150,7 +150,6 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	public function getGWToolsetTemplateAsWikiText() {
 		return
-			'<!-- GWToolset Template -->' . PHP_EOL .
 			'{{Uploaded with GWToolset' . PHP_EOL .
 			' | gwtoolset-title-identifier = ' .
 					Utils::sanitizeString(
@@ -160,9 +159,8 @@ class MediawikiTemplate implements ModelInterface {
 					Utils::sanitizeString(
 						$this->mediawiki_template_array['gwtoolset-url-to-the-media-file']
 					) . PHP_EOL .
-			'}}'
-		;
-
+			'}}' .
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
 	}
 
 	/**
@@ -183,7 +181,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * the resulting wiki text is filtered
 	 */
 	public function getTemplateAsWikiText( array &$user_options ) {
-		$result = '<!-- Mediawiki Template -->' . PHP_EOL;
+		$result = '';
 		$sections = null;
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
 
@@ -327,6 +325,7 @@ class MediawikiTemplate implements ModelInterface {
 		}
 
 		$result .= sprintf( $template, $sections );
+		$result .= PHP_EOL . PHP_EOL;
 
 		return $result;
 	}

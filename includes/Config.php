@@ -186,7 +186,7 @@ class Config {
 	 * @var {string}
 	 * category automatically added to items uploaded by GWToolset
 	 */
-	public static $mediawiki_template_default_category = 'GWToolset_Batch_Upload';
+	public static $mediawiki_template_default_category = 'GWToolset Batch Upload';
 
 	/**
 	 * @var {int}
