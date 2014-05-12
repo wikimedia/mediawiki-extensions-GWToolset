@@ -12,7 +12,7 @@
 	"group-gwtoolset": "Корисници на GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|Корисник на GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Корисници на GWToolset",
-	"gwtoolset-back-to-top": "⇪ најгоре",
+	"gwtoolset-back-to-top": "најгоре",
 	"gwtoolset-batchjob-creation-failure": "Не можев да создадам пакет задачи од типот „$1“.",
 	"gwtoolset-could-not-close-xml": "Не можев да го затворам читачот на XML.",
 	"gwtoolset-could-not-open-xml": "Не можев да ја отворам XML-податотеката за читање.",

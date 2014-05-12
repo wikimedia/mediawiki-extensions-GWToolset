@@ -19,7 +19,7 @@
 	"group-gwtoolset": "Utilisateurs de GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|Utilisateur|Utilisatrice}} de GWToolset",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset users",
-	"gwtoolset-back-to-top": "⇪ haut de la page",
+	"gwtoolset-back-to-top": "haut de la page",
 	"gwtoolset-batchjob-creation-failure": "Impossible de crée un traitement par lot de type « $1 ».",
 	"gwtoolset-could-not-close-xml": "Impossible de fermer le lecteur XML.",
 	"gwtoolset-could-not-open-xml": "Impossible de lire le fichier XML.",

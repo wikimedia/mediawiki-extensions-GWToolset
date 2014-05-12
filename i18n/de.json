@@ -14,7 +14,7 @@
 	"group-gwtoolset": "GWToolset-Benutzer",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset-Benutzer|GWToolset-Benutzerin}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset-Benutzer",
-	"gwtoolset-back-to-top": "⇪ Seitenanfang",
+	"gwtoolset-back-to-top": "Seitenanfang",
 	"gwtoolset-batchjob-creation-failure": "Ein Stapelauftrag des Typs „$1“ konnte nicht erstellt werden.",
 	"gwtoolset-could-not-close-xml": "Der XML-Reader konnte nicht geschlossen werden.",
 	"gwtoolset-could-not-open-xml": "Die XML-Datei konnte nicht zum Lesen geöffnet werden.",
