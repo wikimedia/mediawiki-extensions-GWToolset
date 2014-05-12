@@ -138,7 +138,11 @@ class PreviewForm {
 
 			Html::rawElement(
 				'a',
-				array( 'id' => 'gwtoolset-back-to-top', 'href' => '#top' ),
+				array(
+					'id' => 'gwtoolset-back-to-top',
+					'href' => '#top',
+					'title' => wfMessage( 'gwtoolset-back-to-top' )
+				),
 				wfMessage( 'gwtoolset-back-to-top' )
 			);
 	}

@@ -87,6 +87,11 @@ div#content .preview-title {
 
 #gwtoolset-back-to-top {
 	display: block;
+	padding-right: 55px;
 	margin: 2em 0 1em 0;
+	height: 82px;
 	text-align: right;
+	background-image: url(../images/up_arrow.png);
+	background-repeat: no-repeat;
+	background-position: right 7px;
 }
