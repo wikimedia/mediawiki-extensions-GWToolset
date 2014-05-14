@@ -1,7 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"dan-nl"
+			"dan-nl",
+			"Brian Wolff",
+			"Siebrand Mazeland",
+			"Shirayuki",
+			"Amir E. Aharoni"
 		]
 	},
 	"gwtoolset": "GWToolset",
