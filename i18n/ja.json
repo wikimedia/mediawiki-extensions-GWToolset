@@ -12,7 +12,7 @@
 	"group-gwtoolset": "GWToolset 利用者",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset 利用者}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset 利用者",
-	"gwtoolset-back-to-top": "ページの先頭へ",
+	"gwtoolset-back-to-top": "⇪ ページの先頭へ",
 	"gwtoolset-batchjob-creation-failure": "種類「$1」の一括処理のジョブを作成できませんでした。",
 	"gwtoolset-could-not-close-xml": "XML リーダーを閉じることができませんでした。",
 	"gwtoolset-could-not-open-xml": "XML ファイルを読み取り用で開くことができませんでした。",

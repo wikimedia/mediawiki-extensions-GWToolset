@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"Jacenty359",
-			"Rzuwig"
+			"Rzuwig",
+			"Matik7"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -12,7 +13,10 @@
 	"group-gwtoolset": "Użytkownicy GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset użytkownik}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Użytkownicy GWToolset",
+	"gwtoolset-back-to-top": "⇪ początek strony",
 	"gwtoolset-fsfile-empty": "Plik był pusty i został skasowany.",
+	"gwtoolset-mediafile-duplicate-another-title": "Identyczny plik już istnieje pod tytułem \"$1\".",
+	"gwtoolset-mediafile-duplicate-same-title": "Ten plik już istnieje i ma taki sam tytuł \"$1\".",
 	"gwtoolset-no-page-title": "Nie podano tytułu strony.",
 	"gwtoolset-file-is-empty": "Przesłany plik jest pusty.",
 	"gwtoolset-improper-upload": "Plik nie został przesłany poprawnie.",
@@ -35,7 +39,6 @@
 	"gwtoolset-category": "Kategoria",
 	"gwtoolset-global-categories": "Kategorie globalne",
 	"gwtoolset-metadata-file": "Plik metadanych",
-	"gwtoolset-results": "Wyniki",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
 	"gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3."
