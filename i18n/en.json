@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"dan-nl",
+			"dan entous",
 			"Brian Wolff",
 			"Siebrand Mazeland",
 			"Shirayuki",
@@ -86,7 +86,6 @@
 	"gwtoolset-file-interpretation-error": "There was a problem processing the metadata file.",
 	"gwtoolset-mediawiki-template": "Template $1",
 	"gwtoolset-metadata-user-options-error": "The following form {{PLURAL:$2|field|fields}} must be filled in:\n$1",
-	"gwtoolset-metadata-invalid-template": "No valid MediaWiki template found.",
 	"gwtoolset-menu": "* $1",
 	"gwtoolset-menu-1": "Metadata mapping",
 	"gwtoolset-technical-error": "There was a technical error.",
@@ -220,5 +219,10 @@
 	"gwtoolset-detect-license-explanation": "The MediaWiki template may have a <code>permission</code> parameter. When it does, an attempt to detect the copyright license based on the metadata value can be made. GWToolset looks for Creative Commons URLs that match possible copyright licenses, e.g., https://creativecommons.org/licenses/by-sa/3.0/ matches the MediaWiki license template <code>{{tl|Template:Cc-by-sa-3.0}}</code>. If this box is left unchecked, the raw metadata value for each item in the batch upload will be placed in the permission parameter.",
 	"gwtoolset-detect-license-heading": "License template",
 	"gwtoolset-global-license": "Global license",
-	"gwtoolset-global-license-explanation": "Or you can specify below a global license that will be applied to all the items in the batch upload. This value can be a free text value or a MediaWiki template. If this field has a value in it then any metadata value mapped to the permission parameter will be ignored."
+	"gwtoolset-global-license-explanation": "Or you can specify below a global license that will be applied to all the items in the batch upload. This value can be a free text value or a MediaWiki template. If this field has a value in it then any metadata value mapped to the permission parameter will be ignored.",
+	"gwtoolset-select-template": "Select a template:",
+	"gwtoolset-select-custom-template": "or enter a custom template:",
+	"gwtoolset-no-templatedata": "There is no <code>&lt;templatedata></code> block for template $1.\n\nIf possible, add a $2 to the template, or to the template's $3.",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> block",
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
 }

@@ -14,6 +14,7 @@ use ApiMain,
 	GWToolset\Config,
 	GWToolset\GWTException,
 	GWToolset\Utils,
+	Linker,
 	Title;
 
 class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
@@ -47,19 +48,6 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		$result = array( 'mediawiki_template_json' => '' );
 		$template_data = null;
 
-		// should we limit the mw templates we allow?
-		// 2013-09-26 w/david haskia, for now, yes
-		if ( !isset(
-			Config::$mediawiki_templates[Utils::sanitizeString( $options['mediawiki_template_name'] )] )
-		) {
-			throw new GWTException(
-				array(
-					'gwtoolset-mediawiki-template-not-found' =>
-					array( $options['mediawiki_template_name'] )
-				)
-			);
-		}
-
 		$Title = Utils::getTitle(
 			$options['mediawiki_template_name'],
 			NS_TEMPLATE
@@ -76,11 +64,32 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
 		$template_data = $this->retrieveTemplateData( $Title );
 
-		if ( empty ( $template_data ) ) {
-			$result['mediawiki_template_json'] =
-				Config::$mediawiki_templates[Utils::sanitizeString( $options['mediawiki_template_name'] )];
-		} else {
+		if ( !empty( $template_data ) ) {
 			$result['mediawiki_template_json'] = $template_data;
+		} else if (
+			in_array(
+				$options['mediawiki_template_name'],
+				Config::$mediawiki_templates
+			)
+		) {
+			$result['mediawiki_template_json'] =
+				Config::$mediawiki_templates[ $options['mediawiki_template_name'] ];
+		} else {
+			throw new GWTException(
+				array(
+					'gwtoolset-no-templatedata' => array(
+						$options['mediawiki_template_name'],
+						'[[' .
+							'mw:Extension:TemplateData#Defining_a_TemplateData_block|' .
+							wfMessage( 'gwtoolset-templatedata-link-text' )->parse() .
+						']]',
+						'[[' .
+							'commons:Commons:TemplateData#Using_TemplateBox|' .
+							wfMessage( 'gwtoolset-templatebox-link-text' )->parse() .
+						']]'
+					)
+				)
+			);
 		}
 
 		return $result;

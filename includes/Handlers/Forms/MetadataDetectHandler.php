@@ -19,6 +19,7 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Utils,
 	FSFile,
+	Language,
 	MWException,
 	Php\File;
 
@@ -30,6 +31,7 @@ class MetadataDetectHandler extends FormHandler {
 	protected $_expected_post_fields = array(
 		'gwtoolset-form' => array( 'size' => 255 ),
 		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
+		'gwtoolset-mediawiki-template-custom' => array( 'size' => 255 ),
 		'gwtoolset-mediafile-throttle' => array( 'size' => 2 ),
 		'gwtoolset-metadata-file-upload' => array( 'size' => 255 ),
 		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
@@ -118,11 +120,7 @@ class MetadataDetectHandler extends FormHandler {
 					)
 				: Config::$mediafile_job_throttle_default,
 
-			'gwtoolset-mediawiki-template-name' => !empty(
-					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
-				)
-				? Utils::normalizeSpace( $this->_whitelisted_post['gwtoolset-mediawiki-template-name'] )
-				: null,
+			'gwtoolset-mediawiki-template-name' => $this->setTemplateName(),
 
 			'gwtoolset-metadata-file-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
 				? $this->_whitelisted_post['gwtoolset-metadata-file-url']
@@ -158,10 +156,12 @@ class MetadataDetectHandler extends FormHandler {
 	 */
 	protected function processRequest() {
 		$result = null;
+
 		$this->_whitelisted_post = Utils::getWhitelistedPost(
 			$_POST,
 			$this->_expected_post_fields
 		);
+
 		$user_options = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(
@@ -238,5 +238,39 @@ class MetadataDetectHandler extends FormHandler {
 		);
 
 		return $result;
+	}
+
+	/**
+	 * the application uses gwtoolset-mediawiki-template-name to fetch a mediawiki
+	 * template to use for metadata matching.
+	 *
+	 * if a value for gwtoolset-mediawiki-template-custom is given, it is assumed
+	 * that the application should use it instead, even a value is also provided
+	 * in gwtoolset-mediawiki-template-name.
+	 *
+	 * @return {string}
+	 */
+	protected function setTemplateName() {
+		global $wgLanguageCode;
+
+		if (
+			!empty( $this->_whitelisted_post['gwtoolset-mediawiki-template-custom'] )
+		) {
+			$Language = Language::factory( $wgLanguageCode );
+
+			return
+				Utils::normalizeSpace(
+					str_replace(
+						$Language->getNsText( NS_TEMPLATE ) . ':',
+						'',
+						$this->_whitelisted_post['gwtoolset-mediawiki-template-custom']
+					)
+				);
+		} else {
+			return
+				Utils::normalizeSpace(
+					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
+				);
+		}
 	}
 }

@@ -542,12 +542,8 @@ class MediawikiTemplate implements ModelInterface {
 				);
 		}
 
-		if ( array_key_exists( $mediawiki_template_name, Config::$mediawiki_templates ) ) {
-			$this->mediawiki_template_name = $mediawiki_template_name;
-			$this->retrieve();
-		} else {
-			throw new GWTException( 'gwtoolset-metadata-invalid-template' );
-		}
+		$this->mediawiki_template_name = $mediawiki_template_name;
+		$this->retrieve();
 	}
 
 	/**

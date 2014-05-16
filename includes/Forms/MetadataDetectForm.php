@@ -195,13 +195,40 @@ class MetadataDetectForm {
 					'label',
 					array(),
 					wfMessage( 'gwtoolset-which-mediawiki-template' )->escaped() .
-					$MediawikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' ) .
 					Html::rawElement(
 						'span',
 						array( 'class' => 'required' ),
 						' *'
 					)
-				)
+				) .
+
+				Html::openElement( 'ul' ) .
+
+				Html::rawElement(
+					'li',
+					array(),
+					wfMessage( 'gwtoolset-select-template' )->escaped() .
+					Html::rawElement( 'br' ) .
+					$MediawikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' )
+				) .
+
+				Html::rawElement(
+					'li',
+					array(),
+					wfMessage( 'gwtoolset-select-custom-template' ) .
+					Html::rawElement( 'br' ) .
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'text',
+							'name' => 'gwtoolset-mediawiki-template-custom',
+							'class' => 'gwtoolset-wider-input',
+							'placeholder' => 'TorontoHollarCollection'
+						)
+					)
+				) .
+
+				Html::closeElement( 'ul' )
 			) .
 
 			Html::rawElement(
@@ -216,7 +243,7 @@ class MetadataDetectForm {
 						array(
 							'type' => 'text',
 							'name' => 'gwtoolset-metadata-mapping-url',
-							'class' => 'gwtoolset-url-input',
+							'class' => 'gwtoolset-wider-input',
 							'placeholder' => $namespace .
 								Utils::sanitizeString( Config::$metadata_mapping_subpage ) .
 								'/User-name/mapping-name.json'
@@ -370,7 +397,7 @@ class MetadataDetectForm {
 					array(
 						'type' => 'text',
 						'name' => 'gwtoolset-metadata-file-url',
-						'class' => 'gwtoolset-url-input',
+						'class' => 'gwtoolset-wider-input',
 						'placeholder' => 'Two-images.xml'
 					)
 				) .

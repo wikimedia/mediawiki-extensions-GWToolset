@@ -79,13 +79,14 @@ class Utils {
 	 * the result is not filtered
 	 */
 	public static function getNamespaceName( $namespace = 0 ) {
+		global $wgLanguageCode;
 		$result = null;
 
 		if ( !is_int( $namespace ) ) {
 			return $result;
 		}
 
-		$Languages = new Language();
+		$Languages = Language::factory( $wgLanguageCode );
 		$namespaces = $Languages->getNamespaces();
 
 		if ( isset( $namespaces[$namespace] ) ) {
@@ -142,7 +143,9 @@ class Utils {
 		if ( !empty( $namespace )
 				&& $namespace !== $Title->getNamespace()
 		) {
-			$Language = new Language();
+			global $wgLanguageCode;
+			$Language = Language::factory( $wgLanguageCode );
+
 			throw new GWTException(
 				array(
 					'gwtoolset-namespace-mismatch' => array(

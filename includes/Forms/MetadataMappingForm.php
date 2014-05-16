@@ -645,7 +645,7 @@ class MetadataMappingForm {
 							'type' => 'text',
 							'name' => 'gwtoolset-partner-template-url',
 							'placeholder' => 'Template:Europeana',
-							'class' => 'gwtoolset-url-input'
+							'class' => 'gwtoolset-wider-input'
 						)
 					)
 				) .

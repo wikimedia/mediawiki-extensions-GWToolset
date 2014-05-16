@@ -55,8 +55,8 @@ td.add-metadata, td.subtract-metadata {
 
 }
 
-.gwtoolset-url-input {
-	width: 300px;
+.gwtoolset-wider-input {
+	width: 350px;
 }
 
 .no-close .ui-dialog-titlebar-close {
