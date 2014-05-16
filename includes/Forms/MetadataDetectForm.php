@@ -74,6 +74,12 @@ class MetadataDetectForm {
 
 		return
 			Html::rawElement(
+				'p',
+				array(),
+				wfMessage( 'gwtoolset-intro' )->parse()
+			) .
+
+			Html::rawElement(
 				'h2',
 				array(),
 				wfMessage( 'gwtoolset-step-1-heading' )->escaped()

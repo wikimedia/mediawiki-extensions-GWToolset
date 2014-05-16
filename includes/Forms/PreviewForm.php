@@ -51,14 +51,19 @@ class PreviewForm {
 				) .
 				Html::rawElement( 'br' );
 
-		$step1_link = Html::rawElement( 'li', array(), Linker::link(
-			Title::newFromText( 'Special:GWToolset' ),
-			wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
+		$step1_link = Html::rawElement(
+			'li',
 			array(),
-			array( 'gwtoolset-form' => 'metadata-detect' )
-		) );
+			Linker::link(
+				Title::newFromText( 'Special:GWToolset' ),
+				wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
+				array()
+			)
+		);
 
-		$step2_link = Html::rawElement( 'li', array(),
+		$step2_link = Html::rawElement(
+			'li',
+			array(),
 			Html::rawElement( 'span', array( 'id' =>'step2-link' ), ' ' )
 		);
 
