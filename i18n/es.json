@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Frammm"
+			"Frammm",
+			"Wifidel"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -11,11 +12,15 @@
 	"action-gwtoolset": "usar GWToolset",
 	"group-gwtoolset": "Usuarios de GWToolset",
 	"grouppage-gwtoolset": "{{ns:project}}:Usuarios de GWToolset",
+	"gwtoolset-back-to-top": "⇪ parte superior de la página",
 	"gwtoolset-batchjob-creation-failure": "No se pudo crear una tarea de lote del tipo «$1».",
 	"gwtoolset-could-not-close-xml": "No se pudo cerrar el lector de XML.",
 	"gwtoolset-could-not-open-xml": "No se pudo abrir el archivo XML para su lectura.",
 	"gwtoolset-fsfile-empty": "El archivo estaba vacío y se ha eliminado.",
 	"gwtoolset-fsfile-retrieval-failure": "No se pudo extraer el archivo del URL $1.",
+	"gwtoolset-mediafile-duplicate-another-title": "Ya existe un archivo de medios idéntico bajo el título \"$1\".",
+	"gwtoolset-mediafile-duplicate-same-title": "Este archivo ya existe y tiene el mismo título \"$1\".",
+	"gwtoolset-mediafile-other-contributors": "Un archivo multimedia con idéntico título \"$1\" ya existe en la wiki. Fue editado o creado por alguien distinto de usted.",
 	"gwtoolset-no-accepted-types": "No se proporcionaron tipos aceptados",
 	"gwtoolset-no-default": "No se proporcionó ningún valor predeterminado.",
 	"gwtoolset-no-field-size": "No se especificó el tamaño para el campo «$1».",

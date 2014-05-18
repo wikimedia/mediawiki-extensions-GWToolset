@@ -15,6 +15,7 @@
 	"group-gwtoolset": "GW도구모음 사용자",
 	"group-gwtoolset-member": "{{GENDER:$1|GW도구모음 사용자}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GW툴셋 사용자",
+	"gwtoolset-back-to-top": "⇪ 문서 위로",
 	"gwtoolset-batchjob-creation-failure": "\"$1\" 형식의 일괄 작업을 생성할 수 없습니다.",
 	"gwtoolset-could-not-close-xml": "XML 리더를 닫을 수 없습니다.",
 	"gwtoolset-could-not-open-xml": "XML 파일을 읽어올 수 없습니다.",

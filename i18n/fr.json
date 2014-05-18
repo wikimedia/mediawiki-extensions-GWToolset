@@ -8,7 +8,8 @@
 			"Moyg",
 			"Nobody",
 			"VIGNERON",
-			"Brunoperel"
+			"Brunoperel",
+			"Cquoi"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -20,7 +21,7 @@
 	"group-gwtoolset-member": "{{GENDER:$1|Utilisateur|Utilisatrice}} de GWToolset",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset users",
 	"gwtoolset-back-to-top": "⇪ haut de la page",
-	"gwtoolset-batchjob-creation-failure": "Impossible de crée un traitement par lot de type « $1 ».",
+	"gwtoolset-batchjob-creation-failure": "Impossible de créer un traitement par lot de type « $1 ».",
 	"gwtoolset-could-not-close-xml": "Impossible de fermer le lecteur XML.",
 	"gwtoolset-could-not-open-xml": "Impossible de lire le fichier XML.",
 	"gwtoolset-developer-issue": "Veuillez contacter un développeur. Le message doit être traité avant de continuer. Merci d'ajouter le texte suivant à votre message :\n\n$1",

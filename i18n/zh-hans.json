@@ -5,7 +5,8 @@
 			"Qiyue2001",
 			"Shizhao",
 			"Yfdyh000",
-			"Hzy980512"
+			"Hzy980512",
+			"Stieizc"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -15,6 +16,7 @@
 	"group-gwtoolset": "GWToolset用户",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset用户}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset用户",
+	"gwtoolset-back-to-top": "页首",
 	"gwtoolset-batchjob-creation-failure": "无法创建“$1”类型的批处理作业。",
 	"gwtoolset-could-not-close-xml": "不能关闭XML阅读器。",
 	"gwtoolset-could-not-open-xml": "不能打开XML文件用于阅读。",
@@ -25,6 +27,9 @@
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code>未设置。",
 	"gwtoolset-incorrect-form-handler": "模块“$1”未注册成一个用于GWToolset\\Handlers\\Forms\\FormHandler的表单处理程序。",
 	"gwtoolset-job-throttle-exceeded": "批处理工作节流阀超限了。",
+	"gwtoolset-mediafile-duplicate-another-title": "存在内容相同的媒体文件“$1”。",
+	"gwtoolset-mediafile-duplicate-same-title": "此媒体文件已经存在，并具有相同的标题“$1”。",
+	"gwtoolset-mediafile-other-contributors": "媒体文件“$1”已经存在。其他人已经编辑/创建了这个文件。",
 	"gwtoolset-no-accepted-types": "没有提供接受的格式。",
 	"gwtoolset-no-callback": "没有通过此方法的回调。",
 	"gwtoolset-no-comment": "<code>user_options['comment']</code>未设置。",
