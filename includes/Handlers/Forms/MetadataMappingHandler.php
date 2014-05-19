@@ -252,9 +252,9 @@ class MetadataMappingHandler extends FormHandler {
 				? (bool)$this->_whitelisted_post['save-as-batch-job']
 				: false,
 
-			'gwtoolset-title-identifier' =>
-				!empty( $this->_whitelisted_post['gwtoolset-title-identifier'] )
-				? $this->_whitelisted_post['gwtoolset-title-identifier']
+			'gwtoolset-title' =>
+				!empty( $this->_whitelisted_post['gwtoolset-title'] )
+				? $this->_whitelisted_post['gwtoolset-title']
 				: null,
 
 			'gwtoolset-reupload-media' =>
@@ -504,7 +504,7 @@ class MetadataMappingHandler extends FormHandler {
 				'gwtoolset-mediawiki-template-name',
 				'gwtoolset-record-count',
 				'gwtoolset-record-element-name',
-				'gwtoolset-title-identifier',
+				'gwtoolset-title',
 				'gwtoolset-url-to-the-media-file',
 				'gwtoolset-metadata-file-relative-path'
 			)

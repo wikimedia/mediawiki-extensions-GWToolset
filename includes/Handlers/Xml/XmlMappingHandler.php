@@ -204,7 +204,7 @@ class XmlMappingHandler extends XmlHandler {
 					}
 				} else {
 					if ( !isset( $elements_mapped[$template_parameter] ) ) {
-						if ( $template_parameter === 'gwtoolset-title-identifier'
+						if ( $template_parameter === 'gwtoolset-title'
 							|| $template_parameter === 'title'
 						) {
 							$elements_mapped[$template_parameter] =
@@ -218,7 +218,7 @@ class XmlMappingHandler extends XmlHandler {
 								$this->getFilteredNodeValue( $DOMNodeElement, $is_url );
 						}
 					} else {
-						if ( $template_parameter === 'gwtoolset-title-identifier'
+						if ( $template_parameter === 'gwtoolset-title'
 							|| $template_parameter === 'title'
 						) {
 							$elements_mapped[$template_parameter] .=

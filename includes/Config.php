@@ -218,7 +218,7 @@ class Config {
 	 * title maximum length in bytes
 	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
 	 */
-	public static $title_max_length = 207;
+	public static $title_max_length = 240;
 
 	/**
 	 * @var {string}

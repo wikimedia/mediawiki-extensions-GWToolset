@@ -151,9 +151,9 @@ class MediawikiTemplate implements ModelInterface {
 	public function getGWToolsetTemplateAsWikiText() {
 		return
 			'{{Uploaded with GWToolset' . PHP_EOL .
-			' | gwtoolset-title-identifier = ' .
+			' | gwtoolset-title = ' .
 					Utils::sanitizeString(
-						$this->mediawiki_template_array['gwtoolset-title-identifier']
+						$this->mediawiki_template_array['gwtoolset-title']
 					) . PHP_EOL .
 			' | gwtoolset-url-to-the-media-file = ' .
 					Utils::sanitizeString(
@@ -169,7 +169,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * this does not include categories, raw metadata, or raw
 	 * mapping information, which are added via other methods.
 	 *
-	 * @todo move the $parameter['gwtoolset-title-identifier']
+	 * @todo move the $parameter['gwtoolset-title']
 	 * and $parameter['gwtoolset-url-to-the-media-file'] out of the
 	 * $this->mediawiki_template_array and into their own
 	 * gwtoolset_template_array
@@ -186,7 +186,7 @@ class MediawikiTemplate implements ModelInterface {
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
 
 		foreach ( $this->mediawiki_template_array as $parameter => $content ) {
-			if ( $parameter === 'gwtoolset-title-identifier'
+			if ( $parameter === 'gwtoolset-title'
 				|| $parameter === 'gwtoolset-url-to-the-media-file'
 			) {
 				continue;
@@ -371,11 +371,12 @@ class MediawikiTemplate implements ModelInterface {
 	}
 
 	/**
-	 * creates a title string that will be used to create a wiki title for a media file.
-	 * the title string is based on :
+	 * creates a title string that will be used to create a wiki title
+	 * for a media file. the title string is evaluated using PHP’s strlen()
+	 * function, which evaluates the number of bytes in a string. the
+	 * title string is based on :
 	 *
-	 *   - title
-	 *   - title identifier
+	 *   - gwtoolset title
 	 *   - url to the media file’s extension
 	 *
 	 * the title length is limited to Config::$title_max_length
@@ -383,57 +384,32 @@ class MediawikiTemplate implements ModelInterface {
 	 *
 	 * @param {array} $options
 	 * @throws {GWTException}
-	 * @return {string} the string is not filtered.
+	 *
+	 * @return {string}
+	 * the string is not sanitized
 	 */
-	public function getTitle( array &$options ) {
-		$result = null;
-		$file_extension_length = 0;
-
-		if ( empty( $this->mediawiki_template_array['gwtoolset-title-identifier'] ) ) {
-			throw new GWTException( 'gwtoolset-mapping-no-title-identifier' );
+	public function getTitle( array $options ) {
+		if (
+			empty( $this->mediawiki_template_array['gwtoolset-title'] )
+		) {
+			throw new GWTException( 'gwtoolset-mapping-no-gwtoolset-title' );
 		}
 
 		if ( empty( $options['evaluated-media-file-extension'] ) ) {
+			throw new GWTException( 'gwtoolset-no-extension' );
+		}
+
+		$result =
+			$this->mediawiki_template_array['gwtoolset-title'] .
+			'.' .
+			$options['evaluated-media-file-extension'];
+
+		$result_length = strlen( $result );
+
+		if ( $result_length > Config::$title_max_length ) {
 			throw new GWTException(
-				array(
-					'gwtoolset-mapping-media-file-url-extension-bad' =>
-					array( $options['gwtoolset-url-to-the-media-file'] )
-				)
+				array( 'gwtoolset-title-too-long' => array( $result_length, $result ) )
 			);
-		}
-
-		if ( !empty( $this->mediawiki_template_array['title'] ) ) {
-			$title_length = strlen( $this->mediawiki_template_array['title'] );
-			$title_identifier_length =
-				strlen( $this->mediawiki_template_array['gwtoolset-title-identifier'] );
-			$file_extension_length = strlen( $options['evaluated-media-file-extension'] ) + 1;
-
-			if ( ( $title_length + $title_identifier_length + $file_extension_length + 1 )
-				> Config::$title_max_length
-			) {
-				$result = substr(
-					$this->mediawiki_template_array['title'],
-					0,
-					( Config::$title_max_length - $title_identifier_length - $file_extension_length - 1 )
-				);
-			} else {
-				$result = $this->mediawiki_template_array['title'];
-			}
-
-			$result .= Config::$title_separator;
-		}
-
-		$result .= $this->mediawiki_template_array['gwtoolset-title-identifier'];
-		$result .= '.' . $options['evaluated-media-file-extension'];
-
-		if ( strlen( $result ) > Config::$title_max_length ) {
-			$result = substr(
-				$this->mediawiki_template_array['gwtoolset-title-identifier'],
-				0,
-				( Config::$title_max_length - $file_extension_length - 1 )
-			);
-
-			$result .= '.' . $options['evaluated-media-file-extension'];
 		}
 
 		return $result;
@@ -506,7 +482,7 @@ class MediawikiTemplate implements ModelInterface {
 		$this->mediawiki_template_array = json_decode( $this->mediawiki_template_json, true );
 
 		// add aditional mediawiki template fields that the extension needs
-		$this->mediawiki_template_array['gwtoolset-title-identifier'] = null;
+		$this->mediawiki_template_array['gwtoolset-title'] = null;
 		$this->mediawiki_template_array['gwtoolset-url-to-the-media-file'] = null;
 	}
 

@@ -280,11 +280,18 @@ class XmlDetectHandler extends XmlHandler {
 	 */
 	protected function getFormLabel( $parameter ) {
 		$result = Utils::sanitizeString( $parameter );
-		$result = str_replace(
-			array( '_', '-', 'gwtoolset' ),
-			array( ' ', ' ', '' ),
-			$result
-		);
+
+		if ( $parameter === 'gwtoolset-title' ) {
+			$result = wfMessage( 'gwtoolset-title-label' )->escaped();
+		} else if ( $parameter === 'gwtoolset-url-to-the-media-file' ) {
+			$result = wfMessage( 'gwtoolset-url-to-the-media-file-label' )->escaped();
+		} else {
+			$result = str_replace(
+				array( '_', '-' ),
+				array( ' ', ' ' ),
+				$result
+			);
+		}
 
 		return $result;
 	}
@@ -375,7 +382,7 @@ class XmlDetectHandler extends XmlHandler {
 		$parameter_as_id = Utils::normalizeSpace( $parameter );
 		$first_row_placed = false;
 		$required = null;
-		$required_fields = array( 'gwtoolset-title-identifier', 'gwtoolset-url-to-the-media-file' );
+		$required_fields = array( 'gwtoolset-title', 'gwtoolset-url-to-the-media-file' );
 
 		if ( isset( $Mapping->mapping_array[$parameter] ) ) {
 			$selected_options = $Mapping->mapping_array[$parameter];

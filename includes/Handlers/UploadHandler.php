@@ -911,7 +911,9 @@ class UploadHandler {
 					->params( wfMessage( 'gwtoolset-no-text' )->escaped() )
 					->parse()
 			);
-		}if ( empty( $options['title'] ) ) {
+		}
+
+		if ( empty( $options['title'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-title' )->escaped() )

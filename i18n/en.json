@@ -147,8 +147,7 @@
 	"gwtoolset-maps-to": "Maps to",
 	"gwtoolset-mapping-media-file-url-extension-bad": "The file extension could not be determined from the file URL: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension or there was an HTTP request issue. URL given was \"$1\". HTTP request error \"$2\".",
-	"gwtoolset-mapping-no-title": "The metadata mapping contains no title, which is needed in order to create the page.",
-	"gwtoolset-mapping-no-title-identifier": "The metadata mapping contains no title identifier, which is used to create a unique page title. Make sure you map a metadata field to the MediaWiki template parameter title identifier.",
+	"gwtoolset-mapping-no-gwtoolset-title": "The metadata mapping contains no gwtoolset title, which is needed in order to create the page.",
 	"gwtoolset-metadata-field": "Metadata field",
 	"gwtoolset-metadata-file": "Metadata file",
 	"gwtoolset-metadata-mapping-legend": "Map your metadata",
@@ -201,5 +200,8 @@
 	"gwtoolset-verify-php-version": "The $1 extension requires PHP >= 5.3.3.",
 	"gwtoolset-verify-uploads-enabled": "The $1 extension requires that file uploads are enabled.\n\nPlease make sure that <code>$wgEnableUploads</code> is set to <code>true</code> in <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-xmlreader": "The $1 extension requires that PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] be installed.",
-	"gwtoolset-wiki-checks-not-passed": "Wiki checks did not pass"
+	"gwtoolset-wiki-checks-not-passed": "Wiki checks did not pass",
+	"gwtoolset-title-too-long": "The evaluated title is too long; a title can be up to a maximum of 240 bytes in length. This title evaluates to $1 {{PLURAL:$1|byte|bytes}} in length.\n\n$2.",
+	"gwtoolset-title-label": "GWToolset title",
+	"gwtoolset-url-to-the-media-file-label": "URL to the media file"
 }
