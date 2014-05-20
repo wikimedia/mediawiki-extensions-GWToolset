@@ -1,15 +1,29 @@
-== GWToolset 0.2.0 ==
-MediaWiki_1.24/wmf2
-scheduled deploy: Tuesday, 29 April 2014
-https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf2#GWToolset
+== GWToolset 0.2.2 ==
+MediaWiki_1.24/wmf5
+scheduled deployed: Tuesday, 20 May 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf5#GWToolset
 
-=== fix MediawikiTemplate::getTitle() method ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/127211/
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=64086
+=== Added more credits to the English i18n file ===
+https://gerrit.wikimedia.org/r/#/c/133242/
 
-=== Update i18n shim ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/128092/
+=== Clarify messages about identical files and titles ===
+https://gerrit.wikimedia.org/r/#/c/133241/
 
-=== auto-add additional mediawiki template parameters as creator template values ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/125552/
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63822
+=== Don’t allow upload of duplicate mediafiles ===
+https://gerrit.wikimedia.org/r/#/c/132751/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64831
+
+=== No wikitext comments ===
+https://gerrit.wikimedia.org/r/#/c/132983/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64634
+
+=== up-arrow ===
+https://gerrit.wikimedia.org/r/#/c/132925/
+
+=== Do not overwrite content from community members/bots on re-upload ===
+https://gerrit.wikimedia.org/r/#/c/124347/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63638
+
+=== preview without upload ===
+https://gerrit.wikimedia.org/r/#/c/127839/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63864
