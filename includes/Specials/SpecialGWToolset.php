@@ -98,28 +98,20 @@ class SpecialGWToolset extends SpecialPage {
 	/**
 	 * a control method that processes a SpecialPage request
 	 * SpecialPage->getOutput()->addHtml() present the end result of the request
-	 *
-	 * @throws {GWTException|MWException|PermissionsError}
 	 */
 	protected function processRequest() {
-		$html = null;
+		$html = '';
 
 		if ( !$this->getRequest()->wasPosted() ) {
-			if ( $this->module_key === null
-				|| !$this->_registered_modules[$this->module_key]['allow-get']
-			) {
-				$html .= wfMessage( 'gwtoolset-intro' )->parseAsBlock();
-			} else {
-				try {
-					$html .= $this->_Handler->getHtmlForm( $this->module_key );
-				} catch ( GWTException $e ) {
-					$html .=
-						Html::rawElement(
-							'h2', array(),
-							wfMessage( 'gwtoolset-technical-error' )->escaped()
-						) .
-						Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
-				}
+			try {
+				$html .= $this->_Handler->getHtmlForm( $this->module_key );
+			} catch ( GWTException $e ) {
+				$html .=
+					Html::rawElement(
+						'h2', array(),
+						wfMessage( 'gwtoolset-technical-error' )->escaped()
+					) .
+					Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
 			}
 		} else {
 			try {
@@ -136,16 +128,17 @@ class SpecialGWToolset extends SpecialPage {
 		}
 
 		$this->getOutput()->addModules( 'ext.GWToolset' );
+
 		$this->getOutput()->addHtml(
 			wfMessage( 'gwtoolset-menu' )->rawParams(
 				Linker::link(
 					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
 					wfMessage( 'gwtoolset-menu-1' )->escaped(),
-					array(),
-					array( 'gwtoolset-form' => 'metadata-detect' )
+					array()
 				)
 			)->parse()
 		);
+
 		$this->getOutput()->addHtml( $html );
 	}
 
@@ -154,7 +147,11 @@ class SpecialGWToolset extends SpecialPage {
 	 */
 	protected function setModuleAndHandler() {
 		$this->module_key = null;
-		$gwtoolset_form = $this->getRequest()->getVal( 'gwtoolset-form' );
+
+		$gwtoolset_form =
+			$this->getRequest()->getVal( 'gwtoolset-form' )
+			? $this->getRequest()->getVal( 'gwtoolset-form' )
+			: 'metadata-detect';
 
 		if ( array_key_exists( $gwtoolset_form, $this->_registered_modules ) ) {
 			$this->module_key = $gwtoolset_form;
