@@ -6,7 +6,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset - GLAM 用の一括アップロード ツール",
-	"gwtoolset-intro": "GWToolset は、GLAM (美術館、図書館、記録保管所、博物館) がコンテンツを一括アップロードできるようにする MediaWiki 拡張機能です。この一括アップロードは、コンテンツそれぞれについてのメタデータを含む XML ファイルに基づいて行われます。さまざまな XML スキーマに対応することを意図しています。プロジェクトについての詳細情報は、[https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project プロジェクト ページ]にあります。そちらのページでもご遠慮なくお問い合わせください。アップロード作業を開始するには、上のメニュー項目から 1 つ選択してください。",
+	"gwtoolset-intro": "GWToolset は、GLAM (美術館、図書館、記録保管所、博物館) がコンテンツを一括アップロードできるようにする MediaWiki 拡張機能です。この一括アップロードは、コンテンツそれぞれについてのメタデータを含む XML ファイルに基づいて行われます。さまざまな XML スキーマに対応することを意図しています。プロジェクトについての詳細情報は、[[commons:Commons:GLAMToolset_project|プロジェクト ページ]]にあります。そちらのページでもご遠慮なくお問い合わせください。アップロード作業を開始するには、上のメニュー項目から 1 つ選択してください。",
 	"right-gwtoolset": "GWToolsetを使用",
 	"action-gwtoolset": "GWToolsetの使用",
 	"group-gwtoolset": "GWToolset 利用者",

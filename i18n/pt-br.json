@@ -6,7 +6,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, uma ferramenta de uploads em massa para GLAMs",
-	"gwtoolset-intro": "GWToolset é uma extensão do MediaWiki que permite que GLAMs (sigla em inglês para Glaerias, Bibliotecas, Arquivos e Museus) o envio em grandes blocos de arquivos a partir de um arquivo XML que contenha metadados relativos a tais arquivos. A intenção é ter suporte a uma grande quantia de esquemas em XML. Informações adicionais sobre o projeto podem ser encontradas em sua [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project página descritiva]. Fique à vontade para também a utilizar para entrar em contato conosco. Selecione um dos menus a seguir para iniciar o processo de upload.",
+	"gwtoolset-intro": "GWToolset é uma extensão do MediaWiki que permite que GLAMs (sigla em inglês para Glaerias, Bibliotecas, Arquivos e Museus) o envio em grandes blocos de arquivos a partir de um arquivo XML que contenha metadados relativos a tais arquivos. A intenção é ter suporte a uma grande quantia de esquemas em XML. Informações adicionais sobre o projeto podem ser encontradas em sua [[commons:Commons:GLAMToolset_project|página descritiva]]. Fique à vontade para também a utilizar para entrar em contato conosco. Selecione um dos menus a seguir para iniciar o processo de upload.",
 	"right-gwtoolset": "Usar as ferramentas GWToolset",
 	"action-gwtoolset": "usar as ferramentas GWToolset",
 	"group-gwtoolset": "Usuários da GWToolset",

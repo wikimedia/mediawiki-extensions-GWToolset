@@ -9,7 +9,7 @@
 	},
 	"gwtoolset": "GW도구모음",
 	"gwtoolset-desc": "GW 도구모음, GLAM을 위한 대량 업로드 도구",
-	"gwtoolset-intro": "GW도구모음은 GLAM(갤러리, 도서관, 기록 보관소 및 박물관)의 메타데이터가 있는 XML 파일 기반으로 파일을 대량으로 올릴 수 있는 미디어위키 확장 기능입니다. XML 스키마의 다양성을 위해 추진되는 이 프로젝트는, [//commons.wikimedia.org/wiki/Commons:GLAMToolset_project 프로젝트 문서]에서 더 많은 정보를 찾아볼 수 있습니다. 해당 페이지에서 연락해 주세요. 업로드 절차를 진행하기 위해, 위의 메뉴 버튼을 눌러 진행해 주세요.",
+	"gwtoolset-intro": "GW도구모음은 GLAM(갤러리, 도서관, 기록 보관소 및 박물관)의 메타데이터가 있는 XML 파일 기반으로 파일을 대량으로 올릴 수 있는 미디어위키 확장 기능입니다. XML 스키마의 다양성을 위해 추진되는 이 프로젝트는, [//commons.wikimedia.org/wiki/Commons:GLAMToolset_project 프로젝트 문서]]에서 더 많은 정보를 찾아볼 수 있습니다. 해당 페이지에서 연락해 주세요. 업로드 절차를 진행하기 위해, 위의 메뉴 버튼을 눌러 진행해 주세요.",
 	"right-gwtoolset": "GW도구모음 사용",
 	"action-gwtoolset": "GW도구모음 사용",
 	"group-gwtoolset": "GW도구모음 사용자",

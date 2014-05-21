@@ -14,7 +14,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, un outil d’import en masse pour GLAMs",
-	"gwtoolset-intro": "GWToolset est une extension MediaWiki permettant aux institutions culturelles (''GLAM'' − bibliothèques, archives, musées et galeries) de téléverser en masse des contenus en se basant sur un fichier XML contenant les métadonnées de ces contenus. Le but est d’autoriser une grande variété de schémas XML. De plus amples informations sur le projet sont disponibles sur [https://commons.wikimedia.org/wiki/Commons:GLAMwiki_Toolset_Project la page projet]. N’hésitez pas à nous contacter aussi via cette page. Choisissez l’un des éléments dans le menu ci-dessus et c’est parti pour le processus de téléversement.",
+	"gwtoolset-intro": "GWToolset est une extension MediaWiki permettant aux institutions culturelles (''GLAM'' − bibliothèques, archives, musées et galeries) de téléverser en masse des contenus en se basant sur un fichier XML contenant les métadonnées de ces contenus. Le but est d’autoriser une grande variété de schémas XML. De plus amples informations sur le projet sont disponibles sur [https://commons.wikimedia.org/wiki/Commons:GLAMwiki_Toolset_Project la page projet]]. N’hésitez pas à nous contacter aussi via cette page. Choisissez l’un des éléments dans le menu ci-dessus et c’est parti pour le processus de téléversement.",
 	"right-gwtoolset": "Utiliser GWToolset",
 	"action-gwtoolset": "utiliser gwtoolset",
 	"group-gwtoolset": "Utilisateurs de GWToolset",

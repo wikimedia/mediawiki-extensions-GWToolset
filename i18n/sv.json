@@ -11,7 +11,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, ett massuppladdningsverktyg för GLAM-institutioner",
-	"gwtoolset-intro": "GWToolset är ett MediaWiki-tillägg som ger GLAM (gallerier, bibliotek, arkiv och museer) möjlighet att massuppladda innehåll baserat på en XML-fil som innehåller metadata om respektive del av innehållet. Avsikten är att möjliggöra för en mängd olika XML-scheman. Ytterligare information om projektet kan hittas på dess [https://commons.wikimedia.org/wiki/Commons:GLAMToolset_project projektsida]. Du är välkommen att kontakta oss på den sidan också. Välj en av menyposterna ovan för att börja ladda upp.",
+	"gwtoolset-intro": "GWToolset är ett MediaWiki-tillägg som ger GLAM (gallerier, bibliotek, arkiv och museer) möjlighet att massuppladda innehåll baserat på en XML-fil som innehåller metadata om respektive del av innehållet. Avsikten är att möjliggöra för en mängd olika XML-scheman. Ytterligare information om projektet kan hittas på dess [[commons:Commons:GLAMToolset_project|projektsida]]. Du är välkommen att kontakta oss på den sidan också. Välj en av menyposterna ovan för att börja ladda upp.",
 	"right-gwtoolset": "Använd GWToolset",
 	"action-gwtoolset": "använd gwtoolset",
 	"group-gwtoolset": "GWToolset-användare",
