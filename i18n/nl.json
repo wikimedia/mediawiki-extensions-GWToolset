@@ -8,7 +8,8 @@
 			"Niknetniko",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Southparkfan"
+			"Southparkfan",
+			"Mar(c)"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -167,7 +168,7 @@
 	"gwtoolset-step-2-instructions-2-li-1": "Selecteer een metadataveld in de kolom \"{{int:gwtoolset-maps-to}}\" dat overeenkomt met een veld in de MediaWikisjabloon in de kolom \"{{int:gwtoolset-template-field}}\".",
 	"gwtoolset-step-2-instructions-2-li-2": "U hoeft niet voor ieder MediaWikisjabloonveld een koppeling te maken.",
 	"gwtoolset-reupload-media": "Media opnieuw uploaden van URL",
-	"gwtoolset-reupload-media-explanation": "Door dit selectievakje aan te vinken kunt u media opnieuw uploaden voor een item dat al is geüpload naar de wiki. Als het item al bestaat, wordt een extra mediabestand toegevoegd aan de wiki. Als het mediabestand nog niet bestaat, wordt het geüpload of dit selectievakje is ingeschakeld of niet.",
+	"gwtoolset-reupload-media-explanation": "Door dit selectievakje aan te vinken kunt u media opnieuw uploaden voor een item dat al naar de wiki geüpload is. Als het item al bestaat vanwege een van je vorige uploads, wordt een extra mediabestand aan de wiki toegevoegd. Als iemand anders al een nieuwe versie van het mediabestand heeft geüpload, dan wordt uw nieuwe upload genegeerd. Als het mediabestand nog niet in de wiki bestaat, wordt het geüpload ongeacht of dit selectievakje is ingeschakeld of niet.",
 	"gwtoolset-specific-categories": "Itemspecifieke categorieën",
 	"gwtoolset-template-field": "Sjabloonveld",
 	"gwtoolset-step-3-instructions-heading": "Stap 3: Voorvertoning van de taak",

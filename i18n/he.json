@@ -20,7 +20,7 @@
 	"group-gwtoolset": "משתמשי ארגז כלי גלאם-ויקי",
 	"group-gwtoolset-member": "{{GENDER:$1|משתמש|משתמשת}} ארגז כלי גלאם־ויקי",
 	"grouppage-gwtoolset": "{{ns:project}}:משתמשי ערכת כלי גלאם־ויקי",
-	"gwtoolset-back-to-top": "⇪ ראש הדף",
+	"gwtoolset-back-to-top": "ראש הדף",
 	"gwtoolset-batchjob-creation-failure": "לא הייתה אפשרות ליצור משימת אצווה מסוג \"$1\".",
 	"gwtoolset-could-not-close-xml": "לא יכול לסגור את קורא ה־XML.",
 	"gwtoolset-could-not-open-xml": "לא ניתן לפתוח את קובץ ה־XML לקריאה.",

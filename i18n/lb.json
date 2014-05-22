@@ -11,7 +11,7 @@
 	"group-gwtoolset": "GWToolset-Benotzer",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset-Benotzer|GWToolset-Benotzerin}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset-Benotzer",
-	"gwtoolset-back-to-top": "⇪ uewen op d'Säit",
+	"gwtoolset-back-to-top": "uewen op d'Säit",
 	"gwtoolset-could-not-open-xml": "Den XML-Fichier konnt net fir ze liesen opgemaach ginn.",
 	"gwtoolset-fsfile-empty": "De Fichier war eidel a gouf geläscht.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> net agestallt.",
