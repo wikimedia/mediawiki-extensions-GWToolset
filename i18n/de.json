@@ -3,12 +3,13 @@
 		"authors": [
 			"Blafasel42",
 			"Metalhead64",
-			"Didym"
+			"Didym",
+			"ChrisiPK"
 		]
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, ein Massenhochladewerkzeug für Galerien, Bibliotheken, Archive und Museen",
-	"gwtoolset-intro": "GWToolset ist eine MediaWiki-Erweiterung, die es Galerien, Bibliotheken, Archive und Museen ermöglicht, Inhalte basierend auf einer XML-Datei massenhaft hochzuladen, die entsprechende Metadaten über den Inhalt enthält. Weitere Informationen über das Projekt können auf der [[commons:Commons:GLAMToolset_project|Projektseite]] gefunden werden.",
+	"gwtoolset-intro": "GWToolset ist eine MediaWiki-Erweiterung, die es Galerien, Bibliotheken, Archiven und Museen ermöglicht, Inhalte basierend auf einer XML-Datei massenhaft hochzuladen, die entsprechende Metadaten über den Inhalt enthält. Weitere Informationen über das Projekt können auf der [[commons:Commons:GLAMToolset_project|Projektseite]] gefunden werden.",
 	"right-gwtoolset": "GWToolset verwenden",
 	"action-gwtoolset": "GWToolset zu verwenden",
 	"group-gwtoolset": "GWToolset-Benutzer",
