@@ -35,6 +35,11 @@ $specialPageAliases['fa'] = array(
 	'GWToolset' => array( 'ابزارهای_جی‌دبلیو' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'GWToolset' => array( 'ארגז_גלי_גלאם_ויקי' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'GWToolset' => array( 'GW工具集' ),
