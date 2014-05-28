@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Maurizio Macchi"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -11,6 +12,7 @@
 	"group-gwtoolset": "Utenti GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|utente GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Utenti GWToolset",
+	"gwtoolset-back-to-top": "top of the page\nall'inizio della pagina",
 	"gwtoolset-could-not-close-xml": "Impossibile chiudere il lettore XML.",
 	"gwtoolset-could-not-open-xml": "Impossibile aprire il file XML per la lettura.",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, o <code>record-count</code>, o <code>record-current</code> non fornito.",
@@ -67,7 +69,6 @@
 	"gwtoolset-category": "Categoria",
 	"gwtoolset-global-categories": "Categorie globali",
 	"gwtoolset-painted-by": "Dipinto da",
-	"gwtoolset-results": "Risultati",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-invalid-token": "Il token di modifica inviato con il modulo non è valido.",
 	"gwtoolset-mediawiki-version-invalid": "Questa estensione richiede MediaWiki versione $1<br />Questa versione di MediaWiki è $2.",
