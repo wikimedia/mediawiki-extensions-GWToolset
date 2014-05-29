@@ -12,7 +12,7 @@
 	"group-gwtoolset": "Utenti GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|utente GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Utenti GWToolset",
-	"gwtoolset-back-to-top": "top of the page\nall'inizio della pagina",
+	"gwtoolset-back-to-top": "inizio della pagina",
 	"gwtoolset-could-not-close-xml": "Impossibile chiudere il lettore XML.",
 	"gwtoolset-could-not-open-xml": "Impossibile aprire il file XML per la lettura.",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, o <code>record-count</code>, o <code>record-current</code> non fornito.",
