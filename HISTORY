@@ -1,14 +1,60 @@
+== GWToolset 0.2.1 ==
+MediaWiki_1.24/wmf4
+deployed: Tuesday, 13 May 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf4#GWToolset
+
+=== Do not expect return value from JobQueueGroup::push() ===
+https://gerrit.wikimedia.org/r/#/c/131749/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64931
+
+=== Fix typo in template name in INSTALL ===
+https://gerrit.wikimedia.org/r/#/c/131427/
+
+
+
+== GWToolset 0.2.0 ==
+MediaWiki_1.24/wmf3
+deployed: Tuesday, 6 May 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf3#GWToolset
+
+=== version update ===
+https://gerrit.wikimedia.org/r/#/c/130277/
+
+
+
+== GWToolset 0.2.0 ==
+MediaWiki_1.24/wmf2
+deployed: Tuesday, 29 April 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf2#GWToolset
+
+=== fix MediawikiTemplate::getTitle() method ===
+https://gerrit.wikimedia.org/r/#/c/127211/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64086
+
+=== Update i18n shim ===
+https://gerrit.wikimedia.org/r/#/c/128092/
+
+=== auto-add additional mediawiki template parameters as creator template values ===
+https://gerrit.wikimedia.org/r/#/c/125552/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63822
+
+=== don’t place sub-template into main template when no value is present ===
+https://gerrit.wikimedia.org/r/#/c/124376/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63646
+
+
+
 == GWToolset 0.1.5 ==
 MediaWiki_1.24/wmf1
 deployed: Tuesday, 22 April 2014
 https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf1#GWToolset
 
 === version update ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/125922/
+https://gerrit.wikimedia.org/r/#/c/125922/
 
 === wfStripIllegalFilenameChars truncates title ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/125401/
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+https://gerrit.wikimedia.org/r/#/c/125401/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
 
 
 
@@ -18,10 +64,13 @@ deployed: Tuesday, 15 April 2014
 https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf22#GWToolset
 
 === fix inconsistency in GWToolset directory reference ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/124351/
+https://gerrit.wikimedia.org/r/#/c/124351/
+
+=== Make sure batch preview page shows correct link colour ===
+https://gerrit.wikimedia.org/r/#/c/123157/
 
 === Fix some minor HTML issues ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/124012/
+https://gerrit.wikimedia.org/r/#/c/124012/
 
 
 
@@ -30,21 +79,28 @@ MediaWiki_1.23/wmf21
 deployed: Tuesday, 08 April 2014
 https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf21#GWToolset
 
-=== Mark GWToolset namespace as being json for code editor ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/123159/
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=58507
+=== Add two Commons templates to GWToolset ===
+https://gerrit.wikimedia.org/r/#/c/123248/
+https://www.assembla.com/spaces/glamwiki/tickets/213
 
-=== Correct the format of the wikitext output ===
-gerrit: https://gerrit.wikimedia.org/r/#q,dd0757d5,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=63168
+=== Mark GWToolset namespace as being json for code editor ===
+https://gerrit.wikimedia.org/r/#/c/123159/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=58507
 
 === make sure unicode characters are normalized ===
-gerrit: https://gerrit.wikimedia.org/r/#q,d1e32990,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62870
+https://gerrit.wikimedia.org/r/#/c/121097/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=62870
 
 === relax wiki title restrictions ===
-gerrit: https://gerrit.wikimedia.org/r/#q,cc0705be,n,z
-bugzilla: https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+https://gerrit.wikimedia.org/r/#/c/121094/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=62909
+
+=== Correct the format of the wikitext output ===
+https://gerrit.wikimedia.org/r/#/c/121307/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63168
+
+=== Migrate to JSON i18n ===
+https://gerrit.wikimedia.org/r/#/c/121588/
 
 
 
@@ -54,8 +110,8 @@ deployed: Tuesday, 01 April 2014
 https://www.mediawiki.org/wiki/MediaWiki_1.23/wmf20#GWToolset
 
 === Fix various inconsistencies in messages ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/120003/
+https://gerrit.wikimedia.org/r/#/c/120003/
 
 === don’t concatenate item specific categories ===
-gerrit: https://gerrit.wikimedia.org/r/#/c/119467/
+https://gerrit.wikimedia.org/r/#/c/119467/
 assembla: https://www.assembla.com/spaces/glamwiki/tickets/209
