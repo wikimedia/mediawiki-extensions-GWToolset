@@ -16,7 +16,7 @@
 	"group-gwtoolset": "GWToolset用户",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset用户}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset用户",
-	"gwtoolset-back-to-top": "页首",
+	"gwtoolset-back-to-top": "回到页顶",
 	"gwtoolset-batchjob-creation-failure": "无法创建“$1”类型的批处理作业。",
 	"gwtoolset-could-not-close-xml": "不能关闭XML阅读器。",
 	"gwtoolset-could-not-open-xml": "不能打开XML文件用于阅读。",
