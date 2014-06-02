@@ -145,6 +145,7 @@
 	"gwtoolset-specific-categories": "项具体分类",
 	"gwtoolset-template-field": "模板字段",
 	"gwtoolset-step-3-instructions-heading": "第3步：预览批处理",
+	"gwtoolset-step-3-instructions-3": "如果您对结果不满意，回到“{{int:gwtoolset-step-2-heading}}”并调整必要映射。\n如果您需要对元数据文件本身调整，继续这样做并重新通过“{{int:gwtoolset-step-1-heading}}”的步骤上传。",
 	"gwtoolset-batchjob-metadata-creation-failure": "无法创建用于元数据文件的批处理作业。",
 	"gwtoolset-create-mediafile": "$1：为$2创建媒体文件。",
 	"gwtoolset-create-prefix": "GWToolset",

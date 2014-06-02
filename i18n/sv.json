@@ -17,7 +17,7 @@
 	"group-gwtoolset": "GWToolset-användare",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset-användare}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset-användare",
-	"gwtoolset-back-to-top": "⇪ toppen av sidan",
+	"gwtoolset-back-to-top": "överst på sidan",
 	"gwtoolset-batchjob-creation-failure": "Gick inte att skapa ett batch-jobb av typen \"$1\".",
 	"gwtoolset-could-not-close-xml": "Kunde inte stänga av XML-läsaren.",
 	"gwtoolset-could-not-open-xml": "Kunde inte öppna XML-filen för läsning.",
