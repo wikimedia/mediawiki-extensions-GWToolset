@@ -145,8 +145,7 @@
 	"gwtoolset-maps-to": "Maps zu",
 	"gwtoolset-mapping-media-file-url-extension-bad": "Die Dateierweiterung konnte von der Datei-URL $1 nicht bestimmt werden.",
 	"gwtoolset-mapping-media-file-url-bad": "Die Mediendatei-URL konnte nicht evaluiert werden. Die URL liefert den Inhalt in einer Weise, die noch nicht von dieser Erweiterung verarbeitet werden kann oder es gab ein HTTP-Anfrageproblem. Die angegebene URL war „$1“. HTTP-Anfragefehler „$2“.",
-	"gwtoolset-mapping-no-title": "Das Metadatenmapping enthält keinen Titel. Dieser ist zum Erstellen der Seite erforderlich.",
-	"gwtoolset-mapping-no-title-identifier": "Das Metadatenmapping enthält keine Titelkennung, die für die Erstellung eines eindeutigen Seitentitels verwendet wird. Stelle sicher, dass du ein Metadatenfeld zur MediaWiki-Vorlagenparametertitelkennung mappst.",
+	"gwtoolset-mapping-no-gwtoolset-title": "Das Metadatenmapping enthält keinen GWToolset-Titel. Dieser ist erforderlich, um die Seite zu erstellen.",
 	"gwtoolset-metadata-field": "Metadatenfeld",
 	"gwtoolset-metadata-file": "Metadatendatei",
 	"gwtoolset-metadata-mapping-legend": "Mappen deiner Metadaten",
@@ -199,5 +198,8 @@
 	"gwtoolset-verify-php-version": "Die Erweiterung „$1“ benötigt PHP >= 5.3.3.",
 	"gwtoolset-verify-uploads-enabled": "Die Erweiterung „$1“ erfordert, dass das Hochladen von Dateien aktiviert ist.\n\nBitte stelle sicher, dass <code>$wgEnableUploads</code> in <code>LocalSettings.php</code> auf <code>true</code> festgelegt ist.",
 	"gwtoolset-verify-xmlreader": "Die Erweiterung „$1“ erfordert, dass der PHP-[http://www.php.net/manual/de/xmlreader.setup.php XMLReader] installiert ist.",
-	"gwtoolset-wiki-checks-not-passed": "Wiki-Prüfungen nicht bestanden"
+	"gwtoolset-wiki-checks-not-passed": "Wiki-Prüfungen nicht bestanden",
+	"gwtoolset-title-too-long": "Der evaluierte Titel ist zu lang. Ein Titel kann maximal 240 Bytes lang sein. Dieser Titel ist {{PLURAL:$1|ein Byte|$1 Bytes}} lang.\n\n$2.",
+	"gwtoolset-title-label": "GWToolset-Titel",
+	"gwtoolset-url-to-the-media-file-label": "URL zur Mediendatei"
 }

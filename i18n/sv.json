@@ -146,8 +146,6 @@
 	"gwtoolset-maps-to": "Mappar till",
 	"gwtoolset-mapping-media-file-url-extension-bad": "Filtillägget kunde inte fastställas från filens URL: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "URL:en för mediefilen kunde inte utvärderas. URL:en levererar innehållet på ett sätt som ännu inte kan hanteras av detta tillägget eller uppstod ett fel under HTTP-begäran. Den angivna URL:en var \"$1\". Fel för HTTP-begäran \"$2\"",
-	"gwtoolset-mapping-no-title": "Metadatamappningen innehåller ingen titel vilket krävs för att skapa sidan.",
-	"gwtoolset-mapping-no-title-identifier": "Metadatamappningen innehåller inget titel-id som kan användas för att skapa en unik sidtitel. Se till att du mappar ett metadatafält till MediaWiki-mallens fält för titel-id.",
 	"gwtoolset-metadata-field": "Metadatafält",
 	"gwtoolset-metadata-file": "Metadatafil",
 	"gwtoolset-metadata-mapping-legend": "Mappa din metadata",

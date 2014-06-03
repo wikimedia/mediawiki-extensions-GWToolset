@@ -142,8 +142,7 @@
 	"gwtoolset-maps-to": "Се пресликува во",
 	"gwtoolset-mapping-media-file-url-extension-bad": "Не можев да ја утврдам наставката на податотеката од нејзината URL: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "Не можев да ја проценам URL-адресата на медиумската податотека. Ја нуди содржината на начин што сè уште не може да се обработи со овој додаток, или пак има проблем со HTTP-барањето. Укажаната URL-адреса гласеше „$1“. Грешка во HTTP-барањето „$2“",
-	"gwtoolset-mapping-no-title": "Медапотаточното пресликување нема наслов, кој е потребен за да се создаде страницата.",
-	"gwtoolset-mapping-no-title-identifier": "Метаподаточното пресликување нема назнака за наслов, која е потребна за да се создаде единствен  наслов на страницата. Внимавајте да пресликате метаподаточно поле во назнаката за наслов во параметарот на МедијаВики-шаблонот.",
+	"gwtoolset-mapping-no-gwtoolset-title": "Метаподаточното пресликување не содржи GWToolset-наслов, кој е потребен за создавање на страницата.",
 	"gwtoolset-metadata-field": "Метаподаточно поле",
 	"gwtoolset-metadata-file": "Метаподаточна податотека",
 	"gwtoolset-metadata-mapping-legend": "Пресликајте ги вашите метаподатоци",
@@ -196,5 +195,8 @@
 	"gwtoolset-verify-php-version": "Додатокот „$1“ бара PHP >= 5.3.3.",
 	"gwtoolset-verify-uploads-enabled": "Додатокот „$1“ бара да е овозможено подигање на податотеки.\n\nПроверете дали <code>$wgEnableUploads</code> е наместено на <code>true</code> во <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-xmlreader": "Додатокот $1 бара воспоставен [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] со PHP.",
-	"gwtoolset-wiki-checks-not-passed": "Не пројде на проверките на викито"
+	"gwtoolset-wiki-checks-not-passed": "Не пројде на проверките на викито",
+	"gwtoolset-title-too-long": "Проверениот наслов е предолг. Насловот може да има највеќе до 240 бајти. Овој наслов се проценува на $1 {{PLURAL:$1|бајт|бајти}}.\n\n$2.",
+	"gwtoolset-title-label": "GWToolset-наслов",
+	"gwtoolset-url-to-the-media-file-label": "URL до податотеката"
 }

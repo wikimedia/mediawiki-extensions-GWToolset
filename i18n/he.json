@@ -150,8 +150,7 @@
 	"gwtoolset-maps-to": "ממפה ל...",
 	"gwtoolset-mapping-media-file-url-extension-bad": "לא ניתן היה לזהות את סיומת הקובץ מהכתובת לקובץ: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "לא היה ניתן לחשב את כתובת קובץ המדיה. הכתובת מעבירה את התוכן בצורה שלא נתמכת עדיין על־ידי הסיומת הזאת או שהייתה בעיה בבקשת ה־HTTP. הכתובת שניתנה היא \"$1\". שגיאת בקשת ה־HTTP היא \"$2\"",
-	"gwtoolset-mapping-no-title": "מיפוי המטא-נתונים אינו מכיל כותרת, אשר נחוצה כדי ליצור את העמוד.",
-	"gwtoolset-mapping-no-title-identifier": "מיפוי המטא־נתונים אינו מכיל מזהה כותרת, אשר משמש ליצירת כותרת עמוד ייחודית. נא לוודא שמיפיתם את שדה המטא־נתונים לפרמטר מזהה הכותר התבנית של מדיה־ויקי.",
+	"gwtoolset-mapping-no-gwtoolset-title": "המטא־נתונים אינם מכילים כותרת gwtoolset, שנחוצה לשם יצירת הדף.",
 	"gwtoolset-metadata-field": "שדה מטא־נתונים",
 	"gwtoolset-metadata-file": "קובץ מטא־נתונים",
 	"gwtoolset-metadata-mapping-legend": "מיפוי המטא־נתונים שלך",
@@ -204,5 +203,8 @@
 	"gwtoolset-verify-php-version": "ההרחבה $1 דורשת PHP בגרסה 5.3.3 לפחות.",
 	"gwtoolset-verify-uploads-enabled": "ההרחבה $1 דורשת שהעלאת קבצים תהיה מופעלת.\n\nנא לוודא כי <code dir=\"ltr\">$wgEnableUploads</code> מוגדר ל־<code>true</code>.",
 	"gwtoolset-verify-xmlreader": "הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן",
-	"gwtoolset-wiki-checks-not-passed": "בדיקות הוויקי נכשלו"
+	"gwtoolset-wiki-checks-not-passed": "בדיקות הוויקי נכשלו",
+	"gwtoolset-title-too-long": "הכותרת המשוערכת ארוכה מדי; אורך הכותרת יכול להיות 240 בתים לכל היותר. האורך המשוערך של הכותרת הזאת הוא {{{{PLURAL:$1|בית אחד|$1 בתים}}.\n\n$2",
+	"gwtoolset-title-label": "כותרת GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "קישור URL לקובץ המדיה"
 }
