@@ -134,8 +134,6 @@
 	"gwtoolset-maps-to": "マッピング先",
 	"gwtoolset-mapping-media-file-url-extension-bad": "ファイル URL からそのファイルの拡張子を判定できませんでした: $1",
 	"gwtoolset-mapping-media-file-url-bad": "メディア ファイルの URL を評価できませんでした。この URL では、この拡張機能がまだ処理できない方法でコンテンツを配信しているか、または HTTP リクエストのエラーが発生しました。指定した URL は「$1」でした。HTTP リクエスト エラー「$2」です。",
-	"gwtoolset-mapping-no-title": "メタデータのマッピングが、ページ作成に必要なタイトルを含んでいません。",
-	"gwtoolset-mapping-no-title-identifier": "メタデータ マッピングが、固有のページ名作成に使用するタイトル識別子を含んでいません。メタデータのフィールドを MediaWiki テンプレートのパラメーター タイトル識別子にマッピングしたことを確認してください。",
 	"gwtoolset-metadata-field": "メタデータのフィールド",
 	"gwtoolset-metadata-file": "メタデータ ファイル",
 	"gwtoolset-metadata-mapping-legend": "メタデータのマッピング",
@@ -182,5 +180,6 @@
 	"gwtoolset-verify-php-version": "$1 拡張機能を使用するには、PHP 5.3.3 以降が必要です。",
 	"gwtoolset-verify-uploads-enabled": "$1 拡張機能を使用するには、ファイル アップロードを有効にする必要があります。\n\n<code>LocalSettings.php</code> 内で <code>$wgEnableUploads</code> を <code>true</code> に設定していることを確認してください。",
 	"gwtoolset-verify-xmlreader": "$1 拡張機能を使用するには PHP の [http://www.php.net/manual/ja/xmlreader.setup.php XMLReader] をインストールする必要があります。",
-	"gwtoolset-wiki-checks-not-passed": "ウィキが要件を満たしていません"
+	"gwtoolset-wiki-checks-not-passed": "ウィキが要件を満たしていません",
+	"gwtoolset-url-to-the-media-file-label": "メディアファイルのURL"
 }
