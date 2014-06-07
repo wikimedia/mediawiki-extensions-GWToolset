@@ -40,6 +40,11 @@ $specialPageAliases['he'] = array(
 	'GWToolset' => array( 'ארגז_גלי_גלאם_ויקי' ),
 );
 
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'GWToolset' => array( 'GW도구모음' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'GWToolset' => array( 'GW工具集' ),

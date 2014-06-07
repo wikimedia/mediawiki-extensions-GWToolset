@@ -142,8 +142,6 @@
 	"gwtoolset-maps-to": "매핑 장소",
 	"gwtoolset-mapping-media-file-url-extension-bad": "파일 확장 기능이 파일 URL에서 확정되지 않았습니다: $1",
 	"gwtoolset-mapping-media-file-url-bad": "해당 미디어 파일 URL을 평가할 수 없습니다. URL이 아직 이 확장 기능으로 다룰 수 없는 방법으로 내용을 전달했거나 HTTP 요청 문제가 있습니다. 주어진 URL은 \"$1\"입니다. HTTP 요청은 \"$2\" 오류입니다.",
-	"gwtoolset-mapping-no-title": "메타데이터 매핑은 제목을 포함하고 있습니다. 제목은 문서를 만들기 위해 필요합니다",
-	"gwtoolset-mapping-no-title-identifier": "메타데이터 매핑이 고유 문서 제목을 생성하는데 사용되는 제목 식별자를 포함하고 있지 않습니다. 미디어위키 틀 매개변수 제목 식별자에 메타데이터 필드를 매핑하고 있는지 확인하세요.",
 	"gwtoolset-metadata-field": "메타데이터 필드",
 	"gwtoolset-metadata-file": "메타데이터 파일",
 	"gwtoolset-metadata-mapping-legend": "메타데이터를 매핑",
