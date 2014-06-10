@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Artificial123"
+		]
+	},
+	"gwtoolset-mediafile-duplicate-another-title": "Ідэнтычны медыяфайл ужо існуе пад назвай \"$1\".",
+	"gwtoolset-mediafile-duplicate-same-title": "Гэты мультымедыйны файл ужо існуе і мае тую ж назву \"$1\".",
+	"gwtoolset-mediafile-other-contributors": "Медыя-файл з ідэнтычнай назвай \"$1\" ужо існуе ў Вікі. Ён быў зменены або створаны з кімсьці іншым."
+}
