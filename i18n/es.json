@@ -8,6 +8,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, una herramienta de carga por lotes para los GLAM",
+	"gwtoolset-intro": "GWToolset es una extensión para MediaWiki que permite que galerías, bibliotecas, archivos y museos (GLAM, por sus siglas en inglés) realicen cargas de contenido en masa con base en un archivo XML con metadatos sobre el contenido. [[commons:Commons:GLAMToolset_project|Más información]].",
 	"right-gwtoolset": "Usar GWToolset",
 	"action-gwtoolset": "usar GWToolset",
 	"group-gwtoolset": "Usuarios de GWToolset",
@@ -18,6 +19,7 @@
 	"gwtoolset-could-not-close-xml": "No se pudo cerrar el lector de XML.",
 	"gwtoolset-could-not-open-xml": "No se pudo abrir el archivo XML para su lectura.",
 	"gwtoolset-developer-issue": "Ponte en contacto con un desarrollador. Hay que corregir este problema antes de continuar. Añade el texto siguiente al informe:\n\n$1",
+	"gwtoolset-dom-record-issue": "No se proporcionó ni <code>record-element-name</code> ni <code>record-count</code> ni <code>record-current</code>.",
 	"gwtoolset-fsfile-empty": "El archivo estaba vacío y se ha eliminado.",
 	"gwtoolset-fsfile-retrieval-failure": "No se pudo extraer el archivo del URL $1.",
 	"gwtoolset-mediafile-duplicate-another-title": "Ya existe un archivo de medios idéntico bajo el título \"$1\".",
@@ -98,5 +100,7 @@
 	"gwtoolset-step-4-heading": "Paso 4: carga del lote",
 	"gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.",
 	"gwtoolset-required-group": "No formas parte del grupo $1.",
-	"gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3."
+	"gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3.",
+	"gwtoolset-title-label": "Título en GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia"
 }
