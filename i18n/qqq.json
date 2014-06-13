@@ -156,6 +156,7 @@
 	"gwtoolset-preview": "Text for submit button in Step 2 of the HTML form.",
 	"gwtoolset-preview-mediafile-placeholder-heading": "Heading that appears on the Preview page for a mediafile placeholder.",
 	"gwtoolset-preview-mediafile-placeholder-text": "Text that appears on the Preview page that describes what the mediafile placeholder represents.",
+	"gwtoolset-preview-unparsable-categories": "Message that appears in Step 3: Batch preview when any of the categories provided for an item cannot be parsed into wikitext. Parameters:\n* $1 is the count of the categories that cannot be parsed.",
 	"gwtoolset-process-batch": "Text for submit button in Step 3 of the HTML form.\n\nUsed in {{msg-mw|Gwtoolset-step-3-instructions-2}}.",
 	"gwtoolset-record-count": "User message that indicates the total number of records found in the metadata file. Parameters:\n* $1 is the total number of records found.",
 	"gwtoolset-step-2-heading": "Step 2 heading.\n\nUsed in:\n* {{msg-mw|Gwtoolset-step-3-instructions-1}}\n* {{msg-mw|Gwtoolset-step-1-instructions-2}}\n* {{msg-mw|Gwtoolset-step-3-instructions-3}}\n\nSee also:\n* {{msg-mw|Gwtoolset-step-1-instructions-li-2}}",

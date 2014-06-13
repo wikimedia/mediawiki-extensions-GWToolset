@@ -267,17 +267,46 @@ class PreviewForm {
 		$parser_options->setIsPreview( true );
 
 		foreach ( $metadata_items as $item ) {
+			$categories = array();
+			$notParsable = array();
+
 			$parser_options->setTargetLanguage(
 				$item['Title']->getPageLanguage()
 			);
 
 			$parser_out = $wgParser->parse(
-				$item['wikitext'], $item['Title'],
+				$item['wikitext'],
+				$item['Title'],
 				$parser_options
 			);
 
 			$lang = $item['Title']->getPageViewLanguage();
-			$Output->setCategoryLinks( $item['categories'] );
+
+			// attempt to pre-parse the category in case it contains a template
+			// @see https://bugzilla.wikimedia.org/show_bug.cgi?id=65620
+			foreach ( $item['categories'] as $key => $value ) {
+				$category = $wgParser->parse(
+					$key,
+					$item['Title'],
+					$parser_options
+				);
+
+				// find this hacky, but not sure how to retrieve the raw text
+				$category = strip_tags( $category->getText() );
+
+				// if the parser was not able to parse a template, {} will be left
+				// only include the text if it no longer contains {}
+				if (
+					strpos( $category, '{' ) === false &&
+					strpos( $category, '}' ) === false
+				) {
+					$categories[$category] = 0;
+				} else {
+					$notParsable[] = $category;
+				}
+			}
+
+			$Output->setCategoryLinks( $categories );
 
 			$result .=
 				Html::openElement(
@@ -301,13 +330,14 @@ class PreviewForm {
 					Html::rawElement(
 						'h4',
 						array(),
-						wfMessage( 'gwtoolset-preview-mediafile-placeholder-heading' )
+						wfMessage( 'gwtoolset-preview-mediafile-placeholder-heading' )->escaped()
 					) .
-					wfMessage( 'gwtoolset-preview-mediafile-placeholder-text' )
+					wfMessage( 'gwtoolset-preview-mediafile-placeholder-text' )->escaped()
 				) .
 
 				$parser_out->getText() .
 				$Skin->getCategories() .
+				self::getNonParsableCategoriesAsHtml( $notParsable ) .
 				Html::closeElement( 'div' );
 		}
 
@@ -316,4 +346,43 @@ class PreviewForm {
 
 		return $result;
 	}
+
+	/**
+	 * @param {array} $notParsable
+	 * @return {string}
+	 */
+	public static function getNonParsableCategoriesAsHtml(
+		array $notParsable = array()
+	) {
+		$result = '';
+
+		if ( empty( $notParsable ) ) {
+			return $result;
+		}
+
+		$result .=
+			Html::rawElement(
+				'p',
+				array( 'class' => 'error' ),
+				wfMessage(
+					'gwtoolset-preview-unparsable-categories'
+				)
+					->params( count( $notParsable ) )
+					->parse()
+			) .
+			Html::openElement( 'ul' );
+
+		foreach( $notParsable as $category ) {
+			$result .= Html::rawElement(
+				'li',
+				array(),
+				Utils::sanitizeString( $category )
+			);
+		}
+
+		$result .= Html::closeElement( 'ul' );
+
+		return $result;
+	}
+
 }

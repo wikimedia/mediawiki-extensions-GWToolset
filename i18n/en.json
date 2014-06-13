@@ -160,6 +160,7 @@
 	"gwtoolset-preview": "Preview batch",
 	"gwtoolset-preview-mediafile-placeholder-heading": "Mediafile placeholder",
 	"gwtoolset-preview-mediafile-placeholder-text": "This is where a representation of your mediafile will appear.",
+	"gwtoolset-preview-unparsable-categories": "The following {{PLURAL:$1|category was|categories were}} not parsable. Make sure the category template you're referring to exists in the wiki and parses properly, or use a simpler category reference:",
 	"gwtoolset-process-batch": "Process batch",
 	"gwtoolset-record-count": "Total number of records found in this metadata file: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Step 2: Metadata mapping",
