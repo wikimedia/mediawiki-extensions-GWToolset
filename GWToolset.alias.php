@@ -45,6 +45,11 @@ $specialPageAliases['ko'] = array(
 	'GWToolset' => array( 'GW도구모음' ),
 );
 
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'GWToolset' => array( 'GWGereedschap' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'GWToolset' => array( 'GW工具集' ),
