@@ -1,3 +1,67 @@
+== GWToolset 0.2.4 ==
+MediaWiki_1.24/wmf8
+scheduled deployed: Tuesday, 10 June 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf8#GWToolset
+
+=== Max title length ===
+https://gerrit.wikimedia.org/r/#/c/134073/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=65323
+
+
+
+== GWToolset 0.2.3 ==
+MediaWiki_1.24/wmf7
+scheduled deployed: Tuesday, 03 June 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf7#GWToolset
+
+=== version update ===
+https://gerrit.wikimedia.org/r/#/c/134293/
+
+
+
+== GWToolset 0.2.3 ==
+MediaWiki_1.24/wmf6
+scheduled deployed: Tuesday, 27 May 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf6#GWToolset
+
+=== Set initial page to Step 1: Metadata detection ===
+https://gerrit.wikimedia.org/r/#/c/133754/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64285
+
+
+
+== GWToolset 0.2.2 ==
+MediaWiki_1.24/wmf5
+scheduled deployed: Tuesday, 20 May 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf5#GWToolset
+
+=== Added more credits to the English i18n file ===
+https://gerrit.wikimedia.org/r/#/c/133242/
+
+=== Clarify messages about identical files and titles ===
+https://gerrit.wikimedia.org/r/#/c/133241/
+
+=== Don’t allow upload of duplicate mediafiles ===
+https://gerrit.wikimedia.org/r/#/c/132751/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64831
+
+=== No wikitext comments ===
+https://gerrit.wikimedia.org/r/#/c/132983/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64634
+
+=== up-arrow ===
+https://gerrit.wikimedia.org/r/#/c/132925/
+
+=== Do not overwrite content from community members/bots on re-upload ===
+https://gerrit.wikimedia.org/r/#/c/124347/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63638
+
+=== preview without upload ===
+https://gerrit.wikimedia.org/r/#/c/127839/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63864
+
+
+
 == GWToolset 0.2.1 ==
 MediaWiki_1.24/wmf4
 deployed: Tuesday, 13 May 2014
