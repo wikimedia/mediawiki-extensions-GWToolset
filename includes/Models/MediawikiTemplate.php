@@ -51,7 +51,6 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	protected $_sub_templates = array(
 		'language' => '{{%s|%s}}',
-		'institution' => '{{Institution:%s}}',
 		'creator' => array(
 			'template' => '{{Creator:%s}}',
 			'parameters' => array(
@@ -79,6 +78,104 @@ class MediawikiTemplate implements ModelInterface {
 	}
 
 	public function delete( array &$options = array() ) {
+	}
+
+	/**
+	 * determines the MediaWiki template creator parameter
+	 * evaluates whether or not the user has chosen to:
+	 *
+	 * - use the metadata value mapped to the institution parameter as is
+	 * - or wrap the metadata value in an institution template
+	 *
+	 * @param {string} $content
+	 * @param {array} $user_options
+	 * @return {string}
+	 */
+	protected function getCreator( $content, array $user_options ) {
+		$result = '';
+
+		// assumes that there could be more than one creator in the string
+		// and uses the configured metadata separator for evaluation
+		$creators = explode( Config::$metadata_separator, $content );
+
+		foreach ( $creators as $creator ) {
+			// assumes that a creator entry could be last name, first
+			if ( $user_options['gwtoolset-reverse-creator'] ) {
+				$creator = explode( ',', $creator, 2 );
+			} else {
+				$creator = array( $creator );
+			}
+
+			// handle empty string
+			if ( count( $creator ) === 1 && trim( $creator[0] ) === '' ) {
+				return $result;
+			} else {
+				// only consider the first 2 pieces of a reversed name
+				// e.g. Motzart, Wolfgang Amadeus = Wolfgang Amadeus Motzart
+				// e.g. Motzart, Wolfgang, Amadeus = Wolfgang Motzart
+				if ( count( $creator ) === 2 ) {
+					$creator = trim( $creator[1] ) . ' ' . trim( $creator[0] );
+				} else {
+					$creator = $creator[0];
+				}
+
+				if ( $user_options['gwtoolset-wrap-creator'] ) {
+					$result .= sprintf(
+						$this->_sub_templates['creator']['template'],
+						$creator
+					) . PHP_EOL;
+				} else {
+					$result .= $creator . PHP_EOL;
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	/**
+	 * creates wiki text for the GWToolset parameters
+	 *
+	 * @todo move this into a GWToolsetTemplate model
+	 *
+	 * @return {string}
+	 * the result is sanitized
+	 */
+	public function getGWToolsetTemplateAsWikiText() {
+		return
+			'{{Uploaded with GWToolset' . PHP_EOL .
+			' | gwtoolset-title = ' .
+					Utils::sanitizeString(
+						$this->mediawiki_template_array['gwtoolset-title']
+					) . PHP_EOL .
+			' | gwtoolset-url-to-the-media-file = ' .
+					Utils::sanitizeString(
+						$this->mediawiki_template_array['gwtoolset-url-to-the-media-file']
+					) . PHP_EOL .
+			'}}' .
+			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
+	}
+
+	/**
+	 * determines the MediaWiki template institution parameter
+	 * evaluates whether or not the user has chosen to:
+	 *
+	 * - use the metadata value mapped to the institution parameter as is
+	 * - or wrap the metadata value in an institution template
+	 *
+	 * @param {string} $content
+	 * @param {array} $user_options
+	 * @return {string}
+	 */
+	protected function getInstitution( $content, array $user_options ) {
+		if (
+			trim( $content ) === ''
+			|| !$user_options['gwtoolset-wrap-institution']
+		) {
+			return $content;
+		}
+
+		return sprintf( '{{Institution:%s}}', $content );
 	}
 
 	/**
@@ -141,26 +238,105 @@ class MediawikiTemplate implements ModelInterface {
 	}
 
 	/**
-	 * creates wiki text for the GWToolset parameters
+	 * determines the MediaWiki template permission parameter
+	 * evaluates whether or not the user has chosen to:
 	 *
-	 * @todo move this into a GWToolsetTemplate model
+	 * - use a free text global license
+	 * - detect and create a license template based on a cc license URL
+	 * - use the metadata value mapped to the permission parameter
 	 *
+	 * e.g. https://creativecommons.org/licenses/by-sa/3.0/ corresponds with
+	 * the MediaWiki license template  {{Template:Cc-by-sa-3.0}}
+	 *
+	 * @see http://commons.wikimedia.org/wiki/Category:Creative_Commons_licenses
+	 *
+	 * @param {string} $content
+	 * @param {array} $user_options
 	 * @return {string}
-	 * the result is sanitized
 	 */
-	public function getGWToolsetTemplateAsWikiText() {
-		return
-			'{{Uploaded with GWToolset' . PHP_EOL .
-			' | gwtoolset-title = ' .
-					Utils::sanitizeString(
-						$this->mediawiki_template_array['gwtoolset-title']
-					) . PHP_EOL .
-			' | gwtoolset-url-to-the-media-file = ' .
-					Utils::sanitizeString(
-						$this->mediawiki_template_array['gwtoolset-url-to-the-media-file']
-					) . PHP_EOL .
-			'}}' .
-			PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
+	protected function getPermission( $content, array $user_options ) {
+		if ( !empty( $user_options['gwtoolset-global-license'] ) ) {
+			return $user_options['gwtoolset-global-license'];
+		} else if ( $user_options['gwtoolset-detect-license'] ) {
+			$permission = strtolower( $content );
+		} else {
+			return $content;
+		}
+
+		if ( !strstr( $permission, 'creativecommons.org/' ) ) {
+			return $content;
+		}
+
+		$licenses = array(
+			'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/mark\/1.0\//' =>
+				'{{PD-US}}{{PD-old}}', // Public Domain Mark 1.0
+			'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/zero\/1.0\//' =>
+				'{{Cc-zero}}', // CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+			'/(http|https):\/\/(www\.|)creativecommons.org\/licenses\//' =>
+				'',
+			'/deed\.*/' =>
+				''
+		);
+
+		$permission = preg_replace(
+			array_keys( $licenses ),
+			array_values( $licenses ),
+			$permission
+		);
+
+		$permission = explode( '/', $permission );
+
+		if ( count( $permission ) > 1 ) {
+			$i = 0;
+			$string = '{{Cc-';
+
+			foreach ( $permission as $piece ) {
+				if ( !empty( $piece ) ) {
+					$string .= $piece . '-';
+				}
+
+				$i++;
+
+				// limit licenses path depth to 3
+				if ( $i == 3 ) {
+					break;
+				}
+			}
+
+			$string = substr( $string, 0, strlen( $string ) - 1 );
+			$string .= '}}';
+			$permission = $string;
+		} else {
+			$permission = $permission[0];
+		}
+
+		return $permission;
+	}
+
+	/**
+	 * determines the MediaWiki template source parameter
+	 * evaluates whether or not the user has chosen to:
+	 *
+	 * - use a free text source template
+	 *   adds the metadata value mapped to the source parameter
+	 *   and adds the free text value
+	 *   assumes that the free text value must be wrapped in {{}}
+	 * - use the metadata value mapped to the source parameter
+	 *
+	 * @param {string} $content
+	 * @param {array} $user_options
+	 * @return {string}
+	 */
+	protected function getSource( $content, array $user_options ) {
+		if ( !empty( $user_options['partner-template-name'] ) ) {
+			return
+				$content .
+				'{{' .
+				Utils::sanitizeString( $user_options['partner-template-name'] ) .
+				'}}';
+		} else {
+			return $content;
+		}
 	}
 
 	/**
@@ -180,7 +356,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * @return {string}
 	 * the resulting wiki text is filtered
 	 */
-	public function getTemplateAsWikiText( array &$user_options ) {
+	public function getTemplateAsWikiText( array $user_options ) {
 		$result = '';
 		$sections = null;
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
@@ -194,16 +370,19 @@ class MediawikiTemplate implements ModelInterface {
 
 			$sections .= ' | ' . Utils::sanitizeString( $parameter ) . ' = ';
 
-			/**
-			 * sometimes the metadata element has several "shared" metadata
-			 * elements with the same element name. at the moment the
-			 * application will add elements that use lang= attribute to an
-			 * associative array element 'language' indicating that the mediawiki
-			 * template should use the language subtemplate
-			 */
+			// sometimes a metadata element has an XML attribute that the tools
+			// looks for in order to possibly place the metadata into a
+			// sub-template, e.g., <dc:description lang="en">
+			//
+			// currently the application only looks for XML elements with the
+			// attribute lang; those elements are placed into an associative array
+			// 'language' and are processed here. no other array grouping is
+			// currently created.
+			//
+			// this section is meant to handle this current scenario and any future
+			// scenarios of this type.
 			if ( is_array( $content ) ) {
 				foreach ( $content as $sub_template_name => $sub_template_content ) {
-					// currently only language is handled as a sub-template
 					if ( $sub_template_name === 'language' ) {
 						foreach ( $sub_template_content as $language => $language_content ) {
 							$sections .= sprintf(
@@ -212,112 +391,44 @@ class MediawikiTemplate implements ModelInterface {
 									Utils::sanitizeString( $language_content )
 								) . PHP_EOL;
 						}
-						/**
-						 * sometimes the "shared" metadata element will indicate lang,
-						 * sometimes not this section handles those "shared" metadata
-						 * elements that do not specify a lang attribute
-						 */
+
+					// sometimes there is more than one metadata element with the same
+					// element name that falls into this sub-templating scenario; one
+					// has an XML attribute the tool looks for, and another does not.
+					// when one of those "shared" elements does not have the XML
+					// attribute the tool is looking for, it falls into this section and
+					// is not wrapped in a sub-template.
 					} else {
 						$sections .= Utils::sanitizeString( $sub_template_content ) . PHP_EOL;
 					}
 				}
 			} else {
-				$content = trim( $content );
-
+				// institution parameter
 				if ( $parameter === 'institution' ) {
-					if ( trim( $content ) === '' ) {
-						$sections .= PHP_EOL;
-					} else {
-						$sections .= sprintf(
-							$this->_sub_templates['institution'],
-							Utils::sanitizeString( $content )
-						) . PHP_EOL;
-					}
-				} elseif ( in_array( $parameter, $this->_sub_templates['creator']['parameters'] ) ) {
-					// assumes that there could be more than one creator and uses the
-					// configured metadata separator to determine that
-					$creators = explode( Config::$metadata_separator, $content );
+					$institution = $this->getInstitution( $content, $user_options );
+					$sections .= Utils::sanitizeString( $institution ) . PHP_EOL;
 
-					foreach ( $creators as $creator ) {
-						// assumes that a creator entry could be last name, first
-						// no other assumptions are made other than this one
-						$creator = explode( ',', $creator, 2 );
+				// creator parameter
+				} elseif (
+					in_array(
+						$parameter,
+						$this->_sub_templates['creator']['parameters']
+					)
+				) {
+					$creator = $this->getCreator( $content, $user_options );
+					$sections .= Utils::sanitizeString( $creator );
 
-						if ( count( $creator ) <= 1 && trim( $creator[0] ) === '' ) {
-							$sections .= PHP_EOL;
-						} else {
-							if ( count( $creator ) === 2 ) {
-								$creator = trim( $creator[1] ) . ' ' . trim( $creator[0] );
-							} else {
-								$creator = trim( $creator[0] );
-							}
-
-							$sections .= sprintf(
-								$this->_sub_templates['creator']['template'],
-								Utils::sanitizeString( $creator )
-							) . PHP_EOL;
-						}
-					}
+				// permission parameter
 				} elseif ( $parameter === 'permission' ) {
-					// http://commons.wikimedia.org/wiki/Category:Creative_Commons_licenses
-					$permission = strtolower( $content );
-
-					if ( strstr( $permission, 'creativecommons.org/' ) ) {
-						$patterns = array(
-							'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/mark\/1.0\//',
-							'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/zero\/1.0\//',
-							'/(http|https):\/\/(www\.|)creativecommons.org\/licenses\//',
-							'/deed\.*/'
-						);
-
-						$replacements = array(
-							'{{PD-US}}{{PD-old}}', // Public Domain Mark 1.0
-							'{{Cc-zero}}', // CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
-							'',
-							''
-						);
-
-						$permission = preg_replace( $patterns, $replacements, $permission );
-						$permission = explode( '/', $permission );
-
-						if ( count( $permission ) > 1 ) {
-							$i = 0;
-							$string = '{{Cc-';
-
-							foreach ( $permission as $piece ) {
-								if ( !empty( $piece ) ) {
-									$string .= $piece . '-';
-								}
-
-								$i++;
-
-								// limit licenses path depth to 3
-								if ( $i == 3 ) {
-									break;
-								}
-							}
-
-							$string = substr( $string, 0, strlen( $string ) - 1 );
-							$string .= '}}';
-							$permission = $string;
-						} else {
-							$permission = $permission[0];
-						}
-					} else {
-						$permission = $content;
-					}
-
+					$permission = $this->getPermission( $content, $user_options );
 					$sections .= Utils::sanitizeString( $permission ) . PHP_EOL;
+
+				// source parameter
 				} elseif ( $parameter === 'source' ) {
-					if ( !empty( $user_options['partner-template-name'] ) ) {
-						$sections .= Utils::sanitizeString( $content ) .
-							'{{' .
-							Utils::sanitizeString( $user_options['partner-template-name'] ) .
-							'}}' .
-							PHP_EOL;
-					} else {
-						$sections .= Utils::sanitizeString( $content ) . PHP_EOL;
-					}
+					$source = $this->getSource( $content, $user_options );
+					$sections .= Utils::sanitizeString( $source ) . PHP_EOL;
+
+				// all other parameters
 				} else {
 					$sections .= Utils::sanitizeString( $content ) . PHP_EOL;
 				}

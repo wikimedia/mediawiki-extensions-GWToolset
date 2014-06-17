@@ -342,6 +342,157 @@ class MetadataMappingForm {
 
 			wfMessage( 'copyrightwarning2' )->parseAsBlock() .
 
+			// creator template
+			Html::rawElement(
+				'h3',
+				array( 'style' => 'margin-top:1em;'),
+				wfMessage( 'gwtoolset-wrap-creator-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'checkbox',
+							'name' => 'gwtoolset-wrap-creator',
+							'value' => 'true'
+						)
+					) .
+					' ' . wfMessage( 'gwtoolset-wrap-creator' )->escaped() .
+					Html::rawElement( 'br' ) .
+					wfMessage( 'gwtoolset-wrap-creator-explanation' )->parse()
+				)
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'checkbox',
+							'name' => 'gwtoolset-reverse-creator',
+							'value' => 'true'
+						)
+					) .
+					' ' . wfMessage( 'gwtoolset-reverse-creator' )->escaped() .
+					Html::rawElement( 'br' ) .
+					wfMessage( 'gwtoolset-reverse-creator-explanation' )->escaped()
+				)
+			) .
+
+			// institution template
+			Html::rawElement(
+				'h3',
+				array( 'style' => 'margin-top:1em;'),
+				wfMessage( 'gwtoolset-wrap-institution-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'checkbox',
+							'name' => 'gwtoolset-wrap-institution',
+							'value' => 'true'
+						)
+					) .
+					' ' . wfMessage( 'gwtoolset-wrap-institution' )->escaped() .
+					Html::rawElement( 'br' ) .
+					wfMessage( 'gwtoolset-wrap-institution-explanation' )->parse()
+				)
+			) .
+
+			// language template
+			Html::rawElement(
+				'h3',
+				array( 'style' => 'margin-top:1em;'),
+				wfMessage( 'gwtoolset-wrap-language-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'checkbox',
+							'name' => 'gwtoolset-wrap-language',
+							'value' => 'true'
+						)
+					) .
+					' ' . wfMessage( 'gwtoolset-wrap-language' )->escaped() .
+					Html::rawElement( 'br' ) .
+					wfMessage( 'gwtoolset-wrap-language-explanation' )->parse()
+				)
+			) .
+
+			// permission/license template
+			Html::rawElement(
+				'h3',
+				array( 'style' => 'margin-top:1em;'),
+				wfMessage( 'gwtoolset-detect-license-heading' )->escaped()
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'label',
+					array(),
+					Html::rawElement(
+						'input',
+						array(
+							'type' => 'checkbox',
+							'name' => 'gwtoolset-detect-license',
+							'value' => 'true'
+						)
+					) .
+					' ' . wfMessage( 'gwtoolset-detect-license' )->escaped() .
+					Html::rawElement( 'br' ) .
+					wfMessage( 'gwtoolset-detect-license-explanation' )->parse()
+				)
+			) .
+
+			Html::rawElement(
+				'p',
+				array(),
+				Html::rawElement(
+					'span',
+					array( 'style' => 'font-style:italic;text-decoration:underline;' ),
+					wfMessage( 'gwtoolset-global-license' )->escaped()
+				) .
+				Html::rawElement( 'br' ) .
+				wfMessage( 'gwtoolset-global-license-explanation' )->escaped()
+			) .
+
+			Html::rawElement(
+				'input',
+				array(
+					'type' => 'text',
+					'name' => 'gwtoolset-global-license',
+					'placeholder' => wfMessage( 'gwtoolset-global-license' ),
+					'class' => 'gwtoolset-url-input'
+				)
+			) .
+
+			// global categories
 			Html::rawElement(
 				'h3',
 				array( 'style' => 'margin-top:1em;'),

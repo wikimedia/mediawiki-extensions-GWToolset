@@ -199,5 +199,21 @@
 	"gwtoolset-wiki-checks-not-passed": "Heading used when a wiki requirement is not met.",
 	"gwtoolset-title-too-long": "Message that appears when an evaluated title for an item is greater than 240 bytes. Parameters:\n* $1 is the length in bytes for this item's title.\n* $2 is the evaluated title.",
 	"gwtoolset-title-label": "Label used in the metadata mapping section of Step 2: Metadata mapping.",
-	"gwtoolset-url-to-the-media-file-label": "Label used in the metadata mapping section of Step 2: Metadata mapping. The translation should not be longer than 21 characters; if it is, please leave it in English."
+	"gwtoolset-url-to-the-media-file-label": "Label used in the metadata mapping section of Step 2: Metadata mapping. The translation should not be longer than 21 characters; if it is, please leave it in English.",
+	"gwtoolset-reverse-creator": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-reverse-creator-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-creator": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-creator-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-creator-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-institution": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-institution-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-institution-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-language": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-language-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-language-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
+	"gwtoolset-detect-license": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-detect-license-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-detect-license-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
+	"gwtoolset-global-license": "Label used for the corresponding input field in the Step 2: Metadata mapping form.",
+	"gwtoolset-global-license-explanation": "Explanation of the corresponding input field in the Step 2: Metadata mapping form."
 }

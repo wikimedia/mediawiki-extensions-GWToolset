@@ -55,7 +55,13 @@ class MetadataMappingHandler extends FormHandler {
 		'gwtoolset-record-begin' => array( 'size' => 255 ),
 		'gwtoolset-record-count' => array( 'size' => 255 ),
 		'gwtoolset-record-element-name' => array( 'size' => 255 ),
-		'gwtoolset-reupload-media' => array( 'size' => 255 ),
+		'gwtoolset-reupload-media' => array( 'size' => 4 ),
+		'gwtoolset-reverse-creator' => array( 'size' => 4 ),
+		'gwtoolset-wrap-creator' => array( 'size' => 4 ),
+		'gwtoolset-wrap-institution' => array( 'size' => 4 ),
+		'gwtoolset-wrap-language' => array( 'size' => 4 ),
+		'gwtoolset-detect-license' => array( 'size' => 4 ),
+		'gwtoolset-global-license' => array( 'size' => 255 ),
 		'wpEditToken' => array( 'size' => 255 ),
 		'wpSummary' => array( 'size' => 255 )
 	);
@@ -184,10 +190,20 @@ class MetadataMappingHandler extends FormHandler {
 				? $this->_whitelisted_post['gwtoolset-category-metadata']
 				: array(),
 
+			'gwtoolset-detect-license' =>
+				!empty( $this->_whitelisted_post['gwtoolset-detect-license'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-detect-license']
+				: false,
+
 			'comment' =>
 				!empty( $this->_whitelisted_post['wpSummary'] )
 				? $this->_whitelisted_post['wpSummary']
 				: '',
+
+			'gwtoolset-global-license' =>
+				!empty( $this->_whitelisted_post['gwtoolset-global-license'] )
+				? $this->_whitelisted_post['gwtoolset-global-license']
+				: null,
 
 			'gwtoolset-mediafile-throttle' =>
 				!empty( $this->_whitelisted_post['gwtoolset-mediafile-throttle'] )
@@ -260,6 +276,26 @@ class MetadataMappingHandler extends FormHandler {
 			'gwtoolset-reupload-media' =>
 				!empty( $this->_whitelisted_post['gwtoolset-reupload-media'] )
 				? (bool)$this->_whitelisted_post['gwtoolset-reupload-media']
+				: false,
+
+			'gwtoolset-reverse-creator' =>
+				!empty( $this->_whitelisted_post['gwtoolset-reverse-creator'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-reverse-creator']
+				: false,
+
+			'gwtoolset-wrap-creator' =>
+				!empty( $this->_whitelisted_post['gwtoolset-wrap-creator'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-wrap-creator']
+				: false,
+
+			'gwtoolset-wrap-institution' =>
+				!empty( $this->_whitelisted_post['gwtoolset-wrap-institution'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-wrap-institution']
+				: false,
+
+			'gwtoolset-wrap-language' =>
+				!empty( $this->_whitelisted_post['gwtoolset-wrap-language'] )
+				? (bool)$this->_whitelisted_post['gwtoolset-wrap-language']
 				: false,
 
 			'gwtoolset-url-to-the-media-file' =>

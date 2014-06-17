@@ -135,13 +135,14 @@ class XmlMappingHandler extends XmlHandler {
 	 * @todo possibly refactor so that it works with getDOMElementAsArray
 	 *
 	 * @param {DOMELement} $DOMElement
+	 * @param {array} $user_options
 	 *
 	 * @return {array}
 	 * the keys and values in the array have not been filtered
 	 * an array that maps mediawiki template parameters to the metadata record
 	 * values provided by the DOMElement
 	 */
-	protected function getDOMElementMapped( DOMElement $DOMElement ) {
+	protected function getDOMElementMapped( DOMElement $DOMElement, array $user_options ) {
 		$elements_mapped = array();
 		$DOMNodeList = $DOMElement->getElementsByTagName( '*' );
 
@@ -173,7 +174,7 @@ class XmlMappingHandler extends XmlHandler {
 			foreach ( $template_parameters as $template_parameter ) {
 				$is_url = strpos( $template_parameter, 'url' ) !== false;
 
-				if ( !empty( $lang ) ) {
+				if ( !empty( $lang ) && $user_options['gwtoolset-wrap-language'] ) {
 					// within a record, multimple elements with the same element name, e.g., description
 					// can exist. some may have a lang attribute and some may not. if the first element
 					// found does not have a lang attribute it is stored as a value in
@@ -377,7 +378,8 @@ class XmlMappingHandler extends XmlHandler {
 						$user_options,
 						array(
 							'metadata-as-array' => $this->getDOMElementAsArray( $record ),
-							'metadata-mapped-to-mediawiki-template' => $this->getDOMElementMapped( $record ),
+							'metadata-mapped-to-mediawiki-template' =>
+								$this->getDOMElementMapped( $record, $user_options ),
 							'metadata-raw' => $outer_xml
 						)
 					);
