@@ -206,5 +206,21 @@
 	"gwtoolset-wiki-checks-not-passed": "בדיקות הוויקי נכשלו",
 	"gwtoolset-title-too-long": "הכותרת המשוערכת ארוכה מדי; אורך הכותרת יכול להיות 240 בתים לכל היותר. האורך המשוערך של הכותרת הזאת הוא {{PLURAL:$1|בית אחד|$1 בתים}}.\n\n$2",
 	"gwtoolset-title-label": "כותרת GWToolset",
-	"gwtoolset-url-to-the-media-file-label": "קישור URL לקובץ המדיה"
+	"gwtoolset-url-to-the-media-file-label": "קישור URL לקובץ המדיה",
+	"gwtoolset-reverse-creator": "היפוך שם משפחה ושם פרטי",
+	"gwtoolset-reverse-creator-explanation": "לעתים ערך היוצר יהיה רשום בתור \"שם משפחה, שם פרטי\" במטא־נתונים. סימון התיבה הזאת יהפוך את הסדר הזה ויסיר את הפסיק, למשל \"דה וינצ'י, לאונרדו\" יהפוך ל\"לאונרדו דה וינצ'י\". נא לשים לב לכך שזה מסתמך על כך שבערך יש פסיק אחד; אם בערך אין פסיק, לא ייעשה שום שינוי, ואם יש יותר מפסיק אחד, השינוי ייעשה רק עם הפסיק הראשון.",
+	"gwtoolset-wrap-creator": "לעטוף את את היוצר בתבנית יוצר",
+	"gwtoolset-wrap-creator-explanation": "לתבנית מדיה־ויקי יכולים פרמטרים כגון<code>author</code>‏, <code>artist</code>‏, <code>publisher</code> וכיו\"ב. כשהם שם, ערך המטא־נתונים שממופה לזה יכול להיות עטוף אוטומטית ב־<code dir=\"ltr\">{{Creator:<value>}}</code>.",
+	"gwtoolset-wrap-creator-heading": "תבנית יוצר",
+	"gwtoolset-wrap-institution": "לעטוף את המוסד בתבנית מוסד",
+	"gwtoolset-wrap-institution-explanation": "לתבנית מדיה־ויקי יכול להיות פרמטר מוסד. כשהוא שם, ערך המטא־נתונים שממופה אליו יכול להיות עטוף אוטומטית ב־<code dir=\"ltr\">{{Institution:<value>}}</code>.",
+	"gwtoolset-wrap-institution-heading": "תבנית מוסד",
+	"gwtoolset-wrap-language": "לעטוף את המטא־נתונים בתבנית שפה",
+	"gwtoolset-wrap-language-explanation": "לעתים פריט מטא־נתונים יכול להכיל מאפיין <code>lang</code>. כשהוא מכיל אותו, הערך יכול להיות עטוף בתבנית שפה, כלומר <code dir=\"ltr\"><dc:description lang=\"en\">A sentence written in English.</dc:description></code> יהפוך ל־<span dir=\"ltr\">{{en|A sentence written in English.}}</span>.",
+	"gwtoolset-wrap-language-heading": "תבנית שפה",
+	"gwtoolset-detect-license": "לנסות לזהות את הרישיון",
+	"gwtoolset-detect-license-explanation": "לתבנית מדיה־ויקי יכול להיות פרמטר <code>permission</code>. כשהוא שם, ייעשה ניסיון לזהות את רישיון זכויות היוצרים לפי המטא־נתונים. GWToolset מחפש כתובות של רישיונות קראייטיב קומונז שמתטימים לרישיונות אפשריים, למשל <span dir=\"ltr\">https://creativecommons.org/licenses/by-sa/3.0/</span> מתאים לתבנית מדיה־ויקי עבור רישיון <code>{{tl|Template:Cc-by-sa-3.0}}</code>. אם התיבה הזאת אינה מסומנת, ערך המטא־נתונים הגולמי לכל פריט בהעלאת האצווה יוצב בפרמטר ההרשאה.",
+	"gwtoolset-detect-license-heading": "תבנית רישיון",
+	"gwtoolset-global-license": "רשיון גלובלי",
+	"gwtoolset-global-license-explanation": "באפשרותך גם לציין להלן רישיון גלובלי שיחל על כל הפריטים בהעלאת האצווה. הערך הזה יכול להיות ערך טקסט חופשי או תבנית מדיה־ויקי. אם בשדה הזה יש ערך, אז התכנה תתעלם מכל ערך מטא־נתונים שממופה לפרמטר ההרשאות."
 }

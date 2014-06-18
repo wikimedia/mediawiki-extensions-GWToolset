@@ -207,5 +207,21 @@
 	"gwtoolset-wiki-checks-not-passed": "Les vérifications du Wiki n’ont pas été franchies.",
 	"gwtoolset-title-too-long": "La titre évalué est trop long ; un titre peut aller jusqu’à 240 octets en longueur. Ce titre occupe $1 {{PLURAL:$1|octet|octets}} de long.\n\n$2.",
 	"gwtoolset-title-label": "Titre GWToolset",
-	"gwtoolset-url-to-the-media-file-label": "Lien pour le fichier de média"
+	"gwtoolset-url-to-the-media-file-label": "Lien pour le fichier de média",
+	"gwtoolset-reverse-creator": "Inverser les nom et prénom",
+	"gwtoolset-reverse-creator-explanation": "Quelquefois, la valeur du créateur est listée sous la forme nom, prénom dans les métadonnées ; cocher cette case inversera cet ordre et supprimera la virgule ; par ex., da Vinci, Leonardo deviendra Leonardo da Vinci. Remarquez que cela se base sur une unique virgule dans la valeur ; s’il n’y en a pas, aucune modification ne sera effectuée. S’il y a plus d’une virgule, la modification ne tiendra compte que de la première.",
+	"gwtoolset-wrap-creator": "Englober le créateur dans le modèle de créateur",
+	"gwtoolset-wrap-creator-explanation": "Le modèle MédiaWiki peut avoir un <code>author</code>, <code>artist</code>, <code>publisher</code> ou un paramètre similaire ; quand c’est le cas, la valeur de la métadonnée qui y correspond peut être automatiquement englobée dans <code>{{Creator:<value>}}</code>.",
+	"gwtoolset-wrap-creator-heading": "Modèle du créateur",
+	"gwtoolset-wrap-institution": "Englober l’institution dans le modèle d’institution",
+	"gwtoolset-wrap-institution-explanation": "Le modèle MédiaWiki peut avoir un paramètre institution ; quand c’est le cas, la valeur de métadonnée qui y correspond peut être automatiquement englobée dans <code>{{Institution:<value>}}</code>.",
+	"gwtoolset-wrap-institution-heading": "Modèle d’institution",
+	"gwtoolset-wrap-language": "Englober la métadonnée dans un modèle de langue",
+	"gwtoolset-wrap-language-explanation": "Quelquefois, un élément de métadonnée peut contenir un attribut <code>lang</code> ; quand c’est le cas, la valeur peut être englobée dans un modèle de langue ; par ex., <code><dc:description lang=\"en\">Une phrase en anglais.</dc:description></code> deviendra {{en|Une phrase en anglais.}}",
+	"gwtoolset-wrap-language-heading": "Modèle de langue",
+	"gwtoolset-detect-license": "Tenter de détecter la licence",
+	"gwtoolset-detect-license-explanation": "Le modèle MédiaWiki peut avoir un paramètre <code>permission</code> ; quand c’est le cas, une tentative pour détecter la licence d’après la valeur de la métadonnée peut être effectuée. GWToolset rechercher des URLs de Creative Commons qui correspondent aux licences possibles ; par ex., https://creativecommons.org/licenses/by-sa/3.0/ correspond au modèle de licence MédiaWiki <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Si cette case reste non cochée, la valeur de métadonnée brute pour chaque élément dans l’import par lot sera placée dans le paramètre permission.",
+	"gwtoolset-detect-license-heading": "Modèle de licence",
+	"gwtoolset-global-license": "Licence globale",
+	"gwtoolset-global-license-explanation": "Ou vous pouvez spécifier une licence globale ci-dessous qui s’appliquera à tous les éléments de l’import par lot. Cette valeur peut être un texte libre ou un modèle MédiaWiki. Si ce champ a une valeur, alors toute valeur de métadonnée correspondant au paramètre permission sera ignorée."
 }

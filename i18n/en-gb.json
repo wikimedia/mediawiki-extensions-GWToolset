@@ -4,5 +4,10 @@
 			"Shirayuki"
 		]
 	},
-	"gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorised users.\n\nPlease make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>."
+	"gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorised users.\n\nPlease make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>.",
+	"gwtoolset-detect-license": "Attempt to detect the licence",
+	"gwtoolset-detect-license-explanation": "The MediaWiki template may have a <code>permission</code> parameter; when it does, an attempt to detect the copyright licence based on the metadata value can be made. GWToolset looks for Creative Commons URLs that match possible copyright licences; e.g., https://creativecommons.org/licenses/by-sa/3.0/ matches the MediaWiki licence template <code>{{tl|Template:Cc-by-sa-3.0}}</code>. If this checkbox is left unchecked, the raw metadata value for each item in the batch upload will be placed in the permission parameter.",
+	"gwtoolset-detect-license-heading": "Licence template",
+	"gwtoolset-global-license": "Global licence",
+	"gwtoolset-global-license-explanation": "Or you can specific a global licence below that will be applied to all items in the batch upload. This value can be a free text value or a MediaWiki template. If this field has a value in it then any metadata value mapped to the permission parameter will be ignored."
 }

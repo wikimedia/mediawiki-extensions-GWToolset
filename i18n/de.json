@@ -201,5 +201,21 @@
 	"gwtoolset-wiki-checks-not-passed": "Wiki-Prüfungen nicht bestanden",
 	"gwtoolset-title-too-long": "Der evaluierte Titel ist zu lang. Ein Titel kann maximal 240 Bytes lang sein. Dieser Titel ist {{PLURAL:$1|ein Byte|$1 Bytes}} lang.\n\n$2.",
 	"gwtoolset-title-label": "GWToolset-Titel",
-	"gwtoolset-url-to-the-media-file-label": "URL zur Mediendatei"
+	"gwtoolset-url-to-the-media-file-label": "URL zur Mediendatei",
+	"gwtoolset-reverse-creator": "Umgekehrt: Nachname, Vorname",
+	"gwtoolset-reverse-creator-explanation": "Manchmal wird der Urheberwert in den Metadaten als „Nachname, Vorname“ gelistet. Das Aktivieren dieses Kontrollkästchens kehrt diese Reihenfolge um und entfernt das Komma; z.&nbsp;B. „da Vinci, Leonardo“ wird zu „Leonardo da Vinci“. Bitte beachte, dass dies von einem einzelnen Komma im Wert abhängig ist. Falls kein Komma im Wert vorhanden ist, wird keine Änderung durchgeführt. Falls mehr als ein Komma vorhanden ist, wird die Änderung nur mithilfe des ersten Kommas durchgeführt.",
+	"gwtoolset-wrap-creator": "Urheber in die Urhebervorlage einbinden",
+	"gwtoolset-wrap-creator-explanation": "Die MediaWiki-Vorlage kann einen Parameter „<code>author</code>“, „<code>artist</code>“, „<code>publisher</code>“ oder einen ähnlichen Parameter haben; falls ja, kann der gemappte Metadaten-Wert automatisch in <code>{{Creator:<Wert>}}</code> eingebunden werden.",
+	"gwtoolset-wrap-creator-heading": "Urhebervorlage",
+	"gwtoolset-wrap-institution": "Einrichtung in die Einrichtungsvorlage einbinden",
+	"gwtoolset-wrap-institution-explanation": "Die MediaWiki-Vorlage könnte einen Einrichtungsparameter haben; falls ja, kann der gemappte Metadatenwert automatisch in <code>{{Institution:<Wert>}}</code> eingebunden werden.",
+	"gwtoolset-wrap-institution-heading": "Einrichtungsvorlage",
+	"gwtoolset-wrap-language": "Metadaten in eine Sprachvorlage einbinden",
+	"gwtoolset-wrap-language-explanation": "Manchmal enthält ein Metadaten-Element ein <code>lang</code>-Attribut; falls ja, kann der Wert in eine Sprachvorlage eingebunden werden; z.&nbsp;B. <code><dc:description lang=\"de\">Ein in deutsch verfasster Satz.</dc:description></code> wird zu {{de|Ein in deutsch verfasster Satz.}}",
+	"gwtoolset-wrap-language-heading": "Sprachvorlage",
+	"gwtoolset-detect-license": "Versuch zur Erkennung der Lizenz",
+	"gwtoolset-detect-license-explanation": "Die MediaWiki-Vorlage kann einen <code>permission</code>-Parameter haben; falls ja, kann versucht werden, die Urheberrechtslizenz basierend auf dem Metadatenwert zu erkennen. GWToolset sucht nach Creative-Commons-URLs mit möglichen Urheberrechtslizenzen; z.&nbsp;B. https://creativecommons.org/licenses/by-sa/3.0/ entspricht der MediaWiki-Lizenzvorlage <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Falls dieses Kontrollkästchen nicht aktiviert wird, wird der Rohmetadatenwert für jedes Objekt im Stapel-Upload im Genehmigungsparameter gesetzt.",
+	"gwtoolset-detect-license-heading": "Lizenzvorlage",
+	"gwtoolset-global-license": "Globale Lizenz",
+	"gwtoolset-global-license-explanation": "Oder du kannst unten eine globale Lizenz angeben, die auf alle Elemente im Stapel-Upload angewandt wird. Dieser Wert kann ein freier Textwert oder eine MediaWiki-Vorlage sein. Falls dieses Feld einen Wert hat, wird jeder Metadatenwert, der zum Genehmigungsparameter gemappt ist, ignoriert."
 }

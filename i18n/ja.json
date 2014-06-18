@@ -181,5 +181,6 @@
 	"gwtoolset-verify-uploads-enabled": "$1 拡張機能を使用するには、ファイル アップロードを有効にする必要があります。\n\n<code>LocalSettings.php</code> 内で <code>$wgEnableUploads</code> を <code>true</code> に設定していることを確認してください。",
 	"gwtoolset-verify-xmlreader": "$1 拡張機能を使用するには PHP の [http://www.php.net/manual/ja/xmlreader.setup.php XMLReader] をインストールする必要があります。",
 	"gwtoolset-wiki-checks-not-passed": "ウィキが要件を満たしていません",
-	"gwtoolset-url-to-the-media-file-label": "メディアファイルのURL"
+	"gwtoolset-url-to-the-media-file-label": "メディアファイルのURL",
+	"gwtoolset-global-license": "グローバル ライセンス"
 }
