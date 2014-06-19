@@ -91,7 +91,6 @@
 	"gwtoolset-file-interpretation-error": "Il y a eu un problème de traitement du fichier de métadonnées",
 	"gwtoolset-mediawiki-template": "Modèle $1",
 	"gwtoolset-metadata-user-options-error": "{{PLURAL:$2|Le champ de formulaire suivant doit être rempli|Les champs de formulaire suivants doivent être remplis}} dans :\n$1",
-	"gwtoolset-metadata-invalid-template": "Aucun modèle MediaWiki valide trouvé.",
 	"gwtoolset-menu-1": "Correspondance des métadonnées",
 	"gwtoolset-technical-error": "Il y a eu une erreur technique.",
 	"gwtoolset-required-field": "indique un champ obligatoire",

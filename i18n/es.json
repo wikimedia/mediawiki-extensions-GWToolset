@@ -56,7 +56,6 @@
 	"gwtoolset-back-text": "Pulse el botón «atrás» del navegador para volver al formulario.",
 	"gwtoolset-file-interpretation-error": "Ocurrió un problema al procesar el archivo de metadatos",
 	"gwtoolset-mediawiki-template": "Plantilla $1",
-	"gwtoolset-metadata-invalid-template": "No se encontró ninguna plantilla de MediaWiki válida.",
 	"gwtoolset-menu-1": "Correspondencia de metadatos",
 	"gwtoolset-technical-error": "Ocurrió un error técnico.",
 	"gwtoolset-required-field": "indica un campo obligatorio",
@@ -102,5 +101,8 @@
 	"gwtoolset-required-group": "No formas parte del grupo $1.",
 	"gwtoolset-verify-php-version": "La extensión $1 requiere PHP >= 5.3.3.",
 	"gwtoolset-title-label": "Título en GWToolset",
-	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia"
+	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia",
+	"gwtoolset-wrap-language-heading": "Plantilla de idioma",
+	"gwtoolset-detect-license-heading": "Plantilla de licencia",
+	"gwtoolset-select-template": "Selecciona una plantilla:"
 }

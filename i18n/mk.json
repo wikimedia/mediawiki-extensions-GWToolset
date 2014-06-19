@@ -82,7 +82,6 @@
 	"gwtoolset-file-interpretation-error": "Се појави проблем при обработката на метаподаточната податотека",
 	"gwtoolset-mediawiki-template": "Шаблон „$1“",
 	"gwtoolset-metadata-user-options-error": "Мора да се {{PLURAL:$2|пополни следново поле|пополнат следниве полиња}} во образецот:\n$1",
-	"gwtoolset-metadata-invalid-template": "Не најдов важечки МедијаВики-шаблон.",
 	"gwtoolset-menu-1": "Пресликување на метаподатоци",
 	"gwtoolset-technical-error": "Се појави техничка грешка.",
 	"gwtoolset-required-field": "означува задолжително поле",

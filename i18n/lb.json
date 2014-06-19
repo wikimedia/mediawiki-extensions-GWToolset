@@ -34,7 +34,6 @@
 	"gwtoolset-partial-upload": "De Fichier gouf nëmmen deelweis eropgelueden.",
 	"gwtoolset-back-text-link": "← gitt zréck op de Formulaire",
 	"gwtoolset-mediawiki-template": "Schabloun $1",
-	"gwtoolset-metadata-invalid-template": "Keng valabel MediaWiki-Schabloun fonnt.",
 	"gwtoolset-technical-error": "Technesche Feeler.",
 	"gwtoolset-summary-heading": "Resumé",
 	"gwtoolset-cancel": "Ofbriechen",
@@ -61,5 +60,6 @@
 	"gwtoolset-mediawiki-version-invalid": "Dës Erweiderung brauch d'Mediawiki-Versioun $1<br />Dës MediaWiki Versioun ass $2.",
 	"gwtoolset-user-blocked": "Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.",
 	"gwtoolset-required-group": "Dir sidd net Member vum Grupp $1.",
-	"gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP >= 5.3.3."
+	"gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP >= 5.3.3.",
+	"gwtoolset-global-license": "Global Lizenz"
 }

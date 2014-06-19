@@ -58,7 +58,6 @@
 	"gwtoolset-back-text": "Premere il pulsante indietro del browser per tornare al modulo.",
 	"gwtoolset-mediawiki-template": "Template $1",
 	"gwtoolset-metadata-user-options-error": "{{PLURAL:$2|Il seguente campo|I seguenti campi}} del modulo {{PLURAL:$2|deve|devono}} essere compilati: $1",
-	"gwtoolset-metadata-invalid-template": "Non è stato trovato alcun template MediaWiki valido.",
 	"gwtoolset-technical-error": "C'è stato un errore tecnico.",
 	"gwtoolset-required-field": "indica un campo obbligatorio",
 	"gwtoolset-submit": "Invia",

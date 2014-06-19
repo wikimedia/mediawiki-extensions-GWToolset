@@ -83,7 +83,6 @@
 	"gwtoolset-file-interpretation-error": "메타데이터를 처리하는 도중 문제가 발생했습니다.",
 	"gwtoolset-mediawiki-template": "틀 $1",
 	"gwtoolset-metadata-user-options-error": "다음 양식의 {{PLURAL:$2|필드}}는 반드시 채워야 합니다:$1",
-	"gwtoolset-metadata-invalid-template": "유효한 미디어위키 틀을 찾을 수 없습니다.",
 	"gwtoolset-menu-1": "메타 데이터 매핑",
 	"gwtoolset-technical-error": "기술적인 오류가 있었습니다.",
 	"gwtoolset-required-field": "필수 필드를 나타냅니다.",

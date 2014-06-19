@@ -85,7 +85,6 @@
 	"gwtoolset-file-interpretation-error": "Beim Verarbeiten der Metadatendatei gab es ein Problem",
 	"gwtoolset-mediawiki-template": "Vorlage „$1“",
 	"gwtoolset-metadata-user-options-error": "{{PLURAL:$2|Das folgende Formularfeld muss|Die folgenden Formularfelder müssen}} ausgefüllt werden:\n$1",
-	"gwtoolset-metadata-invalid-template": "Keine gültige MediaWiki-Vorlage gefunden.",
 	"gwtoolset-menu-1": "Metadaten-Mapping",
 	"gwtoolset-technical-error": "Es gab einen technischen Fehler.",
 	"gwtoolset-required-field": "kennzeichnet ein erforderliches Feld",

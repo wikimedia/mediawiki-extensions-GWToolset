@@ -90,7 +90,6 @@
 	"gwtoolset-file-interpretation-error": "אירעה בעיה בעיבוד קובץ המטא־נתונים",
 	"gwtoolset-mediawiki-template": "תבנית $1",
 	"gwtoolset-metadata-user-options-error": "נדרש למלא את {{PLURAL:$2|שדה הטופס הבא|שדות הטופס הבאים}}:\n$1",
-	"gwtoolset-metadata-invalid-template": "לא נמצאה תבנית מדיה־ויקי תקינה.",
 	"gwtoolset-menu-1": "מיפוי המטא־נתונים",
 	"gwtoolset-technical-error": "אירעה שגיאה טכנית.",
 	"gwtoolset-required-field": "מציינת שדה חובה",

@@ -78,7 +78,6 @@
 	"gwtoolset-file-interpretation-error": "メタデータ ファイルを処理する際に問題点が発生しました。",
 	"gwtoolset-mediawiki-template": "テンプレート $1",
 	"gwtoolset-metadata-user-options-error": "フォームの以下の{{PLURAL:$2|欄}}への記入は必須です:\n$1",
-	"gwtoolset-metadata-invalid-template": "有効な MediaWiki テンプレートが見つかりません。",
 	"gwtoolset-menu-1": "メタデータのマッピング",
 	"gwtoolset-technical-error": "技術的なエラーが発生しました。",
 	"gwtoolset-required-field": "必須項目",
