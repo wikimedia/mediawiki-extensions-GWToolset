@@ -181,5 +181,12 @@
 	"gwtoolset-verify-xmlreader": "$1 拡張機能を使用するには PHP の [http://www.php.net/manual/ja/xmlreader.setup.php XMLReader] をインストールする必要があります。",
 	"gwtoolset-wiki-checks-not-passed": "ウィキが要件を満たしていません",
 	"gwtoolset-url-to-the-media-file-label": "メディアファイルのURL",
-	"gwtoolset-global-license": "グローバル ライセンス"
+	"gwtoolset-wrap-language-heading": "言語のテンプレート",
+	"gwtoolset-detect-license": "ライセンスの検出を試みる",
+	"gwtoolset-detect-license-heading": "ライセンスのテンプレート",
+	"gwtoolset-global-license": "グローバル ライセンス",
+	"gwtoolset-select-template": "テンプレートを選択:",
+	"gwtoolset-no-templatedata": "テンプレート $1 には <code>&lt;templatedata></code> ブロックがありません。\n\n可能であれば、$2 を、テンプレートに追加するか、またはテンプレートの $3 に追加してください。",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> ブロック",
+	"gwtoolset-templatebox-link-text": "<code>テンプレートボックス</code>"
 }

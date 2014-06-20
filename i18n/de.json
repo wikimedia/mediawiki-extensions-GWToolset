@@ -157,6 +157,7 @@
 	"gwtoolset-preview": "Stapel-Vorschau",
 	"gwtoolset-preview-mediafile-placeholder-heading": "Mediendatei-Platzhalter",
 	"gwtoolset-preview-mediafile-placeholder-text": "Dies ist der Ort, wo deine Mediendatei erscheinen wird.",
+	"gwtoolset-preview-unparsable-categories": "Die {{PLURAL:$1|folgende Kategorie war|folgenden Kategorien waren}} nicht parsbar. Stelle sicher, dass die betreffende Kategorievorlage im Wiki vorhanden ist und einwandfrei geparst wird oder benutze eine einfachere Kategoriereferenz:",
 	"gwtoolset-process-batch": "Stapel verarbeiten",
 	"gwtoolset-record-count": "Gesamtzahl der Einträge, die in dieser Metadatendatei gefunden wurden: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Schritt 2: Metadaten-Mapping",
@@ -216,5 +217,10 @@
 	"gwtoolset-detect-license-explanation": "Die MediaWiki-Vorlage kann einen <code>permission</code>-Parameter haben; falls ja, kann versucht werden, die Urheberrechtslizenz basierend auf dem Metadatenwert zu erkennen. GWToolset sucht nach Creative-Commons-URLs mit möglichen Urheberrechtslizenzen; z.&nbsp;B. https://creativecommons.org/licenses/by-sa/3.0/ entspricht der MediaWiki-Lizenzvorlage <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Falls dieses Kontrollkästchen nicht aktiviert wird, wird der Rohmetadatenwert für jedes Objekt im Stapel-Upload im Genehmigungsparameter gesetzt.",
 	"gwtoolset-detect-license-heading": "Lizenzvorlage",
 	"gwtoolset-global-license": "Globale Lizenz",
-	"gwtoolset-global-license-explanation": "Oder du kannst unten eine globale Lizenz angeben, die auf alle Elemente im Stapel-Upload angewandt wird. Dieser Wert kann ein freier Textwert oder eine MediaWiki-Vorlage sein. Falls dieses Feld einen Wert hat, wird jeder Metadatenwert, der zum Genehmigungsparameter gemappt ist, ignoriert."
+	"gwtoolset-global-license-explanation": "Oder du kannst unten eine globale Lizenz angeben, die auf alle Elemente im Stapel-Upload angewandt wird. Dieser Wert kann ein freier Textwert oder eine MediaWiki-Vorlage sein. Falls dieses Feld einen Wert hat, wird jeder Metadatenwert, der zum Genehmigungsparameter gemappt ist, ignoriert.",
+	"gwtoolset-select-template": "Wähle eine Vorlage aus:",
+	"gwtoolset-select-custom-template": "oder gib eine benutzerdefinierte Vorlage ein:",
+	"gwtoolset-no-templatedata": "Es gibt keinen <code>&lt;templatedata></code>-Block für die Vorlage $1.\n\nFalls möglich, füge einen $2 der Vorlage hinzu oder zum $3 der Vorlage.",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-Block",
+	"gwtoolset-templatebox-link-text": "<code>VorlagenKasten</code>"
 }

@@ -216,7 +216,7 @@
 	"gwtoolset-detect-license-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
 	"gwtoolset-global-license": "Label used for the corresponding input field in the Step 2: Metadata mapping form.",
 	"gwtoolset-global-license-explanation": "Explanation of the corresponding input field in the Step 2: Metadata mapping form.",
-	"gwtoolset-select-template": "Label for the corresponding field in Step 1: Metadata detection.",
+	"gwtoolset-select-template": "Label for the corresponding field in Step 1: Metadata detection.\n\nFollowed by \"Template name\" select box.",
 	"gwtoolset-select-custom-template": "Label for the corresponding field in Step 1: Metadata detection.",
 	"gwtoolset-no-templatedata": "Message that appears when there is no templatedata for a MediaWiki template chosen in Step 1: Metadata detection. Parameters:\n* $1 - the name of the chosen template\n* $2 - a link to the MediaWiki templatedata help page for adding a templatedata block to a template\nLink text used is {{msg-mw|Gwtoolset-templatedata-link-text}}\n* $3 - a link to the commons help page for adding templatedata to a template's templatebox\nLink text used is {{msg-mw|Gwtoolset-templatebox-link-text}}",
 	"gwtoolset-templatedata-link-text": "Text for the templatedata link. See {{msg-mw|Gwtoolset-no-templatedata}}",

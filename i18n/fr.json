@@ -163,6 +163,7 @@
 	"gwtoolset-preview": "Prévisualiser le lot",
 	"gwtoolset-preview-mediafile-placeholder-heading": "Espace réservé aux fichiers de média",
 	"gwtoolset-preview-mediafile-placeholder-text": "Voici où une représentation de votre fichier de média apparaîtra.",
+	"gwtoolset-preview-unparsable-categories": "{{PLURAL:$1|La catégorie suivante n’est pas analysable|Les catégories suivantes ne sont pas analysables}}. Assurez-vous que le modèle de catégorie auquel vous vous référez existe dans le wiki et est bien analysé, ou utilisez une référence de catégorie plus simple :",
 	"gwtoolset-process-batch": "Traiter le lot",
 	"gwtoolset-record-count": "Nombre total d’enregistrements trouvée dans ce fichier de métadonnées : {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Étape 2 : Correspondance des métadonnées",
@@ -222,5 +223,10 @@
 	"gwtoolset-detect-license-explanation": "Le modèle MédiaWiki peut avoir un paramètre <code>permission</code> ; quand c’est le cas, une tentative pour détecter la licence d’après la valeur de la métadonnée peut être effectuée. GWToolset rechercher des URLs de Creative Commons qui correspondent aux licences possibles ; par ex., https://creativecommons.org/licenses/by-sa/3.0/ correspond au modèle de licence MédiaWiki <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Si cette case reste non cochée, la valeur de métadonnée brute pour chaque élément dans l’import par lot sera placée dans le paramètre permission.",
 	"gwtoolset-detect-license-heading": "Modèle de licence",
 	"gwtoolset-global-license": "Licence globale",
-	"gwtoolset-global-license-explanation": "Ou vous pouvez spécifier une licence globale ci-dessous qui s’appliquera à tous les éléments de l’import par lot. Cette valeur peut être un texte libre ou un modèle MédiaWiki. Si ce champ a une valeur, alors toute valeur de métadonnée correspondant au paramètre permission sera ignorée."
+	"gwtoolset-global-license-explanation": "Ou vous pouvez spécifier une licence globale ci-dessous qui s’appliquera à tous les éléments de l’import par lot. Cette valeur peut être un texte libre ou un modèle MédiaWiki. Si ce champ a une valeur, alors toute valeur de métadonnée correspondant au paramètre permission sera ignorée.",
+	"gwtoolset-select-template": "Sélectionner un modèle :",
+	"gwtoolset-select-custom-template": "ou entrer un modèle personnalisé :",
+	"gwtoolset-no-templatedata": "Il n’y a pas de bloc <code>&lt;templatedata></code> pour le modèle $1.\n\nSi possible, ajouter un $2 au modèle, ou au $3 du modèle.",
+	"gwtoolset-templatedata-link-text": "bloc <code>&lt;templatedata></code>",
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
 }

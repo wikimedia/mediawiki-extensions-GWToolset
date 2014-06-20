@@ -162,6 +162,7 @@
 	"gwtoolset-preview": "תצוגה מקדימה של אצווה",
 	"gwtoolset-preview-mediafile-placeholder-heading": "מקום לקובץ מדיה",
 	"gwtoolset-preview-mediafile-placeholder-text": "זה המקום שבו ייצוג של קובץ המדיה שלך יופיע.",
+	"gwtoolset-preview-unparsable-categories": "לא היה אפשר לפענח את {{PLURAL:$1|הקטגוריה הבאה|הקטגוריות הבאות}}. נא לוודא שתבנית הקטגוריה שהפנית אליה קיימת ומתפענחת נכון או להשתמש בהפניה תקינה לקטגוריה:",
 	"gwtoolset-process-batch": "אצוות תהליך",
 	"gwtoolset-record-count": "מספר כולל של רשומות שנמצאו בקובץ המטא-נתונים: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "צעד 2: מיפוי מטא־נתונים",
@@ -221,5 +222,10 @@
 	"gwtoolset-detect-license-explanation": "לתבנית מדיה־ויקי יכול להיות פרמטר <code>permission</code>. כשהוא שם, ייעשה ניסיון לזהות את רישיון זכויות היוצרים לפי המטא־נתונים. GWToolset מחפש כתובות של רישיונות קראייטיב קומונז שמתטימים לרישיונות אפשריים, למשל <span dir=\"ltr\">https://creativecommons.org/licenses/by-sa/3.0/</span> מתאים לתבנית מדיה־ויקי עבור רישיון <code>{{tl|Template:Cc-by-sa-3.0}}</code>. אם התיבה הזאת אינה מסומנת, ערך המטא־נתונים הגולמי לכל פריט בהעלאת האצווה יוצב בפרמטר ההרשאה.",
 	"gwtoolset-detect-license-heading": "תבנית רישיון",
 	"gwtoolset-global-license": "רשיון גלובלי",
-	"gwtoolset-global-license-explanation": "באפשרותך גם לציין להלן רישיון גלובלי שיחל על כל הפריטים בהעלאת האצווה. הערך הזה יכול להיות ערך טקסט חופשי או תבנית מדיה־ויקי. אם בשדה הזה יש ערך, אז התכנה תתעלם מכל ערך מטא־נתונים שממופה לפרמטר ההרשאות."
+	"gwtoolset-global-license-explanation": "באפשרותך גם לציין להלן רישיון גלובלי שיחל על כל הפריטים בהעלאת האצווה. הערך הזה יכול להיות ערך טקסט חופשי או תבנית מדיה־ויקי. אם בשדה הזה יש ערך, אז התכנה תתעלם מכל ערך מטא־נתונים שממופה לפרמטר ההרשאות.",
+	"gwtoolset-select-template": "נא לבחור תבנית:",
+	"gwtoolset-select-custom-template": "או להזין שם של תבנית אישית:",
+	"gwtoolset-no-templatedata": "לתבנית $1 אין בלוק <code>&lt;templatedata></code>.\n\nאם זה אפשרי, נא להוסיף $2 לתבנית או ל־$3 של התבנית.",
+	"gwtoolset-templatedata-link-text": "בלוק <code>&lt;templatedata></code>",
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
 }
