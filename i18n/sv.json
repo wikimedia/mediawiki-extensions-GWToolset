@@ -6,7 +6,8 @@
 			"LeiLar",
 			"Lokal Profil",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Abbedabb"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -86,7 +87,6 @@
 	"gwtoolset-file-interpretation-error": "Det fanns ett problem med att bearbeta metadatafilen",
 	"gwtoolset-mediawiki-template": "Mall $1",
 	"gwtoolset-metadata-user-options-error": "Följande {{PLURAL:$2|fält}} i formuläret måste fyllas i:\n$1",
-	"gwtoolset-metadata-invalid-template": "Ingen giltig MediaWiki-mall har hittats.",
 	"gwtoolset-menu-1": "Metadata-mappning",
 	"gwtoolset-technical-error": "Det var ett tekniskt fel.",
 	"gwtoolset-required-field": "betecknar ett obligatoriskt fält",
@@ -158,6 +158,7 @@
 	"gwtoolset-preview": "Förhandsgranska batch",
 	"gwtoolset-preview-mediafile-placeholder-heading": "Platshållare för mediefil",
 	"gwtoolset-preview-mediafile-placeholder-text": "Detta är var en representation av din mediefil kommer att visas.",
+	"gwtoolset-preview-unparsable-categories": "Följande {{PLURAL:$1|kategori|kategorier}} kunde inte tolkas. Kontrollera att kategorimallen du hänvisar till finns i wikin och tolkas korrekt, eller använd en enklare kategorireferens:",
 	"gwtoolset-process-batch": "Bearbeta batch",
 	"gwtoolset-record-count": "Totalt antal poster funna i denna metadatafil:  {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Steg 2: Metadata-mappning",
@@ -199,5 +200,9 @@
 	"gwtoolset-verify-uploads-enabled": "$1-tillägget kräver att filuppladdningar är aktiverade.\n\nKontrollera att <code>$wgEnableUploads</code> har satts till <code>true</code> i <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-xmlreader": "$1-tillägget kräver att PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] är installerat.",
 	"gwtoolset-wiki-checks-not-passed": "Wiki-kontrollerna misslyckades",
-	"gwtoolset-url-to-the-media-file-label": "Webbadress till mediefilen"
+	"gwtoolset-url-to-the-media-file-label": "Webbadress till mediefilen",
+	"gwtoolset-select-template": "Välj en mall:",
+	"gwtoolset-select-custom-template": "eller ange en annan mall:",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> block",
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
 }

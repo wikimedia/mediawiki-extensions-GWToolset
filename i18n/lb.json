@@ -61,5 +61,10 @@
 	"gwtoolset-user-blocked": "Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.",
 	"gwtoolset-required-group": "Dir sidd net Member vum Grupp $1.",
 	"gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP >= 5.3.3.",
-	"gwtoolset-global-license": "Global Lizenz"
+	"gwtoolset-reverse-creator": "Familljennumm, Virnumm ëmdréinen",
+	"gwtoolset-wrap-language-heading": "Sprooch-Schabloun",
+	"gwtoolset-detect-license-heading": "Lizenz-Schabloun",
+	"gwtoolset-global-license": "Global Lizenz",
+	"gwtoolset-select-template": "Sicht eng Schabloun eraus:",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-Block"
 }

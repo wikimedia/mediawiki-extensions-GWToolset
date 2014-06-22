@@ -77,7 +77,6 @@
 	"gwtoolset-file-interpretation-error": "处理元数据文件时出现错误。",
 	"gwtoolset-mediawiki-template": "模板$1",
 	"gwtoolset-metadata-user-options-error": "以下表单{{PLURAL:$2|字段}}必须填写：\n$1",
-	"gwtoolset-metadata-invalid-template": "未找到有效的 MediaWiki 模板。",
 	"gwtoolset-menu-1": "元数据映射",
 	"gwtoolset-technical-error": "这里有一个技术问题。",
 	"gwtoolset-required-field": "表示必填的字段",
@@ -167,5 +166,13 @@
 	"gwtoolset-verify-xmlreader": "$1扩展要求安装PHP[http://www.php.net/manual/en/xmlreader.setup.php XML阅读器]。",
 	"gwtoolset-wiki-checks-not-passed": "Wiki检查未通过",
 	"gwtoolset-title-label": "GWToolset标题",
-	"gwtoolset-url-to-the-media-file-label": "媒体文件URL"
+	"gwtoolset-url-to-the-media-file-label": "媒体文件URL",
+	"gwtoolset-wrap-creator-heading": "创建者模板",
+	"gwtoolset-wrap-institution-heading": "组织模板",
+	"gwtoolset-wrap-language-heading": "语言模板",
+	"gwtoolset-detect-license-heading": "许可模板",
+	"gwtoolset-global-license": "全域许可",
+	"gwtoolset-select-template": "选择模板：",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>封禁",
+	"gwtoolset-templatebox-link-text": "<code>模板框</code>"
 }
