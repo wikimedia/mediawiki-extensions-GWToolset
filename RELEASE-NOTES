@@ -1,1 +1,23 @@
+== GWToolset 0.3.0 ==
+MediaWiki_1.24/wmf10
+scheduled deploy: Tuesday, 24 June 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf10#GWToolset
 
+== Allow for custom templates ==
+https://gerrit.wikimedia.org/r/#/c/133684/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63889
+
+== complex categories ==
+https://gerrit.wikimedia.org/r/#/c/139410/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=65620
+
+== Improved the punctuation and the readability of some messages ==
+https://gerrit.wikimedia.org/r/#/c/140339/
+
+== Make template wrapping optional ==
+https://gerrit.wikimedia.org/r/#/c/133476/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64060
+https://bugzilla.wikimedia.org/show_bug.cgi?id=65248
+
+== version update ==
+https://gerrit.wikimedia.org/r/#/c/139339/
