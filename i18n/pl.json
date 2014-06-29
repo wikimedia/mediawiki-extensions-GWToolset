@@ -13,7 +13,7 @@
 	"group-gwtoolset": "Użytkownicy GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset użytkownik}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Użytkownicy GWToolset",
-	"gwtoolset-back-to-top": "⇪ początek strony",
+	"gwtoolset-back-to-top": "początek strony",
 	"gwtoolset-fsfile-empty": "Plik był pusty i został skasowany.",
 	"gwtoolset-mediafile-duplicate-another-title": "Identyczny plik już istnieje pod tytułem \"$1\".",
 	"gwtoolset-mediafile-duplicate-same-title": "Ten plik już istnieje i ma taki sam tytuł \"$1\".",
