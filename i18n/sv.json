@@ -186,7 +186,7 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-mediafile-jobs-created": "Skapade $1 mediefil-batch-{{PLURAL:$1|jobb}}.",
 	"gwtoolset-step-4-heading": "Steg 4: Batch-uppladdning",
-	"gwtoolset-invalid-token": "Redigeringstoken som lämnades in med formuläret är ogiltig.",
+	"gwtoolset-invalid-token": "Redigeringsnyckeln som skickades in med formuläret är ogiltig.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Aktuella <code>php.ini</code>-inställningar:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nDessa har satts lägre än wikins <code>$wgMaxUploadSize</code>, vilken är satt till \"$3\". Vänligen justera <code>php.ini</code>-inställningarna efter behov.",
 	"gwtoolset-mediawiki-version-invalid": "Detta tillägg kräver MediaWiki-version $1<br />Denna MediaWiki-version är $2.",
 	"gwtoolset-permission-not-given": "Kontrollera att du är inloggad eller kontakta en administratör för att få behörighet att se denna sida ($1).",
