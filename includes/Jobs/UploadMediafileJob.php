@@ -17,7 +17,8 @@ use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\GWTException,
 	GWToolset\Handlers\UploadHandler,
 	Job,
-	User;
+	User,
+	ScopedCallback;
 
 class UploadMediafileJob extends Job {
 
@@ -42,6 +43,7 @@ class UploadMediafileJob extends Job {
 	 * @return {bool|Title}
 	 */
 	protected function processMetadata() {
+		global $wgUser;
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$MediawikiTemplate->getMediaWikiTemplate(
 			$this->params['user-options']['gwtoolset-mediawiki-template-name']
@@ -56,6 +58,14 @@ class UploadMediafileJob extends Job {
 
 		$Metadata = new Metadata( new MetadataPhpAdapter() );
 		$User = User::newFromName( $this->params['user-name'] );
+
+		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
+		$oldUser = $wgUser;
+		$wgUser = $User;
+		$magicScopeVariable = new ScopedCallback( function() use ( $oldUser ) {
+			global $wgUser;
+			$wgUser = $oldUser;
+		} );
 
 		$UploadHandler = new UploadHandler(
 			array(
