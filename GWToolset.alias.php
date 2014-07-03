@@ -45,6 +45,11 @@ $specialPageAliases['ko'] = array(
 	'GWToolset' => array( 'GW도구모음' ),
 );
 
+/** Macedonian (македонски) */
+$specialPageAliases['mk'] = array(
+	'GWToolset' => array( 'GWАлатник' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'GWToolset' => array( 'GWGereedschap' ),
