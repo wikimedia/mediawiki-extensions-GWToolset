@@ -153,6 +153,8 @@
 	"gwtoolset-partner-template": "Шаблон партнера:",
 	"gwtoolset-phrasing": "Формулювання",
 	"gwtoolset-preview": "Пакетний перегляд",
+	"gwtoolset-preview-mediafile-placeholder-heading": "Замісник медіафайлу",
+	"gwtoolset-preview-mediafile-placeholder-text": "Тут з'явиться ваш медіафайл.",
 	"gwtoolset-preview-unparsable-categories": "{{PLURAL:$1|Дану категорію|Дані категорії}} не можна проаналізувати. Переконайтеся, що шаблон категорії, який ви використовуєте, існує у вікі та аналізує належним чином або скористайтеся простішим посилання на категорію:",
 	"gwtoolset-process-batch": "Пакетна обробка",
 	"gwtoolset-record-count": "Всього знайдено записів в цьому файлі метаданих:  {{PLURAL:$1|$1}}.",
