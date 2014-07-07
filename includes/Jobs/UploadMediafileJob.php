@@ -62,6 +62,7 @@ class UploadMediafileJob extends Job {
 		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
 		$oldUser = $wgUser;
 		$wgUser = $User;
+		// This will automatically restore $wgUser, when $magicScopeVariable falls out of scope.
 		$magicScopeVariable = new ScopedCallback( function() use ( $oldUser ) {
 			global $wgUser;
 			$wgUser = $oldUser;
