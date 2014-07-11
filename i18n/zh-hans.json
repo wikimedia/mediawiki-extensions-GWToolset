@@ -6,7 +6,8 @@
 			"Shizhao",
 			"Yfdyh000",
 			"Hzy980512",
-			"Stieizc"
+			"Stieizc",
+			"Duolaimi"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -119,7 +120,7 @@
 	"gwtoolset-which-mediawiki-template": "哪个MediaWiki模板：",
 	"gwtoolset-which-metadata-mapping": "哪些元数据映射：",
 	"gwtoolset-xml-error": "加载XML失败。请更正以下错误。",
-	"gwtoolset-categories": "输入分类，每个分类之间用管道字符（“|”）分隔。",
+	"gwtoolset-categories": "输入分类，以竖线（“|”）分隔。",
 	"gwtoolset-category": "分类",
 	"gwtoolset-create-mapping": "$1：创建用于$2的元数据映射。",
 	"gwtoolset-example-record": "元数据示例记录的内容。",
