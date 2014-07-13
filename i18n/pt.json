@@ -13,7 +13,7 @@
 	"gwtoolset-wrap-institution": "Envoltório de instituição em instituição modelo",
 	"gwtoolset-wrap-language": "Envoltório de metadados em um modelo de idioma",
 	"gwtoolset-global-license": "Licença global",
-	"gwtoolset-select-template": "Selecione um modelo:",
-	"gwtoolset-select-custom-template": "ou introduza um modelo personalizado:",
+	"gwtoolset-select-template": "Selecione uma predefinição:",
+	"gwtoolset-select-custom-template": "ou introduza uma predefinição personalizada:",
 	"gwtoolset-templatedata-link-text": "<code>"
 }
