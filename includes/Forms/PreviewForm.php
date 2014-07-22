@@ -294,12 +294,9 @@ class PreviewForm {
 				// find this hacky, but not sure how to retrieve the raw text
 				$category = strip_tags( $category->getText() );
 
-				// if the parser was not able to parse a template, {} will be left
-				// only include the text if it no longer contains {}
-				if (
-					strpos( $category, '{' ) === false &&
-					strpos( $category, '}' ) === false
-				) {
+				// if the parser was not able to parse a template, {} will be left.
+				// only include the text if valid category.
+				if ( Title::makeTitleSafe( NS_CATEGORY, $category ) ) {
 					$categories[$category] = 0;
 				} else {
 					$notParsable[] = $category;
