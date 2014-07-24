@@ -5,7 +5,8 @@
 			"Frammm",
 			"Wifidel",
 			"Themasterriot",
-			"ProtoplasmaKid"
+			"ProtoplasmaKid",
+			"Macofe"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -74,7 +75,7 @@
 	"gwtoolset-no-extension": "El archivo que fue subido no contiene información suficiente para procesar el archivo. Probablemente no tiene ninguna extensión del archivo.",
 	"gwtoolset-no-file": "No se recibió ningún archivo.",
 	"gwtoolset-no-form-field": "El campo esperado del formulario «$1» no existe.",
-	"gwtoolset-over-max-ini": "El archivo que se ha cargado supera el <code>upload_max_filesize</code> o la directiva <code>post_max_size</code> en <code>php.ini</code>.",
+	"gwtoolset-over-max-ini": "El archivo que se ha cargado supera la directiva <code>upload_max_filesize</code> o <code>post_max_size</code> en <code>php.ini</code>.",
 	"gwtoolset-partial-upload": "El archivo se cargó solo parcialmente.",
 	"gwtoolset-unaccepted-extension-specific": "El archivo de origen tiene una extensión no aceptada: «.$1».",
 	"gwtoolset-unaccepted-mime-type": "Se detectó que el archivo cargado pertenece al tipo MIME «$1», que no es aceptado.",
