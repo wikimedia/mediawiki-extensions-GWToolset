@@ -24,6 +24,7 @@
 	"gwtoolset-could-not-open-xml": "不能打开XML文件用于阅读。",
 	"gwtoolset-developer-issue": "请联系开发人员。此问题必须在您继续之前解决。请在反馈时标注以下错误代码：\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>、<code>record-count</code>和/或<code>record-current</code>尚不支持。",
+	"gwtoolset-file-backend-maxage-invalid": "<code>$wgGWTFBMaxAge</code>提供的年龄最大值无效。参见[php.net/manual/en/datetime.formats.relative.php PHP手册]以了解如何设置正确。",
 	"gwtoolset-fsfile-empty": "文件是空的且已删除。",
 	"gwtoolset-fsfile-retrieval-failure": "无法从URL$1中检索该文件。",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code>未设置。",
