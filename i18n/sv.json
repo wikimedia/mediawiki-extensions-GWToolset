@@ -209,7 +209,7 @@
 	"gwtoolset-detect-license": "Försök att upptäcka licensen",
 	"gwtoolset-detect-license-heading": "Licensmall",
 	"gwtoolset-global-license": "Global licens",
-	"gwtoolset-global-license-explanation": "Eller så kan du nedan specificera en global licens som kommer att användas för alla objekt i mass-uppladdningen. Detta värde kan antingen vara fritext eller en MediaWiki-mall. Om detta fält har ett värde kommer metadatavärden som mappar till permission-parametern att ignoreras.",
+	"gwtoolset-global-license-explanation": "Eller så kan du nedan specificera en global licens som kommer att användas för alla objekt i massuppladdningen. Detta värde kan antingen vara fritext eller en MediaWiki-mall. Om detta fält har ett värde kommer metadatavärden som mappar till permission-parametern att ignoreras.",
 	"gwtoolset-select-template": "Välj en mall:",
 	"gwtoolset-select-custom-template": "eller ange en annan mall:",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> block",
