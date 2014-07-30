@@ -76,6 +76,7 @@
 	"gwtoolset-unaccepted-mime-type": "上传的文件被认定拥有MIME格式“$1”，目前尚不支持此种MIME格式。",
 	"gwtoolset-unaccepted-mime-type-for-xml": "上传的文件被认定拥有MIME格式“$1”，目前尚不支持。难道XML文件的顶部拥有以下XML字段？\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 	"gwtoolset-back-text-link": "←回到窗口",
+	"gwtoolset-back-text": "按下浏览器返回按钮返回表单。",
 	"gwtoolset-file-interpretation-error": "处理元数据文件时出现错误。",
 	"gwtoolset-mediawiki-template": "模板$1",
 	"gwtoolset-metadata-user-options-error": "以下表单{{PLURAL:$2|字段}}必须填写：\n$1",
@@ -138,6 +139,7 @@
 	"gwtoolset-phrasing": "句式",
 	"gwtoolset-preview": "预览批处理",
 	"gwtoolset-preview-mediafile-placeholder-heading": "媒体文件占位符",
+	"gwtoolset-preview-unparsable-categories": "以下$1个分类不能解析。请确保您指定的分类模板存在此wiki并解析正确，或使用简单的分类引用：",
 	"gwtoolset-process-batch": "进程批处理",
 	"gwtoolset-record-count": "此元数据文件的最大记录数值：{{PLURAL:$1|$1}}。",
 	"gwtoolset-step-2-heading": "第2步：元数据映射",
@@ -177,6 +179,7 @@
 	"gwtoolset-detect-license-heading": "许可模板",
 	"gwtoolset-global-license": "全域许可",
 	"gwtoolset-select-template": "选择模板：",
+	"gwtoolset-select-custom-template": "或输入一个自定义模板：",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>封禁",
 	"gwtoolset-templatebox-link-text": "<code>模板框</code>"
 }
