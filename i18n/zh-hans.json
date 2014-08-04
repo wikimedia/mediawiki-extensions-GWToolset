@@ -176,6 +176,7 @@
 	"gwtoolset-wrap-creator-heading": "创建者模板",
 	"gwtoolset-wrap-institution-heading": "组织模板",
 	"gwtoolset-wrap-language-heading": "语言模板",
+	"gwtoolset-detect-license": "尝试检测许可",
 	"gwtoolset-detect-license-heading": "许可模板",
 	"gwtoolset-global-license": "全域许可",
 	"gwtoolset-select-template": "选择模板：",
