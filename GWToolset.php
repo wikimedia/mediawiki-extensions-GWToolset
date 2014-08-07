@@ -71,7 +71,6 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Helpers\FileChecks' => $wgGWToolsetDir . '/includes/Helpers/FileChecks.php',
 	'GWToolset\Helpers\GWTFileBackend' => $wgGWToolsetDir . '/includes/Helpers/GWTFileBackend.php',
 	'GWToolset\Helpers\WikiChecks' => $wgGWToolsetDir . '/includes/Helpers/WikiChecks.php',
-	'GWToolset\Helpers\WikiPages' => $wgGWToolsetDir . '/includes/Helpers/WikiPages.php',
 	'GWToolset\Hooks' => $wgGWToolsetDir . '/includes/Hooks/Hooks.php',
 	'GWToolset\Jobs\GWTFileBackendCleanupJob' => $wgGWToolsetDir . '/includes/Jobs/GWTFileBackendCleanupJob.php',
 	'GWToolset\Jobs\UploadMediafileJob' => $wgGWToolsetDir . '/includes/Jobs/UploadMediafileJob.php',
@@ -81,8 +80,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Models\Metadata' => $wgGWToolsetDir . '/includes/Models/Metadata.php',
 	'GWToolset\Models\ModelInterface' => $wgGWToolsetDir . '/includes/Models/ModelInterface.php',
 	'GWToolset\SpecialGWToolset' => $wgGWToolsetDir . '/includes/Specials/SpecialGWToolset.php',
-	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php',
-	'Php\FileException' => $wgGWToolsetDir . '/includes/Php/FileException.php'
+	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php'
 );
 
 // add internationalization message file references
