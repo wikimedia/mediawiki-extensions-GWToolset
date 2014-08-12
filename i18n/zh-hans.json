@@ -175,8 +175,10 @@
 	"gwtoolset-url-to-the-media-file-label": "媒体文件URL",
 	"gwtoolset-reverse-creator": "将姓名反写",
 	"gwtoolset-wrap-creator": "在创建者模板中掩饰创建者",
+	"gwtoolset-wrap-creator-explanation": "MediaWiki模板可能有<code>author</code>、<code>artist</code>、<code>publisher</code>或类似参数。如果真有，匹配它的元数据值可自动包含在<code>{{Creator:<value>}}</code>中。",
 	"gwtoolset-wrap-creator-heading": "创建者模板",
 	"gwtoolset-wrap-institution": "在机构模板中掩饰机构",
+	"gwtoolset-wrap-institution-explanation": "MediaWiki模板可能有一个机构参数。如果真有，匹配它的元数据值可自动包含在<code>{{Institution:<value>}}</code>中。",
 	"gwtoolset-wrap-institution-heading": "组织模板",
 	"gwtoolset-wrap-language": "在元数据模板中掩饰元数据",
 	"gwtoolset-wrap-language-heading": "语言模板",
@@ -185,6 +187,7 @@
 	"gwtoolset-global-license": "全域许可",
 	"gwtoolset-select-template": "选择模板：",
 	"gwtoolset-select-custom-template": "或输入一个自定义模板：",
+	"gwtoolset-no-templatedata": "这里没有用于模板$1的<code>&lt;templatedata></code>块。如果可能，加入$2至模板或连入模板的$3。",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>封禁",
 	"gwtoolset-templatebox-link-text": "<code>模板框</code>"
 }
