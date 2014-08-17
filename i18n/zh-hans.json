@@ -147,6 +147,7 @@
 	"gwtoolset-step-2-instructions-1": "下面是：",
 	"gwtoolset-step-2-instructions-1-li-1": "MediaWiki $1的字段列表。",
 	"gwtoolset-step-2-instructions-1-li-3": "来自元数据文件的记录示范。",
+	"gwtoolset-step-2-instructions-2": "在此步骤中您需要使用MediaWiki模板字段映射元数据字段。",
 	"gwtoolset-reupload-media": "从URL重新上传媒体文件",
 	"gwtoolset-specific-categories": "项具体分类",
 	"gwtoolset-template-field": "模板字段",

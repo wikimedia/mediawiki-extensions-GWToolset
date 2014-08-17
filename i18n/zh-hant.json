@@ -6,7 +6,7 @@
 			"Cwlin0416"
 		]
 	},
-	"action-gwtoolset": "通過gwtoolset",
+	"action-gwtoolset": "通過GWToolset",
 	"gwtoolset-unaccepted-mime-type-for-xml": "已確認上載檔案擁有MIME類型「$1」，並且尚無法支援。XML檔案頁頂是否有以下XML位元聲明？\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 	"gwtoolset-submit": "提交",
 	"gwtoolset-summary-heading": "摘要",
