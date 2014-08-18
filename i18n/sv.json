@@ -213,6 +213,7 @@
 	"gwtoolset-global-license-explanation": "Eller så kan du nedan specificera en global licens som kommer att användas för alla objekt i massuppladdningen. Detta värde kan antingen vara fritext eller en MediaWiki-mall. Om detta fält har ett värde kommer metadatavärden som mappar till permission-parametern att ignoreras.",
 	"gwtoolset-select-template": "Välj en mall:",
 	"gwtoolset-select-custom-template": "eller ange en annan mall:",
-	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> block",
+	"gwtoolset-no-templatedata": "Det finns inget <code>&lt;templatedata></code>-block för mall $1.\n\nOm möjligt, lägg till ett $2 i mallen eller till mallens $3.",
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-block",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
 }
