@@ -37,6 +37,7 @@
 	"gwtoolset-no-callback": "没有通过此方法的回调。",
 	"gwtoolset-no-comment": "<code>user_options['comment']</code>未设置。",
 	"gwtoolset-no-default": "没有提供默认值。",
+	"gwtoolset-no-field-size": "没有为字段“$1”指定字段大小。",
 	"gwtoolset-no-file-backend-name": "没有提供文件后台名。",
 	"gwtoolset-no-file-url": "没有<code>file_url</code>提供解析。",
 	"gwtoolset-no-form-handler": "没有创建表格处理器。",
