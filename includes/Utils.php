@@ -9,9 +9,11 @@
 
 namespace GWToolset;
 use Language,
+	ManualLogEntry,
 	MWException,
 	Sanitizer,
 	Title;
+
 
 class Utils {
 
@@ -378,6 +380,39 @@ class Utils {
 		$result = self::sanitizeString( $url );
 		$result = filter_var( $result, FILTER_SANITIZE_URL, $options );
 		return $result;
+	}
+
+	/**
+	 * @param {array} $options
+	 * @param {string} $options['comment']
+	 * @param {string} $options['job-subtype']
+	 * @param {array} $options['parameters']
+	 * @param {object} $options['Title']
+	 * @param {object} $options['User']
+	 */
+	public static function specialLog( array $options ) {
+		$logEntry = new ManualLogEntry(
+			strtolower( Constants::EXTENSION_NAME ),
+			$options['job-subtype']
+		);
+
+		$logEntry->setPerformer( $options['User'] );
+		$logEntry->setTarget( $options['Title'] );
+
+		if ( !empty( $options['comment'] ) ) {
+			$logEntry->setComment( $options['comment'] );
+		}
+
+		// these parameters should be localised beforehand when necessary
+		// they are passed on to an i18n message that corresponds with the
+		// $options['job-subtype'] e.g., logentry-gwtoolset-metadatajob,
+		// which acts as a template placeholder
+		if ( !empty( $options['parameters'] ) ) {
+			$logEntry->setParameters( $options['parameters'] );
+		}
+
+		$logid = $logEntry->insert();
+		$logEntry->publish( $logid );
 	}
 
 	/**
