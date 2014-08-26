@@ -545,26 +545,33 @@ class UploadHandler {
 		$api_result = $Api->getResultData();
 		$api_result = Utils::objectToArray( $api_result );
 
-		if ( isset( $api_result['query']['pages'] )
+		if (
+			isset( $api_result['query']['pages'] )
 			&& count( $api_result['query']['pages'] ) === 1
 		) {
+			if ( key( $api_result['query']['pages'] ) === -1 ) {
+				$this->otherContributors = false;
+				return $this->otherContributors;
+			}
+
 			$api_result = array_shift( $api_result['query']['pages'] );
 
-			if ( !isset( $api_result['anoncontributors'] )
+			if (
+				!isset( $api_result['anoncontributors'] )
+				&& isset( $api_result['contributors'] )
 				&& count( $api_result['contributors'] ) == 1
 			) {
-				if ( $api_result['contributors'][0]['name']
-					== $this->_User->getName()
+				if (
+					$api_result['contributors'][0]['name']
+					=== $this->_User->getName()
 				) {
 					$this->otherContributors = false;
-
 					return $this->otherContributors;
 				}
 			}
 		}
 
 		$this->otherContributors = true;
-
 		return $this->otherContributors;
 	}
 
