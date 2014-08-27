@@ -247,7 +247,7 @@ class UploadHandler {
 					$msg =
 						wfMessage( 'gwtoolset-mediafile-other-contributors' )
 							->params( $warnings['exists']['file']->getTitle() )
-							->escaped();
+							->text();
 
 					$status = Status::newFatal( $msg );
 
@@ -259,7 +259,7 @@ class UploadHandler {
 					$msg =
 						wfMessage( 'gwtoolset-mediafile-duplicate-same-title' )
 							->params( $warnings['exists']['file']->getTitle() )
-							->escaped();
+							->text();
 
 					$status = Status::newFatal( $msg );
 				}
@@ -275,7 +275,7 @@ class UploadHandler {
 			$msg =
 				wfMessage( 'gwtoolset-mediafile-duplicate-another-title' )
 					->params( $warnings['duplicate'][0]->getTitle() )
-					->escaped();
+					->text();
 
 			$status = Status::newFatal( $msg );
 		}
@@ -549,7 +549,10 @@ class UploadHandler {
 			isset( $api_result['query']['pages'] )
 			&& count( $api_result['query']['pages'] ) === 1
 		) {
-			if ( key( $api_result['query']['pages'] ) === -1 ) {
+			if (
+				key( $api_result['query']['pages'] ) === -1
+				&& isset( $api_result['query']['pages'][-1]['missing'] )
+			) {
 				$this->otherContributors = false;
 				return $this->otherContributors;
 			}
