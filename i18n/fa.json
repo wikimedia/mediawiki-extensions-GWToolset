@@ -3,7 +3,8 @@
 		"authors": [
 			"Armin1392",
 			"Ebraminio",
-			"Reza1615"
+			"Reza1615",
+			"Alirezaaa"
 		]
 	},
 	"gwtoolset": "تنظیم ابزار جی‌دبلیو",
@@ -25,6 +26,9 @@
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> تنظیم نشده.",
 	"gwtoolset-incorrect-form-handler": "ماژول \"$1\" یک گسترش کنترل کننده GWToolset\\Handlers\\Forms\\FormHandler را ثبت نکرده‌‌است.",
 	"gwtoolset-job-throttle-exceeded": "سرکوب کار گروه فراتر رفته بود.",
+	"gwtoolset-mediafile-duplicate-another-title": "پرونده رسانه‌ای تکراری: پرونده رسانه‌ای یکسان پیش از این تحت عنوان «$1» وجود داشته‌است.",
+	"gwtoolset-mediafile-duplicate-same-title": "پرونده رسانه‌ای تکراری: این پرونده رسانه‌ای پیش از این وجود داشته‌است و عنوان مشابه «$1» دارد.",
+	"gwtoolset-mediafile-other-contributors": "دیگر مشارکت‌کنندگان: یک پرونده رسانه‌ای همراه عنوان یکسان «$1» پیش از این در ویکی وجود داشته‌است. این پرونده توسط کسی غیر از شما ویرایش یا ایجاد شده بود.",
 	"gwtoolset-no-accepted-types": "هیچ نوع ارائه شده‌ای قبول نشد",
 	"gwtoolset-no-callback": "به این روش هیچ پاسخی رد نشده.",
 	"gwtoolset-no-comment": "<code>user_options['comment']</code> تنظیم نشده.",

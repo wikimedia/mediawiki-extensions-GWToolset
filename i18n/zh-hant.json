@@ -12,6 +12,7 @@
 	"gwtoolset-summary-heading": "摘要",
 	"gwtoolset-cancel": "取消",
 	"gwtoolset-save": "儲存",
+	"gwtoolset-json-error-unknown": "不明錯誤。",
 	"gwtoolset-namespace-mismatch": "頁面「<strong>$1</strong>」位於錯誤命名空間「<strong>$2</strong>」中。它應位於命名空間「<strong>$3</strong>」中。",
 	"gwtoolset-step-1-instructions-li-3": "批次預覽",
 	"gwtoolset-step-1-instructions-li-4": "批次上傳",
