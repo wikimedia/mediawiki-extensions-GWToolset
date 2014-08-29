@@ -144,6 +144,7 @@
 	"gwtoolset-global-categories": "Global categories",
 	"gwtoolset-global-tooltip": "These category entries will be applied globally to all uploaded items.",
 	"gwtoolset-maps-to": "Maps to",
+	"gwtoolset-mapping-media-file-no-content-type": "Could not determine the content-type for URL: $1.",
 	"gwtoolset-mapping-media-file-url-extension-bad": "The file extension could not be determined from the file URL: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "The media file URL could not be evaluated. The URL delivers the content in a way that is not yet handled by this extension or there was an HTTP request issue. URL given was \"$1\". HTTP request error \"$2\".",
 	"gwtoolset-mapping-no-gwtoolset-title": "The metadata mapping contains no gwtoolset title, which is needed in order to create the page.",

@@ -350,12 +350,35 @@ class UploadHandler {
 		}
 
 		$result['url'] = $Http->getFinalUrl();
+
+		if ( empty( $result['url'] ) ) {
+			throw new GWTException(
+				array(
+					'gwtoolset-mapping-media-file-url-bad' =>
+					array( $url, '' )
+				)
+			);
+		}
+
 		$result['content-type'] = $Http->getResponseHeader( 'content-type' );
+
+		if ( empty( $result['content-type'] ) ) {
+			throw new GWTException(
+				array(
+					'gwtoolset-mapping-media-file-no-content-type' =>
+					array ( $url )
+				)
+			);
+		}
+
 		$result['extension'] = $this->getFileExtension( $result );
 
 		if ( empty( $result['extension'] ) ) {
 			throw new GWTException(
-				array( 'gwtoolset-mapping-media-file-url-extension-bad' => array( $url ) )
+				array(
+					'gwtoolset-mapping-media-file-url-extension-bad' =>
+					array( $url )
+				)
 			);
 		}
 
@@ -402,7 +425,10 @@ class UploadHandler {
 
 		if ( empty( $options['url'] ) ) {
 			throw new GWTException(
-				array( 'gwtoolset-mapping-media-file-url-bad' => array( $options['url'], '' ) )
+				array(
+					'gwtoolset-mapping-media-file-url-bad' =>
+					array( $options['url'], '' )
+				)
 			);
 		}
 
@@ -410,7 +436,7 @@ class UploadHandler {
 			throw new GWTException(
 				array(
 					'gwtoolset-mapping-media-file-no-content-type' =>
-					array ( $options['content-type'] )
+					array ( $options['url'] )
 				)
 			);
 		}
