@@ -217,5 +217,7 @@
 	"gwtoolset-wrap-language": "Wrap metadata in een language-sjabloon",
 	"gwtoolset-wrap-language-explanation": "Een metadata-element kan een <code>lang</code> parameter hebben. In dat geval kan de waarde opgenomen worden in een language-sjabloon, bijvoorbeeld <code><dc:description lang=\"en\">A sentence written in English.</dc:description></code> zou worden: {{en|A sentence written in English.}}",
 	"gwtoolset-wrap-language-heading": "Taalsjabloon",
-	"gwtoolset-detect-license": "Poging om de licentie op te sporen"
+	"gwtoolset-detect-license": "Poging om de licentie op te sporen",
+	"gwtoolset-detect-license-heading": "Licentiesjabloon",
+	"gwtoolset-global-license": "Wereldwijde licentie"
 }

@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Csega"
+		]
+	},
+	"gwtoolset-mapping-media-file-no-content-type": "Nem sikerült meghatározni a tartalom típust a következő URL-hez: $1."
+}

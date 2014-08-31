@@ -4,5 +4,8 @@
 			"Leli Forte"
 		]
 	},
+	"gwtoolset-mediafile-duplicate-another-title": "Fajl tal-media dupplikat: Diġà jeżisti fajl tal-media identiku bit-titlu \"$1\".",
+	"gwtoolset-mediafile-duplicate-same-title": "Fajl tal-media dupplikat: Diġà jeżisti dan il-fajl u għandu l-istess titlu \"$1\".",
+	"gwtoolset-mediafile-other-contributors": "Kontributuri oħra:Fil-wiki diġà jeżisti fajl tal-media bit-titlu identiku \"$1\". Kien editjat jew maħluq minn xi ħadd ieħor.",
 	"gwtoolset-mapping-media-file-no-content-type": "Ma setax jintgħaraf it-tip tal-kontenut għall-URL:$1 ."
 }

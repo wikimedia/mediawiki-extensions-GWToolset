@@ -17,7 +17,7 @@
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> net agestallt.",
 	"gwtoolset-mediafile-duplicate-another-title": "Duebele Fichier: En identesche Mediefichier gëtt et scho mam Titel \"$1\".",
 	"gwtoolset-mediafile-duplicate-same-title": "Duebele Mediefichier: Dëse Mediefichier gëtt et schonn an huet deeselwechten Titel \"$1\".",
-	"gwtoolset-mediafile-other-contributors": "E Mediefichier mat deemselwechten Titel \"$1\" gëtt et schonn an der Wiki. E gouf vun engem Anere wéi Iech geännert oder eropgelueden.",
+	"gwtoolset-mediafile-other-contributors": "Aner Contributeuren: E Mediefichier mat deemselwechten Titel \"$1\" gëtt et schonn an der Wiki. E gouf vun engem Anere wéi Iech geännert oder eropgelueden.",
 	"gwtoolset-no-comment": "<code>user_options['comment']</code> net agestallt.",
 	"gwtoolset-no-default": "Kee Standard-Wäert uginn.",
 	"gwtoolset-no-max": "Kee maximale Wäert uginn.",
