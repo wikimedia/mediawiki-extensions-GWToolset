@@ -147,6 +147,7 @@
 	"gwtoolset-global-categories": "קטגוריות גלובליות",
 	"gwtoolset-global-tooltip": "עיולי הקטגוריות האלה יחולו גלובלית לכל הפריטים המוּעלים.",
 	"gwtoolset-maps-to": "ממפה ל...",
+	"gwtoolset-mapping-media-file-no-content-type": "לא ניתן להבין מה סוג התוכן (content-type) בשביל הכתובות: $1",
 	"gwtoolset-mapping-media-file-url-extension-bad": "לא ניתן היה לזהות את סיומת הקובץ מהכתובת לקובץ: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "לא היה ניתן לחשב את כתובת קובץ המדיה. הכתובת מעבירה את התוכן בצורה שלא נתמכת עדיין על־ידי הסיומת הזאת או שהייתה בעיה בבקשת ה־HTTP. הכתובת שניתנה היא \"$1\". שגיאת בקשת ה־HTTP היא \"$2\"",
 	"gwtoolset-mapping-no-gwtoolset-title": "המטא־נתונים אינם מכילים כותרת gwtoolset, שנחוצה לשם יצירת הדף.",
