@@ -38,6 +38,7 @@
 	"gwtoolset-json-error-unknown": "Nieznany błąd.",
 	"gwtoolset-category": "Kategoria",
 	"gwtoolset-global-categories": "Kategorie globalne",
+	"gwtoolset-mapping-media-file-no-content-type": "Nie można określić rodzaju treści dla adresu URL: $1.",
 	"gwtoolset-metadata-file": "Plik metadanych",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
