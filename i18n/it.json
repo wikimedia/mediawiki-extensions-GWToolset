@@ -69,7 +69,6 @@
 	"gwtoolset-category": "Categoria",
 	"gwtoolset-global-categories": "Categorie globali",
 	"gwtoolset-mapping-media-file-no-content-type": "Non è stato possibile determinare il tipo di contenuto per  l'URL: $1.",
-	"gwtoolset-painted-by": "Dipinto da",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-invalid-token": "Il token di modifica inviato con il modulo non è valido.",
 	"gwtoolset-mediawiki-version-invalid": "Questa estensione richiede MediaWiki versione $1<br />Questa versione di MediaWiki è $2.",

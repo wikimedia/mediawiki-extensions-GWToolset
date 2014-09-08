@@ -153,7 +153,6 @@
 	"gwtoolset-metadata-file": "Metadatabestand",
 	"gwtoolset-metadata-mapping-legend": "Uw metadata toewijzen",
 	"gwtoolset-no-more-records": "<strong>Geen records meer te verwerken</strong>",
-	"gwtoolset-painted-by": "Geschilderd door",
 	"gwtoolset-partner": "Partner",
 	"gwtoolset-partner-explanation": "Partnersjablonen worden toegevoegd aan het bronveld van de MediaWikisjabloon als deze is opgegeven. U vindt een lijst met huidige partnersjablonen op de pagina van de categorie [[:Category:Source templates|bronsjablonen]]. Zodra u  de partnersjabloon die u wenst te gebruiken hebt gevonden, plaats u de URL in dit veld. U kunt eventueel ook een nieuwe partnersjabloon maken.",
 	"gwtoolset-partner-template": "Partnersjabloon:",

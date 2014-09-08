@@ -150,7 +150,6 @@
 	"gwtoolset-metadata-file": "Metadatafil",
 	"gwtoolset-metadata-mapping-legend": "Mappa din metadata",
 	"gwtoolset-no-more-records": "<strong>Inga fler poster att bearbeta</strong>",
-	"gwtoolset-painted-by": "Målad av",
 	"gwtoolset-partner": "Partner",
 	"gwtoolset-partner-explanation": "Partner-mallar stoppas in källfältet i MediaWiki-mallen om angivna. Du hittar en lista över aktuella partner-mallar i kategorin [[:Category:Source templates|source templates]]. När du har hittat den partner-mall du önskar använda ange URL:en till den i detta fältet. Du kan även skapa en ny partner-mall vid behov.",
 	"gwtoolset-partner-template": "Mall för partner:",
