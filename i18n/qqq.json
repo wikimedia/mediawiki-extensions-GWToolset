@@ -148,7 +148,7 @@
 	"gwtoolset-metadata-file": "Heading for displaying some information about the metadata file.",
 	"gwtoolset-metadata-mapping-legend": "Step 2 legend for the HTML form.",
 	"gwtoolset-no-more-records": "User message that appears when there are no more records to process.",
-	"gwtoolset-painted-by": "Placeholder text for category phrasing in Step 2 in the HTML form.\n\nUsed in {{msg-mw|Gwtoolset-specific-tooltip}}.",
+	"gwtoolset-painted-by": "{{notranslate}}",
 	"gwtoolset-partner": "Heading for the partner section in Step 2 of the HTML form.\n{{Identical|Partner}}",
 	"gwtoolset-partner-explanation": "Instructions for the partner section in Step 2 of the HTML form.",
 	"gwtoolset-partner-template": "Placeholder text for partner template in Step 2 of the HTML form.",

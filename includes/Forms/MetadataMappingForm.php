@@ -508,7 +508,7 @@ class MetadataMappingForm {
 					wfMessage( 'gwtoolset-global-categories' )->escaped()
 				) .
 				Html::rawElement( 'br' ) .
-				wfMessage( 'gwtoolset-global-tooltip' )->escaped()
+				wfMessage( 'gwtoolset-global-tooltip' )->parse()
 			) .
 
 			Html::rawElement(
