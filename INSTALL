@@ -4,7 +4,7 @@ GWToolset Install
 1. Licensing
 2. Target Wiki
 3. Required Software
-4. Required MediaWiki Templates
+4. Recommended MediaWiki Templates
 5. Recommended Extensions
 6. Configuration
    a. php.ini
@@ -40,11 +40,12 @@ Required Software
 * [PHP finfo extension]( http://www.php.net/manual/en/fileinfo.setup.php )
 
 
-Required MediaWiki Templates
-----------------------------
-In order for GWToolset to map metadata with a MediaWiki template, the MediaWiki template must be
-installed in the wiki. Currently, GWToolset is limited to mapping with the following, Commons,
-MediaWiki templates which should be imported or available in the wiki:
+Recommended MediaWiki Templates
+--------------------------------
+In order for GWToolset to map metadata with a MediaWiki template, the MediaWiki
+template must be installed in the wiki. Below are examples of some MediaWiki
+templates you can use. We recommend that you at least import the Artwork template
+using Special:Export on commons and Special:Import on your local wiki.
 
 * [Artwork] ( http://commons.wikimedia.org/wiki/Template:Artwork )
 * [Book] ( http://commons.wikimedia.org/wiki/Template:Book )
@@ -91,13 +92,6 @@ _enable uploads and url uploading_
 
 _load the extension_
 * `require_once "$IP/extensions/GWToolset/GWToolset.php";`
-
-_add/remove groups_
-Depending on the permissions you have set-up in your wiki, you may need to give admins
-or another user group the ability to add the ‘gwtoolset’ group to other user accounts.
-this can be accomplished by adding something similar to the following:
-* $wgAddGroups['sysop'][] = 'gwtoolset';
-* $wgRemoveGroups['sysop'][] = 'gwtoolset';
 
 _FileBackend_
 The extension makes use of a file backend to temporarily store metada files for processing.
