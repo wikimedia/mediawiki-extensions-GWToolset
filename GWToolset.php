@@ -139,3 +139,7 @@ $wgResourceModules['ext.GWToolset'] = array(
 		'jquery.ui.dialog'
 	)
 );
+
+// add logging
+$wgLogTypes[] = 'gwtoolset';
+$wgLogActionsHandlers['gwtoolset/*'] = 'LogFormatter';

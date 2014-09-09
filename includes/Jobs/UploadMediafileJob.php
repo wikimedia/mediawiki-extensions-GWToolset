@@ -11,16 +11,24 @@ namespace GWToolset\Jobs;
 use GWToolset\Adapters\Php\MappingPhpAdapter,
 	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
 	GWToolset\Adapters\Php\MetadataPhpAdapter,
+	GWToolset\GWTException,
+	GWToolset\Handlers\UploadHandler,
 	GWToolset\Models\Mapping,
 	GWToolset\Models\MediawikiTemplate,
 	GWToolset\Models\Metadata,
-	GWToolset\GWTException,
-	GWToolset\Handlers\UploadHandler,
+	GWToolset\Utils,
 	Job,
-	User,
-	ScopedCallback;
+	ScopedCallback,
+	Title,
+	User;
+
 
 class UploadMediafileJob extends Job {
+
+	/**
+	 * @var {User}
+	 */
+	protected $User;
 
 	/**
 	 * @param {Title} $title
@@ -50,18 +58,18 @@ class UploadMediafileJob extends Job {
 		);
 
 		$Mapping = new Mapping( new MappingPhpAdapter() );
+
 		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray(
 			$this->params['whitelisted-post']
 		);
+
 		$Mapping->setTargetElements();
 		$Mapping->reverseMap();
-
 		$Metadata = new Metadata( new MetadataPhpAdapter() );
-		$User = User::newFromName( $this->params['user-name'] );
 
 		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
 		$oldUser = $wgUser;
-		$wgUser = $User;
+		$wgUser = $this->User;
 		// This will automatically restore $wgUser, when $magicScopeVariable falls out of scope.
 		$magicScopeVariable = new ScopedCallback( function() use ( $oldUser ) {
 			global $wgUser;
@@ -73,7 +81,7 @@ class UploadMediafileJob extends Job {
 				'Mapping' => $Mapping,
 				'MediawikiTemplate' => $MediawikiTemplate,
 				'Metadata' => $Metadata,
-				'User' => $User,
+				'User' => $this->User,
 			)
 		);
 
@@ -101,22 +109,73 @@ class UploadMediafileJob extends Job {
 	 */
 	public function run() {
 		$result = false;
+		$message = null;
 
 		if ( !$this->validateParams() ) {
 			return $result;
 		}
 
+		$this->User = User::newFromName( $this->params['user-name'] );
+
 		try {
 			$result = $this->processMetadata();
 		} catch ( GWTException $e ) {
+			$message = $e->getMessage();
+
 			$this->setLastError(
 				__METHOD__ . ': ' .
-				$e->getMessage() .
+				$message . PHP_EOL .
 				print_r( $this->params['user-options'], true )
 			);
 		}
 
+		if ( $result instanceof Title ) {
+			$this->specialLog( $message, 'mediafile-job-succeeded', $result );
+		} else {
+			$this->specialLog(
+				$message,
+				'mediafile-job-failed',
+				Title::newFromText(
+					wfMessage( 'gwtoolset-title-none' )
+						->inContentLanguage()
+						->escaped(),
+					NS_FILE
+				)
+			);
+		}
+
 		return $result;
+	}
+
+	/**
+	 * @param {string} $message
+	 * @param {string} $job_subtype
+	 * @param {object} $Title
+	 */
+	protected function specialLog( $message, $job_subtype, Title $Title ) {
+		$options = array(
+			'job-subtype' => $job_subtype,
+			'Title' => $Title,
+			'User' => $this->User
+		);
+
+		if ( !empty( $this->params['whitelisted-post']['wpSummary'] ) ) {
+			$options['comment'] = $this->params['whitelisted-post']['wpSummary'];
+		}
+
+		// when 0, record nr is unknown
+		$record_nr = 0;
+
+		if ( !empty( $this->params['user-options']['gwtoolset-record-begin'] ) ) {
+			$record_nr = (int)$this->params['user-options']['gwtoolset-record-current'];
+		}
+
+		$options['parameters'] = array(
+			'4::metadata-record-nr' => $record_nr,
+			'5::message' => $message
+		);
+
+		Utils::specialLog( $options );
 	}
 
 	/**

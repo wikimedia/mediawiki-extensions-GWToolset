@@ -35,6 +35,11 @@ use Job,
 class UploadMetadataJob extends Job {
 
 	/**
+	 * @var {User}
+	 */
+	protected $User;
+
+	/**
 	 * @param {Title} $title
 	 * @param {bool|array} $params
 	 * @param {int} $id
@@ -46,11 +51,12 @@ class UploadMetadataJob extends Job {
 	/**
 	 * a control method for re-establishing application state so that the metadata can be processed
 	 *
-	 * @return {bool|Title}
+	 * @return {string|array}
+	 * if an array, an array of Titles
 	 */
 	protected function processMetadata() {
 		$MetadataMappingHandler = new MetadataMappingHandler(
-			array( 'User' => User::newFromName( $this->params['user-name'] ) )
+			array( 'User' => $this->User )
 		);
 
 		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'] );
@@ -81,7 +87,7 @@ class UploadMetadataJob extends Job {
 
 		$job = new UploadMetadataJob(
 			Title::newFromText(
-				User::newFromName( $this->params['user-name'] ) . '/' .
+				$this->User . '/' .
 				Constants::EXTENSION_NAME . '/' .
 				'Metadata Batch Job/' .
 				uniqid(),
@@ -119,6 +125,7 @@ class UploadMetadataJob extends Job {
 			return $result;
 		}
 
+		$this->User = User::newFromName( $this->params['user-name'] );
 		$job_queue_size = JobQueueGroup::singleton()->get( 'gwtoolsetUploadMediafileJob' )->getSize();
 
 		// make sure the overall job queue does not have > Config::$mediafile_job_queue_max
@@ -126,25 +133,66 @@ class UploadMetadataJob extends Job {
 		// in order to try again later to add the UploadMediafileJob’s
 		if ( (int)$job_queue_size > (int)Config::$mediafile_job_queue_max ) {
 			$result = true;
+
 			try {
 				$this->recreateMetadataJob();
 			} catch ( Exception $e ) {
 				$result = false;
 				$this->setLastError(
 					__METHOD__ . ': ' .
-					wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped()
+					wfMessage( 'gwtoolset-batchjob-metadata-creation-failure' )->escaped() .
+					$e->getMessage()
 				);
 			}
+
 			return $result;
 		}
 
 		try {
 			$result = $this->processMetadata();
+			$message = $result;
+
+			if ( isset( $this->params['whitelisted-post']['gwtoolset-record-begin'] ) ) {
+				$message .=
+					' ' .
+					wfMessage( 'gwtoolset-begin-with' )
+						->params( (int)$this->params['whitelisted-post']['gwtoolset-record-begin'] )
+						->escaped();
+			}
 		} catch ( GWTException $e ) {
-			$this->setLastError( __METHOD__ . ': ' . $e->getMessage() );
+			$message = $e->getMessage();
+
+			$this->setLastError(
+				__METHOD__ . ': ' .
+				$message
+			);
 		}
 
+		$this->specialLog( $message );
 		return $result;
+	}
+
+	/**
+	 * @param {string} $message
+	 */
+	protected function specialLog( $message ) {
+		$options = array(
+			'job-subtype' => 'metadata-job',
+			'parameters' => array(
+				'4::message' => $message
+			),
+			'Title' => Title::newFromText(
+				wfMessage( 'gwtoolset-title-none' )->escaped(),
+				NS_FILE
+			),
+			'User' => $this->User
+		);
+
+		if ( !empty( $this->params['whitelisted-post']['wpSummary'] ) ) {
+			$options['comment'] = $this->params['whitelisted-post']['wpSummary'];
+		}
+
+		Utils::specialLog( $options );
 	}
 
 	/**

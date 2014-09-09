@@ -221,5 +221,12 @@
 	"gwtoolset-select-custom-template": "Label for the corresponding field in Step 1: Metadata detection.",
 	"gwtoolset-no-templatedata": "Message that appears when there is no templatedata for a MediaWiki template chosen in Step 1: Metadata detection. Parameters:\n* $1 - the name of the chosen template\n* $2 - a link to the MediaWiki templatedata help page for adding a templatedata block to a template\nLink text used is {{msg-mw|Gwtoolset-templatedata-link-text}}\n* $3 - a link to the commons help page for adding templatedata to a template's templatebox\nLink text used is {{msg-mw|Gwtoolset-templatebox-link-text}}",
 	"gwtoolset-templatedata-link-text": "Text for the templatedata link. See {{msg-mw|Gwtoolset-no-templatedata}}",
-	"gwtoolset-templatebox-link-text": "Text for the templatebox link. See {{msg-mw|Gwtoolset-no-templatedata}}"
+	"gwtoolset-templatebox-link-text": "Text for the templatebox link. See {{msg-mw|Gwtoolset-no-templatedata}}",
+	"gwtoolset-title-none": "Title text used to create a wiki title for Special:Log when there is actually no Title to log.",
+	"gwtoolset-begin-with": "Used for the Metadata Job log entry to indicate the beginning metadata record number. No period at the end of the sentence because this is the last sentence inserted into {{logentry-gwtoolset-metadata-job}}, which adds the period to the end of the sentence. Parameters:\n* $1 is the record number.",
+	"log-name-gwtoolset": "GWToolset's Special:Log log name.",
+	"log-description-gwtoolset": "Description of the GWToolset log that appears on the Special:Log page when filtered by GWToolset logged events.",
+	"logentry-gwtoolset-mediafile-job-failed": "Template for the GWToolset log events. The space at the end of the message is intentional because the log insert() method adds the summary message at the end of this message without a space. Parameters:\n* $1 is the User signature.\n* $4 is the metadata record number.\n* $5 is the error message.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "Template for the GWToolset log events. The space at the end of the message is intentional because the log insert() method adds the summary message at the end of this message without a space. Parameters:\n* $1 is the User signature.\n* $3 is the page title.\n* $4 is the metadata record number.",
+	"logentry-gwtoolset-metadata-job": "Template for the GWToolset log events. The space at the end of the message is intentional because the log insert() method adds the summary message at the end of this message without a space. Parameters:\n* $1 is the User signature.\n* $4 is any success message."
 }

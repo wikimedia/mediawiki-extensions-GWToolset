@@ -225,5 +225,12 @@
 	"gwtoolset-select-custom-template": "or enter a custom template:",
 	"gwtoolset-no-templatedata": "There is no <code>&lt;templatedata></code> block for template $1.\n\nIf possible, add a $2 to the template, or to the template's $3.",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> block",
-	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
+	"gwtoolset-title-none": "No title",
+	"gwtoolset-begin-with": "Started with metadata record $1",
+	"log-name-gwtoolset": "GWToolset log",
+	"log-description-gwtoolset": "These events track GWToolset events in the wiki.",
+	"logentry-gwtoolset-mediafile-job-failed": "$1 mediafile job failed. Metadata record $4. $5. ",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 mediafile job succeeded. Created $3. Metadata record $4. ",
+	"logentry-gwtoolset-metadata-job": "$1 metadata job created. $4. "
 }
