@@ -222,5 +222,12 @@
 	"gwtoolset-select-custom-template": "oder gib eine benutzerdefinierte Vorlage ein:",
 	"gwtoolset-no-templatedata": "Es gibt keinen <code>&lt;templatedata></code>-Block für die Vorlage $1.\n\nFalls möglich, füge einen $2 der Vorlage hinzu oder zum $3 der Vorlage.",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-Block",
-	"gwtoolset-templatebox-link-text": "<code>VorlagenKasten</code>"
+	"gwtoolset-templatebox-link-text": "<code>VorlagenKasten</code>",
+	"gwtoolset-title-none": "Kein Titel",
+	"gwtoolset-begin-with": "Begonnen mit dem Metadaten-Datensatz $1",
+	"log-name-gwtoolset": "GWToolset-Logbuch",
+	"log-description-gwtoolset": "Dies ist ein Logbuch mit GWToolset-Ereignissen im Wiki.",
+	"logentry-gwtoolset-mediafile-job-failed": "$1 Mediendatei-Auftrag fehlgeschlagen. Metadaten-Datensatz $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 Mediendatei-Auftrag war erfolgreich. $3 erstellt. Metadaten-Datensatz $4.",
+	"logentry-gwtoolset-metadata-job": "$1 Metadaten-Auftrag erstellt. $4."
 }
