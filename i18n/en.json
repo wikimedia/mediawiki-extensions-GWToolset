@@ -229,7 +229,7 @@
 	"gwtoolset-title-none": "No title",
 	"gwtoolset-begin-with": "Started with metadata record $1",
 	"log-name-gwtoolset": "GWToolset log",
-	"log-description-gwtoolset": "These events track GWToolset events in the wiki.",
+	"log-description-gwtoolset": "This log tracks GWToolset events in the wiki.",
 	"logentry-gwtoolset-mediafile-job-failed": "$1 mediafile job failed. Metadata record $4. $5. ",
 	"logentry-gwtoolset-mediafile-job-succeeded": "$1 mediafile job succeeded. Created $3. Metadata record $4. ",
 	"logentry-gwtoolset-metadata-job": "$1 metadata job created. $4. "
