@@ -218,5 +218,7 @@
 	"gwtoolset-wrap-language-heading": "Taalsjabloon",
 	"gwtoolset-detect-license": "Poging om de licentie op te sporen",
 	"gwtoolset-detect-license-heading": "Licentiesjabloon",
-	"gwtoolset-global-license": "Wereldwijde licentie"
+	"gwtoolset-global-license": "Wereldwijde licentie",
+	"gwtoolset-title-none": "Geen titel",
+	"log-name-gwtoolset": "GWToolset-logboek"
 }

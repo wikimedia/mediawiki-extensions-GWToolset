@@ -18,5 +18,7 @@
 	"gwtoolset-global-license": "Licença global",
 	"gwtoolset-select-template": "Selecione uma predefinição:",
 	"gwtoolset-select-custom-template": "ou introduza uma predefinição personalizada:",
-	"gwtoolset-templatedata-link-text": "<code>"
+	"gwtoolset-templatedata-link-text": "<code>",
+	"gwtoolset-title-none": "Sem título",
+	"log-name-gwtoolset": "Registo GWToolset"
 }

@@ -219,5 +219,12 @@
 	"gwtoolset-select-custom-template": "или пак задајте ваш:",
 	"gwtoolset-no-templatedata": "Нема блок <code>&lt;templatedata></code> за шаблонот $1.\n\nАко е можно, ставете го $2 во шабонот, или пак во $3 на шаблонот.",
 	"gwtoolset-templatedata-link-text": "Блок <code>&lt;templatedata></code>",
-	"gwtoolset-templatebox-link-text": "<code>ШаблонскаКутија</code>"
+	"gwtoolset-templatebox-link-text": "<code>ШаблонскаКутија</code>",
+	"gwtoolset-title-none": "Без наслов",
+	"gwtoolset-begin-with": "Започнато со метаподаточниот запис $1",
+	"log-name-gwtoolset": "Дневник на GWToolset",
+	"log-description-gwtoolset": "Дневников ги следи настаните на GWToolset на викито.",
+	"logentry-gwtoolset-mediafile-job-failed": "Задачата на медиумската податотека на $1 не успеа. Метаподаточен запис $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "Задачата на медиумската податотека на $1 успеа. Создадена е страницата $3. Метаподаточен запис $4.",
+	"logentry-gwtoolset-metadata-job": "Метаподаточната задача на $1 е создадена. $4."
 }

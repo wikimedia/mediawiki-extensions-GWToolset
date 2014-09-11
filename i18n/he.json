@@ -227,5 +227,12 @@
 	"gwtoolset-select-custom-template": "או להזין שם של תבנית אישית:",
 	"gwtoolset-no-templatedata": "לתבנית $1 אין בלוק <code>&lt;templatedata></code>.\n\nאם זה אפשרי, נא להוסיף $2 לתבנית או ל־$3 של התבנית.",
 	"gwtoolset-templatedata-link-text": "בלוק <code>&lt;templatedata></code>",
-	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
+	"gwtoolset-title-none": "ללא כותרת",
+	"gwtoolset-begin-with": "התחיל עם רשומה המטא־נתונים $1",
+	"log-name-gwtoolset": "יומן ארגז הכלים של גלאם ויקי",
+	"log-description-gwtoolset": "היומן הזה עוקב אחרי אירועים בארגז הכלים של גלאם ויקי.",
+	"logentry-gwtoolset-mediafile-job-failed": "משימת קובץ מדיה של $1 נכשלה. רשומת מטא־נתונים $4. שגיאה: $5",
+	"logentry-gwtoolset-mediafile-job-succeeded": "משימת קובץ מדיה של $1 הצליחה. נוצר הדף $3. רשומת מטא־נתונים $4.",
+	"logentry-gwtoolset-metadata-job": "נוצרה משימת מטא־נתונים $1. הודעה: $4"
 }
