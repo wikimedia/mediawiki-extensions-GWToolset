@@ -188,5 +188,6 @@
 	"gwtoolset-select-template": "テンプレートを選択:",
 	"gwtoolset-no-templatedata": "テンプレート $1 には <code>&lt;templatedata></code> ブロックがありません。\n\n可能であれば、$2 を、テンプレートに追加するか、またはテンプレートの $3 に追加してください。",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> ブロック",
-	"gwtoolset-templatebox-link-text": "<code>テンプレートボックス</code>"
+	"gwtoolset-templatebox-link-text": "<code>テンプレートボックス</code>",
+	"log-description-gwtoolset": "この記録では、ウィキの GWToolset のイベントを追跡します。"
 }

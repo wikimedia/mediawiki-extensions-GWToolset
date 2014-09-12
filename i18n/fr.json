@@ -156,7 +156,6 @@
 	"gwtoolset-metadata-file": "Fichier de métadonnées",
 	"gwtoolset-metadata-mapping-legend": "Faites la correspondance avec vos métadonnées",
 	"gwtoolset-no-more-records": "<strong>Plus aucun enregistrement à traiter</strong>",
-	"gwtoolset-painted-by": "Painted by",
 	"gwtoolset-partner": "Partenaire",
 	"gwtoolset-partner-explanation": "Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels dans la catégorie [[:Category:Source templates|source templates]]. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.",
 	"gwtoolset-partner-template": "Modèle du partenaire :",
@@ -229,5 +228,6 @@
 	"gwtoolset-select-custom-template": "ou entrer un modèle personnalisé :",
 	"gwtoolset-no-templatedata": "Il n’y a pas de bloc <code>&lt;templatedata></code> pour le modèle $1.\n\nSi possible, ajouter un $2 au modèle, ou au $3 du modèle.",
 	"gwtoolset-templatedata-link-text": "bloc <code>&lt;templatedata></code>",
-	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
+	"log-description-gwtoolset": "Ce journal consigne toutes les actions GWToolset sur le wiki."
 }

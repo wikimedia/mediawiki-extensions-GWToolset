@@ -197,5 +197,10 @@
 	"gwtoolset-select-custom-template": "或输入一个自定义模板：",
 	"gwtoolset-no-templatedata": "这里没有用于模板$1的<code>&lt;templatedata></code>块。如果可能，加入$2至模板或连入模板的$3。",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>封禁",
-	"gwtoolset-templatebox-link-text": "<code>模板框</code>"
+	"gwtoolset-templatebox-link-text": "<code>模板框</code>",
+	"gwtoolset-title-none": "无标题",
+	"log-name-gwtoolset": "GWToolset日志",
+	"logentry-gwtoolset-mediafile-job-failed": "$1元数据工作失败。元数据记录$4。$5。",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1元数据工作成功。已创建$3。元数据记录$4。",
+	"logentry-gwtoolset-metadata-job": "$1元数据工作已创建。$4。"
 }
