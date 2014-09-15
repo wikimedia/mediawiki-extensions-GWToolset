@@ -39,6 +39,7 @@
 	"gwtoolset-no-default": "没有提供默认值。",
 	"gwtoolset-no-field-size": "没有为字段“$1”指定字段大小。",
 	"gwtoolset-no-file-backend-name": "没有提供文件后台名。",
+	"gwtoolset-no-file-backend-container": "没有提供文件后端容器名。",
 	"gwtoolset-no-file-url": "没有<code>file_url</code>提供解析。",
 	"gwtoolset-no-form-handler": "没有创建表格处理器。",
 	"gwtoolset-no-mapping": "没有提供<code>mapping_name</code>。",
@@ -199,7 +200,9 @@
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>封禁",
 	"gwtoolset-templatebox-link-text": "<code>模板框</code>",
 	"gwtoolset-title-none": "无标题",
+	"gwtoolset-begin-with": "从元数据记录$1开始",
 	"log-name-gwtoolset": "GWToolset日志",
+	"log-description-gwtoolset": "此日志跟踪wiki上的GWToolset活动。",
 	"logentry-gwtoolset-mediafile-job-failed": "$1元数据工作失败。元数据记录$4。$5。",
 	"logentry-gwtoolset-mediafile-job-succeeded": "$1元数据工作成功。已创建$3。元数据记录$4。",
 	"logentry-gwtoolset-metadata-job": "$1元数据工作已创建。$4。"

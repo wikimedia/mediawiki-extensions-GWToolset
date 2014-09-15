@@ -42,5 +42,7 @@
 	"gwtoolset-metadata-file": "Plik metadanych",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
-	"gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3."
+	"gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3.",
+	"gwtoolset-title-none": "Brak tytułu",
+	"log-name-gwtoolset": "Rejestr GWToolset"
 }

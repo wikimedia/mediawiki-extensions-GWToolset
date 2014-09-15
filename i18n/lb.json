@@ -65,5 +65,6 @@
 	"gwtoolset-detect-license-heading": "Lizenz-Schabloun",
 	"gwtoolset-global-license": "Global Lizenz",
 	"gwtoolset-select-template": "Sicht eng Schabloun eraus:",
-	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-Block"
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-Block",
+	"gwtoolset-title-none": "Keen Titel"
 }

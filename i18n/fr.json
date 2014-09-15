@@ -10,7 +10,8 @@
 			"VIGNERON",
 			"Brunoperel",
 			"Cquoi",
-			"Constructeur"
+			"Constructeur",
+			"Ltrlg"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -229,5 +230,6 @@
 	"gwtoolset-no-templatedata": "Il n’y a pas de bloc <code>&lt;templatedata></code> pour le modèle $1.\n\nSi possible, ajouter un $2 au modèle, ou au $3 du modèle.",
 	"gwtoolset-templatedata-link-text": "bloc <code>&lt;templatedata></code>",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
+	"gwtoolset-title-none": "Sans titre",
 	"log-description-gwtoolset": "Ce journal consigne toutes les actions GWToolset sur le wiki."
 }
