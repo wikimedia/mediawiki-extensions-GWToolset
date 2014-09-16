@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aftab1995"
+			"Aftab1995",
+			"Tauhid16"
 		]
 	},
 	"gwtoolset-wrap-language-heading": "ভাষা টেমপ্লেট",
-	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> ব্লক"
+	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> ব্লক",
+	"gwtoolset-title-none": "কোনো শিরোনাম নেই"
 }
