@@ -113,10 +113,10 @@
 	"gwtoolset-category": "Categoría",
 	"gwtoolset-global-categories": "Categorías globales",
 	"gwtoolset-maps-to": "Corresponde con",
+	"gwtoolset-mapping-media-file-no-content-type": "No se pudo determinar el tipo de contenido del URL: $1.",
 	"gwtoolset-metadata-field": "Campo de metadatos",
 	"gwtoolset-metadata-file": "Archivo de metadatos",
 	"gwtoolset-no-more-records": "<strong>No hay más registros que procesar</strong>",
-	"gwtoolset-painted-by": "Pintado por",
 	"gwtoolset-partner": "Socio",
 	"gwtoolset-preview": "Vista previa de lotes",
 	"gwtoolset-step-2-instructions-heading": "Asignación de los campos de metadatos",
@@ -137,5 +137,7 @@
 	"gwtoolset-wrap-language-heading": "Plantilla de idioma",
 	"gwtoolset-detect-license-heading": "Plantilla de licencia",
 	"gwtoolset-global-license": "Licencia global",
-	"gwtoolset-select-template": "Selecciona una plantilla:"
+	"gwtoolset-select-template": "Selecciona una plantilla:",
+	"gwtoolset-title-none": "Sin título",
+	"log-name-gwtoolset": "Registro de GWToolset"
 }

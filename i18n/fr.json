@@ -147,7 +147,7 @@
 	"gwtoolset-create-mapping": "$1 : Création de la correspondance des métadonnées pour $2.",
 	"gwtoolset-example-record": "Exemple du contenu des enregistrements des métadonnées.",
 	"gwtoolset-global-categories": "Catégories globales",
-	"gwtoolset-global-tooltip": "Ces entrées de catégorie s’appliqueront globalement à tous les éléments importés.",
+	"gwtoolset-global-tooltip": "Ces entrées de catégorie s’appliqueront globalement à tous les éléments importés. Les noms de catégorie doivent être en anglais, d’une manière générale (voir [[Commons:Categories#Category_names|Commons:Category names]]).",
 	"gwtoolset-maps-to": "Correspond à",
 	"gwtoolset-mapping-media-file-no-content-type": "Impossible de déterminer le content-type pour l’URL: $1.",
 	"gwtoolset-mapping-media-file-url-extension-bad": "L’extension du fichier ne peut pas être déterminée pour l’URL de fichier : $1",
@@ -179,7 +179,7 @@
 	"gwtoolset-reupload-media": "Recharger le fichier média depuis l’URL",
 	"gwtoolset-reupload-media-explanation": "Cette case à cocher vous permet de ré-envoyer un fichier média pour un élément qui a déjà été chargé sur le wiki. Si l’élément existe déjà car vous déjà envoyé un média, un fichier média supplémentaire sera ajouté au wiki. Si quelqu'un d'autre a déjà envoyé une nouvelle version du fichier média, votre envoi sera ignoré. Si le fichier média n’existe pas encore sur le wiki, il sera envoyé dans tous les cas, que cette case soit cochée ou non.",
 	"gwtoolset-specific-categories": "Catégories spécifiques d’élément",
-	"gwtoolset-specific-tooltip": "En utilisant les champs qui suivent, vous pouvez appliquer une phrase (facultative) plus un champ de métadonnées comme entrée de catégorie pour chaque élément importé, individuellement. Par exemple, si le fichier de métadonnées contient un élément pour l’artiste de chaque enregistrement, vous pouvez l’ajouter comme une entrée de catégorie pour chaque enregistrement qui prendra la valeur spécifique à chaque enregistrement. Vous pouvez aussi ajouter une phrase comme « <em>{{int:gwtoolset-painted-by}}</em> » et puis le champ de métadonnées de l’artiste, que vous rendriez par « <em>{{int:gwtoolset-painted-by}} <nom de l’artiste></em> » comme catégorie pour chaque enregistrement.",
+	"gwtoolset-specific-tooltip": "En utilisant les champs qui suivent, vous pouvez appliquer une phrase (facultative) plus un champ de métadonnées comme entrée de catégorie pour chaque élément importé, individuellement. Par exemple, si le fichier de métadonnées contient un élément pour l’artiste de chaque enregistrement, vous pouvez l’ajouter comme une entrée de catégorie pour chaque enregistrement qui prendra la valeur spécifique à chaque enregistrement. Vous pouvez aussi ajouter une phrase comme « <em>{{int:gwtoolset-painted-by}}</em> » et puis le champ de métadonnées de l’artiste, que vous rendriez par « <em>{{int:gwtoolset-painted-by}} <nom de l’artiste></em> » comme catégorie pour chaque enregistrement. Les noms de catégorie doivent être en anglais, d’une manière générale (voir [[Commons:Categories#Category_names|Commons:Category names]]).",
 	"gwtoolset-template-field": "Champ du modèle",
 	"gwtoolset-step-3-instructions-heading": "Étape 3 : Prévisualisation du lot",
 	"gwtoolset-step-3-instructions-1": "Voici ci-dessous les résultats du téléchargement {{PLURAL:$1|du premier enregistrement|des $1 premiers enregistrements}} depuis le fichier de métadonnées que vous avez choisi et {{PLURAL:$1|sa|leur}} correspondance avec le modèle de MédiaWiki que vous avez choisi dans « {{int:gwtoolset-step-2-heading}} ».",
@@ -231,5 +231,10 @@
 	"gwtoolset-templatedata-link-text": "bloc <code>&lt;templatedata></code>",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
 	"gwtoolset-title-none": "Sans titre",
-	"log-description-gwtoolset": "Ce journal consigne toutes les actions GWToolset sur le wiki."
+	"gwtoolset-begin-with": "Commencé avec l’enregistrement de métadonnées $1",
+	"log-name-gwtoolset": "Journal de GWToolset",
+	"log-description-gwtoolset": "Ce journal consigne toutes les actions GWToolset sur le wiki.",
+	"logentry-gwtoolset-mediafile-job-failed": "La tâche $1 du fichier de média a échoué. Enregistrement de métadonnées $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "La tâche $1 du fichier de média a réussi. $3 créé. Enregistrement de métadonnées $4.",
+	"logentry-gwtoolset-metadata-job": "La tâche $1 de métadonnées a été créée. $4."
 }
