@@ -214,5 +214,9 @@
 	"gwtoolset-select-custom-template": "eller ange en annan mall:",
 	"gwtoolset-no-templatedata": "Det finns inget <code>&lt;templatedata></code>-block för mall $1.\n\nOm möjligt, lägg till ett $2 i mallen eller till mallens $3.",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code>-block",
-	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>"
+	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
+	"gwtoolset-title-none": "Ingen titel",
+	"gwtoolset-begin-with": "Började med metadatapost $1",
+	"log-name-gwtoolset": "GWToolset-logg",
+	"log-description-gwtoolset": "Denna logg listar händelser relaterade till GWToolset på wikin."
 }
