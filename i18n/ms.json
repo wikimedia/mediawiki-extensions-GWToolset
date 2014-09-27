@@ -122,11 +122,8 @@
 	"gwtoolset-maps-to": "Dipetakan kpd",
 	"gwtoolset-mapping-media-file-url-extension-bad": "Sambungan fail tidak dapat ditentukan daripada URL fail: $1.",
 	"gwtoolset-mapping-media-file-url-bad": "URL fail media tidak dapat dinilai. URL menyampaikan kandungan secara yang belum dapat dikelola oleh sambungan ini. URL yang diberikan ialah \"$1\".",
-	"gwtoolset-mapping-no-title": "Pemetaan metadata tertinggal tajuknya yang diperlukan untuk mewujudkan halamannya.",
-	"gwtoolset-mapping-no-title-identifier": "Pemetaan metadata tidak mengandungi pengecam tajuk yang digunakan untuk mewujudkan tajuk halaman yang unik. Pastikan anda memetakan medan metadata kepada pengecam tajuk parameter templat MediaWiki.",
 	"gwtoolset-metadata-field": "Medan metadata",
 	"gwtoolset-metadata-mapping-legend": "Petakan metadata anda",
-	"gwtoolset-painted-by": "Dilukis oleh",
 	"gwtoolset-partner": "Rakan Kongsi",
 	"gwtoolset-partner-explanation": "Templat pekongsi ditarik ke dalam medan sumber templat MediaWiki apabila disediakan. Anda boleh mendapati satu senarai templat rakan kongsi semasa pada halaman Kategori:Templat sumber; rujuk pautan di bawah. Setelah menjumpai templat pekongsi yang ingin anda gunakan, letakkan URL-nya ke dalam medan ini. Anda juga boleh mewujudkan templat pekongsi baru jika perlu.",
 	"gwtoolset-partner-template": "Templat pekongsi:",
@@ -167,5 +164,6 @@
 	"gwtoolset-verify-php-version": "Sambungan $1 memerlukan PHP versi 5.3.3 ke atas.",
 	"gwtoolset-verify-uploads-enabled": "Sambungan $1 memerlukan pemuatnaikan fail dihidupkan.\n\nSila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</code> dalam <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-xmlreader": "Sambungan $1 memerlukan pemasangan PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader].",
-	"gwtoolset-wiki-checks-not-passed": "Wiki tidak lulus pemeriksaan"
+	"gwtoolset-wiki-checks-not-passed": "Wiki tidak lulus pemeriksaan",
+	"log-description-gwtoolset": "Log ini menjejaki peristiwa GWToolset di wiki ini."
 }
