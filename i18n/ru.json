@@ -25,6 +25,8 @@
 	"gwtoolset-mediafile-duplicate-another-title": "Файл-дубликат: Идентичный медиафайл уже существует под именем «$1».",
 	"gwtoolset-mediafile-duplicate-same-title": "Файл-дубликат: Этот медиафайл уже существует под этим же именем «$1».",
 	"gwtoolset-mediafile-other-contributors": "Другие авторы: Медиафайл с аналогичным именем «$1» уже существует в вики. Он был создан или изменён кем-то кроме вас.",
+	"gwtoolset-no-default": "Не указано значение по умолчанию.",
+	"gwtoolset-no-text": "Не указан текст.",
 	"gwtoolset-no-url-to-media": "Не установлен <code>url-to-the-media-file</code>.",
 	"gwtoolset-sha1-does-not-match": "SHA-1 не совпадают.",
 	"gwtoolset-disk-write-failure": "Серверу не удалось записать файл в файловую систему.",
@@ -60,8 +62,10 @@
 	"gwtoolset-metadata-file": "Файл метаданных",
 	"gwtoolset-partner": "Партнёр",
 	"gwtoolset-step-2-heading": "Шаг 2: Сопоставление метаданных",
+	"gwtoolset-step-2-instructions-1-li-1": "Список полей в $1.",
 	"gwtoolset-template-field": "Поле шаблона",
 	"gwtoolset-create-prefix": "GWToolset",
+	"gwtoolset-step-4-heading": "Шаг 4: Пакетная загрузка",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Текущий настройки <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nОни устанавливаются ниже, чем вики <code>$wgMaxUploadSize</code>, которые устанавливаются на «$3». Пожалуйста, изменяйте параметры <code>php.ini</code> только при необходимости.",
 	"gwtoolset-mediawiki-version-invalid": "Это расширение требует MediaWiki версии $1<br />У вас версия MediaWiki — $2.",
 	"gwtoolset-permission-not-given": "Убедитесь, что Вы вошли в систему или обратитесь к администратору, чтобы получить разрешение для просмотра этой страницы ($1).",
@@ -74,5 +78,9 @@
 	"gwtoolset-verify-php-version": "Расширение $1 требует PHP >= 5.3.3.",
 	"gwtoolset-verify-uploads-enabled": "Расширение $1 требует, чтобы загрузка файлов была включена.\n\nПожалуйста убедитесь в том, что <code>$wgEnableUploads</code> имеет значение <code>true</code> в <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-xmlreader": "Расширение $1 требует, чтобы PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] был установлен.",
-	"gwtoolset-wiki-checks-not-passed": "Вики-проверки не пройдены"
+	"gwtoolset-wiki-checks-not-passed": "Вики-проверки не пройдены",
+	"gwtoolset-title-label": "Заголовок GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "URL-адрес медиа-файла",
+	"gwtoolset-title-none": "Без названия",
+	"log-name-gwtoolset": "Журнал GWToolset"
 }
