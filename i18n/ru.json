@@ -3,7 +3,8 @@
 		"authors": [
 			"Okras",
 			"Meshkov.a",
-			"Eroha"
+			"Eroha",
+			"Striking Blue"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -26,7 +27,7 @@
 	"gwtoolset-mediafile-duplicate-same-title": "Файл-дубликат: Этот медиафайл уже существует под этим же именем «$1».",
 	"gwtoolset-mediafile-other-contributors": "Другие авторы: Медиафайл с аналогичным именем «$1» уже существует в вики. Он был создан или изменён кем-то кроме вас.",
 	"gwtoolset-no-default": "Не указано значение по умолчанию.",
-	"gwtoolset-no-text": "Не указан текст.",
+	"gwtoolset-no-text": "Текст не представлен.",
 	"gwtoolset-no-url-to-media": "Не установлен <code>url-to-the-media-file</code>.",
 	"gwtoolset-sha1-does-not-match": "SHA-1 не совпадают.",
 	"gwtoolset-disk-write-failure": "Серверу не удалось записать файл в файловую систему.",
@@ -57,12 +58,14 @@
 	"gwtoolset-category": "Категория",
 	"gwtoolset-example-record": "Метаданные пример записи.",
 	"gwtoolset-global-categories": "Глобальные категории",
+	"gwtoolset-global-tooltip": "Эти категории будут глобально применены ко всем загруженным элементам. Имена категорий, как правило, должны быть на английском языке (подробнее смотрите в [[Commons:Categories#Category_names|Общее: Имена категорий]]).",
 	"gwtoolset-maps-to": "Сопоставление для",
 	"gwtoolset-metadata-field": "Поле метаданных",
 	"gwtoolset-metadata-file": "Файл метаданных",
 	"gwtoolset-partner": "Партнёр",
 	"gwtoolset-step-2-heading": "Шаг 2: Сопоставление метаданных",
-	"gwtoolset-step-2-instructions-1-li-1": "Список полей в $1.",
+	"gwtoolset-step-2-instructions-1-li-1": "Список полей в МедиаВики $1.",
+	"gwtoolset-specific-tooltip": "С помощью следующих полей можно применить фразу (опционально), а также поля метаданных, такие как категория для каждого загруженного элемента. Например, если файл метаданных содержит элемент для художника каждой записи, вы могли бы добавить это как категорию для каждой записи, чтобы изменить значение, специфические для каждой записи. Также можно добавить такие фразы, как \"<em>{{int:gwtoolset-painted-by}}</em>\", а затем поле метаданных художника, которые будут показывать \"<em>{{int:gwtoolset-painted-by}} <artist name></em>\" в качестве категории для каждой записи. Имена категорий, как правило, должны быть на английском языке (подробнее смотрите в [[Commons:Categories#Category_names|Общее: Имена категорий]]).",
 	"gwtoolset-template-field": "Поле шаблона",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Шаг 4: Пакетная загрузка",
@@ -82,5 +85,10 @@
 	"gwtoolset-title-label": "Заголовок GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL-адрес медиа-файла",
 	"gwtoolset-title-none": "Без названия",
-	"log-name-gwtoolset": "Журнал GWToolset"
+	"gwtoolset-begin-with": "Начато с записи метаданных $1",
+	"log-name-gwtoolset": "Журнал GWToolset",
+	"log-description-gwtoolset": "Этот лог отслеживает события GWToolset в вики.",
+	"logentry-gwtoolset-mediafile-job-failed": "$1 задание медиафайла провалено. Запись метаданных $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 задание медиафайла успешно. Создано $3. Запись метаданных $4.",
+	"logentry-gwtoolset-metadata-job": "$1 задание метаданных создано. $4."
 }

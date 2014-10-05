@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sayginer"
+			"Sayginer",
+			"Violetanka"
 		]
 	},
-	"gwtoolset-select-template": "Bir şablon seçin:"
+	"gwtoolset-select-template": "Bir şablon seçin:",
+	"gwtoolset-title-none": "Başlık yok"
 }
