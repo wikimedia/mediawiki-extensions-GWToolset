@@ -37,7 +37,7 @@
 	"gwtoolset-step-2-instructions-1": "以下為：",
 	"gwtoolset-template-field": "樣版欄位",
 	"gwtoolset-required-group": "您並非$1組成員。",
-	"gwtoolset-verify-api-enabled": "$1擴展要求wiki API啟用。請確信於<code>DefaultSettings.php</code>檔案之<code>$wgEnableAPI</code>設定為<code>true</code>或於<code>LocalSettings.php</code>檔案重寫為<code>true</code>。",
+	"gwtoolset-verify-api-enabled": "$1 擴充套件要求啟用 wiki API。\n\n請確保 <code>$wgEnableAPI</code> 設定為 <code>true</code>。",
 	"gwtoolset-wrap-creator-heading": "建立樣版",
 	"gwtoolset-wrap-language-heading": "語言樣版",
 	"gwtoolset-select-template": "請選擇一個樣版：",

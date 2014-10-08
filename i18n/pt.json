@@ -10,6 +10,7 @@
 	"gwtoolset-mediafile-duplicate-another-title": "Ficheiro duplicado: Já existe um ficheiro multimédia idêntico com o título \"$1\".",
 	"gwtoolset-mediafile-duplicate-same-title": "Ficheiro duplicado: Este ficheiro multimédia já existe e tem o mesmo título (\"$1\").",
 	"gwtoolset-mediafile-other-contributors": "Um ficheiro multimédia com um título idêntico a \"$1\" já existe nesta wiki. Foi editado ou criado por alguém que não você.",
+	"gwtoolset-save": "Gravar",
 	"gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1.",
 	"gwtoolset-mapping-media-file-no-content-type": "Não foi possível determinar o tipo de conteúdo de URL: $1.",
 	"gwtoolset-url-to-the-media-file-label": "URL para o arquivo multimédia",
