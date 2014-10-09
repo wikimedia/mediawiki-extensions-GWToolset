@@ -1,23 +1,17 @@
-== GWToolset 0.3.0 ==
-MediaWiki_1.24/wmf10
-scheduled deploy: Tuesday, 24 June 2014
-https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf10#GWToolset
+== GWToolset 0.3.8 ==
+MediaWiki_1.24/wmf21
+scheduled deploy: Tuesday, 16 September 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf21#GWToolset
 
-== Allow for custom templates ==
-https://gerrit.wikimedia.org/r/#/c/133684/
-https://bugzilla.wikimedia.org/show_bug.cgi?id=63889
+=== Nicer phrasing for log-description-gwtoolset ===
+https://gerrit.wikimedia.org/r/#/c/159696/
 
-== complex categories ==
-https://gerrit.wikimedia.org/r/#/c/139410/
-https://bugzilla.wikimedia.org/show_bug.cgi?id=65620
+=== Improve category instructions ===
+https://gerrit.wikimedia.org/r/#/c/159036/
 
-== Improved the punctuation and the readability of some messages ==
-https://gerrit.wikimedia.org/r/#/c/140339/
+=== update INSTALL instructions ===
+https://gerrit.wikimedia.org/r/#/c/158625/
 
-== Make template wrapping optional ==
-https://gerrit.wikimedia.org/r/#/c/133476/
-https://bugzilla.wikimedia.org/show_bug.cgi?id=64060
-https://bugzilla.wikimedia.org/show_bug.cgi?id=65248
-
-== version update ==
-https://gerrit.wikimedia.org/r/#/c/139339/
+=== Add Special:Log Entries ===
+https://gerrit.wikimedia.org/r/#/c/156243/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=68277
