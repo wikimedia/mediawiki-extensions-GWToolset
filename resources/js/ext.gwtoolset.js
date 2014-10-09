@@ -459,7 +459,7 @@
 		},
 
 		removeCookies: function () {
-			$.cookie( this.cookieName, null );
+			$.removeCookie( this.cookieName );
 		},
 
 		/**
