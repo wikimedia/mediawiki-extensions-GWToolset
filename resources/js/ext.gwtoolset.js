@@ -239,7 +239,7 @@
 
 			$.cookie(
 				options.name,
-				( typeof options.value === 'object' ) ? $.toJSON( options.value ) : options.value,
+				( typeof options.value === 'object' ) ? JSON.stringify( options.value ) : options.value,
 				options.options
 			);
 		},
@@ -478,7 +478,7 @@
 			}
 
 			fieldsOnForm = this.getFieldsOnForm();
-			fieldsInCookie = $.secureEvalJSON( $.cookie( this.cookieName ) );
+			fieldsInCookie = JSON.parse( $.cookie( this.cookieName ) );
 
 			if ( !fieldsInCookie ) {
 				return;
@@ -575,7 +575,7 @@
 				{
 					action: 'edit',
 					summary: summary,
-					text: $.toJSON( metadataMappings ),
+					text: JSON.stringify( metadataMappings ),
 					title: title,
 					token: wpEditToken
 				},
