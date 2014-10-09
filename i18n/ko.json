@@ -5,7 +5,8 @@
 			"Hym411",
 			"Priviet",
 			"아라",
-			"Tyey"
+			"Tyey",
+			"Revi"
 		]
 	},
 	"gwtoolset": "GW도구모음",
@@ -95,12 +96,12 @@
 	"gwtoolset-save-mapping-failed": "죄송합니다. 귀하의 요청을 처리하는 도중 문제가 발생했습니다. 나중에 다시 시도 하십시오. (오류 메시지: $1)",
 	"gwtoolset-save-mapping-succeeded": "매핑을 저장하였습니다.",
 	"gwtoolset-save-mapping-name": "매핑의 이름을 무엇으로 하시겠습니까?",
-	"gwtoolset-json-error": "JSON에 문제가 있었습니다. 오류:$1",
+	"gwtoolset-json-error": "JSON에 문제가 있었습니다. 오류: $1",
 	"gwtoolset-json-error-depth": "스택 깊이 최대값을 초과하였습니다.",
 	"gwtoolset-json-error-state-mismatch": "언더플로우 혹은 모드가 일치하지 않습니다.",
 	"gwtoolset-json-error-ctrl-char": "예기치 않은 제어 문자를 발견하였습니다.",
-	"gwtoolset-json-error-syntax": "구문 오류, 잘못된 JSON입니다.",
-	"gwtoolset-json-error-utf8": "잘못된 UTF-8 문자, 제대로 인코딩되지 않았을 가능성이 있습니다.",
+	"gwtoolset-json-error-syntax": "구문 오류, 잘못된 형식의 JSON입니다.",
+	"gwtoolset-json-error-utf8": "잘못된 형식의 UTF-8 문자, 올바르지 않게 인코딩되었을 수 있습니다.",
 	"gwtoolset-json-error-unknown": "알 수 없는 오류.",
 	"gwtoolset-accepted-file-types": "허용되는 파일{{PLURAL:$1|형식}}:",
 	"gwtoolset-ensure-well-formed-xml": "XML 파일이 올바른 형식인지 $1로 확인해주세요.",
@@ -146,7 +147,6 @@
 	"gwtoolset-metadata-file": "메타데이터 파일",
 	"gwtoolset-metadata-mapping-legend": "메타데이터를 매핑",
 	"gwtoolset-no-more-records": "<strong>진행할 레코드가 더 이상 없습니다</strong>",
-	"gwtoolset-painted-by": "그림",
 	"gwtoolset-partner": "파트너",
 	"gwtoolset-partner-explanation": "파트너 틀은 제공됐을 때 미디어위키 틀의 소스 필드를 넣었습니다. 분류에서 현재 파트너 틀 목록을 찾을 수 있습니다:출처 틀 문서; 아래 링크를 참조하세요. 파트너 틀을 찾으면 이 필드에 URL을 넣을 수 있습니다. 필요하다면 새로운 파트너 틀을 만들 수 있습니다.",
 	"gwtoolset-partner-template": "파트너 틀:",
