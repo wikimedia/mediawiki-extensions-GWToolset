@@ -128,7 +128,7 @@ $wgResourceModules['ext.GWToolset'] = array(
 		'gwtoolset-step-2-heading'
 	),
 	'dependencies' => array(
-		'jquery.json',
+		'json',
 		'jquery.spinner',
 		'jquery.ui.widget',
 		'jquery.ui.button',
