@@ -1,3 +1,114 @@
+== GWToolset 0.3.7 ==
+MediaWiki_1.24/wmf20
+scheduled deploy: Tuesday, 09 September 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf20#GWToolset
+
+=== Missing translation ===
+https://gerrit.wikimedia.org/r/#/c/157034/
+
+
+
+== GWToolset 0.3.6 ==
+MediaWiki_1.24/wmf19
+scheduled deploy: Tuesday, 02 September 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf19#GWToolset
+
+=== Check API Page Index for Missing ===
+https://gerrit.wikimedia.org/r/#/c/156512/
+
+===  Improve duplicate and other contributors messages ===
+https://gerrit.wikimedia.org/r/#/c/156249/
+
+=== PHP Notice: Undefined index: contributors ===
+https://gerrit.wikimedia.org/r/#/c/156248/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=70024
+
+
+
+== GWToolset 0.3.5 ==
+MediaWiki_1.24/wmf17
+scheduled deploy: Tuesday, 19 August 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf17#GWToolset
+
+=== Rm class entries for auto-loader that no longer exist ===
+https://gerrit.wikimedia.org/r/#/c/151026/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=68637
+
+
+
+== GWToolset 0.3.4 ==
+MediaWiki_1.24/wmf15
+scheduled deploy: Tuesday, 15 July 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf15#GWToolset
+
+=== Fix valid category check during preview form ===
+https://gerrit.wikimedia.org/r/#/c/148533/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=68394
+
+
+
+== GWToolset 0.3.3 ==
+MediaWiki_1.24/wmf13
+scheduled deploy: Tuesday, 15 July 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf13#GWToolset
+
+=== Modify $wgUser during the upload media file job ===
+https://gerrit.wikimedia.org/r/#/c/144044/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=67504
+
+=== Add code comment about how ScopedCallback works ===
+https://gerrit.wikimedia.org/r/#/c/144493/
+
+
+
+== GWToolset 0.3.2 ==
+MediaWiki_1.24/wmf12
+scheduled deploy: Monday, 07 July 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf12#GWToolset
+
+=== Modify $wgUser during the upload media file job ===
+https://gerrit.wikimedia.org/r/#/c/144491/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=67504
+
+
+
+== GWToolset 0.3.1 ==
+MediaWiki_1.24/wmf11
+scheduled deploy: Tuesday, 01 July 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf11#GWToolset
+
+=== Modify $wgUser during the upload media file job ===
+https://gerrit.wikimedia.org/r/#/c/144490/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=67504
+
+
+
+== GWToolset 0.3.0 ==
+MediaWiki_1.24/wmf10
+scheduled deploy: Tuesday, 24 June 2014
+https://www.mediawiki.org/wiki/MediaWiki_1.24/wmf10#GWToolset
+
+=== Allow for custom templates ===
+https://gerrit.wikimedia.org/r/#/c/133684/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=63889
+
+=== complex categories ===
+https://gerrit.wikimedia.org/r/#/c/139410/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=65620
+
+=== Improved the punctuation and the readability of some messages ===
+https://gerrit.wikimedia.org/r/#/c/140339/
+
+=== Make template wrapping optional ===
+https://gerrit.wikimedia.org/r/#/c/133476/
+https://bugzilla.wikimedia.org/show_bug.cgi?id=64060
+https://bugzilla.wikimedia.org/show_bug.cgi?id=65248
+
+=== version update ===
+https://gerrit.wikimedia.org/r/#/c/139339/
+
+
+
 == GWToolset 0.2.4 ==
 MediaWiki_1.24/wmf8
 scheduled deploy: Tuesday, 10 June 2014
