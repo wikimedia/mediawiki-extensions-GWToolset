@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -58,7 +59,7 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-mediawiki-version-invalid": "Dës Erweiderung brauch d'Mediawiki-Versioun $1<br />Dës MediaWiki Versioun ass $2.",
 	"gwtoolset-user-blocked": "Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.",
-	"gwtoolset-required-group": "Dir sidd net Member vum Grupp $1.",
+	"gwtoolset-required-group": "Dir sidd net Member vun der Grupp $1.",
 	"gwtoolset-verify-php-version": "D'Erweiderung $1 brauch PHP >= 5.3.3.",
 	"gwtoolset-reverse-creator": "Familljennumm, Virnumm ëmdréinen",
 	"gwtoolset-wrap-language-heading": "Sprooch-Schabloun",
