@@ -57,7 +57,7 @@
 	"gwtoolset-no-url-to-media": "Не е зададено <code>url-to-the-media-file</code>.",
 	"gwtoolset-no-user": "Нема зададено кориснички објект.",
 	"gwtoolset-no-xml-element": "Нема зададено XMLReader или DOMElement.",
-	"gwtoolset-no-xml-source": "Нема укажано локален XML-извор.",
+	"gwtoolset-no-xml-source": "Нема укажано месен XML-извор.",
 	"gwtoolset-not-string": "Укажаната вредност за методот не претставува низа, туку е од типот „$1“.",
 	"gwtoolset-sha1-does-not-match": "Контролниот збир SHA-1 не се совпаѓа.",
 	"gwtoolset-disk-write-failure": "Опслужувачот не можеше да ја запише податотеката во податотечен систем.",
