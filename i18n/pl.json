@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Jacenty359",
 			"Rzuwig",
-			"Matik7"
+			"Matik7",
+			"Matma Rex"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -41,6 +42,7 @@
 	"gwtoolset-mapping-media-file-no-content-type": "Nie można określić rodzaju treści dla adresu URL: $1.",
 	"gwtoolset-metadata-file": "Plik metadanych",
 	"gwtoolset-create-prefix": "GWToolset",
+	"gwtoolset-invalid-token": "Kod weryfikacyjny (token) wysłany w formularzu jest nieprawidłowy.",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
 	"gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3.",
 	"gwtoolset-title-none": "Brak tytułu",
