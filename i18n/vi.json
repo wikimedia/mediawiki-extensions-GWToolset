@@ -5,7 +5,6 @@
 		]
 	},
 	"gwtoolset-mediawiki-template": "Bản mẫu $1",
-	"gwtoolset-metadata-invalid-template": "Không tìm thấy bản mẫu MediaWiki hợp lệ.",
 	"gwtoolset-menu-1": "Ánh xạ siêu dữ liệu",
 	"gwtoolset-submit": "Gửi",
 	"gwtoolset-summary-heading": "Tóm tắt",
@@ -37,7 +36,6 @@
 	"gwtoolset-partner-template": "Bản mẫu cùng đôi:",
 	"gwtoolset-preview": "Xem trước hàng loạt",
 	"gwtoolset-process-batch": "Xử lý hàng loạt",
-	"gwtoolset-results": "Kết quả",
 	"gwtoolset-step-2-heading": "Bước 2: Ánh xạ siêu dữ liệu",
 	"gwtoolset-step-2-instructions-heading": "Đưa các ô siêu dữ liệu vào ánh xạ",
 	"gwtoolset-step-2-instructions-1": "Dưới đây có:",
