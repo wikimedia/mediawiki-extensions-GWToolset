@@ -64,6 +64,7 @@
 	"gwtoolset-no-user": "没有用户计划提供。",
 	"gwtoolset-no-xml-element": "没有提供XML阅读器或DOMElement。",
 	"gwtoolset-no-xml-source": "没有提供本地XML源。",
+	"gwtoolset-not-string": "提供方法的值不是一个字符串。它是类型“$1”。",
 	"gwtoolset-sha1-does-not-match": "SHA-1无法匹配。",
 	"gwtoolset-disk-write-failure": "服务器不能将文件写入文件系统。",
 	"gwtoolset-xml-doctype": "XML元数据文件不能包含<!DOCTYPE>字段。将其移除并重新尝试上传XML元数据文件。",
