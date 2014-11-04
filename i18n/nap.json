@@ -7,7 +7,7 @@
 	},
 	"action-gwtoolset": "ausare GWToolset",
 	"gwtoolset-mediawiki-template": "Modello $1",
-	"gwtoolset-step-1-instructions-3": "Si 'o dumminio vuosto 'e file multimediale nun è annummerato ccà abbascio, [$1 addimannate] ca fosse mpizzato int&#39;'a lista janca 'e dumminie 'e Wikimedia Commons. Chesta lista è na lista 'e dumminie ca Wikimedia Commons cuntrolla apprimma 'e se piglià 'e file multimediale. Si 'o dumminio vuosto nun è dint'a sta lista, Wikimedia Commons nun scarrecarrà 'e file multimediale 'e chillu dumminio. 'O cchiù meglio esempio p'apprisentà na richiesta è nu link a nu file multimediale.",
+	"gwtoolset-step-1-instructions-3": "Si 'o dumminio vuosto 'e file multimediale nun è annummerato ccà abbascio, [$1 addimannate] ca fosse mpizzato int' 'a lista janca 'e dumminie 'e Wikimedia Commons. Chesta lista è na lista 'e dumminie ca Wikimedia Commons cuntrolla apprimma 'e se piglià 'e file multimediale. Si 'o dumminio vuosto nun è dint'a sta lista, Wikimedia Commons nun scarrecarrà 'e file multimediale 'e chillu dumminio. 'O cchiù meglio esempio p'apprisentà na richiesta è nu link a nu file multimediale.",
 	"gwtoolset-mapping-media-file-no-content-type": "Nun se ponno determinà 'e tipe 'e cuntenute pe' l'URL: $1.",
 	"gwtoolset-required-group": "Nun sii membro d\"o gruppo utente $1."
 }
