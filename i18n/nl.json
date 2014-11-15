@@ -193,7 +193,7 @@
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Huidige <code>php.ini</code> instellingen:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nDeze zijn lager ingesteld dan de <code>$wgMaxUploadSize</code> van de wiki, die ingesteld staat op \"$3\". Pas de <code>php.ini</code> instellingen aan.",
 	"gwtoolset-mediawiki-version-invalid": "Deze extensie vereist MediaWiki-versie $1<br/>Deze MediaWiki-versie is $2.",
 	"gwtoolset-permission-not-given": "Zorg ervoor dat u ingelogd bent, of neem contact op met een beheerder om gemachtigd te worden om deze pagina te bekijken ($1).",
-	"gwtoolset-user-blocked": "Uw gebruikersaccount is momenteel geblokkeerd. Neem contact op met een beheerder om dit probleem op te lossen.",
+	"gwtoolset-user-blocked": "Uw gebruiker is momenteel geblokkeerd. Neem contact op met een beheerder om dit probleem op te lossen.",
 	"gwtoolset-required-group": "U bent geen lid van de groep $1.",
 	"gwtoolset-verify-api-enabled": "De $1 extensie vereist dat de API van de wiki geactiveerd is.\n\nZorg ervoor dat <code>$wgEnableAPI</code> ingesteld is op <code>true</code>.",
 	"gwtoolset-verify-api-writeable": "De $1 extensie vereist dat de API van de wiki schrijfacties kan uitvoeren voor geauthoriseerde gebruikers.\n\nZorg ervoor dat <code>$wgEnableWriteAPI</code> ingesteld is op <code>true</code>.",
