@@ -39,7 +39,7 @@ class MetadataDetectForm {
 				array(),
 				wfMessage(
 					'gwtoolset-step-1-instructions-3',
-					'https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment'
+					'https://phabricator.wikimedia.org/maniphest/task/create/?projects=operations&priority=50&title=Whitelist+a+Domain&description=Please+add+the+following+domain+to+the+wgCopyUploadsDomains+whitelist,+so+that+I+can+use+GWToolset+to+upload+media+files+from+that+domain.+I+have+provided+at+least+3+example+URLs+to+media+files+that+will+be+uploaded+with+GWToolset.%0A%0A%3Cdomain+name%3E%0A%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E'
 				)->parse()
 			);
 
