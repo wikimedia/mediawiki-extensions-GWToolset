@@ -145,7 +145,7 @@
 	"gwtoolset-global-tooltip": "Dessa kategoriposter kommer att läggas till globalt på alla uppladdade objekt. Kategorinamn bör i allmänhet vara på engelska (se [[Commons:Categories#Category_names|Commons:Category names]]).",
 	"gwtoolset-maps-to": "Mappar till",
 	"gwtoolset-mapping-media-file-url-extension-bad": "Filtillägget kunde inte fastställas från filens URL: $1.",
-	"gwtoolset-mapping-media-file-url-bad": "URL:en för mediefilen kunde inte utvärderas. URL:en levererar innehållet på ett sätt som ännu inte kan hanteras av detta tillägget eller uppstod ett fel under HTTP-begäran. Den angivna URL:en var \"$1\". Fel för HTTP-begäran \"$2\"",
+	"gwtoolset-mapping-media-file-url-bad": "URL:en för mediefilen kunde inte utvärderas. URL:en levererar innehållet på ett sätt som ännu inte kan hanteras av detta tillägget eller så uppstod ett fel under HTTP-begäran. Den angivna URL:en var \"$1\". Fel för HTTP-begäran \"$2\"",
 	"gwtoolset-metadata-field": "Metadatafält",
 	"gwtoolset-metadata-file": "Metadatafil",
 	"gwtoolset-metadata-mapping-legend": "Mappa din metadata",
