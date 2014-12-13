@@ -37,7 +37,7 @@
 	"gwtoolset-no-file-backend-name": "未提供檔案的後端名稱。",
 	"gwtoolset-no-file-backend-container": "未提供檔案的後端容器名稱。",
 	"gwtoolset-no-file-url": "未提供 <code>file_url</code> 供解析。",
-	"gwtoolset-no-form-handler": "未建立表單處理程式。",
+	"gwtoolset-no-form-handler": "未建立表單處置器。",
 	"gwtoolset-no-mapping": "未提供 <code>mapping_name</code>。",
 	"gwtoolset-no-mapping-json": "未提供 <code>mapping_json</code>。",
 	"gwtoolset-no-max": "未提供最大值。",
