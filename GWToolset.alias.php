@@ -62,5 +62,5 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'GWToolset' => array( 'GW 工具組' ),
+	'GWToolset' => array( 'GW_工具組' ),
 );
