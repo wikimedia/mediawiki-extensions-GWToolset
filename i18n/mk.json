@@ -188,7 +188,7 @@
 	"gwtoolset-permission-not-given": "Проверете дали сте најавени или обратете се кај администратор за да ви даде дозвола да ја гледате страницава ($1).",
 	"gwtoolset-user-blocked": "Вашата корисничка сметка е моментално блокирана. Обратете се кај администратор за да го средите проблемот.",
 	"gwtoolset-required-group": "Не членувате во групата „$1“.",
-	"gwtoolset-verify-api-enabled": "Додатокот „$1“ бара да е овозможен википрилогот (API).\n\nПроверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code>.",
+	"gwtoolset-verify-api-enabled": "Додатокот „$1“ бара да е овозможен викиизвршникот.\n\nПроверете дали <code>$wgEnableAPI</code> е наместено на <code>true</code>.",
 	"gwtoolset-verify-api-writeable": "Додатокот „$1“ бара википрилогот да може да запишува за овластени корисници.\n\nВнимавајте <code>$wgEnableWriteAPI</code> да биде наместено на <code>true</code>.",
 	"gwtoolset-verify-curl": "Додатокот „$1“ бара да бидат воспоставени [http://www.php.net/manual/en/curl.setup.php функциите на cURL] во PHP.",
 	"gwtoolset-verify-finfo": "Додатокот „$1“ бара да е воспоставен додатокот „[http://www.php.net/manual/en/fileinfo.setup.php finfo]“ за PHP.",
