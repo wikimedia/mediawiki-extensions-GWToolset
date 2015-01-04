@@ -187,7 +187,7 @@
 	"gwtoolset-global-license-explanation": "或者您可於下方指定一個全域授權條款，將會用來套用至所有在批次上傳的項目。 此數值可以是任意的文字值，或者為 MediaWiki 樣板。 如果此欄位中有數值，則任何已對應至許可參數的詮釋資料數值將會被忽略。",
 	"gwtoolset-select-template": "請選擇一個樣板：",
 	"gwtoolset-select-custom-template": "或輸入一個自訂的樣板：",
-	"gwtoolset-no-templatedata": "沒有樣板 $1 的 <code>&lt;templatedata></code> 區塊。\n\n若可能，請新增 $2 至樣板，或者樣板的 $3。",
+	"gwtoolset-no-templatedata": "沒有模板 $1 的 <code>&lt;templatedata></code> 區塊。\n\n若可能，請新增 $2 至模板，或者模板的 $3。",
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> 區塊",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
 	"gwtoolset-title-none": "無標題",
