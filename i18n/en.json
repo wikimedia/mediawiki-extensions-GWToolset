@@ -165,7 +165,7 @@
 	"gwtoolset-record-count": "Total number of records found in this metadata file: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Step 2: Metadata mapping",
 	"gwtoolset-step-2-instructions-heading": "Mapping the metadata fields",
-	"gwtoolset-step-2-instructions-1": "Below is/are :",
+	"gwtoolset-step-2-instructions-1": "Below are:",
 	"gwtoolset-step-2-instructions-1-li-1": "A list of the fields in the MediaWiki $1.",
 	"gwtoolset-step-2-instructions-1-li-2": "Drop-down fields that represent the metadata fields found in the metadata file.",
 	"gwtoolset-step-2-instructions-1-li-3": "A sample record from the metadata file.",
