@@ -9,6 +9,7 @@
 
 namespace GWToolset;
 use Exception;
+use Sanitizer;
 
 class GWTException extends Exception {
 
@@ -48,7 +49,7 @@ class GWTException extends Exception {
 		} else if ( strpos( $message, 'gwtoolset-' ) !== false ) {
 			$result .= wfMessage( $message )->parse();
 		} else {
-			$result = Utils::sanitizeString( $message );
+			$result = Sanitizer::removeHTMLtags( $message );
 		}
 
 		return $result;
