@@ -9,7 +9,7 @@
 	"gwtoolset-desc": "GWToolset, GLAM-massalataustyökalu",
 	"gwtoolset-intro": "GWToolset on MediaWiki-laajennus, jonka avulla GLAMit (galleriat, kirjastot, arkistot ja museot) voivat massaladata sisältöä Wikimedia Commonsiin vastaavat metatiedot sisältävän XML-tiedoston avulla. Tavoitteena on tarjota useita myös erilaisia XML-skeemoja. Lisätietoja hankkeesta löytyy [[commons:Commons:GLAMToolset_project|projektisivulta]]. Ota yhteyttä kyseisen sivun kautta. Valitse jokin yllä olevan valikon vaihtoehdoista latausprosessin käynnistämiseksi.",
 	"right-gwtoolset": "Käytä GWToolsetiä",
-	"action-gwtoolset": "käytä GWToolsetiä",
+	"action-gwtoolset": "käyttää GWToolsetiä",
 	"group-gwtoolset": "GWToolsetin käyttäjät",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolsetin käyttäjä}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolsetin käyttäjät",
