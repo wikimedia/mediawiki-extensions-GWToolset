@@ -412,7 +412,9 @@ class Utils {
 		}
 
 		$logid = $logEntry->insert();
-		$logEntry->publish( $logid );
+		// Do not call $logEntry->publish( $logid );
+		// as we only want this on Special:Log/gwtoolset, and not
+		// Special:Recentchanges or RC irc feed
 	}
 
 	/**
