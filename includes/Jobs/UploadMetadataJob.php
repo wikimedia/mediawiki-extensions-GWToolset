@@ -59,7 +59,7 @@ class UploadMetadataJob extends Job {
 			array( 'User' => $this->User )
 		);
 
-		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'] );
+		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'], true );
 	}
 
 	/**

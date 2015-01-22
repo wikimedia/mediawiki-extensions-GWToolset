@@ -361,12 +361,13 @@ class MetadataMappingHandler extends FormHandler {
 	 *
 	 * @param {array} $user_options
 	 * an array of user options that was submitted in the html form
+	 * @param boolean $fromJob Is this coming from a job or direct from user
 	 *
 	 * @throws {GWTException}
 	 * @return {array|string}
 	 * an array of mediafile Title(s)
 	 */
-	protected function processMetadata( array &$user_options ) {
+	protected function processMetadata( array &$user_options, $fromJob = false ) {
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
 		$this->_Mapping->mapping_array =
 			$this->_MediawikiTemplate->getMappingFromArray( $this->_whitelisted_post );
@@ -438,7 +439,7 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		// this method is being run by a wiki job.
-		if ( PHP_SAPI === 'cli' || empty( $this->SpecialPage ) ) {
+		if ( $fromJob || empty( $this->SpecialPage ) ) {
 			// add jobs created earlier by $this->_UploadHandler::saveMediafileViaJob to the JobQueue
 			if ( count( $this->_UploadHandler->mediafile_jobs ) > 0 ) {
 				JobQueueGroup::singleton()->push( $this->_UploadHandler->mediafile_jobs );
@@ -503,13 +504,14 @@ class MetadataMappingHandler extends FormHandler {
 	 * and returns a response, typically an html form
 	 *
 	 * @param {array} $original_post
+	 * @param boolean $fromJob
 	 *
 	 * @return {string|array}
 	 * - an html form, which is filtered in the getForm method
 	 * - an html response, which has been escaped and parsed by wfMessage
 	 * - an array of mediafile Title(s)
 	 */
-	public function processRequest( array $original_post = array() ) {
+	public function processRequest( array $original_post = array(), $fromJob = false ) {
 		$result = null;
 
 		if ( empty( $original_post ) ) {
@@ -548,7 +550,7 @@ class MetadataMappingHandler extends FormHandler {
 
 		if ( $user_options['preview'] === true ) {
 			$user_options['gwtoolset-mediafile-throttle'] = (int)Config::$preview_throttle;
-			$metadata_items = $this->processMetadata( $user_options );
+			$metadata_items = $this->processMetadata( $user_options, $fromJob );
 
 			$result = PreviewForm::getForm(
 				$this->SpecialPage->getContext(),
@@ -559,10 +561,11 @@ class MetadataMappingHandler extends FormHandler {
 		} else {
 			$user_options['save-as-batch-job'] = true;
 
-			// when PHP_SAPI !== 'cli', this method is being run by a user as a SpecialPage,
+			// when !$fromJob, this method is being run by a user as a SpecialPage,
 			// thus this is the creation of the initial uploadMetadataJob. subsequent
 			// uploadMetadataJobs are created in $this->processMetadata() when necessary.
-			if ( PHP_SAPI !== 'cli' ) {
+			// Note: Just because its a job doesn't neccesarily imply its from the commandline.
+			if ( !$fromJob ) {
 				$result =
 					Html::rawElement(
 						'h2',
@@ -571,10 +574,10 @@ class MetadataMappingHandler extends FormHandler {
 					) .
 					$this->createMetadataBatchJob( $user_options );
 
-			// when PHP_SAPI === 'cli', this method is being run by a wiki job;
+			// $fromJob, this method is being run by a wiki job;
 			// typically uploadMediafileJob.
 			} else {
-				$result = $this->processMetadata( $user_options );
+				$result = $this->processMetadata( $user_options, $fromJob );
 			}
 		}
 
