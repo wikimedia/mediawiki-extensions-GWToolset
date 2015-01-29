@@ -80,7 +80,7 @@
 	"gwtoolset-unaccepted-extension": "The file source does not contain an accepted file extension.",
 	"gwtoolset-unaccepted-extension-specific": "The file source has an unaccepted file extension \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "The uploaded file is interpreted as having the MIME type \"$1\", which is not an accepted MIME type.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "The uploaded file has the MIME type \"$1\", which is not an accepted. Does the XML file have an XML declaration at the top of the file?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "The uploaded file has the MIME type <code dir=\"ltr\">$1</code>, which is not accepted.<br />Does the XML file have an XML declaration, <code dir=\"ltr\">$2</code>, at the top of the file?",
 	"gwtoolset-back-text-link": "← go back to the form",
 	"gwtoolset-back-text": "Press the browser back button to go back to the form.",
 	"gwtoolset-file-interpretation-error": "There was a problem processing the metadata file.",

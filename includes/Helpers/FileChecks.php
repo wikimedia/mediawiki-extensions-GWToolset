@@ -185,7 +185,7 @@ class FileChecks {
 	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = array() ) {
 		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
 			if ( self::$current_extension === 'xml' ) {
-				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Utils::sanitizeString( $File->mime_type ) );
+				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Utils::sanitizeString( $File->mime_type ), '<?xml version="1.0" encoding="UTF-8"?>' );
 			} else {
 				return Status::newFatal( 'gwtoolset-unaccepted-mime-type', Utils::sanitizeString( $File->mime_type ) );
 			}
