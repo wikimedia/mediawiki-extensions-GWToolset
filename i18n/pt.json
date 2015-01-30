@@ -14,6 +14,7 @@
 	"gwtoolset-save": "Gravar",
 	"gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1.",
 	"gwtoolset-mapping-media-file-no-content-type": "Não foi possível determinar o tipo de conteúdo de URL: $1.",
+	"gwtoolset-step-2-instructions-1": "Abaixo está:",
 	"gwtoolset-url-to-the-media-file-label": "URL para o arquivo multimédia",
 	"gwtoolset-wrap-institution": "Envoltório de instituição em instituição modelo",
 	"gwtoolset-wrap-language": "Envoltório de metadados em um modelo de idioma",

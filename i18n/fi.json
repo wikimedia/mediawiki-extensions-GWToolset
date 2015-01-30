@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Stryn",
-			"Susannaanas"
+			"Susannaanas",
+			"McSalama"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -140,7 +141,7 @@
 	"gwtoolset-record-count": "Tämän metatietotiedoston tietueiden kokonaismäärä: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Vaihe 2: Metatietojen määritteleminen",
 	"gwtoolset-step-2-instructions-heading": "Metatietokenttien määrittely",
-	"gwtoolset-step-2-instructions-1": "Alla on:",
+	"gwtoolset-step-2-instructions-1": "Alla ovat:",
 	"gwtoolset-step-2-instructions-1-li-1": "MediaWiki-kenttien luettelo $1 .",
 	"gwtoolset-step-2-instructions-1-li-2": "Pudotusvalikon kentät, jotka edustavat metatietokenttiä metatietotiedostossa.",
 	"gwtoolset-step-2-instructions-1-li-3": "Näytetietue metatietotiedostosta.",
