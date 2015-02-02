@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jewel457"
+			"Jewel457",
+			"Leeheonjin"
 		]
 	},
+	"gwtoolset-unaccepted-mime-type-for-xml": "Ang ikinargang talakasan ay mayroong kauring MIME <code dir=\"ltr\">$1</code>, na hindi tinatanggap.<br />Mayroon bang deklarasyong XML ang talakasang XML, <code dir=\"ltr\">$2</code>, sa ibabaw ng talakasan?",
+	"gwtoolset-step-2-instructions-1": "Ang mga nasa baba ay:",
 	"gwtoolset-reverse-creator": "Pagpalitin apelyido, unang pangalan",
 	"gwtoolset-wrap-language-heading": "Padron ng mga wika",
 	"gwtoolset-select-template": "Pumili ng padron:"

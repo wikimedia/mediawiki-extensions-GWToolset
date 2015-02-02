@@ -70,7 +70,7 @@
 	"gwtoolset-unaccepted-extension": "Lähdetiedosto ei sisällä hyväksyttyä tiedostotunnistetta.",
 	"gwtoolset-unaccepted-extension-specific": "Lähdetiedostossa on odottamaton tiedostotunniste \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "Ladatussa tiedostossa tulkitaan olevan MIME-tyyppi \"$1\", joka ei ole hyväksytty tyyppi.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Ladatussa tiedostossa on MIME-tyyppi \"$1\", joka ei ole hyväksytty tyyppi. Onko XML-tiedoston alussa XML-määritys?\n\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Ladatussa tiedostossa on MIME-tyyppi <code dir=\"ltr\">$1</code>, joka ei ole hyväksytty tyyppi. <br /> Onko XML-tiedoston yläreunassa XML-määritys <code dir=\"ltr\">$2</code>?",
 	"gwtoolset-back-text-link": "← siirry takaisin lomakkeeseen",
 	"gwtoolset-back-text": "Paina selaimen takaisin-painiketta palataksesi lomakkeeseen.",
 	"gwtoolset-file-interpretation-error": "Metatietotiedoston käsittelemisessä tapahtui virhe.",

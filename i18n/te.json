@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Veeven"
+			"Veeven",
+			"M phani"
 		]
 	},
 	"gwtoolset-summary-heading": "సారాంశం",
@@ -9,5 +10,6 @@
 	"gwtoolset-loading": "దయచేసి ఓపిక వహించండి. ఇది కొంతసేపు పట్టవచ్చు.",
 	"gwtoolset-save": "భద్రపరచు",
 	"gwtoolset-category": "వర్గం",
-	"gwtoolset-global-categories": "సార్వత్రిక వర్గాలు"
+	"gwtoolset-global-categories": "సార్వత్రిక వర్గాలు",
+	"gwtoolset-step-2-instructions-1": "క్రింద ఉన్నవి:"
 }
