@@ -11,7 +11,8 @@
 			"Brunoperel",
 			"Cquoi",
 			"Constructeur",
-			"Ltrlg"
+			"Ltrlg",
+			"Element303"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -86,7 +87,7 @@
 	"gwtoolset-unaccepted-extension": "Le fichier source ne contient pas une extension de fichier acceptée.",
 	"gwtoolset-unaccepted-extension-specific": "Le fichier source a une extension de fichier « $1 » non acceptée.",
 	"gwtoolset-unaccepted-mime-type": "Le fichier importé est interprété comme ayant le type MIME « $1 », qui n’est pas un type MIME accepté.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Le fichier importé a le type MIME « $1 », qui n’est pas accepté. Le fichier XML a-t-il une déclaration XML au début du fichier ?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Le fichier importé a le type MIME <code dir=\"ltr\">$1</code>, qui n’est pas accepté. <br />Le fichier XML a-t-il une déclaration XML, <code dir=\"ltr\">$2</code>, au début du fichier ?",
 	"gwtoolset-back-text-link": "← retour au formulaire",
 	"gwtoolset-back-text": "Appuyer sur le bouton retour arrière du navigateur pour revenir au formulaire.",
 	"gwtoolset-file-interpretation-error": "Il y a eu un problème de traitement du fichier de métadonnées",
@@ -169,7 +170,7 @@
 	"gwtoolset-record-count": "Nombre total d’enregistrements trouvée dans ce fichier de métadonnées : {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Étape 2 : Correspondance des métadonnées",
 	"gwtoolset-step-2-instructions-heading": "Correspondance des champs de métadonnées",
-	"gwtoolset-step-2-instructions-1": "Ci-dessous se trouve(nt) :",
+	"gwtoolset-step-2-instructions-1": "Ci-dessous se trouvent :",
 	"gwtoolset-step-2-instructions-1-li-1": "Une liste des champs dans le $1 de MediaWiki",
 	"gwtoolset-step-2-instructions-1-li-2": "Champs déroulants qui représentent les champs de métadonnées trouvés dans le fichier de métadonnées.",
 	"gwtoolset-step-2-instructions-1-li-3": "Un enregistrement exemple pour le fichier de métadonnées.",
