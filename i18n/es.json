@@ -79,7 +79,7 @@
 	"gwtoolset-partial-upload": "El archivo se cargó solo parcialmente.",
 	"gwtoolset-unaccepted-extension-specific": "El archivo de origen tiene una extensión no aceptada: «.$1».",
 	"gwtoolset-unaccepted-mime-type": "Se detectó que el archivo cargado pertenece al tipo MIME «$1», que no es aceptado.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "El archivo cargado tiene el tipo MIME no aceptado «$1». Asegúrate de que el archivo XML contiene una declaración XML en la parte superior.\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "El archivo cargado tiene el tipo MIME <code dir=\"ltr\">$1</code>, que no es aceptado. ¿El archivo XML tiene una declaración XML, <code dir=\"ltr\">$2</code>, en la parte superior?",
 	"gwtoolset-back-text-link": "← regresar al formulario",
 	"gwtoolset-back-text": "Pulse el botón «atrás» del navegador para volver al formulario.",
 	"gwtoolset-file-interpretation-error": "Ocurrió un problema al procesar el archivo de metadatos",
