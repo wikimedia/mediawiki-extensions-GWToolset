@@ -84,7 +84,7 @@
 	"gwtoolset-back-text-link": "{{msg-mw|Gwtoolset-back-text}} is replaced by an anchor tag when JavaScript is active; this text is used as the text of the anchor tag.\n\nUsed as <code>$2</code> in {{msg-mw|Gwtoolset-no-xml-element-found}}.",
 	"gwtoolset-back-text": "User message telling the user to use the browser back button to go back to the HTML form.\n\nWhen JavaScript is active this message is replaced with an anchor tag using {{msg-mw|Gwtoolset-back-text-link}}.",
 	"gwtoolset-file-interpretation-error": "Heading that appears when there was a problem interpreting the metadata file.",
-	"gwtoolset-mediawiki-template": "Heading used on the mapping page. Parameters:\n* $1 is the wiki template name that will be used for mapping the metadata to the wiki template.",
+	"gwtoolset-mediawiki-template": "Heading used on the mapping page. Parameters:\n* $1 is the wiki template name that will be used for mapping the metadata to the wiki template.\n{{Identical|Template}}",
 	"gwtoolset-metadata-user-options-error": "Initial paragraph that notifies the user that there are form fields missing. The specific form fields that are missing are mentioned separately.\n\nParameters:\n* $1 - list of fields. e.g. <code>gwtoolset-mediawiki-template-name</code> (untranslatable)\n* $2 - number of fields, used for PLURAL",
 	"gwtoolset-menu": "The extension menu list. Parameters:\n* $1 is a parameter placeholder that will be replaced with HTML list elements.",
 	"gwtoolset-menu-1": "The first menu item for the extension menu list.",
