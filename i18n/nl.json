@@ -10,7 +10,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Mar(c)",
-			"Spinster"
+			"Spinster",
+			"Macofe"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -85,7 +86,7 @@
 	"gwtoolset-unaccepted-extension": "Het bestand heeft geen bestandsextensie die is toegestaan.",
 	"gwtoolset-unaccepted-extension-specific": "Het bestand heeft een bestandsextensie die niet is toegestaan: \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "Het geüploade bestand lijkt het MIME-type \"$1\" te hebben. Dit MIME-type is niet toegestaan.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Het geüploade bestand lijkt het MIME-type \"$1\" te hebben. Dit MIME-type is niet toegestaan. Heeft het XML-bestand een XML-declaratie bovenaan in het bestand?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Het geüploade bestand lijkt het MIME-type <code dir=\"ltr\">$1</code> te hebben. Dit MIME-type is niet toegestaan.<br /> Heeft het XML-bestand een XML-declaratie, <code dir=\"ltr\">$2</code>, bovenaan in het bestand?",
 	"gwtoolset-back-text-link": "← terug naar het formulier",
 	"gwtoolset-back-text": "Klik op de knop \"Terug\" in uw browser om terug te gaan naar het formulier.",
 	"gwtoolset-file-interpretation-error": "Er is een probleem opgetreden tijdens het verwerken van het bestand met metadata.",
@@ -166,7 +167,7 @@
 	"gwtoolset-record-count": "Totaal aantal records in dit metadatabestand: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Stap 2: Metadata toewijzen",
 	"gwtoolset-step-2-instructions-heading": "Metadatavelden koppelen",
-	"gwtoolset-step-2-instructions-1": "Hieronder is/zijn:",
+	"gwtoolset-step-2-instructions-1": "Hieronder zijn:",
 	"gwtoolset-step-2-instructions-1-li-1": "Een lijst van de velden in de MediaWikipagina $1.",
 	"gwtoolset-step-2-instructions-1-li-2": "Keuzelijstvelden die gevonden zijn in het bestand met metadata die de metadatavelden representeren .",
 	"gwtoolset-step-2-instructions-1-li-3": "Een voorbeeldrecord van het metadatabestand.",

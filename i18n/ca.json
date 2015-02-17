@@ -5,7 +5,8 @@
 			"KRLS",
 			"Papapep",
 			"QuimGil",
-			"Toniher"
+			"Toniher",
+			"Macofe"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -76,7 +77,7 @@
 	"gwtoolset-unaccepted-extension": "El fitxer origen no conté cap extensió admesa.",
 	"gwtoolset-unaccepted-extension-specific": "El fitxer origen té l'extensió no admesa \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "S'interpreta que el fitxer pujat és del tipus MIME \"$1\", que no s'accepta.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "El fitxer pujat és del tipus MIME \"$1\", que no s'accepta. Hi ha una declaració XML al capdamunt del fitxer XML?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "El fitxer pujat és del tipus MIME <code dir=\"ltr\">$1</code>, que no s'accepta.<br /> Hi ha una declaració XML, <code dir=\"ltr\">$2</code>, al capdamunt del fitxer XML?",
 	"gwtoolset-back-text-link": "← torna al formulari",
 	"gwtoolset-back-text": "Premeu el botó d'enrere per tornar al formulari.",
 	"gwtoolset-file-interpretation-error": "S'ha produït un error en processar el fitxer de metadades",
