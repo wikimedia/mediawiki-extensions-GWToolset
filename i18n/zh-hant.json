@@ -78,7 +78,7 @@
 	"gwtoolset-unaccepted-extension": "檔案來源未包含接受的檔案副檔名。",
 	"gwtoolset-unaccepted-extension-specific": "檔案來源使用了未接受的檔案副檔名 \".$1\"。",
 	"gwtoolset-unaccepted-mime-type": "已辨識上傳的檔案為 MIME 類型 \"$1\"，該類型不是已接受的 MIME 類型。",
-	"gwtoolset-unaccepted-mime-type-for-xml": "不接受已上傳的檔案 MIME 類型 \"$1\"，請確認 XML 檔案頂端是否含有 XML 宣告？\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "上傳的檔案有 MIME 類型 <code dir=\"ltr\">$1</code>，它是不被接受的。<br /> XML 檔案頂端是否含有 XML 宣告 <code dir=\"ltr\">$2</code>？",
 	"gwtoolset-back-text-link": "← 返回至表單",
 	"gwtoolset-back-text": "點選瀏覽器返回按鈕以返回表單。",
 	"gwtoolset-file-interpretation-error": "處理詮釋資料檔案時發生錯誤。",
