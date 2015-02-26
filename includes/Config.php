@@ -183,12 +183,6 @@ class Config {
 	public static $metadata_sets_subpage = 'Metadata_Sets';
 
 	/**
-	 * @var {string}
-	 * category automatically added to items uploaded by GWToolset
-	 */
-	public static $mediawiki_template_default_category = 'GWToolset Batch Upload';
-
-	/**
 	 * @var {int}
 	 */
 	public static $preview_throttle = 3;

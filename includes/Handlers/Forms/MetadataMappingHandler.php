@@ -158,12 +158,16 @@ class MetadataMappingHandler extends FormHandler {
 	 * an array of user options that was submitted in the html form
 	 */
 	protected function getGlobalCategories( array &$user_options ) {
-		$user_options['categories'] = Config::$mediawiki_template_default_category;
+		$user_options['categories'] = '';
 
 		if ( isset( $this->_whitelisted_post['gwtoolset-category'] ) ) {
 			foreach ( $this->_whitelisted_post['gwtoolset-category'] as $category ) {
 				if ( !empty( $category ) ) {
-					$user_options['categories'] .= Config::$category_separator . $category;
+					if ( empty( $user_options['categories'] ) ) {
+						$user_options['categories'] .= $category;
+					} else {
+						$user_options['categories'] .= Config::$category_separator . $category;
+					}
 				}
 			}
 		}
