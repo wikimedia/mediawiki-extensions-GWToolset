@@ -166,6 +166,7 @@
 	"gwtoolset-specific-categories": "项具体分类",
 	"gwtoolset-template-field": "模板字段",
 	"gwtoolset-step-3-instructions-heading": "第3步：预览批处理",
+	"gwtoolset-step-3-instructions-1": "以下是上传自您选择的元数据文件{{PLURAL:$1|第一次|前$1次}}记录的结果，以及您在“{{int:gwtoolset-step-2-heading}}”中选择的，映射自{{PLURAL:$1|它|它们}}的MediaWiki模板。",
 	"gwtoolset-step-3-instructions-2": "复核模板，并且如果结果满足您的期望，通过点击下方的“{{int:gwtoolset-process-batch}}”按钮继续“{{int:gwtoolset-step-4-heading}}”。",
 	"gwtoolset-step-3-instructions-3": "如果您对结果不满意，回到“{{int:gwtoolset-step-2-heading}}”并调整必要映射。\n如果您需要对元数据文件本身调整，继续这样做并重新通过“{{int:gwtoolset-step-1-heading}}”的步骤上传。",
 	"gwtoolset-title-bad": "创建基于元数据和MediaWiki模板映射的标题无效。请尝试元数据另一字段用于标题和标题标识符，或如果可能，更改需要用到的元数据。参见[https://commons.wikimedia.org/wiki/Commons:File_naming 文件命名]以获取更多信息。<strong>无效标题：</strong>$1。",
