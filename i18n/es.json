@@ -135,6 +135,7 @@
 	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia",
 	"gwtoolset-wrap-institution-heading": "Plantilla de la institución",
 	"gwtoolset-wrap-language-heading": "Plantilla de idioma",
+	"gwtoolset-detect-license": "Intento de detección de licencia",
 	"gwtoolset-detect-license-heading": "Plantilla de licencia",
 	"gwtoolset-global-license": "Licencia global",
 	"gwtoolset-select-template": "Selecciona una plantilla:",
