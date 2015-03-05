@@ -159,7 +159,7 @@
 	"gwtoolset-batchjob-metadata-creation-failure": "無法建立詮釋資料檔案的批次處理作業。",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "步驟 3：批次上傳",
-	"gwtoolset-invalid-token": "與表單一同送出的編輯密鑰無效。",
+	"gwtoolset-invalid-token": "與表單一同送出的編輯金鑰無效。",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "目前的 <code>php.ini</code> 設定：\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\n這些設定底於 Wiki 的 <code>$wgMaxUploadSize</code>，目前設定為 \"$3\"。 請適當調整 <code>php.ini</code> 設定。",
 	"gwtoolset-mediawiki-version-invalid": "此擴充套件需要 MediaWiki 版本 $1<br />。此 MediaWiki 版本為 $2。",
 	"gwtoolset-permission-not-given": "請確認您已登入系統或聯絡管理員授權您檢視此頁面的權限 ($1)。",
