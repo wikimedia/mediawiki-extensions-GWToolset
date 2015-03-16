@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"555"
+			"555",
+			"Opraco"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -10,7 +11,7 @@
 	"right-gwtoolset": "Usar as ferramentas GWToolset",
 	"action-gwtoolset": "usar as ferramentas GWToolset",
 	"group-gwtoolset": "Usuários da GWToolset",
-	"group-gwtoolset-member": "{{GENDER:$1|Usuário|Usuária|Usuário}} da GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|Usuário|Usuária|Usuário(a)}} da GWToolset",
 	"grouppage-gwtoolset": "{{ns:project}}:Usuários da GWToolset",
 	"gwtoolset-batchjob-creation-failure": "Não foi possível criar um trabalho em lotes do tipo \"$1\".",
 	"gwtoolset-could-not-close-xml": "Não foi possível fechar o leitor XML",
