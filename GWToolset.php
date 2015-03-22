@@ -46,6 +46,7 @@ $wgNamespacesWithSubpages[NS_GWTOOLSET] = true;
 $wgNamespacesWithSubpages[NS_GWTOOLSET_TALK] = true;
 
 // add user permissions
+$wgAvailableRights[] = 'gwtoolset';
 $wgGroupPermissions["gwtoolset"]["gwtoolset"] = true;
 $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
 
