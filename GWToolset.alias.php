@@ -37,7 +37,7 @@ $specialPageAliases['fa'] = array(
 
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
-	'GWToolset' => array( 'ארגז_גלי_גלאם_ויקי' ),
+	'GWToolset' => array( 'ארגז_כלי_גלאם_ויקי', 'ארגז_גלי_גלאם_ויקי' ),
 );
 
 /** Korean (한국어) */
