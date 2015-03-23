@@ -21,7 +21,7 @@
 	"gwtoolset-could-not-open-xml": "無法開啟 XML 檔案讀取。",
 	"gwtoolset-developer-issue": "請聯絡開發人員，此問題必須先解決此問題才可以繼續。 請將以下文字加入至您的回報內容：\n\n$1",
 	"gwtoolset-dom-record-issue": "未提供 <code>record-element-name</code> 或 <code>record-count</code> 或 <code>record-current</code>。",
-	"gwtoolset-file-backend-maxage-invalid": "於 <code>$wgGWTFBMaxAge</code> 所提供的最大年齡值無效。\n請參考 [php.net/manual/en/datetime.formats.relative.php PHP 手冊] 以了解如何正確設定。",
+	"gwtoolset-file-backend-maxage-invalid": "於 <code>$wgGWTFBMaxAge</code> 所提供的最大年齡值無效。\n請參考 [php.net/manual/en/datetime.formats.relative.php PHP 手冊] 以瞭解如何正確設定。",
 	"gwtoolset-fsfile-empty": "檔案為空的且已刪除。",
 	"gwtoolset-fsfile-retrieval-failure": "無法從 URL $1 接收檔案。",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> 未設定。",
