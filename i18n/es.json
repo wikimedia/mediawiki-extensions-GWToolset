@@ -93,6 +93,7 @@
 	"gwtoolset-loading": "Esto puede tardar un poco, espera.",
 	"gwtoolset-save": "Guardar",
 	"gwtoolset-save-mapping-failed": "Se ha producido un problema al procesar la solicitud. Inténtalo de nuevo más tarde. (Mensaje de error: $1)",
+	"gwtoolset-json-error": "Se produjo un problema en el código JSON. Error: $1",
 	"gwtoolset-json-error-syntax": "Error de sintaxis, JSON con formato incorrecto.",
 	"gwtoolset-json-error-utf8": "Los caracteres UTF-8 tienen errores de formato; probablemente la codificación es incorrecta.",
 	"gwtoolset-json-error-unknown": "Ocurrió un error desconocido.",
