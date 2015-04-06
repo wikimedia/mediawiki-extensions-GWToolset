@@ -76,7 +76,7 @@
 	"gwtoolset-unaccepted-extension": "Изворната податотека не содржи допуштена податотечна наставка.",
 	"gwtoolset-unaccepted-extension-specific": "Изворната податотека ја има недопуштена податотечна наставка „.$1“.",
 	"gwtoolset-unaccepted-mime-type": "Подигнатата податотека се толкува како да има MIME-тип „$1“, кој не е допуштен.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Подигнатата податотека има MIME-тип „$1“, кој не е допуштен. Дали XML-податотеката има изјава за XML во најгорниот дел?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Подигнатата податотека има MIME-тип <code dir=\"ltr\">$1</code>, кој не е допуштен.<br />Дали XML-податотеката има изјава за XML, <code dir=\"ltr\">$2</code>, во најгорниот дел?",
 	"gwtoolset-back-text-link": "← назад на образецот",
 	"gwtoolset-back-text": "Стиснете на копчето „Назад“ во прелистувачот за да се вратите на образецот.",
 	"gwtoolset-file-interpretation-error": "Се појави проблем при обработката на метаподаточната податотека",
