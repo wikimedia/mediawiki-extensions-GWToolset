@@ -25,6 +25,11 @@ $specialPageAliases['arz'] = array(
 	'GWToolset' => array( 'ادوات_ج_و' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'GWToolset' => array( 'جی_ڈبلیو_ٹی_ئی_وسایلان' ),
+);
+
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'GWToolset' => array( 'GWSazhalet' ),
