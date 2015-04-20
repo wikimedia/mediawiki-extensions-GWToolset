@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Breogan2008"
+			"Breogan2008",
+			"Banjo"
 		]
 	},
+	"gwtoolset-no-min": "Non se proporcionou un valor mínimo.",
+	"gwtoolset-no-module": "Non se especificou un nome para o módulo.",
+	"gwtoolset-back-text-link": "← voltar ó formulario",
+	"gwtoolset-submit": "Enviar",
+	"gwtoolset-summary-heading": "Resumo",
+	"gwtoolset-cancel": "Cancelar",
+	"gwtoolset-save": "Gardar",
+	"gwtoolset-json-error-unknown": "Erro descoñecido.",
+	"gwtoolset-category": "Categoría",
 	"gwtoolset-step-2-instructions-1": "Abaixo está"
 }
