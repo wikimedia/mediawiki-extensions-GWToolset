@@ -569,7 +569,7 @@ class UploadHandler {
 		$Api->execute();
 
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$api_result = \ApiResult::removeMetadata( $Api->getResult()->getResultData() );
+			$api_result = $Api->getResult()->getResultData( null, array( 'Strip' => 'all' ) );
 		} else {
 			$api_result = $Api->getResultData();
 		}
