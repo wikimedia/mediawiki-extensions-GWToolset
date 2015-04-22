@@ -80,7 +80,7 @@
 	"gwtoolset-back-text": "Prema o botón «atrás» do navegador para volver ó formulario.",
 	"gwtoolset-file-interpretation-error": "Houbo un problema ó procesar o ficheiro de metadatos",
 	"gwtoolset-mediawiki-template": "Modelo $1",
-	"gwtoolset-metadata-user-options-error": "{{PLURARL:$2|O seguinte campo do formulario ten que estar cuberto|Os seguintes campos do formulario teñen que estar cubertos}}:\n$1",
+	"gwtoolset-metadata-user-options-error": "{{PLURAL:$2|O seguinte campo do formulario ten que estar cuberto|Os seguintes campos do formulario teñen que estar cubertos}}:\n$1",
 	"gwtoolset-menu-1": "Correspondencia dos metadatos",
 	"gwtoolset-technical-error": "Houbo un erro técnico.",
 	"gwtoolset-required-field": "indica un campo obrigatorio",
@@ -109,7 +109,7 @@
 	"gwtoolset-metadata-file-source": "Seleccione o ficheiro orixe de metadatos.",
 	"gwtoolset-metadata-file-url": "URL wiki do ficheiro de metadatos:",
 	"gwtoolset-metadata-file-upload": "Subida do ficheiro de metadatos:",
-	"gwtoolset-metadata-mapping-bad": "Hai un problema coa correspondecia dos metadatos. Probablemente o formato JSON non sexa correcto. Corrixa o problema e logo envíeo de novo.",
+	"gwtoolset-metadata-mapping-bad": "Hai un problema coa correspondecia dos metadatos. Probablemente o formato JSON non sexa correcto. Corrixa o problema e logo envíeo de novo.\n\n$1",
 	"gwtoolset-metadata-mapping-invalid-url": "A URL de correspondencia de metadatos proporcionada non coincide coa URL de correspondencia esperada.\n\n*URL proporcionada: $1\n*URL esperada: $2",
 	"gwtoolset-metadata-mapping-not-found": "Non se atopou a correspondencia dos metadatos.\n\nA páxina \"<strong>$1</strong>\" non existe neste wiki.",
 	"gwtoolset-namespace-mismatch": "A páxina \"<strong>$1</strong>\" está no espazo de nomes incorrecto \"<strong>$2</strong>\".\n\nDebería estar no espazo de nomes \"<strong>$3</strong>\".",
@@ -160,5 +160,8 @@
 	"gwtoolset-step-3-instructions-heading": "Paso 3: previsualización do lote",
 	"gwtoolset-step-3-instructions-1": "Abaixo están os resultados de subir {{PLURAL:$1|o primeiro rexistro|os primeiros $1 rexistros}} do ficheiro de metadatos que seleccionou e  {{PLURAL:$1|coa correspondencia|coas correspondencias}} ó modelo MediaWiki que seleccionou en \"{{int:gwtoolset-step-2-heading}}\".",
 	"gwtoolset-step-3-instructions-2": "Revise os modelos, e se os resultados corresponden co que esperaba, continúe con \"{{int:gwtoolset-step-4-heading}}\", premendo no botón \"{{int:gwtoolset-process-batch}}\" de abaixo.",
-	"gwtoolset-required-group": "Vostede non é membro do grupo $1."
+	"gwtoolset-mediawiki-version-invalid": "Esta extensión require a versión de MediaWiki $1<br />A versión actual desta MediaWiki é $2.",
+	"gwtoolset-required-group": "Vostede non é membro do grupo $1.",
+	"gwtoolset-verify-php-version": "A extensión $1 require PHP >= 5.3.3.",
+	"gwtoolset-title-none": "Sen título"
 }
