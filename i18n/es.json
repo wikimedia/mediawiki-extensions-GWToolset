@@ -72,7 +72,7 @@
 	"gwtoolset-mime-type-mismatch": "La extensión del archivo «$1» y el tipo MIME «$2» del archivo cargado no coinciden.",
 	"gwtoolset-missing-temp-folder": "No hay ninguna carpeta temporal disponible.",
 	"gwtoolset-multiple-files": "El archivo que se subió contiene información en más de un archivo. Sólo un archivo puede ser enviado a la vez.",
-	"gwtoolset-no-extension": "El archivo que fue subido no contiene información suficiente para procesar el archivo. Probablemente no tiene ninguna extensión del archivo.",
+	"gwtoolset-no-extension": "El archivo cargado no contiene información suficiente para su procesamiento. Probablemente le falta la extensión.",
 	"gwtoolset-no-file": "No se recibió ningún archivo.",
 	"gwtoolset-no-form-field": "El campo esperado del formulario «$1» no existe.",
 	"gwtoolset-over-max-ini": "El archivo que se ha cargado supera la directiva <code>upload_max_filesize</code> o <code>post_max_size</code> en <code>php.ini</code>.",
