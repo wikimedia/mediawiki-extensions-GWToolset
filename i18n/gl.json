@@ -185,6 +185,7 @@
 	"gwtoolset-title-too-long": "O título evaluado é demasiado longo, os títulos poden ter unha lonxitude máxima de 240 bytes. Este título ten unha lonxitude de $1 {{PLURAL:$1|byte|bytes}}.\n\n$2",
 	"gwtoolset-title-label": "Título en GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL ó ficheiro multimedia",
+	"gwtoolset-reverse-creator": "Invertir apelido, nome",
 	"gwtoolset-wrap-creator": "Inclúa o creador no modelo de creador",
 	"gwtoolset-wrap-creator-heading": "Modelo de creador",
 	"gwtoolset-wrap-institution": "Inclúa a institución no modelo de institución",
