@@ -115,7 +115,7 @@ class SpecialGWToolset extends SpecialPage {
 			}
 		} else {
 			try {
-				FileChecks::checkContentLength();
+				FileChecks::checkMaxPostSize();
 				$html .= $this->_Handler->execute();
 			} catch ( GWTException $e ) {
 				$html .=

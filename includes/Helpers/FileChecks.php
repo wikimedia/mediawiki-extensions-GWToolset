@@ -29,12 +29,15 @@ class FileChecks {
 	public static $current_extension;
 
 	/**
+	 * Check php.ini max_post_size isn't exceeded.
+	 *
+	 * @note upload_max_filesize is checked separately in Handlers/UploadHandler.php
 	 * @throws {GWTException}
 	 */
-	public static function checkContentLength() {
+	public static function checkMaxPostSize() {
 		if ( isset( $_SERVER["CONTENT_LENGTH"] )
-			&& ( (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('post_max_size') )
-				|| (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('upload_max_filesize') ) )
+			&& Utils::getBytes( ini_get('post_max_size') ) > 0
+			&& ( (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('post_max_size') ) )
 		) {
 			throw new GWTException( 'gwtoolset-over-max-ini' );
 		}

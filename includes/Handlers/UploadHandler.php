@@ -632,7 +632,11 @@ class UploadHandler {
 		$metadata_file_upload = 'gwtoolset-metadata-file-upload'
 	) {
 		$result = null;
-
+		if ( isset( $_FILES[$metadata_file_upload] )
+			&& $_FILES[$metadata_file_upload]['error'] === UPLOAD_ERR_INI_SIZE
+		) {
+			throw new GWTException( 'gwtoolset-over-max-ini' );
+		}
 		if ( empty( $_FILES[$metadata_file_upload]['name'] ) ) {
 			throw new GWTException( 'gwtoolset-no-file' );
 		}
