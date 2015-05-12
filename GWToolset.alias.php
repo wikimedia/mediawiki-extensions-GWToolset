@@ -20,7 +20,7 @@ $specialPageAliases['ar'] = array(
 	'GWToolset' => array( 'أدوات_ج_و' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'GWToolset' => array( 'ادوات_ج_و' ),
 );
