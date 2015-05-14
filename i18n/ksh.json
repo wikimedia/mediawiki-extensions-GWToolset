@@ -42,6 +42,7 @@
 	"gwtoolset-file-is-empty": "En dä huhjelahde Dattei es nix dren.",
 	"gwtoolset-improper-upload": "Di Dattei es nit öhndlesch huhjelaade woode.",
 	"gwtoolset-missing-temp-folder": "Mer han kei Verzeijschnes för jät zewschezeschpäijschere.",
+	"gwtoolset-multiple-files": "The file that was uploaded contains information on more than one file. Only one file can be submitted at a time.\n<!-- \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Gwtoolset-multiple-files/en\n-->",
 	"gwtoolset-no-file": "Kein dattei es aanjekumme.",
 	"gwtoolset-no-form-field": "Et Väld „$1“ vum Fommolaa es nit doh.",
 	"gwtoolset-partial-upload": "Di dattei wohd nit kumplätt huh jelahde.",

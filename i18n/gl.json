@@ -147,6 +147,7 @@
 	"gwtoolset-partner": "Socio",
 	"gwtoolset-partner-template": "Modelo de socio:",
 	"gwtoolset-preview": "Vista previa de lotes",
+	"gwtoolset-preview-mediafile-placeholder-heading": "Espazo reservado para os ficheiros multimedia",
 	"gwtoolset-process-batch": "Procesa o lote",
 	"gwtoolset-record-count": "Número total de rexistros atopados neste ficheiro de metadatos: {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Paso 2: Mapeo de metadatos",

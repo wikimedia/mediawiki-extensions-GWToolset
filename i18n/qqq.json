@@ -5,7 +5,8 @@
 			"Siebrand",
 			"dan-nl",
 			"Liuxinyu970226",
-			"Dan-nl"
+			"Dan-nl",
+			"Nemo bis"
 		]
 	},
 	"gwtoolset": "Extension name.\n\nGWToolset is short for GLAMWiki Toolset.",
@@ -70,7 +71,7 @@
 	"gwtoolset-improper-upload": "User error message that appears when a File was not uploaded properly.",
 	"gwtoolset-mime-type-mismatch": "User error message that appears when the uploaded file’s extension and mime-type do not match. Parameters:\n* $1 is the extension\n* $2 is the MIME type detected.",
 	"gwtoolset-missing-temp-folder": "User error message that appears when the wiki cannot find a temporary folder for file uploads.",
-	"gwtoolset-multiple-files": "User message that appears when the file submitted contains information on more than one file.",
+	"gwtoolset-multiple-files": "Error message provided after an upload attempt. There are two kinds of files mentioned here: one is the XML file containing metadata about a work (e.g. a photo) and the other is the file for the work itself. The work becomes a MediaWiki file, while the metadata becomes the associated file description (a wiki page).",
 	"gwtoolset-no-extension": "User message that appears when the file submitted does not contain enough information to process the file; most likely there is no file extension.",
 	"gwtoolset-no-file": "User error message that appears when no file was received by the upload form.",
 	"gwtoolset-no-form-field": "Developer message that appears when the expected form field does not exist. Parameters:\n* $1 is the name of the expected form field.",
