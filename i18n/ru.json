@@ -5,7 +5,8 @@
 			"Meshkov.a",
 			"Eroha",
 			"Striking Blue",
-			"Eakarpov"
+			"Eakarpov",
+			"Kaganer"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -91,6 +92,6 @@
 	"log-name-gwtoolset": "Журнал GWToolset",
 	"log-description-gwtoolset": "Этот лог отслеживает события GWToolset в вики.",
 	"logentry-gwtoolset-mediafile-job-failed": "$1 задание медиафайла провалено. Запись метаданных $4. $5.",
-	"logentry-gwtoolset-mediafile-job-succeeded": "$1 задание медиафайла успешно. Создано $3. Запись метаданных $4.",
-	"logentry-gwtoolset-metadata-job": "$1 задание метаданных создано. $4."
+	"logentry-gwtoolset-mediafile-job-succeeded": "Сценарий медиафайла $1 выполнен успешно. Создан $3. Запись метаданных $4.",
+	"logentry-gwtoolset-metadata-job": "Создан сценарий метаданных $1. $4."
 }
