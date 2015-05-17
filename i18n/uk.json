@@ -3,7 +3,8 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Ата",
-			"Olion"
+			"Olion",
+			"Base"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -78,7 +79,7 @@
 	"gwtoolset-unaccepted-extension": "Вихідний файл не містить допустиме розширення файлу.",
 	"gwtoolset-unaccepted-extension-specific": "Вихідний файл має неприйнятне розширення файлу \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "Завантажений файл трактується як файл з MIME типом \"$1\", що є недопустимим типом MIME.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Завантажений файл має неприйнятний тип MIME \"$1\". Файл XML має декларацію XML у верхній частині файлу?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Завантажений файл має неприйнятний тип MIME <code dir=\"ltr\">$1</code>.<br />Чи має XML-файл має декларацію XML, <code dir=\"ltr\">$2</code>, у верхній частині файлу?",
 	"gwtoolset-back-text-link": "← повернутися до форми",
 	"gwtoolset-back-text": "Натисніть кнопку браузера \"назад\", щоб повернутися до форми.",
 	"gwtoolset-file-interpretation-error": "Сталася помилка обробки метаданих файлу",
@@ -161,7 +162,7 @@
 	"gwtoolset-record-count": "Всього знайдено записів в цьому файлі метаданих:  {{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "Крок 2: Відображення метаданих",
 	"gwtoolset-step-2-instructions-heading": "Відображення полів метаданих",
-	"gwtoolset-step-2-instructions-1": "Нижче є:",
+	"gwtoolset-step-2-instructions-1": "Нижче наведено:",
 	"gwtoolset-step-2-instructions-1-li-1": "Список полів у Медіавікі $1.",
 	"gwtoolset-step-2-instructions-1-li-2": "Розкривний список полів, які представляють поля метаданих знайти у файлі метаданих.",
 	"gwtoolset-step-2-instructions-1-li-3": "Зразок запису з файлу метаданих.",
@@ -223,6 +224,10 @@
 	"gwtoolset-templatedata-link-text": "блок <code>&lt;templatedata></code>",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
 	"gwtoolset-title-none": "Без назви",
+	"gwtoolset-begin-with": "Почато з запису метаданих $1",
 	"log-name-gwtoolset": "Журнал GWToolset",
-	"log-description-gwtoolset": "Цей журнал відстежує події GWToolset у вікі."
+	"log-description-gwtoolset": "Цей журнал відстежує події GWToolset у вікі.",
+	"logentry-gwtoolset-mediafile-job-failed": "$1 завдання медіа-файлу не вдалось. Запис метаданих $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 успішне виконання завдання медіа-файлу. Створено $3. Запис метаданих $4.",
+	"logentry-gwtoolset-metadata-job": "$1 створено завдання метаданих. $4."
 }
