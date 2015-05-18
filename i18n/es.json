@@ -6,7 +6,8 @@
 			"Wifidel",
 			"Themasterriot",
 			"ProtoplasmaKid",
-			"Macofe"
+			"Macofe",
+			"Ryo567"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -77,6 +78,7 @@
 	"gwtoolset-no-form-field": "El campo esperado del formulario «$1» no existe.",
 	"gwtoolset-over-max-ini": "El archivo que se ha cargado supera la directiva <code>upload_max_filesize</code> o <code>post_max_size</code> en <code>php.ini</code>.",
 	"gwtoolset-partial-upload": "El archivo se cargó solo parcialmente.",
+	"gwtoolset-unaccepted-extension": "El archivo de origen no contiene una extensión de archivo aceptada.",
 	"gwtoolset-unaccepted-extension-specific": "El archivo de origen tiene una extensión no aceptada: «.$1».",
 	"gwtoolset-unaccepted-mime-type": "Se detectó que el archivo cargado pertenece al tipo MIME «$1», que no es aceptado.",
 	"gwtoolset-unaccepted-mime-type-for-xml": "El archivo cargado tiene el tipo MIME <code dir=\"ltr\">$1</code>, que no es aceptado. ¿El archivo XML tiene una declaración XML, <code dir=\"ltr\">$2</code>, en la parte superior?",
@@ -84,6 +86,7 @@
 	"gwtoolset-back-text": "Pulse el botón «atrás» del navegador para volver al formulario.",
 	"gwtoolset-file-interpretation-error": "Ocurrió un problema al procesar el archivo de metadatos",
 	"gwtoolset-mediawiki-template": "Plantilla $1",
+	"gwtoolset-metadata-user-options-error": "Se {{PLURAL:$2|debe completar el siguiente campo|deben completar los siguientes campos}} del formulario:\n$1",
 	"gwtoolset-menu-1": "Correspondencia de metadatos",
 	"gwtoolset-technical-error": "Ocurrió un error técnico.",
 	"gwtoolset-required-field": "indica un campo obligatorio",
@@ -99,6 +102,7 @@
 	"gwtoolset-json-error-unknown": "Ocurrió un error desconocido.",
 	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Tipo de archivo aceptado|Tipos de archivo aceptados}}:",
 	"gwtoolset-mediawiki-template-not-found": "No se encontró la plantilla de MediaWiki «$1».",
+	"gwtoolset-metadata-file-upload": "Archivo de metadatos subido:",
 	"gwtoolset-step-1-heading": "Paso 1: detección de metadatos",
 	"gwtoolset-step-1-instructions-1": "El proceso de carga de metadatos consiste de cuatro pasos:",
 	"gwtoolset-step-1-instructions-3-heading": "Lista blanca de dominios",
@@ -124,6 +128,7 @@
 	"gwtoolset-step-2-instructions-1": "A continuación hay:",
 	"gwtoolset-step-2-instructions-1-li-1": "Una lista de los campos en $1 de MediaWiki.",
 	"gwtoolset-step-2-instructions-1-li-3": "Un registro de muestra del archivo de metadatos.",
+	"gwtoolset-reupload-media": "Resubir multimedia desde URL",
 	"gwtoolset-specific-categories": "Categorías específicas de elemento",
 	"gwtoolset-template-field": "Campo de plantilla",
 	"gwtoolset-step-3-instructions-heading": "Paso 3: previsualización del lote",
@@ -140,6 +145,7 @@
 	"gwtoolset-detect-license-heading": "Plantilla de licencia",
 	"gwtoolset-global-license": "Licencia global",
 	"gwtoolset-select-template": "Selecciona una plantilla:",
+	"gwtoolset-select-custom-template": "o introduce una plantilla personalizada:",
 	"gwtoolset-title-none": "Sin título",
 	"log-name-gwtoolset": "Registro de GWToolset"
 }

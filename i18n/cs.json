@@ -1,8 +1,31 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aktron"
+			"Aktron",
+			"Vks"
 		]
 	},
-	"gwtoolset-step-2-instructions-1": "Níže jsou:"
+	"gwtoolset": "GWToolset",
+	"gwtoolset-sha1-does-not-match": "SHA-1 neodpovídá.",
+	"gwtoolset-disk-write-failure": "Server nemohl zapsat soubor do souborového systému.",
+	"gwtoolset-xml-doctype": "Soubor s XML metadaty nemůže obsahovat sekci <!DOCTYPE>. Vyjměte ji a pak zkuste nahrát soubor s XML metadaty znovu.",
+	"gwtoolset-file-is-empty": "Nahraný soubor je prázdný.",
+	"gwtoolset-improper-upload": "Soubor nebyl nahrán správně.",
+	"gwtoolset-missing-temp-folder": "Žádné dočasné složky nejsou k dispozici.",
+	"gwtoolset-menu-1": "Mapování metadat",
+	"gwtoolset-technical-error": "Došlo k technickému problému.",
+	"gwtoolset-submit": "Odeslat",
+	"gwtoolset-summary-heading": "Shrnutí",
+	"gwtoolset-cancel": "Storno",
+	"gwtoolset-loading": "Prosím, buďte trpěliví. Může to chvíli trvat.",
+	"gwtoolset-save": "Uložit",
+	"gwtoolset-save-mapping": "Uložit mapování",
+	"gwtoolset-json-error-syntax": "Syntaktická chyba, vadná JSON data.",
+	"gwtoolset-json-error-utf8": "Poškozené znaky UTF-8, asi nesprávné kódování.",
+	"gwtoolset-json-error-unknown": "Neznámá chyba.",
+	"gwtoolset-step-1-instructions-3-heading": "Doménový whitelist",
+	"gwtoolset-step-1-instructions-li-4": "Dávkový upload",
+	"gwtoolset-category": "Kategorie",
+	"gwtoolset-step-2-instructions-1": "Níže jsou:",
+	"gwtoolset-create-prefix": "GWToolset"
 }
