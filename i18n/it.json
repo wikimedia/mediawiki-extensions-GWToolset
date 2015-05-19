@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"Maurizio Macchi",
-			"PeppeAeco"
+			"PeppeAeco",
+			"Ricordisamoa"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -50,6 +51,7 @@
 	"gwtoolset-disk-write-failure": "Il server non può scrivere il file in un file system.",
 	"gwtoolset-file-is-empty": "Il file caricato è vuoto.",
 	"gwtoolset-improper-upload": "Il file non è stato caricato correttamente.",
+	"gwtoolset-mime-type-mismatch": "L'estensione \"$1\" e il tipo MIME \"$2\" del file caricato non corrispondono.",
 	"gwtoolset-missing-temp-folder": "Nessuna cartella temporanea disponibile.",
 	"gwtoolset-no-file": "Nessun file è stato ricevuto.",
 	"gwtoolset-no-form-field": "Il campo previsto del modulo \"$1\" non esiste.",

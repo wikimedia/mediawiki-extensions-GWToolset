@@ -81,7 +81,7 @@
 	"gwtoolset-unaccepted-extension": "Källfilen innehåller inte ett accepterat filtillägg.",
 	"gwtoolset-unaccepted-extension-specific": "Källfilen har det oaccepterade filtillägget \".$1\".",
 	"gwtoolset-unaccepted-mime-type": "Den uppladdade filen tolkas som att ha MIME-typ \"$1\", vilket inte är en godkänd MIME-typ.",
-	"gwtoolset-unaccepted-mime-type-for-xml": "Den uppladdade filen har MIME-typ \"$1\", vilket inte är godkänt. Har XML-filen en XML-deklaration överst i filen?\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "Den uppladdade filen har MIME-typ <code dir=\"ltr\">$1</code>, vilket inte är godkänt.<br />Har XML-filen en XML-deklaration, <code dir=\"ltr\">$2</code>, överst i filen?",
 	"gwtoolset-back-text-link": "← gå tillbaka till formuläret",
 	"gwtoolset-back-text": "Tryck på webbläsarens tillbaka-knapp för att gå tillbaka till formuläret.",
 	"gwtoolset-file-interpretation-error": "Det fanns ett problem med att bearbeta metadatafilen",
