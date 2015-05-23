@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Aktron",
-			"Vks"
+			"Vks",
+			"Mormegil"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -11,7 +12,7 @@
 	"gwtoolset-xml-doctype": "Soubor s XML metadaty nemůže obsahovat sekci <!DOCTYPE>. Vyjměte ji a pak zkuste nahrát soubor s XML metadaty znovu.",
 	"gwtoolset-file-is-empty": "Nahraný soubor je prázdný.",
 	"gwtoolset-improper-upload": "Soubor nebyl nahrán správně.",
-	"gwtoolset-missing-temp-folder": "Žádné dočasné složky nejsou k dispozici.",
+	"gwtoolset-missing-temp-folder": "Není k dispozici složka pro dočasné soubory.",
 	"gwtoolset-menu-1": "Mapování metadat",
 	"gwtoolset-technical-error": "Došlo k technickému problému.",
 	"gwtoolset-submit": "Odeslat",

@@ -30,7 +30,7 @@
 	"gwtoolset-mediafile-duplicate-same-title": "Ficheiro multimedia duplicado: este ficheiro multimedia xa existe e ten o mesmo título \"$1\".",
 	"gwtoolset-mediafile-other-contributors": "Outros colaboradores: un ficheiro multimedia co mesmo título \"$1\" xa existe na wiki. Foi editado ou creado por outra persoa.",
 	"gwtoolset-no-accepted-types": "Non se proporcionaron tipos aceptados",
-	"gwtoolset-no-callback": "Non pasou o callback a este método.",
+	"gwtoolset-no-callback": "Non pasou o retorno de chamada a este método.",
 	"gwtoolset-no-comment": "Non se definiu <code>user_options['comment']</code>",
 	"gwtoolset-no-default": "Non se proporcionou ningún valor por defecto.",
 	"gwtoolset-no-field-size": "Non se indicou o tamaño para o campo \"$1\".",
