@@ -213,11 +213,20 @@
 	"gwtoolset-wrap-language-explanation": "Às vezes, um elemento de metadados pode conter um atributo <code>lang</code>. Quando isso acontecer, o valor pode ser incluído em um modelo de idioma, por exemplo, <code><dc:description lang=\"en\">Uma sentença escrita em Inglês.</dc:description></code> se transformaria em {{en|A sentence written in English.}}",
 	"gwtoolset-wrap-language-heading": "Modelo de idioma",
 	"gwtoolset-detect-license": "Tentar detectar a licença",
+	"gwtoolset-detect-license-explanation": "O modelo MediaWiki pode ter um parâmetro  <code>permission</code>. Quando isso acontece, uma tentativa para detectar o copyright com base no valor de metadados pode ser feita. GWToolset procura por URLS de Creative Commons que coincidam com as licenças copyright possíveis, por exemplo, https://creativecommons.org/licenses/by-sa/3.0/ coincide com o modelo de licença MediaWiki <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Se esta opção estiver desmarcada, o valor bruto de metadados para cada item no carregamento do lote será colocado no parâmetro permissão.",
 	"gwtoolset-detect-license-heading": "Modelo de licença",
 	"gwtoolset-global-license": "Licença global",
+	"gwtoolset-global-license-explanation": "Ou você pode especificar abaixo uma licença global que será aplicada a todos os itens do lote de upload. Este valor pode ser um valor de texto livre ou um modelo MediaWiki. Se este campo tem um valor, então, qualquer valor de metadados mapeado para o parâmetro de permissão será ignorado.",
 	"gwtoolset-select-template": "Selecionar um modelo:",
 	"gwtoolset-select-custom-template": "ou insira um modelo personalizado:",
+	"gwtoolset-no-templatedata": "Não há bloco <code>&lt;templatedata></code> para o modelo $1.\n\nSe possível, adicionar um $2 ao modelo, ou ao $3 do modelo.",
+	"gwtoolset-templatedata-link-text": "bloco <code>&lt;templatedata></code>",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
 	"gwtoolset-title-none": "Sem título",
-	"log-name-gwtoolset": "Registro GWToolset"
+	"gwtoolset-begin-with": "Iniciado com registro de metadados $1",
+	"log-name-gwtoolset": "Registro GWToolset",
+	"log-description-gwtoolset": "Este registro acompanha os eventos de GWToolset na wiki.",
+	"logentry-gwtoolset-mediafile-job-failed": "O trabalho multimídia $1 falhou. Registro de metadados $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "O trabalho multimídia $1 teve sucesso. Criado $3. Registro de metadados $4.",
+	"logentry-gwtoolset-metadata-job": "Trabalho de metadados $1 criado. $4."
 }
