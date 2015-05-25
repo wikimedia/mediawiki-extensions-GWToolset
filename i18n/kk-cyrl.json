@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
+	"gwtoolset-back-to-top": "беттің бас жағы",
+	"gwtoolset-no-default": "Әдепкі мәні көрсетілмеген.",
+	"gwtoolset-submit": "Жіберу",
+	"gwtoolset-summary-heading": "Түйіндемесі",
+	"gwtoolset-cancel": "Болдырмау",
+	"gwtoolset-save": "Сақтау",
+	"gwtoolset-save-mapping": "Картаны сақтау",
+	"gwtoolset-save-mapping-succeeded": "Картаны өңдеуіңіз сақталды.",
+	"gwtoolset-save-mapping-name": "Бұл картаның атауын қалай болғанын қалайсыз?",
+	"gwtoolset-step-1-instructions-3-heading": "Домейн ақ тізімі",
+	"gwtoolset-upload-legend": "Метадерек файлыңызды жүктеңіз",
+	"gwtoolset-category": "Санат",
+	"gwtoolset-global-categories": "Ғаламдық санаттар",
+	"gwtoolset-wrap-language-heading": "Тіл үлгісі",
+	"gwtoolset-detect-license-heading": "Дицензия үлгісі",
+	"gwtoolset-global-license": "Ғаламдық лицензия",
+	"gwtoolset-select-template": "Үлгіні таңдау:",
+	"gwtoolset-select-custom-template": "немесе қалыпты үлгіні енгізу:",
+	"gwtoolset-title-none": "Атаусыз"
+}

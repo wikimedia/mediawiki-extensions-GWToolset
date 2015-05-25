@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"NehalDaveND"
 		]
 	},
-	"gwtoolset-back-to-top": "⇪ पृष्ठको सुरुमा"
+	"gwtoolset-back-to-top": "⇪ पृष्ठको सुरुमा",
+	"gwtoolset-submit": "बुझाउने",
+	"gwtoolset-summary-heading": "सारांश",
+	"gwtoolset-cancel": "रद्द गर्ने",
+	"gwtoolset-save": "रक्षण गर्ने",
+	"gwtoolset-category": "श्रेणीहरु"
 }
