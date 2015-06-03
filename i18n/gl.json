@@ -34,6 +34,8 @@
 	"gwtoolset-no-comment": "Non se definiu <code>user_options['comment']</code>",
 	"gwtoolset-no-default": "Non se proporcionou ningún valor por defecto.",
 	"gwtoolset-no-field-size": "Non se indicou o tamaño para o campo \"$1\".",
+	"gwtoolset-no-file-backend-name": "Non se proporcionou ningún nome terminal de ficheiro.",
+	"gwtoolset-no-file-backend-container": "Non se proporcionou ningún nome de contedor terminal de ficheiro.",
 	"gwtoolset-no-file-url": "Non se proporcionou <code>file_url</code> para analizar.",
 	"gwtoolset-no-form-handler": "No hai creado un controlador de formulario.",
 	"gwtoolset-no-mapping": "No se proporcionou <code>mapping_name</code>.",
