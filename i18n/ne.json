@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"सरोज कुमार ढकाल",
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"gwtoolset-back-to-top": "⇪ पृष्ठको सुरुमा",
@@ -10,5 +11,5 @@
 	"gwtoolset-summary-heading": "सारांश",
 	"gwtoolset-cancel": "रद्द गर्ने",
 	"gwtoolset-save": "रक्षण गर्ने",
-	"gwtoolset-category": "श्रेणीहरु"
+	"gwtoolset-category": "श्रेणीहरू"
 }
