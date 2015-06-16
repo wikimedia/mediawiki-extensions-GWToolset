@@ -116,7 +116,7 @@
 	"gwtoolset-verify-xmlreader": "Расширение $1 требует, чтобы PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] был установлен.",
 	"gwtoolset-wiki-checks-not-passed": "Вики-проверки не пройдены",
 	"gwtoolset-title-label": "Заголовок GWToolset",
-	"gwtoolset-url-to-the-media-file-label": "URL-адрес медиа-файла",
+	"gwtoolset-url-to-the-media-file-label": "URL-адрес медиафайла",
 	"gwtoolset-wrap-language-heading": "Языковой шаблон",
 	"gwtoolset-detect-license": "Попытаться обнаружить лицензию",
 	"gwtoolset-detect-license-heading": "Шаблон лицензии",
