@@ -92,7 +92,6 @@ $wgExtensionMessagesFiles['GWToolsetNamespaces'] = $wgGWToolsetDir . '/GWToolset
 
 // setup special page references
 $wgSpecialPages['GWToolset'] = 'GWToolset\SpecialGWToolset';
-$wgSpecialPageGroups['GWToolset'] = 'media';
 
 // add hooks
 $wgHooks['CanonicalNamespaces'][] = 'GWToolset\Hooks::onCanonicalNamespaces';

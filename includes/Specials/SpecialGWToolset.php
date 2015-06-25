@@ -210,4 +210,8 @@ class SpecialGWToolset extends SpecialPage {
 
 		return true;
 	}
+
+	protected function getGroupName() {
+		return 'media';
+	}
 }
