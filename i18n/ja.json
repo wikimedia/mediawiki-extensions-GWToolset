@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Sujiniku"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -72,7 +73,7 @@
 	"gwtoolset-unaccepted-extension": "ファイル ソースの拡張子が、対応しているファイル形式のものではありません。",
 	"gwtoolset-unaccepted-extension-specific": "ファイル ソースの拡張子「.$1」のファイル形式には対応していません。",
 	"gwtoolset-unaccepted-mime-type": "アップロードしたファイルの形式は、対応していない MIME タイプ「$1」と判定されました。",
-	"gwtoolset-unaccepted-mime-type-for-xml": "アップロードしたファイルの形式は、対応していない MIME タイプ「$1」です。アップロードした XML ファイルの先頭に XML 宣言があることを確認してください。\n\n&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+	"gwtoolset-unaccepted-mime-type-for-xml": "アップロードしたファイルの形式は、対応していない MIME タイプ<code dir=\"ltr\">$1</code>です。<br />アップロードした XML ファイルの先頭に XML 宣言 <code dir=\"ltr\">$2</code> があることを確認してください。",
 	"gwtoolset-back-text-link": "← フォームに戻る",
 	"gwtoolset-back-text": "フォームに戻るにはブラウザーの戻るボタンを押してください。",
 	"gwtoolset-file-interpretation-error": "メタデータ ファイルを処理する際に問題点が発生しました。",
