@@ -130,7 +130,7 @@
 	"gwtoolset-category": "カテゴリ",
 	"gwtoolset-create-mapping": "$1: $2 用のメタデータ マッピングを作成",
 	"gwtoolset-global-categories": "グローバル カテゴリ",
-	"gwtoolset-global-tooltip": "これらのカテゴリ エントリは、アップロードされた項目すべてにグローバルに適用されます。",
+	"gwtoolset-global-tooltip": "これらのカテゴリ エントリは、アップロードされた項目すべてにグローバルに適用されます。カテゴリ名は一般的に英語であるべきです。 ( [[Commons:Categories#Category_names|Commons:Category names]] を参照してください。)",
 	"gwtoolset-maps-to": "マッピング先",
 	"gwtoolset-mapping-media-file-url-extension-bad": "ファイル URL からそのファイルの拡張子を判定できませんでした: $1",
 	"gwtoolset-mapping-media-file-url-bad": "メディア ファイルの URL を評価できませんでした。この URL では、この拡張機能がまだ処理できない方法でコンテンツを配信しているか、または HTTP リクエストのエラーが発生しました。指定した URL は「$1」でした。HTTP リクエスト エラー「$2」です。",
