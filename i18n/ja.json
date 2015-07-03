@@ -153,7 +153,7 @@
 	"gwtoolset-step-2-instructions-2-li-1": "「{{int:gwtoolset-template-field}}」列の MediaWiki テンプレートのフィールドに対応する「{{int:gwtoolset-maps-to}}」列のメタデータ フィールドを選択してください。",
 	"gwtoolset-step-2-instructions-2-li-2": "マッピング先を、MediaWiki テンプレートのフィールドすべてに対して指定する必要はありません。",
 	"gwtoolset-reupload-media": "メディアを URL から再アップロード",
-	"gwtoolset-reupload-media-explanation": "このチェックボックスでは、ウィキに既にアップロードされている項目用のメディアを再アップロードできるようにします。項目が既に存在する場合は、新たなメディア ファイルがウィキに追加されます。項目がまだ存在しない場合は、このチェックボックスにチェックを入れているかどうかにかかわらずアップロードされます。",
+	"gwtoolset-reupload-media-explanation": "このチェックボックスでは、ウィキに既にアップロードされている項目用のメディアを再アップロードできるようにします。あなたによる以前のアップロードによって、項目が既に存在する場合には、新たなメディア ファイルがウィキに追加されます。もし、誰か別の人が、既にアップロードして新しいバージョンのメディアファイルを置いた場合には、あなたの新しいアップロードは無視されます。もし、メディアファイルがウィキにまだ存在しない場合には、このチェックボックスにチェックを入れているか否かに関わらず、アップロードされます。",
 	"gwtoolset-specific-categories": "項目固有のカテゴリ",
 	"gwtoolset-template-field": "テンプレートのフィールド",
 	"gwtoolset-step-3-instructions-heading": "手順 3: 一括処理のプレビュー",
