@@ -12,7 +12,8 @@
 			"Cquoi",
 			"Constructeur",
 			"Ltrlg",
-			"Element303"
+			"Element303",
+			"Urhixidur"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -150,7 +151,7 @@
 	"gwtoolset-global-categories": "Catégories globales",
 	"gwtoolset-global-tooltip": "Ces entrées de catégorie s’appliqueront globalement à tous les éléments importés. Les noms de catégorie doivent être en anglais, d’une manière générale (voir [[Commons:Categories#Category_names|Commons:Category names]]).",
 	"gwtoolset-maps-to": "Correspond à",
-	"gwtoolset-mapping-media-file-no-content-type": "Impossible de déterminer le content-type pour l’URL: $1.",
+	"gwtoolset-mapping-media-file-no-content-type": "Impossible de déterminer le content-type pour l’URL : $1.",
 	"gwtoolset-mapping-media-file-url-extension-bad": "L’extension du fichier ne peut pas être déterminée pour l’URL de fichier : $1",
 	"gwtoolset-mapping-media-file-url-bad": "L’URL du fichier média n’a pas pu être évaluée. L’URL fournit le contenu d’une manière qui n’est pas encore gérée par cette extension, ou bien il y a eu un problème de Requête HTTP. L’URL fournie était « $1 ». L’erreur de Requête HTTP est « $2 ».",
 	"gwtoolset-mapping-no-gwtoolset-title": "La correspondance des métadonnées ne contient pas de titre gwtoolset, qui est nécessaire pour créer la page.",
