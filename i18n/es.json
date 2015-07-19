@@ -24,7 +24,7 @@
 	"gwtoolset-could-not-open-xml": "No se pudo abrir el archivo XML para su lectura.",
 	"gwtoolset-developer-issue": "Ponte en contacto con un desarrollador. Hay que corregir este problema antes de continuar. Añade el texto siguiente al informe:\n\n$1",
 	"gwtoolset-dom-record-issue": "No se proporcionó ni <code>record-element-name</code> ni <code>record-count</code> ni <code>record-current</code>.",
-	"gwtoolset-file-backend-maxage-invalid": "El valor máximo de edad proporcionado en <code>$wgGWTFBMaxAge</code> no es válido. Consulta el [manual PHP de php.net/manual/en/datetime.formats.relative.php] para saber cómo configurarlo correctamente.",
+	"gwtoolset-file-backend-maxage-invalid": "El valor máximo de edad proporcionado en <code>$wgGWTFBMaxAge</code> no es válido.\nConsulta el [php.net/manual/en/datetime.formats.relative.php manual de PHP] para saber cómo configurarlo correctamente.",
 	"gwtoolset-fsfile-empty": "El archivo estaba vacío y se ha eliminado.",
 	"gwtoolset-fsfile-retrieval-failure": "No se pudo extraer el archivo del URL $1.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> no establecido.",
@@ -145,7 +145,7 @@
 	"gwtoolset-detect-license-heading": "Plantilla de licencia",
 	"gwtoolset-global-license": "Licencia global",
 	"gwtoolset-select-template": "Selecciona una plantilla:",
-	"gwtoolset-select-custom-template": "o introduce una plantilla personalizada:",
+	"gwtoolset-select-custom-template": "o escribe una plantilla personalizada:",
 	"gwtoolset-title-none": "Sin título",
 	"log-name-gwtoolset": "Registro de GWToolset"
 }
