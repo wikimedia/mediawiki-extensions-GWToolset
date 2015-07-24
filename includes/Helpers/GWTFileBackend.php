@@ -96,9 +96,8 @@ class GWTFileBackend {
 			JobQueueGroup::singleton()->push( $job );
 		} catch ( Exception $e ) {
 			return Status::newFatal(
-				wfMessage( 'gwtoolset-batchjob-creation-failure' )
-					->params( 'GWTFileBackendCleanupJob' )
-					->parse()
+				'gwtoolset-batchjob-creation-failure',
+				'GWTFileBackendCleanupJob'
 			);
 		}
 
@@ -126,7 +125,7 @@ class GWTFileBackend {
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			$result = $this->FileBackend->quickDelete( $src );
 		} else {
-			$result = Status::newFatal( wfMessage( 'gwtoolset-delete-no-file' ) );
+			$result = Status::newFatal( 'gwtoolset-delete-no-file' );
 		}
 
 		return $result;
