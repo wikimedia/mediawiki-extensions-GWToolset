@@ -4,6 +4,15 @@
 			"Minh Nguyen"
 		]
 	},
+	"gwtoolset": "GWToolset",
+	"gwtoolset-desc": "GWToolset, công cụ tải lên hàng loạt dành cho các GLAM",
+	"right-gwtoolset": "Sử dụng GWToolset",
+	"action-gwtoolset": "sử dụng GWToolset",
+	"group-gwtoolset": "Người dùng GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1}}người dùng GWToolset",
+	"grouppage-gwtoolset": "{{ns:project}}:Người dùng GWToolset",
+	"gwtoolset-back-to-top": "đầu trang",
+	"gwtoolset-back-text-link": "← quay về biểu mẫu",
 	"gwtoolset-mediawiki-template": "Bản mẫu $1",
 	"gwtoolset-menu-1": "Ánh xạ siêu dữ liệu",
 	"gwtoolset-submit": "Gửi",
@@ -44,10 +53,21 @@
 	"gwtoolset-template-field": "Ô bản mẫu",
 	"gwtoolset-step-3-instructions-heading": "Bước 3: Xem trước hàng loạt",
 	"gwtoolset-create-mediafile": "$1: Đang tạo tập tin phương tiện cho $2.",
+	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Bước 4: Tải lên hàng loạt",
 	"gwtoolset-mediawiki-version-invalid": "Phần mở rộng này cần MediaWiki $1<br />Trang này đang chạy MediaWiki $2.",
 	"gwtoolset-required-group": "Bạn không phải thuộc nhóm $1.",
 	"gwtoolset-verify-php-version": "Phần mở rộng $1 cần PHP ≥ 5.3.3.",
 	"gwtoolset-verify-xmlreader": "Phần mở rộng $1 cần cài đặt [http://www.php.net/manual/xmlreader.setup.php XMLReader] vào PHP.",
-	"gwtoolset-wiki-checks-not-passed": "Các kiểm tra wiki bị thất bại"
+	"gwtoolset-wiki-checks-not-passed": "Các kiểm tra wiki bị thất bại",
+	"gwtoolset-title-label": "Tên GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "URL của tập tin phương tiện",
+	"gwtoolset-reverse-creator": "Bắt buộc tên trước họ",
+	"gwtoolset-wrap-language-heading": "Bản mẫu ngôn ngữ",
+	"gwtoolset-detect-license-heading": "Bản mẫu giấy phép",
+	"gwtoolset-global-license": "Giấy phép toàn cục",
+	"gwtoolset-select-template": "Chọn bản mẫu:",
+	"gwtoolset-select-custom-template": "hoặc nhập bản mẫu tùy chỉnh:",
+	"gwtoolset-title-none": "Không tên",
+	"log-name-gwtoolset": "Nhật trình GWToolset"
 }
