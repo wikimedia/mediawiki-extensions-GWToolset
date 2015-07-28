@@ -29,6 +29,8 @@ class UploadMediafileJob extends Job {
 	 * @var {User}
 	 */
 	protected $User;
+	/** @var bool Allow retries */
+	protected $allowRetry = true;
 
 	/**
 	 * @param {Title} $title
@@ -219,6 +221,12 @@ class UploadMediafileJob extends Job {
 			$result = false;
 		}
 
+		$this->allowRetry = $result;
+
 		return $result;
+	}
+
+	public function allowRetries() {
+		return $this->allowRetry;
 	}
 }
