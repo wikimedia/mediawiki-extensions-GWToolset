@@ -148,6 +148,7 @@
 	"gwtoolset-mapping-media-file-no-content-type": "Message that appears after the application attempts to evaluate the content type of the media file URL and fails to do so. Parameters:\n* $1 the URL used to evaluate the content type.",
 	"gwtoolset-mapping-media-file-url-extension-bad": "User error message when the extension could not evaluate the media file URL in order to determine the file extension.\n\nParameters:\n* $1 - the URL to the file or the file name given",
 	"gwtoolset-mapping-media-file-url-bad": "User error message when the extension can not evaluate the media file URL. Parameters:\n* $1 is the URL provided.\n* $2 is the HTTP Request error message.",
+	"gwtoolset-mapping-no-gwtoolset-title": "Exception thrown when metadata mapping contains no gwtoolset title.",
 	"gwtoolset-metadata-field": "Text for the table column heading, which is at the top of the mapping metadata table in the HTML form.",
 	"gwtoolset-metadata-file": "Heading for displaying some information about the metadata file.",
 	"gwtoolset-metadata-mapping-legend": "Step 2 legend for the HTML form.",
