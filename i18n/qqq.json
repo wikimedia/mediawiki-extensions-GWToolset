@@ -6,7 +6,8 @@
 			"dan-nl",
 			"Liuxinyu970226",
 			"Dan-nl",
-			"Nemo bis"
+			"Nemo bis",
+			"Umherirrender"
 		]
 	},
 	"gwtoolset": "Extension name.\n\nGWToolset is short for GLAMWiki Toolset.",
@@ -128,7 +129,7 @@
 	"gwtoolset-step-1-heading": "Heading for step 1.\n\nUsed in {{msg-mw|Gwtoolset-step-3-instructions-3}}.\n\nSee also:\n* {{msg-mw|Gwtoolset-step-1-instructions-li-1}}",
 	"gwtoolset-step-1-instructions-1": "Step 1, first instructions paragraph.\n\nFollowed by the following steps:\n* {{msg-mw|Gwtoolset-step-1-instructions-li-1}}\n* {{msg-mw|Gwtoolset-step-1-instructions-li-2}}\n* {{msg-mw|Gwtoolset-step-1-instructions-li-3}}\n* {{msg-mw|Gwtoolset-step-1-instructions-li-4}}",
 	"gwtoolset-step-1-instructions-2": "Step 1, second instructions paragraph.\n\nRefers to {{msg-mw|Gwtoolset-step-2-heading}}.\n\n$1 is the user name, which can be used for GENDER.",
-	"gwtoolset-step-1-instructions-3": "$1 - [https://bugzilla.wikimedia.org/enter_bug.cgi?assigned_to=wikibugs-l@lists.wikimedia.org&attach_text=&blocked=58224&bug_file_loc=http://&bug_severity=normal&bug_status=NEW&cf_browser=---&cf_platform=---&comment=please+add+the+following+domain(s)+to+the+wgCopyUploadsDomains+whitelist:&component=Site+requests&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text/plain&data=&dependson=&description=&flag_type-3=X&form_name=enter_bug&keywords=&maketemplate=Remember+values+as+bookmarkable+template&op_sys=All&product=Wikimedia&rep_platform=All&short_desc=&target_milestone=---&version=wmf-deployment this request page].",
+	"gwtoolset-step-1-instructions-3": "$1 - [https://phabricator.wikimedia.org/maniphest/task/create/?projects=Wikimedia-Site-requests&priority=50&title=Add+domain+to+$wgCopyUploadsDomains&description=Please+add+the+following+domain+to+the+wgCopyUploadsDomains+whitelist,+so+that+I+can+use+GWToolset+to+upload+media+files+from+that+domain.+I+have+provided+at+least+3+example+URLs+to+media+files+that+will+be+uploaded+with+GWToolset.%0A%0A%3Cdomain+name%3E%0A%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E this request page].",
 	"gwtoolset-step-1-instructions-3-heading": "Used as <code><nowiki><h4></nowiki></code> heading.",
 	"gwtoolset-step-1-instructions-li-1": "Step 1, first step.\n\nSee also:\n* {{msg-mw|Gwtoolset-step-1-heading}}",
 	"gwtoolset-step-1-instructions-li-2": "Step 1, second step.\n\nSee also:\n* {{msg-mw|Gwtoolset-step-2-heading}}",
