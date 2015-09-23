@@ -146,6 +146,7 @@
 	"gwtoolset-global-license": "Licencia global",
 	"gwtoolset-select-template": "Selecciona una plantilla:",
 	"gwtoolset-select-custom-template": "o escribe una plantilla personalizada:",
+	"gwtoolset-templatedata-link-text": "Bloque <code>&lt;templatedata></code>",
 	"gwtoolset-title-none": "Sin título",
 	"log-name-gwtoolset": "Registro de GWToolset"
 }

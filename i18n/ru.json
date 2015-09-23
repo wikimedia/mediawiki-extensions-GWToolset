@@ -44,7 +44,7 @@
 	"gwtoolset-no-title": "Не указан заголовок.",
 	"gwtoolset-no-reupload-media": "Значение <code>user_options['gwtoolset-reupload-media']</code> не установлено.",
 	"gwtoolset-no-url-to-media": "Не установлен <code>url-to-the-media-file</code>.",
-	"gwtoolset-not-string": "Предоставленное методу значение не является строкой. Оно относится к типу «$1».",
+	"gwtoolset-not-string": "Предоставленное методу значение — не строкового типа. Оно относится к типу «$1».",
 	"gwtoolset-sha1-does-not-match": "SHA-1 не совпадают.",
 	"gwtoolset-disk-write-failure": "Серверу не удалось записать файл в файловую систему.",
 	"gwtoolset-file-is-empty": "Загруженный файл пуст.",
