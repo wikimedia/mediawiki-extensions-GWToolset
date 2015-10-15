@@ -194,7 +194,6 @@
 	"gwtoolset-permission-not-given": "Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).",
 	"gwtoolset-user-blocked": "Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.",
 	"gwtoolset-required-group": "You are not a member of the $1 group.",
-	"gwtoolset-verify-api-enabled": "The $1 extension requires that the wiki API is enabled.\n\nPlease make sure that <code>$wgEnableAPI</code> is set to <code>true</code>.",
 	"gwtoolset-verify-api-writeable": "The $1 extension requires that the wiki API can perform write actions for authorized users.\n\nPlease make sure that <code>$wgEnableWriteAPI</code> is set to <code>true</code>.",
 	"gwtoolset-verify-curl": "The $1 extension requires that PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] be installed.",
 	"gwtoolset-verify-finfo": "The $1 extension requires that the PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo] extension be installed.",

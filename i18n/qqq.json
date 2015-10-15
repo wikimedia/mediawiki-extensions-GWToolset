@@ -196,7 +196,6 @@
 	"gwtoolset-permission-not-given": "Message that appears when the user does not have the proper wiki permissions.\n\nParameters:\n* $1 - the message {{msg-mw|Gwtoolset-no-upload-by-url}}",
 	"gwtoolset-user-blocked": "Message that appears when the user is blocked from using the wiki.",
 	"gwtoolset-required-group": "User message that appears when the user is not a member of the required group. Parameters:\n* $1 is the required group.",
-	"gwtoolset-verify-api-enabled": "Message that appears when the API has not been enabled. Parameters:\n* $1 - \"GWToolset\" (untranslatable)\nSee also:\n* {{msg-mw|Gwtoolset-verify-api-writeable}}",
 	"gwtoolset-verify-api-writeable": "Message that appears when the API cannot write to the wiki. Parameters:\n* $1 - \"GWToolset\" (untranslatable)\nSee also:\n* {{msg-mw|Gwtoolset-verify-api-enabled}}",
 	"gwtoolset-verify-curl": "Message that appears when PHP cURL is not available. Parameters:\n* $1 - \"GWToolset\" (untranslatable)",
 	"gwtoolset-verify-finfo": "Message that appears when PHP finfo is not available. Parameters:\n* $1 - \"GWToolset\" (untranslatable)",

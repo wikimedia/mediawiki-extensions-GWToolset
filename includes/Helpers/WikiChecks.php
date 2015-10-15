@@ -246,11 +246,6 @@ class WikiChecks {
 			return $Status;
 		}
 
-		$Status = self::verifyAPIEnabled();
-		if ( !$Status->ok ) {
-			return $Status;
-		}
-
 		$Status = self::verifyAPIWritable();
 		if ( !$Status->ok ) {
 			return $Status;
@@ -304,19 +299,6 @@ class WikiChecks {
 
 		if ( !$wgEnableUploads || ( !wfIsHHVM() && !wfIniGetBool( 'file_uploads' ) ) ) {
 			return Status::newFatal( 'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME );
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * @return {Status}
-	 */
-	public static function verifyAPIEnabled() {
-		global $wgEnableAPI;
-
-		if ( !$wgEnableAPI ) {
-			return Status::newFatal( 'gwtoolset-verify-api-enabled', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
