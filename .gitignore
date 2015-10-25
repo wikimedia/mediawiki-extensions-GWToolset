@@ -4,3 +4,4 @@
 .*.swp
 .DS_Store
 .change-log.txt
+node_modules/
