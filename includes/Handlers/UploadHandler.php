@@ -244,24 +244,18 @@ class UploadHandler {
 			if ( $warnings['exists']['warning'] === 'exists' ) {
 				// check if another contributor has altered this title
 				if ( $this->otherContributors( $title ) ) {
-					$msg =
-						wfMessage( 'gwtoolset-mediafile-other-contributors' )
-							->params( $warnings['exists']['file']->getTitle() )
-							->text();
-
-					$status = Status::newFatal( $msg );
+					$status = Status::newFatal( 'gwtoolset-mediafile-other-contributors',
+						$warnings['exists']['file']->getTitle()
+					);
 
 				// this title’s most recent mediafile is the same as the one being uploaded
 				} else if (
 					$upload->getTempFileSha1Base36() ===
 					$warnings['exists']['file']->getSha1()
 				) {
-					$msg =
-						wfMessage( 'gwtoolset-mediafile-duplicate-same-title' )
-							->params( $warnings['exists']['file']->getTitle() )
-							->text();
-
-					$status = Status::newFatal( $msg );
+					$status = Status::newFatal( 'gwtoolset-mediafile-duplicate-same-title',
+						$warnings['exists']['file']->getTitle()
+					);
 				}
 			}
 		}
@@ -272,12 +266,9 @@ class UploadHandler {
 			&& isset( $warnings['duplicate'] )
 			&& count( $warnings['duplicate'] ) > 0
 		) {
-			$msg =
-				wfMessage( 'gwtoolset-mediafile-duplicate-another-title' )
-					->params( $warnings['duplicate'][0]->getTitle() )
-					->text();
-
-			$status = Status::newFatal( $msg );
+			$status = Status::newFatal( 'gwtoolset-mediafile-duplicate-another-title',
+				$warnings['duplicate'][0]->getTitle()
+			);
 		}
 
 		return $status;
@@ -713,12 +704,7 @@ class UploadHandler {
 						$this->_User
 					);
 				} else {
-					$msg =
-						wfMessage( 'gwtoolset-mediafile-other-contributors' )
-							->params( $Title )
-							->escaped();
-
-					$Status = Status::newFatal( $msg );
+					$Status = Status::newFatal( 'gwtoolset-mediafile-other-contributors', $Title );
 				}
 			}
 		}

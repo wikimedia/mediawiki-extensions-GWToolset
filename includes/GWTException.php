@@ -44,13 +44,15 @@ class GWTException extends Exception {
 
 		if ( is_array( $message ) ) {
 			foreach ( $message as $key => $params ) {
-				$result .= wfMessage( $key )->params( $params )->parse();
+				$result .= wfMessage( $key )->params( $params )->text();
 			}
-		} else if ( strpos( $message, 'gwtoolset-' ) !== false ) {
-			$result .= wfMessage( $message )->parse();
+		} else if ( strpos( $message, 'gwtoolset-' ) === 0 ) {
+			$result .= wfMessage( $message )->text();
 		} else {
-			$result = Sanitizer::removeHTMLtags( $message );
+			$result = $message;
 		}
+
+		$result = Sanitizer::removeHTMLtags( $result );
 
 		return $result;
 	}
