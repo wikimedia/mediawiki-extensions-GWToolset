@@ -864,7 +864,6 @@ class UploadHandler {
 	) {
 		// Initialize the upload object
 		$upload = new UploadFromUrl();
-		WikiChecks::increaseHTTPTimeout();
 
 		$upload->initialize(
 			$Title->getBaseText(),
@@ -872,8 +871,10 @@ class UploadHandler {
 			false
 		);
 
+		$httpOptions['timeout'] = Config::$http_timeout;
+
 		// Fetch the file - returns a Status Object
-		$status = $upload->fetchFile();
+		$status = $upload->fetchFile( $httpOptions );
 		if ( !$status->isOk() ) {
 			$upload->cleanupTempFile();
 			return $status;

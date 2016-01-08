@@ -24,11 +24,6 @@ use GWToolset\Config,
 class WikiChecks {
 
 	/**
-	 * @var {int}
-	 */
-	public static $wgHTTPTimeout;
-
-	/**
 	 * Checks if the given user (identified by an object) can execute this
 	 * special page (as defined by $mRestriction) sent to the SpecialPage
 	 * constructor
@@ -172,28 +167,6 @@ class WikiChecks {
 	}
 
 	/**
-	 * UploadFromUrl & Api->upload timeout on large files that take a long time
-	 * to upload without this setting
-	 *
-	 * wiki default is 25 seconds
-	 * e.g., http://academia.lndb.lv/xmlui/bitstream/handle/1/231/k_001_ktl1-1-27.jpg
-	 * @todo: what is this limit set to on production?
-	 * @todo: does ui need a notice to user about this limitation?
-	 */
-	public static function increaseHTTPTimeout( $timeout = 0 ) {
-		global $wgHTTPTimeout;
-
-		if ( empty( $timeout ) ) {
-			$timeout = Config::$http_timeout;
-		}
-
-		if ( $wgHTTPTimeout < $timeout ) {
-			self::$wgHTTPTimeout = $wgHTTPTimeout;
-			$wgHTTPTimeout = $timeout;
-		}
-	}
-
-	/**
 	 * @param {SpecialPage} $SpecialPage
 	 * @return {Status}
 	 */
@@ -281,15 +254,6 @@ class WikiChecks {
 		return $Status;
 	}
 
-	public static function restoreHTTPTimeout() {
-		global $wgHTTPTimeout;
-
-		if ( !empty( self::$wgHTTPTimeout )
-			&& $wgHTTPTimeout !== self::$wgHTTPTimeout
-		) {
-			$wgHTTPTimeout = self::$wgHTTPTimeout; // 20 minutes, 25 seconds default
-		}
-	}
 
 	/**
 	 * @return {Status}
