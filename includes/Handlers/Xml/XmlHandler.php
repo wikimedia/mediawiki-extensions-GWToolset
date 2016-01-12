@@ -128,6 +128,11 @@ abstract class XmlHandler {
 			);
 		}
 
+		// Make sure close() is called if exceptions occur
+		$xmlCloser = new \ScopedCallback( function () use ( $XMLReader ) {
+			$XMLReader->close();
+		} );
+
 		$old_value = libxml_disable_entity_loader( true );
 
 		while ( $XMLReader->read() ) {
@@ -163,6 +168,8 @@ abstract class XmlHandler {
 					->parse()
 			);
 		}
+
+		\ScopedCallback::cancel( $xmlCloser ); // done already
 
 		return $result;
 	}
