@@ -59,6 +59,10 @@ class SpecialGWToolset extends SpecialPage {
 		);
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * entry point
 	 * a control method that acts as an entry point for the SpecialPage
