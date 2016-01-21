@@ -16,6 +16,7 @@
 	"group-gwtoolset": "GWToolset users",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset user}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset users",
+	"tag-gwtoolset": "GWToolset",
 	"gwtoolset-back-to-top": "top of the page",
 	"gwtoolset-batchjob-creation-failure": "Could not create a batch job of type \"$1\".",
 	"gwtoolset-could-not-close-xml": "Could not close the XML reader.",

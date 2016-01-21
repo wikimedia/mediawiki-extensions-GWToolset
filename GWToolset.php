@@ -97,6 +97,8 @@ $wgSpecialPages['GWToolset'] = 'GWToolset\SpecialGWToolset';
 $wgHooks['CanonicalNamespaces'][] = 'GWToolset\Hooks::onCanonicalNamespaces';
 $wgHooks['UnitTestsList'][] = 'GWToolset\Hooks::onUnitTestsList';
 $wgHooks['CodeEditorGetPageLanguage'][] = 'GWToolset\Hooks::onCodeEditorGetPageLanguage';
+$wgHooks['ListDefinedTags'][] = 'GWToolset\Hooks::onListDefinedTags';
+$wgHooks['ChangeTagsListActive'][] = 'GWToolset\Hooks::onChangeTagsListActive';
 
 // add jobs
 $wgJobClasses['gwtoolsetGWTFileBackendCleanupJob'] = 'GWToolset\Jobs\GWTFileBackendCleanupJob';

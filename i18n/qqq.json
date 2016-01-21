@@ -18,6 +18,7 @@
 	"group-gwtoolset": "{{doc-group|gwtoolset}}\nGWToolset is short for GLAMWiki Toolset.",
 	"group-gwtoolset-member": "{{doc-group|gwtoolset|member}}\nGWToolset is short for GLAMWiki Toolset.",
 	"grouppage-gwtoolset": "{{doc-group|gwtoolset|page}}\nGWToolset is short for GLAMWiki Toolset.",
+	"tag-gwtoolset": "Tag on GWToolset uploads",
 	"gwtoolset-back-to-top": "Text for the top of the page link.",
 	"gwtoolset-batchjob-creation-failure": "Message that appears when the extension could not create a batch job. Parameters:\n* $1 - the type of batch job.",
 	"gwtoolset-could-not-close-xml": "Hint to the developer that appears when could not close the XMLReader.",
