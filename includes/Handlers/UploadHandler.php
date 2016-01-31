@@ -899,7 +899,8 @@ class UploadHandler {
 			$options['comment'],
 			$options['text'],
 			$options['watch'],
-			$this->_User
+			$this->_User,
+			array( 'gwtoolset' )
 		);
 
 		// Page may very well exist now where it previously didn't

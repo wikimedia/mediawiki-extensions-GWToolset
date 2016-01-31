@@ -44,4 +44,26 @@ class Hooks {
 		}
 		return true;
 	}
+
+	/**
+	 * Register change tags.
+	 *
+	 * @param array &$tags
+	 * @return bool
+	 */
+	public static function onListDefinedTags( &$tags ) {
+		$tags[] = 'gwtoolset';
+		return true;
+	}
+
+	/**
+	 * Mark active change tags.
+	 *
+	 * @param array &$tags
+	 * @return bool
+	 */
+	public static function onChangeTagsListActive( &$tags ) {
+		$tags[] = 'gwtoolset';
+		return true;
+	}
 }
