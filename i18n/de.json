@@ -192,7 +192,6 @@
 	"gwtoolset-permission-not-given": "Stelle sicher, dass du angemeldet bist oder kontaktiere einen Administrator, um Anzeigerechte für diese Seite zu erhalten ($1).",
 	"gwtoolset-user-blocked": "Dein Benutzerkonto ist derzeit gesperrt. Bitte kontaktiere einen Administrator, um das Sperrproblem zu beheben.",
 	"gwtoolset-required-group": "Du bist kein Mitglied der Gruppe „$1“.",
-	"gwtoolset-verify-api-enabled": "Die Erweiterung „$1“ erfordert, dass die Wiki-API aktiviert ist.\n\nBitte stelle sicher, dass <code>$wgEnableAPI</code> auf <code>true</code> festgelegt ist.",
 	"gwtoolset-verify-api-writeable": "Die Erweiterung „$1“ erfordert, dass die Wiki-API Schreibaktionen für berechtigte Benutzer durchführen kann.\n\nBitte stelle sicher, dass <code>$wgEnableWriteAPI</code> auf <code>true</code> festgelegt ist.",
 	"gwtoolset-verify-curl": "Die Erweiterung „$1“ erfordert, dass die PHP-[http://www.php.net/manual/de/curl.setup.php cURL-Funktionen] installiert sind.",
 	"gwtoolset-verify-finfo": "Die Erweiterung „$1“ erfordert, dass die PHP-[http://www.php.net/manual/de/fileinfo.setup.php finfo]-Erweiterung installiert ist.",
