@@ -119,19 +119,6 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
-	 */
-	public static function checkPHPVersion() {
-		if ( !defined( 'PHP_VERSION' )
-			|| version_compare( PHP_VERSION, '5.3.3', '<' )
-		) {
-			return Status::newFatal( 'gwtoolset-verify-php-version', Constants::EXTENSION_NAME );
-		}
-
-		return Status::newGood();
-	}
-
-	/**
 	 * Make sure the user has all required permissions. It appears that
 	 * SpecialPage $restriction must be a string, thus it does not check a
 	 * group of permissions.
@@ -198,11 +185,6 @@ class WikiChecks {
 	 * @return {Status}
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
-
-		$Status = self::checkPHPVersion();
-		if ( !$Status->ok ) {
-			return $Status;
-		}
 
 		$Status = self::verifyXMLReaderExists();
 		if ( !$Status->ok ) {
