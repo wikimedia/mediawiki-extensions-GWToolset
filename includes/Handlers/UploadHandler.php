@@ -8,25 +8,26 @@
  */
 
 namespace GWToolset\Handlers;
-use ApiMain,
-	ContentHandler,
-	DerivativeRequest,
-	GWToolset\Config,
-	GWToolset\Constants,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	GWToolset\Helpers\FileChecks,
-	GWToolset\Helpers\WikiChecks,
-	GWToolset\Jobs\UploadMediafileJob,
-	Http,
-	MimeMagic,
-	MWException,
-	MWHttpRequest,
-	Status,
-	Title,
-	UploadBase,
-	UploadFromUrl,
-	WikiPage;
+
+use ApiMain;
+use ContentHandler;
+use DerivativeRequest;
+use GWToolset\Config;
+use GWToolset\Constants;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use GWToolset\Helpers\FileChecks;
+use GWToolset\Helpers\WikiChecks;
+use GWToolset\Jobs\UploadMediafileJob;
+use Http;
+use MimeMagic;
+use MWException;
+use MWHttpRequest;
+use Status;
+use Title;
+use UploadBase;
+use UploadFromUrl;
+use WikiPage;
 
 class UploadHandler {
 
@@ -206,7 +207,7 @@ class UploadHandler {
 			return $result;
 		}
 
-		foreach( $categories as $category ) {
+		foreach ( $categories as $category ) {
 			$result .= '[[' .
 				Utils::getNamespaceName( NS_CATEGORY ) .
 				$category .
@@ -249,7 +250,7 @@ class UploadHandler {
 					);
 
 				// this title’s most recent mediafile is the same as the one being uploaded
-				} else if (
+				} elseif (
 					$upload->getTempFileSha1Base36() ===
 					$warnings['exists']['file']->getSha1()
 				) {
@@ -357,7 +358,7 @@ class UploadHandler {
 			throw new GWTException(
 				array(
 					'gwtoolset-mapping-media-file-no-content-type' =>
-					array ( $url )
+					array( $url )
 				)
 			);
 		}
@@ -390,7 +391,7 @@ class UploadHandler {
 		// $Output->setCategoryLinks requires an array with the category name
 		// as the key and a sortkey as the value;  not sure what the are valid
 		// sortkey values, but 0 seems to work well
-		foreach( $categories as $category ) {
+		foreach ( $categories as $category ) {
 			$result[$category] = 0;
 		}
 
@@ -427,7 +428,7 @@ class UploadHandler {
 			throw new GWTException(
 				array(
 					'gwtoolset-mapping-media-file-no-content-type' =>
-					array ( $options['url'] )
+					array( $options['url'] )
 				)
 			);
 		}
@@ -796,7 +797,7 @@ class UploadHandler {
 			);
 		}
 
-		foreach( $categories as $key => $item ) {
+		foreach ( $categories as $key => $item ) {
 			$this->_global_categories[$key] =
 				Utils::stripIllegalCategoryChars(
 					Utils::sanitizeString( $item )
@@ -832,7 +833,7 @@ class UploadHandler {
 						);
 				}
 
-				foreach( $metadata_values as $metadata_value ) {
+				foreach ( $metadata_values as $metadata_value ) {
 					if ( !empty( $phrase ) ) {
 						$this->_item_specific_categories[] =
 							Utils::stripIllegalCategoryChars(

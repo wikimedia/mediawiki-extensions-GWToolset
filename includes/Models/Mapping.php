@@ -8,11 +8,12 @@
  */
 
 namespace GWToolset\Models;
-use GWToolset\Adapters\DataAdapterInterface,
-	GWtoolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	Linker;
+
+use GWToolset\Adapters\DataAdapterInterface;
+use GWtoolset\Config;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use Linker;
 
 class Mapping implements ModelInterface {
 

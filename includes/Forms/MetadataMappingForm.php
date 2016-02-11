@@ -7,12 +7,13 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Forms;
-use Html,
-	GWToolset\Config,
-	GWToolset\Utils,
-	GWToolset\Handlers\Forms\FormHandler,
-	Linker,
-	Title;
+
+use Html;
+use GWToolset\Config;
+use GWToolset\Utils;
+use GWToolset\Handlers\Forms\FormHandler;
+use Linker;
+use Title;
 
 class MetadataMappingForm {
 
@@ -252,7 +253,6 @@ class MetadataMappingForm {
 				)
 			) .
 
-
 			Html::rawElement(
 				'input',
 				array(
@@ -345,7 +345,7 @@ class MetadataMappingForm {
 			// creator template
 			Html::rawElement(
 				'h3',
-				array( 'style' => 'margin-top:1em;'),
+				array( 'style' => 'margin-top:1em;' ),
 				wfMessage( 'gwtoolset-wrap-creator-heading' )->escaped()
 			) .
 
@@ -392,7 +392,7 @@ class MetadataMappingForm {
 			// institution template
 			Html::rawElement(
 				'h3',
-				array( 'style' => 'margin-top:1em;'),
+				array( 'style' => 'margin-top:1em;' ),
 				wfMessage( 'gwtoolset-wrap-institution-heading' )->escaped()
 			) .
 
@@ -419,7 +419,7 @@ class MetadataMappingForm {
 			// language template
 			Html::rawElement(
 				'h3',
-				array( 'style' => 'margin-top:1em;'),
+				array( 'style' => 'margin-top:1em;' ),
 				wfMessage( 'gwtoolset-wrap-language-heading' )->escaped()
 			) .
 
@@ -446,7 +446,7 @@ class MetadataMappingForm {
 			// permission/license template
 			Html::rawElement(
 				'h3',
-				array( 'style' => 'margin-top:1em;'),
+				array( 'style' => 'margin-top:1em;' ),
 				wfMessage( 'gwtoolset-detect-license-heading' )->escaped()
 			) .
 
@@ -495,7 +495,7 @@ class MetadataMappingForm {
 			// global categories
 			Html::rawElement(
 				'h3',
-				array( 'style' => 'margin-top:1em;'),
+				array( 'style' => 'margin-top:1em;' ),
 				wfMessage( 'categories' )->escaped()
 			) .
 

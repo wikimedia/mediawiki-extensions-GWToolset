@@ -8,11 +8,12 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use GWToolset\GWTException,
-	GWToolset\Helpers\GWTFileBackend,
-	Html,
-	MWException,
-	XMLReader;
+
+use GWToolset\GWTException;
+use GWToolset\Helpers\GWTFileBackend;
+use Html;
+use MWException;
+use XMLReader;
 
 abstract class XmlHandler {
 
@@ -21,7 +22,7 @@ abstract class XmlHandler {
 	 */
 	protected $_GWTFileBackend;
 
-	public abstract function __construct();
+	abstract public function __construct();
 
 	/**
 	 * a debug method for testing the reader
@@ -77,7 +78,7 @@ abstract class XmlHandler {
 		return $result;
 	}
 
-	public abstract function processXml( array &$user_options, $xml_source = null );
+	abstract public function processXml( array &$user_options, $xml_source = null );
 
 	/**
 	 * opens the xml file as a stream and sends the stream to other methods in

@@ -7,16 +7,17 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Forms;
-use Html,
-	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
-	GWToolset\Config,
-	GWToolset\Constants,
-	GWToolset\Utils,
-	GWToolset\Helpers\FileChecks,
-	GWToolset\Models\MediawikiTemplate,
-	Linker,
-	SpecialPage,
-	Title;
+
+use Html;
+use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
+use GWToolset\Config;
+use GWToolset\Constants;
+use GWToolset\Utils;
+use GWToolset\Helpers\FileChecks;
+use GWToolset\Models\MediawikiTemplate;
+use Linker;
+use SpecialPage;
+use Title;
 
 class MetadataDetectForm {
 
@@ -45,7 +46,7 @@ class MetadataDetectForm {
 
 			$result .= Html::openElement( 'ul', array( 'id' => 'gwtoolset-whitelist' ) );
 
-			foreach( $wgCopyUploadsDomains as $domain ) {
+			foreach ( $wgCopyUploadsDomains as $domain ) {
 				$result .= Html::rawElement(
 					'li',
 					array(),

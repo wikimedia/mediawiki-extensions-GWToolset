@@ -8,16 +8,16 @@
  */
 
 namespace GWToolset;
-use
-GWToolset\Helpers\GWTFileBackend,
-	Maintenance,
-	MWException;
+
+use GWToolset\Helpers\GWTFileBackend;
+use Maintenance;
+use MWException;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
-	$IP = dirname( __FILE__ ) . '/../../..';
+	$IP = __DIR__ . '/../../..';
 }
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 
 /**

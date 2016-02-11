@@ -8,6 +8,7 @@
  */
 
 namespace GWToolset;
+
 use Exception;
 use Sanitizer;
 
@@ -46,7 +47,7 @@ class GWTException extends Exception {
 			foreach ( $message as $key => $params ) {
 				$result .= wfMessage( $key )->params( $params )->text();
 			}
-		} else if ( strpos( $message, 'gwtoolset-' ) === 0 ) {
+		} elseif ( strpos( $message, 'gwtoolset-' ) === 0 ) {
 			$result .= wfMessage( $message )->text();
 		} else {
 			$result = $message;

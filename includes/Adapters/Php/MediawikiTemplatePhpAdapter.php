@@ -8,14 +8,15 @@
  */
 
 namespace GWToolset\Adapters\Php;
-use ApiMain,
-	DerivativeRequest,
-	GWToolset\Adapters\DataAdapterInterface,
-	GWToolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	Linker,
-	Title;
+
+use ApiMain;
+use DerivativeRequest;
+use GWToolset\Adapters\DataAdapterInterface;
+use GWToolset\Config;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use Linker;
+use Title;
 
 class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
@@ -66,7 +67,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
 		if ( !empty( $template_data ) ) {
 			$result['mediawiki_template_json'] = $template_data;
-		} else if (
+		} elseif (
 			in_array(
 				$options['mediawiki_template_name'],
 				Config::$mediawiki_templates

@@ -8,6 +8,7 @@
  */
 
 namespace GWToolset\Adapters\Php;
+
 use GWToolset\Adapters\DataAdapterInterface;
 
 class MetadataPhpAdapter implements DataAdapterInterface {

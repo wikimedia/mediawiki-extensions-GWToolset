@@ -8,6 +8,7 @@
  */
 
 namespace GWToolset;
+
 use GWToolset\Constants;
 
 if ( !defined( 'MEDIAWIKI' ) ) {

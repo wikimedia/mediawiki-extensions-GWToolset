@@ -8,17 +8,18 @@
  */
 
 namespace GWToolset\Jobs;
-use Job,
-	JobQueueGroup,
-	GWToolset\Config,
-	GWToolset\Constants,
-	GWToolset\Utils,
-	GWToolset\GWTException,
-	GWToolset\Handlers\Forms\MetadataMappingHandler,
-	MWException,
-	Exception,
-	Title,
-	User;
+
+use Job;
+use JobQueueGroup;
+use GWToolset\Config;
+use GWToolset\Constants;
+use GWToolset\Utils;
+use GWToolset\GWTException;
+use GWToolset\Handlers\Forms\MetadataMappingHandler;
+use MWException;
+use Exception;
+use Title;
+use User;
 
 /**
  * runs the MetadataMappingHandler with the originally $_POST’ed form fields when
