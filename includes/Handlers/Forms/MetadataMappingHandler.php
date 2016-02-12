@@ -8,26 +8,27 @@
  */
 
 namespace GWToolset\Handlers\Forms;
-use FSFile,
-	GWToolset\Adapters\Php\MappingPhpAdapter,
-	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
-	GWToolset\Adapters\Php\MetadataPhpAdapter,
-	GWToolset\Config,
-	GWToolset\Constants,
-	GWToolset\Utils,
-	GWToolset\Forms\PreviewForm,
-	GWToolset\Handlers\UploadHandler,
-	GWToolset\Handlers\Xml\XmlMappingHandler,
-	GWToolset\Helpers\GWTFileBackend,
-	GWToolset\Jobs\UploadMetadataJob,
-	GWToolset\Models\Mapping,
-	GWToolset\Models\MediawikiTemplate,
-	GWToolset\Models\Metadata,
-	Html,
-	JobQueueGroup,
-	Linker,
-	MWException,
-	Title;
+
+use FSFile;
+use GWToolset\Adapters\Php\MappingPhpAdapter;
+use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
+use GWToolset\Adapters\Php\MetadataPhpAdapter;
+use GWToolset\Config;
+use GWToolset\Constants;
+use GWToolset\Utils;
+use GWToolset\Forms\PreviewForm;
+use GWToolset\Handlers\UploadHandler;
+use GWToolset\Handlers\Xml\XmlMappingHandler;
+use GWToolset\Helpers\GWTFileBackend;
+use GWToolset\Jobs\UploadMetadataJob;
+use GWToolset\Models\Mapping;
+use GWToolset\Models\MediawikiTemplate;
+use GWToolset\Models\Metadata;
+use Html;
+use JobQueueGroup;
+use Linker;
+use MWException;
+use Title;
 
 class MetadataMappingHandler extends FormHandler {
 
@@ -349,7 +350,7 @@ class MetadataMappingHandler extends FormHandler {
 				$options,
 				$this->_whitelisted_post
 			);
-		} else if ( $user_options['preview'] ) {
+		} elseif ( $user_options['preview'] ) {
 			$result = $this->_UploadHandler->getPreview( $user_options );
 		} else {
 			$result = $this->_UploadHandler->saveMediafileAsContent( $user_options );

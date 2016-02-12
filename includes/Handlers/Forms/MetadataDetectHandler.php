@@ -8,20 +8,21 @@
  */
 
 namespace GWToolset\Handlers\Forms;
-use GWToolset\Adapters\Php\MappingPhpAdapter,
-	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
-	GWToolset\Config,
-	GWToolset\Forms\MetadataMappingForm,
-	GWToolset\Handlers\UploadHandler,
-	GWToolset\Handlers\Xml\XmlDetectHandler,
-	GWToolset\Helpers\GWTFileBackend,
-	GWToolset\Models\Mapping,
-	GWToolset\Models\MediawikiTemplate,
-	GWToolset\Utils,
-	FSFile,
-	Language,
-	MWException,
-	Php\File;
+
+use GWToolset\Adapters\Php\MappingPhpAdapter;
+use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
+use GWToolset\Config;
+use GWToolset\Forms\MetadataMappingForm;
+use GWToolset\Handlers\UploadHandler;
+use GWToolset\Handlers\Xml\XmlDetectHandler;
+use GWToolset\Helpers\GWTFileBackend;
+use GWToolset\Models\Mapping;
+use GWToolset\Models\MediawikiTemplate;
+use GWToolset\Utils;
+use FSFile;
+use Language;
+use MWException;
+use Php\File;
 
 class MetadataDetectHandler extends FormHandler {
 

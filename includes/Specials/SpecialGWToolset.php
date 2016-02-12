@@ -8,15 +8,15 @@
  */
 
 namespace GWToolset;
-use
-GWToolset\Handlers\Forms\FormHandler,
-	GWToolset\Helpers\FileChecks,
-	GWToolset\Helpers\WikiChecks,
-	Html,
-	Linker,
-	MWException,
-	SpecialPage,
-	Title;
+
+use GWToolset\Handlers\Forms\FormHandler;
+use GWToolset\Helpers\FileChecks;
+use GWToolset\Helpers\WikiChecks;
+use Html;
+use Linker;
+use MWException;
+use SpecialPage;
+use Title;
 
 class SpecialGWToolset extends SpecialPage {
 
@@ -177,7 +177,7 @@ class SpecialGWToolset extends SpecialPage {
 
 				throw new MWException( $msg );
 			}
-		} else if ( $this->getRequest()->wasPosted() ) {
+		} elseif ( $this->getRequest()->wasPosted() ) {
 			// a posted form must have a registered module key
 			$msg = wfMessage( 'gwtoolset-developer-issue' )
 				->params(

@@ -8,9 +8,10 @@
  */
 
 namespace GWToolset\Models;
-use GWToolset\Adapters\DataAdapterInterface,
-	GWToolset\Config,
-	GWToolset\Utils;
+
+use GWToolset\Adapters\DataAdapterInterface;
+use GWToolset\Config;
+use GWToolset\Utils;
 
 class Metadata implements ModelInterface {
 	/**

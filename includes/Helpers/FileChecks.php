@@ -8,14 +8,15 @@
  */
 
 namespace GWToolset\Helpers;
-use GWToolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	MimeMagic,
-	MWException,
-	Php\File,
-	Status,
-	UploadBase;
+
+use GWToolset\Config;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use MimeMagic;
+use MWException;
+use Php\File;
+use Status;
+use UploadBase;
 
 /**
  * @todo: examine other checks in baseupload - detectVirus
@@ -36,8 +37,8 @@ class FileChecks {
 	 */
 	public static function checkMaxPostSize() {
 		if ( isset( $_SERVER["CONTENT_LENGTH"] )
-			&& Utils::getBytes( ini_get('post_max_size') ) > 0
-			&& ( (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get('post_max_size') ) )
+			&& Utils::getBytes( ini_get( 'post_max_size' ) ) > 0
+			&& ( (int)$_SERVER["CONTENT_LENGTH"] > Utils::getBytes( ini_get( 'post_max_size' ) ) )
 		) {
 			throw new GWTException( 'gwtoolset-over-max-ini' );
 		}

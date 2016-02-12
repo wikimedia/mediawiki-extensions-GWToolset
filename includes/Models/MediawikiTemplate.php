@@ -8,12 +8,13 @@
  */
 
 namespace GWToolset\Models;
-use Html,
-	GWToolset\Adapters\DataAdapterInterface,
-	GWToolset\Config,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	MWException;
+
+use Html;
+use GWToolset\Adapters\DataAdapterInterface;
+use GWToolset\Config;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use MWException;
 
 class MediawikiTemplate implements ModelInterface {
 
@@ -257,7 +258,7 @@ class MediawikiTemplate implements ModelInterface {
 	protected function getPermission( $content, array $user_options ) {
 		if ( !empty( $user_options['gwtoolset-global-license'] ) ) {
 			return $user_options['gwtoolset-global-license'];
-		} else if ( $user_options['gwtoolset-detect-license'] ) {
+		} elseif ( $user_options['gwtoolset-detect-license'] ) {
 			$permission = strtolower( $content );
 		} else {
 			return $content;

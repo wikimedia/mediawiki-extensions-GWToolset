@@ -7,13 +7,14 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Forms;
-use GWToolset\Config,
-	GWToolset\Utils,
-	Html,
-	IContextSource,
-	Linker,
-	ParserOptions,
-	Title;
+
+use GWToolset\Config;
+use GWToolset\Utils;
+use Html;
+use IContextSource;
+use Linker;
+use ParserOptions;
+use Title;
 
 class PreviewForm {
 
@@ -369,7 +370,7 @@ class PreviewForm {
 			) .
 			Html::openElement( 'ul' );
 
-		foreach( $notParsable as $category ) {
+		foreach ( $notParsable as $category ) {
 			$result .= Html::rawElement(
 				'li',
 				array(),

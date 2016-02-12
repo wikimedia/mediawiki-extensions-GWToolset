@@ -8,10 +8,11 @@
  */
 
 namespace GWToolset\Adapters\Php;
-use GWToolset\Adapters\DataAdapterInterface,
-	GWToolset\GWTException,
-	Title,
-	WikiPage;
+
+use GWToolset\Adapters\DataAdapterInterface;
+use GWToolset\GWTException;
+use Title;
+use WikiPage;
 
 class MappingPhpAdapter implements DataAdapterInterface {
 

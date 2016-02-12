@@ -8,12 +8,12 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use
-DOMElement,
-	GWToolset\Config,
-	GWToolset\Utils,
-	MWException,
-	XMLReader;
+
+use DOMElement;
+use GWToolset\Config;
+use GWToolset\Utils;
+use MWException;
+use XMLReader;
 
 class XmlMappingHandler extends XmlHandler {
 

@@ -8,12 +8,12 @@
  */
 
 namespace GWToolset;
-use Language,
-	ManualLogEntry,
-	MWException,
-	Sanitizer,
-	Title;
 
+use Language;
+use ManualLogEntry;
+use MWException;
+use Sanitizer;
+use Title;
 
 class Utils {
 
@@ -63,10 +63,13 @@ class Utils {
 	 * @return {int}
 	 */
 	public static function getBytes( $val ) {
-		switch ( substr ( $val, -1 ) ) {
-			case 'M': case 'm': return (int)$val * 1048576;
-			case 'K': case 'k': return (int)$val * 1024;
-			case 'G': case 'g': return (int)$val * 1073741824;
+		switch ( substr( $val, -1 ) ) {
+			case 'M': case 'm':
+				return (int)$val * 1048576;
+			case 'K': case 'k':
+				return (int)$val * 1024;
+			case 'G': case 'g':
+				return (int)$val * 1073741824;
 			default:
 		}
 

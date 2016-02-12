@@ -8,17 +8,18 @@
  */
 
 namespace GWToolset\Helpers;
-use FileBackendGroup,
-	GWToolset\Jobs\GWTFileBackendCleanupJob,
-	GWToolset\Constants,
-	GWToolset\Utils,
-	JobQueueGroup,
-	MWException,
-	Exception,
-	Php\File,
-	Status,
-	Title,
-	User;
+
+use FileBackendGroup;
+use GWToolset\Jobs\GWTFileBackendCleanupJob;
+use GWToolset\Constants;
+use GWToolset\Utils;
+use JobQueueGroup;
+use MWException;
+use Exception;
+use Php\File;
+use Status;
+use Title;
+use User;
 
 class GWTFileBackend {
 

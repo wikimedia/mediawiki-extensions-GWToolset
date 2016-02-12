@@ -8,7 +8,6 @@
  */
 namespace GWToolset\Models;
 
-
 interface ModelInterface {
 
 	public function create( array $options = array() );

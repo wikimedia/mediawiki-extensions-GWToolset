@@ -8,15 +8,15 @@
  */
 
 namespace GWToolset\Handlers\Xml;
-use
-DOMElement,
-	GWToolset\GWTException,
-	GWToolset\Utils,
-	GWToolset\Models\Mapping,
-	Html,
-	MWException,
-	Sanitizer,
-	XMLReader;
+
+use DOMElement;
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use GWToolset\Models\Mapping;
+use Html;
+use MWException;
+use Sanitizer;
+use XMLReader;
 
 /**
  * @todo possibley pull out the decorator methods and place them
@@ -283,7 +283,7 @@ class XmlDetectHandler extends XmlHandler {
 
 		if ( $parameter === 'gwtoolset-title' ) {
 			$result = wfMessage( 'gwtoolset-title-label' )->escaped();
-		} else if ( $parameter === 'gwtoolset-url-to-the-media-file' ) {
+		} elseif ( $parameter === 'gwtoolset-url-to-the-media-file' ) {
 			$result = wfMessage( 'gwtoolset-url-to-the-media-file-label' )->escaped();
 		} else {
 			$result = str_replace(

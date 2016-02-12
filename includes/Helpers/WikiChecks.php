@@ -8,12 +8,13 @@
  */
 
 namespace GWToolset\Helpers;
-use GWToolset\Config,
-	GWToolset\Constants,
-	GWToolset\Utils,
-	MWException,
-	SpecialPage,
-	Status;
+
+use GWToolset\Config;
+use GWToolset\Constants;
+use GWToolset\Utils;
+use MWException;
+use SpecialPage;
+use Status;
 
 /**
  * provides several methods for verifying :
@@ -80,7 +81,7 @@ class WikiChecks {
 
 		try {
 			wfUseMW( Constants::REQUIRED_MEDIAWIKI_VERSION );
-		} catch( MWException $e ) {
+		} catch ( MWException $e ) {
 			return Status::newFatal(
 				'gwtoolset-mediawiki-version-invalid',
 				Constants::REQUIRED_MEDIAWIKI_VERSION,

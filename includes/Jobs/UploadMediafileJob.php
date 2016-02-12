@@ -8,20 +8,20 @@
  */
 
 namespace GWToolset\Jobs;
-use GWToolset\Adapters\Php\MappingPhpAdapter,
-	GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter,
-	GWToolset\Adapters\Php\MetadataPhpAdapter,
-	GWToolset\GWTException,
-	GWToolset\Handlers\UploadHandler,
-	GWToolset\Models\Mapping,
-	GWToolset\Models\MediawikiTemplate,
-	GWToolset\Models\Metadata,
-	GWToolset\Utils,
-	Job,
-	ScopedCallback,
-	Title,
-	User;
 
+use GWToolset\Adapters\Php\MappingPhpAdapter;
+use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
+use GWToolset\Adapters\Php\MetadataPhpAdapter;
+use GWToolset\GWTException;
+use GWToolset\Handlers\UploadHandler;
+use GWToolset\Models\Mapping;
+use GWToolset\Models\MediawikiTemplate;
+use GWToolset\Models\Metadata;
+use GWToolset\Utils;
+use Job;
+use ScopedCallback;
+use Title;
+use User;
 
 class UploadMediafileJob extends Job {
 

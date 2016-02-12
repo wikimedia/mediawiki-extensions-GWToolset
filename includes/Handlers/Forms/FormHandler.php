@@ -7,10 +7,11 @@
  * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
  */
 namespace GWToolset\Handlers\Forms;
-use	GWToolset\GWTException,
-	GWToolset\Helpers\WikiChecks,
-	Html,
-	MWException;
+
+use GWToolset\GWTException;
+use GWToolset\Helpers\WikiChecks;
+use Html;
+use MWException;
 
 abstract class FormHandler {
 

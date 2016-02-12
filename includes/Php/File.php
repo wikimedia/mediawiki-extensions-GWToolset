@@ -8,11 +8,11 @@
  */
 
 namespace Php;
-use
-GWToolset\GWTException,
-	GWToolset\Utils,
-	MimeMagic,
-	MWException;
+
+use GWToolset\GWTException;
+use GWToolset\Utils;
+use MimeMagic;
+use MWException;
 
 /**
  * @link http://php.net/manual/en/reserved.variables.files.php
