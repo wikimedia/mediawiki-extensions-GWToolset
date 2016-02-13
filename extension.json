@@ -8,6 +8,9 @@
 	"descriptionmsg": "gwtoolset-desc",
 	"license-name": "GPL-3.0",
 	"type": "media",
+	"config": {
+		"GWToolsetConfigOverrides": {}
+	},
 	"namespaces": [
 		{
 			"id": 490,
@@ -22,6 +25,9 @@
 			"name": "GWToolset_talk",
 			"subpages": true
 		}
+	],
+	"ExtensionFunctions": [
+		"GWToolset\\Config::mergeOverrides"
 	],
 	"AutoloadClasses": {
 		"GWToolset\\Config": "includes/Config.php",
