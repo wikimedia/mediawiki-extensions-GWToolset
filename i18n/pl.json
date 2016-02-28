@@ -37,6 +37,7 @@
 	"gwtoolset-json-error-syntax": "Błąd składni, nieprawidłowy format JSON.",
 	"gwtoolset-json-error-utf8": "Nieprawidłowe znaki UTF-8, prawdopodobnie niepoprawnie zakodowane.",
 	"gwtoolset-json-error-unknown": "Nieznany błąd.",
+	"gwtoolset-namespace-mismatch": "Strona <strong>$1</strong> znajduje się w niewłaściwej przestrzeni nazw <strong>$2</strong>.\n\nPowinna być w przestrzeni nazw <strong>$3</strong>.",
 	"gwtoolset-category": "Kategoria",
 	"gwtoolset-global-categories": "Kategorie globalne",
 	"gwtoolset-mapping-media-file-no-content-type": "Nie można określić rodzaju treści dla adresu URL: $1.",
@@ -44,7 +45,6 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-invalid-token": "Kod weryfikacyjny (token) wysłany w formularzu jest nieprawidłowy.",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
-	"gwtoolset-verify-php-version": "Rozszerzenie $1 wymaga PHP w wersji >= 5.3.3.",
 	"gwtoolset-title-none": "Brak tytułu",
 	"log-name-gwtoolset": "Rejestr GWToolset"
 }
