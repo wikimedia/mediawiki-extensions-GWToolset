@@ -3,7 +3,8 @@
 		"authors": [
 			"Stryn",
 			"Susannaanas",
-			"McSalama"
+			"McSalama",
+			"Nike"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -97,7 +98,7 @@
 	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Hyväksytty tiedostotyyppi|Hyväksytyt tiedostotyypit}}:",
 	"gwtoolset-ensure-well-formed-xml": "Varmista $1in avulla, että XML-tiedosto on oikein muotoiltu.",
 	"gwtoolset-file-url-invalid": "Tiedosto ei ole vielä Wikimedia Commosissa. Sinun täytyy ensin ladata tiedosto tietokoneeltasi, jos haluat käyttää tiedoston URL-viitettä lomakkeella.",
-	"gwtoolset-mediawiki-template-does-not-exist": "MediaWiki-mallinetta \"<strong>$1</strong>\" ei ole Wikimedia Commosissa.\nTuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.",
+	"gwtoolset-mediawiki-template-does-not-exist": "MediaWiki-mallinetta <strong>$1</strong> ei ole wikissä.\nTuo malline tai valitse toinen MediaWiki-malline määrittelyä varten.",
 	"gwtoolset-mediawiki-template-not-found": "MediaWiki-mallinetta \"$1\" ei löytynyt.",
 	"gwtoolset-metadata-file-source": "Valitse metatietojen lähdetiedosto.",
 	"gwtoolset-metadata-file-source-info": "... joko aikaisemmin ladattu tiedosto tai tiedosto, jonka haluat lähettää tietokoneeltasi.",
@@ -105,8 +106,8 @@
 	"gwtoolset-metadata-file-upload": "Metatietotiedoston lataaminen:",
 	"gwtoolset-metadata-mapping-bad": "Metatietojen määrityksessä on ongelma. Todennäköisesti JSON-muoto ei kelpaa. Yritä korjata ongelma ja lähettää lomake uudelleen.\n\n$1",
 	"gwtoolset-metadata-mapping-invalid-url": "Ehdotettu metatietojen määrityksen URL-osoite ei vastaa odotettua määrityksen URL-polkua.\n\n* Ehdotettu URL: $1\n* Odotetu URL: $2",
-	"gwtoolset-metadata-mapping-not-found": "Metatietomääritystä ei löytynyt.\n\nSivua \"<strong>$1</strong>\" ei ole Wikimedia Commonsissa.",
-	"gwtoolset-namespace-mismatch": "Sivu \"<strong>$1</strong>\" on väärässä nimiavaruudessa \"<strong>$2</strong>\".\n\nSen kuuluisi olla nimiavaruudessa \"<strong>$3</strong>\".",
+	"gwtoolset-metadata-mapping-not-found": "Metatietomääritystä ei löytynyt.\n\nWikissä ei ole sivua <strong>$1</strong>.",
+	"gwtoolset-namespace-mismatch": "Sivu <strong>$1</strong> on väärässä nimiavaruudessa <strong>$2</strong>.\n\nSen kuuluisi olla nimiavaruudessa <strong>$3</strong>.",
 	"gwtoolset-no-xml-element-found": "Ei löytynyt määritykseen tarvittavaa XML-elementtiä.\n* Syötitkö lomakkeella arvon elementille \"{{int:gwtoolset-record-element-name}}\"?\n* Onko XML-tiedosto oikein muotoiltu? Kokeile tätä  [$1 XML-validaattoria].\n$2",
 	"gwtoolset-page-title-contains-url": "Sivu \"$1\" sisältää koko URL-osoitteen Wikimedia Commonsiin. Varmista, että annat vain sivun otsikon, kuten URL-osoitteen osan tekstin <code>/wiki/</code> jälkeen",
 	"gwtoolset-record-element-name": "Mikä on XML-elementti, joka sisältää kaikki metatietotietueet:",
@@ -170,11 +171,9 @@
 	"gwtoolset-permission-not-given": "Varmista, että olet kirjautunut sisään tai ota yhteys järjestelmänvalvojaan, jotta sinulle voidaan myöntää lupa nähdä tämä sivu ($1).",
 	"gwtoolset-user-blocked": "Tilisi on tällä hetkellä estetty. Pyydä järjestelmänvalvojaa poistamaan esto.",
 	"gwtoolset-required-group": "Et ole ryhmän $1 jäsen.",
-	"gwtoolset-verify-api-enabled": "$1 laajennus vaatii, että API on käytössä.\n\nVarmista, että <code>$wgEnableAPI</code>-asetus on <code>true</code>.",
 	"gwtoolset-verify-api-writeable": "$1 laajennus vaatii, että wikin API saa kirjoittaa valtuutettujen käyttäjien nimissä.\n\nVarmista, että <code>$wgEnableWriteAPI</code>-asetus on <code>true</code>.",
 	"gwtoolset-verify-curl": "$1-laajennus vaatii, että PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] on asennettu.",
 	"gwtoolset-verify-finfo": "$1 vaatii, että PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo]-laajennus on asennettu.",
-	"gwtoolset-verify-php-version": "$1 laajennus vaatii PHP-version >= 5.3.3.",
 	"gwtoolset-verify-uploads-enabled": "$1 laajennus vaatii, että tiedostolataukset on sallittu.\n\nVarmista, että <code>$wgEnableUploads</code>-asetus on <code>true</code> <code>LocalSettings.php</code>:ssa.",
 	"gwtoolset-verify-xmlreader": "$1 vaatii, että PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] on asennettu.",
 	"gwtoolset-wiki-checks-not-passed": "Ei läpäissyt wikin tarkistuksia"
