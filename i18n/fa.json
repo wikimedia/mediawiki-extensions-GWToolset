@@ -4,7 +4,8 @@
 			"Armin1392",
 			"Ebraminio",
 			"Reza1615",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Huji"
 		]
 	},
 	"gwtoolset": "تنظیم ابزار جی‌دبلیو",
@@ -186,11 +187,9 @@
 	"gwtoolset-permission-not-given": "مطمئن شوید که شما وارد شده‌اید یا برای تأیید مجوز برای مشاهدهٔ‌ این صفحه ($1)، با سرپرست تماس بگیرید.",
 	"gwtoolset-user-blocked": "حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.",
 	"gwtoolset-required-group": "شما عضو گروه $1 نیستید.",
-	"gwtoolset-verify-api-enabled": "گسترهٔ $1 نیازمند این است که ای‌پی‌آی ویکی فعال شود.\nلطفاً مطمئن شوید که <code>$wgEnableAPI</code> به <code>true</code> تنظیم شده‌است.",
-	"gwtoolset-verify-api-writeable": "گسترهٔ $1 نیازمند این است که ای‌پی‌آی ویکی می تواند عملیات نوشتن را برای مجاز کردن کاربران انجام دهد.\nلطفاً مطمئن شوید که <code>$wgEnableWriteAPI</code> به <code>true</code> تنظیم شده‌است.",
+	"gwtoolset-verify-api-writeable": "افزونهٔ $1 نیازمند آن است که رابط برنامه‌نویسی ویکی بتواند عملیات نوشتن را برای کاربران مجاز انجام دهد.\nلطفاً مطمئن شوید که <code>$wgEnableWriteAPI</code> به <code>true</code> تنظیم شده‌است.",
 	"gwtoolset-verify-curl": "گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/curl.setup.php cURL functions] است.",
 	"gwtoolset-verify-finfo": "گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [http://www.php.net/manual/en/fileinfo.setup.php finfo] است.",
-	"gwtoolset-verify-php-version": "گسترهٔ $1 نیازمند پی‌اچ‌پی >= ۵.۳.۳ است.",
 	"gwtoolset-verify-uploads-enabled": "گسترهٔ $1 نیازمند انتقالات پوشه‌ای فعال است.\nلطفاً مطمئن شوید که <code>$wgEnableUploads</code> به <code>true</code> در <code>LocalSettings.php</code> تنظیم شده است.",
 	"gwtoolset-verify-xmlreader": "گسترهٔ $1 نیازمند نصب پی‌اچ‌پی [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] است.",
 	"gwtoolset-wiki-checks-not-passed": "بررسی‌های ویکی پذیرفته نشده."
