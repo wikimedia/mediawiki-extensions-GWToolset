@@ -199,7 +199,7 @@
 	"gwtoolset-title-too-long": "O título evaluado é demasiado longo, os títulos poden ter unha lonxitude máxima de 240 bytes. Este título ten unha lonxitude de $1 {{PLURAL:$1|byte|bytes}}.\n\n$2",
 	"gwtoolset-title-label": "Título en GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL ó ficheiro multimedia",
-	"gwtoolset-reverse-creator": "Invertir apelido, nome",
+	"gwtoolset-reverse-creator": "Inverter apelido, nome",
 	"gwtoolset-reverse-creator-explanation": "Algunhas veces o valor do creador lístase como \"apelido, nome\" nos metadatos. Marcando esta caixa cambiarase a orde e quitarase a coma, p. ex. \"da Vinci, Leonardo\" converterase en \"Leonardo da Vinci\". Teña en conta que isto está baseado en que haxa polo menos unha coma e só unha, se non hai coma no valor, non se fará o cambio, e se hai máis dunha coma, o cambio só se fará usando a primeira coma.",
 	"gwtoolset-wrap-creator": "Inclúa o creador no modelo de creador",
 	"gwtoolset-wrap-creator-explanation": "O modelo MediaWiki pode ter code>author</code> (autor), <code>artist</code> (artista), <code>publisher</code> (editor) ou parámetros similares. Cando é así, o valor do metadato correspondente pode engadirse automaticamente en <code>{{Creator:<value>}}</code>.",
