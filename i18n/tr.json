@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Sayginer",
-			"Violetanka"
+			"Violetanka",
+			"Sadrettin"
 		]
 	},
+	"gwtoolset-mediawiki-template": "Şablon $1",
 	"gwtoolset-select-template": "Bir şablon seçin:",
 	"gwtoolset-title-none": "Başlık yok"
 }
