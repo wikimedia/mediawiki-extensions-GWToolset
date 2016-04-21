@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
+ * @license GNU General Public License 3.0 https://www.gnu.org/licenses/gpl.html
  */
 
 namespace GWToolset;
@@ -29,11 +29,12 @@ $wgExtensionCredits['media'][] = [
 	'name' => 'GWToolset',
 	'path' => __FILE__,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:GWToolset',
-	'version' => Constants::EXTENSION_VERSION
+	'version' => Constants::EXTENSION_VERSION,
+	'license-name' => 'GPL-3.0+'
 ];
 
 // define namespaces
-// @see http://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
+// @see https://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
 // @see https://www.mediawiki.org/wiki/Extension_default_namespaces#GWToolset
 if ( !defined( 'NS_GWTOOLSET' ) ) {
 	define( 'NS_GWTOOLSET', 490 );
