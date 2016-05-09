@@ -41,13 +41,13 @@ class Metadata implements ModelInterface {
 	/**
 	 * @param {array} $options
 	 */
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 	}
 
 	/**
 	 * @param {array} $options
 	 */
-	public function delete( array &$options = array() ) {
+	public function delete( array &$options = [] ) {
 	}
 
 	/**
@@ -60,7 +60,7 @@ class Metadata implements ModelInterface {
 	 * the elements within the array are sanitized
 	 */
 	public function getFieldValuesAsArray( $field = null ) {
-		$result = array();
+		$result = [];
 
 		if ( empty( $field ) || !is_string( $field ) ) {
 			return $result;
@@ -112,7 +112,7 @@ class Metadata implements ModelInterface {
 	}
 
 	public function reset() {
-		$this->metadata_as_array = array();
+		$this->metadata_as_array = [];
 		$this->metadata_raw = null;
 		$this->_DataAdapater = null;
 	}
@@ -120,12 +120,12 @@ class Metadata implements ModelInterface {
 	/**
 	 * @param {array} $options
 	 */
-	public function retrieve( array &$options = array() ) {
+	public function retrieve( array &$options = [] ) {
 	}
 
 	/**
 	 * @param {array} $options
 	 */
-	public function update( array &$options = array() ) {
+	public function update( array &$options = [] ) {
 	}
 }

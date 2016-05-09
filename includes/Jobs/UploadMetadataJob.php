@@ -57,7 +57,7 @@ class UploadMetadataJob extends Job {
 	 */
 	protected function processMetadata() {
 		$MetadataMappingHandler = new MetadataMappingHandler(
-			array( 'User' => $this->User )
+			[ 'User' => $this->User ]
 		);
 
 		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'], true );
@@ -94,11 +94,11 @@ class UploadMetadataJob extends Job {
 				uniqid(),
 				NS_USER
 			),
-			array(
+			[
 				'attempts' => (int)$this->params['attempts'] + 1,
 				'user-name' => $this->params['user-name'],
 				'whitelisted-post' => $this->params['whitelisted-post']
-			)
+			]
 		);
 
 		$delayed_enabled =
@@ -177,17 +177,17 @@ class UploadMetadataJob extends Job {
 	 * @param {string} $message
 	 */
 	protected function specialLog( $message ) {
-		$options = array(
+		$options = [
 			'job-subtype' => 'metadata-job',
-			'parameters' => array(
+			'parameters' => [
 				'4::message' => $message
-			),
+			],
 			'Title' => Title::newFromText(
 				wfMessage( 'gwtoolset-title-none' )->escaped(),
 				NS_FILE
 			),
 			'User' => $this->User
-		);
+		];
 
 		if ( !empty( $this->params['whitelisted-post']['wpSummary'] ) ) {
 			$options['comment'] = $this->params['whitelisted-post']['wpSummary'];

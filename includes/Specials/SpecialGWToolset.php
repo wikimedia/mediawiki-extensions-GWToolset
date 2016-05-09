@@ -33,23 +33,23 @@ class SpecialGWToolset extends SpecialPage {
 	/**
 	 * @var {array}
 	 */
-	protected $_registered_modules = array(
-		'metadata-detect' => array(
+	protected $_registered_modules = [
+		'metadata-detect' => [
 			'allow-get' => true,
 			'handler' => '\GWToolset\Handlers\Forms\MetadataDetectHandler',
 			'form' => '\GWToolset\Forms\MetadataDetectForm'
-		),
-		'metadata-mapping' => array(
+		],
+		'metadata-mapping' => [
 			'allow-get' => false,
 			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',
 			'form' => '\GWToolset\Forms\MetadataMappingForm'
-		),
-		'metadata-preview' => array(
+		],
+		'metadata-preview' => [
 			'allow-get' => false,
 			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',
 			'form' => '\GWToolset\Forms\MetadataMappingForm'
-		)
-	);
+		]
+	];
 
 	public function __construct() {
 		parent::__construct(
@@ -83,10 +83,10 @@ class SpecialGWToolset extends SpecialPage {
 	public function getBackToFormLink() {
 		return Html::rawElement(
 			'span',
-			array( 'id' => 'back-text' ),
+			[ 'id' => 'back-text' ],
 			Html::rawElement(
 				'noscript',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-back-text' )->escaped() . ' '
 			)
 		);
@@ -112,10 +112,10 @@ class SpecialGWToolset extends SpecialPage {
 			} catch ( GWTException $e ) {
 				$html .=
 					Html::rawElement(
-						'h2', array(),
+						'h2', [],
 						wfMessage( 'gwtoolset-technical-error' )->escaped()
 					) .
-					Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
+					Html::rawElement( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
 		} else {
 			try {
@@ -124,10 +124,10 @@ class SpecialGWToolset extends SpecialPage {
 			} catch ( GWTException $e ) {
 				$html .=
 					Html::rawElement(
-						'h2', array(),
+						'h2', [],
 						wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
 					) .
-					Html::rawElement( 'p', array( 'class' => 'error' ), $e->getMessage() );
+					Html::rawElement( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
 		}
 
@@ -138,7 +138,7 @@ class SpecialGWToolset extends SpecialPage {
 				Linker::link(
 					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
 					wfMessage( 'gwtoolset-menu-1' )->escaped(),
-					array()
+					[]
 				)
 			)->parse()
 		);
@@ -163,7 +163,7 @@ class SpecialGWToolset extends SpecialPage {
 
 		if ( $this->module_key !== null ) {
 			$handler = $this->_registered_modules[$this->module_key]['handler'];
-			$this->_Handler = new $handler( array( 'SpecialPage' => $this ) );
+			$this->_Handler = new $handler( [ 'SpecialPage' => $this ] );
 
 			if ( !( $this->_Handler instanceof FormHandler ) ) {
 				$msg = wfMessage( 'gwtoolset-developer-issue' )
@@ -200,12 +200,12 @@ class SpecialGWToolset extends SpecialPage {
 			$this->getOutput()->addHTML(
 				Html::rawElement(
 					'h2',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
 				) .
 				Html::rawElement(
 					'span',
-					array( 'class' => 'error' ),
+					[ 'class' => 'error' ],
 					$Status->getMessage()
 				)
 			);

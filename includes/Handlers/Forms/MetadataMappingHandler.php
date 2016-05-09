@@ -37,35 +37,35 @@ class MetadataMappingHandler extends FormHandler {
 	/**
 	 * @var {array}
 	 */
-	protected $_expected_post_fields = array(
-		'gwtoolset-category' => array( 'size' => 255 ),
-		'gwtoolset-category-phrase' => array( 'size' => 255 ),
-		'gwtoolset-category-metadata' => array( 'size' => 255 ),
-		'gwtoolset-form' => array( 'size' => 255 ),
-		'gwtoolset-preview' => array( 'size' => 255 ),
-		'gwtoolset-mediafile-throttle' => array( 'size' => 2 ),
-		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
-		'gwtoolset-metadata-file-relative-path' => array( 'size' => 255 ),
-		'gwtoolset-metadata-file-sha1' => array( 'size' => 255 ),
-		'gwtoolset-metadata-file-url' => array( 'size' => 255 ),
-		'gwtoolset-metadata-mapping-name' => array( 'size' => 255 ),
-		'gwtoolset-metadata-mapping-subpage' => array( 'size' => 255 ),
-		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
-		'gwtoolset-metadata-namespace' => array( 'size' => 255 ),
-		'gwtoolset-partner-template-url' => array( 'size' => 255 ),
-		'gwtoolset-record-begin' => array( 'size' => 255 ),
-		'gwtoolset-record-count' => array( 'size' => 255 ),
-		'gwtoolset-record-element-name' => array( 'size' => 255 ),
-		'gwtoolset-reupload-media' => array( 'size' => 4 ),
-		'gwtoolset-reverse-creator' => array( 'size' => 4 ),
-		'gwtoolset-wrap-creator' => array( 'size' => 4 ),
-		'gwtoolset-wrap-institution' => array( 'size' => 4 ),
-		'gwtoolset-wrap-language' => array( 'size' => 4 ),
-		'gwtoolset-detect-license' => array( 'size' => 4 ),
-		'gwtoolset-global-license' => array( 'size' => 255 ),
-		'wpEditToken' => array( 'size' => 255 ),
-		'wpSummary' => array( 'size' => 255 )
-	);
+	protected $_expected_post_fields = [
+		'gwtoolset-category' => [ 'size' => 255 ],
+		'gwtoolset-category-phrase' => [ 'size' => 255 ],
+		'gwtoolset-category-metadata' => [ 'size' => 255 ],
+		'gwtoolset-form' => [ 'size' => 255 ],
+		'gwtoolset-preview' => [ 'size' => 255 ],
+		'gwtoolset-mediafile-throttle' => [ 'size' => 2 ],
+		'gwtoolset-mediawiki-template-name' => [ 'size' => 255 ],
+		'gwtoolset-metadata-file-relative-path' => [ 'size' => 255 ],
+		'gwtoolset-metadata-file-sha1' => [ 'size' => 255 ],
+		'gwtoolset-metadata-file-url' => [ 'size' => 255 ],
+		'gwtoolset-metadata-mapping-name' => [ 'size' => 255 ],
+		'gwtoolset-metadata-mapping-subpage' => [ 'size' => 255 ],
+		'gwtoolset-metadata-mapping-url' => [ 'size' => 255 ],
+		'gwtoolset-metadata-namespace' => [ 'size' => 255 ],
+		'gwtoolset-partner-template-url' => [ 'size' => 255 ],
+		'gwtoolset-record-begin' => [ 'size' => 255 ],
+		'gwtoolset-record-count' => [ 'size' => 255 ],
+		'gwtoolset-record-element-name' => [ 'size' => 255 ],
+		'gwtoolset-reupload-media' => [ 'size' => 4 ],
+		'gwtoolset-reverse-creator' => [ 'size' => 4 ],
+		'gwtoolset-wrap-creator' => [ 'size' => 4 ],
+		'gwtoolset-wrap-institution' => [ 'size' => 4 ],
+		'gwtoolset-wrap-language' => [ 'size' => 4 ],
+		'gwtoolset-detect-license' => [ 'size' => 4 ],
+		'gwtoolset-global-license' => [ 'size' => 255 ],
+		'wpEditToken' => [ 'size' => 255 ],
+		'wpSummary' => [ 'size' => 255 ]
+	];
 
 	/**
 	 * @var {GWToolset\Models\Mapping}
@@ -112,11 +112,11 @@ class MetadataMappingHandler extends FormHandler {
 				uniqid(),
 				NS_USER
 			),
-			array(
+			[
 				'attempts' => 1,
 				'user-name' => $this->User->getName(),
 				'whitelisted-post' => $this->_whitelisted_post
-			)
+			]
 		);
 
 		if ( $this->_whitelisted_post['gwtoolset-record-begin'] >
@@ -139,7 +139,7 @@ class MetadataMappingHandler extends FormHandler {
 		$newFilesLink = Linker::link(
 			Title::newFromText( 'Special:NewFiles' ),
 			null,
-			array( 'target' => '_blank' )
+			[ 'target' => '_blank' ]
 		);
 
 		$result = wfMessage( 'gwtoolset-batchjob-metadata-created' )
@@ -182,18 +182,18 @@ class MetadataMappingHandler extends FormHandler {
 	 * the values within the array have not been filtered
 	 */
 	protected function getUserOptions() {
-		$result = array(
+		$result = [
 			'categories' => null,
 
 			'gwtoolset-category-phrase' =>
 				!empty( $this->_whitelisted_post['gwtoolset-category-phrase'] )
 				? $this->_whitelisted_post['gwtoolset-category-phrase']
-				: array(),
+				: [],
 
 			'gwtoolset-category-metadata' =>
 				!empty( $this->_whitelisted_post['gwtoolset-category-metadata'] )
 				? $this->_whitelisted_post['gwtoolset-category-metadata']
-				: array(),
+				: [],
 
 			'gwtoolset-detect-license' =>
 				!empty( $this->_whitelisted_post['gwtoolset-detect-license'] )
@@ -214,11 +214,11 @@ class MetadataMappingHandler extends FormHandler {
 				!empty( $this->_whitelisted_post['gwtoolset-mediafile-throttle'] )
 				? Utils::sanitizeNumericRange(
 						$this->_whitelisted_post['gwtoolset-mediafile-throttle'],
-						array(
+						[
 							'min' => Config::$mediafile_job_throttle_min,
 							'max' => Config::$mediafile_job_throttle_max,
 							'default' => Config::$mediafile_job_throttle_default
-						)
+						]
 					)
 				: Config::$mediafile_job_throttle_default,
 
@@ -307,13 +307,13 @@ class MetadataMappingHandler extends FormHandler {
 				!empty( $this->_whitelisted_post['gwtoolset-url-to-the-media-file'] )
 				? $this->_whitelisted_post['gwtoolset-url-to-the-media-file']
 				: null
-		);
+		];
 
 		if ( !empty( $result['gwtoolset-partner-template-url'] ) ) {
 			$result['partner-template-name'] = Utils::getTitle(
 				$result['gwtoolset-partner-template-url'],
 				NS_TEMPLATE,
-				array( 'must-be-known' => false )
+				[ 'must-be-known' => false ]
 			);
 		}
 
@@ -384,29 +384,29 @@ class MetadataMappingHandler extends FormHandler {
 		global $wgGWTFileBackend;
 
 		$this->_GWTFileBackend = new GWTFileBackend(
-			array(
+			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
 				'User' => $this->User
-			)
+			]
 		);
 
 		$this->_UploadHandler = new UploadHandler(
-			array(
+			[
 				'Mapping' => $this->_Mapping,
 				'MediawikiTemplate' => $this->_MediawikiTemplate,
 				'Metadata' => $this->_Metadata,
 				'User' => $this->User,
-			)
+			]
 		);
 
 		$this->_XmlMappingHandler = new XmlMappingHandler(
-			array(
+			[
 				'GWTFileBackend' => $this->_GWTFileBackend,
 				'Mapping' => $this->_Mapping,
 				'MediawikiTemplate' => $this->_MediawikiTemplate,
 				'MappingHandler' => $this
-			)
+			]
 		);
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
@@ -516,7 +516,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * - an html response, which has been escaped and parsed by wfMessage
 	 * - an array of mediafile Title(s)
 	 */
-	public function processRequest( array $original_post = array(), $fromJob = false ) {
+	public function processRequest( array $original_post = [], $fromJob = false ) {
 		$result = null;
 
 		if ( empty( $original_post ) ) {
@@ -531,7 +531,7 @@ class MetadataMappingHandler extends FormHandler {
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $key => $value ) {
 			// MediaWiki template parameters sometimes contain spaces
 			$key = Utils::normalizeSpace( $key );
-			$this->_expected_post_fields[Utils::sanitizeString( $key )] = array( 'size' => 255 );
+			$this->_expected_post_fields[Utils::sanitizeString( $key )] = [ 'size' => 255 ];
 		}
 
 		$this->_whitelisted_post = Utils::getWhitelistedPost(
@@ -543,14 +543,14 @@ class MetadataMappingHandler extends FormHandler {
 
 		$this->checkForRequiredFormFields(
 			$user_options,
-			array(
+			[
 				'gwtoolset-mediawiki-template-name',
 				'gwtoolset-record-count',
 				'gwtoolset-record-element-name',
 				'gwtoolset-title',
 				'gwtoolset-url-to-the-media-file',
 				'gwtoolset-metadata-file-relative-path'
-			)
+			]
 		);
 
 		if ( $user_options['preview'] === true ) {
@@ -574,7 +574,7 @@ class MetadataMappingHandler extends FormHandler {
 				$result =
 					Html::rawElement(
 						'h2',
-						array(),
+						[],
 						wfMessage( 'gwtoolset-step-4-heading' )->escaped()
 					) .
 					$this->createMetadataBatchJob( $user_options );

@@ -31,25 +31,25 @@ class MetadataDetectForm {
 		if ( !empty( $wgCopyUploadsDomains ) ) {
 			$result = Html::rawElement(
 				'h4',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-3-heading' )->parse()
 			);
 
 			$result .= Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage(
 					'gwtoolset-step-1-instructions-3',
 					'https://phabricator.wikimedia.org/maniphest/task/create/?projects=Wikimedia-Site-requests&priority=50&title=Add+domain+to+$wgCopyUploadsDomains&description=Please+add+the+following+domain+to+the+wgCopyUploadsDomains+whitelist,+so+that+I+can+use+GWToolset+to+upload+media+files+from+that+domain.+I+have+provided+at+least+3+example+URLs+to+media+files+that+will+be+uploaded+with+GWToolset.%0A%0A%3Cdomain+name%3E%0A%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E'
 				)->parse()
 			);
 
-			$result .= Html::openElement( 'ul', array( 'id' => 'gwtoolset-whitelist' ) );
+			$result .= Html::openElement( 'ul', [ 'id' => 'gwtoolset-whitelist' ] );
 
 			foreach ( $wgCopyUploadsDomains as $domain ) {
 				$result .= Html::rawElement(
 					'li',
-					array(),
+					[],
 					Utils::sanitizeString( $domain )
 				);
 			}
@@ -76,19 +76,19 @@ class MetadataDetectForm {
 		return
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-intro' )->parse()
 			) .
 
 			Html::rawElement(
 				'h2',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-heading' )->escaped()
 			) .
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-1' )->escaped()
 			) .
 
@@ -96,25 +96,25 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-li-1' )->escaped()
 			) .
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-li-2' )->escaped()
 			) .
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-li-3' )->escaped()
 			) .
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-li-4' )->escaped()
 			) .
 
@@ -122,7 +122,7 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-1-instructions-2', $user->getName() )->parse()
 			) .
 
@@ -130,60 +130,60 @@ class MetadataDetectForm {
 
 			Html::openElement(
 				'form',
-				array(
+				[
 					'id' => 'gwtoolset-form',
 					'action' => $SpecialPage->getContext()->getTitle()->getFullURL(),
 					'method' => 'post',
 					'enctype' => 'multipart/form-data'
-				)
+				]
 			) .
 
 			Html::openElement( 'fieldset' ) .
 
 			Html::rawElement(
 				'legend',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-upload-legend' )->escaped()
 			) .
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-form',
 					'value' => 'metadata-detect'
-				)
+				]
 			) .
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'hidden',
 					'name' => 'wpEditToken',
 					'value' => $user->getEditToken()
-				)
+				]
 			) .
 
 			Html::openElement( 'ol' ) .
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				Html::rawElement(
 					'label',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-record-element-name' )->escaped() .
 					Html::rawElement(
 						'input',
-						array(
+						[
 							'type' => 'text',
 							'name' => 'gwtoolset-record-element-name',
 							'placeholder' => 'record'
-						)
+						]
 					) .
 					Html::rawElement(
 						'span',
-						array( 'class' => 'required' ),
+						[ 'class' => 'required' ],
 						' *'
 					)
 				)
@@ -191,14 +191,14 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				Html::rawElement(
 					'label',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-which-mediawiki-template' )->escaped() .
 					Html::rawElement(
 						'span',
-						array( 'class' => 'required' ),
+						[ 'class' => 'required' ],
 						' *'
 					)
 				) .
@@ -207,7 +207,7 @@ class MetadataDetectForm {
 
 				Html::rawElement(
 					'li',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-select-template' )->escaped() .
 					Html::rawElement( 'br' ) .
 					$MediawikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' )
@@ -215,17 +215,17 @@ class MetadataDetectForm {
 
 				Html::rawElement(
 					'li',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-select-custom-template' ) .
 					Html::rawElement( 'br' ) .
 					Html::rawElement(
 						'input',
-						array(
+						[
 							'type' => 'text',
 							'name' => 'gwtoolset-mediawiki-template-custom',
 							'class' => 'gwtoolset-wider-input',
 							'placeholder' => 'TorontoHollarCollection'
-						)
+						]
 					)
 				) .
 
@@ -234,21 +234,21 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				Html::rawElement(
 					'label',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-which-metadata-mapping' )->escaped() .
 					Html::rawElement(
 						'input',
-						array(
+						[
 							'type' => 'text',
 							'name' => 'gwtoolset-metadata-mapping-url',
 							'class' => 'gwtoolset-wider-input',
 							'placeholder' => $namespace .
 								Utils::sanitizeString( Config::$metadata_mapping_subpage ) .
 								'/User-name/mapping-name.json'
-						)
+						]
 					) .
 					Html::rawElement( 'br' ) .
 					Linker::link(
@@ -256,21 +256,21 @@ class MetadataDetectForm {
 							'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage
 						),
 						$namespace . Utils::sanitizeString( Config::$metadata_mapping_subpage ),
-						array( 'target' => '_blank' )
+						[ 'target' => '_blank' ]
 					)
 				)
 			) .
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				Html::rawElement(
 					'label',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-mediafile-throttle' )->escaped() .
 					Html::rawElement(
 						'input',
-						array(
+						[
 							'type' => 'text',
 							'name' => 'gwtoolset-mediafile-throttle',
 							'min' => Config::$mediafile_job_throttle_min,
@@ -278,7 +278,7 @@ class MetadataDetectForm {
 							'maxlength' => 2,
 							'size' => 2,
 							'placeholder' => Config::$mediafile_job_throttle_default
-						)
+						]
 					)
 				) .
 				Html::rawElement( 'br' ) .
@@ -287,22 +287,22 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'li',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-ensure-well-formed-xml' )->params(
 					Html::rawElement(
 						'a',
-						array(
+						[
 							'href' => 'http://www.w3schools.com/xml/xml_validator.asp',
 							'target' => '_blank',
 							'class' => 'external free',
 							'rel' => 'nofollow'
-						),
+						],
 						'XML Validator'
 					)
 				)->plain() .
 				Html::rawElement(
 					'span',
-					array( 'class' => 'required' ),
+					[ 'class' => 'required' ],
 					' *'
 				) .
 				Html::rawElement( 'br' ) .
@@ -310,19 +310,19 @@ class MetadataDetectForm {
 				self::getMetadataFileUrlExtraInstructions() .
 				Html::rawElement(
 					'ul',
-					array(),
+					[],
 					self::getMetadataFileUrlInput( $namespace ) .
 					Html::rawElement(
 						'li',
-						array(),
+						[],
 						wfMessage( 'gwtoolset-metadata-file-upload' )->escaped() .
 						Html::rawElement(
 							'input',
-							array(
+							[
 								'type' => 'file',
 								'name' => 'gwtoolset-metadata-file-upload',
 								'accept' => FileChecks::getFileAcceptAttribute( Config::$accepted_metadata_types )
-							)
+							]
 						) .
 						Html::rawElement( 'br' ) .
 						'<i>' .
@@ -345,10 +345,10 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				Html::rawElement(
 					'span',
-					array( 'class' => 'required' ),
+					[ 'class' => 'required' ],
 					'*'
 				) . ' ' .
 				wfMessage( 'gwtoolset-required-field' )->escaped()
@@ -356,11 +356,11 @@ class MetadataDetectForm {
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'submit',
 					'name' => 'submit',
 					'value' => wfMessage( 'gwtoolset-submit' )->escaped()
-				)
+				]
 			) .
 
 			Html::closeElement( 'form' );
@@ -388,19 +388,19 @@ class MetadataDetectForm {
 
 		$result = Html::rawElement(
 			'li',
-			array(),
+			[],
 			Html::rawElement(
 				'label',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-metadata-file-url' )->escaped() .
 				Html::rawElement(
 					'input',
-					array(
+					[
 						'type' => 'text',
 						'name' => 'gwtoolset-metadata-file-url',
 						'class' => 'gwtoolset-wider-input',
 						'placeholder' => 'Two-images.xml'
-					)
+					]
 				) .
 				Html::rawElement( 'br' ) .
 				Linker::link(
@@ -411,7 +411,7 @@ class MetadataDetectForm {
 					),
 					$namespace .
 					Utils::sanitizeString( Config::$metadata_sets_subpage ),
-					array( 'target' => '_blank' )
+					[ 'target' => '_blank' ]
 				)
 			)
 		);

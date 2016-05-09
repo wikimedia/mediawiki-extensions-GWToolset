@@ -24,7 +24,7 @@ class Utils {
 	 * the array keys and values are not filtered
 	 */
 	public static function getArraySecondLevelValues( array $array ) {
-		$values = array();
+		$values = [];
 
 		foreach ( $array as $keys ) {
 			foreach ( $keys as $value ) {
@@ -47,7 +47,7 @@ class Utils {
 		}
 
 		if ( is_array( $data ) ) {
-			return array_map( array( __CLASS__, __FUNCTION__ ), $data );
+			return array_map( [ __CLASS__, __FUNCTION__ ], $data );
 		} else {
 			return $data;
 		}
@@ -114,13 +114,13 @@ class Utils {
 	 * @throws {GWTException|MWException}
 	 * @return {null|Title}
 	 */
-	public static function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = array() ) {
+	public static function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = [] ) {
 		global $wgServer;
 		$result = null;
 
-		$option_defaults = array(
+		$option_defaults = [
 			'must-be-known' => true
-		);
+		];
 
 		$options = array_merge( $option_defaults, $options );
 
@@ -135,7 +135,7 @@ class Utils {
 
 		if ( strpos( $page_title, $wgServer ) !== false ) {
 			throw new GWTException(
-				array( 'gwtoolset-page-title-contains-url' => array( $page_title ) )
+				[ 'gwtoolset-page-title-contains-url' => [ $page_title ] ]
 			);
 		}
 
@@ -152,13 +152,13 @@ class Utils {
 			$Language = Language::factory( $wgLanguageCode );
 
 			throw new GWTException(
-				array(
-					'gwtoolset-namespace-mismatch' => array(
+				[
+					'gwtoolset-namespace-mismatch' => [
 						$page_title,
 						$Language->getNsText( $Title->getNamespace() ),
 						$Language->getNsText( $namespace )
-					)
-				)
+					]
+				]
 			);
 		}
 
@@ -188,10 +188,10 @@ class Utils {
 	 * the values within the array have been sanitized
 	 */
 	public static function getWhitelistedPost(
-		array $original_post = array(),
-		array $expected_post_fields = array()
+		array $original_post = [],
+		array $expected_post_fields = []
 	) {
-		$result = array();
+		$result = [];
 
 		foreach ( $expected_post_fields as $field => $metadata ) {
 			if ( !isset( $original_post[$field] ) ) {
@@ -212,7 +212,7 @@ class Utils {
 			}
 
 			if ( is_array( $original_post[$field] ) ) {
-				$result[$field] = array();
+				$result[$field] = [];
 
 				foreach ( $original_post[$field] as $value ) {
 					// avoid field[][]
@@ -344,7 +344,7 @@ class Utils {
 	 * @throws {MWException}
 	 * @return {string|null}
 	 */
-	public static function sanitizeString( $string, array $options = array() ) {
+	public static function sanitizeString( $string, array $options = [] ) {
 		global $wgContLang;
 
 		// is_string thought some form fields were booleans instead of strings
@@ -379,7 +379,7 @@ class Utils {
 	 *
 	 * @return {string|null}
 	 */
-	public static function sanitizeUrl( $url, array $options = array() ) {
+	public static function sanitizeUrl( $url, array $options = [] ) {
 		$result = self::sanitizeString( $url );
 		$result = filter_var( $result, FILTER_SANITIZE_URL, $options );
 		return $result;
@@ -432,7 +432,7 @@ class Utils {
 			return $result;
 		}
 
-		$result = str_replace( array( '[', ']' ), '', $category );
+		$result = str_replace( [ '[', ']' ], '', $category );
 
 		return $result;
 	}
@@ -455,9 +455,9 @@ class Utils {
 	 * @return {string}
 	 * the string is not sanitized
 	 */
-	public static function stripIllegalTitleChars( $title, array $options = array() ) {
-		$illegal_chars = array( '/', '\\' );
-		$option_defaults = array( 'replacement' => '-' );
+	public static function stripIllegalTitleChars( $title, array $options = [] ) {
+		$illegal_chars = [ '/', '\\' ];
+		$option_defaults = [ 'replacement' => '-' ];
 
 		$options = array_merge( $option_defaults, $options );
 

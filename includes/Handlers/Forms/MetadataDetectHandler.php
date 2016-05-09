@@ -29,16 +29,16 @@ class MetadataDetectHandler extends FormHandler {
 	/**
 	 * @var {array}
 	 */
-	protected $_expected_post_fields = array(
-		'gwtoolset-form' => array( 'size' => 255 ),
-		'gwtoolset-mediawiki-template-name' => array( 'size' => 255 ),
-		'gwtoolset-mediawiki-template-custom' => array( 'size' => 255 ),
-		'gwtoolset-mediafile-throttle' => array( 'size' => 2 ),
-		'gwtoolset-metadata-file-upload' => array( 'size' => 255 ),
-		'gwtoolset-metadata-mapping-url' => array( 'size' => 255 ),
-		'gwtoolset-record-element-name' => array( 'size' => 255 ),
-		'wpEditToken' => array( 'size' => 255 )
-	);
+	protected $_expected_post_fields = [
+		'gwtoolset-form' => [ 'size' => 255 ],
+		'gwtoolset-mediawiki-template-name' => [ 'size' => 255 ],
+		'gwtoolset-mediawiki-template-custom' => [ 'size' => 255 ],
+		'gwtoolset-mediafile-throttle' => [ 'size' => 2 ],
+		'gwtoolset-metadata-file-upload' => [ 'size' => 255 ],
+		'gwtoolset-metadata-mapping-url' => [ 'size' => 255 ],
+		'gwtoolset-record-element-name' => [ 'size' => 255 ],
+		'wpEditToken' => [ 'size' => 255 ]
+	];
 
 	/**
 	 * @var {GWToolset\Helpers\GWTFileBackend}
@@ -108,16 +108,16 @@ class MetadataDetectHandler extends FormHandler {
 	 * @return {array}
 	 */
 	protected function getUserOptions() {
-		return array(
+		return [
 			'gwtoolset-mediafile-throttle' =>
 				!empty( $this->_whitelisted_post['gwtoolset-mediafile-throttle'] )
 				? Utils::sanitizeNumericRange(
 						$this->_whitelisted_post['gwtoolset-mediafile-throttle'],
-						array(
+						[
 							'min' => Config::$mediafile_job_throttle_min,
 							'max' => Config::$mediafile_job_throttle_max,
 							'default' => Config::$mediafile_job_throttle_default
-						)
+						]
 					)
 				: Config::$mediafile_job_throttle_default,
 
@@ -138,7 +138,7 @@ class MetadataDetectHandler extends FormHandler {
 			'gwtoolset-record-element-name' => !empty( $this->_whitelisted_post['gwtoolset-record-element-name'] )
 				? $this->_whitelisted_post['gwtoolset-record-element-name']
 				: 'record',
-		);
+		];
 	}
 
 	/**
@@ -167,37 +167,37 @@ class MetadataDetectHandler extends FormHandler {
 
 		$this->checkForRequiredFormFields(
 			$user_options,
-			array(
+			[
 				'gwtoolset-record-element-name',
 				'gwtoolset-mediawiki-template-name',
 				'gwtoolset-record-count'
-			)
+			]
 		);
 
 		global $wgGWTFileBackend;
 
 		$this->_GWTFileBackend = new GWTFileBackend(
-			array(
+			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
 				'User' => $this->User
-			)
+			]
 		);
 
 		$this->_UploadHandler = new UploadHandler(
-			array(
+			[
 				'File' => new File(),
 				'GWTFileBackend' => $this->_GWTFileBackend,
 				'SpecialPage' => $this->SpecialPage,
 				'User' => $this->User
-			)
+			]
 		);
 
 		$this->XmlDetectHandler = new XmlDetectHandler(
-			array(
+			[
 				'GWTFileBackend' => $this->_GWTFileBackend,
 				'SpecialPage' => $this->SpecialPage
-			)
+			]
 		);
 
 		// upload the metadata file and get an mwstore reference to it

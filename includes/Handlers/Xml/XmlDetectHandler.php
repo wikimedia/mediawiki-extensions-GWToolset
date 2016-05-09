@@ -58,7 +58,7 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * @param {array} $options
 	 */
-	public function __construct( array $options = array() ) {
+	public function __construct( array $options = [] ) {
 		$this->reset();
 
 		if ( isset( $options['GWTFileBackend'] ) ) {
@@ -287,8 +287,8 @@ class XmlDetectHandler extends XmlHandler {
 			$result = wfMessage( 'gwtoolset-url-to-the-media-file-label' )->escaped();
 		} else {
 			$result = str_replace(
-				array( '_', '-' ),
-				array( ' ', ' ' ),
+				[ '_', '-' ],
+				[ ' ', ' ' ],
 				$result
 			);
 		}
@@ -311,15 +311,15 @@ class XmlDetectHandler extends XmlHandler {
 			foreach ( $nodeValues as $nodeValue ) {
 				$result .= Html::rawElement(
 					'tr',
-					array(),
+					[],
 					Html::rawElement(
 						'td',
-						array(),
+						[],
 						Utils::sanitizeString( $nodeName )
 					) .
 					Html::rawElement(
 						'td',
-						array(),
+						[],
 						Utils::sanitizeString( $nodeValue )
 					)
 				);
@@ -341,14 +341,14 @@ class XmlDetectHandler extends XmlHandler {
 	 * the <option> values are filtered.
 	 */
 	public function getMetadataAsOptions( $selected_option = null ) {
-		$result = Html::rawElement( 'option', array( 'value' => '' ), ' ' );
+		$result = Html::rawElement( 'option', [ 'value' => '' ], ' ' );
 
 		if ( empty( $selected_option ) ) {
 			return $this->_metadata_as_options;
 		}
 
 		foreach ( $this->_metadata_example_dom_nodes as $nodeName => $nodeValue ) {
-			$attribs = array();
+			$attribs = [];
 
 			if ( !empty( $selected_option ) && $nodeName === $selected_option ) {
 				$attribs['selected'] = 'selected';
@@ -378,28 +378,28 @@ class XmlDetectHandler extends XmlHandler {
 	 */
 	public function getMetadataAsTableCells( $parameter, Mapping $Mapping ) {
 		$result = null;
-		$selected_options = array();
+		$selected_options = [];
 		$parameter_as_id = Utils::normalizeSpace( $parameter );
 		$first_row_placed = false;
 		$required = null;
-		$required_fields = array( 'gwtoolset-title', 'gwtoolset-url-to-the-media-file' );
+		$required_fields = [ 'gwtoolset-title', 'gwtoolset-url-to-the-media-file' ];
 
 		if ( isset( $Mapping->mapping_array[$parameter] ) ) {
 			$selected_options = $Mapping->mapping_array[$parameter];
 		}
 
 		if ( empty( $this->_metadata_as_options ) ) {
-			$this->_metadata_as_options = Html::rawElement( 'option', array( 'value' => '' ), ' ' );
+			$this->_metadata_as_options = Html::rawElement( 'option', [ 'value' => '' ], ' ' );
 
 			foreach ( $this->_metadata_example_dom_nodes as $nodeName => $nodeValue ) {
 				$this->_metadata_as_options .= Html::rawElement(
-					'option', array(), Utils::sanitizeString( $nodeName )
+					'option', [], Utils::sanitizeString( $nodeName )
 				);
 			}
 		}
 
 		if ( in_array( $parameter_as_id, $required_fields ) ) {
-			$required = Html::rawElement( 'span', array( 'class' => 'required' ), '*' );
+			$required = Html::rawElement( 'span', [ 'class' => 'required' ], '*' );
 		}
 
 		if ( $parameter_as_id === 'gwtoolset-url-to-the-media-file' ) {
@@ -462,12 +462,12 @@ class XmlDetectHandler extends XmlHandler {
 
 		if ( empty( $this->_metadata_example_dom_element ) ) {
 			throw new GWTException(
-				array(
-					'gwtoolset-no-xml-element-found' => array(
+				[
+					'gwtoolset-no-xml-element-found' => [
 						'http://www.w3schools.com/xml/xml_validator.asp',
 						$this->_SpecialPage->getBackToFormLink()
-					)
-				)
+					]
+				]
 			);
 		}
 
@@ -477,8 +477,8 @@ class XmlDetectHandler extends XmlHandler {
 
 	public function reset() {
 		$this->_metadata_as_options = null;
-		$this->_metadata_example_dom_element = array();
-		$this->_metadata_example_dom_nodes = array();
+		$this->_metadata_example_dom_element = [];
+		$this->_metadata_example_dom_nodes = [];
 		$this->_SpecialPage = null;
 	}
 }

@@ -64,11 +64,11 @@ class Mapping implements ModelInterface {
 	 * @params {array} $options
 	 * @return {Status}
 	 */
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 		return $this->_DataAdapater->create( $options );
 	}
 
-	public function delete( array &$options = array() ) {
+	public function delete( array &$options = [] ) {
 	}
 
 	/**
@@ -81,7 +81,7 @@ class Mapping implements ModelInterface {
 	 *
 	 * @throws {GWTException}
 	 */
-	public function getJsonAsArray( array &$options = array() ) {
+	public function getJsonAsArray( array &$options = [] ) {
 		try {
 			$result = json_decode( $this->mapping_json, true );
 			Utils::jsonCheckForError();
@@ -92,12 +92,12 @@ class Mapping implements ModelInterface {
 					Linker::link(
 						$options['Metadata-Mapping-Title'],
 						null,
-						array( 'target' => '_blank' )
+						[ 'target' => '_blank' ]
 					);
 			}
 
 			throw new GWTException(
-				array( 'gwtoolset-metadata-mapping-bad' => array( $error_msg ) )
+				[ 'gwtoolset-metadata-mapping-bad' => [ $error_msg ] ]
 			);
 		}
 
@@ -118,11 +118,11 @@ class Mapping implements ModelInterface {
 
 		if ( !empty( $options['Metadata-Mapping-Title'] ) ) {
 			$result = str_replace(
-				array(
+				[
 					$namespace,
 					Config::$metadata_mapping_subpage,
 					'.json'
-				),
+				],
 				'',
 				$options['Metadata-Mapping-Title']
 			);
@@ -137,10 +137,10 @@ class Mapping implements ModelInterface {
 					'/user-name/file-name.json';
 
 				throw new GWTException(
-					array(
+					[
 						'gwtoolset-metadata-mapping-invalid-url' =>
-						array( $url, $expected_path )
-					)
+						[ $url, $expected_path ]
+					]
 				);
 			}
 
@@ -168,10 +168,10 @@ class Mapping implements ModelInterface {
 
 			if ( empty( $result ) ) {
 				throw new GWTException(
-					array(
+					[
 						'gwtoolset-metadata-mapping-not-found' =>
-						array( $options['gwtoolset-metadata-mapping-url'] )
-					)
+						[ $options['gwtoolset-metadata-mapping-url'] ]
+					]
 				);
 			}
 		}
@@ -203,11 +203,11 @@ class Mapping implements ModelInterface {
 	}
 
 	public function reset() {
-		$this->mapping_array = array();
+		$this->mapping_array = [];
 		$this->mapping_json = null;
 		$this->mediawiki_template_name = null;
-		$this->target_dom_elements = array();
-		$this->target_dom_elements_mapped = array();
+		$this->target_dom_elements = [];
+		$this->target_dom_elements_mapped = [];
 		$this->_DataAdapater = null;
 	}
 
@@ -217,7 +217,7 @@ class Mapping implements ModelInterface {
 	 *
 	 * @throws {GWTException}
 	 */
-	public function retrieve( array &$options = array() ) {
+	public function retrieve( array &$options = [] ) {
 		$options['Metadata-Mapping-Title'] = $this->getMappingTitle( $options );
 		$options['gwtoolset-metadata-mapping-name'] = $this->getMappingName( $options );
 		$options['metadata-mapping-json'] = $this->_DataAdapater->retrieve( $options );
@@ -247,6 +247,6 @@ class Mapping implements ModelInterface {
 		}
 	}
 
-	public function update( array &$options = array() ) {
+	public function update( array &$options = [] ) {
 	}
 }

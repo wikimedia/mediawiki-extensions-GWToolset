@@ -62,7 +62,7 @@ class FileChecks {
 	 *
 	 * @return {array}
 	 */
-	public static function getAcceptedExtensions( array $accepted_types = array() ) {
+	public static function getAcceptedExtensions( array $accepted_types = [] ) {
 		return array_keys( $accepted_types );
 	}
 
@@ -76,7 +76,7 @@ class FileChecks {
 	 * the string is filtered
 	 * a comma delimited list of accepted file extensions
 	 */
-	public static function getAcceptedExtensionsAsList( array $accepted_types = array() ) {
+	public static function getAcceptedExtensionsAsList( array $accepted_types = [] ) {
 		$result = null;
 
 		if ( !empty( $accepted_types ) ) {
@@ -95,7 +95,7 @@ class FileChecks {
 	 *
 	 * @return {array}
 	 */
-	public static function getAcceptedMimeTypes( array $accepted_types = array() ) {
+	public static function getAcceptedMimeTypes( array $accepted_types = [] ) {
 		return array_unique( Utils::getArraySecondLevelValues( $accepted_types ) );
 	}
 
@@ -110,7 +110,7 @@ class FileChecks {
 	 * the string is filtered
 	 * a comma delimited list of accepted file mime types
 	 */
-	public static function getFileAcceptAttribute( array $accepted_types = array() ) {
+	public static function getFileAcceptAttribute( array $accepted_types = [] ) {
 		$result = null;
 
 		if ( !empty( $accepted_types ) && Config::$use_file_accept_attribute ) {
@@ -148,7 +148,7 @@ class FileChecks {
 	 * @param {array} $accepted_extensions
 	 * @return {Status}
 	 */
-	public static function isAcceptedFileExtension( $File, array $accepted_extensions = array() ) {
+	public static function isAcceptedFileExtension( $File, array $accepted_extensions = [] ) {
 		$msg = null;
 		$extension = null;
 
@@ -186,7 +186,7 @@ class FileChecks {
 	 * @param {array} $accepted_mime_types
 	 * @return {Status}
 	 */
-	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = array() ) {
+	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = [] ) {
 		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
 			if ( self::$current_extension === 'xml' ) {
 				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Utils::sanitizeString( $File->mime_type ), '<?xml version="1.0" encoding="UTF-8"?>' );
@@ -225,7 +225,7 @@ class FileChecks {
 	 * @throws {MWException}
 	 * @return {Status}
 	 */
-	public static function isUploadedFileValid( File $File, array $accepted_types = array() ) {
+	public static function isUploadedFileValid( File $File, array $accepted_types = [] ) {
 		if ( empty( $accepted_types ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

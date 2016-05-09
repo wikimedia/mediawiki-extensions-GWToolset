@@ -237,7 +237,6 @@ class WikiChecks {
 		return $Status;
 	}
 
-
 	/**
 	 * @return {Status}
 	 */

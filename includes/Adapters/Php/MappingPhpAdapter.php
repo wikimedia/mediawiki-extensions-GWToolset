@@ -16,10 +16,10 @@ use WikiPage;
 
 class MappingPhpAdapter implements DataAdapterInterface {
 
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 	}
 
-	public function delete( array $options = array() ) {
+	public function delete( array $options = [] ) {
 	}
 
 	/**
@@ -31,16 +31,16 @@ class MappingPhpAdapter implements DataAdapterInterface {
 	 * @return {string}
 	 * the content of the wikipage referred to by the wiki title
 	 */
-	public function retrieve( array $options = array() ) {
+	public function retrieve( array $options = [] ) {
 		$result = null;
 
 		if ( $options['Metadata-Mapping-Title'] instanceof Title ) {
 			if ( !$options['Metadata-Mapping-Title']->isKnown() ) {
 				throw new GWTException(
-					array(
+					[
 						'gwtoolset-metadata-mapping-not-found' =>
-						array( $options['gwtoolset-metadata-mapping-url'] )
-					)
+						[ $options['gwtoolset-metadata-mapping-url'] ]
+					]
 				);
 			}
 
@@ -53,6 +53,6 @@ class MappingPhpAdapter implements DataAdapterInterface {
 		return $result;
 	}
 
-	public function update( array $options = array() ) {
+	public function update( array $options = [] ) {
 	}
 }

@@ -34,11 +34,11 @@ class GWTFileBackendCleanupJob extends Job {
 		global $wgGWTFileBackend;
 
 		$GWTFileBackend = new GWTFileBackend(
-			array(
+			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
 				'User' => User::newFromName( $this->params['user-name'] )
-			)
+			]
 		);
 
 		$Status = $GWTFileBackend->deleteFileFromRelativePath(

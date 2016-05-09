@@ -16,24 +16,24 @@ class MetadataPhpAdapter implements DataAdapterInterface {
 	/**
 	 * @param {array} $options
 	 */
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 	}
 
 	/**
 	 * @param {array} $options
 	 */
-	public function delete( array $options = array() ) {
+	public function delete( array $options = [] ) {
 	}
 
 	/**
 	 * @param {array} $options
 	 */
-	public function retrieve( array $options = array() ) {
+	public function retrieve( array $options = [] ) {
 	}
 
 	/**
 	 * @param {array} $options
 	 */
-	public function update( array $options = array() ) {
+	public function update( array $options = [] ) {
 	}
 }

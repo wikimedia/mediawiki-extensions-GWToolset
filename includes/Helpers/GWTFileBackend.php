@@ -51,7 +51,7 @@ class GWTFileBackend {
 	/**
 	 * @param {array} $params
 	 */
-	public function __construct( array $params = array() ) {
+	public function __construct( array $params = [] ) {
 		$this->setupFileBackend( $params );
 
 		if ( isset( $params['User'] ) && $params['User'] instanceof User ) {
@@ -87,10 +87,10 @@ class GWTFileBackend {
 				uniqid(),
 				NS_USER
 			),
-			array(
+			[
 				'gwtoolset-metadata-file-relative-path' => Utils::sanitizeString( $mwstore_relative_path ),
 				'user-name' => $this->_User->getName()
-			)
+			]
 		);
 
 		try {
@@ -121,7 +121,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$src = array( 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) );
+		$src = [ 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) ];
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			$result = $this->FileBackend->quickDelete( $src );
@@ -293,11 +293,11 @@ class GWTFileBackend {
 	 */
 	protected function prepare() {
 		return $this->FileBackend->prepare(
-			array(
+			[
 				'dir' => $this->getMWStoreFileDirectory(),
 				'noAccess' => true,
 				'noListing' => true
-			)
+			]
 		);
 	}
 
@@ -310,10 +310,10 @@ class GWTFileBackend {
 	 * @return {Status}
 	 */
 	protected function quickStore( $tmp_file_path = null ) {
-		$params = array(
+		$params = [
 			'src' => Utils::sanitizeString( $tmp_file_path ),
 			'dst' => Utils::sanitizeString( $this->getMWStoreCompleteFilePath() )
-		);
+		];
 
 		return $this->FileBackend->quickStore( $params );
 	}
@@ -336,7 +336,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$src = array( 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) );
+		$src = [ 'src' => Utils::sanitizeString( $mwstore_complete_file_path ) ];
 
 		if ( $this->FileBackend->fileExists( $src ) ) {
 			if ( $this->FileBackend->getFileSize( $src ) === 0 ) {

@@ -24,8 +24,8 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
      * @covers Utils::getArraySecondLevelValues
      */
 	public function test_getArraySecondLevelValues_empty() {
-		$input = array(array());
-		$expected = array();
+		$input = [[]];
+		$expected = [];
 		$this->assertEquals( $this->utils->getArraySecondLevelValues($input), $expected);
 	}
 
@@ -33,8 +33,8 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
      * @covers Utils::getArraySecondLevelValues
      */
 	public function test_getArraySecondLevelValues() {
-		$input = array( array(1), array(2), array(3,4,5) );
-		$expected = array(1, 2, 3, 4, 5);
+		$input = [ [1], [2], [3,4,5] ];
+		$expected = [1, 2, 3, 4, 5];
 		$this->assertEquals( $this->utils->getArraySecondLevelValues($input), $expected);
 	}
 

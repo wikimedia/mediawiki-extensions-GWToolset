@@ -99,7 +99,7 @@ class UploadHandler {
 	/**
 	 * @param {array} $options
 	 */
-	public function __construct( array $options = array() ) {
+	public function __construct( array $options = [] ) {
 		$this->reset();
 
 		if ( isset( $options['File'] ) ) {
@@ -312,19 +312,19 @@ class UploadHandler {
 	 */
 	protected function evaluateMediafileUrl( $url ) {
 		global $wgCopyUploadProxy;
-		$result = array( 'content-type' => null, 'extension' => null, 'url' => null );
+		$result = [ 'content-type' => null, 'extension' => null, 'url' => null ];
 
 		if ( empty( $url ) ) {
 			throw new GWTException( 'gwtoolset-no-url-to-evaluate' );
 		}
 
-		$options = array(
+		$options = [
 			'method' => 'HEAD',
 			'followRedirects' => true,
 			'userAgent' => Http::userAgent() . ' ' .
 				Constants::EXTENSION_NAME . '/' .
 				Constants::EXTENSION_VERSION
-		);
+		];
 
 		if ( $wgCopyUploadProxy !== false ) {
 			$options['proxy'] = $wgCopyUploadProxy;
@@ -335,9 +335,9 @@ class UploadHandler {
 
 		if ( !$Status->ok ) {
 			throw new GWTException(
-				array(
-					'gwtoolset-mapping-media-file-url-bad' => array( $url, $Status->getMessage() )
-				)
+				[
+					'gwtoolset-mapping-media-file-url-bad' => [ $url, $Status->getMessage() ]
+				]
 			);
 		}
 
@@ -345,10 +345,10 @@ class UploadHandler {
 
 		if ( empty( $result['url'] ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mapping-media-file-url-bad' =>
-					array( $url, '' )
-				)
+					[ $url, '' ]
+				]
 			);
 		}
 
@@ -356,10 +356,10 @@ class UploadHandler {
 
 		if ( empty( $result['content-type'] ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mapping-media-file-no-content-type' =>
-					array( $url )
-				)
+					[ $url ]
+				]
 			);
 		}
 
@@ -367,10 +367,10 @@ class UploadHandler {
 
 		if ( empty( $result['extension'] ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mapping-media-file-url-extension-bad' =>
-					array( $url )
-				)
+					[ $url ]
+				]
 			);
 		}
 
@@ -381,7 +381,7 @@ class UploadHandler {
 	 * @return {array}
 	 */
 	protected function getCategoriesForPreview() {
-		$result = array();
+		$result = [];
 
 		$categories = array_merge(
 			$this->_global_categories,
@@ -417,19 +417,19 @@ class UploadHandler {
 
 		if ( empty( $options['url'] ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mapping-media-file-url-bad' =>
-					array( $options['url'], '' )
-				)
+					[ $options['url'], '' ]
+				]
 			);
 		}
 
 		if ( empty( $options['content-type'] ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mapping-media-file-no-content-type' =>
-					array( $options['url'] )
-				)
+					[ $options['url'] ]
+				]
 			);
 		}
 
@@ -458,7 +458,7 @@ class UploadHandler {
 	 * @return {array}
 	 */
 	protected function getUploadParams() {
-		$result = array();
+		$result = [];
 
 		$result['gwtoolset-url-to-the-media-file'] =
 			$this->_MediawikiTemplate->mediawiki_template_array[
@@ -519,12 +519,12 @@ class UploadHandler {
 		$result = Utils::getTitle(
 			Utils::stripIllegalTitleChars( $title ),
 			Config::$mediafile_namespace,
-			array( 'must-be-known' => false )
+			[ 'must-be-known' => false ]
 		);
 
 		if ( !( $result instanceof Title ) ) {
 			throw new GWTException(
-				array( 'gwtoolset-title-bad' => array( $title ) )
+				[ 'gwtoolset-title-bad' => [ $title ] ]
 			);
 		}
 
@@ -548,11 +548,11 @@ class UploadHandler {
 		$Api = new ApiMain(
 			new DerivativeRequest(
 				$wgRequest,
-				array(
+				[
 					'action' => 'query',
 					'prop' => 'contributors',
 					'titles' => $Title->getPrefixedText()
-				),
+				],
 				false // not posted
 			),
 			false // disable write
@@ -561,7 +561,7 @@ class UploadHandler {
 		$Api->execute();
 
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$api_result = $Api->getResult()->getResultData( null, array( 'Strip' => 'all' ) );
+			$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 		} else {
 			$api_result = $Api->getResultData();
 		}
@@ -608,9 +608,9 @@ class UploadHandler {
 		$this->_SpecialPage = null;
 		$this->_UploadBase = null;
 
-		$this->mediafile_jobs = array();
+		$this->mediafile_jobs = [];
 		$this->otherContributors = null;
-		$this->user_options = array();
+		$this->user_options = [];
 	}
 
 	/**
@@ -656,11 +656,11 @@ class UploadHandler {
 		$upload_params = $this->getUploadParams();
 		$this->validateUploadParams( $upload_params );
 
-		return array(
+		return [
 			'categories' => $this->getCategoriesForPreview(),
 			'Title' => $this->getTitle( $upload_params['title'] ),
 			'wikitext' => $upload_params['text']
-		);
+		];
 	}
 
 	/**
@@ -768,12 +768,12 @@ class UploadHandler {
 				uniqid(),
 				NS_USER
 			),
-			array(
+			[
 				'options' => $options,
 				'whitelisted-post' => $whitelisted_post,
 				'user-name' => $this->_User->getName(),
 				'user-options' => $user_options
-			)
+			]
 		);
 
 		$this->mediafile_jobs[] = $job;
@@ -787,8 +787,8 @@ class UploadHandler {
 	 * stripped of illegal category characters
 	 */
 	protected function setGlobalCategories() {
-		$categories = array();
-		$this->_global_categories = array();
+		$categories = [];
+		$this->_global_categories = [];
 
 		if ( !empty( $this->user_options['categories'] ) ) {
 			$categories = explode(
@@ -813,14 +813,14 @@ class UploadHandler {
 	 * stripped of illegal category characters
 	 */
 	protected function setItemSpecificCategories() {
-		$this->_item_specific_categories = array();
+		$this->_item_specific_categories = [];
 
 		if ( !empty( $this->user_options['gwtoolset-category-metadata'] ) ) {
 			$category_count = count( $this->user_options['gwtoolset-category-metadata'] );
 
 			for ( $i = 0; $i < $category_count; $i += 1 ) {
 				$phrase = null;
-				$metadata_values = array();
+				$metadata_values = [];
 
 				if ( !empty( $this->user_options['gwtoolset-category-phrase'][$i] ) ) {
 					$phrase = $this->user_options['gwtoolset-category-phrase'][$i];
@@ -901,7 +901,7 @@ class UploadHandler {
 			$options['text'],
 			$options['watch'],
 			$this->_User,
-			array( 'gwtoolset' )
+			[ 'gwtoolset' ]
 		);
 
 		// Page may very well exist now where it previously didn't

@@ -44,40 +44,40 @@ class PreviewForm {
 		$process_button =
 			Html::rawElement(
 					'input',
-					array(
+					[
 						'type' => 'submit',
 						'name' => 'submit',
 						'value' => wfMessage( 'gwtoolset-process-batch' )->escaped()
-					)
+					]
 				) .
 				Html::rawElement( 'br' );
 
 		$step1_link = Html::rawElement(
 			'li',
-			array(),
+			[],
 			Linker::link(
 				Title::newFromText( 'Special:GWToolset' ),
 				wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
-				array()
+				[]
 			)
 		);
 
 		$step2_link = Html::rawElement(
 			'li',
-			array(),
-			Html::rawElement( 'span', array( 'id' =>'step2-link' ), ' ' )
+			[],
+			Html::rawElement( 'span', [ 'id' =>'step2-link' ], ' ' )
 		);
 
 		return
 			Html::rawElement(
 				'h2',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-3-instructions-heading' )->escaped()
 			) .
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-3-instructions-1' )
 				->numParams( (int)Config::$preview_throttle )
 				->escaped()
@@ -85,56 +85,56 @@ class PreviewForm {
 
 			Html::openElement(
 				'form',
-				array(
+				[
 					'id' => 'gwtoolset-form',
 					'action' => $Context->getTitle()->getFullURL(),
 					'method' => 'post'
-				)
+				]
 			) .
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-form',
 					'value' => 'metadata-preview'
-				)
+				]
 			) .
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'hidden',
 					'id' => 'wpEditToken',
 					'name' => 'wpEditToken',
 					'value' => $Context->getUser()->getEditToken()
-				)
+				]
 			) .
 
 			Html::rawElement(
 				'input',
-				array(
+				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-begin',
 					'value' => 1
-				)
+				]
 			) .
 
 			self::getPostAsHiddenFields( $expected_post_fields ) .
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				wfMessage( 'gwtoolset-step-3-instructions-2' )->parse()
 			) .
 
 			wfMessage( 'gwtoolset-step-3-instructions-3' )->parse() .
 
-			Html::rawElement( 'ul', array(), $step1_link . $step2_link ) .
+			Html::rawElement( 'ul', [], $step1_link . $step2_link ) .
 
 			Html::rawElement(
 				'p',
-				array(),
+				[],
 				$process_button
 			) .
 
@@ -144,11 +144,11 @@ class PreviewForm {
 
 			Html::rawElement(
 				'a',
-				array(
+				[
 					'id' => 'gwtoolset-back-to-top',
 					'href' => '#top',
 					'title' => wfMessage( 'gwtoolset-back-to-top' )
-				),
+				],
 				wfMessage( 'gwtoolset-back-to-top' )
 			);
 	}
@@ -185,21 +185,21 @@ class PreviewForm {
 			if ( !is_array( $value ) ) {
 				$result .= Html::rawElement(
 					'input',
-					array(
+					[
 						'type' => 'hidden',
 						'name' => Utils::sanitizeString( $key ),
 						'value' => Utils::sanitizeString( $value )
-					)
+					]
 				);
 			} else {
 				foreach ( $value as $sub_value ) {
 					$result .= Html::rawElement(
 						'input',
-						array(
+						[
 							'type' => 'hidden',
 							'name' => Utils::sanitizeString( $key ) . '[]',
 							'value' => Utils::sanitizeString( $sub_value )
-						)
+						]
 					);
 				}
 			}
@@ -226,9 +226,9 @@ class PreviewForm {
 			if ( $Title instanceof Title ) {
 				$result .= Html::rawElement(
 					'li',
-					array(),
+					[],
 					// Use linkKnown to guard against slave lag for new uploads.
-					Linker::linkKnown( $Title, null, array( 'target' => '_blank' ) )
+					Linker::linkKnown( $Title, null, [ 'target' => '_blank' ] )
 				);
 			}
 		}
@@ -268,8 +268,8 @@ class PreviewForm {
 		$parser_options->setIsPreview( true );
 
 		foreach ( $metadata_items as $item ) {
-			$categories = array();
-			$notParsable = array();
+			$categories = [];
+			$notParsable = [];
 
 			$parser_options->setTargetLanguage(
 				$item['Title']->getPageLanguage()
@@ -309,25 +309,25 @@ class PreviewForm {
 			$result .=
 				Html::openElement(
 					'div',
-					array(
+					[
 						'class' => 'mw-content-' . $lang->getDir(),
 						'dir' => $lang->getDir(),
 						'lang' => $lang->getHtmlCode(),
-					)
+					]
 				) .
 
 				Html::rawElement(
 					'h2',
-					array( 'class' => 'preview-title' ),
+					[ 'class' => 'preview-title' ],
 					$item['Title']
 				) .
 
 				Html::rawElement(
 					'div',
-					array( 'class' => 'preview-image-placeholder' ),
+					[ 'class' => 'preview-image-placeholder' ],
 					Html::rawElement(
 						'h4',
-						array(),
+						[],
 						wfMessage( 'gwtoolset-preview-mediafile-placeholder-heading' )->escaped()
 					) .
 					wfMessage( 'gwtoolset-preview-mediafile-placeholder-text' )->escaped()
@@ -340,7 +340,7 @@ class PreviewForm {
 		}
 
 		// set the page caterogies to nothing
-		$Output->setCategoryLinks( array() );
+		$Output->setCategoryLinks( [] );
 
 		return $result;
 	}
@@ -350,7 +350,7 @@ class PreviewForm {
 	 * @return {string}
 	 */
 	public static function getNonParsableCategoriesAsHtml(
-		array $notParsable = array()
+		array $notParsable = []
 	) {
 		$result = '';
 
@@ -361,7 +361,7 @@ class PreviewForm {
 		$result .=
 			Html::rawElement(
 				'p',
-				array( 'class' => 'error' ),
+				[ 'class' => 'error' ],
 				wfMessage(
 					'gwtoolset-preview-unparsable-categories'
 				)
@@ -373,7 +373,7 @@ class PreviewForm {
 		foreach ( $notParsable as $category ) {
 			$result .= Html::rawElement(
 				'li',
-				array(),
+				[],
 				Utils::sanitizeString( $category )
 			);
 		}

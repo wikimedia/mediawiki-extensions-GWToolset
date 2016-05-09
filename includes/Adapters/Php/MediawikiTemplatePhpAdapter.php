@@ -33,7 +33,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		return array_keys( Config::$mediawiki_templates );
 	}
 
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 	}
 
 	/**
@@ -45,8 +45,8 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * @throws {GWTException}
 	 * @return {array}
 	 */
-	public function retrieve( array $options = array() ) {
-		$result = array( 'mediawiki_template_json' => '' );
+	public function retrieve( array $options = [] ) {
+		$result = [ 'mediawiki_template_json' => '' ];
 		$template_data = null;
 
 		$Title = Utils::getTitle(
@@ -56,10 +56,10 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 
 		if ( $Title === null || !$Title->isKnown() ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mediawiki-template-does-not-exist' =>
-					array( $options['mediawiki_template_name'] )
-				)
+					[ $options['mediawiki_template_name'] ]
+				]
 			);
 		}
 
@@ -77,8 +77,8 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 				Config::$mediawiki_templates[ $options['mediawiki_template_name'] ];
 		} else {
 			throw new GWTException(
-				array(
-					'gwtoolset-no-templatedata' => array(
+				[
+					'gwtoolset-no-templatedata' => [
 						$options['mediawiki_template_name'],
 						'[[' .
 							'mw:Extension:TemplateData#Defining_a_TemplateData_block|' .
@@ -88,8 +88,8 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 							'commons:Commons:TemplateData#Using_TemplateBox|' .
 							wfMessage( 'gwtoolset-templatebox-link-text' )->parse() .
 						']]'
-					)
-				)
+					]
+				]
 			);
 		}
 
@@ -117,10 +117,10 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		$Api = new ApiMain(
 			new DerivativeRequest(
 				$wgRequest,
-				array(
+				[
 					'action' => 'templatedata',
 					'titles' => $Title->getPrefixedText()
-				),
+				],
 				false // not posted
 			),
 			false // disable write
@@ -129,7 +129,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		$Api->execute();
 
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$api_result = $Api->getResult()->getResultData( null, array( 'Strip' => 'all' ) );
+			$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 		} else {
 			$api_result = $Api->getResultData();
 		}
@@ -153,9 +153,9 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		return $result;
 	}
 
-	public function update( array $options = array() ) {
+	public function update( array $options = [] ) {
 	}
 
-	public function delete( array $options = array() ) {
+	public function delete( array $options = [] ) {
 	}
 }

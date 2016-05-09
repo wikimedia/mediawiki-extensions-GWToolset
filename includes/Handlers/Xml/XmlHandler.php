@@ -109,7 +109,7 @@ abstract class XmlHandler {
 	protected function readXmlAsFile(
 		array &$user_options, $file_path_local = null, $callback = null
 	) {
-		$result = array();
+		$result = [];
 
 		if ( empty( $callback ) ) {
 			throw new MWException(

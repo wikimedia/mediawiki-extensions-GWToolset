@@ -40,7 +40,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * @var {array}
 	 * the $mediawiki_template_json converted to a php array
 	 */
-	public $mediawiki_template_array = array();
+	public $mediawiki_template_array = [];
 
 	/**
 	 * @var {DataAdapterInterface}
@@ -50,11 +50,11 @@ class MediawikiTemplate implements ModelInterface {
 	/**
 	 * @var {array}
 	 */
-	protected $_sub_templates = array(
+	protected $_sub_templates = [
 		'language' => '{{%s|%s}}',
-		'creator' => array(
+		'creator' => [
 			'template' => '{{Creator:%s}}',
-			'parameters' => array(
+			'parameters' => [
 				'artist',
 				'author',
 				'Author',
@@ -64,9 +64,9 @@ class MediawikiTemplate implements ModelInterface {
 				'photographer',
 				'printer',
 				'publisher'
-			)
-		)
-	);
+			]
+		]
+	];
 
 	/**
 	 * @param {DataAdapterInterface} $DataAdapter
@@ -75,10 +75,10 @@ class MediawikiTemplate implements ModelInterface {
 		$this->_DataAdapater = $DataAdapter;
 	}
 
-	public function create( array $options = array() ) {
+	public function create( array $options = [] ) {
 	}
 
-	public function delete( array &$options = array() ) {
+	public function delete( array &$options = [] ) {
 	}
 
 	/**
@@ -104,7 +104,7 @@ class MediawikiTemplate implements ModelInterface {
 			if ( $user_options['gwtoolset-reverse-creator'] ) {
 				$creator = explode( ',', $creator, 2 );
 			} else {
-				$creator = array( $creator );
+				$creator = [ $creator ];
 			}
 
 			// handle empty string
@@ -191,8 +191,8 @@ class MediawikiTemplate implements ModelInterface {
 	 * @return {array}
 	 * the keys and values in the array are sanitized
 	 */
-	public function getMappingFromArray( array $array = array() ) {
-		$result = array();
+	public function getMappingFromArray( array $array = [] ) {
+		$result = [];
 		$parameter_as_id = null;
 		$metadata_element = null;
 
@@ -229,10 +229,10 @@ class MediawikiTemplate implements ModelInterface {
 	 * the keys within the <option>s are filtered
 	 */
 	public function getModelKeysAsOptions() {
-		$result = Html::rawElement( 'option', array( 'value' => '' ), ' ' );
+		$result = Html::rawElement( 'option', [ 'value' => '' ], ' ' );
 
 		foreach ( $this->_DataAdapater->getKeys() as $option ) {
-			$result .= Html::rawElement( 'option', array(), Utils::sanitizeString( $option ) );
+			$result .= Html::rawElement( 'option', [], Utils::sanitizeString( $option ) );
 		}
 
 		return $result;
@@ -268,7 +268,7 @@ class MediawikiTemplate implements ModelInterface {
 			return $content;
 		}
 
-		$licenses = array(
+		$licenses = [
 			'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/mark\/1.0\//' =>
 				'{{PD-US}}{{PD-old}}', // Public Domain Mark 1.0
 			'/(http|https):\/\/(www\.|)creativecommons.org\/publicdomain\/zero\/1.0\//' =>
@@ -277,7 +277,7 @@ class MediawikiTemplate implements ModelInterface {
 				'',
 			'/deed\.*/' =>
 				''
-		);
+		];
 
 		$permission = preg_replace(
 			array_keys( $licenses ),
@@ -464,7 +464,7 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	public function getTemplatesAsSelect( $name = null, $id = null ) {
 		$result = null;
-		$attribs = array();
+		$attribs = [];
 
 		if ( !empty( $name ) ) {
 			$attribs['name'] = Utils::sanitizeString( $name );
@@ -520,7 +520,7 @@ class MediawikiTemplate implements ModelInterface {
 
 		if ( $result_length > Config::$title_max_length ) {
 			throw new GWTException(
-				array( 'gwtoolset-title-too-long' => array( $result_length, $result ) )
+				[ 'gwtoolset-title-too-long' => [ $result_length, $result ] ]
 			);
 		}
 
@@ -553,7 +553,7 @@ class MediawikiTemplate implements ModelInterface {
 	 *
 	 * @param {array} $metadata
 	 */
-	public function populateFromArray( array $metadata = array() ) {
+	public function populateFromArray( array $metadata = [] ) {
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
 			$this->mediawiki_template_array[$parameter] = null;
 			$parameter_as_id = Utils::normalizeSpace( $parameter );
@@ -572,17 +572,17 @@ class MediawikiTemplate implements ModelInterface {
 	 * @param {array} $options
 	 * @throws {GWTException}
 	 */
-	public function retrieve( array &$options = array() ) {
+	public function retrieve( array &$options = [] ) {
 		$result = $this->_DataAdapater->retrieve(
-			array( 'mediawiki_template_name' => $this->mediawiki_template_name )
+			[ 'mediawiki_template_name' => $this->mediawiki_template_name ]
 		);
 
 		if ( empty( $result ) ) {
 			throw new GWTException(
-				array(
+				[
 					'gwtoolset-mediawiki-template-not-found' =>
-					array( $this->mediawiki_template_name )
-				)
+					[ $this->mediawiki_template_name ]
+				]
 			);
 		}
 
@@ -594,6 +594,6 @@ class MediawikiTemplate implements ModelInterface {
 		$this->mediawiki_template_array['gwtoolset-url-to-the-media-file'] = null;
 	}
 
-	public function update( array &$options = array() ) {
+	public function update( array &$options = [] ) {
 	}
 }

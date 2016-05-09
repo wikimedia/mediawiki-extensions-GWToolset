@@ -79,12 +79,12 @@ class UploadMediafileJob extends Job {
 		} );
 
 		$UploadHandler = new UploadHandler(
-			array(
+			[
 				'Mapping' => $Mapping,
 				'MediawikiTemplate' => $MediawikiTemplate,
 				'Metadata' => $Metadata,
 				'User' => $this->User,
-			)
+			]
 		);
 
 		$MediawikiTemplate->metadata_raw = $this->params['options']['metadata-raw'];
@@ -155,11 +155,11 @@ class UploadMediafileJob extends Job {
 	 * @param {object} $Title
 	 */
 	protected function specialLog( $message, $job_subtype, Title $Title ) {
-		$options = array(
+		$options = [
 			'job-subtype' => $job_subtype,
 			'Title' => $Title,
 			'User' => $this->User
-		);
+		];
 
 		if ( !empty( $this->params['whitelisted-post']['wpSummary'] ) ) {
 			$options['comment'] = $this->params['whitelisted-post']['wpSummary'];
@@ -172,10 +172,10 @@ class UploadMediafileJob extends Job {
 			$record_nr = (int)$this->params['user-options']['gwtoolset-record-current'];
 		}
 
-		$options['parameters'] = array(
+		$options['parameters'] = [
 			'4::metadata-record-nr' => $record_nr,
 			'5::message' => $message
-		);
+		];
 
 		Utils::specialLog( $options );
 	}

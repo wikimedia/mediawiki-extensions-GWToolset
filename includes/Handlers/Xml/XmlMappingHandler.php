@@ -45,7 +45,7 @@ class XmlMappingHandler extends XmlHandler {
 	/**
 	 * @param {array} $options
 	 */
-	public function __construct( array $options = array() ) {
+	public function __construct( array $options = [] ) {
 		$this->reset();
 
 		if ( isset( $options['GWTFileBackend'] ) ) {
@@ -100,12 +100,12 @@ class XmlMappingHandler extends XmlHandler {
 	 * @return {array}
 	 */
 	protected function getDOMElementAsArray( DOMElement $DOMElement ) {
-		$result = array();
+		$result = [];
 
 		foreach ( $DOMElement->childNodes as $childNode ) {
 			if ( $childNode->nodeType === XML_ELEMENT_NODE ) {
 				if ( !isset( $result[$childNode->tagName] ) ) {
-					$result[$childNode->tagName] = array();
+					$result[$childNode->tagName] = [];
 					$this->addDOMElementToArray( $result[$childNode->tagName], $childNode );
 				} else {
 					$this->addDOMElementToArray( $result[$childNode->tagName], $childNode );
@@ -143,7 +143,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * values provided by the DOMElement
 	 */
 	protected function getDOMElementMapped( DOMElement $DOMElement, array $user_options ) {
-		$elements_mapped = array();
+		$elements_mapped = [];
 		$DOMNodeList = $DOMElement->getElementsByTagName( '*' );
 
 		// cycle over all of the elements in the record element provided
@@ -188,11 +188,11 @@ class XmlMappingHandler extends XmlHandler {
 						&& !is_array( $elements_mapped[$template_parameter] )
 					) {
 						$tmp_string = $elements_mapped[$template_parameter];
-						$elements_mapped[$template_parameter] = array( $tmp_string );
+						$elements_mapped[$template_parameter] = [ $tmp_string ];
 					}
 
 					if ( !isset( $elements_mapped[$template_parameter]['language'] ) ) {
-						$elements_mapped[$template_parameter]['language'] = array();
+						$elements_mapped[$template_parameter]['language'] = [];
 					}
 
 					if ( !isset( $elements_mapped[$template_parameter]['language'][$lang] ) ) {
@@ -212,7 +212,7 @@ class XmlMappingHandler extends XmlHandler {
 								$this->getFilteredNodeValue(
 									$DOMNodeElement,
 									$is_url,
-									array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
+									[ 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES ]
 								);
 						} else {
 							$elements_mapped[$template_parameter] =
@@ -227,7 +227,7 @@ class XmlMappingHandler extends XmlHandler {
 								$this->getFilteredNodeValue(
 									$DOMNodeElement,
 									$is_url,
-									array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
+									[ 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES ]
 								);
 
 						// url-to-the-media-file should only be evaluated once
@@ -281,7 +281,7 @@ class XmlMappingHandler extends XmlHandler {
 	protected function getFilteredNodeValue(
 		DOMElement &$DOMNodeElement,
 		$is_url = false,
-		array $options = array()
+		array $options = []
 	) {
 		$result = null;
 
@@ -313,7 +313,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * - $result['stop-reading'] {bool}
 	 */
 	protected function processDOMElements( $XMLElement, array &$user_options ) {
-		$result = array( 'Title' => null, 'stop-reading' => false );
+		$result = [ 'Title' => null, 'stop-reading' => false ];
 		$record = null;
 		$outer_xml = null;
 
@@ -376,12 +376,12 @@ class XmlMappingHandler extends XmlHandler {
 
 					$result['Title'] = $this->_MappingHandler->processMatchingElement(
 						$user_options,
-						array(
+						[
 							'metadata-as-array' => $this->getDOMElementAsArray( $record ),
 							'metadata-mapped-to-mediawiki-template' =>
 								$this->getDOMElementMapped( $record, $user_options ),
 							'metadata-raw' => $outer_xml
-						)
+						]
 					);
 				}
 

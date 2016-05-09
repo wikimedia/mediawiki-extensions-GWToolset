@@ -28,7 +28,7 @@ abstract class FormHandler {
 	/**
 	 * @param {array} $options
 	 */
-	public function __construct( array $options = array() ) {
+	public function __construct( array $options = [] ) {
 		if ( isset( $options['SpecialPage'] ) ) {
 			$this->SpecialPage = $options['SpecialPage'];
 		}
@@ -80,7 +80,7 @@ abstract class FormHandler {
 			$msg .= $this->SpecialPage->getBackToFormLink();
 
 			throw new GWTException(
-				array( 'gwtoolset-metadata-user-options-error' => array( $msg, $count ) )
+				[ 'gwtoolset-metadata-user-options-error' => [ $msg, $count ] ]
 			);
 		}
 	}
@@ -169,10 +169,10 @@ abstract class FormHandler {
 			$result =
 				Html::rawElement(
 					'h2',
-					array(),
+					[],
 					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
 				) .
-				Html::rawElement( 'span', array( 'class' => 'error' ), $result->getMessage() );
+				Html::rawElement( 'span', [ 'class' => 'error' ], $result->getMessage() );
 		} else {
 			$result = $this->processRequest();
 		}

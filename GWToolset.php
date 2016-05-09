@@ -23,14 +23,14 @@ $wgGWToolsetDir = realpath( __DIR__ );
 require_once $wgGWToolsetDir . '/includes/Constants.php';
 
 // register extension metadata with MediaWiki
-$wgExtensionCredits['media'][] = array(
-	'author' => array( 'dan entous' ),
+$wgExtensionCredits['media'][] = [
+	'author' => [ 'dan entous' ],
 	'descriptionmsg' => 'gwtoolset-desc',
 	'name' => 'GWToolset',
 	'path' => __FILE__,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:GWToolset',
 	'version' => Constants::EXTENSION_VERSION
-);
+];
 
 // define namespaces
 // @see http://www.mediawiki.org/wiki/Manual:Using_custom_namespaces
@@ -42,7 +42,7 @@ if ( !defined( 'NS_GWTOOLSET' ) ) {
 
 $wgExtraNamespaces[NS_GWTOOLSET] = 'GWToolset';
 $wgExtraNamespaces[NS_GWTOOLSET_TALK] = 'GWToolset_talk';
-$wgNamespaceProtection[NS_GWTOOLSET] = array( 'gwtoolset' );
+$wgNamespaceProtection[NS_GWTOOLSET] = [ 'gwtoolset' ];
 $wgNamespacesWithSubpages[NS_GWTOOLSET] = true;
 $wgNamespacesWithSubpages[NS_GWTOOLSET_TALK] = true;
 
@@ -52,7 +52,7 @@ $wgGroupPermissions["gwtoolset"]["gwtoolset"] = true;
 $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
 
 // add autoloader classes
-$wgAutoloadClasses = $wgAutoloadClasses + array(
+$wgAutoloadClasses = $wgAutoloadClasses + [
 	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',
 	'GWToolset\GWTException' => $wgGWToolsetDir . '/includes/GWTException.php',
 	'GWToolset\Utils' => $wgGWToolsetDir . '/includes/Utils.php',
@@ -83,7 +83,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'GWToolset\Models\ModelInterface' => $wgGWToolsetDir . '/includes/Models/ModelInterface.php',
 	'GWToolset\SpecialGWToolset' => $wgGWToolsetDir . '/includes/Specials/SpecialGWToolset.php',
 	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php'
-);
+];
 
 // add internationalization message file references
 $wgExtensionMessagesFiles['GWToolsetAlias'] = $wgGWToolsetDir . '/GWToolset.alias.php';
@@ -107,16 +107,16 @@ $wgJobClasses['gwtoolsetUploadMediafileJob'] = 'GWToolset\Jobs\UploadMediafileJo
 $wgJobClasses['gwtoolsetUploadMetadataJob'] = 'GWToolset\Jobs\UploadMetadataJob';
 
 // register resources with ResourceLoader
-$wgResourceModules['ext.GWToolset'] = array(
+$wgResourceModules['ext.GWToolset'] = [
 	'localBasePath' => $wgGWToolsetDir,
 	'remoteExtPath' => 'GWToolset',
-	'scripts' => array(
+	'scripts' => [
 		'resources/js/ext.gwtoolset.js'
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'resources/css/ext.gwtoolset.css'
-	),
-	'messages' => array(
+	],
+	'messages' => [
 		'gwtoolset-back-text-link',
 		'gwtoolset-cancel',
 		'gwtoolset-create-mapping',
@@ -129,8 +129,8 @@ $wgResourceModules['ext.GWToolset'] = array(
 		'gwtoolset-save-mapping-failed',
 		'gwtoolset-save-mapping-succeeded',
 		'gwtoolset-step-2-heading'
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'json',
 		'jquery.spinner',
 		'jquery.ui.widget',
@@ -140,8 +140,8 @@ $wgResourceModules['ext.GWToolset'] = array(
 		'jquery.ui.position',
 		'jquery.ui.resizable',
 		'jquery.ui.dialog'
-	)
-);
+	]
+];
 
 // add logging
 $wgLogTypes[] = 'gwtoolset';

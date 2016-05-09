@@ -219,14 +219,14 @@ class File {
 	}
 
 	public function init() {
-		$this->original_file_array = array();
+		$this->original_file_array = [];
 		$this->error = null;
 		$this->name = null;
 		$this->size = null;
 		$this->tmp_name = null;
 		$this->type = null;
 		$this->is_uploaded_file = false;
-		$this->pathinfo = array();
+		$this->pathinfo = [];
 		$this->mime_type = null;
 	}
 

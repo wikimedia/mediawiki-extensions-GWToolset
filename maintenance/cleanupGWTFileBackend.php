@@ -19,7 +19,6 @@ if ( $IP === false ) {
 }
 require_once ( "$IP/maintenance/Maintenance.php" );
 
-
 /**
  * Maintenance script to remove abandoned or outdated metadata files from the temporary
  * gwtoolset file storage. These files are normally removed by GWToolset\Jobs\GWTFileBackendCleanupJob,
@@ -39,10 +38,10 @@ class GWTFileBackendCleanup extends Maintenance {
 		global $wgGWTFileBackend, $wgGWTFBMaxAge;
 
 		$GWTFileBackend = new GWTFileBackend(
-			array(
+			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend
-			)
+			]
 		);
 
 		// how far back should the script look for files to delete?
@@ -68,7 +67,7 @@ class GWTFileBackendCleanup extends Maintenance {
 		$mwstore_path = $GWTFileBackend->getMWStorePath() . '/';
 
 		$FSFileBackendFileList = $GWTFileBackend->FileBackend->getFileList(
-			array( 'dir' => $mwstore_path, 'adviseStat' => true )
+			[ 'dir' => $mwstore_path, 'adviseStat' => true ]
 		);
 
 		$this->output(
@@ -82,7 +81,7 @@ class GWTFileBackendCleanup extends Maintenance {
 			$mwstore_file_path = $mwstore_path . $file;
 			$extension = $GWTFileBackend->FileBackend->extensionFromPath( $file );
 			$timestamp = $GWTFileBackend->FileBackend->getFileTimestamp(
-				array( 'src' => $mwstore_file_path )
+				[ 'src' => $mwstore_file_path ]
 			);
 
 			if (
