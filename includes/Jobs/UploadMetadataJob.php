@@ -20,6 +20,8 @@ use MWException;
 use Exception;
 use Title;
 use User;
+use RequestContext;
+use ScopedCallback;
 
 /**
  * runs the MetadataMappingHandler with the originally $_POST’ed form fields when
@@ -46,6 +48,9 @@ class UploadMetadataJob extends Job {
 	 * @param {int} $id
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
+		if ( !isset( $params['session'] ) ) {
+			$params['session'] = RequestContext::getMain()->exportSession();
+		}
 		parent::__construct( 'gwtoolsetUploadMetadataJob', $title, $params, $id );
 	}
 
@@ -124,6 +129,13 @@ class UploadMetadataJob extends Job {
 
 		if ( !$this->validateParams() ) {
 			return $result;
+		}
+
+		if ( isset( $this->params['session'] ) ) {
+			$sessionScope = RequestContext::importScopedSession( $this->params['session'] );
+			$this->addTeardownCallback( function () use ( &$sessionScope ) {
+				ScopedCallback::consume( $sessionScope ); // T126450
+			} );
 		}
 
 		$this->User = User::newFromName( $this->params['user-name'] );
