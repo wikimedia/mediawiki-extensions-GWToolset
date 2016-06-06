@@ -14,6 +14,7 @@ use Html;
 use IContextSource;
 use Linker;
 use ParserOptions;
+use SpecialPage;
 use Title;
 
 class PreviewForm {
@@ -56,7 +57,7 @@ class PreviewForm {
 			'li',
 			[],
 			Linker::link(
-				Title::newFromText( 'Special:GWToolset' ),
+				SpecialPage::getTitleFor( 'GWToolset' ),
 				wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
 				[]
 			)
