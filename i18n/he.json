@@ -202,7 +202,7 @@
 	"gwtoolset-verify-uploads-enabled": "ההרחבה $1 דורשת שהעלאת קבצים תהיה מופעלת.\n\nנא לוודא כי <code dir=\"ltr\">$wgEnableUploads</code> מוגדר ל־<code>true</code>.",
 	"gwtoolset-verify-xmlreader": "הרחבת $1 דורשת ש־PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] יהיה מותקן",
 	"gwtoolset-wiki-checks-not-passed": "בדיקות הוויקי נכשלו",
-	"gwtoolset-title-too-long": "הכותרת המשוערכת ארוכה מדי; אורך הכותרת יכול להיות 240 בתים לכל היותר. האורך המשוערך של הכותרת הזאת הוא {{PLURAL:$1|בית אחד|$1 בתים}}.\n\n$2",
+	"gwtoolset-title-too-long": "הכותרת המשוערכת ארוכה מדי; אורך הכותרת יכול להיות 240 בייטים לכל היותר. האורך המשוערך של הכותרת הזאת הוא {{PLURAL:$1|בייט אחד|$1 בייטים}}.\n\n$2",
 	"gwtoolset-title-label": "כותרת GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "קישור URL לקובץ המדיה",
 	"gwtoolset-reverse-creator": "היפוך שם משפחה ושם פרטי",
