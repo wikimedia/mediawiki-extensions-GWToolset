@@ -70,7 +70,7 @@
 	"gwtoolset-improper-upload": "파일이 정상적으로 업로드되지 않았습니다.",
 	"gwtoolset-mime-type-mismatch": "올려진 파일의 파일 확장자 \"$1\"와 MIME 유형 \"$2\"이 일치하지 않습니다.",
 	"gwtoolset-missing-temp-folder": "임시 폴더를 사용할 수 없습니다.",
-	"gwtoolset-multiple-files": "업로드된 파일이 두개 이상의 파일의 정보를 포함하고 있습니다. 한번에 하나의 파일만 올릴 수 있습니다.",
+	"gwtoolset-multiple-files": "업로드된 파일이 두 개 이상의 파일의 정보를 포함하고 있습니다. 한 번에 하나의 파일만 올릴 수 있습니다.",
 	"gwtoolset-no-extension": "올려진 파일에 충분한 파일 정보가 없어 처리하지 못했습니다. 파일 확장자가 없을 수 있습니다.",
 	"gwtoolset-no-file": "파일이 없습니다.",
 	"gwtoolset-no-form-field": "예상되는 형식 필드 \"$1\"이 존재하지 않습니다.",
