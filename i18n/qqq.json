@@ -7,7 +7,8 @@
 			"Liuxinyu970226",
 			"Dan-nl",
 			"Nemo bis",
-			"Umherirrender"
+			"Umherirrender",
+			"Matma Rex"
 		]
 	},
 	"gwtoolset": "Extension name.\n\nGWToolset is short for GLAMWiki Toolset.",
@@ -215,7 +216,7 @@
 	"gwtoolset-wrap-institution-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
 	"gwtoolset-wrap-institution-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
 	"gwtoolset-wrap-language": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
-	"gwtoolset-wrap-language-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
+	"gwtoolset-wrap-language-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.\n\n<code><nowiki><code><dc:description lang=\"en\">A sentence written in English.</dc:description></code></nowiki></code> and <code><nowiki>{{en|A sentence written in English.}}</nowiki></code> should not be translated.",
 	"gwtoolset-wrap-language-heading": "Heading for the corresponding section in the Step 2: Metadata mapping form.",
 	"gwtoolset-detect-license": "Label used for the corresponding checkbox in the Step 2: Metadata mapping form.",
 	"gwtoolset-detect-license-explanation": "Explanation of the corresponding checkbox in the Step 2: Metadata mapping form.",
