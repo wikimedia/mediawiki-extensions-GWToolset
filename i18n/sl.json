@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"gwtoolset-back-to-top": "vrh strani",
+	"gwtoolset-namespace-mismatch": "Stran <strong>$1</strong> je v napačnem imenskem prostoru <strong>$2</strong>.\n\nMorala bi biti v imenskem prostoru <strong>$3</strong>."
+}
