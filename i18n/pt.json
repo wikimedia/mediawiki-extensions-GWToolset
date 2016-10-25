@@ -4,7 +4,8 @@
 			"Imperadeiro98",
 			"Vitorvicentevalente",
 			"Tooguether",
-			"Nemo bis"
+			"Nemo bis",
+			"Hamilton Abreu"
 		]
 	},
 	"gwtoolset-back-to-top": "topo da página",
@@ -13,7 +14,7 @@
 	"gwtoolset-mediafile-other-contributors": "Um ficheiro multimédia com um título idêntico a \"$1\" já existe nesta wiki. Foi editado ou criado por alguém que não você.",
 	"gwtoolset-save": "Gravar",
 	"gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1.",
-	"gwtoolset-mapping-media-file-no-content-type": "Não foi possível determinar o tipo de conteúdo de URL: $1.",
+	"gwtoolset-mapping-media-file-no-content-type": "Não foi possível determinar o tipo de conteúdo do URL: $1.",
 	"gwtoolset-step-2-instructions-1": "Abaixo está:",
 	"gwtoolset-url-to-the-media-file-label": "URL para o arquivo multimédia",
 	"gwtoolset-wrap-institution": "Envoltório de instituição em instituição modelo",

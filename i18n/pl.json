@@ -41,6 +41,7 @@
 	"gwtoolset-json-error-syntax": "Błąd składni, nieprawidłowy format JSON.",
 	"gwtoolset-json-error-utf8": "Nieprawidłowe znaki UTF-8, prawdopodobnie niepoprawnie zakodowane.",
 	"gwtoolset-json-error-unknown": "Nieznany błąd.",
+	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Dopuszczalny format|Dopuszczalne formaty}} plików:",
 	"gwtoolset-namespace-mismatch": "Strona <strong>$1</strong> znajduje się w niewłaściwej przestrzeni nazw <strong>$2</strong>.\n\nPowinna być w przestrzeni nazw <strong>$3</strong>.",
 	"gwtoolset-category": "Kategoria",
 	"gwtoolset-global-categories": "Kategorie globalne",
