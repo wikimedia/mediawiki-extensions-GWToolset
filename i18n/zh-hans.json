@@ -146,6 +146,7 @@
 	"gwtoolset-maps-to": "映射至",
 	"gwtoolset-mapping-media-file-no-content-type": "不能确定此URL的内容类型：$1。",
 	"gwtoolset-mapping-media-file-url-extension-bad": "文件拓展名不能从此文件URL决定：$1。",
+	"gwtoolset-mapping-media-file-url-bad": "媒体文件URL无法估计。URL使用了尚不能由此扩展处理的方式来递送内容，或存在HTTP请求问题。提供的URL是“$1”。HTTP请求错误“$2”。",
 	"gwtoolset-mapping-no-gwtoolset-title": "元数据映射不包含gwtoolset标题，这对于创建页面而言是需要的。",
 	"gwtoolset-metadata-field": "元数据字段",
 	"gwtoolset-metadata-file": "元数据文件",
