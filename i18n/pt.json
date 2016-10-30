@@ -15,7 +15,7 @@
 	"gwtoolset-no-mwstore-relative-path": "Não foi fornecido um caminho relativo.",
 	"gwtoolset-save": "Gravar",
 	"gwtoolset-save-mapping-failed": "Desculpe. Houve um problema no processamento do seu pedido. Por favor tente novamente mais tarde. Mensagem de erro: $1.",
-	"gwtoolset-metadata-mapping-invalid-url": "O URL de mapeamento de metadados fornecido não corresponde ao endereço do URL de mapeamento esperado.",
+	"gwtoolset-metadata-mapping-invalid-url": "O URL de mapeamento de metadados fornecido não corresponde ao endereço do URL de mapeamento esperado.\n\n* URL fornecido: $1\n* URL esperado: $2",
 	"gwtoolset-mapping-media-file-no-content-type": "Não foi possível determinar o tipo de conteúdo do URL: $1.",
 	"gwtoolset-step-2-instructions-1": "Abaixo está:",
 	"gwtoolset-url-to-the-media-file-label": "URL para o arquivo multimédia",
