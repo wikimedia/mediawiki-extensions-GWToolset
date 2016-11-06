@@ -165,7 +165,7 @@
 	"gwtoolset-partner-template": "Modèle du partenaire :",
 	"gwtoolset-phrasing": "Formulation",
 	"gwtoolset-preview": "Prévisualiser le lot",
-	"gwtoolset-preview-mediafile-placeholder-heading": "Espace réservé aux fichiers de média",
+	"gwtoolset-preview-mediafile-placeholder-heading": "Signet qui sera remplacé par un fichier de média",
 	"gwtoolset-preview-mediafile-placeholder-text": "Voici où une représentation de votre fichier de média apparaîtra.",
 	"gwtoolset-preview-unparsable-categories": "{{PLURAL:$1|La catégorie suivante n’est pas analysable|Les catégories suivantes ne sont pas analysables}}. Assurez-vous que le modèle de catégorie auquel vous vous référez existe dans le wiki et est bien analysé, ou utilisez une référence de catégorie plus simple :",
 	"gwtoolset-process-batch": "Traiter le lot",
