@@ -7,7 +7,8 @@
 			"Themasterriot",
 			"ProtoplasmaKid",
 			"Macofe",
-			"Ryo567"
+			"Ryo567",
+			"Dgstranz"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -141,6 +142,7 @@
 	"gwtoolset-required-group": "No formas parte del grupo $1.",
 	"gwtoolset-title-label": "Título en GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia",
+	"gwtoolset-reverse-creator": "Cambiar el orden de apellido y nombre",
 	"gwtoolset-wrap-institution-heading": "Plantilla de la institución",
 	"gwtoolset-wrap-language-heading": "Plantilla de idioma",
 	"gwtoolset-detect-license": "Intento de detección de licencia",
