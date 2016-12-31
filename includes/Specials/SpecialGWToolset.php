@@ -13,7 +13,6 @@ use GWToolset\Handlers\Forms\FormHandler;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Helpers\WikiChecks;
 use Html;
-use Linker;
 use MWException;
 use SpecialPage;
 use Title;
@@ -135,9 +134,9 @@ class SpecialGWToolset extends SpecialPage {
 
 		$this->getOutput()->addHtml(
 			wfMessage( 'gwtoolset-menu' )->rawParams(
-				Linker::link(
+				$this->getLinkRenderer()->makeLink(
 					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
-					wfMessage( 'gwtoolset-menu-1' )->escaped(),
+					wfMessage( 'gwtoolset-menu-1' )->text(),
 					[]
 				)
 			)->parse()

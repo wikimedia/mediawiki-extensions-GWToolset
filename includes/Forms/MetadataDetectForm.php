@@ -15,7 +15,7 @@ use GWToolset\Constants;
 use GWToolset\Utils;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Models\MediawikiTemplate;
-use Linker;
+use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Title;
 
@@ -72,6 +72,7 @@ class MetadataDetectForm {
 		$namespace = Utils::getNamespaceName( Config::$metadata_namespace );
 		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$user = $SpecialPage->getUser();
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		return
 			Html::rawElement(
@@ -251,7 +252,7 @@ class MetadataDetectForm {
 						]
 					) .
 					Html::rawElement( 'br' ) .
-					Linker::link(
+					$linkRenderer->makeLink(
 						Title::newFromText(
 							'Special:PrefixIndex/' . $namespace . Config::$metadata_mapping_subpage
 						),
@@ -381,6 +382,7 @@ class MetadataDetectForm {
 
 	public static function getMetadataFileUrlInput( $namespace ) {
 		$result = null;
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		if ( Constants::USE_FILEBACKEND ) {
 			return $result;
@@ -403,7 +405,7 @@ class MetadataDetectForm {
 					]
 				) .
 				Html::rawElement( 'br' ) .
-				Linker::link(
+				$linkRenderer->makeLink(
 					Title::newFromText(
 						'Special:PrefixIndex/' .
 						$namespace .

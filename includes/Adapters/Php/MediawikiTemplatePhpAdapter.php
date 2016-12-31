@@ -15,7 +15,6 @@ use GWToolset\Adapters\DataAdapterInterface;
 use GWToolset\Config;
 use GWToolset\GWTException;
 use GWToolset\Utils;
-use Linker;
 use Title;
 
 class MediawikiTemplatePhpAdapter implements DataAdapterInterface {

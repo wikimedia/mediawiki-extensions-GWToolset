@@ -12,7 +12,7 @@ use GWToolset\Config;
 use GWToolset\Utils;
 use Html;
 use IContextSource;
-use Linker;
+use MediaWiki\MediaWikiServices;
 use ParserOptions;
 use SpecialPage;
 use Title;
@@ -42,6 +42,7 @@ class PreviewForm {
 		array $expected_post_fields,
 		array $metadata_items
 	) {
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$process_button =
 			Html::rawElement(
 					'input',
@@ -56,9 +57,9 @@ class PreviewForm {
 		$step1_link = Html::rawElement(
 			'li',
 			[],
-			Linker::link(
+			$linkRenderer->makeLink(
 				SpecialPage::getTitleFor( 'GWToolset' ),
-				wfMessage( 'gwtoolset-step-1-heading' )->escaped(),
+				wfMessage( 'gwtoolset-step-1-heading' )->text(),
 				[]
 			)
 		);
@@ -222,6 +223,7 @@ class PreviewForm {
 	 */
 	public static function getMetadataAsTitleList( array $metadata_items ) {
 		$result = Html::openElement( 'ul' );
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		foreach ( $metadata_items as $Title ) {
 			if ( $Title instanceof Title ) {
@@ -229,7 +231,7 @@ class PreviewForm {
 					'li',
 					[],
 					// Use linkKnown to guard against slave lag for new uploads.
-					Linker::linkKnown( $Title, null, [ 'target' => '_blank' ] )
+					$linkRenderer->makeKnownLink( $Title, null, [ 'target' => '_blank' ] )
 				);
 			}
 		}

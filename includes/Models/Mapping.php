@@ -13,7 +13,7 @@ use GWToolset\Adapters\DataAdapterInterface;
 use GWtoolset\Config;
 use GWToolset\GWTException;
 use GWToolset\Utils;
-use Linker;
+use MediaWiki\MediaWikiServices;
 
 class Mapping implements ModelInterface {
 
@@ -88,8 +88,9 @@ class Mapping implements ModelInterface {
 		} catch ( GWTException $e ) {
 			$error_msg = $e->getMessage();
 			if ( isset( $options['Metadata-Mapping-Title'] ) ) {
+				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 				$error_msg .= ' ' .
-					Linker::link(
+					$linkRenderer->makeLink(
 						$options['Metadata-Mapping-Title'],
 						null,
 						[ 'target' => '_blank' ]
