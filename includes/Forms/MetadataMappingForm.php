@@ -12,7 +12,7 @@ use Html;
 use GWToolset\Config;
 use GWToolset\Utils;
 use GWToolset\Handlers\Forms\FormHandler;
-use Linker;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class MetadataMappingForm {
@@ -30,11 +30,12 @@ class MetadataMappingForm {
 	 */
 	public static function getForm( FormHandler $Handler, array &$user_options ) {
 
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$template_link = '[[Template:' .
 			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .
 			']]';
 		$metadata_file_url = !empty( $user_options['Metadata-Title'] )
-			? Linker::link( $user_options['Metadata-Title'], null, [ 'target' => '_blank' ] ) .
+			? $linkRenderer->makeLink( $user_options['Metadata-Title'], null, [ 'target' => '_blank' ] ) .
 				Html::rawElement( 'br' )
 			: null;
 
@@ -650,7 +651,7 @@ class MetadataMappingForm {
 					)
 				) .
 				Html::rawElement( 'br' ) .
-				Linker::link(
+				$linkRenderer->makeLink(
 					Title::newFromText( 'Category:' . Config::$source_templates ),
 					null,
 					[ 'target' => '_blank' ]

@@ -26,7 +26,7 @@ use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Models\Metadata;
 use Html;
 use JobQueueGroup;
-use Linker;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Title;
 
@@ -136,7 +136,8 @@ class MetadataMappingHandler extends FormHandler {
 
 		JobQueueGroup::singleton()->push( $job );
 
-		$newFilesLink = Linker::link(
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		$newFilesLink = $linkRenderer->makeLink(
 			Title::newFromText( 'Special:NewFiles' ),
 			null,
 			[ 'target' => '_blank' ]
