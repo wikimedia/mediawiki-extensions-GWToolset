@@ -15,5 +15,7 @@
 	"gwtoolset-could-not-close-xml": "Impossible de tampar lo lector XML.",
 	"gwtoolset-could-not-open-xml": "Impossible de legir lo fichièr XML.",
 	"gwtoolset-fsfile-empty": "Lo fichièr èra void e es estat suprimit.",
-	"gwtoolset-back-text-link": "← retorn al formulari"
+	"gwtoolset-missing-temp-folder": "Cap de dorsièr temporari pas disponible.",
+	"gwtoolset-back-text-link": "← retorn al formulari",
+	"gwtoolset-wiki-checks-not-passed": "Las verificacions del Wiki son pas estadas franquidas."
 }
