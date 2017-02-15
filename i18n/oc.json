@@ -15,6 +15,9 @@
 	"gwtoolset-could-not-close-xml": "Impossible de tampar lo lector XML.",
 	"gwtoolset-could-not-open-xml": "Impossible de legir lo fichièr XML.",
 	"gwtoolset-fsfile-empty": "Lo fichièr èra void e es estat suprimit.",
+	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> es pas definit.",
+	"gwtoolset-no-comment": "<code>user_options['comment']</code> pas definit.",
+	"gwtoolset-sha1-does-not-match": "Lo hachage SHA-1 correspond pas.",
 	"gwtoolset-missing-temp-folder": "Cap de dorsièr temporari pas disponible.",
 	"gwtoolset-back-text-link": "← retorn al formulari",
 	"gwtoolset-wiki-checks-not-passed": "Las verificacions del Wiki son pas estadas franquidas."
