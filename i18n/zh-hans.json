@@ -171,6 +171,7 @@
 	"gwtoolset-step-2-instructions-2-li-1": "在“{{int:gwtoolset-maps-to}}”列中选择符合“{{int:gwtoolset-template-field}}”列中的MediaWiki模板字段的元数据。",
 	"gwtoolset-step-2-instructions-2-li-2": "您不需要提供一批MediaWiki模板字段。",
 	"gwtoolset-reupload-media": "从URL重新上传媒体文件",
+	"gwtoolset-reupload-media-explanation": "这个复选框允许您对一个已经上传到维基上的项目重新上传媒体文件。如果因为之前已经上传过文件这个项目已经存在，一个附加的媒体文件会被添加到维基上。如果其他人已经上传了一个更新版本的媒体文件，您的上传会被忽略。如果媒体文件没有存在维基上，它就会根据这个复选框来决定是否要上传媒体文件。",
 	"gwtoolset-specific-categories": "项具体分类",
 	"gwtoolset-specific-tooltip": "通过使用以下字段，您可以为每个上传项目应用语句（可选）加一个元数据字段作为分类记录。例如，如果元数据字段文件包含每条记录艺术家的对象，您可以为每条记录将其添加为分类记录，这会更改为特定每条记录的值。您也可以添加例如<em>{{int:gwtoolset-painted-by}}</em>的语句，并添加艺术家元数据字段，这会为每条记录产生<em>{{int:gwtoolset-painted-by}} <artist name></em>作为分类。分类名称基本应为英语（参见[[Commons:Categories#Category_names|Commons:分类名称]]）。",
 	"gwtoolset-template-field": "模板字段",
