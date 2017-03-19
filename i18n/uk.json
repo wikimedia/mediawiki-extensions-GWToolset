@@ -5,7 +5,8 @@
 			"Ата",
 			"Olion",
 			"Base",
-			"Piramidion"
+			"Piramidion",
+			"Ahonc"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -219,7 +220,7 @@
 	"gwtoolset-global-license-explanation": "Або ви можете вказати нижче глобальну ліцензію, яку буде застосовано до всіх елементів пакетного завантаження. Це значення може бути просто текстовим значенням або шаблоном MediaWiki. Якщо у цьому полі є значення, тоді будь-яке значення метаданих, зіставлене з параметром дозволу, ігноруватиметься.",
 	"gwtoolset-select-template": "Виберіть шаблон:",
 	"gwtoolset-select-custom-template": "або введіть власний шаблон:",
-	"gwtoolset-no-templatedata": "Не існує блоку <code>&lt;templatedata></code> для шаблону $1.\n\nЗа можливості, додайте $2 до шаблона або до $3 шаблона.",
+	"gwtoolset-no-templatedata": "Не існує блоку <code>&lt;templatedata></code> для шаблону $1.\n\nЗа можливості, додайте $2 до шаблону або до $3.",
 	"gwtoolset-templatedata-link-text": "блок <code>&lt;templatedata></code>",
 	"gwtoolset-templatebox-link-text": "<code>TemplateBox</code>",
 	"gwtoolset-title-none": "Без назви",
