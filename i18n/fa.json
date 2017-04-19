@@ -25,7 +25,7 @@
 	"gwtoolset-fsfile-empty": "پوشه خالی بود و حذف شد.",
 	"gwtoolset-fsfile-retrieval-failure": "پوشه از یوآر‌ال $1 نتوانست بازیابی شود.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> تنظیم نشده.",
-	"gwtoolset-incorrect-form-handler": "ماژول \"$1\" یک گسترش کنترل کننده GWToolset\\Handlers\\Forms\\FormHandler را ثبت نکرده‌‌است.",
+	"gwtoolset-incorrect-form-handler": "پودمان «$1» یک کنترل کنندهٔ فرم که GWToolset\\Handlers\\Forms\\FormHandler را گسترش بدهد ثبت نکرده‌‌است.",
 	"gwtoolset-job-throttle-exceeded": "سرکوب کار گروه فراتر رفته بود.",
 	"gwtoolset-mediafile-duplicate-another-title": "پرونده رسانه‌ای تکراری: پرونده رسانه‌ای یکسان پیش از این تحت عنوان «$1» وجود داشته‌است.",
 	"gwtoolset-mediafile-duplicate-same-title": "پرونده رسانه‌ای تکراری: این پرونده رسانه‌ای پیش از این وجود داشته‌است و عنوان مشابه «$1» دارد.",
