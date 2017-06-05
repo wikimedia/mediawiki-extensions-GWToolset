@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bugoslav"
+		]
+	},
+	"right-gwtoolset": "Postavljanje uz pomoć GWToolseta",
+	"group-gwtoolset": "Postavljatelji uz pomoć GWToolseta",
+	"group-gwtoolset-member": "{{GENDER:$1|postavljatelj uz pomoć GWToolseta|postavljateljica uz pomoć GWToolseta}}",
+	"grouppage-gwtoolset": "{{ns:project}}:Postavljatelji uz pomoć GWToolseta"
+}
