@@ -371,26 +371,28 @@ class MediawikiTemplate implements ModelInterface {
 
 			$sections .= ' | ' . Utils::sanitizeString( $parameter ) . ' = ';
 
-			// sometimes a metadata element has an XML attribute that the tools
-			// looks for in order to possibly place the metadata into a
-			// sub-template, e.g., <dc:description lang="en">
-			//
-			// currently the application only looks for XML elements with the
-			// attribute lang; those elements are placed into an associative array
-			// 'language' and are processed here. no other array grouping is
-			// currently created.
-			//
-			// this section is meant to handle this current scenario and any future
-			// scenarios of this type.
+			/**
+			 * sometimes a metadata element has an XML attribute that the tools
+			 * looks for in order to possibly place the metadata into a
+			 * sub-template, e.g., <dc:description lang="en">
+			 *
+			 * currently the application only looks for XML elements with the
+			 * attribute lang; those elements are placed into an associative array
+			 * 'language' and are processed here. no other array grouping is
+			 * currently created.
+			 *
+			 * this section is meant to handle this current scenario and any future
+			 * scenarios of this type.
+			 */
 			if ( is_array( $content ) ) {
 				foreach ( $content as $sub_template_name => $sub_template_content ) {
 					if ( $sub_template_name === 'language' ) {
 						foreach ( $sub_template_content as $language => $language_content ) {
 							$sections .= sprintf(
-									$this->_sub_templates['language'],
-									Utils::sanitizeString( $language ),
-									Utils::sanitizeString( $language_content )
-								) . PHP_EOL;
+								$this->_sub_templates['language'],
+								Utils::sanitizeString( $language ),
+								Utils::sanitizeString( $language_content )
+							) . PHP_EOL;
 						}
 
 					// sometimes there is more than one metadata element with the same

@@ -175,15 +175,17 @@ class XmlMappingHandler extends XmlHandler {
 				$is_url = strpos( $template_parameter, 'url' ) !== false;
 
 				if ( !empty( $lang ) && $user_options['gwtoolset-wrap-language'] ) {
-					// within a record, multimple elements with the same element name, e.g., description
-					// can exist. some may have a lang attribute and some may not. if the first element
-					// found does not have a lang attribute it is stored as a value in
-					// $elements_mapped[$template_parameter] and consecutive elements are concatenate on it.
-					//
-					// however, if one of those similar elements has a lang attribute,
-					// $elements_mapped[$template_parameter] needs to become an array with index [0]
-					// containing the values that do not have a lang attribute and index['language']
-					// containing the languages provided as sub indexes, e.g., ['language']['en']
+					/**
+					 * within a record, multimple elements with the same element name, e.g., description
+					 * can exist. some may have a lang attribute and some may not. if the first element
+					 * found does not have a lang attribute it is stored as a value in
+					 * $elements_mapped[$template_parameter] and consecutive elements are concatenate on it.
+					 *
+					 * however, if one of those similar elements has a lang attribute,
+					 * $elements_mapped[$template_parameter] needs to become an array with index [0]
+					 * containing the values that do not have a lang attribute and index['language']
+					 * containing the languages provided as sub indexes, e.g., ['language']['en']
+					 */
 					if ( isset( $elements_mapped[$template_parameter] )
 						&& !is_array( $elements_mapped[$template_parameter] )
 					) {
@@ -233,12 +235,14 @@ class XmlMappingHandler extends XmlHandler {
 						// url-to-the-media-file should only be evaluated once
 						// when $elements_mapped['gwtoolset-url-to-the-media-file'] is not set
 						} elseif ( $template_parameter !== 'gwtoolset-url-to-the-media-file' ) {
-							// if a template_parameter has some elements with a lang attribute
-							// and some not, the non lang attribute versions need their own
-							// array element
-							//
-							// isset( $elements_mapped[ $template_parameter ][ 'language ] )
-							// doesn't work here
+							/**
+							 * if a template_parameter has some elements with a lang attribute
+							 * and some not, the non lang attribute versions need their own
+							 * array element
+							 *
+							 * isset( $elements_mapped[ $template_parameter ][ 'language ] )
+							 * doesn't work here
+							 */
 							if ( is_array( $elements_mapped[$template_parameter] )
 								&& array_key_exists( 'language', $elements_mapped[$template_parameter] )
 							) {

@@ -456,26 +456,28 @@ class MetadataMappingHandler extends FormHandler {
 						->escaped();
 			}
 
-			// at this point
-			// * the UploadMetadataJob has created ( $user_options['gwtoolset-mediafile-throttle'] )
-			//   number of UploadMediafileJobs
-			// * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
-			//   began with
-			// * $user_options['gwtoolset-record-current'] is the next record that needs to be
-			//   processed
-			//
-			// example to illustrate the test
-			// * Config::$preview_throttle                 = 3
-			// * $user_options['gwtoolset-mediafile-throttle']   = 10
-			// * $user_options['gwtoolset-record-count']   = 14
-			// * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
-			// * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
-			//                                                     processed this is the current
-			//                                                     record we need to process )
-			//
-			// the test 14 >= ( 4 + 10 ) is true so
-			// * $user_options['gwtoolset-record-begin'] = $user_options['gwtoolset-record-current']
-			// * create another UploadMetadataJob that will take care of the last record
+			/**
+			 * at this point
+			 * * the UploadMetadataJob has created ( $user_options['gwtoolset-mediafile-throttle'] )
+			 *   number of UploadMediafileJobs
+			 * * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
+			 *   began with
+			 * * $user_options['gwtoolset-record-current'] is the next record that needs to be
+			 *   processed
+			 *
+			 * example to illustrate the test
+			 * * Config::$preview_throttle                 = 3
+			 * * $user_options['gwtoolset-mediafile-throttle']   = 10
+			 * * $user_options['gwtoolset-record-count']   = 14
+			 * * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
+			 * * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
+			 *                                                     processed this is the current
+			 *                                                     record we need to process )
+			 *
+			 * the test 14 >= ( 4 + 10 ) is true so
+			 * * $user_options['gwtoolset-record-begin'] = $user_options['gwtoolset-record-current']
+			 * * create another UploadMetadataJob that will take care of the last record
+			 */
 			if (
 				(int)$user_options['gwtoolset-record-count']
 				>= ( (int)$user_options['gwtoolset-record-begin'] +
