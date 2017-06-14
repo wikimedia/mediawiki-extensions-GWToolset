@@ -2,15 +2,11 @@
 <ruleset>
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 	    <exclude name="Generic.Files.LineLength"/>
-	    <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace"/>
-	    <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
-	    <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment"/>
-	    <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis"/>
-	    <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis"/>
 	    <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
 	</rule>
 	<file>.</file>
-	<arg name="encoding" value="utf8"/>
+	<arg name="encoding" value="UTF-8"/>
 	<arg name="extensions" value="php,php5,inc"/>
 	<exclude-pattern>vendor</exclude-pattern>
+	<exclude-pattern>node_modules</exclude-pattern>
 </ruleset>
