@@ -448,7 +448,7 @@ class Utils {
 	 *
 	 * @param {string} $title
 	 *
-	 * @param {array}  $options
+	 * @param {array} $options
 	 * @param {string} $options['replacement']
 	 * the character used to replace illegal characters; defaults to ‘-’
 	 *

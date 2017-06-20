@@ -286,7 +286,7 @@ class UploadHandler {
 	 * url is to a script that returns the media file
 	 *   $url = https://www.rijksmuseum.nl/mediabin.jsp?id=RP-P-1956-764
 	 *   $url = 'http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcollections.smvk.se
-	             %3A8080%2Fcarlotta-em%2Fguest%2F1422401%2F13%2Fbild.jpg&size=LARGE&type=IMAGE';
+	 *           %3A8080%2Fcarlotta-em%2Fguest%2F1422401%2F13%2Fbild.jpg&size=LARGE&type=IMAGE';
 	 *
 	 * url is redirected to another url that actually serves the media file
 	 *   $url = 'http://www.rijksmuseum.nl/media/assets/AK-RAK-1978-3';
@@ -746,7 +746,6 @@ class UploadHandler {
 	public function saveMediafileViaJob(
 		array $user_options, array $options, array $whitelisted_post
 	) {
-
 		if ( count( $this->mediafile_jobs ) > (int)$user_options['gwtoolset-mediafile-throttle'] ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

@@ -29,7 +29,6 @@ class MetadataMappingForm {
 	 * an html form
 	 */
 	public static function getForm( FormHandler $Handler, array &$user_options ) {
-
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$template_link = '[[Template:' .
 			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .

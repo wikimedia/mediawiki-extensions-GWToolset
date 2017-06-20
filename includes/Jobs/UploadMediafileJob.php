@@ -77,7 +77,7 @@ class UploadMediafileJob extends Job {
 		$oldUser = $wgUser;
 		$wgUser = $this->User;
 		// This will automatically restore $wgUser, when $magicScopeVariable falls out of scope.
-		$magicScopeVariable = new ScopedCallback( function() use ( $oldUser ) {
+		$magicScopeVariable = new ScopedCallback( function () use ( $oldUser ) {
 			global $wgUser;
 			$wgUser = $oldUser;
 		} );

@@ -186,7 +186,6 @@ class WikiChecks {
 	 * @return {Status}
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
-
 		$Status = self::verifyXMLReaderExists();
 		if ( !$Status->ok ) {
 			return $Status;
