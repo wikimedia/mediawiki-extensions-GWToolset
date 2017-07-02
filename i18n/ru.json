@@ -6,7 +6,8 @@
 			"Eroha",
 			"Striking Blue",
 			"Eakarpov",
-			"Kaganer"
+			"Kaganer",
+			"Facenapalm"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -28,6 +29,7 @@
 	"gwtoolset-mediafile-duplicate-another-title": "Файл-дубликат: Идентичный медиафайл уже существует под именем «$1».",
 	"gwtoolset-mediafile-duplicate-same-title": "Файл-дубликат: Этот медиафайл уже существует под этим же именем «$1».",
 	"gwtoolset-mediafile-other-contributors": "Другие авторы: Медиафайл с аналогичным именем «$1» уже существует в вики. Он был создан или изменён кем-то кроме вас.",
+	"gwtoolset-no-comment": "<code>user_options['comment']</code> не задано.",
 	"gwtoolset-no-default": "Не указано значение по умолчанию.",
 	"gwtoolset-no-field-size": "Не указана длина для поля «$1».",
 	"gwtoolset-no-max": "Не указано максимальное значение.",
