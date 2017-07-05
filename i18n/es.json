@@ -8,7 +8,8 @@
 			"ProtoplasmaKid",
 			"Macofe",
 			"Ryo567",
-			"Dgstranz"
+			"Dgstranz",
+			"AlvaroMolina"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -156,5 +157,9 @@
 	"gwtoolset-select-custom-template": "o escribe una plantilla personalizada:",
 	"gwtoolset-templatedata-link-text": "Bloque <code>&lt;templatedata></code>",
 	"gwtoolset-title-none": "Sin título",
-	"log-name-gwtoolset": "Registro de GWToolset"
+	"log-name-gwtoolset": "Registro de GWToolset",
+	"log-description-gwtoolset": "Este registro muestra los eventos de GWToolset en esta wiki.",
+	"logentry-gwtoolset-mediafile-job-failed": "$1 falló el trabajo multimedia. Registro de Metadatos $4. $5",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 realizó con éxito el trabajo multimedia. Creados $3. Registro de Metadatos $4",
+	"logentry-gwtoolset-metadata-job": "$1 creó un trabajo de metadatos. $4"
 }
