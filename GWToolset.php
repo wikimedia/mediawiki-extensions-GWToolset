@@ -84,7 +84,6 @@ $wgAutoloadClasses = $wgAutoloadClasses + [
 // add internationalization message file references
 $wgExtensionMessagesFiles['GWToolsetAlias'] = __DIR__ . '/GWToolset.alias.php';
 $wgMessagesDirs['GWToolset'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['GWToolset'] = __DIR__ . '/GWToolset.i18n.php';
 $wgExtensionMessagesFiles['GWToolsetNamespaces'] = __DIR__ . '/GWToolset.namespaces.php';
 
 // setup special page references
