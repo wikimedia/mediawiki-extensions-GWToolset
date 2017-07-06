@@ -188,20 +188,6 @@ class Config {
 	public static $source_templates = 'Source_templates';
 
 	/**
-	 * @see SpecialPage __constructor
-	 * @var {string}
-	 * user right required, e.g. "block" or "delete"
-	 */
-	public static $special_page_restriction = 'gwtoolset';
-
-	/**
-	 * @see SpecialPage __constructor
-	 * @var {bool}
-	 * whether the page is listed in Special:Specialpages
-	 */
-	public static $special_page_listed = true;
-
-	/**
 	 * @var {int}
 	 * title maximum length in bytes
 	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming

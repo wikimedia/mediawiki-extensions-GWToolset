@@ -53,8 +53,7 @@ class SpecialGWToolset extends SpecialPage {
 	public function __construct() {
 		parent::__construct(
 			Constants::EXTENSION_NAME,
-			Config::$special_page_restriction,
-			Config::$special_page_listed
+			'gwtoolset'
 		);
 	}
 
