@@ -16,11 +16,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit();
 }
 
-// set extension directory reference to this directory
-$wgGWToolsetDir = realpath( __DIR__ );
-
 // load extension constants
-require_once $wgGWToolsetDir . '/includes/Constants.php';
+require_once __DIR__ . '/includes/Constants.php';
 
 // register extension metadata with MediaWiki
 $wgExtensionCredits['media'][] = [
@@ -52,43 +49,43 @@ $wgGroupPermissions["gwtoolset"]["upload_by_url"] = true;
 
 // add autoloader classes
 $wgAutoloadClasses = $wgAutoloadClasses + [
-	'GWToolset\Config' => $wgGWToolsetDir . '/includes/Config.php',
-	'GWToolset\GWTException' => $wgGWToolsetDir . '/includes/GWTException.php',
-	'GWToolset\Utils' => $wgGWToolsetDir . '/includes/Utils.php',
-	'GWToolset\Adapters\DataAdapterInterface' => $wgGWToolsetDir . '/includes/Adapters/DataAdapterInterface.php',
-	'GWToolset\Adapters\Php\MappingPhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MappingPhpAdapter.php',
-	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
-	'GWToolset\Adapters\Php\MetadataPhpAdapter' => $wgGWToolsetDir . '/includes/Adapters/Php/MetadataPhpAdapter.php',
-	'GWToolset\Forms\MetadataDetectForm' => $wgGWToolsetDir . '/includes/Forms/MetadataDetectForm.php',
-	'GWToolset\Forms\MetadataMappingForm' => $wgGWToolsetDir . '/includes/Forms/MetadataMappingForm.php',
-	'GWToolset\Forms\PreviewForm' => $wgGWToolsetDir . '/includes/Forms/PreviewForm.php',
-	'GWToolset\Handlers\Forms\FormHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/FormHandler.php',
-	'GWToolset\Handlers\Forms\MetadataDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataDetectHandler.php',
-	'GWToolset\Handlers\Forms\MetadataMappingHandler' => $wgGWToolsetDir . '/includes/Handlers/Forms/MetadataMappingHandler.php',
-	'GWToolset\Handlers\UploadHandler' => $wgGWToolsetDir . '/includes/Handlers/UploadHandler.php',
-	'GWToolset\Handlers\Xml\XmlDetectHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlDetectHandler.php',
-	'GWToolset\Handlers\Xml\XmlHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlHandler.php',
-	'GWToolset\Handlers\Xml\XmlMappingHandler' => $wgGWToolsetDir . '/includes/Handlers/Xml/XmlMappingHandler.php',
-	'GWToolset\Helpers\FileChecks' => $wgGWToolsetDir . '/includes/Helpers/FileChecks.php',
-	'GWToolset\Helpers\GWTFileBackend' => $wgGWToolsetDir . '/includes/Helpers/GWTFileBackend.php',
-	'GWToolset\Helpers\WikiChecks' => $wgGWToolsetDir . '/includes/Helpers/WikiChecks.php',
-	'GWToolset\Hooks' => $wgGWToolsetDir . '/includes/Hooks/Hooks.php',
-	'GWToolset\Jobs\GWTFileBackendCleanupJob' => $wgGWToolsetDir . '/includes/Jobs/GWTFileBackendCleanupJob.php',
-	'GWToolset\Jobs\UploadMediafileJob' => $wgGWToolsetDir . '/includes/Jobs/UploadMediafileJob.php',
-	'GWToolset\Jobs\UploadMetadataJob' => $wgGWToolsetDir . '/includes/Jobs/UploadMetadataJob.php',
-	'GWToolset\Models\Mapping' => $wgGWToolsetDir . '/includes/Models/Mapping.php',
-	'GWToolset\Models\MediawikiTemplate' => $wgGWToolsetDir . '/includes/Models/MediawikiTemplate.php',
-	'GWToolset\Models\Metadata' => $wgGWToolsetDir . '/includes/Models/Metadata.php',
-	'GWToolset\Models\ModelInterface' => $wgGWToolsetDir . '/includes/Models/ModelInterface.php',
-	'GWToolset\SpecialGWToolset' => $wgGWToolsetDir . '/includes/Specials/SpecialGWToolset.php',
-	'Php\File' => $wgGWToolsetDir . '/includes/Php/File.php'
+	'GWToolset\Config' => __DIR__ . '/includes/Config.php',
+	'GWToolset\GWTException' => __DIR__ . '/includes/GWTException.php',
+	'GWToolset\Utils' => __DIR__ . '/includes/Utils.php',
+	'GWToolset\Adapters\DataAdapterInterface' => __DIR__ . '/includes/Adapters/DataAdapterInterface.php',
+	'GWToolset\Adapters\Php\MappingPhpAdapter' => __DIR__ . '/includes/Adapters/Php/MappingPhpAdapter.php',
+	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => __DIR__ . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
+	'GWToolset\Adapters\Php\MetadataPhpAdapter' => __DIR__ . '/includes/Adapters/Php/MetadataPhpAdapter.php',
+	'GWToolset\Forms\MetadataDetectForm' => __DIR__ . '/includes/Forms/MetadataDetectForm.php',
+	'GWToolset\Forms\MetadataMappingForm' => __DIR__ . '/includes/Forms/MetadataMappingForm.php',
+	'GWToolset\Forms\PreviewForm' => __DIR__ . '/includes/Forms/PreviewForm.php',
+	'GWToolset\Handlers\Forms\FormHandler' => __DIR__ . '/includes/Handlers/Forms/FormHandler.php',
+	'GWToolset\Handlers\Forms\MetadataDetectHandler' => __DIR__ . '/includes/Handlers/Forms/MetadataDetectHandler.php',
+	'GWToolset\Handlers\Forms\MetadataMappingHandler' => __DIR__ . '/includes/Handlers/Forms/MetadataMappingHandler.php',
+	'GWToolset\Handlers\UploadHandler' => __DIR__ . '/includes/Handlers/UploadHandler.php',
+	'GWToolset\Handlers\Xml\XmlDetectHandler' => __DIR__ . '/includes/Handlers/Xml/XmlDetectHandler.php',
+	'GWToolset\Handlers\Xml\XmlHandler' => __DIR__ . '/includes/Handlers/Xml/XmlHandler.php',
+	'GWToolset\Handlers\Xml\XmlMappingHandler' => __DIR__ . '/includes/Handlers/Xml/XmlMappingHandler.php',
+	'GWToolset\Helpers\FileChecks' => __DIR__ . '/includes/Helpers/FileChecks.php',
+	'GWToolset\Helpers\GWTFileBackend' => __DIR__ . '/includes/Helpers/GWTFileBackend.php',
+	'GWToolset\Helpers\WikiChecks' => __DIR__ . '/includes/Helpers/WikiChecks.php',
+	'GWToolset\Hooks' => __DIR__ . '/includes/Hooks/Hooks.php',
+	'GWToolset\Jobs\GWTFileBackendCleanupJob' => __DIR__ . '/includes/Jobs/GWTFileBackendCleanupJob.php',
+	'GWToolset\Jobs\UploadMediafileJob' => __DIR__ . '/includes/Jobs/UploadMediafileJob.php',
+	'GWToolset\Jobs\UploadMetadataJob' => __DIR__ . '/includes/Jobs/UploadMetadataJob.php',
+	'GWToolset\Models\Mapping' => __DIR__ . '/includes/Models/Mapping.php',
+	'GWToolset\Models\MediawikiTemplate' => __DIR__ . '/includes/Models/MediawikiTemplate.php',
+	'GWToolset\Models\Metadata' => __DIR__ . '/includes/Models/Metadata.php',
+	'GWToolset\Models\ModelInterface' => __DIR__ . '/includes/Models/ModelInterface.php',
+	'GWToolset\SpecialGWToolset' => __DIR__ . '/includes/Specials/SpecialGWToolset.php',
+	'Php\File' => __DIR__ . '/includes/Php/File.php'
 ];
 
 // add internationalization message file references
-$wgExtensionMessagesFiles['GWToolsetAlias'] = $wgGWToolsetDir . '/GWToolset.alias.php';
-$wgMessagesDirs['GWToolset'] = $wgGWToolsetDir . '/i18n';
-$wgExtensionMessagesFiles['GWToolset'] = $wgGWToolsetDir . '/GWToolset.i18n.php';
-$wgExtensionMessagesFiles['GWToolsetNamespaces'] = $wgGWToolsetDir . '/GWToolset.namespaces.php';
+$wgExtensionMessagesFiles['GWToolsetAlias'] = __DIR__ . '/GWToolset.alias.php';
+$wgMessagesDirs['GWToolset'] = __DIR__ . '/i18n';
+$wgExtensionMessagesFiles['GWToolset'] = __DIR__ . '/GWToolset.i18n.php';
+$wgExtensionMessagesFiles['GWToolsetNamespaces'] = __DIR__ . '/GWToolset.namespaces.php';
 
 // setup special page references
 $wgSpecialPages['GWToolset'] = 'GWToolset\SpecialGWToolset';
@@ -107,7 +104,7 @@ $wgJobClasses['gwtoolsetUploadMetadataJob'] = 'GWToolset\Jobs\UploadMetadataJob'
 
 // register resources with ResourceLoader
 $wgResourceModules['ext.GWToolset'] = [
-	'localBasePath' => $wgGWToolsetDir,
+	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'GWToolset',
 	'scripts' => [
 		'resources/js/ext.gwtoolset.js'

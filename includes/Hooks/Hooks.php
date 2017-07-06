@@ -25,8 +25,8 @@ class Hooks {
 	 * @return {bool}
 	 */
 	public static function onUnitTestsList( &$files ) {
-		global $wgGWToolsetDir;
-		$files = array_merge( $files, glob( $wgGWToolsetDir . '/tests/phpunit/*Test.php' ) );
+		$dir = dirname( dirname( __DIR__ ) );
+		$files = array_merge( $files, glob( $dir . '/tests/phpunit/*Test.php' ) );
 		return true;
 	}
 
