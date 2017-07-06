@@ -115,12 +115,6 @@ class Config {
 
 	/**
 	 * @var {string}
-	 * wiki namespace to store metadata mappings and data sets
-	 */
-	public static $mediafile_namespace = NS_FILE;
-
-	/**
-	 * @var {string}
 	 * 128M default
 	 */
 	public static $memory_limit = '256M';
@@ -229,7 +223,7 @@ class Config {
 	/**
 	 * @var {array}
 	 * user permissions required in order to be able to use this extension
-	 * @see GWToolset\Helpers\WikiChecks\checkUserPermissions
+	 * @see \GWToolset\Helpers\WikiChecks::checkUserPermissions
 	 */
 	public static $user_permissions = [
 		'edit',

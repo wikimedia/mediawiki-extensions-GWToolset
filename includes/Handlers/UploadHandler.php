@@ -518,7 +518,7 @@ class UploadHandler {
 	protected function getTitle( $title ) {
 		$result = Utils::getTitle(
 			Utils::stripIllegalTitleChars( $title ),
-			Config::$mediafile_namespace,
+			NS_FILE,
 			[ 'must-be-known' => false ]
 		);
 
