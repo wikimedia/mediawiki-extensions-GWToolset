@@ -367,57 +367,17 @@ class MetadataDetectForm {
 			Html::closeElement( 'form' );
 	}
 
+	/**
+	 * @FIXME what is the point of this function
+	 */
 	public static function getMetadataFileUrlExtraInstructions() {
-		$result = null;
-
-		if ( Constants::USE_FILEBACKEND ) {
-			return $result;
-		}
-
-		$result = Html::rawElement( 'br' ) .
-			wfMessage( 'gwtoolset-metadata-file-source-info' )->escaped();
-
-		return $result;
+		return null;
 	}
 
+	/**
+	 * @FIXME what is the point of this function
+	 */
 	public static function getMetadataFileUrlInput( $namespace ) {
-		$result = null;
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-
-		if ( Constants::USE_FILEBACKEND ) {
-			return $result;
-		}
-
-		$result = Html::rawElement(
-			'li',
-			[],
-			Html::rawElement(
-				'label',
-				[],
-				wfMessage( 'gwtoolset-metadata-file-url' )->escaped() .
-				Html::rawElement(
-					'input',
-					[
-						'type' => 'text',
-						'name' => 'gwtoolset-metadata-file-url',
-						'class' => 'gwtoolset-wider-input',
-						'placeholder' => 'Two-images.xml'
-					]
-				) .
-				Html::rawElement( 'br' ) .
-				$linkRenderer->makeLink(
-					Title::newFromText(
-						'Special:PrefixIndex/' .
-						$namespace .
-						Config::$metadata_sets_subpage
-					),
-					$namespace .
-					Utils::sanitizeString( Config::$metadata_sets_subpage ),
-					[ 'target' => '_blank' ]
-				)
-			)
-		);
-
-		return $result;
+		return null;
 	}
 }
