@@ -172,9 +172,9 @@
 	"gwtoolset-user-blocked": "Tilisi on tällä hetkellä estetty. Pyydä järjestelmänvalvojaa poistamaan esto.",
 	"gwtoolset-required-group": "Et ole ryhmän $1 jäsen.",
 	"gwtoolset-verify-api-writeable": "$1 laajennus vaatii, että wikin API saa kirjoittaa valtuutettujen käyttäjien nimissä.\n\nVarmista, että <code>$wgEnableWriteAPI</code>-asetus on <code>true</code>.",
-	"gwtoolset-verify-curl": "$1-laajennus vaatii, että PHP [http://www.php.net/manual/en/curl.setup.php cURL functions] on asennettu.",
-	"gwtoolset-verify-finfo": "$1 vaatii, että PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo]-laajennus on asennettu.",
+	"gwtoolset-verify-curl": "$1-laajennus vaatii, että PHP [https://www.php.net/manual/en/curl.setup.php cURL functions] on asennettu.",
+	"gwtoolset-verify-finfo": "$1 vaatii, että PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo]-laajennus on asennettu.",
 	"gwtoolset-verify-uploads-enabled": "$1 laajennus vaatii, että tiedostolataukset on sallittu.\n\nVarmista, että <code>$wgEnableUploads</code>-asetus on <code>true</code> <code>LocalSettings.php</code>:ssa.",
-	"gwtoolset-verify-xmlreader": "$1 vaatii, että PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader] on asennettu.",
+	"gwtoolset-verify-xmlreader": "$1 vaatii, että PHP [https://www.php.net/manual/en/xmlreader.setup.php XMLReader] on asennettu.",
 	"gwtoolset-wiki-checks-not-passed": "Ei läpäissyt wikin tarkistuksia"
 }

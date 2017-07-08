@@ -157,13 +157,11 @@
 	"gwtoolset-permission-not-given": "Pastikan anda telah log masuk atau hubungi penyelia untuk mendapat kebenaran untuk melihat halaman ini ($1).",
 	"gwtoolset-user-blocked": "Akaun pengguna anda sedang disekat. Sila hubungi penyelia untuk meleraikan isu sekatan ini.",
 	"gwtoolset-required-group": "Anda bukan ahli kumpulan $1.",
-	"gwtoolset-verify-api-enabled": "Sambungan $1 memerlukan API wiki dihidupkan.\n\nSila pastikan bahawa <code>$wgEnableAPI</code> disetkan kepada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-api-writeable": "Sambungan $1 memerlukan API wiki untuk dapat melakukan penulisan untuk pengguna berdaftar.\n\nSila pastikan bahawa <code>$wgEnableWriteAPI</code> disetkan pada <code>true</code> dalam fail <code>DefaultSettings.php</code> atau ditulis ganti kepada <code>true</code> dalam fail <code>LocalSettings.php</code>.",
-	"gwtoolset-verify-curl": "Sambungan $1 memerlukan pemasangan fungsi-fungsi PHP [http://www.php.net/manual/en/curl.setup.php cURL].",
-	"gwtoolset-verify-finfo": "Sambungan $1 memerlukan pemasangan sambungan PHP [http://www.php.net/manual/en/fileinfo.setup.php finfo].",
-	"gwtoolset-verify-php-version": "Sambungan $1 memerlukan PHP versi 5.3.3 ke atas.",
+	"gwtoolset-verify-curl": "Sambungan $1 memerlukan pemasangan fungsi-fungsi PHP [https://www.php.net/manual/en/curl.setup.php cURL].",
+	"gwtoolset-verify-finfo": "Sambungan $1 memerlukan pemasangan sambungan PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo].",
 	"gwtoolset-verify-uploads-enabled": "Sambungan $1 memerlukan pemuatnaikan fail dihidupkan.\n\nSila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</code> dalam <code>LocalSettings.php</code>.",
-	"gwtoolset-verify-xmlreader": "Sambungan $1 memerlukan pemasangan PHP [http://www.php.net/manual/en/xmlreader.setup.php XMLReader].",
+	"gwtoolset-verify-xmlreader": "Sambungan $1 memerlukan pemasangan PHP [https://www.php.net/manual/en/xmlreader.setup.php XMLReader].",
 	"gwtoolset-wiki-checks-not-passed": "Wiki tidak lulus pemeriksaan",
 	"log-description-gwtoolset": "Log ini menjejaki peristiwa GWToolset di wiki ini."
 }

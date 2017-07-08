@@ -115,7 +115,7 @@
 	"gwtoolset-metadata-mapping-not-found": "No se encontró ninguna asociación de metadatos.\n\nLa página <strong>$1</strong> no existe en el wiki.",
 	"gwtoolset-namespace-mismatch": "La página <strong>$1</strong> está en el espacio de nombres incorrecto <strong>$2</strong>.\n\nDebería estar en el espacio de nombres <strong>$3</strong>.",
 	"gwtoolset-record-element-name": "¿Cuál es el elemento XML que contiene cada registro de metadatos?:",
-	"gwtoolset-step-1-heading": "Paso 1: Detección de metadatos",
+	"gwtoolset-step-1-heading": "Paso 1: detección de metadatos",
 	"gwtoolset-step-1-instructions-1": "El proceso de carga de metadatos consiste de cuatro pasos:",
 	"gwtoolset-step-1-instructions-2": "En este paso, {{GENDER:$1|sube}} un nuevo archivo de metadatos a la wiki. La herramienta intentará extraer los campos de metadatos disponibles en el archivo de metadatos, que luego lo asignará a una plantilla de MediaWiki en el \"{{int:gwtoolset-step-2-heading}}\".",
 	"gwtoolset-step-1-instructions-3": "Si el dominio de su archivo multimedia no aparece a continuación, por favor [$1 solicite] que su dominio de archivos multimedia se agregue a la lista blanca de dominios Wikimedia Commons. La lista blanca de dominios es una lista de dominios que Wikimedia Commons compara antes de buscar archivos multimedia. Si su dominio de archivos multimedia no está en esa lista, Wikimedia Commons no descargará archivos multimedia de ese dominio. El mejor ejemplo, para enviar en su solicitud, es un vínculo real a un archivo multimedia.",
