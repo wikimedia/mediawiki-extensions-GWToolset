@@ -10,7 +10,8 @@
 namespace GWToolset;
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-	echo 'This file is part of a MediaWiki extension; it is not a valid entry point. To install this extension, follow the instructions in the INSTALL file.';
+	echo 'This file is part of a MediaWiki extension; it is not a valid entry point. To install ' .
+		'this extension, follow the instructions in the INSTALL file.';
 	exit();
 }
 
@@ -50,25 +51,34 @@ $wgAutoloadClasses = $wgAutoloadClasses + [
 	'GWToolset\Config' => __DIR__ . '/includes/Config.php',
 	'GWToolset\GWTException' => __DIR__ . '/includes/GWTException.php',
 	'GWToolset\Utils' => __DIR__ . '/includes/Utils.php',
-	'GWToolset\Adapters\DataAdapterInterface' => __DIR__ . '/includes/Adapters/DataAdapterInterface.php',
-	'GWToolset\Adapters\Php\MappingPhpAdapter' => __DIR__ . '/includes/Adapters/Php/MappingPhpAdapter.php',
-	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' => __DIR__ . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
-	'GWToolset\Adapters\Php\MetadataPhpAdapter' => __DIR__ . '/includes/Adapters/Php/MetadataPhpAdapter.php',
+	'GWToolset\Adapters\DataAdapterInterface' =>
+		__DIR__ . '/includes/Adapters/DataAdapterInterface.php',
+	'GWToolset\Adapters\Php\MappingPhpAdapter' =>
+		__DIR__ . '/includes/Adapters/Php/MappingPhpAdapter.php',
+	'GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter' =>
+		__DIR__ . '/includes/Adapters/Php/MediawikiTemplatePhpAdapter.php',
+	'GWToolset\Adapters\Php\MetadataPhpAdapter' =>
+		__DIR__ . '/includes/Adapters/Php/MetadataPhpAdapter.php',
 	'GWToolset\Forms\MetadataDetectForm' => __DIR__ . '/includes/Forms/MetadataDetectForm.php',
 	'GWToolset\Forms\MetadataMappingForm' => __DIR__ . '/includes/Forms/MetadataMappingForm.php',
 	'GWToolset\Forms\PreviewForm' => __DIR__ . '/includes/Forms/PreviewForm.php',
 	'GWToolset\Handlers\Forms\FormHandler' => __DIR__ . '/includes/Handlers/Forms/FormHandler.php',
-	'GWToolset\Handlers\Forms\MetadataDetectHandler' => __DIR__ . '/includes/Handlers/Forms/MetadataDetectHandler.php',
-	'GWToolset\Handlers\Forms\MetadataMappingHandler' => __DIR__ . '/includes/Handlers/Forms/MetadataMappingHandler.php',
+	'GWToolset\Handlers\Forms\MetadataDetectHandler' =>
+		__DIR__ . '/includes/Handlers/Forms/MetadataDetectHandler.php',
+	'GWToolset\Handlers\Forms\MetadataMappingHandler' =>
+		__DIR__ . '/includes/Handlers/Forms/MetadataMappingHandler.php',
 	'GWToolset\Handlers\UploadHandler' => __DIR__ . '/includes/Handlers/UploadHandler.php',
-	'GWToolset\Handlers\Xml\XmlDetectHandler' => __DIR__ . '/includes/Handlers/Xml/XmlDetectHandler.php',
+	'GWToolset\Handlers\Xml\XmlDetectHandler' =>
+		__DIR__ . '/includes/Handlers/Xml/XmlDetectHandler.php',
 	'GWToolset\Handlers\Xml\XmlHandler' => __DIR__ . '/includes/Handlers/Xml/XmlHandler.php',
-	'GWToolset\Handlers\Xml\XmlMappingHandler' => __DIR__ . '/includes/Handlers/Xml/XmlMappingHandler.php',
+	'GWToolset\Handlers\Xml\XmlMappingHandler' =>
+		__DIR__ . '/includes/Handlers/Xml/XmlMappingHandler.php',
 	'GWToolset\Helpers\FileChecks' => __DIR__ . '/includes/Helpers/FileChecks.php',
 	'GWToolset\Helpers\GWTFileBackend' => __DIR__ . '/includes/Helpers/GWTFileBackend.php',
 	'GWToolset\Helpers\WikiChecks' => __DIR__ . '/includes/Helpers/WikiChecks.php',
 	'GWToolset\Hooks' => __DIR__ . '/includes/Hooks/Hooks.php',
-	'GWToolset\Jobs\GWTFileBackendCleanupJob' => __DIR__ . '/includes/Jobs/GWTFileBackendCleanupJob.php',
+	'GWToolset\Jobs\GWTFileBackendCleanupJob' =>
+		__DIR__ . '/includes/Jobs/GWTFileBackendCleanupJob.php',
 	'GWToolset\Jobs\UploadMediafileJob' => __DIR__ . '/includes/Jobs/UploadMediafileJob.php',
 	'GWToolset\Jobs\UploadMetadataJob' => __DIR__ . '/includes/Jobs/UploadMetadataJob.php',
 	'GWToolset\Models\Mapping' => __DIR__ . '/includes/Models/Mapping.php',

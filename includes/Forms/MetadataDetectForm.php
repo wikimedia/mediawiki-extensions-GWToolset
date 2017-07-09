@@ -40,7 +40,9 @@ class MetadataDetectForm {
 				[],
 				wfMessage(
 					'gwtoolset-step-1-instructions-3',
+					// @codingStandardsIgnoreStart
 					'https://phabricator.wikimedia.org/maniphest/task/create/?projects=Wikimedia-Site-requests&priority=50&title=Add+domain+to+$wgCopyUploadsDomains&description=Please+add+the+following+domain+to+the+wgCopyUploadsDomains+whitelist,+so+that+I+can+use+GWToolset+to+upload+media+files+from+that+domain.+I+have+provided+at+least+3+example+URLs+to+media+files+that+will+be+uploaded+with+GWToolset.%0A%0A%3Cdomain+name%3E%0A%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E'
+					// @codingStandardsIgnoreEnd
 				)->parse()
 			);
 
@@ -322,7 +324,8 @@ class MetadataDetectForm {
 							[
 								'type' => 'file',
 								'name' => 'gwtoolset-metadata-file-upload',
-								'accept' => FileChecks::getFileAcceptAttribute( Config::$accepted_metadata_types )
+								'accept' => FileChecks::getFileAcceptAttribute(
+									Config::$accepted_metadata_types )
 							]
 						) .
 						Html::rawElement( 'br' ) .

@@ -189,9 +189,16 @@ class FileChecks {
 	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = [] ) {
 		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
 			if ( self::$current_extension === 'xml' ) {
-				return Status::newFatal( 'gwtoolset-unaccepted-mime-type-for-xml', Utils::sanitizeString( $File->mime_type ), '<?xml version="1.0" encoding="UTF-8"?>' );
+				return Status::newFatal(
+					'gwtoolset-unaccepted-mime-type-for-xml',
+					Utils::sanitizeString( $File->mime_type ),
+					'<?xml version="1.0" encoding="UTF-8"?>'
+				);
 			} else {
-				return Status::newFatal( 'gwtoolset-unaccepted-mime-type', Utils::sanitizeString( $File->mime_type ) );
+				return Status::newFatal(
+					'gwtoolset-unaccepted-mime-type',
+					Utils::sanitizeString( $File->mime_type )
+				);
 			}
 		}
 
@@ -229,8 +236,10 @@ class FileChecks {
 		if ( empty( $accepted_types ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-no-accepted-types' )->escaped( 'gwtoolset-no-accepted-types-provided' ) )
-					->parse()
+					->params(
+						wfMessage( 'gwtoolset-no-accepted-types' )
+							->escaped( 'gwtoolset-no-accepted-types-provided' )
+					)->parse()
 			);
 		}
 
@@ -249,7 +258,9 @@ class FileChecks {
 			return $Status;
 		}
 
-		$Status = self::isAcceptedFileExtension( $File, self::getAcceptedExtensions( $accepted_types ) );
+		$Status = self::isAcceptedFileExtension(
+			$File, self::getAcceptedExtensions( $accepted_types )
+		);
 		if ( !$Status->ok ) {
 			return $Status;
 		}
@@ -278,8 +289,9 @@ class FileChecks {
 			return Status::newFatal( 'gwtoolset-unaccepted-extension' );
 		}
 
-		$mime_type_extension_match =
-			MimeMagic::singleton()->isMatchingExtension( $File->pathinfo['extension'], $File->mime_type );
+		$mime_type_extension_match = MimeMagic::singleton()->isMatchingExtension(
+			$File->pathinfo['extension'], $File->mime_type
+		);
 
 		if ( !$mime_type_extension_match ) {
 			return Status::newFatal(

@@ -21,9 +21,9 @@ require_once "$IP/maintenance/Maintenance.php";
 
 /**
  * Maintenance script to remove abandoned or outdated metadata files from the temporary
- * gwtoolset file storage. These files are normally removed by GWToolset\Jobs\GWTFileBackendCleanupJob,
- * however if a user stops the GWToolset upload process or the clean-up job fails to run,
- * some files may become orphaned.
+ * gwtoolset file storage. These files are normally removed by
+ * GWToolset\Jobs\GWTFileBackendCleanupJob, however if a user stops the GWToolset upload process
+ * or the clean-up job fails to run, some files may become orphaned.
  *
  * @ingroup Maintenance
  */

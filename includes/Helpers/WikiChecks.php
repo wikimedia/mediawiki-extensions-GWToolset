@@ -144,7 +144,9 @@ class WikiChecks {
 	 * @return {Status}
 	 */
 	public static function doesEditTokenMatch( SpecialPage $SpecialPage ) {
-		if ( !$SpecialPage->getUser()->matchEditToken( $SpecialPage->getRequest()->getVal( 'wpEditToken' ) ) ) {
+		if ( !$SpecialPage->getUser()->matchEditToken(
+			$SpecialPage->getRequest()->getVal( 'wpEditToken' ) )
+		) {
 			return Status::newFatal(
 				'gwtoolset-permission-not-given',
 				wfMessage( 'gwtoolset-invalid-token' )->escaped()
@@ -243,7 +245,9 @@ class WikiChecks {
 		global $wgEnableUploads;
 
 		if ( !$wgEnableUploads || ( !wfIsHHVM() && !wfIniGetBool( 'file_uploads' ) ) ) {
-			return Status::newFatal( 'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME );
+			return Status::newFatal(
+				'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME
+			);
 		}
 
 		return Status::newGood();

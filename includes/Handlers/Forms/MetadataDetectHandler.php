@@ -123,21 +123,24 @@ class MetadataDetectHandler extends FormHandler {
 
 			'gwtoolset-mediawiki-template-name' => $this->setTemplateName(),
 
-			'gwtoolset-metadata-file-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
-				? $this->_whitelisted_post['gwtoolset-metadata-file-url']
-				: null,
+			'gwtoolset-metadata-file-url' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-file-url'] )
+					? $this->_whitelisted_post['gwtoolset-metadata-file-url']
+					: null,
 
-			'gwtoolset-metadata-mapping-url' => !empty( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
-				? $this->_whitelisted_post['gwtoolset-metadata-mapping-url']
-				: null,
+			'gwtoolset-metadata-mapping-url' =>
+				!empty( $this->_whitelisted_post['gwtoolset-metadata-mapping-url'] )
+					? $this->_whitelisted_post['gwtoolset-metadata-mapping-url']
+					: null,
 
 			'Metadata-Title' => null,
 
 			'gwtoolset-record-count' => 0,
 
-			'gwtoolset-record-element-name' => !empty( $this->_whitelisted_post['gwtoolset-record-element-name'] )
-				? $this->_whitelisted_post['gwtoolset-record-element-name']
-				: 'record',
+			'gwtoolset-record-element-name' =>
+				!empty( $this->_whitelisted_post['gwtoolset-record-element-name'] )
+					? $this->_whitelisted_post['gwtoolset-record-element-name']
+					: 'record',
 		];
 	}
 
