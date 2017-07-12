@@ -110,7 +110,7 @@
 	"gwtoolset-mediafile-throttle-description": "Después de la vista previa del lote, en el paso 3, GWToolset carga los registros restantes en la carga por lotes a través de trabajos en segundo plano. El acelerador de archivos multimedia controla el número de solicitudes de archivos multimedia que Wikimedia Commons realizará contra su servidor de archivos multimedia cada vez que se ejecute un trabajo en segundo plano. Puede configurar el acelerador del archivo de medios entre 1-20. Por ejemplo, si el número total de registros en la carga por lotes es de 100 y se establece el acelerador en 20, Wikimedia Commons ejecutará 5 trabajos de fondo para procesar toda la carga por lotes. El tiempo entre cada carga de fondo depende de la carga y configuración del servidor. Anticipamos que en Wikimedia Commons un trabajo de fondo GWToolset funcionará al menos cada 5 minutos.",
 	"gwtoolset-mediawiki-template-does-not-exist": "La plantilla de Mediawiki <strong>$1</strong> no existe en el wiki.\n\nO bien importa la plantilla o bien selecciona otra  para usar para la asociación.",
 	"gwtoolset-mediawiki-template-not-found": "No se encontró la plantilla de MediaWiki «$1».",
-	"gwtoolset-metadata-file-source": "Seleccione el origen del archivo de metadatos.",
+	"gwtoolset-metadata-file-source": "Selecciona el origen del archivo de metadatos.",
 	"gwtoolset-metadata-file-upload": "Archivo de metadatos subido:",
 	"gwtoolset-metadata-mapping-not-found": "No se encontró ninguna asociación de metadatos.\n\nLa página <strong>$1</strong> no existe en el wiki.",
 	"gwtoolset-namespace-mismatch": "La página <strong>$1</strong> está en el espacio de nombres incorrecto <strong>$2</strong>.\n\nDebería estar en el espacio de nombres <strong>$3</strong>.",
