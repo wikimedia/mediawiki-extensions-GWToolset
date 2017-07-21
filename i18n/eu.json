@@ -10,5 +10,6 @@
 	"gwtoolset-save": "Gorde",
 	"gwtoolset-category": "Kategoria",
 	"gwtoolset-verify-curl": "$1ko eremuak PHP [https://www.php.net/manual/en/curl.setup.php cURL functions] instalatzea behar du.",
-	"gwtoolset-verify-finfo": "$1ko eremuak PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo] instalatzea behar du."
+	"gwtoolset-verify-finfo": "$1ko eremuak PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo] instalatzea behar du.",
+	"gwtoolset-verify-xmlreader": "$1 estentsioak PHP  [https://www.php.net/manual/en/xmlreader.setup.php XMLReader] instalatzea behar du."
 }
