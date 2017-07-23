@@ -218,12 +218,12 @@ class Utils {
 					// avoid field[][]
 					if ( !is_array( $value ) ) {
 						$value = substr( $value, 0, $metadata['size'] );
-						$result[$field][] = Utils::sanitizeString( $value );
+						$result[$field][] = self::sanitizeString( $value );
 					}
 				}
 			} else {
 				$value = substr( $original_post[$field], 0, $metadata['size'] );
-				$result[$field] = Utils::sanitizeString( $value );
+				$result[$field] = self::sanitizeString( $value );
 			}
 		}
 
