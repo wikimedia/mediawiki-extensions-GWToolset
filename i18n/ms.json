@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anakmalaysia"
+			"Anakmalaysia",
+			"Jeluang Terluang"
 		]
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, alat muat naik pukal untuk galeri, perpustakaan, arkib dan muzium",
-	"gwtoolset-intro": "GWToolset merupakan sambungan MediaWiki yang membolehkan GLAM (Galeri, Perpustakaan, Arkib dan Muzium) untuk memuat naik kandungan secara pukal berasaskan satu fail XML yang mengandungi metadata untuk kandungan masing-masing. Tujuannya adalah membolehkan berbagai-bagai skema XML. Maklumat lanjut tentang projek ini boleh ditemui di [[commons:Commons:GLAMToolset_project|halaman projeknya]]. Jangan rasa segan untuk menghubungi kami di halaman itu juga. Pilih salah satu perkara menu di atas untuk memulakan pemuatnaikan.",
+	"gwtoolset-intro": "GWToolset merupakan sambungan MediaWiki yang membolehkan GLAM (Galeri, Perpustakaan, Arkib dan Muzium) untuk memuat naik kandungan secara pukal berasaskan satu fail XML yang mengandungi metadata untuk kandungan masing-masing. Tujuannya ialah membolehkan berbagai-bagai skema XML. Maklumat lanjut tentang projek ini boleh ditemui di [[commons:Commons:GLAMToolset_project|halaman projeknya]]. Jangan berasa segan untuk menghubungi kami di halaman itu juga. Pilih salah satu perkara menu di atas untuk memulakan pemuatnaikan.",
 	"gwtoolset-batchjob-creation-failure": "Tugas kelompok jenis \"$1\" tidak dapat diwujudkan.",
 	"gwtoolset-could-not-close-xml": "Pembaca XML tidak dapat ditutup.",
 	"gwtoolset-could-not-open-xml": "Fail XML tidak dapat dibuka untuk dibaca.",
@@ -44,7 +45,7 @@
 	"gwtoolset-no-url-to-media": "<code>url-to-the-media-file</code> tidak ditetapkan.",
 	"gwtoolset-no-user": "Tiada objek pengguna disediakan.",
 	"gwtoolset-no-xml-source": "Tiada sumber XML tempatan disediakan.",
-	"gwtoolset-not-string": "Nilai yang disediakan pada kaedah bukan rentetan. Ia adalah jenis \"$1\".",
+	"gwtoolset-not-string": "Nilai yang disediakan pada kaedah bukan rentetan. Ia ialah jenis \"$1\".",
 	"gwtoolset-sha1-does-not-match": "SHA-1 tidak sepadan.",
 	"gwtoolset-disk-write-failure": "Pelayan tidak dapat menuliskan fail ini kepada sistem fail.",
 	"gwtoolset-xml-doctype": "Fail metadata XML tidak boleh mengandungi bahagian <!DOCTYPE>. Alihnya keluar dan cuba memuat naik fail metadata XML itu semula.",
@@ -103,7 +104,7 @@
 	"gwtoolset-step-1-heading": "Langkah 1: Pengesanan metadata",
 	"gwtoolset-step-1-instructions-1": "Proses pemuatnaikan metadata terdiri daripada 4 langkah:",
 	"gwtoolset-step-1-instructions-2": "Dalam langkah ini, anda memuat naik fail metadata baru ke dalam wiki. Alatan akan cuba mengeluarkan medan-medan metadata yang terdapat dalam fail metadata itu, yang anda akan kemudian petakan pada templat Mediawiki dalam \"{{int:gwtoolset-step-2-heading}}\".",
-	"gwtoolset-step-1-instructions-3": "Jika domain fail media anda tidak tersenarai di bawah, sila [$1 memohon] supaya domain fail media anda ditambahkan ke dalam senarai putih domain Wikimedia Commons. Senarai putih domain merupakan senarai domain yang disemak oleh Wikimedia Commons sebelum menerima fail media. Jika domain fail media anda tidak tersenarai, Wikimedia Commons tidak akan memuat turun fail media dari domain itu. Contoh yang terbaik untuk disertakan dalam penyerahan permohonan anda adalah pautan sebenar kepada fail media.",
+	"gwtoolset-step-1-instructions-3": "Jika domain fail media anda tidak tersenarai di bawah, sila [$1 memohon] supaya domain fail media anda ditambahkan ke dalam senarai putih domain Wikimedia Commons. Senarai putih domain merupakan senarai domain yang disemak oleh Wikimedia Commons sebelum menerima fail media. Jika domain fail media anda tidak tersenarai, Wikimedia Commons tidak akan memuat turun fail media daripada domain itu. Contoh yang terbaik untuk disertakan dalam penyerahan permohonan anda ialah pautan sebenar kepada fail media.",
 	"gwtoolset-step-1-instructions-3-heading": "Senarai putih domain",
 	"gwtoolset-step-1-instructions-li-1": "Pengesanan metadata",
 	"gwtoolset-step-1-instructions-li-2": "Pemetaan metadata",
@@ -144,10 +145,10 @@
 	"gwtoolset-specific-categories": "Kategori khusus perkara",
 	"gwtoolset-template-field": "Ruangan templat",
 	"gwtoolset-step-3-instructions-heading": "Step 3: Previu kelompok",
-	"gwtoolset-step-3-instructions-1": "Yang berikut adalah hasil pemuatnaikan {{PLURAL:$1|rekod pertama|$1 rekod pertama}} dari fail metadata yang telah anda pilih lalu memetakannya kepada templat MediaWiki yang telah anda pilih dalam \"{{int:gwtoolset-step-2-heading}}\".",
+	"gwtoolset-step-3-instructions-1": "Yang berikut ialah hasil pemuatnaikan {{PLURAL:$1|rekod pertama|$1 rekod pertama}} daripada fail metadata yang telah anda pilih lalu memetakannya kepada templat MediaWiki yang telah anda pilih dalam \"{{int:gwtoolset-step-2-heading}}\".",
 	"gwtoolset-step-3-instructions-2": "Sila semak halaman-halaman ini. Jika hasilnya memenuhi kehendak anda, malah terdapat rekod-rekod tambahan untuk dimuat naik, sambung proses pemuatnaikan kelompok dengan mengklik butang \"{{int:gwtoolset-process-batch}}\" di bawah.",
 	"gwtoolset-step-3-instructions-3": "Jika anda tidak berpuas hati dengan hasilnya, kembali ke \"{{int:gwtoolset-step-2-heading}}\" dan laraskan pemetaan sewajarnya.\n\nJika anda perlu melaraskan fail metadata itu sendiri, silakan berbuat demikian dan muat naiknya semula dengan memulakan semula proses dengan \"{{int:gwtoolset-step-1-heading}}\".",
-	"gwtoolset-title-bad": "Tajuk yang diwujudkan berasaskan pemetaan metadata dan templat MediaWiki itu adalah tidak sah.\n\nCuba medan lain dari metadata untuk tajuk dan pengecam tajuk, atau jika boleh, ubah metadatanya di mana perlu. Rujuk [https://commons.wikimedia.org/wiki/Commons:File_naming Penamaan fail] untuk maklumat lanjut.\n\n<strong>Tajuk tak sah:</strong> $1.",
+	"gwtoolset-title-bad": "Tajuk yang diwujudkan berasaskan pemetaan metadata dan templat MediaWiki itu adalah tidak sah.\n\nCuba medan lain daripada metadata untuk tajuk dan pengecam tajuk, atau jika boleh, ubah metadatanya di mana perlu. Rujuk [https://commons.wikimedia.org/wiki/Commons:File_naming Penamaan fail] untuk maklumat lanjut.\n\n<strong>Tajuk tak sah:</strong> $1.",
 	"gwtoolset-batchjob-metadata-created": "Tugas kelompok Metadata diwujudkan. Fail metadata anda akan dianalisa sebentar nanti dan setiap perkara akan dimuat naik ke dalam wiki melalui proses latar belakang. Anda boleh melayari halaman \"$1\" untuk melihat bila perkara-perkara itu telah dimuat naik.",
 	"gwtoolset-batchjob-metadata-creation-failure": "Tugas kelompok tidak dapat diwujudkan untuk fail metadata.",
 	"gwtoolset-step-4-heading": "Langkah 4: Muat naik berkelompok",
