@@ -17,6 +17,4 @@
 	<file>.</file>
 	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php,php5,inc" />
-	<exclude-pattern>vendor</exclude-pattern>
-	<exclude-pattern>node_modules</exclude-pattern>
 </ruleset>

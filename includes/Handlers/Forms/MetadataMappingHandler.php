@@ -156,7 +156,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * to a medifile wiki page; global meaning that these categories
 	 * are added to all mediafiles that are being uploaded
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 */
 	protected function getGlobalCategories( array &$user_options ) {
@@ -365,9 +365,9 @@ class MetadataMappingHandler extends FormHandler {
 	 * for processing the metadata and mapping in order to create
 	 * mediafile wiki pages
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
-	 * @param boolean $fromJob Is this coming from a job or direct from user
+	 * @param bool $fromJob Is this coming from a job or direct from user
 	 *
 	 * @throws {GWTException}
 	 * @return {array|string}
@@ -512,7 +512,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * and returns a response, typically an html form
 	 *
 	 * @param {array} $original_post
-	 * @param boolean $fromJob
+	 * @param bool $fromJob
 	 *
 	 * @return {string|array}
 	 * - an html form, which is filtered in the getForm method

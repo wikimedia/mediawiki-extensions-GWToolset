@@ -142,7 +142,7 @@ abstract class FormHandler {
 	 * 3. preview
 	 * 4. batch upload
 	 *
-	 * @param {string} $module_name
+	 * @param {string} $module
 	 *
 	 * @throws {GWTException}
 	 *

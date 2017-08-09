@@ -22,7 +22,7 @@ class MetadataMappingForm {
 	 *
 	 * @param {GWToolset\Handlers\Forms\FormHandler} $Handler
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @return {string}

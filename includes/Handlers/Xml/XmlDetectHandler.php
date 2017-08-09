@@ -110,7 +110,7 @@ class XmlDetectHandler extends XmlHandler {
 	 *
 	 * @param {XMLReader|DOMElement} $XMLElement
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws {MWException}
@@ -438,7 +438,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * example xml record that will be used for mapping the mediawiki template
 	 * attributes to the xml metadata elements
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param {string|Content} $xml_source

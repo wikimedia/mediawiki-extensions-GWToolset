@@ -45,7 +45,7 @@ class Metadata implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} &$options
 	 */
 	public function delete( array &$options = [] ) {
 	}
@@ -118,13 +118,13 @@ class Metadata implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} &$options
 	 */
 	public function retrieve( array &$options = [] ) {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} &$options
 	 */
 	public function update( array &$options = [] ) {
 	}

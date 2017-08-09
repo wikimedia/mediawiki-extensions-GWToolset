@@ -103,7 +103,7 @@ class File {
 	public $mime_type;
 
 	/**
-	 * @param {array} $file
+	 * @param {array} $file_field_name
 	 * @return {void}
 	 */
 	public function __construct( $file_field_name = null ) {

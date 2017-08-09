@@ -72,7 +72,7 @@ class XmlMappingHandler extends XmlHandler {
 	/**
 	 * helper method for getDOMElementAsArray()
 	 *
-	 * @param {array} $array
+	 * @param {array} &$array
 	 * @param {DOMElement} $DOMElement
 	 */
 	protected function addDOMElementToArray( array &$array, DOMElement $DOMElement ) {
@@ -271,7 +271,7 @@ class XmlMappingHandler extends XmlHandler {
 	}
 
 	/**
-	 * @param {DOMElement} $DOMNodeElement
+	 * @param {DOMElement} &$DOMNodeElement
 	 *
 	 * @param {bool} $is_url
 	 *
@@ -304,9 +304,9 @@ class XmlMappingHandler extends XmlHandler {
 	 * each matched metadata record, is sent to $this->_MappingHandler->processMatchingElement()
 	 * to be saved as a new mediafile in the wiki or to update an existing mediafile in the wiki
 	 *
-	 * @param {XMLReader|DOMElement} $xml_source
+	 * @param {XMLReader|DOMElement} $XMLElement
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws {MWException}
@@ -399,7 +399,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * source. the dom elements will be used for creating mediafile
 	 * Titles in the wiki.
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the original $_POST
 	 *
 	 * @param {string|Content} $xml_source

@@ -85,7 +85,7 @@ abstract class XmlHandler {
 	 * via the $callback to process the file. allows for the reader to be stopped
 	 * if the $callback method returns true to the $stop_reading variable
 	 *
-	 * @param {array} $user_options
+	 * @param {array} &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param {string} $file_path_local

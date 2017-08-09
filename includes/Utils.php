@@ -273,7 +273,7 @@ class Utils {
 	/**
 	 * replaces ‘ ’ with ‘_’
 	 *
-	 * @param {string} $parameter
+	 * @param {string} $string
 	 *
 	 * @return {string}
 	 * the string is not filtered

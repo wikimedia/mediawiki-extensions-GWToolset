@@ -74,7 +74,7 @@ class Mapping implements ModelInterface {
 	/**
 	 * @todo: sanitize the mapping_array created
 	 *
-	 * @param {array} $options
+	 * @param {array} &$options
 	 *
 	 * @return {array}
 	 * the keys and values within the array are not filtered
@@ -154,7 +154,7 @@ class Mapping implements ModelInterface {
 	/**
 	 * attempts to retrieve a wiki page title that contains the metadata mapping json
 	 *
-	 * @param {array} $options
+	 * @param {array} &$options
 	 * @throws {GWTException}
 	 * @return {null|Title}
 	 */
@@ -181,7 +181,7 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} &$options
 	 */
 	protected function populate( array &$options ) {
 		if ( empty( $options ) ) {
@@ -213,7 +213,7 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} &$options
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws {GWTException}

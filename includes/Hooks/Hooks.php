@@ -11,7 +11,7 @@ namespace GWToolset;
 class Hooks {
 
 	/**
-	 * @param {array} $list
+	 * @param {array} &$list
 	 * @return {bool}
 	 */
 	public static function onCanonicalNamespaces( &$list ) {
@@ -21,7 +21,7 @@ class Hooks {
 	}
 
 	/**
-	 * @param {array} $files
+	 * @param {array} &$files
 	 * @return {bool}
 	 */
 	public static function onUnitTestsList( &$files ) {

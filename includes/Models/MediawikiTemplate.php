@@ -571,7 +571,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * template format fro the data adapter, which is used to populate
 	 * this mediawiki template model
 	 *
-	 * @param {array} $options
+	 * @param {array} &$options
 	 * @throws {GWTException}
 	 */
 	public function retrieve( array &$options = [] ) {

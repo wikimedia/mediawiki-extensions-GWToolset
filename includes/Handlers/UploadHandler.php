@@ -925,7 +925,7 @@ class UploadHandler {
 	 *   - text
 	 *   - url-to-the-media-file
 	 *
-	 * @param {array} $options
+	 * @param {array} &$options
 	 * @throws {MWException}
 	 */
 	protected function validateUploadParams( array &$options ) {
@@ -964,7 +964,7 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param {array} $user_options
 	 * @throws {MWException}
 	 */
 	protected function validateUserOptions( array $user_options ) {
