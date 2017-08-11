@@ -67,7 +67,7 @@ class PreviewForm {
 		$step2_link = Html::rawElement(
 			'li',
 			[],
-			Html::rawElement( 'span', [ 'id' =>'step2-link' ], ' ' )
+			Html::rawElement( 'span', [ 'id' => 'step2-link' ], ' ' )
 		);
 
 		return
