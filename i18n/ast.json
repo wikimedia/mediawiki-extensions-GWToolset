@@ -166,5 +166,16 @@
 	"gwtoolset-step-2-instructions-2": "Nesti pasu precises casar los campos de metadatos colos campos de la plantía de MediaWiki.",
 	"gwtoolset-step-2-instructions-2-li-1": "Seleiciona un campu de metadatos baxo la columna «{{int:gwtoolset-maps-to}}» que case col campu de la plantía de MediaWiki baxo la columna «{{int:gwtoolset-template-field}}».",
 	"gwtoolset-step-2-instructions-2-li-2": "Nun precises proporcionar una correspondencia pa cada campu de la plantía de MediaWiki.",
-	"gwtoolset-reupload-media": "Volver a subir multimedia dende URL"
+	"gwtoolset-reupload-media": "Volver a subir multimedia dende URL",
+	"gwtoolset-specific-categories": "Categoríes específiques del elementu",
+	"gwtoolset-template-field": "Campu de la plantía",
+	"gwtoolset-step-3-instructions-heading": "Pasu 3: Vista previa del llote",
+	"gwtoolset-step-3-instructions-2": "Revisa les plantíes y, si los resultaos correspuenden colo qu'esperabes, sigui con \"{{int:gwtoolset-step-4-heading}}\", faciendo click nel botón \"{{int:gwtoolset-process-batch}}\" más abaxo.",
+	"gwtoolset-create-prefix": "GWToolset",
+	"gwtoolset-mediafile-jobs-created": "{{PLURAL:$1|Creóse $1 xera|Creáronse $1 xeres}} de llotes de ficheros multimedia.",
+	"gwtoolset-step-4-heading": "Pasu 4: Carga de llotes",
+	"gwtoolset-invalid-token": "El pase d'edición unviáu col formulariu ye incorreutu.",
+	"gwtoolset-title-label": "Títulu de GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "URL al ficheru multimedia",
+	"gwtoolset-reverse-creator": "Invertir l'orde d'apellíu y nome"
 }
