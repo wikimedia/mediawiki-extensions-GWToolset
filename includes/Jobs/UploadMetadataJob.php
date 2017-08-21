@@ -21,7 +21,7 @@ use Exception;
 use Title;
 use User;
 use RequestContext;
-use ScopedCallback;
+use Wikimedia\ScopedCallback;
 
 /**
  * runs the MetadataMappingHandler with the originally $_POST’ed form fields when

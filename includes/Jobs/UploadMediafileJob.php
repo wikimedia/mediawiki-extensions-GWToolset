@@ -19,10 +19,10 @@ use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Models\Metadata;
 use GWToolset\Utils;
 use Job;
-use ScopedCallback;
 use Title;
 use User;
 use RequestContext;
+use Wikimedia\ScopedCallback;
 
 class UploadMediafileJob extends Job {
 

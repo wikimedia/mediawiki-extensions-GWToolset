@@ -13,6 +13,7 @@ use GWToolset\GWTException;
 use GWToolset\Helpers\GWTFileBackend;
 use Html;
 use MWException;
+use Wikimedia\ScopedCallback;
 use XMLReader;
 
 abstract class XmlHandler {
@@ -130,7 +131,7 @@ abstract class XmlHandler {
 		}
 
 		// Make sure close() is called if exceptions occur
-		$xmlCloser = new \ScopedCallback( function () use ( $XMLReader ) {
+		$xmlCloser = new ScopedCallback( function () use ( $XMLReader ) {
 			$XMLReader->close();
 		} );
 
@@ -170,7 +171,7 @@ abstract class XmlHandler {
 			);
 		}
 
-		\ScopedCallback::cancel( $xmlCloser ); // done already
+		ScopedCallback::cancel( $xmlCloser ); // done already
 
 		return $result;
 	}
