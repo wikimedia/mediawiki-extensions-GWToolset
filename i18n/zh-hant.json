@@ -130,7 +130,7 @@
 	"gwtoolset-which-mediawiki-template": "那個 MediaWiki 模板：",
 	"gwtoolset-which-metadata-mapping": "那個詮釋資料對應：",
 	"gwtoolset-xml-error": "讀取 XML 失敗，請修正以下問題。",
-	"gwtoolset-categories": "請輸入分類，使用管道符號 (\"|\") 分隔。",
+	"gwtoolset-categories": "輸入分類，請透過縱線字元 (\"|\") 分隔。",
 	"gwtoolset-category": "分類",
 	"gwtoolset-create-mapping": "$1：正在建立 $2 的詮釋資料對應。",
 	"gwtoolset-example-record": "詮釋資料的範例記錄內容。",
