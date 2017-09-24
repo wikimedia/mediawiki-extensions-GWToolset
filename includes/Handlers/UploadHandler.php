@@ -17,7 +17,6 @@ use GWToolset\Constants;
 use GWToolset\GWTException;
 use GWToolset\Utils;
 use GWToolset\Helpers\FileChecks;
-use GWToolset\Helpers\WikiChecks;
 use GWToolset\Jobs\UploadMediafileJob;
 use Http;
 use MimeMagic;

@@ -11,7 +11,6 @@ namespace GWToolset\Forms;
 use Html;
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use GWToolset\Config;
-use GWToolset\Constants;
 use GWToolset\Utils;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Models\MediawikiTemplate;
