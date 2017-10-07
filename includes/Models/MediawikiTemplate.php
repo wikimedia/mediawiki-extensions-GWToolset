@@ -186,6 +186,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * the array is expected to be in an array format for each mediawiki parameter
 	 * e.g. accession_number[], artist[]
 	 *
+	 * @param {array} $array
 	 * @throws {MWException}
 	 *
 	 * @return {array}

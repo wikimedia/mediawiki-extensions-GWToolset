@@ -734,9 +734,9 @@ class UploadHandler {
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param {array} $options
-	 * @param {array} $options['metadata-mapped-to-mediawiki-template']
-	 * @param {array} $options['metadata-as-array']
-	 * @param {string} $options['metadata-raw']
+	 *  - {array} $options['metadata-mapped-to-mediawiki-template']
+	 *  - {array} $options['metadata-as-array']
+	 *  - {string} $options['metadata-raw']
 	 * @param {array} $whitelisted_post
 	 *
 	 * @return {bool}

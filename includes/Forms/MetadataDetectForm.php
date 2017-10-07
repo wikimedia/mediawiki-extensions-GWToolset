@@ -371,6 +371,7 @@ class MetadataDetectForm {
 
 	/**
 	 * @FIXME what is the point of this function
+	 * @return {null}
 	 */
 	public static function getMetadataFileUrlExtraInstructions() {
 		return null;
@@ -378,6 +379,8 @@ class MetadataDetectForm {
 
 	/**
 	 * @FIXME what is the point of this function
+	 * @param {int} $namespace
+	 * @return {null}
 	 */
 	public static function getMetadataFileUrlInput( $namespace ) {
 		return null;

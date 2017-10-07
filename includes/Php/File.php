@@ -159,6 +159,7 @@ class File {
 	}
 
 	/**
+	 * @param {string} $file_field_name
 	 * @throws {GWTException|MWException}
 	 */
 	public function populate( $file_field_name ) {

@@ -61,7 +61,7 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @params {array} $options
+	 * @param {array} $options
 	 * @return {Status}
 	 */
 	public function create( array $options = [] ) {

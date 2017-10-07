@@ -108,8 +108,8 @@ class Utils {
 	 * @param {string} $page_title
 	 * @param {Int} $namespace
 	 * @param {array} $options
-	 * @param {bool} $options['must-be-known']
-	 * Whether or not the Title must be known; defaults to true
+	 *  - {bool} $options['must-be-known']
+	 *    Whether or not the Title must be known; defaults to true
 	 *
 	 * @throws {GWTException|MWException}
 	 * @return {null|Title}
@@ -285,9 +285,9 @@ class Utils {
 	/**
 	 * @param {int} $value
 	 * @param {array} $params
-	 * @param {int} $params['min']
-	 * @param {int} $params['max']
-	 * @param {int} $params['default']
+	 *  - {int} $params['min']
+	 *  - {int} $params['max']
+	 *  - {int} $params['default']
 	 * @return {int}
 	 * @throws {MWException}
 	 */
@@ -387,11 +387,11 @@ class Utils {
 
 	/**
 	 * @param {array} $options
-	 * @param {string} $options['comment']
-	 * @param {string} $options['job-subtype']
-	 * @param {array} $options['parameters']
-	 * @param {object} $options['Title']
-	 * @param {object} $options['User']
+	 *  - {string} $options['comment']
+	 *  - {string} $options['job-subtype']
+	 *  - {array} $options['parameters']
+	 *  - {object} $options['Title']
+	 *  - {object} $options['User']
 	 */
 	public static function specialLog( array $options ) {
 		$logEntry = new ManualLogEntry(
@@ -449,8 +449,8 @@ class Utils {
 	 * @param {string} $title
 	 *
 	 * @param {array} $options
-	 * @param {string} $options['replacement']
-	 * the character used to replace illegal characters; defaults to ‘-’
+	 *  - {string} $options['replacement']
+	 *    the character used to replace illegal characters; defaults to ‘-’
 	 *
 	 * @return {string}
 	 * the string is not sanitized

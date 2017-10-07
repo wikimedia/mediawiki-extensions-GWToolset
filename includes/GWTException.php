@@ -21,7 +21,7 @@ class GWTException extends Exception {
 	 * - e.g., simple wfMessage $message = 'gwtoolset-key'
 	 * - e.g., complex wfMessage $message = array( 'gwtoolset-key' => array( $param1, $param2 ) )
 	 *
-	 * @param {int} code
+	 * @param {int} $code
 	 *
 	 * @param {Exception} $previous
 	 */

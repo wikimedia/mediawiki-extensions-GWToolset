@@ -64,6 +64,7 @@ class SpecialGWToolset extends SpecialPage {
 	/**
 	 * entry point
 	 * a control method that acts as an entry point for the SpecialPage
+	 * @param string|null $par
 	 */
 	public function execute( $par ) {
 		$this->setHeaders();

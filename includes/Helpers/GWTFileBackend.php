@@ -277,6 +277,7 @@ class GWTFileBackend {
 	 * - user name
 	 *
 	 * @throws {MWException}
+	 * @return {string}
 	 */
 	protected function getUserPath() {
 		if ( empty( $this->_User ) ) {

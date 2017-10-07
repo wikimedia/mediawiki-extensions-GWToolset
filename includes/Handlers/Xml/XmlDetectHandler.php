@@ -273,7 +273,7 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * normalizes form field names so that - _ and gwtoolset are removed from the form label
 	 *
-	 * @param {string}
+	 * @param {string} $parameter
 	 *
 	 * @return {string}
 	 * the string has been sanitized
