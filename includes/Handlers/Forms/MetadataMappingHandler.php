@@ -35,7 +35,7 @@ class MetadataMappingHandler extends FormHandler {
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_expected_post_fields = [
 		'gwtoolset-category' => [ 'size' => 255 ],
@@ -68,39 +68,39 @@ class MetadataMappingHandler extends FormHandler {
 	];
 
 	/**
-	 * @var {GWToolset\Models\Mapping}
+	 * @var GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {GWToolset\Models\MediawikiTemplate}
+	 * @var GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {GWToolset\Models\Metadata}
+	 * @var GWToolset\Models\Metadata
 	 */
 	protected $_Metadata;
 
 	/**
-	 * @var {GWToolset\Handlers\UploadHandler}
+	 * @var GWToolset\Handlers\UploadHandler
 	 */
 	protected $_UploadHandler;
 
 	/**
-	 * #var {array}
+	 * @var array
 	 */
 	protected $_whitelisted_post;
 
 	/**
-	 * @var {GWToolset\Handlers\XmlMappingHandler}
+	 * @var GWToolset\Handlers\XmlMappingHandler
 	 */
 	protected $_XmlMappingHandler;
 
 	/**
-	 * @throws {MWException}
+	 * @throws MWException
 	 *
-	 * @return {string}
+	 * @return string
 	 * the html string has been escaped and parsed by wfMessage
 	 */
 	protected function createMetadataBatchJob() {
@@ -156,7 +156,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * to a medifile wiki page; global meaning that these categories
 	 * are added to all mediafiles that are being uploaded
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 */
 	protected function getGlobalCategories( array &$user_options ) {
@@ -179,7 +179,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * gets various user options from $this->_whitelisted_post and sets default values
 	 * if no user value is supplied
 	 *
-	 * @return {array}
+	 * @return array
 	 * the values within the array have not been filtered
 	 */
 	protected function getUserOptions() {
@@ -324,15 +324,15 @@ class MetadataMappingHandler extends FormHandler {
 	/**
 	 * save a metadata record as a new/updated wiki page
 	 *
-	 * @param {array} $user_options
+	 * @param array $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 *   {array} $options['metadata-as-array']
 	 *   {array} $options['metadata-mapped-to-mediawiki-template']
 	 *   {string} $options['metadata-raw']
 	 *
-	 * @return {bool|array|null|Title}
+	 * @return bool|array|null|Title
 	 */
 	public function processMatchingElement( array $user_options, array $options ) {
 		$result = null;
@@ -365,12 +365,12 @@ class MetadataMappingHandler extends FormHandler {
 	 * for processing the metadata and mapping in order to create
 	 * mediafile wiki pages
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 * @param bool $fromJob Is this coming from a job or direct from user
 	 *
-	 * @throws {GWTException}
-	 * @return {array|string}
+	 * @throws GWTException
+	 * @return array|string
 	 * an array of mediafile Title(s)
 	 */
 	protected function processMetadata( array &$user_options, $fromJob = false ) {
@@ -511,10 +511,10 @@ class MetadataMappingHandler extends FormHandler {
 	 * a control method that processes a SpecialPage request
 	 * and returns a response, typically an html form
 	 *
-	 * @param {array} $original_post
+	 * @param array $original_post
 	 * @param bool $fromJob
 	 *
-	 * @return {string|array}
+	 * @return string|array
 	 * - an html form, which is filtered in the getForm method
 	 * - an html response, which has been escaped and parsed by wfMessage
 	 * - an array of mediafile Title(s)

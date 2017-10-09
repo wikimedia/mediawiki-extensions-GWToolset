@@ -15,23 +15,23 @@ use GWToolset\Utils;
 
 class Metadata implements ModelInterface {
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	public $metadata_as_array;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * a raw representation of the original metadata
 	 */
 	public $metadata_raw;
 
 	/**
-	 * @var {DataAdapterInterface}
+	 * @var DataAdapterInterface
 	 */
 	protected $_DataAdapater;
 
 	/**
-	 * @param {DataAdapterInterface} $DataAdapter
+	 * @param DataAdapterInterface $DataAdapter
 	 */
 	public function __construct( DataAdapterInterface $DataAdapter ) {
 		$this->reset();
@@ -39,13 +39,13 @@ class Metadata implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 */
 	public function create( array $options = [] ) {
 	}
 
 	/**
-	 * @param {array} &$options
+	 * @param array &$options
 	 */
 	public function delete( array &$options = [] ) {
 	}
@@ -54,9 +54,9 @@ class Metadata implements ModelInterface {
 	 * locates an element within the metadata, which can sometimes be repeated
 	 * in a single metadata record, and creates an array of the values it finds
 	 *
-	 * @param {string} $field
+	 * @param string $field
 	 *
-	 * @return {array}
+	 * @return array
 	 * the elements within the array are sanitized
 	 */
 	public function getFieldValuesAsArray( $field = null ) {
@@ -89,9 +89,9 @@ class Metadata implements ModelInterface {
 	 *
 	 * @todo should we cache the concatenated fields or pre-populate all of them?
 	 *
-	 * @param {string} $field
+	 * @param string $field
 	 *
-	 * @return {null|string}
+	 * @return null|string
 	 * the string is sanitized
 	 */
 	public function getFieldValuesConcatenated( $field = null ) {
@@ -118,13 +118,13 @@ class Metadata implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} &$options
+	 * @param array &$options
 	 */
 	public function retrieve( array &$options = [] ) {
 	}
 
 	/**
-	 * @param {array} &$options
+	 * @param array &$options
 	 */
 	public function update( array &$options = [] ) {
 	}

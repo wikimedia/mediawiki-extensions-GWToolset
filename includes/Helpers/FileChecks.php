@@ -33,7 +33,7 @@ class FileChecks {
 	 * Check php.ini max_post_size isn't exceeded.
 	 *
 	 * @note upload_max_filesize is checked separately in Handlers/UploadHandler.php
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 */
 	public static function checkMaxPostSize() {
 		if ( isset( $_SERVER["CONTENT_LENGTH"] )
@@ -45,8 +45,8 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {File} $File
-	 * @return {Status}
+	 * @param File $File
+	 * @return Status
 	 */
 	public static function fileWasUploaded( File $File ) {
 		if ( !$File->is_uploaded_file ) {
@@ -57,10 +57,10 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {array} $accepted_types
+	 * @param array $accepted_types
 	 * expected format 'extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return {array}
+	 * @return array
 	 */
 	public static function getAcceptedExtensions( array $accepted_types = [] ) {
 		return array_keys( $accepted_types );
@@ -69,10 +69,10 @@ class FileChecks {
 	/**
 	 * returns the accepted file extensions this wiki extension accepts.
 	 *
-	 * @param {array} $accepted_types
+	 * @param array $accepted_types
 	 * expected format 'file-extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is filtered
 	 * a comma delimited list of accepted file extensions
 	 */
@@ -90,10 +90,10 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {array} $accepted_types
+	 * @param array $accepted_types
 	 * expected format 'extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return {array}
+	 * @return array
 	 */
 	public static function getAcceptedMimeTypes( array $accepted_types = [] ) {
 		return array_unique( Utils::getArraySecondLevelValues( $accepted_types ) );
@@ -103,10 +103,10 @@ class FileChecks {
 	 * returns the accept attribute for <input type="file" accept="">
 	 * populated with file mime types the extension accepts.
 	 *
-	 * @param {array} $accepted_types
+	 * @param array $accepted_types
 	 * expected format 'file-extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is filtered
 	 * a comma delimited list of accepted file mime types
 	 */
@@ -128,8 +128,8 @@ class FileChecks {
 	 * the lesser of two values : the gwtoolset value, if set,
 	 * and the wiki’s setting in $wgMaxUploadSize
 	 *
-	 * @param {null|string} $forType
-	 * @return {int}
+	 * @param null|string $forType
+	 * @return int
 	 */
 	public static function getMaxUploadSize( $forType = null ) {
 		if ( !empty( Config::$max_upload_filesize )
@@ -144,9 +144,9 @@ class FileChecks {
 	/**
 	 * Validates the file extension based on the accepted extensions provided
 	 *
-	 * @param {string|File} $File
-	 * @param {array} $accepted_extensions
-	 * @return {Status}
+	 * @param string|File $File
+	 * @param array $accepted_extensions
+	 * @return Status
 	 */
 	public static function isAcceptedFileExtension( $File, array $accepted_extensions = [] ) {
 		$msg = null;
@@ -182,9 +182,9 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {File} $File
-	 * @param {array} $accepted_mime_types
-	 * @return {Status}
+	 * @param File $File
+	 * @param array $accepted_mime_types
+	 * @return Status
 	 */
 	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = [] ) {
 		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
@@ -206,8 +206,8 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {File} $File
-	 * @return {Status}
+	 * @param File $File
+	 * @return Status
 	 */
 	public static function isFileEmpty( File $File ) {
 		if ( $File->size === 0 ) {
@@ -227,10 +227,10 @@ class FileChecks {
 	 *
 	 * currently tests metadata file upload only.
 	 *
-	 * @param {File} $File
-	 * @param {array} $accepted_types
-	 * @throws {MWException}
-	 * @return {Status}
+	 * @param File $File
+	 * @param array $accepted_types
+	 * @throws MWException
+	 * @return Status
 	 */
 	public static function isUploadedFileValid( File $File, array $accepted_types = [] ) {
 		if ( empty( $accepted_types ) ) {
@@ -281,8 +281,8 @@ class FileChecks {
 	/**
 	 * currently tests metadata file upload only.
 	 *
-	 * @param {File} $File
-	 * @return {Status}
+	 * @param File $File
+	 * @return Status
 	 */
 	public static function mimeTypeAndExtensionMatch( File $File ) {
 		if ( !isset( $File->pathinfo['extension'] ) || empty( $File->pathinfo['extension'] ) ) {
@@ -305,8 +305,8 @@ class FileChecks {
 	}
 
 	/**
-	 * @param {File} $File
-	 * @return {Status}
+	 * @param File $File
+	 * @return Status
 	 */
 	public static function noFileErrors( File $File ) {
 		$msg = null;

@@ -19,7 +19,7 @@ use XMLReader;
 abstract class XmlHandler {
 
 	/**
-	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 * @var GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
@@ -28,8 +28,8 @@ abstract class XmlHandler {
 	/**
 	 * a debug method for testing the reader
 	 *
-	 * @param {XMLReader} $reader
-	 * @return {string}
+	 * @param XMLReader $reader
+	 * @return string
 	 */
 	protected function displayCurrentNodeProperties( XMLReader $reader ) {
 		return
@@ -52,8 +52,8 @@ abstract class XmlHandler {
 	/**
 	 * a debug method
 	 *
-	 * @param {DOMNode} $DOMNode
-	 * @return {string}
+	 * @param DOMNode $DOMNode
+	 * @return string
 	 */
 	protected function getNodesInfo( $DOMNode ) {
 		$result = null;
@@ -86,14 +86,14 @@ abstract class XmlHandler {
 	 * via the $callback to process the file. allows for the reader to be stopped
 	 * if the $callback method returns true to the $stop_reading variable
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {string} $file_path_local
+	 * @param string $file_path_local
 	 * a local wiki path to the xml metadata file. the assumption is that it
 	 * has been uploaded to the wiki earlier and is ready for use
 	 *
-	 * @param {string} $callback
+	 * @param string $callback
 	 * the method that will be used to process the read xml file
 	 *
 	 * @todo: handle invalid xml
@@ -102,9 +102,9 @@ abstract class XmlHandler {
 	 * @todo: handle an xml schema if present (future)
 	 * @todo: handle incomplete/partial uploads (future)
 	 *
-	 * @throws {MWException}
+	 * @throws MWException
 	 *
-	 * @return {array}
+	 * @return array
 	 * an array of mediafile Title(s)
 	 */
 	protected function readXmlAsFile(

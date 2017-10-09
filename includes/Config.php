@@ -16,7 +16,7 @@ namespace GWToolset;
 class Config {
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * which extension/mimetype combinations should the extension accept
 	 * for mapping files
 	 */
@@ -25,7 +25,7 @@ class Config {
 	];
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * which extension/mimetype combinations should the extension accept
 	 * for metadata files
 	 */
@@ -34,29 +34,29 @@ class Config {
 	];
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public static $category_separator = '|';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public static $filebackend_metadata_container = 'gwtoolset-metadata';
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * 20 minutes, 25 seconds default
 	 */
 	public static $http_timeout = 1200;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * 1.25e7 or 12,500,000 default
 	 */
 	public static $max_image_area = 6.4e7;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * set in bytes
 	 * the maximum upload filesize this extension will accept. when set to 0,
 	 * the wiki’s $wgMaxUploadSize is used
@@ -64,19 +64,19 @@ class Config {
 	public static $max_upload_filesize = 0;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * the number of mediafile jobs to add to the job queue during this run.
 	 */
 	public static $mediafile_job_throttle_default = 10;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * a min range for the mediafile job throttle.
 	 */
 	public static $mediafile_job_throttle_min = 1;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * a max range for the mediafile job throttle.
 	 *
 	 * based on an irc chat with chris steipp. his main concern is about someone setting up
@@ -89,7 +89,7 @@ class Config {
 	public static $mediafile_job_throttle_max = 20;
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * the maximum number of UploadMediafileJob’s that should exist in the overall job queue.
 	 * if this number is reached, the UploadMetadataJob will attempt
 	 * Config::$metadata_job_max_attempts times to add to the additional
@@ -98,7 +98,7 @@ class Config {
 	public static $mediafile_job_queue_max = 1000;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * - which MediaWiki Templates are allowed for mapping
 	 * - fallbacks in case there’s no template data for these MediaWiki templates
 	 */
@@ -116,19 +116,19 @@ class Config {
 	];
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * 128M default
 	 */
 	public static $memory_limit = '256M';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * category automatically assigned to metadata files uploaded by GWToolset
 	 */
 	public static $metadata_file_category = 'GWToolset_Metadata_Sets';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * this delay is used specifically for each gwtoolsetUploadMetadataJob
 	 *
 	 * used in conjunction with the job param jobReleaseTimestamp when the job queue
@@ -137,7 +137,7 @@ class Config {
 	public static $metadata_job_delay = '1 minute';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * this delay is used specifically when the job queue for gwtoolsetUploadMediafileJobs
 	 * has reached the $mediafile_job_queue_max
 	 *
@@ -147,7 +147,7 @@ class Config {
 	public static $metadata_job_attempt_delay = '5 minutes';
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * the maximum number of times the UploadMetadataJob will attempt to add the same
 	 * UploadMediafileJob’s to the job queue. this max is used when the
 	 * Config::$metadata_job_max_attempts has been reached and if used, can indicate
@@ -156,60 +156,60 @@ class Config {
 	public static $metadata_job_max_attempts = 10;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * wiki namespace to store metadata mappings and data sets
 	 */
 	public static $metadata_namespace = NS_GWTOOLSET;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * subpage used to place saved metadata mappings
 	 */
 	public static $metadata_mapping_subpage = 'Metadata_Mappings';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public static $metadata_separator = '; ';
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * subpage used to place saved metadata sets
 	 */
 	public static $metadata_sets_subpage = 'Metadata_Sets';
 
 	/**
-	 * @var {int}
+	 * @var int
 	 */
 	public static $preview_throttle = 3;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * Category:Source_templates is the category on commons for partner templates
 	 */
 	public static $source_templates = 'Source_templates';
 
 	/**
-	 * @var {int}
+	 * @var int
 	 * title maximum length in bytes
 	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
 	 */
 	public static $title_max_length = 240;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public static $title_separator = '-';
 
 	/**
-	 * @var {bool}
+	 * @var bool
 	 * tells the upload form to place the $accepted_mime_types in a comma
 	 * delimited list in the input file’s accept attribute
 	 */
 	public static $use_file_accept_attribute = true;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * user permissions required in order to be able to use this extension
 	 * @see \GWToolset\Helpers\WikiChecks::checkUserPermissions
 	 */

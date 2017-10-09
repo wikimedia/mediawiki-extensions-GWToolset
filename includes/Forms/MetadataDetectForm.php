@@ -21,7 +21,7 @@ use Title;
 class MetadataDetectForm {
 
 	/**
-	 * @return {null|string}
+	 * @return null|string
 	 */
 	public static function getCopyUploadsDomainsAsList() {
 		global $wgCopyUploadsDomains;
@@ -64,9 +64,9 @@ class MetadataDetectForm {
 	/**
 	 * returns an html form for step 1 : Metadata Detect
 	 *
-	 * @param {SpecialPage} $SpecialPage
+	 * @param SpecialPage $SpecialPage
 	 *
-	 * @return {string}
+	 * @return string
 	 * an html form
 	 */
 	public static function getForm( SpecialPage $SpecialPage ) {
@@ -371,7 +371,7 @@ class MetadataDetectForm {
 
 	/**
 	 * @FIXME what is the point of this function
-	 * @return {null}
+	 * @return null
 	 */
 	public static function getMetadataFileUrlExtraInstructions() {
 		return null;
@@ -379,8 +379,8 @@ class MetadataDetectForm {
 
 	/**
 	 * @FIXME what is the point of this function
-	 * @param {int} $namespace
-	 * @return {null}
+	 * @param int $namespace
+	 * @return null
 	 */
 	public static function getMetadataFileUrlInput( $namespace ) {
 		return null;

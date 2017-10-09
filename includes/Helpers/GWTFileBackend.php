@@ -24,32 +24,32 @@ use User;
 class GWTFileBackend {
 
 	/**
-	 * @var {FileBackend}
+	 * @var FileBackend
 	 */
 	public $FileBackend;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	protected $_container;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	protected $_file_extension;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	protected $_hash;
 
 	/**
-	 * @var {User}
+	 * @var User
 	 */
 	protected $_User;
 
 	/**
-	 * @param {array} $params
+	 * @param array $params
 	 */
 	public function __construct( array $params = [] ) {
 		$this->setupFileBackend( $params );
@@ -62,9 +62,9 @@ class GWTFileBackend {
 	/**
 	 * creates a GWTFileBackendCleanupJob that will delete the mwstore file in the FileBackend
 	 *
-	 * @param {string} $mwstore_relative_path
-	 * @throws {MWException}
-	 * @return {bool}
+	 * @param string $mwstore_relative_path
+	 * @throws MWException
+	 * @return bool
 	 */
 	public function createCleanupJob( $mwstore_relative_path = null ) {
 		if ( empty( $mwstore_relative_path ) ) {
@@ -108,9 +108,9 @@ class GWTFileBackend {
 	/**
 	 * deletes a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param {string} $mwstore_complete_file_path
-	 * @return {Status}
-	 * @throws {MWException}
+	 * @param string $mwstore_complete_file_path
+	 * @return Status
+	 * @throws MWException
 	 */
 	public function deleteFile( $mwstore_complete_file_path = null ) {
 		if ( empty( $mwstore_complete_file_path ) ) {
@@ -133,9 +133,9 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param {string} $mwstore_relative_path
-	 * @throws {MWException}
-	 * @return {string}
+	 * @param string $mwstore_relative_path
+	 * @throws MWException
+	 * @return string
 	 */
 	public function deleteFileFromRelativePath( $mwstore_relative_path = null ) {
 		if ( empty( $mwstore_relative_path ) ) {
@@ -155,7 +155,7 @@ class GWTFileBackend {
 	 * create a filename based on the md5 hash of the tmp_filename.
 	 * add the file extension if it exists
 	 *
-	 * @return {null|string}
+	 * @return null|string
 	 */
 	protected function getFilename() {
 		$result = null;
@@ -175,7 +175,7 @@ class GWTFileBackend {
 	 * based on the md5 hash of the tmp_filename, create a hash mapped directory structure
 	 * using the first 3 characters of the md5 hash
 	 *
-	 * @return {null|string}
+	 * @return null|string
 	 */
 	protected function getHashPath() {
 		$result = null;
@@ -200,12 +200,12 @@ class GWTFileBackend {
 	 * - hash path
 	 * - filename
 	 *
-	 * @param {string} $mwstore_relative_path
+	 * @param string $mwstore_relative_path
 	 * should contain:
 	 * - hash path
 	 * - filename
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function getMWStoreCompleteFilePath( $mwstore_relative_path = null ) {
 		if ( !empty( $mwstore_relative_path ) ) {
@@ -229,7 +229,7 @@ class GWTFileBackend {
 	 * - user name
 	 * - hash path
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function getMWStoreFileDirectory() {
 		return
@@ -246,8 +246,8 @@ class GWTFileBackend {
 	 * the User name is used in order to help limit file access and indicate
 	 * which user submitted the file.
 	 *
-	 * @throws {MWException}
-	 * @return {string}
+	 * @throws MWException
+	 * @return string
 	 */
 	public function getMWStorePath() {
 		$result = $this->FileBackend->getRootStoragePath();
@@ -264,7 +264,7 @@ class GWTFileBackend {
 	 * - hash path
 	 * - filename
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	public function getMWStoreRelativePath() {
 		return
@@ -276,8 +276,8 @@ class GWTFileBackend {
 	 * includes:
 	 * - user name
 	 *
-	 * @throws {MWException}
-	 * @return {string}
+	 * @throws MWException
+	 * @return string
 	 */
 	protected function getUserPath() {
 		if ( empty( $this->_User ) ) {
@@ -290,7 +290,7 @@ class GWTFileBackend {
 	/**
 	 * create any containers/directories as needed
 	 *
-	 * @return {Status}
+	 * @return Status
 	 */
 	protected function prepare() {
 		return $this->FileBackend->prepare(
@@ -305,10 +305,10 @@ class GWTFileBackend {
 	/**
 	 * store the file at the final storage path
 	 *
-	 * @param {string} $tmp_file_path
+	 * @param string $tmp_file_path
 	 * the temporary file path location of the src file to be stored in the FileBackend
 	 *
-	 * @return {Status}
+	 * @return Status
 	 */
 	protected function quickStore( $tmp_file_path = null ) {
 		$params = [
@@ -322,9 +322,9 @@ class GWTFileBackend {
 	/**
 	 * retrieves a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param {string} $mwstore_complete_file_path
-	 * @throws {MWException}
-	 * @return {null|FSFile}
+	 * @param string $mwstore_complete_file_path
+	 * @throws MWException
+	 * @return null|FSFile
 	 */
 	public function retrieveFile( $mwstore_complete_file_path = null ) {
 		$result = null;
@@ -357,9 +357,9 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param {string} $mwstore_relative_path
-	 * @throws {MWException}
-	 * @return {null|FSFile}
+	 * @param string $mwstore_relative_path
+	 * @throws MWException
+	 * @return null|FSFile
 	 */
 	public function retrieveFileFromRelativePath( $mwstore_relative_path = null ) {
 		if ( empty( $mwstore_relative_path ) ) {
@@ -380,9 +380,9 @@ class GWTFileBackend {
 	 *
 	 * @see http://www.php.net/manual/en/datetime.formats.relative.php
 	 *
-	 * @param {File} $File
-	 * @throws {MWException}
-	 * @return {null|string}
+	 * @param File $File
+	 * @throws MWException
+	 * @return null|string
 	 */
 	public function saveFile( File $File ) {
 		$result = null;
@@ -423,14 +423,14 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param {string} $file_extension
+	 * @param string $file_extension
 	 */
 	protected function setFileExtension( $file_extension = null ) {
 		$this->_file_extension = $file_extension;
 	}
 
 	/**
-	 * @param {string} $string
+	 * @param string $string
 	 */
 	protected function setHash( $string ) {
 		$this->_hash = md5( $string );
@@ -439,8 +439,8 @@ class GWTFileBackend {
 	/**
 	 * sets up the file backend
 	 *
-	 * @param {array} $params
-	 * @throws {MWException}
+	 * @param array $params
+	 * @throws MWException
 	 */
 	protected function setupFileBackend( array $params ) {
 		if ( empty( $params['file-backend-name'] ) ) {

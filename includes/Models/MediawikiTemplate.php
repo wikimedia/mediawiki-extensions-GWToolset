@@ -19,36 +19,36 @@ use MWException;
 class MediawikiTemplate implements ModelInterface {
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * a raw representation of the original metadata
 	 */
 	public $metadata_raw;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * the mediawiki template name
 	 */
 	public $mediawiki_template_name;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * a json representation of the mediawiki template parameters
 	 */
 	public $mediawiki_template_json;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * the $mediawiki_template_json converted to a php array
 	 */
 	public $mediawiki_template_array = [];
 
 	/**
-	 * @var {DataAdapterInterface}
+	 * @var DataAdapterInterface
 	 */
 	protected $_DataAdapater;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_sub_templates = [
 		'language' => '{{%s|%s}}',
@@ -69,7 +69,7 @@ class MediawikiTemplate implements ModelInterface {
 	];
 
 	/**
-	 * @param {DataAdapterInterface} $DataAdapter
+	 * @param DataAdapterInterface $DataAdapter
 	 */
 	public function __construct( DataAdapterInterface $DataAdapter ) {
 		$this->_DataAdapater = $DataAdapter;
@@ -88,9 +88,9 @@ class MediawikiTemplate implements ModelInterface {
 	 * - use the metadata value mapped to the institution parameter as is
 	 * - or wrap the metadata value in an institution template
 	 *
-	 * @param {string} $content
-	 * @param {array} $user_options
-	 * @return {string}
+	 * @param string $content
+	 * @param array $user_options
+	 * @return string
 	 */
 	protected function getCreator( $content, array $user_options ) {
 		$result = '';
@@ -139,7 +139,7 @@ class MediawikiTemplate implements ModelInterface {
 	 *
 	 * @todo move this into a GWToolsetTemplate model
 	 *
-	 * @return {string}
+	 * @return string
 	 * the result is sanitized
 	 */
 	public function getGWToolsetTemplateAsWikiText() {
@@ -164,9 +164,9 @@ class MediawikiTemplate implements ModelInterface {
 	 * - use the metadata value mapped to the institution parameter as is
 	 * - or wrap the metadata value in an institution template
 	 *
-	 * @param {string} $content
-	 * @param {array} $user_options
-	 * @return {string}
+	 * @param string $content
+	 * @param array $user_options
+	 * @return string
 	 */
 	protected function getInstitution( $content, array $user_options ) {
 		if (
@@ -186,10 +186,10 @@ class MediawikiTemplate implements ModelInterface {
 	 * the array is expected to be in an array format for each mediawiki parameter
 	 * e.g. accession_number[], artist[]
 	 *
-	 * @param {array} $array
-	 * @throws {MWException}
+	 * @param array $array
+	 * @throws MWException
 	 *
-	 * @return {array}
+	 * @return array
 	 * the keys and values in the array are sanitized
 	 */
 	public function getMappingFromArray( array $array = [] ) {
@@ -226,7 +226,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * returned from a data adapter. these keys are the names of
 	 * the mediawiki templates handled by the extension.
 	 *
-	 * @return {string}
+	 * @return string
 	 * the keys within the <option>s are filtered
 	 */
 	public function getModelKeysAsOptions() {
@@ -252,9 +252,9 @@ class MediawikiTemplate implements ModelInterface {
 	 *
 	 * @see http://commons.wikimedia.org/wiki/Category:Creative_Commons_licenses
 	 *
-	 * @param {string} $content
-	 * @param {array} $user_options
-	 * @return {string}
+	 * @param string $content
+	 * @param array $user_options
+	 * @return string
 	 */
 	protected function getPermission( $content, array $user_options ) {
 		if ( !empty( $user_options['gwtoolset-global-license'] ) ) {
@@ -325,9 +325,9 @@ class MediawikiTemplate implements ModelInterface {
 	 *   assumes that the free text value must be wrapped in {{}}
 	 * - use the metadata value mapped to the source parameter
 	 *
-	 * @param {string} $content
-	 * @param {array} $user_options
-	 * @return {string}
+	 * @param string $content
+	 * @param array $user_options
+	 * @return string
 	 */
 	protected function getSource( $content, array $user_options ) {
 		if ( !empty( $user_options['partner-template-name'] ) ) {
@@ -352,10 +352,10 @@ class MediawikiTemplate implements ModelInterface {
 	 * $this->mediawiki_template_array and into their own
 	 * gwtoolset_template_array
 	 *
-	 * @param {array} $user_options
+	 * @param array $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @return {string}
+	 * @return string
 	 * the resulting wiki text is filtered
 	 */
 	public function getTemplateAsWikiText( array $user_options ) {
@@ -454,15 +454,15 @@ class MediawikiTemplate implements ModelInterface {
 	 * list of mediawiki templates handled by the extension that
 	 * come from a data adapter.
 	 *
-	 * @param {string} $name
+	 * @param string $name
 	 * an html form name that should be given to the select.
 	 * the param is filtered.
 	 *
-	 * @param {string} $id
+	 * @param string $id
 	 * an html form id that should be given to the select.
 	 * the param is filtered.
 	 *
-	 * @return {string}
+	 * @return string
 	 * the select values within the <option>s are filtered
 	 */
 	public function getTemplatesAsSelect( $name = null, $id = null ) {
@@ -497,10 +497,10 @@ class MediawikiTemplate implements ModelInterface {
 	 * the title length is limited to Config::$title_max_length
 	 * @see https://commons.wikimedia.org/wiki/Commons:File_naming
 	 *
-	 * @param {array} $options
-	 * @throws {GWTException}
+	 * @param array $options
+	 * @throws GWTException
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is not sanitized
 	 */
 	public function getTitle( array $options ) {
@@ -534,8 +534,8 @@ class MediawikiTemplate implements ModelInterface {
 	 * a control method that retrieves a mediawiki template model using the data adapter
 	 * provided at class instantiation and populates this model class with the result
 	 *
-	 * @param {string} $mediawiki_template_name
-	 * @throws {GWTException|MWException}
+	 * @param string $mediawiki_template_name
+	 * @throws GWTException|MWException
 	 */
 	public function getMediaWikiTemplate( $mediawiki_template_name = null ) {
 		if ( empty( $mediawiki_template_name ) ) {
@@ -554,7 +554,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * populate $this->mediawiki_template_array keys with matching values
 	 * found in the provided metadata
 	 *
-	 * @param {array} $metadata
+	 * @param array $metadata
 	 */
 	public function populateFromArray( array $metadata = [] ) {
 		foreach ( $this->mediawiki_template_array as $parameter => $value ) {
@@ -572,8 +572,8 @@ class MediawikiTemplate implements ModelInterface {
 	 * template format fro the data adapter, which is used to populate
 	 * this mediawiki template model
 	 *
-	 * @param {array} &$options
-	 * @throws {GWTException}
+	 * @param array &$options
+	 * @throws GWTException
 	 */
 	public function retrieve( array &$options = [] ) {
 		$result = $this->_DataAdapater->retrieve(

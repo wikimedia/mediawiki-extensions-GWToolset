@@ -31,8 +31,8 @@ class WikiChecks {
 	 *
 	 * @see SpecialPage::checkPermissions()
 	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function canUserViewPage( SpecialPage $SpecialPage ) {
 		$SpecialPage->checkPermissions();
@@ -43,7 +43,7 @@ class WikiChecks {
 	/**
 	 * the following settings need to be checked in order to handle large images
 	 *
-	 * @param {int} $max_image_area
+	 * @param int $max_image_area
 	 */
 	public static function checkMaxImageArea( $max_image_area = 0 ) {
 		global $wgMaxImageArea, $wgUseImageMagick;
@@ -74,7 +74,7 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
+	 * @return Status
 	 */
 	public static function checkMediaWikiVersion() {
 		global $wgVersion;
@@ -95,7 +95,7 @@ class WikiChecks {
 	/**
 	 * the following settings need to be checked in order to handle large images
 	 *
-	 * @param {string} $memory_limit
+	 * @param string $memory_limit
 	 */
 	public static function checkMemoryLimit( $memory_limit = null ) {
 		global $wgUseImageMagick;
@@ -124,8 +124,8 @@ class WikiChecks {
 	 * SpecialPage $restriction must be a string, thus it does not check a
 	 * group of permissions.
 	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function checkUserWikiPermissions( SpecialPage $SpecialPage ) {
 		foreach ( Config::$user_permissions as $permission ) {
@@ -140,8 +140,8 @@ class WikiChecks {
 	/**
 	 * For a submitted form, is the edit token present and valid
 	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function doesEditTokenMatch( SpecialPage $SpecialPage ) {
 		if ( !$SpecialPage->getUser()->matchEditToken(
@@ -157,8 +157,8 @@ class WikiChecks {
 	}
 
 	/**
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function isUserBlocked( SpecialPage $SpecialPage ) {
 		if ( $SpecialPage->getUser()->isBlocked() ) {
@@ -171,8 +171,8 @@ class WikiChecks {
 	/**
 	 * @see SpecialPage::checkReadOnly()
 	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function isWikiWriteable( SpecialPage $SpecialPage ) {
 		$SpecialPage->checkReadOnly();
@@ -184,8 +184,8 @@ class WikiChecks {
 	 * Run through a series of checks to make sure the wiki environment is properly
 	 * setup for this extension and that the user has permission to use it
 	 *
-	 * @param {SpecialPage} $SpecialPage
-	 * @return {Status}
+	 * @param SpecialPage $SpecialPage
+	 * @return Status
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
 		$Status = self::verifyXMLReaderExists();
@@ -239,7 +239,7 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
+	 * @return Status
 	 */
 	public static function uploadsEnabled() {
 		global $wgEnableUploads;
@@ -254,7 +254,7 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
+	 * @return Status
 	 */
 	public static function verifyAPIWritable() {
 		global $wgEnableWriteAPI;
@@ -267,7 +267,7 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
+	 * @return Status
 	 */
 	public static function verifyFinfoExists() {
 		if ( !class_exists( 'finfo' ) ) {
@@ -278,7 +278,7 @@ class WikiChecks {
 	}
 
 	/**
-	 * @return {Status}
+	 * @return Status
 	 */
 	public static function verifyXMLReaderExists() {
 		if ( !class_exists( 'XMLReader' ) ) {

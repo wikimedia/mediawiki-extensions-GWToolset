@@ -27,16 +27,16 @@ use Wikimedia\ScopedCallback;
 class UploadMediafileJob extends Job {
 
 	/**
-	 * @var {User}
+	 * @var User
 	 */
 	protected $User;
 	/** @var bool Allow retries */
 	protected $allowRetry = true;
 
 	/**
-	 * @param {Title} $title
-	 * @param {bool|array} $params
-	 * @param {int} $id
+	 * @param Title $title
+	 * @param bool|array $params
+	 * @param int $id
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		if ( !isset( $params['session'] ) ) {
@@ -54,7 +54,7 @@ class UploadMediafileJob extends Job {
 	 * need to add some logic to it so that if a batch job is being process it doesn't display a
 	 * form or process the metadata again
 	 *
-	 * @return {bool|Title}
+	 * @return bool|Title
 	 */
 	protected function processMetadata() {
 		global $wgUser;
@@ -111,7 +111,7 @@ class UploadMediafileJob extends Job {
 	/**
 	 * entry point
 	 * @todo: should $result always be true?
-	 * @return {bool|Title}
+	 * @return bool|Title
 	 */
 	public function run() {
 		$result = false;
@@ -161,9 +161,9 @@ class UploadMediafileJob extends Job {
 	}
 
 	/**
-	 * @param {string} $message
-	 * @param {string} $job_subtype
-	 * @param {object} $Title
+	 * @param string $message
+	 * @param string $job_subtype
+	 * @param object $Title
 	 */
 	protected function specialLog( $message, $job_subtype, Title $Title ) {
 		$options = [
@@ -192,7 +192,7 @@ class UploadMediafileJob extends Job {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function validateParams() {
 		$result = true;

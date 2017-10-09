@@ -38,14 +38,14 @@ use Wikimedia\ScopedCallback;
 class UploadMetadataJob extends Job {
 
 	/**
-	 * @var {User}
+	 * @var User
 	 */
 	protected $User;
 
 	/**
-	 * @param {Title} $title
-	 * @param {bool|array} $params
-	 * @param {int} $id
+	 * @param Title $title
+	 * @param bool|array $params
+	 * @param int $id
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		if ( !isset( $params['session'] ) ) {
@@ -57,7 +57,7 @@ class UploadMetadataJob extends Job {
 	/**
 	 * a control method for re-establishing application state so that the metadata can be processed
 	 *
-	 * @return {string|array}
+	 * @return string|array
 	 * if an array, an array of Titles
 	 */
 	protected function processMetadata() {
@@ -69,8 +69,8 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
-	 * @throws {MWException}
-	 * @return {bool}
+	 * @throws MWException
+	 * @return bool
 	 */
 	protected function recreateMetadataJob() {
 		if ( (int)$this->params['attempts'] > (int)Config::$metadata_job_max_attempts ) {
@@ -122,7 +122,7 @@ class UploadMetadataJob extends Job {
 
 	/**
 	 * entry point
-	 * @return {bool}
+	 * @return bool
 	 */
 	public function run() {
 		$result = false;
@@ -186,7 +186,7 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
-	 * @param {string} $message
+	 * @param string $message
 	 */
 	protected function specialLog( $message ) {
 		$options = [
@@ -209,7 +209,7 @@ class UploadMetadataJob extends Job {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function validateParams() {
 		$result = true;

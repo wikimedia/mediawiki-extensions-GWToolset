@@ -24,11 +24,11 @@ class MappingPhpAdapter implements DataAdapterInterface {
 
 	/**
 	 * @todo is the content returned by the WikiPage filtered?
-	 * @param {array} $options
+	 * @param array $options
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 *
-	 * @return {string}
+	 * @return string
 	 * the content of the wikipage referred to by the wiki title
 	 */
 	public function retrieve( array $options = [] ) {

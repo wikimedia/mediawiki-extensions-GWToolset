@@ -18,32 +18,32 @@ use XMLReader;
 class XmlMappingHandler extends XmlHandler {
 
 	/**
-	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 * @var GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var {GWToolset\Models\Mapping}
+	 * @var GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {GWToolset\Handlers\Forms\MetadataMappingHandler}
+	 * @var GWToolset\Handlers\Forms\MetadataMappingHandler
 	 */
 	protected $_MappingHandler;
 
 	/**
-	 * @var {GWToolset\Models\MediawikiTemplate}
+	 * @var GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {SpecialPage}
+	 * @var SpecialPage
 	 */
 	protected $_SpecialPage;
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
 		$this->reset();
@@ -72,8 +72,8 @@ class XmlMappingHandler extends XmlHandler {
 	/**
 	 * helper method for getDOMElementAsArray()
 	 *
-	 * @param {array} &$array
-	 * @param {DOMElement} $DOMElement
+	 * @param array &$array
+	 * @param DOMElement $DOMElement
 	 */
 	protected function addDOMElementToArray( array &$array, DOMElement $DOMElement ) {
 		$is_url = strpos( $DOMElement->nodeValue, '://' ) !== false;
@@ -96,8 +96,8 @@ class XmlMappingHandler extends XmlHandler {
 	 * metadata sources use XML namespaces without declaring them within the XML document, which
 	 * requires additional logic to sort out the namespaced elements that may not be reliable
 	 *
-	 * @param {DOMElement} $DOMElement
-	 * @return {array}
+	 * @param DOMElement $DOMElement
+	 * @return array
 	 */
 	protected function getDOMElementAsArray( DOMElement $DOMElement ) {
 		$result = [];
@@ -134,10 +134,10 @@ class XmlMappingHandler extends XmlHandler {
 	 * @todo possibly filter keys and values
 	 * @todo possibly refactor so that it works with getDOMElementAsArray
 	 *
-	 * @param {DOMELement} $DOMElement
-	 * @param {array} $user_options
+	 * @param DOMELement $DOMElement
+	 * @param array $user_options
 	 *
-	 * @return {array}
+	 * @return array
 	 * the keys and values in the array have not been filtered
 	 * an array that maps mediawiki template parameters to the metadata record
 	 * values provided by the DOMElement
@@ -271,14 +271,14 @@ class XmlMappingHandler extends XmlHandler {
 	}
 
 	/**
-	 * @param {DOMElement} &$DOMNodeElement
+	 * @param DOMElement &$DOMNodeElement
 	 *
-	 * @param {bool} $is_url
+	 * @param bool $is_url
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 * Fiter options
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string has been sanitized
 	 */
 	protected function getFilteredNodeValue(
@@ -304,14 +304,14 @@ class XmlMappingHandler extends XmlHandler {
 	 * each matched metadata record, is sent to $this->_MappingHandler->processMatchingElement()
 	 * to be saved as a new mediafile in the wiki or to update an existing mediafile in the wiki
 	 *
-	 * @param {XMLReader|DOMElement} $XMLElement
+	 * @param XMLReader|DOMElement $XMLElement
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {MWException}
+	 * @throws MWException
 	 *
-	 * @return {array}
+	 * @return array
 	 * - $result['Title'] {Title}
 	 * - $result['stop-reading'] {bool}
 	 */
@@ -399,16 +399,16 @@ class XmlMappingHandler extends XmlHandler {
 	 * source. the dom elements will be used for creating mediafile
 	 * Titles in the wiki.
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the original $_POST
 	 *
-	 * @param {string|Content} $xml_source
+	 * @param string|Content $xml_source
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
 	 *
-	 * @throws {MWException}
-	 * @return {array}
+	 * @throws MWException
+	 * @return array
 	 * an array of mediafile Title(s)
 	 */
 	public function processXml( array &$user_options, $xml_source = null ) {

@@ -20,19 +20,19 @@ use MWException;
 class File {
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * The original uploaded file array
 	 */
 	public $original_file_array;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * The original name of the file on the client machine.
 	 */
 	public $name;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * The mime type of the file, if the browser provided this information.
 	 * An example would be "image/gif". This mime type is however not checked on the PHP side
 	 * and therefore don't take its value for granted.
@@ -40,19 +40,19 @@ class File {
 	public $type;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * The size, in bytes, of the uploaded file.
 	 */
 	public $size;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * The temporary filename of the file in which the uploaded file was stored on the server.
 	 */
 	public $tmp_name;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * The error code associated with this file upload. This element was added in PHP 4.2.0
 	 *
 	 * UPLOAD_ERR_OK
@@ -82,7 +82,7 @@ class File {
 	public $error;
 
 	/**
-	 * @var {bool}
+	 * @var bool
 	 * Tells whether the file was uploaded via HTTP POST
 	 *
 	 * @link http://www.php.net/manual/en/function.is-uploaded-file.php
@@ -90,7 +90,7 @@ class File {
 	public $is_uploaded_file;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * information about a file path
 	 *
 	 * @link http://nl3.php.net/manual/en/function.pathinfo.php
@@ -98,13 +98,13 @@ class File {
 	public $pathinfo;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public $mime_type;
 
 	/**
-	 * @param {array} $file_field_name
-	 * @return {void}
+	 * @param array $file_field_name
+	 * @return void
 	 */
 	public function __construct( $file_field_name = null ) {
 		$this->init();
@@ -130,7 +130,7 @@ class File {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function isFileInfoComplete() {
 		$result = !(
@@ -145,7 +145,7 @@ class File {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function isPathInfoComplete() {
 		$result = !(
@@ -159,8 +159,8 @@ class File {
 	}
 
 	/**
-	 * @param {string} $file_field_name
-	 * @throws {GWTException|MWException}
+	 * @param string $file_field_name
+	 * @throws GWTException|MWException
 	 */
 	public function populate( $file_field_name ) {
 		$file_field_name = Utils::sanitizeString( $file_field_name );

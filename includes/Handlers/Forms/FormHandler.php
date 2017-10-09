@@ -16,17 +16,17 @@ use MWException;
 abstract class FormHandler {
 
 	/**
-	 * @var {SpecialPage}
+	 * @var SpecialPage
 	 */
 	public $SpecialPage;
 
 	/**
-	 * @var {User}
+	 * @var User
 	 */
 	public $User;
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
 		if ( isset( $options['SpecialPage'] ) ) {
@@ -45,12 +45,12 @@ abstract class FormHandler {
 	 * 1. exist
 	 * 2. and have a value with strlen > 0
 	 *
-	 * @param {array} $user_options
+	 * @param array $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $expected_options
+	 * @param array $expected_options
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 * the exception message has been filtered
 	 */
 	protected function checkForRequiredFormFields( array $user_options, array $expected_options ) {
@@ -86,9 +86,9 @@ abstract class FormHandler {
 	}
 
 	/**
-	 * @param {string} $module
-	 * @throws {MWException}
-	 * @return {string}
+	 * @param string $module
+	 * @throws MWException
+	 * @return string
 	 */
 	public function getFormClass( $module = null ) {
 		$registered_modules = $this->SpecialPage->getRegisteredModules();
@@ -142,11 +142,11 @@ abstract class FormHandler {
 	 * 3. preview
 	 * 4. batch upload
 	 *
-	 * @param {string} $module
+	 * @param string $module
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string has not been filtered
 	 */
 	public function getHtmlForm( $module = null ) {
@@ -159,7 +159,7 @@ abstract class FormHandler {
 	 * a control method that acts as an entry point for the
 	 * FormHandler and handles execution of the class methods
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string has not been filtered
 	 */
 	public function execute() {
@@ -184,7 +184,7 @@ abstract class FormHandler {
 	 * a control method that processes a SpecialPage request
 	 * and returns a response, typically an html form
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	abstract protected function processRequest();
 }

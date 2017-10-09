@@ -18,22 +18,22 @@ use MediaWiki\MediaWikiServices;
 class Mapping implements ModelInterface {
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	public $mapping_array;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public $mapping_json;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public $mediawiki_template_name;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * an array to be used for quick look-up of target dom elements to be
 	 * used in the metadata for mapping to the mediawiki template; avoids
 	 * the necessity of recursive look-up in the mapping array
@@ -41,19 +41,19 @@ class Mapping implements ModelInterface {
 	public $target_dom_elements;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * holds an array of metadata dom elements mapped to their corresponding
 	 * mediawiki template parameters
 	 */
 	public $target_dom_elements_mapped;
 
 	/**
-	 * @var {DataAdapterInterface}
+	 * @var DataAdapterInterface
 	 */
 	protected $_DataAdapater;
 
 	/**
-	 * @param {DataAdapterInterface} $DataAdapter
+	 * @param DataAdapterInterface $DataAdapter
 	 */
 	public function __construct( DataAdapterInterface $DataAdapter ) {
 		$this->reset();
@@ -61,8 +61,8 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} $options
-	 * @return {Status}
+	 * @param array $options
+	 * @return Status
 	 */
 	public function create( array $options = [] ) {
 		return $this->_DataAdapater->create( $options );
@@ -74,12 +74,12 @@ class Mapping implements ModelInterface {
 	/**
 	 * @todo: sanitize the mapping_array created
 	 *
-	 * @param {array} &$options
+	 * @param array &$options
 	 *
-	 * @return {array}
+	 * @return array
 	 * the keys and values within the array are not filtered
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 */
 	public function getJsonAsArray( array &$options = [] ) {
 		try {
@@ -108,9 +108,9 @@ class Mapping implements ModelInterface {
 	/**
 	 * relies on a hardcoded path to the metadata mapping url
 	 *
-	 * @param {array} $options
-	 * @throws {GWTException}
-	 * @return {string}
+	 * @param array $options
+	 * @throws GWTException
+	 * @return string
 	 * the string is not filtered
 	 */
 	protected function getMappingName( array $options ) {
@@ -154,9 +154,9 @@ class Mapping implements ModelInterface {
 	/**
 	 * attempts to retrieve a wiki page title that contains the metadata mapping json
 	 *
-	 * @param {array} &$options
-	 * @throws {GWTException}
-	 * @return {null|Title}
+	 * @param array &$options
+	 * @throws GWTException
+	 * @return null|Title
 	 */
 	protected function getMappingTitle( array &$options ) {
 		$result = null;
@@ -181,7 +181,7 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} &$options
+	 * @param array &$options
 	 */
 	protected function populate( array &$options ) {
 		if ( empty( $options ) ) {
@@ -213,10 +213,10 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @param {array} &$options
+	 * @param array &$options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 */
 	public function retrieve( array &$options = [] ) {
 		$options['Metadata-Mapping-Title'] = $this->getMappingTitle( $options );

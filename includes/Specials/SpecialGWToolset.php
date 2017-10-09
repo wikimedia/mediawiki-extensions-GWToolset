@@ -20,17 +20,17 @@ use Title;
 class SpecialGWToolset extends SpecialPage {
 
 	/**
-	 * @var {string}
+	 * @var string
 	 */
 	public $module_key;
 
 	/**
-	 * @var {GWToolset\Handlers\Forms\FormHandler}
+	 * @var GWToolset\Handlers\Forms\FormHandler
 	 */
 	protected $_Handler;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_registered_modules = [
 		'metadata-detect' => [
@@ -77,7 +77,7 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
-	 * @return {string}
+	 * @return string
 	 */
 	public function getBackToFormLink() {
 		return Html::rawElement(
@@ -92,7 +92,7 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
-	 * @return {array}
+	 * @return array
 	 */
 	public function getRegisteredModules() {
 		return $this->_registered_modules;
@@ -146,7 +146,7 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
-	 * @throws {MWException}
+	 * @throws MWException
 	 */
 	protected function setModuleAndHandler() {
 		$this->module_key = null;
@@ -190,7 +190,7 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function wikiChecks() {
 		$Status = WikiChecks::pageIsReadyForThisUser( $this );

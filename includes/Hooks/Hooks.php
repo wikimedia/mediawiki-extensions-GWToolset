@@ -11,8 +11,8 @@ namespace GWToolset;
 class Hooks {
 
 	/**
-	 * @param {array} &$list
-	 * @return {bool}
+	 * @param array &$list
+	 * @return bool
 	 */
 	public static function onCanonicalNamespaces( &$list ) {
 		$list[NS_GWTOOLSET] = 'GWToolset';
@@ -21,8 +21,8 @@ class Hooks {
 	}
 
 	/**
-	 * @param {array} &$files
-	 * @return {bool}
+	 * @param array &$files
+	 * @return bool
 	 */
 	public static function onUnitTestsList( &$files ) {
 		$dir = dirname( dirname( __DIR__ ) );

@@ -27,7 +27,7 @@ use Php\File;
 class MetadataDetectHandler extends FormHandler {
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_expected_post_fields = [
 		'gwtoolset-form' => [ 'size' => 255 ],
@@ -41,32 +41,32 @@ class MetadataDetectHandler extends FormHandler {
 	];
 
 	/**
-	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 * @var GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var {GWToolset\Models\Mapping}
+	 * @var GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {GWToolset\Models\MediawikiTemplate}
+	 * @var GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {GWToolset\Handlers\UploadHandler}
+	 * @var GWToolset\Handlers\UploadHandler
 	 */
 	protected $_UploadHandler;
 
 	/**
-	 * #var {array}
+	 * @var array
 	 */
 	protected $_whitelisted_post;
 
 	/**
-	 * @var {GWToolset\Handlers\Xml\XmlDetectHandler}
+	 * @var GWToolset\Handlers\Xml\XmlDetectHandler
 	 */
 	public $XmlDetectHandler;
 
@@ -85,7 +85,7 @@ class MetadataDetectHandler extends FormHandler {
 	 * mediawiki template parameters with metadata elements in the
 	 * <select>s
 	 *
-	 * @return {string}
+	 * @return string
 	 * the values within the table rows have been filtered
 	 */
 	public function getMetadataAsHtmlSelectsInTableRows() {
@@ -105,7 +105,7 @@ class MetadataDetectHandler extends FormHandler {
 	 * gets various user options from $this->_whitelisted_post and sets default values
 	 * if no user value is supplied
 	 *
-	 * @return {array}
+	 * @return array
 	 */
 	protected function getUserOptions() {
 		return [
@@ -153,8 +153,8 @@ class MetadataDetectHandler extends FormHandler {
 	 * - retrieves a metadata mapping if a url to it in the wiki is given
 	 * - adds this information to the metadata mapping form and presents it to the user
 	 *
-	 * @throws {GWTException}
-	 * @return {string}
+	 * @throws GWTException
+	 * @return string
 	 * the html form string has not been filtered in this method,
 	 * but within the getForm method
 	 */
@@ -252,7 +252,7 @@ class MetadataDetectHandler extends FormHandler {
 	 * that the application should use it instead, even a value is also provided
 	 * in gwtoolset-mediawiki-template-name.
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function setTemplateName() {
 		global $wgLanguageCode;

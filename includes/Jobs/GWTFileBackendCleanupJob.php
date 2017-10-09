@@ -18,16 +18,16 @@ use User;
 class GWTFileBackendCleanupJob extends Job {
 
 	/**
-	 * @param {Title} $title
-	 * @param {bool|array} $params
-	 * @param {int} $id
+	 * @param Title $title
+	 * @param bool|array $params
+	 * @param int $id
 	 */
 	public function __construct( $title, $params, $id = 0 ) {
 		parent::__construct( 'gwtoolsetGWTFileBackendCleanupJob', $title, $params, $id );
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function processJob() {
 		$result = true;
@@ -55,7 +55,7 @@ class GWTFileBackendCleanupJob extends Job {
 
 	/**
 	 * entry point
-	 * @return {bool}
+	 * @return bool
 	 */
 	public function run() {
 		$result = false;
@@ -74,7 +74,7 @@ class GWTFileBackendCleanupJob extends Job {
 	}
 
 	/**
-	 * @return {bool}
+	 * @return bool
 	 */
 	protected function validateParams() {
 		$result = true;

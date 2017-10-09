@@ -26,7 +26,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * returns an indexed array of key values from the Config::$mediawiki_templates
 	 * array, which represents the mediawiki templates handled by the extension
 	 *
-	 * @return {array}
+	 * @return array
 	 */
 	public function getKeys() {
 		return array_keys( Config::$mediawiki_templates );
@@ -40,9 +40,9 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * - attempts to retrieve a TemplateData version of the template
 	 * - falls back to a Config::$mediawiki_templates version if not found
 	 *
-	 * @param {array} $options
-	 * @throws {GWTException}
-	 * @return {array}
+	 * @param array $options
+	 * @throws GWTException
+	 * @return array
 	 */
 	public function retrieve( array $options = [] ) {
 		$result = [ 'mediawiki_template_json' => '' ];
@@ -100,9 +100,9 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * if TemplateData isfound, it is prepared as a JSON string in an expected
 	 * format -- {"parameter name":""}
 	 *
-	 * @param {Title} $Title
-	 * @throws {MWException}
-	 * @return {null|string}
+	 * @param Title $Title
+	 * @throws MWException
+	 * @return null|string
 	 * null or a JSON representation of the MediaWiki template parameters
 	 */
 	protected function retrieveTemplateData( Title $Title ) {

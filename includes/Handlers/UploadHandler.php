@@ -31,72 +31,72 @@ use WikiPage;
 class UploadHandler {
 
 	/**
-	 * @var {Php\File}
+	 * @var Php\File
 	 */
 	protected $_File;
 
 	/**
-	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 * @var GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_global_categories;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	protected $_item_specific_categories;
 
 	/**
-	 * @var {GWToolset\Modles\Mapping}
+	 * @var GWToolset\Modles\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var {GWToolset\Models\MediawikiTemplate}
+	 * @var GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var {Metadata}
+	 * @var Metadata
 	 */
 	protected $_Metadata;
 
 	/**
-	 * @var {SpecialPage}
+	 * @var SpecialPage
 	 */
 	protected $_SpecialPage;
 
 	/**
-	 * @var {UploadBase}
+	 * @var UploadBase
 	 */
 	protected $_UploadBase;
 
 	/**
-	 * @var {User}
+	 * @var User
 	 */
 	protected $_User;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	public $mediafile_jobs;
 
 	/**
-	 * @var {null|bool}
+	 * @var null|bool
 	 */
 	protected $otherContributors;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 */
 	public $user_options;
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
 		$this->reset();
@@ -138,7 +138,7 @@ class UploadHandler {
 	 * creates wiki text that makes up the original metadata used
 	 * and the original mapping used to create the wiki page
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is not filtered
 	 */
 	protected function addMetadata() {
@@ -158,7 +158,7 @@ class UploadHandler {
 	 * these categories represent global categories
 	 * that are applied to all of the media files being uploaded.
 	 *
-	 * @return {string}
+	 * @return string
 	 * sanitized
 	 */
 	protected function addGlobalCategories() {
@@ -193,7 +193,7 @@ class UploadHandler {
 	 * either a category-phrase and a category-metadata value must be provided
 	 * or only a category-metadata value.
 	 *
-	 * @return {string}
+	 * @return string
 	 * sanitized
 	 */
 	protected function addItemSpecificCategories() {
@@ -229,9 +229,9 @@ class UploadHandler {
 	 * because it was deleted there are no contributors in the array coming
 	 * back from the api call
 	 *
-	 * @param {UploadBase} $upload
-	 * @param {Title} $title
-	 * @return {Status}
+	 * @param UploadBase $upload
+	 * @param Title $title
+	 * @return Status
 	 */
 	protected function checkUploadWarnings( UploadBase $upload, Title $title ) {
 		$status = Status::newGood();
@@ -299,11 +299,11 @@ class UploadHandler {
 	 * Content-Disposition: inline;
 	 *   $url = 'http://images.memorix.nl/gam/thumb/150x150/115165d2-1267-7db5-4abb-54d273c47a81.jpg';
 	 *
-	 * @param {string} $url
+	 * @param string $url
 	 *
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 *
-	 * @return {array}
+	 * @return array
 	 *   the values in the array are not filtered
 	 *   $result['content-type']
 	 *   $result['extension']
@@ -377,7 +377,7 @@ class UploadHandler {
 	}
 
 	/**
-	 * @return {array}
+	 * @return array
 	 */
 	protected function getCategoriesForPreview() {
 		$result = [];
@@ -403,12 +403,12 @@ class UploadHandler {
 	 * url; if none is found it will fallback to an appropriate file extention
 	 * based on the content-type
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 *   ['url'] final url to the media file
 	 *   ['content-type'] content-type of that final url
 	 *
-	 * @throws {GWTException}
-	 * @return {null|string}
+	 * @throws GWTException
+	 * @return null|string
 	 */
 	protected function getFileExtension( array $options ) {
 		global $wgFileExtensions;
@@ -454,7 +454,7 @@ class UploadHandler {
 	}
 
 	/**
-	 * @return {array}
+	 * @return array
 	 */
 	protected function getUploadParams() {
 		$result = [];
@@ -496,7 +496,7 @@ class UploadHandler {
 	 * concatenates several pieces of information in order to create the wiki
 	 * text for the mediafile wiki text
 	 *
-	 * @return {string}
+	 * @return string
 	 * except for the metadata, the resulting wiki text is filtered
 	 */
 	protected function getWikiText() {
@@ -510,9 +510,9 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {string} $title
-	 * @throws {GWTException}
-	 * @return {Title}
+	 * @param string $title
+	 * @throws GWTException
+	 * @return Title
 	 */
 	protected function getTitle( $title ) {
 		$result = Utils::getTitle(
@@ -534,8 +534,8 @@ class UploadHandler {
 	 * find out if anyone, besides the current user,
 	 * has contributed to a given Title
 	 *
-	 * @param {Title} $Title
-	 * @return {bool}
+	 * @param Title $Title
+	 * @return bool
 	 */
 	protected function otherContributors( Title $Title ) {
 		global $wgRequest;
@@ -613,10 +613,10 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {string} $metadata_file_upload
-	 * @throws {GWTException}
+	 * @param string $metadata_file_upload
+	 * @throws GWTException
 	 *
-	 * @return {null|string}
+	 * @return null|string
 	 * null or an mwstore path
 	 */
 	public function saveMetadataToFileBackend(
@@ -645,8 +645,8 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {array} $user_options
-	 * @return {array}
+	 * @param array $user_options
+	 * @return array
 	 */
 	public function getPreview( array $user_options ) {
 		$this->validateUserOptions( $user_options );
@@ -666,9 +666,9 @@ class UploadHandler {
 	 * @todo does ContentHandler filter $options['text']?
 	 * @todo does WikiPage filter $options['comment']?
 	 *
-	 * @param {array} $user_options
-	 * @throws {GWTException}
-	 * @return {null|Title}
+	 * @param array $user_options
+	 * @throws GWTException
+	 * @return null|Title
 	 */
 	public function saveMediafileAsContent( array $user_options ) {
 		$Status = Status::newGood();
@@ -730,17 +730,17 @@ class UploadHandler {
 	/**
 	 * save a metadata record as a new/updated wiki page
 	 *
-	 * @param {array} $user_options
+	 * @param array $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 *  - {array} $options['metadata-mapped-to-mediawiki-template']
 	 *  - {array} $options['metadata-as-array']
 	 *  - {string} $options['metadata-raw']
-	 * @param {array} $whitelisted_post
+	 * @param array $whitelisted_post
 	 *
-	 * @return {bool}
-	 * @throws {MWException}
+	 * @return bool
+	 * @throws MWException
 	 */
 	public function saveMediafileViaJob(
 		array $user_options, array $options, array $whitelisted_post
@@ -853,9 +853,9 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {array} $options
-	 * @param {Title} $Title
-	 * @return {Status}
+	 * @param array $options
+	 * @param Title $Title
+	 * @return Status
 	 */
 	protected function uploadMediaFileViaUploadFromUrl(
 		array $options,
@@ -924,8 +924,8 @@ class UploadHandler {
 	 *   - text
 	 *   - url-to-the-media-file
 	 *
-	 * @param {array} &$options
-	 * @throws {MWException}
+	 * @param array &$options
+	 * @throws MWException
 	 */
 	protected function validateUploadParams( array &$options ) {
 		if ( !isset( $options['ignorewarnings'] ) ) {
@@ -963,8 +963,8 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param {array} $user_options
-	 * @throws {MWException}
+	 * @param array $user_options
+	 * @throws MWException
 	 */
 	protected function validateUserOptions( array $user_options ) {
 		if ( !isset( $user_options['comment'] ) ) {
@@ -1005,8 +1005,8 @@ class UploadHandler {
 	 * the given URL. If not, a request to add the domain to the
 	 * $wgCopyUploadsDomains array needs to be made.
 	 *
-	 * @param {string} $url
-	 * @throws {GWTException}
+	 * @param string $url
+	 * @throws GWTException
 	 */
 	protected function verifyUploadDomain( $url ) {
 		if ( !UploadFromUrl::isAllowedHost( $url ) ) {

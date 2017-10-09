@@ -22,18 +22,18 @@ class PreviewForm {
 	/**
 	 * returns an html form for step 3 : Batch Preview
 	 *
-	 * @param {IContextSource} $Context
+	 * @param IContextSource $Context
 	 *
-	 * @param {array} $user_options
+	 * @param array $user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {array} $expected_post_fields
+	 * @param array $expected_post_fields
 	 *
-	 * @param {array} $metadata_items
+	 * @param array $metadata_items
 	 * each item is either a Title object or an array containing
 	 * categories, a Title object, and the wikitext for the item
 	 *
-	 * @return {string}
+	 * @return string
 	 * an html form that is filtered
 	 */
 	public static function getForm(
@@ -161,9 +161,9 @@ class PreviewForm {
 	 * within this form so that when this form posts to create the initial batch job,
 	 * it has the mapping information from step 2
 	 *
-	 * @param {array} $expected_post_fields
+	 * @param array $expected_post_fields
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is filtered
 	 */
 	public static function getPostAsHiddenFields( array $expected_post_fields ) {
@@ -215,10 +215,10 @@ class PreviewForm {
 	 * Title(s), which are the result of processing the metadata file
 	 * with the mapping information given in step 2 : Metadata Mapping
 	 *
-	 * @param {array} $metadata_items
+	 * @param array $metadata_items
 	 * a collection of MediaWiki Title objects
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string contains a Title link assumed to be filtered by Title
 	 */
 	public static function getMetadataAsTitleList( array $metadata_items ) {
@@ -247,15 +247,15 @@ class PreviewForm {
 	 * No mediafile is shown in order to avoid issues with downloading
 	 * large mediafiles.
 	 *
-	 * @param {array} $metadata_items
+	 * @param array $metadata_items
 	 * each item is an array containing
 	 * $item['categories'] {array}
 	 * $item['Title'] {Title}
 	 * $item['wikitext'] {string}
 	 *
-	 * @param {IContextSource} $Context
+	 * @param IContextSource $Context
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	public static function getMetadataAsWikitext(
 		array $metadata_items,
@@ -350,8 +350,8 @@ class PreviewForm {
 	}
 
 	/**
-	 * @param {array} $notParsable
-	 * @return {string}
+	 * @param array $notParsable
+	 * @return string
 	 */
 	public static function getNonParsableCategoriesAsHtml(
 		array $notParsable = []

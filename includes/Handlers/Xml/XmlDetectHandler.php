@@ -25,12 +25,12 @@ use XMLReader;
 class XmlDetectHandler extends XmlHandler {
 
 	/**
-	 * @var {GWToolset\Helpers\GWTFileBackend}
+	 * @var GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * an array collection of nodeName => nodeValues[] that are taken from the
 	 * first matched dom element and will be used during the metadata mapping step
 	 * of the upload process
@@ -38,25 +38,25 @@ class XmlDetectHandler extends XmlHandler {
 	protected $_metadata_example_dom_element;
 
 	/**
-	 * @var {array}
+	 * @var array
 	 * an array collection of nodeName => nodeValue matches
 	 */
 	protected $_metadata_example_dom_nodes;
 
 	/**
-	 * @var {string}
+	 * @var string
 	 * an html string representing the XML metadata as options that can be placed
 	 * in an html select element. none of the options has selected=selected
 	 */
 	protected $_metadata_as_options;
 
 	/**
-	 * @var {SpecialPage}
+	 * @var SpecialPage
 	 */
 	protected $_SpecialPage;
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
 		$this->reset();
@@ -80,7 +80,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * additional nodes that do not exist in the first record are added in
 	 * findExampleDOMNodes(), but only one value is used
 	 *
-	 * @param {DOMElement} $DOMElement
+	 * @param DOMElement $DOMElement
 	 */
 	protected function createExampleDOMElement( DOMElement $DOMElement ) {
 		foreach ( $DOMElement->childNodes as $DOMNode ) {
@@ -108,12 +108,12 @@ class XmlDetectHandler extends XmlHandler {
 	 * if a matching dom element is found it is placed in
 	 * $this->_metadata_example_dom_element
 	 *
-	 * @param {XMLReader|DOMElement} $XMLElement
+	 * @param XMLReader|DOMElement $XMLElement
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @throws {MWException}
+	 * @throws MWException
 	 */
 	protected function findExampleDOMElement( $XMLElement, array &$user_options ) {
 		$record = null;
@@ -170,7 +170,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * adds to the example DOMElement, $this->_metadata_example_dom_nodes, any nodes
 	 * not yet present in it
 	 *
-	 * @param {DOMElement} $DOMElement
+	 * @param DOMElement $DOMElement
 	 */
 	protected function findExampleDOMNodes( DOMElement $DOMElement ) {
 		foreach ( $DOMElement->childNodes as $DOMNode ) {
@@ -188,12 +188,12 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param {string} $parameter
-	 * @param {string} $parameter_as_id
-	 * @param {string} $required
-	 * @param {string} $selected_option
+	 * @param string $parameter
+	 * @param string $parameter_as_id
+	 * @param string $required
+	 * @param string $selected_option
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function getButtonRowNoMetadata(
 		$parameter = null, $parameter_as_id = null, $required = null, $selected_option = null
@@ -219,12 +219,12 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param {string} $parameter
-	 * @param {string} $parameter_as_id
-	 * @param {string} $required
-	 * @param {string} $selected_option
+	 * @param string $parameter
+	 * @param string $parameter_as_id
+	 * @param string $required
+	 * @param string $selected_option
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function getFirstRow(
 		$parameter = null, $parameter_as_id = null, $required = null, $selected_option = null
@@ -250,10 +250,10 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param {string} $parameter
-	 * @param {string} $selected_option
+	 * @param string $parameter
+	 * @param string $selected_option
 	 *
-	 * @return {string}
+	 * @return string
 	 */
 	protected function getFollowingRow( $parameter = null, $selected_option = null ) {
 		$template =
@@ -273,9 +273,9 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * normalizes form field names so that - _ and gwtoolset are removed from the form label
 	 *
-	 * @param {string} $parameter
+	 * @param string $parameter
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string has been sanitized
 	 */
 	protected function getFormLabel( $parameter ) {
@@ -301,7 +301,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * DOMElement, $this->_metadata_example_dom_element. the table rows
 	 * are extracted metadata elements and their values
 	 *
-	 * @return {string}
+	 * @return string
 	 * the values within the table rows have been filtered.
 	 */
 	public function getMetadataAsHtmlTableRows() {
@@ -335,9 +335,9 @@ class XmlDetectHandler extends XmlHandler {
 	 * the method will mark an option as selected if the marked element
 	 * is passed into the method
 	 *
-	 * @param {string} $selected_option
+	 * @param string $selected_option
 	 *
-	 * @return {string}
+	 * @return string
 	 * the <option> values are filtered.
 	 */
 	public function getMetadataAsOptions( $selected_option = null ) {
@@ -368,12 +368,12 @@ class XmlDetectHandler extends XmlHandler {
 	 * the method will return the <option>s with a selected option that matches the
 	 * mapping given
 	 *
-	 * @param {string} $parameter
+	 * @param string $parameter
 	 * a mediawiki template parameter, e.g. in Template:Artwork, artist
 	 *
-	 * @param {Mapping} $Mapping
+	 * @param Mapping $Mapping
 	 *
-	 * @return {string}
+	 * @return string
 	 * the values within the table row have been filtered
 	 */
 	public function getMetadataAsTableCells( $parameter, Mapping $Mapping ) {
@@ -438,15 +438,15 @@ class XmlDetectHandler extends XmlHandler {
 	 * example xml record that will be used for mapping the mediawiki template
 	 * attributes to the xml metadata elements
 	 *
-	 * @param {array} &$user_options
+	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param {string|Content} $xml_source
+	 * @param string|Content $xml_source
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
 	 *
-	 * @throws {GWTException|MWException}
+	 * @throws GWTException|MWException
 	 */
 	public function processXml( array &$user_options, $xml_source = null ) {
 		$callback = 'findExampleDOMElement';

@@ -18,9 +18,9 @@ use Title;
 class Utils {
 
 	/**
-	 * @param {array} $array
+	 * @param array $array
 	 *
-	 * @return {array}
+	 * @return array
 	 * the array keys and values are not filtered
 	 */
 	public static function getArraySecondLevelValues( array $array ) {
@@ -38,8 +38,8 @@ class Utils {
 	/**
 	 * GlobalFunctions->wfObjectToArray() doesn’t work here
 	 *
-	 * @param {array|object} $data
-	 * @return {array}
+	 * @param array|object $data
+	 * @return array
 	 */
 	public static function objectToArray( $data ) {
 		if ( is_object( $data ) ) {
@@ -59,8 +59,8 @@ class Utils {
 	 *
 	 * @see http://www.php.net/manual/en/function.ini-get.php#96996
 	 *
-	 * @param {string} $val
-	 * @return {int}
+	 * @param string $val
+	 * @return int
 	 */
 	public static function getBytes( $val ) {
 		switch ( substr( $val, -1 ) ) {
@@ -79,8 +79,8 @@ class Utils {
 	/**
 	 * based on a namespace number, returns the namespace name
 	 *
-	 * @param {int} $namespace
-	 * @return {null|string}
+	 * @param int $namespace
+	 * @return null|string
 	 * the result is not filtered
 	 */
 	public static function getNamespaceName( $namespace = 0 ) {
@@ -105,14 +105,14 @@ class Utils {
 	 * attempts to retrieve a wiki title based on a given page title, an
 	 * optional namespace requirement and whether or not the title must be known
 	 *
-	 * @param {string} $page_title
-	 * @param {Int} $namespace
-	 * @param {array} $options
+	 * @param string $page_title
+	 * @param Int $namespace
+	 * @param array $options
 	 *  - {bool} $options['must-be-known']
 	 *    Whether or not the Title must be known; defaults to true
 	 *
-	 * @throws {GWTException|MWException}
-	 * @return {null|Title}
+	 * @throws GWTException|MWException
+	 * @return null|Title
 	 */
 	public static function getTitle( $page_title = null, $namespace = NS_MAIN, array $options = [] ) {
 		global $wgServer;
@@ -180,11 +180,11 @@ class Utils {
 	 *     @see http://php.net/manual/en/filter.filters.sanitize.php
 	 *   - shorterns strings > $metadata['size'], the max size expected of a field value
 	 *
-	 * @param {array} $original_post
-	 * @param {array} $expected_post_fields
-	 * @throws {MWException}
+	 * @param array $original_post
+	 * @param array $expected_post_fields
+	 * @throws MWException
 	 *
-	 * @return {array}
+	 * @return array
 	 * the values within the array have been sanitized
 	 */
 	public static function getWhitelistedPost(
@@ -231,7 +231,7 @@ class Utils {
 	}
 
 	/**
-	 * @throws {GWTException}
+	 * @throws GWTException
 	 */
 	public static function jsonCheckForError() {
 		$error_msg = null;
@@ -273,9 +273,9 @@ class Utils {
 	/**
 	 * replaces ‘ ’ with ‘_’
 	 *
-	 * @param {string} $string
+	 * @param string $string
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is not filtered
 	 */
 	public static function normalizeSpace( $string ) {
@@ -283,13 +283,13 @@ class Utils {
 	}
 
 	/**
-	 * @param {int} $value
-	 * @param {array} $params
+	 * @param int $value
+	 * @param array $params
 	 *  - {int} $params['min']
 	 *  - {int} $params['max']
 	 *  - {int} $params['default']
-	 * @return {int}
-	 * @throws {MWException}
+	 * @return int
+	 * @throws MWException
 	 */
 	public static function sanitizeNumericRange( $value, $params ) {
 		if ( !isset( $params['min'] ) ) {
@@ -336,13 +336,13 @@ class Utils {
 	 * settings, so if you wish it not to do so, e.g. wiki title, pass in
 	 * $options as array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
 	 *
-	 * @param {string} $string
+	 * @param string $string
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 * Filter options
 	 *
-	 * @throws {MWException}
-	 * @return {string|null}
+	 * @throws MWException
+	 * @return string|null
 	 */
 	public static function sanitizeString( $string, array $options = [] ) {
 		global $wgContLang;
@@ -372,12 +372,12 @@ class Utils {
 	 * note: FILTER_SANITIZE_URL removes a space rather than encoding
 	 * it as %20 or replacing it with +
 	 *
-	 * @param {string} $url
+	 * @param string $url
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 * Filter options
 	 *
-	 * @return {string|null}
+	 * @return string|null
 	 */
 	public static function sanitizeUrl( $url, array $options = [] ) {
 		$result = self::sanitizeString( $url );
@@ -386,7 +386,7 @@ class Utils {
 	}
 
 	/**
-	 * @param {array} $options
+	 * @param array $options
 	 *  - {string} $options['comment']
 	 *  - {string} $options['job-subtype']
 	 *  - {array} $options['parameters']
@@ -421,8 +421,8 @@ class Utils {
 	}
 
 	/**
-	 * @param {string} $category
-	 * @return {null|string}
+	 * @param string $category
+	 * @return null|string
 	 * the result has not been filtered
 	 */
 	public static function stripIllegalCategoryChars( $category = null ) {
@@ -446,13 +446,13 @@ class Utils {
 	 * as part of the metadata value; e.g., when the value is a URL. we don’t want to
 	 * truncate those strings; instead we want to preserve the legal characters.
 	 *
-	 * @param {string} $title
+	 * @param string $title
 	 *
-	 * @param {array} $options
+	 * @param array $options
 	 *  - {string} $options['replacement']
 	 *    the character used to replace illegal characters; defaults to ‘-’
 	 *
-	 * @return {string}
+	 * @return string
 	 * the string is not sanitized
 	 */
 	public static function stripIllegalTitleChars( $title, array $options = [] ) {
