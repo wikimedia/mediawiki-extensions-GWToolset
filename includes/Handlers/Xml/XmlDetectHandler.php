@@ -207,11 +207,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Sanitizer::escapeId( $parameter_as_id ),
+			Sanitizer::escapeIdForAttribute( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
 			Utils::sanitizeString( $parameter ),
-			Sanitizer::escapeId( $parameter_as_id ),
+			Sanitizer::escapeIdForAttribute( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
@@ -238,11 +238,11 @@ class XmlDetectHandler extends XmlHandler {
 
 		return sprintf(
 			$template,
-			Sanitizer::escapeId( $parameter_as_id ),
+			Sanitizer::escapeIdForAttribute( $parameter_as_id ),
 			$this->getFormLabel( $parameter ),
 			$required,
 			Utils::sanitizeString( $parameter ),
-			Sanitizer::escapeId( $parameter_as_id ),
+			Sanitizer::escapeIdForAttribute( $parameter_as_id ),
 			$this->getMetadataAsOptions( $selected_option )
 		);
 	}
