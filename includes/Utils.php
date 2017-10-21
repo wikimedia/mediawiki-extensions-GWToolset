@@ -177,7 +177,7 @@ class Utils {
 	 * - if the field is an array, only one level is applied
 	 * - sanitizes those fields with
 	 *   - FILTER_SANITIZE_STRING
-	 *     @see http://php.net/manual/en/filter.filters.sanitize.php
+	 * @see http://php.net/manual/en/filter.filters.sanitize.php
 	 *   - shorterns strings > $metadata['size'], the max size expected of a field value
 	 *
 	 * @param array $original_post
