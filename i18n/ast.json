@@ -171,10 +171,13 @@
 	"gwtoolset-template-field": "Campu de la plantía",
 	"gwtoolset-step-3-instructions-heading": "Pasu 3: Vista previa del llote",
 	"gwtoolset-step-3-instructions-2": "Revisa les plantíes y, si los resultaos correspuenden colo qu'esperabes, sigui con \"{{int:gwtoolset-step-4-heading}}\", faciendo click nel botón \"{{int:gwtoolset-process-batch}}\" más abaxo.",
+	"gwtoolset-create-mediafile": "$1: Creando'l ficheru multimedia pa $2.",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-mediafile-jobs-created": "{{PLURAL:$1|Creóse $1 xera|Creáronse $1 xeres}} de llotes de ficheros multimedia.",
 	"gwtoolset-step-4-heading": "Pasu 4: Carga de llotes",
 	"gwtoolset-invalid-token": "El pase d'edición unviáu col formulariu ye incorreutu.",
+	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Configuración actual de <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nEstos tienen un valor menor que <code>$wgMaxUploadSize</code> de la wiki, que ta definíu como «$3». Axusta la configuración de <code>php.ini</code> de mou afayadizu.",
+	"gwtoolset-mediawiki-version-invalid": "Esta estensión precisa la versión $1 de MediaWiki<br />La versión actual de MediaWiki ye $2.",
 	"gwtoolset-title-label": "Títulu de GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL al ficheru multimedia",
 	"gwtoolset-reverse-creator": "Invertir l'orde d'apellíu y nome"
