@@ -162,7 +162,7 @@
 	"gwtoolset-metadata-mapping-legend": "Faites la correspondance avec vos métadonnées",
 	"gwtoolset-no-more-records": "<strong>Plus aucun enregistrement à traiter</strong>",
 	"gwtoolset-partner": "Partenaire",
-	"gwtoolset-partner-explanation": "Les modèles de partenaire sont intégrés dans le champ source du modèle de MédiaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels dans la catégorie [[:Category:Source templates|source templates]]. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire si besoin.",
+	"gwtoolset-partner-explanation": "Les modèles de partenaire sont intégrés dans le champ source du modèle de MediaWiki quand ils sont fournis. Vous pouvez trouver une liste des modèles de partenaire actuels dans la catégorie [[:Category:Source templates|modèles source]]. Une fois que vous avez trouvé le modèle de partenaire que vous voulez utiliser, placez son URL dans ce champ. Vous pouvez aussi créer un nouveau modèle de partenaire au besoin.",
 	"gwtoolset-partner-template": "Modèle du partenaire :",
 	"gwtoolset-phrasing": "Formulation",
 	"gwtoolset-preview": "Prévisualiser le lot",
