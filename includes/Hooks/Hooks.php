@@ -11,16 +11,6 @@ namespace GWToolset;
 class Hooks {
 
 	/**
-	 * @param array &$list
-	 * @return bool
-	 */
-	public static function onCanonicalNamespaces( &$list ) {
-		$list[NS_GWTOOLSET] = 'GWToolset';
-		$list[NS_GWTOOLSET_TALK] = 'GWToolset_talk';
-		return true;
-	}
-
-	/**
 	 * @param array &$files
 	 * @return bool
 	 */

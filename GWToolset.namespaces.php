@@ -8,7 +8,12 @@
  */
 $namespaceNames = [];
 
+if ( !defined( 'NS_GWTOOLSET' ) ) {
+	define( 'NS_GWTOOLSET', 490 );
+	define( 'NS_GWTOOLSET_TALK', 491 );
+}
+
 $namespaceNames['en'] = [
-	490 => 'GWToolset',
-	491 => 'GWToolset_talk'
+	NS_GWTOOLSET => 'GWToolset',
+	NS_GWTOOLSET_TALK => 'GWToolset_talk'
 ];

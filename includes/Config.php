@@ -11,9 +11,21 @@ namespace GWToolset;
 
 /**
  * these values can be overriden in LocalSettings.php with
- * GWToolset\Config::$var_name = 'new value'
+ * $wgGWToolsetConfigOverrides['variable_name'] = value;
  */
 class Config {
+
+	/**
+	 * Updates settings in this class with overrides from LocalSettings
+	 */
+	public static function mergeOverrides() {
+		global $wgGWToolsetConfigOverrides;
+
+		foreach ( $wgGWToolsetConfigOverrides as $setting => $value ) {
+			// Intentionally not checking for existence to facilitate migrations
+			self::${$setting} = $value;
+		}
+	}
 
 	/**
 	 * @var array
@@ -210,5 +222,4 @@ class Config {
 		'upload',
 		'upload_by_url'
 	];
-
 }
