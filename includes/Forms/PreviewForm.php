@@ -267,7 +267,9 @@ class PreviewForm {
 		$Output = $Context->getOutput();
 
 		$parser_options = ParserOptions::newFromContext( $Context );
-		$parser_options->setEditSection( false );
+		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
+			$parser_options->setEditSection( false );
+		}
 		$parser_options->setIsPreview( true );
 
 		foreach ( $metadata_items as $item ) {
@@ -296,7 +298,9 @@ class PreviewForm {
 				);
 
 				// find this hacky, but not sure how to retrieve the raw text
-				$category = strip_tags( $category->getText() );
+				$category = strip_tags( $category->getText( [
+					'enableSectionEditLinks' => false,
+				] ) );
 
 				// if the parser was not able to parse a template, {} will be left.
 				// only include the text if valid category.
@@ -337,7 +341,9 @@ class PreviewForm {
 					wfMessage( 'gwtoolset-preview-mediafile-placeholder-text' )->escaped()
 				) .
 
-				$parser_out->getText() .
+				$parser_out->getText( [
+					'enableSectionEditLinks' => false,
+				] ) .
 				$Skin->getCategories() .
 				self::getNonParsableCategoriesAsHtml( $notParsable ) .
 				Html::closeElement( 'div' );
