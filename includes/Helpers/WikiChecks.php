@@ -189,47 +189,47 @@ class WikiChecks {
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
 		$Status = self::verifyXMLReaderExists();
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::verifyFinfoExists();
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::checkMediaWikiVersion();
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::verifyAPIWritable();
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::uploadsEnabled();
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::isWikiWriteable( $SpecialPage );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::canUserViewPage( $SpecialPage );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::checkUserWikiPermissions( $SpecialPage );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::isUserBlocked( $SpecialPage );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
