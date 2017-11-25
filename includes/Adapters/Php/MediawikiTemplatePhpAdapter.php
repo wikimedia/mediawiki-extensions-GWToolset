@@ -101,7 +101,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * format -- {"parameter name":""}
 	 *
 	 * @param Title $Title
-	 * @throws MWException
+	 * @throws \MWException
 	 * @return null|string
 	 * null or a JSON representation of the MediaWiki template parameters
 	 */

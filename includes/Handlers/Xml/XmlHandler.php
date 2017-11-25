@@ -19,7 +19,7 @@ use XMLReader;
 abstract class XmlHandler {
 
 	/**
-	 * @var GWToolset\Helpers\GWTFileBackend
+	 * @var \GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
@@ -52,7 +52,7 @@ abstract class XmlHandler {
 	/**
 	 * a debug method
 	 *
-	 * @param DOMNode $DOMNode
+	 * @param \DOMNode $DOMNode
 	 * @return string
 	 */
 	protected function getNodesInfo( $DOMNode ) {

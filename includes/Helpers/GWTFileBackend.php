@@ -24,7 +24,7 @@ use User;
 class GWTFileBackend {
 
 	/**
-	 * @var FileBackend
+	 * @var \FileBackend
 	 */
 	public $FileBackend;
 
@@ -399,7 +399,7 @@ class GWTFileBackend {
 		$this->setFileExtension( $File->pathinfo['extension'] );
 		$Status = $this->prepare();
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( __METHOD__ . ': ' . $Status->getMessage() )
@@ -409,7 +409,7 @@ class GWTFileBackend {
 
 		$Status = $this->quickStore( $File->tmp_name );
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( __METHOD__ . ': ' . $Status->getMessage() )

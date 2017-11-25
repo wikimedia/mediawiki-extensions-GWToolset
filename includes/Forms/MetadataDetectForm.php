@@ -66,8 +66,7 @@ class MetadataDetectForm {
 	 *
 	 * @param SpecialPage $SpecialPage
 	 *
-	 * @return string
-	 * an html form
+	 * @return string an html form
 	 */
 	public static function getForm( SpecialPage $SpecialPage ) {
 		$namespace = Utils::getNamespaceName( Config::$metadata_namespace );
