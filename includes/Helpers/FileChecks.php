@@ -12,7 +12,6 @@ namespace GWToolset\Helpers;
 use GWToolset\Config;
 use GWToolset\GWTException;
 use GWToolset\Utils;
-use MimeMagic;
 use MWException;
 use Php\File;
 use Status;
@@ -289,9 +288,8 @@ class FileChecks {
 			return Status::newFatal( 'gwtoolset-unaccepted-extension' );
 		}
 
-		$mime_type_extension_match = MimeMagic::singleton()->isMatchingExtension(
-			$File->pathinfo['extension'], $File->mime_type
-		);
+		$mime_type_extension_match = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer()
+			->isMatchingExtension( $File->pathinfo['extension'], $File->mime_type );
 
 		if ( !$mime_type_extension_match ) {
 			return Status::newFatal(

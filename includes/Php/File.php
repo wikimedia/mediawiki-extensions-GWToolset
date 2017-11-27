@@ -11,7 +11,6 @@ namespace Php;
 
 use GWToolset\GWTException;
 use GWToolset\Utils;
-use MimeMagic;
 use MWException;
 
 /**
@@ -115,7 +114,7 @@ class File {
 	}
 
 	protected function setMimeType() {
-		$this->mime_type = MimeMagic::singleton()->guessMimeType(
+		$this->mime_type = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer()->guessMimeType(
 			$this->tmp_name,
 			$this->pathinfo['extension']
 		);

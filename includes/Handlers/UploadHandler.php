@@ -19,7 +19,6 @@ use GWToolset\Utils;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Jobs\UploadMediafileJob;
 use Http;
-use MimeMagic;
 use MWException;
 use MWHttpRequest;
 use Status;
@@ -433,7 +432,7 @@ class UploadHandler {
 		}
 
 		$pathinfo = pathinfo( $options['url'] );
-		$MimeMagic = MimeMagic::singleton();
+		$MimeMagic = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer();
 
 		if ( !empty( $pathinfo['extension'] )
 			&& in_array( $pathinfo['extension'], $wgFileExtensions )
