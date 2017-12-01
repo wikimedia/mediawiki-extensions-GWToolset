@@ -68,22 +68,22 @@ class MetadataMappingHandler extends FormHandler {
 	];
 
 	/**
-	 * @var GWToolset\Models\Mapping
+	 * @var \GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var GWToolset\Models\Metadata
+	 * @var \GWToolset\Models\Metadata
 	 */
 	protected $_Metadata;
 
 	/**
-	 * @var GWToolset\Handlers\UploadHandler
+	 * @var \GWToolset\Handlers\UploadHandler
 	 */
 	protected $_UploadHandler;
 
@@ -93,7 +93,7 @@ class MetadataMappingHandler extends FormHandler {
 	protected $_whitelisted_post;
 
 	/**
-	 * @var GWToolset\Handlers\XmlMappingHandler
+	 * @var \GWToolset\Handlers\XmlMappingHandler
 	 */
 	protected $_XmlMappingHandler;
 

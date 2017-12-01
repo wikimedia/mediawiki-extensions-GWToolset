@@ -25,7 +25,7 @@ class SpecialGWToolset extends SpecialPage {
 	public $module_key;
 
 	/**
-	 * @var GWToolset\Handlers\Forms\FormHandler
+	 * @var \GWToolset\Handlers\Forms\FormHandler
 	 */
 	protected $_Handler;
 
@@ -195,7 +195,7 @@ class SpecialGWToolset extends SpecialPage {
 	protected function wikiChecks() {
 		$Status = WikiChecks::pageIsReadyForThisUser( $this );
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			$this->getOutput()->addHTML(
 				Html::rawElement(
 					'h2',

@@ -156,7 +156,7 @@ class Mapping implements ModelInterface {
 	 *
 	 * @param array &$options
 	 * @throws GWTException
-	 * @return null|Title
+	 * @return null|\Title
 	 */
 	protected function getMappingTitle( array &$options ) {
 		$result = null;

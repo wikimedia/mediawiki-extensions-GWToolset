@@ -18,7 +18,7 @@ use User;
 class GWTFileBackendCleanupJob extends Job {
 
 	/**
-	 * @param Title $title
+	 * @param \Title $title
 	 * @param bool|array $params
 	 * @param int $id
 	 */
@@ -45,7 +45,7 @@ class GWTFileBackendCleanupJob extends Job {
 			$this->params['gwtoolset-metadata-file-relative-path']
 		);
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			$this->setLastError( __METHOD__ . ': ' . $Status->getMessage() );
 			$result = false;
 		}

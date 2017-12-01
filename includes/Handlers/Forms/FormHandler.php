@@ -165,7 +165,7 @@ abstract class FormHandler {
 	public function execute() {
 		$result = WikiChecks::doesEditTokenMatch( $this->SpecialPage );
 
-		if ( !$result->ok ) {
+		if ( !$result->isOK() ) {
 			$result =
 				Html::rawElement(
 					'h2',

@@ -18,27 +18,27 @@ use XMLReader;
 class XmlMappingHandler extends XmlHandler {
 
 	/**
-	 * @var GWToolset\Helpers\GWTFileBackend
+	 * @var \GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var GWToolset\Models\Mapping
+	 * @var \GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var GWToolset\Handlers\Forms\MetadataMappingHandler
+	 * @var \GWToolset\Handlers\Forms\MetadataMappingHandler
 	 */
 	protected $_MappingHandler;
 
 	/**
-	 * @var GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var SpecialPage
+	 * @var \SpecialPage
 	 */
 	protected $_SpecialPage;
 

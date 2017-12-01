@@ -25,7 +25,7 @@ use XMLReader;
 class XmlDetectHandler extends XmlHandler {
 
 	/**
-	 * @var GWToolset\Helpers\GWTFileBackend
+	 * @var \GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
@@ -51,7 +51,7 @@ class XmlDetectHandler extends XmlHandler {
 	protected $_metadata_as_options;
 
 	/**
-	 * @var SpecialPage
+	 * @var \SpecialPage
 	 */
 	protected $_SpecialPage;
 

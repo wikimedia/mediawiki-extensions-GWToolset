@@ -41,22 +41,22 @@ class MetadataDetectHandler extends FormHandler {
 	];
 
 	/**
-	 * @var GWToolset\Helpers\GWTFileBackend
+	 * @var \GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var GWToolset\Models\Mapping
+	 * @var \GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var GWToolset\Handlers\UploadHandler
+	 * @var \GWToolset\Handlers\UploadHandler
 	 */
 	protected $_UploadHandler;
 
@@ -66,7 +66,7 @@ class MetadataDetectHandler extends FormHandler {
 	protected $_whitelisted_post;
 
 	/**
-	 * @var GWToolset\Handlers\Xml\XmlDetectHandler
+	 * @var \GWToolset\Handlers\Xml\XmlDetectHandler
 	 */
 	public $XmlDetectHandler;
 

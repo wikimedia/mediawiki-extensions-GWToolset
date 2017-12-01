@@ -34,7 +34,7 @@ class Hooks {
 	 * Declares JSON as the code editor language for GWToolset: pages.
 	 *
 	 * This hook only runs if the CodeEditor extension is enabled.
-	 * @param Title $title
+	 * @param \Title $title
 	 * @param string &$lang Page language.
 	 * @return bool
 	 */

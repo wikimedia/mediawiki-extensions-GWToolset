@@ -30,12 +30,12 @@ use WikiPage;
 class UploadHandler {
 
 	/**
-	 * @var Php\File
+	 * @var \Php\File
 	 */
 	protected $_File;
 
 	/**
-	 * @var GWToolset\Helpers\GWTFileBackend
+	 * @var \GWToolset\Helpers\GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
@@ -50,12 +50,12 @@ class UploadHandler {
 	protected $_item_specific_categories;
 
 	/**
-	 * @var GWToolset\Modles\Mapping
+	 * @var \GWToolset\Models\Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
@@ -331,7 +331,7 @@ class UploadHandler {
 		$Http = MWHttpRequest::factory( $url, $options );
 		$Status = $Http->execute();
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			throw new GWTException(
 				[
 					'gwtoolset-mapping-media-file-url-bad' => [ $url, $Status->getMessage() ]
@@ -634,7 +634,7 @@ class UploadHandler {
 		$this->_File->populate( $metadata_file_upload );
 		$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
 
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			throw new GWTException( $Status->getMessage() );
 		}
 

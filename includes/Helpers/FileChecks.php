@@ -243,34 +243,34 @@ class FileChecks {
 		}
 
 		$Status = self::isFileEmpty( $File );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::noFileErrors( $File );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::fileWasUploaded( $File );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::isAcceptedFileExtension(
 			$File, self::getAcceptedExtensions( $accepted_types )
 		);
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::isAcceptedMimeType( $File, self::getAcceptedMimeTypes( $accepted_types ) );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
 		$Status = self::mimeTypeAndExtensionMatch( $File );
-		if ( !$Status->ok ) {
+		if ( !$Status->isOK() ) {
 			return $Status;
 		}
 
