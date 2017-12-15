@@ -10,7 +10,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, um utilitário de importação em massa, para galerias, bibliotecas, arquivos e museus (GLAM)",
-	"gwtoolset-intro": "O GWToolset é uma extensão do MediaWiki que permite, a galerias, bibliotecas, arquivos e museus (GLAM), a capacidade de fazer importações massivas de conteúdos com base num ficheiro XML que contém os respetivos metadados. Pode encontrar mais informação acerca do projeto na  [[commons:Commons:GLAMToolset_project|página do projeto]].",
+	"gwtoolset-intro": "O GWToolset é uma extensão do MediaWiki que permite, a galerias, bibliotecas, arquivos e museus (GLAM), a capacidade de fazer importações maciças de conteúdos com base num ficheiro XML que contém os respetivos metadados. Pode encontrar mais informação acerca do projeto na  [[commons:Commons:GLAMToolset_project|página do projeto]].",
 	"right-gwtoolset": "Usar o GWToolset",
 	"action-gwtoolset": "usar o GWToolset",
 	"group-gwtoolset": "Utilizadores do GWToolset",
