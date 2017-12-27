@@ -1,7 +1,7 @@
 <?php
 /**
  * @group GWToolset
- * @covers Utils
+ * @covers \GWToolset\Utils
  */
 namespace GWToolset;
 
@@ -21,7 +21,7 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers Utils::getArraySecondLevelValues
+	 * @covers \GWToolset\Utils::getArraySecondLevelValues
 	 */
 	public function test_getArraySecondLevelValues_empty() {
 		$input = [ [] ];
@@ -30,7 +30,7 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers Utils::getArraySecondLevelValues
+	 * @covers \GWToolset\Utils::getArraySecondLevelValues
 	 */
 	public function test_getArraySecondLevelValues() {
 		$input = [ [ 1 ], [ 2 ], [ 3, 4, 5 ] ];
@@ -39,56 +39,56 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers Utils::getBytes
+	 * @covers \GWToolset\Utils::getBytes
 	 */
 	public function test_getBytes_passthrough() {
 		$this->assertEquals( $this->utils->getBytes( '1' ), 1 );
 	}
 
 	/**
-	 * @covers Utils::getBytes
+	 * @covers \GWToolset\Utils::getBytes
 	 */
 	public function test_getBytes_M() {
 		$this->assertEquals( $this->utils->getBytes( "1M" ), 1048576 );
 	}
 
 	/**
-	 * @covers Utils::getBytes
+	 * @covers \GWToolset\Utils::getBytes
 	 */
 	public function test_getBytes_K() {
 		$this->assertEquals( $this->utils->getBytes( "1K" ), 1024 );
 	}
 
 	/**
-	 * @covers Utils::getBytes
+	 * @covers \GWToolset\Utils::getBytes
 	 */
 	public function test_getBytes_G() {
 		$this->assertEquals( $this->utils->getBytes( "1G" ), 1073741824 );
 	}
 
 	/**
-	 * @covers Utils::getNamespaceName
+	 * @covers \GWToolset\Utils::getNamespaceName
 	 */
 	public function test_getNamespaceName_empty() {
 		$this->assertEquals( $this->utils->getNamespaceName(), ':' );
 	}
 
 	/**
-	 * @covers Utils::getNamespaceName
+	 * @covers \GWToolset\Utils::getNamespaceName
 	 */
 	public function test_getNamespaceName_6() {
 		$this->assertEquals( $this->utils->getNamespaceName( 6 ), 'File:' );
 	}
 
 	/**
-	 * @covers Utils::getNamespaceName
+	 * @covers \GWToolset\Utils::getNamespaceName
 	 */
 	public function test_getNamespaceName_not_string() {
 		$this->assertEquals( $this->utils->getNamespaceName( "Something" ), null );
 	}
 
 	/**
-	 * @covers Utils::normalizeSpace
+	 * @covers \GWToolset\Utils::normalizeSpace
 	 */
 	public function test_normalizeSpace() {
 		$this->assertEquals( $this->utils->normalizeSpace( "a b cd" ), "a_b_cd" );
