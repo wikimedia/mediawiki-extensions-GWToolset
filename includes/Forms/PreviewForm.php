@@ -70,8 +70,7 @@ class PreviewForm {
 			Html::rawElement( 'span', [ 'id' => 'step2-link' ], ' ' )
 		);
 
-		return
-			Html::rawElement(
+		return Html::rawElement(
 				'h2',
 				[],
 				wfMessage( 'gwtoolset-step-3-instructions-heading' )->escaped()

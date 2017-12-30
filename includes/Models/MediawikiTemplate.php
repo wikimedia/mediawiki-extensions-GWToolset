@@ -143,8 +143,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * the result is sanitized
 	 */
 	public function getGWToolsetTemplateAsWikiText() {
-		return
-			'{{Uploaded with GWToolset' . PHP_EOL .
+		return '{{Uploaded with GWToolset' . PHP_EOL .
 			' | gwtoolset-title = ' .
 					Utils::sanitizeString(
 						$this->mediawiki_template_array['gwtoolset-title']
@@ -331,8 +330,7 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	protected function getSource( $content, array $user_options ) {
 		if ( !empty( $user_options['partner-template-name'] ) ) {
-			return
-				$content .
+			return $content .
 				'{{' .
 				Utils::sanitizeString( $user_options['partner-template-name'] ) .
 				'}}';

@@ -38,8 +38,7 @@ class MetadataMappingForm {
 				[ 'target' => '_blank' ] ) . Html::rawElement( 'br' )
 			: null;
 
-		return
-			Html::rawElement(
+		return Html::rawElement(
 				'h2',
 				[],
 				wfMessage( 'gwtoolset-step-2-heading' )->escaped()

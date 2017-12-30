@@ -74,8 +74,7 @@ class MetadataDetectForm {
 		$user = $SpecialPage->getUser();
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
-		return
-			Html::rawElement(
+		return Html::rawElement(
 				'p',
 				[],
 				wfMessage( 'gwtoolset-intro' )->parse()

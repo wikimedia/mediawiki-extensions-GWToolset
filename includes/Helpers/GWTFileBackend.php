@@ -209,13 +209,11 @@ class GWTFileBackend {
 	 */
 	protected function getMWStoreCompleteFilePath( $mwstore_relative_path = null ) {
 		if ( !empty( $mwstore_relative_path ) ) {
-			return
-				$this->getMWStorePath() . '/' .
+			return $this->getMWStorePath() . '/' .
 				$this->getUserPath() . '/' .
 				$mwstore_relative_path;
 		} else {
-			return
-				$this->getMWStoreFileDirectory() . '/' .
+			return $this->getMWStoreFileDirectory() . '/' .
 				$this->getFilename();
 		}
 	}
@@ -232,8 +230,7 @@ class GWTFileBackend {
 	 * @return string
 	 */
 	protected function getMWStoreFileDirectory() {
-		return
-			$this->getMWStorePath() . '/' .
+		return $this->getMWStorePath() . '/' .
 			$this->getUserPath() . '/' .
 			$this->getHashPath();
 	}
@@ -267,8 +264,7 @@ class GWTFileBackend {
 	 * @return string
 	 */
 	public function getMWStoreRelativePath() {
-		return
-			$this->getHashPath() . '/' .
+		return $this->getHashPath() . '/' .
 			$this->getFilename();
 	}
 

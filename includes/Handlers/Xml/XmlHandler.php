@@ -32,8 +32,7 @@ abstract class XmlHandler {
 	 * @return string
 	 */
 	protected function displayCurrentNodeProperties( XMLReader $reader ) {
-		return
-			'attributeCount : ' . $reader->attributeCount . Html::rawElement( 'br' ) .
+		return 'attributeCount : ' . $reader->attributeCount . Html::rawElement( 'br' ) .
 			'baseURI : ' . $reader->baseURI . Html::rawElement( 'br' ) .
 			'depth : ' . $reader->depth . Html::rawElement( 'br' ) .
 			'hasAttributes : ' . $reader->hasAttributes . Html::rawElement( 'br' ) .

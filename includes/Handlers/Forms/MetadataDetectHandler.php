@@ -262,8 +262,7 @@ class MetadataDetectHandler extends FormHandler {
 		) {
 			$Language = Language::factory( $wgLanguageCode );
 
-			return
-				Utils::normalizeSpace(
+			return Utils::normalizeSpace(
 					str_replace(
 						$Language->getNsText( NS_TEMPLATE ) . ':',
 						'',
@@ -271,8 +270,7 @@ class MetadataDetectHandler extends FormHandler {
 					)
 				);
 		} else {
-			return
-				Utils::normalizeSpace(
+			return Utils::normalizeSpace(
 					$this->_whitelisted_post['gwtoolset-mediawiki-template-name']
 				);
 		}

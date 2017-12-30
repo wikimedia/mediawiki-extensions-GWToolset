@@ -141,8 +141,7 @@ class UploadHandler {
 	 * the string is not filtered
 	 */
 	protected function addMetadata() {
-		return
-			'<!-- <metadata_mapped_json>' .
+		return '<!-- <metadata_mapped_json>' .
 			json_encode( $this->_MediawikiTemplate->mediawiki_template_array ) .
 			'</metadata_mapped_json> -->' .
 			PHP_EOL . PHP_EOL .
@@ -499,8 +498,7 @@ class UploadHandler {
 	 * except for the metadata, the resulting wiki text is filtered
 	 */
 	protected function getWikiText() {
-		return
-			'=={{int:filedesc}}==' . PHP_EOL . PHP_EOL .
+		return '=={{int:filedesc}}==' . PHP_EOL . PHP_EOL .
 			$this->_MediawikiTemplate->getTemplateAsWikiText( $this->user_options ) .
 			$this->_MediawikiTemplate->getGWToolsetTemplateAsWikiText() .
 			$this->addMetadata() .
