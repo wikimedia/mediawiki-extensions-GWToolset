@@ -111,7 +111,7 @@
 	"gwtoolset-ensure-well-formed-xml": "用这个$1确保XML文件格式优良。",
 	"gwtoolset-file-url-invalid": "文件尚未在您的wiki。如果您希望在窗体中使用文件URL参考资料，您需要首先从您电脑上传文件。",
 	"gwtoolset-mediafile-throttle": "元文件节流阀：",
-	"gwtoolset-mediafile-throttle-description": "在批量预览后，在第3步中，GWToolset通过后台工作上传您的批量上传中的剩余记录。The mediafile throttle controls the number of mediafile requests Wikimedia Commons will make against your mediafile server each time a background job is run. You can set the mediafile throttle between 1-20. For example, if the total number of records in your batch upload is 100 and you set the throttle to 20, Wikimedia Commons will run 5 background jobs in order to process your entire batch upload. The time between each background upload job varies depending on server load and configuration. We anticipate that on Wikimedia Commons a GWToolset background job will run at least every 5 minutes.",
+	"gwtoolset-mediafile-throttle-description": "在批量预览后，在第3步中，GWToolset通过后台工作上传您的批量上传中的剩余记录。媒体文件阀值控制媒体文件请求数量，每次后端作业运行时，维基共享资源将处理您的媒体文件服务器。您可以设置媒体文件阀值（1~20之间）。例如如果您的批量上传记录总数为100，并且您设置阀值为20的话，维基共享资源将运行5次后端作业以处理您的整个批量上传。每次后端上传作业之间的时间因服务器承载能力和配置而变化。我们期望在维基共享资源上，一次GWToolset后端作业将至少每5分钟运行一次。",
 	"gwtoolset-mediawiki-template-does-not-exist": "MediaWiki模板<strong>$1</strong>在此wiki不存在。\n\n请导入模板或选择其他MediaWiki模板用于映射。",
 	"gwtoolset-mediawiki-template-not-found": "MediaWiki 模板“$1”找不到。",
 	"gwtoolset-metadata-file-source": "选择元数据文件源。",
