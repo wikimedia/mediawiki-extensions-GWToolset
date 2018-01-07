@@ -5,7 +5,8 @@
 			"Ebraminio",
 			"Reza1615",
 			"Alirezaaa",
-			"Huji"
+			"Huji",
+			"Ladsgroup"
 		]
 	},
 	"gwtoolset": "تنظیم ابزار جی‌دبلیو",
@@ -158,7 +159,7 @@
 	"gwtoolset-record-count": "تعداد کل سوابق پیدا شده در این پوشهٔ فراداده:\n{{PLURAL:$1|$1}}.",
 	"gwtoolset-step-2-heading": "مرحلهٔ ۲: نقشهٔ فراداده",
 	"gwtoolset-step-2-instructions-heading": "نقشه‌برداری زمینه‌های فراداده",
-	"gwtoolset-step-2-instructions-1": "در زیر است/هستند:",
+	"gwtoolset-step-2-instructions-1": "در زیر هستند:",
 	"gwtoolset-step-2-instructions-1-li-1": "فهرستی از زمینه‌ها در مدیاویکی $1",
 	"gwtoolset-step-2-instructions-1-li-2": "سقوط زمینه‌هایی که نشاندهندهٔ زمینه‌های فراداده پیدا شده در پوشهٔ فراداده.",
 	"gwtoolset-step-2-instructions-1-li-3": "یک نمونه سابقه از پوشهٔ‌ فراداده.",
