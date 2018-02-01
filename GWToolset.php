@@ -26,7 +26,7 @@ $wgExtensionCredits['media'][] = [
 	'path' => __FILE__,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:GWToolset',
 	'version' => Constants::EXTENSION_VERSION,
-	'license-name' => 'GPL-3.0+'
+	'license-name' => 'GPL-3.0-or-later'
 ];
 
 // define namespaces
