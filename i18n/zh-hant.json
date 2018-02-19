@@ -5,7 +5,8 @@
 			"Liuxinyu970226",
 			"Cwlin0416",
 			"LNDDYL",
-			"Zhxy 519"
+			"Zhxy 519",
+			"Hello903hello"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -107,7 +108,7 @@
 	"gwtoolset-ensure-well-formed-xml": "請使用 $1 確認 XML 檔案的格式正確。",
 	"gwtoolset-file-url-invalid": "該檔案不存在於此 Wiki。 若您欲在表單中使用該檔案 URL 做為參考來源，您需要先從您的電腦上傳該檔案。",
 	"gwtoolset-mediafile-throttle": "媒體檔案門檻：",
-	"gwtoolset-mediawiki-template-does-not-exist": "MediaWiki 模板 \"<strong>$1</strong>\" 不存在於此 Wiki。\n\n可匯入模板或選擇其他 MediaWiki 模板以用來做為對應。",
+	"gwtoolset-mediawiki-template-does-not-exist": "MediaWiki 模板<strong>$1</strong>不存在於此 Wiki。\n\n可匯入模板或選擇其他 MediaWiki 模板以用來做為對應。",
 	"gwtoolset-mediawiki-template-not-found": "MediaWiki 模板 \"$1\" 不存在。",
 	"gwtoolset-metadata-file-source": "請選擇詮釋資料檔案來源。",
 	"gwtoolset-metadata-file-source-info": "... 從先前已上傳的檔案或者從您的電腦上傳。",
@@ -115,8 +116,8 @@
 	"gwtoolset-metadata-file-upload": "詮釋資料檔案上傳：",
 	"gwtoolset-metadata-mapping-bad": "詮釋資料對應發生錯誤，可能是 JSON 格式不正確。 請嘗試修正問題並重新送出表單。\n\n$1",
 	"gwtoolset-metadata-mapping-invalid-url": "提供的詮釋資料對應 URL 與預期的對應 URL 路徑不相符。\n\n* 提供的 URL：$1\n* 預期的 URL：$2",
-	"gwtoolset-metadata-mapping-not-found": "查無詮釋資料對應。\n\n此 Wiki 不存在頁面 \"<strong>$1</strong>\"。",
-	"gwtoolset-namespace-mismatch": "頁面 \"<strong>$1</strong>\" 位於錯誤的命名空間 \"<strong>$2</strong>\"。\n\n該頁面應於命名空間 \"<strong>$3</strong>\"。",
+	"gwtoolset-metadata-mapping-not-found": "查無詮釋資料對應。\n\n此 Wiki 不存在頁面<strong>$1</strong>。",
+	"gwtoolset-namespace-mismatch": "頁面<strong>$1</strong>位於錯誤的命名空間<strong>$2</strong>。\n\n該頁面應於命名空間<strong>$3</strong>。",
 	"gwtoolset-no-xml-element-found": "查無對應用的 XML 元素。\n* 您是否有輸入 \"{{int:gwtoolset-record-element-name}}\" 的表單數值？\n* XML 檔案的格式是否正確？ 試試 [$1 XML 驗証器]。\n$2",
 	"gwtoolset-page-title-contains-url": "頁面 \"$1\" 包含完整的 Wiki URL。 請確定您只有輸入頁面的標題，即為 URL 中於 <code>/wiki/</code> 後方的部份。",
 	"gwtoolset-record-element-name": "內含每筆詮釋資料記錄的是什麼 XML 元素？",
