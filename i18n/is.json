@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sveinn í Felli"
+		]
+	},
+	"gwtoolset-mediawiki-template": "Sniðmát $1",
+	"gwtoolset-submit": "Senda",
+	"gwtoolset-summary-heading": "Samantekt",
+	"gwtoolset-cancel": "Hætta við",
+	"gwtoolset-save": "Vista",
+	"gwtoolset-json-error": "Það varð villa í JSON. Villa: $1",
+	"gwtoolset-json-error-utf8": "Gallaðir UTF-8 stafir, líklega vitlaust kóðaðir.",
+	"gwtoolset-json-error-unknown": "Óþekkt villa.",
+	"gwtoolset-step-1-instructions-li-4": "Fjöldainnsending",
+	"gwtoolset-category": "Flokkur",
+	"gwtoolset-title-none": "Enginn starfstitill"
+}
