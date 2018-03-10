@@ -1,12 +1,12 @@
 <?php
-/**
- * @group GWToolset
- * @covers \GWToolset\Utils
- */
 namespace GWToolset;
 
 use MediaWikiTestCase;
 
+/**
+ * @group GWToolset
+ * @covers \GWToolset\Utils
+ */
 class GWToolsetUtilsTest extends MediaWikiTestCase {
 
 	protected $utils;
