@@ -180,5 +180,13 @@
 	"gwtoolset-mediawiki-version-invalid": "Esta estensión precisa la versión $1 de MediaWiki<br />La versión actual de MediaWiki ye $2.",
 	"gwtoolset-title-label": "Títulu de GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL al ficheru multimedia",
-	"gwtoolset-reverse-creator": "Invertir l'orde d'apellíu y nome"
+	"gwtoolset-reverse-creator": "Invertir l'orde d'apellíu y nome",
+	"gwtoolset-reverse-creator-explanation": "Dacuando el valor de criador apaez como «apellíu, nome» nos metadatos. Marcando esti caxellu cambiará l'orde y quitará la coma, p. ex. «da Vinci, Leonardo» convertiríase'n «Leonardo da Vinci». Ten presente qu'esto depende de qu'esista sólo una coma nel valor; si nun hai coma, nun se fai nengún cambiu, y si hai más d'una coma, el cambiu sólo usará la primera coma.",
+	"gwtoolset-wrap-creator": "Incluye'l criador na plantía de criador",
+	"gwtoolset-wrap-creator-explanation": "La plantía de MediaWiki puede tener un parámetru <code>author</code> (autor), <code>artist</code> (artista), <code>publisher</code> (editor) o asemeyaos. Cuando lu tien, el valor del metadatu correspondiente puede axuntase automáticamente con <code>{{Creator:<value>}}</code>.",
+	"gwtoolset-wrap-creator-heading": "Plantía de criador",
+	"gwtoolset-wrap-language-heading": "Plantía de llingua",
+	"gwtoolset-detect-license": "Intentu de detectar la llicencia",
+	"gwtoolset-title-none": "Ensin títulu",
+	"log-name-gwtoolset": "Rexistru de GWToolset"
 }
