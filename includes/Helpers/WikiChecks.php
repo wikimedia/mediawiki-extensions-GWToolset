@@ -203,11 +203,6 @@ class WikiChecks {
 			return $Status;
 		}
 
-		$Status = self::verifyAPIWritable();
-		if ( !$Status->isOK() ) {
-			return $Status;
-		}
-
 		$Status = self::uploadsEnabled();
 		if ( !$Status->isOK() ) {
 			return $Status;
@@ -248,19 +243,6 @@ class WikiChecks {
 			return Status::newFatal(
 				'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME
 			);
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * @return Status
-	 */
-	public static function verifyAPIWritable() {
-		global $wgEnableWriteAPI;
-
-		if ( !$wgEnableWriteAPI ) {
-			return Status::newFatal( 'gwtoolset-verify-api-writeable', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
