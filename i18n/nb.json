@@ -188,7 +188,6 @@
 	"gwtoolset-permission-not-given": "Sjekk at du er logget inn eller kontakt en administrator for å få tillatelse til å se denne siden ($1).",
 	"gwtoolset-user-blocked": "Brukerkontoen din er for tiden blokkert. Kontakt en administrator for å rette opp problemet.",
 	"gwtoolset-required-group": "Du er ikke medlem av gruppa $1.",
-	"gwtoolset-verify-api-writeable": "Utvidelsen $1 krever at wikiens API kan utføre skrivehandlinger for autoriserte brukere.\n\nSjekk at <code>$wgEnableWriteAPI</code> er satt til <code>true</code>.",
 	"gwtoolset-verify-curl": "Utvidelsen $1 krever at [https://www.php.net/manual/en/curl.setup.php cURL-funksjoner] i PHP er installert.",
 	"gwtoolset-verify-finfo": "Utvidelsen $1 krever at PHPs [https://www.php.net/manual/en/fileinfo.setup.php finfo]-utvidelse er installert.",
 	"gwtoolset-verify-uploads-enabled": "Utvidelsen $1 krever at filopplasting er slått på.\n\nSjekk at <code>$wgEnableUploads</code> er satt til <code>true</code> i <code>LocalSettings.php</code>.",

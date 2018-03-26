@@ -189,7 +189,6 @@
 	"gwtoolset-permission-not-given": "تأكد من تسجيل الدخول أو الاتصال بإداري لكي يتم منحك صلاحية لعرض هذه الصفحة ($1).",
 	"gwtoolset-user-blocked": "حساب المستخدم الخاص بك ممنوع حاليا; يُرجَى الاتصال بإداري من أجل تصحيح مشكلة المنع.",
 	"gwtoolset-required-group": "أنت لست عضوا في مجموعة $1.",
-	"gwtoolset-verify-api-writeable": "تتطلب إضافة $1 أن تستطيع API الويكي  تنفيذ إجراءات الكتابة للمستخدمين المعتمدين.\n\nالرجاء التأكد من تعيين <code>$wgEnableWriteAPI</code> على <code>true</code>.",
 	"gwtoolset-verify-curl": "تتطلب إضافة $1 تثبيت PHP [https://www.php.net/manual/en/curl.setup.php وظائف cURL].",
 	"gwtoolset-verify-finfo": "يتطلب الملحق $1 تثبيت الملحق PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo].",
 	"gwtoolset-verify-uploads-enabled": "تتطلب إضافة $1 أن يتم تمكين عمليات تحميل الملفات.\n\n الرجاء التأكد من تعيين <code>$wgEnableUploads</code> على <code>true</code> في <code>LocalSettings.php</code>.",

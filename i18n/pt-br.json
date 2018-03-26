@@ -191,7 +191,6 @@
 	"gwtoolset-permission-not-given": "Certifique-se de que você está logado ou entre em contato com um administrador para que seja concedido a você permissão para visualizar esta página ($1).",
 	"gwtoolset-user-blocked": "Sua conta de usuário está atualmente bloqueada. Entre em contato com um administrador para corrigir o problema.",
 	"gwtoolset-required-group": "Você não é um membro do grupo $1.",
-	"gwtoolset-verify-api-writeable": "A extensão $1 requer que a API wiki possa executar ações de gravação para usuários autorizados.\n\nCertifique-se que <code>$wgEnableWriteAPI</code> esteja definido como <code>true</code>.",
 	"gwtoolset-verify-curl": "A extensão $1 requer que as [https://www.php.net/manual/en/curl.setup.php funções cURL] do PHP estejam instaladas.",
 	"gwtoolset-verify-finfo": "A extensão $1 requer que a extensão [https://www.php.net/manual/en/fileinfo.setup.php finfo] de PHP esteja instalada.",
 	"gwtoolset-verify-uploads-enabled": "A extensão $1 exige que o upload de arquivos esteja habilitado.\n\nCertifique-se que <code>$wgEnableUploads</code> esteja definido como <code>true</code> em <code>LocalSettings.php</code>.",

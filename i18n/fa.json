@@ -188,7 +188,6 @@
 	"gwtoolset-permission-not-given": "مطمئن شوید که شما وارد شده‌اید یا برای تأیید مجوز برای مشاهدهٔ‌ این صفحه ($1)، با سرپرست تماس بگیرید.",
 	"gwtoolset-user-blocked": "حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.",
 	"gwtoolset-required-group": "شما عضو گروه $1 نیستید.",
-	"gwtoolset-verify-api-writeable": "افزونهٔ $1 نیازمند آن است که رابط برنامه‌نویسی ویکی بتواند عملیات نوشتن را برای کاربران مجاز انجام دهد.\nلطفاً مطمئن شوید که <code>$wgEnableWriteAPI</code> به <code>true</code> تنظیم شده‌است.",
 	"gwtoolset-verify-curl": "گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [https://www.php.net/manual/en/curl.setup.php cURL functions] است.",
 	"gwtoolset-verify-finfo": "گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [https://www.php.net/manual/en/fileinfo.setup.php finfo] است.",
 	"gwtoolset-verify-uploads-enabled": "گسترهٔ $1 نیازمند انتقالات پوشه‌ای فعال است.\nلطفاً مطمئن شوید که <code>$wgEnableUploads</code> به <code>true</code> در <code>LocalSettings.php</code> تنظیم شده است.",

@@ -193,7 +193,6 @@
 	"gwtoolset-permission-not-given": "Переконайтеся, що ви ввійшли до системи, або зверніться до адміністратора для того, щоб бути наданий дозвіл на перегляд цієї сторінки ($1).",
 	"gwtoolset-user-blocked": "Ваш обліковий запис наразі заблоковано. Будь ласка, зверніться до адміністратора для того, щоб усунути це блокування.",
 	"gwtoolset-required-group": "Ви не є членом групи $1.",
-	"gwtoolset-verify-api-writeable": "Розширення $1 вимагає, аби API вікі могла виконувати дію писання для авторизованих користувачів.\n\nПереконайтеся, що <code>$wgEnableAPI</code> установлено як <code>true</code>.",
 	"gwtoolset-verify-curl": "Розширення $1 потребує, аби PHP [https://www.php.net/manual/en/curl.setup.php cURL функції] були встановлені.",
 	"gwtoolset-verify-finfo": "Розширення $1 Extension вимагає, щоби розширення PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo] було встановлене.",
 	"gwtoolset-verify-uploads-enabled": "Розширення $1 вимагає увімкненого завантаження файлів.\n\nПереконайтеся, що <code>$wgEnableUploads</code> встановлено як <code>true</code> у  <code>LocalSettings.php</code>.",

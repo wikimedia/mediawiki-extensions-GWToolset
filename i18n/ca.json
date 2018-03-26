@@ -184,7 +184,6 @@
 	"gwtoolset-permission-not-given": "Registreu-vos o contacteu amb un administrador per tenir permisos per veure aquesta pàgina ($1).",
 	"gwtoolset-user-blocked": "S'ha blocat el vostre compte d'usuari. Contacteu amb un administrador per arreglar-ho.",
 	"gwtoolset-required-group": "No formeu part del grup $1.",
-	"gwtoolset-verify-api-writeable": "L'extensió $1 requereix que l'API wiki pugui fer escriptures pels usuaris autoritzats.\n\nAssegureu-vos que <code>$wgEnableWriteAPI</code> té el valor <code>true</code> al fitxer <code>DefaultSettings.php</code> o que està canviat a <code>true</code> al fitxer <code>LocalSettings.php</code>.",
 	"gwtoolset-verify-curl": "L'extensió $1 requereix que s'hagi instal·lat les [https://www.php.net/manual/en/curl.setup.php funcions cURL] del PHP.",
 	"gwtoolset-verify-finfo": "L'extensió $1 requereix que s'hagi instal·lat l'extensió [https://www.php.net/manual/en/fileinfo.setup.php finfo] del PHP.",
 	"gwtoolset-verify-uploads-enabled": "L'extensió $1 requereix que s'hagi activat la càrrega de fitxers.\n\nVerifiqueu que s'hagi definit <code>$wgEnableUploads</code> com a <code>true</code> a <code>LocalSettings.php</code>.",

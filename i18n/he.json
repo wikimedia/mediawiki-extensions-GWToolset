@@ -197,7 +197,6 @@
 	"gwtoolset-permission-not-given": "נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).",
 	"gwtoolset-user-blocked": "חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל מערכת כדי לתקן את זה.",
 	"gwtoolset-required-group": "חשבונך אינו חלק מהקבוצה $1.",
-	"gwtoolset-verify-api-writeable": "ההרחבה $1 דורשת שה־API של הוויקי יוכל לבצע פעולות של משתמשים מורשים.\n\nנא לוודא ש־<code dir=\"ltr\">$wgEnableWriteAPI</code> מוגדר ל־<code>true</code>.",
 	"gwtoolset-verify-curl": "ההרחבה $1 דורשת ש[https://www.php.net/manual/en/curl.setup.php פונקציות cURL] של PHP יהיו מותקנות.",
 	"gwtoolset-verify-finfo": "ההרחבה $1 דורשת שההרחבה [https://www.php.net/manual/en/fileinfo.setup.php finfo] ל PHP תהיה מותקנת.",
 	"gwtoolset-verify-uploads-enabled": "ההרחבה $1 דורשת שהעלאת קבצים תהיה מופעלת.\n\nנא לוודא כי <code dir=\"ltr\">$wgEnableUploads</code> מוגדר ל־<code>true</code>.",

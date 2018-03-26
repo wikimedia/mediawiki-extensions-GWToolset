@@ -202,7 +202,6 @@
 	"gwtoolset-permission-not-given": "Assurez-vous que vous êtes connecté ou contactez un administrateur afin d’obtenir le droit de voir cette page ($1).",
 	"gwtoolset-user-blocked": "Votre compte utilisateur est actuellement bloqué. Veuillez contacter un administrateur afin de corriger le problème de blocage.",
 	"gwtoolset-required-group": "Vous n’êtes pas membre du groupe utilisateur « $1 ».",
-	"gwtoolset-verify-api-writeable": "L'extension $1 nécessite que l'API wiki ait les droits d'écriture pour les utilisateurs autorisés.\n\nVérifiez que le paramètre <code>$wgEnableWriteAPI</code> est défini à <code>true</code>.",
 	"gwtoolset-verify-curl": "L'extension $1 requiert l'installation des [https://www.php.net/manual/fr/curl.setup.php fonctions PHP cURL].",
 	"gwtoolset-verify-finfo": "L'extension $1 requiert l'installation de l'extension PHP [https://www.php.net/manual/fr/fileinfo.setup.php Finfo].",
 	"gwtoolset-verify-uploads-enabled": "L’extension $1 nécessite que les imports de fichier soient activés.\n\nAssurez-vous que <code>$wgEnableUploads</code> est défini à <code>true</code> dans <code>LocalSettings.php</code>.",

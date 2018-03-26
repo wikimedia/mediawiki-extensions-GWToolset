@@ -180,7 +180,6 @@
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Configuración actual de <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nEstos tienen un valor menor que <code>$wgMaxUploadSize</code> de la wiki, que ta definíu como «$3». Axusta la configuración de <code>php.ini</code> de mou afayadizu.",
 	"gwtoolset-mediawiki-version-invalid": "Esta estensión precisa la versión $1 de MediaWiki<br />La versión actual de MediaWiki ye $2.",
 	"gwtoolset-required-group": "Nun yes miembru del grupu $1.",
-	"gwtoolset-verify-api-writeable": "La estensión $1 precisa que la API de la wiki pueda facer aiciones d'escritura pa los usuarios autorizaos.\n\nAsegúrate de que <code>$wgEnableWriteAPI</code> ta configuráu como <code>true</code>.",
 	"gwtoolset-title-label": "Títulu de GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL al ficheru multimedia",
 	"gwtoolset-reverse-creator": "Invertir l'orde d'apellíu y nome",

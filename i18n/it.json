@@ -79,7 +79,6 @@
 	"gwtoolset-invalid-token": "Il token di modifica inviato con il modulo non è valido.",
 	"gwtoolset-mediawiki-version-invalid": "Questa estensione richiede MediaWiki versione $1<br />Questa versione di MediaWiki è $2.",
 	"gwtoolset-required-group": "Non sei un membro del gruppo $1.",
-	"gwtoolset-verify-api-writeable": "L'estensione $1 richiede che le API wiki possano eseguire operazioni di scrittura per utenti autorizzati.\n\nAssicurati che <code>$wgEnableWriteAPI</code> sia impostato su <code>true</code>.",
 	"gwtoolset-verify-curl": "L'estensione $1 richiede che le [https://www.php.net/manual/en/curl.setup.php funzioni cURL] del PHP siano installate.",
 	"gwtoolset-verify-finfo": "L'estensione $1 richiede che l'estensione [https://www.php.net/manual/en/fileinfo.setup.php finfo] del PHP sia installata.",
 	"gwtoolset-verify-uploads-enabled": "L'estensione $1 richiede che il caricamento dei file sia abilitato.\n\nAssicurati che <code>$wgEnableUploads</code> sia impostato su <code>true</code> in <code>LocalSettings.php</code>.",

@@ -174,7 +174,6 @@
 	"gwtoolset-permission-not-given": "ログインしていることを確認してください。解決しない場合は、このページを閲覧する権限の付与について管理者にお問い合わせください ($1)。",
 	"gwtoolset-user-blocked": "あなたのアカウントは現在ブロックされています。このブロックの問題点を解決するには管理者へお問い合わせください。",
 	"gwtoolset-required-group": "あなたはグループ $1 に属していません。",
-	"gwtoolset-verify-api-writeable": "$1 拡張機能を使用するには、権限がある利用者がウィキの API で書き込み操作を実行できるようにする必要があります。\n\n<code>$wgEnableWriteAPI</code> の値が <code>true</code> に設定されていることを確認してください。",
 	"gwtoolset-verify-curl": "$1 拡張機能を使用するには、PHP の [https://www.php.net/manual/en/curl.setup.php cURL 関数]をインストールする必要があります。",
 	"gwtoolset-verify-finfo": "$1 拡張機能を使用するには、PHP の [https://www.php.net/manual/ja/fileinfo.setup.php finfo] 拡張モジュールをインストールする必要があります。",
 	"gwtoolset-verify-uploads-enabled": "$1 拡張機能を使用するには、ファイル アップロードを有効にする必要があります。\n\n<code>LocalSettings.php</code> 内で <code>$wgEnableUploads</code> を <code>true</code> に設定していることを確認してください。",

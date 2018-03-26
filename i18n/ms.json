@@ -190,7 +190,6 @@
 	"gwtoolset-permission-not-given": "Pastikan anda telah log masuk atau hubungi penyelia untuk mendapat kebenaran untuk melihat halaman ini ($1).",
 	"gwtoolset-user-blocked": "Akaun pengguna anda sedang disekat. Sila hubungi penyelia untuk meleraikan isu sekatan ini.",
 	"gwtoolset-required-group": "Anda bukan ahli kumpulan $1.",
-	"gwtoolset-verify-api-writeable": "Sambungan $1 memerlukan API wiki untuk dapat melakukan tindakan penulisan untuk pengguna berdaftar.\n\nSila pastikan bahawa <code>$wgEnableWriteAPI</code> ditetapkan pada <code>true</code>.",
 	"gwtoolset-verify-curl": "Sambungan $1 memerlukan pemasangan fungsi-fungsi PHP [https://www.php.net/manual/en/curl.setup.php cURL].",
 	"gwtoolset-verify-finfo": "Sambungan $1 memerlukan pemasangan sambungan PHP [https://www.php.net/manual/en/fileinfo.setup.php finfo].",
 	"gwtoolset-verify-uploads-enabled": "Sambungan $1 memerlukan pemuatnaikan fail dihidupkan.\n\nSila pastikan bahawa <code>$wgEnableUploads</code> disetkan kepada <code>true</code> dalam <code>LocalSettings.php</code>.",
