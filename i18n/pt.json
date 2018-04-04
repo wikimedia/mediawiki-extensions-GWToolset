@@ -14,7 +14,7 @@
 	"right-gwtoolset": "Usar o GWToolset",
 	"action-gwtoolset": "usar o GWToolset",
 	"group-gwtoolset": "Utilizadores do GWToolset",
-	"group-gwtoolset-member": "{{GENDER:$1|Utilizador|Utilizadora}} do GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|utilizador|utilizadora}} do GWToolset",
 	"grouppage-gwtoolset": "{{ns:project}}:Utilizadores do GWToolset",
 	"gwtoolset-back-to-top": "topo da página",
 	"gwtoolset-batchjob-creation-failure": "Não foi possível criar uma tarefa de segundo plano do tipo \"$1\".",
