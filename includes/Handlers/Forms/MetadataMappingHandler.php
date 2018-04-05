@@ -93,7 +93,7 @@ class MetadataMappingHandler extends FormHandler {
 	protected $_whitelisted_post;
 
 	/**
-	 * @var \GWToolset\Handlers\XmlMappingHandler
+	 * @var \GWToolset\Handlers\Xml\XmlMappingHandler
 	 */
 	protected $_XmlMappingHandler;
 

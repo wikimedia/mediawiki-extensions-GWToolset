@@ -62,7 +62,7 @@ class Mapping implements ModelInterface {
 
 	/**
 	 * @param array $options
-	 * @return Status
+	 * @return \Status
 	 */
 	public function create( array $options = [] ) {
 		return $this->_DataAdapater->create( $options );

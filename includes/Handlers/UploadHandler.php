@@ -22,9 +22,11 @@ use Http;
 use MWException;
 use MWHttpRequest;
 use Status;
+use SpecialPage;
 use Title;
 use UploadBase;
 use UploadFromUrl;
+use User;
 use WikiPage;
 
 class UploadHandler {
@@ -60,7 +62,7 @@ class UploadHandler {
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var Metadata
+	 * @var \GWToolset\Models\Metadata
 	 */
 	protected $_Metadata;
 

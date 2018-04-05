@@ -16,6 +16,7 @@ use GWToolset\Utils;
 use JobQueueGroup;
 use MWException;
 use Exception;
+use FSFile;
 use Php\File;
 use Status;
 use Title;
