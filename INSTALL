@@ -77,7 +77,6 @@ The following values are usually in the wiki’s `DefaultSettings.php`; if they
 are not set as indicated, you can make the changes in the `LocalSettings.php`
 file.
 
-* `$wgEnableWriteAPI = true`
 * `$wgMaxImageArea = 6.4e7`; // when not using ImageMagick, otherwise leave it as is
 
 
