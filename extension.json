@@ -81,7 +81,6 @@
 		}
 	},
 	"Hooks": {
-		"UnitTestsList": "GWToolset\\Hooks::onUnitTestsList",
 		"CodeEditorGetPageLanguage": "GWToolset\\Hooks::onCodeEditorGetPageLanguage",
 		"ListDefinedTags": "GWToolset\\Hooks::onListDefinedTags",
 		"ChangeTagsListActive": "GWToolset\\Hooks::onChangeTagsListActive"

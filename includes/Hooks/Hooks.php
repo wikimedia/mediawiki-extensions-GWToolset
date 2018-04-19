@@ -11,16 +11,6 @@ namespace GWToolset;
 class Hooks {
 
 	/**
-	 * @param array &$files
-	 * @return bool
-	 */
-	public static function onUnitTestsList( &$files ) {
-		$dir = dirname( dirname( __DIR__ ) );
-		$files = array_merge( $files, glob( $dir . '/tests/phpunit/*Test.php' ) );
-		return true;
-	}
-
-	/**
 	 * Declares JSON as the code editor language for GWToolset: pages.
 	 *
 	 * This hook only runs if the CodeEditor extension is enabled.
