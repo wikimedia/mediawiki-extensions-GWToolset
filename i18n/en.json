@@ -191,7 +191,6 @@
 	"gwtoolset-step-4-heading": "Step 4: Batch upload",
 	"gwtoolset-invalid-token": "The edit token submitted with the form is invalid.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Current <code>php.ini</code> settings:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nThese are set lower than the wiki's <code>$wgMaxUploadSize</code>, which is set at \"$3\". Please adjust the <code>php.ini</code> settings as appropriate.",
-	"gwtoolset-mediawiki-version-invalid": "This extension requires MediaWiki version $1<br />This MediaWiki version is $2.",
 	"gwtoolset-permission-not-given": "Make sure that you are logged in or contact an administrator in order to be granted permission to view this page ($1).",
 	"gwtoolset-user-blocked": "Your user account is currently blocked. Please contact an administrator in order to correct the blocking issue.",
 	"gwtoolset-required-group": "You are not a member of the $1 group.",

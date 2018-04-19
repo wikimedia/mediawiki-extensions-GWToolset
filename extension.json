@@ -13,6 +13,9 @@
 		"GWTFileBackend": "",
 		"GWTFBMaxAge": "1 week"
 	},
+	"requires": {
+		"MediaWiki": ">= 1.25"
+	},
 	"namespaces": [
 		{
 			"id": 490,

@@ -13,5 +13,4 @@ class Constants {
 
 	const EXTENSION_NAME = 'GWToolset';
 	const EXTENSION_VERSION = '0.4.0';
-	const REQUIRED_MEDIAWIKI_VERSION = '1.25c';
 }

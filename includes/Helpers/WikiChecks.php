@@ -12,7 +12,6 @@ namespace GWToolset\Helpers;
 use GWToolset\Config;
 use GWToolset\Constants;
 use GWToolset\Utils;
-use MWException;
 use SpecialPage;
 use Status;
 
@@ -71,25 +70,6 @@ class WikiChecks {
 	public static function checkMediaUploadSettings() {
 		self::checkMaxImageArea();
 		self::checkMemoryLimit();
-	}
-
-	/**
-	 * @return Status
-	 */
-	public static function checkMediaWikiVersion() {
-		global $wgVersion;
-
-		try {
-			wfUseMW( Constants::REQUIRED_MEDIAWIKI_VERSION );
-		} catch ( MWException $e ) {
-			return Status::newFatal(
-				'gwtoolset-mediawiki-version-invalid',
-				Constants::REQUIRED_MEDIAWIKI_VERSION,
-				$wgVersion
-			);
-		}
-
-		return Status::newGood();
 	}
 
 	/**
@@ -194,11 +174,6 @@ class WikiChecks {
 		}
 
 		$Status = self::verifyFinfoExists();
-		if ( !$Status->isOK() ) {
-			return $Status;
-		}
-
-		$Status = self::checkMediaWikiVersion();
 		if ( !$Status->isOK() ) {
 			return $Status;
 		}

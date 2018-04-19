@@ -195,7 +195,6 @@
 	"gwtoolset-step-4-heading": "Step 4 heading.\n\nAlso used in {{msg-mw|Gwtoolset-step-3-instructions-2}}.\n\nSee also:\n* {{msg-mw|Gwtoolset-step-1-instructions-li-4}}",
 	"gwtoolset-invalid-token": "User message that appears when the edit token submitted with the form is invalid.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "User message that appears when the PHP ini settings are less that the wiki’s $wgMaxUploadSize setting.",
-	"gwtoolset-mediawiki-version-invalid": "Message appears when the MediaWiki version is too low. Parameters:\n* $1 - MediaWiki version required. \"1.22c\"\n* $2 - MediaWiki version currently using. e.g. \"1.21.3\"",
 	"gwtoolset-permission-not-given": "Message that appears when the user does not have the proper wiki permissions.\n\nParameters:\n* $1 - the message {{msg-mw|Gwtoolset-no-upload-by-url}}",
 	"gwtoolset-user-blocked": "Message that appears when the user is blocked from using the wiki.",
 	"gwtoolset-required-group": "User message that appears when the user is not a member of the required group. Parameters:\n* $1 is the required group.",
