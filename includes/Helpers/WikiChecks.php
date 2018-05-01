@@ -149,18 +149,6 @@ class WikiChecks {
 	}
 
 	/**
-	 * @see SpecialPage::checkReadOnly()
-	 *
-	 * @param SpecialPage $SpecialPage
-	 * @return Status
-	 */
-	public static function isWikiWriteable( SpecialPage $SpecialPage ) {
-		$SpecialPage->checkReadOnly();
-
-		return Status::newGood();
-	}
-
-	/**
 	 * Run through a series of checks to make sure the wiki environment is properly
 	 * setup for this extension and that the user has permission to use it
 	 *
@@ -179,11 +167,6 @@ class WikiChecks {
 		}
 
 		$Status = self::uploadsEnabled();
-		if ( !$Status->isOK() ) {
-			return $Status;
-		}
-
-		$Status = self::isWikiWriteable( $SpecialPage );
 		if ( !$Status->isOK() ) {
 			return $Status;
 		}

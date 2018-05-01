@@ -70,6 +70,8 @@ class SpecialGWToolset extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 
+		$this->checkReadOnly();
+
 		if ( $this->wikiChecks() ) {
 			$this->setModuleAndHandler();
 			$this->processRequest();
