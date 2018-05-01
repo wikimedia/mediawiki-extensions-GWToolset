@@ -18,15 +18,6 @@ class Config {
 	/**
 	 * @var array
 	 * which extension/mimetype combinations should the extension accept
-	 * for mapping files
-	 */
-	public static $accepted_mapping_types = [
-		'json' => [ 'application/json' ]
-	];
-
-	/**
-	 * @var array
-	 * which extension/mimetype combinations should the extension accept
 	 * for metadata files
 	 */
 	public static $accepted_metadata_types = [
