@@ -335,7 +335,9 @@ class UploadHandler {
 		if ( !$Status->isOK() ) {
 			throw new GWTException(
 				[
-					'gwtoolset-mapping-media-file-url-bad' => [ $url, $Status->getMessage() ]
+					'gwtoolset-mapping-media-file-url-bad' => [
+						$url, Status::wrap( $Status )->getMessage()
+					]
 				]
 			);
 		}
