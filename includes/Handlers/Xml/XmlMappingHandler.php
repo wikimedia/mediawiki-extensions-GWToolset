@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @license GNU General Public License 3.0 http://www.gnu.org/licenses/gpl.html
+ * @license GPL-3.0-or-later
  */
 
 namespace GWToolset\Handlers\Xml;
