@@ -188,10 +188,10 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param string $parameter
-	 * @param string $parameter_as_id
-	 * @param string $required
-	 * @param string $selected_option
+	 * @param string|null $parameter
+	 * @param string|null $parameter_as_id
+	 * @param string|null $required
+	 * @param string|null $selected_option
 	 *
 	 * @return string
 	 */
@@ -219,10 +219,10 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param string $parameter
-	 * @param string $parameter_as_id
-	 * @param string $required
-	 * @param string $selected_option
+	 * @param string|null $parameter
+	 * @param string|null $parameter_as_id
+	 * @param string|null $required
+	 * @param string|null $selected_option
 	 *
 	 * @return string
 	 */
@@ -250,8 +250,8 @@ class XmlDetectHandler extends XmlHandler {
 	/**
 	 * a decorator helper method for getMetadataAsTableCells
 	 *
-	 * @param string $parameter
-	 * @param string $selected_option
+	 * @param string|null $parameter
+	 * @param string|null $selected_option
 	 *
 	 * @return string
 	 */
@@ -335,7 +335,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * the method will mark an option as selected if the marked element
 	 * is passed into the method
 	 *
-	 * @param string $selected_option
+	 * @param string|null $selected_option
 	 *
 	 * @return string
 	 * the <option> values are filtered.
@@ -441,7 +441,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param string|Content $xml_source
+	 * @param string|Content|null $xml_source
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use

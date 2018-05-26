@@ -402,7 +402,7 @@ class XmlMappingHandler extends XmlHandler {
 	 * @param array &$user_options
 	 * an array of user options that was submitted in the original $_POST
 	 *
-	 * @param string|Content $xml_source
+	 * @param string|Content|null $xml_source
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use

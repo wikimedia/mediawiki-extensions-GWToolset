@@ -54,7 +54,7 @@ class Metadata implements ModelInterface {
 	 * locates an element within the metadata, which can sometimes be repeated
 	 * in a single metadata record, and creates an array of the values it finds
 	 *
-	 * @param string $field
+	 * @param string|null $field
 	 *
 	 * @return array
 	 * the elements within the array are sanitized
@@ -89,7 +89,7 @@ class Metadata implements ModelInterface {
 	 *
 	 * @todo should we cache the concatenated fields or pre-populate all of them?
 	 *
-	 * @param string $field
+	 * @param string|null $field
 	 *
 	 * @return null|string
 	 * the string is sanitized

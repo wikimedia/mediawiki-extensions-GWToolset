@@ -95,7 +95,7 @@ class WikiChecks {
 	/**
 	 * the following settings need to be checked in order to handle large images
 	 *
-	 * @param string $memory_limit
+	 * @param string|null $memory_limit
 	 */
 	public static function checkMemoryLimit( $memory_limit = null ) {
 		global $wgUseImageMagick;

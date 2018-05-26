@@ -452,11 +452,11 @@ class MediawikiTemplate implements ModelInterface {
 	 * list of mediawiki templates handled by the extension that
 	 * come from a data adapter.
 	 *
-	 * @param string $name
+	 * @param string|null $name
 	 * an html form name that should be given to the select.
 	 * the param is filtered.
 	 *
-	 * @param string $id
+	 * @param string|null $id
 	 * an html form id that should be given to the select.
 	 * the param is filtered.
 	 *
@@ -532,7 +532,7 @@ class MediawikiTemplate implements ModelInterface {
 	 * a control method that retrieves a mediawiki template model using the data adapter
 	 * provided at class instantiation and populates this model class with the result
 	 *
-	 * @param string $mediawiki_template_name
+	 * @param string|null $mediawiki_template_name
 	 * @throws GWTException|MWException
 	 */
 	public function getMediaWikiTemplate( $mediawiki_template_name = null ) {

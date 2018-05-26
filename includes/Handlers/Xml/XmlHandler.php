@@ -88,11 +88,11 @@ abstract class XmlHandler {
 	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param string $file_path_local
+	 * @param string|null $file_path_local
 	 * a local wiki path to the xml metadata file. the assumption is that it
 	 * has been uploaded to the wiki earlier and is ready for use
 	 *
-	 * @param string $callback
+	 * @param string|null $callback
 	 * the method that will be used to process the read xml file
 	 *
 	 * @todo: handle invalid xml

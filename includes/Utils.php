@@ -105,7 +105,7 @@ class Utils {
 	 * attempts to retrieve a wiki title based on a given page title, an
 	 * optional namespace requirement and whether or not the title must be known
 	 *
-	 * @param string $page_title
+	 * @param string|null $page_title
 	 * @param Int $namespace
 	 * @param array $options
 	 *  - {bool} $options['must-be-known']
@@ -421,7 +421,7 @@ class Utils {
 	}
 
 	/**
-	 * @param string $category
+	 * @param string|null $category
 	 * @return null|string
 	 * the result has not been filtered
 	 */

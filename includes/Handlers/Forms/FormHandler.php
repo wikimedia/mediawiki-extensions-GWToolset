@@ -88,7 +88,7 @@ abstract class FormHandler {
 	}
 
 	/**
-	 * @param string $module
+	 * @param string|null $module
 	 * @throws MWException
 	 * @return string
 	 */
@@ -144,7 +144,7 @@ abstract class FormHandler {
 	 * 3. preview
 	 * 4. batch upload
 	 *
-	 * @param string $module
+	 * @param string|null $module
 	 *
 	 * @throws GWTException
 	 *

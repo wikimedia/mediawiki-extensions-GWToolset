@@ -63,7 +63,7 @@ class GWTFileBackend {
 	/**
 	 * creates a GWTFileBackendCleanupJob that will delete the mwstore file in the FileBackend
 	 *
-	 * @param string $mwstore_relative_path
+	 * @param string|null $mwstore_relative_path
 	 * @throws MWException
 	 * @return bool
 	 */
@@ -109,7 +109,7 @@ class GWTFileBackend {
 	/**
 	 * deletes a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param string $mwstore_complete_file_path
+	 * @param string|null $mwstore_complete_file_path
 	 * @return Status
 	 * @throws MWException
 	 */
@@ -134,7 +134,7 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param string $mwstore_relative_path
+	 * @param string|null $mwstore_relative_path
 	 * @throws MWException
 	 * @return string
 	 */
@@ -201,7 +201,7 @@ class GWTFileBackend {
 	 * - hash path
 	 * - filename
 	 *
-	 * @param string $mwstore_relative_path
+	 * @param string|null $mwstore_relative_path
 	 * should contain:
 	 * - hash path
 	 * - filename
@@ -302,7 +302,7 @@ class GWTFileBackend {
 	/**
 	 * store the file at the final storage path
 	 *
-	 * @param string $tmp_file_path
+	 * @param string|null $tmp_file_path
 	 * the temporary file path location of the src file to be stored in the FileBackend
 	 *
 	 * @return Status
@@ -319,7 +319,7 @@ class GWTFileBackend {
 	/**
 	 * retrieves a file, based on an mwstore complete file path, from the FileBackend
 	 *
-	 * @param string $mwstore_complete_file_path
+	 * @param string|null $mwstore_complete_file_path
 	 * @throws MWException
 	 * @return null|FSFile
 	 */
@@ -354,7 +354,7 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param string $mwstore_relative_path
+	 * @param string|null $mwstore_relative_path
 	 * @throws MWException
 	 * @return null|FSFile
 	 */
@@ -420,7 +420,7 @@ class GWTFileBackend {
 	}
 
 	/**
-	 * @param string $file_extension
+	 * @param string|null $file_extension
 	 */
 	protected function setFileExtension( $file_extension = null ) {
 		$this->_file_extension = $file_extension;
