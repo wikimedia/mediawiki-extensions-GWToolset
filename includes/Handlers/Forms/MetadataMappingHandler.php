@@ -310,14 +310,6 @@ class MetadataMappingHandler extends FormHandler {
 				: null
 		];
 
-		if ( !empty( $result['gwtoolset-partner-template-url'] ) ) {
-			$result['partner-template-name'] = Utils::getTitle(
-				$result['gwtoolset-partner-template-url'],
-				NS_TEMPLATE,
-				[ 'must-be-known' => false ]
-			);
-		}
-
 		return $result;
 	}
 

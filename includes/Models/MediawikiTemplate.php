@@ -329,10 +329,16 @@ class MediawikiTemplate implements ModelInterface {
 	 * @return string
 	 */
 	protected function getSource( $content, array $user_options ) {
-		if ( !empty( $user_options['partner-template-name'] ) ) {
+		if ( !empty( $user_options['gwtoolset-partner-template-url'] ) ) {
+			$partnerTemplateName = Utils::getTitle(
+				$user_options['gwtoolset-partner-template-url'],
+				NS_TEMPLATE,
+				[ 'must-be-known' => false ]
+			);
+
 			return $content .
 				'{{' .
-				Utils::sanitizeString( $user_options['partner-template-name'] ) .
+				Utils::sanitizeString( $partnerTemplateName ) .
 				'}}';
 		} else {
 			return $content;
