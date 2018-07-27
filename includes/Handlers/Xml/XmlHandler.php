@@ -95,11 +95,11 @@ abstract class XmlHandler {
 	 * @param string|null $callback
 	 * the method that will be used to process the read xml file
 	 *
-	 * @todo: handle invalid xml
-	 * @todo: how to handle attributes and children nodes
-	 * @todo: handle mal-formed xml (future)
-	 * @todo: handle an xml schema if present (future)
-	 * @todo: handle incomplete/partial uploads (future)
+	 * @todo handle invalid xml
+	 * @todo how to handle attributes and children nodes
+	 * @todo handle mal-formed xml (future)
+	 * @todo handle an xml schema if present (future)
+	 * @todo handle incomplete/partial uploads (future)
 	 *
 	 * @throws MWException
 	 *

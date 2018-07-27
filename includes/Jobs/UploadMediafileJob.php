@@ -110,7 +110,7 @@ class UploadMediafileJob extends Job {
 
 	/**
 	 * entry point
-	 * @todo: should $result always be true?
+	 * @todo should $result always be true?
 	 * @return bool|Title
 	 */
 	public function run() {

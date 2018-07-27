@@ -72,7 +72,7 @@ class Mapping implements ModelInterface {
 	}
 
 	/**
-	 * @todo: sanitize the mapping_array created
+	 * @todo sanitize the mapping_array created
 	 *
 	 * @param array &$options
 	 *
