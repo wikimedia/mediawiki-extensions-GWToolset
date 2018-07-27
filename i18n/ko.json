@@ -183,7 +183,6 @@
 	"gwtoolset-step-4-heading": "단계 4: 일괄 업로드",
 	"gwtoolset-invalid-token": "양식과 제출된 편집 토큰이 유효하지 않습니다.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "현재 <code>php.ini</code>의 설정:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\n이것은 \"$3\"(으)로 설정된 위키의 <code>$wgMaxUploadSize</code>보다 낮게 설정돼있습니다. <code>php.ini</code>를 적절하게 조정해주세요.",
-	"gwtoolset-mediawiki-version-invalid": "이 확장 기능은 미디어위키 $1 버전을 필요로 합니다<br />이 미디어위키 버전은 $2입니다.",
 	"gwtoolset-permission-not-given": "이 문서($1)를 보려면 로그인 상태인지 확인하거나 관리자에게 문의하세요.",
 	"gwtoolset-user-blocked": "당신의 사용자 계정은 현재 차단되어 있습니다. 차단 문제를 수정하려면 관리자에게 문의하세요.",
 	"gwtoolset-required-group": "$1 그룹에 속해있지 않습니다.",

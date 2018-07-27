@@ -184,7 +184,6 @@
 	"gwtoolset-step-4-heading": "Чекор 4: Збирно подигање",
 	"gwtoolset-invalid-token": "Шифрата на уредувањето поднесена со образецот е неважечка.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Тековни поставки на <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nТие се зададени пониско од <code>$wgMaxUploadSize</code> на викито, што е зададено на „$3“. Прилагодете ги поставките на <code>php.ini</code>.",
-	"gwtoolset-mediawiki-version-invalid": "Додатоков бара МедијаВики со верзија $1<br />Оваа верзија е $2.",
 	"gwtoolset-permission-not-given": "Проверете дали сте најавени или обратете се кај администратор за да ви даде дозвола да ја гледате страницава ($1).",
 	"gwtoolset-user-blocked": "Вашата корисничка сметка е моментално блокирана. Обратете се кај администратор за да го средите проблемот.",
 	"gwtoolset-required-group": "Не членувате во групата „$1“.",

@@ -185,7 +185,6 @@
 	"gwtoolset-step-4-heading": "الخطوة 4: تحميل الدفعة",
 	"gwtoolset-invalid-token": "رمز التعديل الذي تم إرساله مع النموذج غير صالح.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "إعدادات <code>php.ini</code> الحالية:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nتم تعيين هذه القيمة أقل من <code>$wgMaxUploadSize</code>، والذي تم تعيينه على \"$3\".  يُرجَى ضبط الإعدادات <code>php.ini</code> بالشكل المناسب.",
-	"gwtoolset-mediawiki-version-invalid": "يتطلب هذا الامتداد إصدار ميدياويكي $1<br /> إصدار ميدياويكي هذا $2.",
 	"gwtoolset-permission-not-given": "تأكد من تسجيل الدخول أو الاتصال بإداري لكي يتم منحك صلاحية لعرض هذه الصفحة ($1).",
 	"gwtoolset-user-blocked": "حساب المستخدم الخاص بك ممنوع حاليا; يُرجَى الاتصال بإداري من أجل تصحيح مشكلة المنع.",
 	"gwtoolset-required-group": "أنت لست عضوا في مجموعة $1.",

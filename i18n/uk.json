@@ -189,7 +189,6 @@
 	"gwtoolset-step-4-heading": "Крок 4: Пакетне завантаження",
 	"gwtoolset-invalid-token": "Невірний маркер редагування, надісланий із формою.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Чинні налаштування <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nВони установлені нижче, ніж  <code>$wgMaxUploadSize</code> для вікі, який заданий як \"$3\". Будь ласка, відрегулюйте налаштування <code>php.ini</code> залежно від даних.",
-	"gwtoolset-mediawiki-version-invalid": "Дане розширення вимагає Медіавікі версії $1<br />Це Медіавікі має версію $2.",
 	"gwtoolset-permission-not-given": "Переконайтеся, що ви ввійшли до системи, або зверніться до адміністратора для того, щоб бути наданий дозвіл на перегляд цієї сторінки ($1).",
 	"gwtoolset-user-blocked": "Ваш обліковий запис наразі заблоковано. Будь ласка, зверніться до адміністратора для того, щоб усунути це блокування.",
 	"gwtoolset-required-group": "Ви не є членом групи $1.",

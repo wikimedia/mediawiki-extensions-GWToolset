@@ -198,7 +198,6 @@
 	"gwtoolset-step-4-heading": "Étape 4 : Téléversement du lot",
 	"gwtoolset-invalid-token": "Le jeton de modification soumis avec le formulaire n’est pas valide.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Paramètres actuels de <code>php.ini</code> :\n\n* <code>upload_max_filesize</code> : $1\n* <code>post_max_size</code> : $2\n\nIls sont positionnés inférieurs au paramètre <code>$wgMaxUploadSize</code> du wiki, qui est fixé à « $3 ». Veuillez ajuster les paramètres de <code>php.ini</code> de façon appropriée.",
-	"gwtoolset-mediawiki-version-invalid": "Cette extension nécessite la version $1 de MediaWiki<br />La version de ce MediaWiki est $2.",
 	"gwtoolset-permission-not-given": "Assurez-vous que vous êtes connecté ou contactez un administrateur afin d’obtenir le droit de voir cette page ($1).",
 	"gwtoolset-user-blocked": "Votre compte utilisateur est actuellement bloqué. Veuillez contacter un administrateur afin de corriger le problème de blocage.",
 	"gwtoolset-required-group": "Vous n’êtes pas membre du groupe utilisateur « $1 ».",

@@ -55,7 +55,6 @@
 	"gwtoolset-create-mediafile": "$1: Đang tạo tập tin phương tiện cho $2.",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Bước 4: Tải lên hàng loạt",
-	"gwtoolset-mediawiki-version-invalid": "Phần mở rộng này cần MediaWiki $1<br />Trang này đang chạy MediaWiki $2.",
 	"gwtoolset-required-group": "Bạn không phải thuộc nhóm $1.",
 	"gwtoolset-verify-xmlreader": "Phần mở rộng $1 cần cài đặt [https://www.php.net/manual/xmlreader.setup.php XMLReader] vào PHP.",
 	"gwtoolset-wiki-checks-not-passed": "Các kiểm tra wiki bị thất bại",

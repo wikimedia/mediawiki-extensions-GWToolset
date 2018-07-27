@@ -58,7 +58,6 @@
 	"gwtoolset-specific-categories": "Spezifesch Kategorie fir d'Element",
 	"gwtoolset-template-field": "Feld vun der Schabloun",
 	"gwtoolset-create-prefix": "GWToolset",
-	"gwtoolset-mediawiki-version-invalid": "Dës Erweiderung brauch d'Mediawiki-Versioun $1<br />Dës MediaWiki Versioun ass $2.",
 	"gwtoolset-user-blocked": "Äre Benotzerkont ass den Ament gespaart. Kontaktéiert w.e.g. en Administrateur fir de Problem mat der Spär ze léisen.",
 	"gwtoolset-required-group": "Dir sidd net Member vun der Grupp $1.",
 	"gwtoolset-reverse-creator": "Familljennumm, Virnumm ëmdréinen",

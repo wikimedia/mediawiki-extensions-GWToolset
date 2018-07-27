@@ -148,7 +148,6 @@
 	"gwtoolset-step-3-instructions-heading": "Paso 3: previsualización del lote",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Paso 4: carga del lote",
-	"gwtoolset-mediawiki-version-invalid": "Esta extensión necesita la versión de MediaWiki $1<br />La versión actual de MediaWiki es $2.",
 	"gwtoolset-required-group": "No formas parte del grupo $1.",
 	"gwtoolset-title-label": "Título en GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL al archivo multimedia",

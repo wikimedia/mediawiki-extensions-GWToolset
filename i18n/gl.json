@@ -186,7 +186,6 @@
 	"gwtoolset-step-4-heading": "Paso 4: Carga por lotes",
 	"gwtoolset-invalid-token": "O identificador de edición enviado co formulario non é correcto.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Configuración actual de <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nEstes teñen un valor menor que o wiki <code>$wgMaxUploadSize</code>, que está fixado a \"$3\". Por favor, axuste a configuración de <code>php.ini</code> ó apropiado.",
-	"gwtoolset-mediawiki-version-invalid": "Esta extensión require a versión de MediaWiki $1<br />A versión actual desta MediaWiki é $2.",
 	"gwtoolset-permission-not-given": "Asegúrese de que está conectado ou contacte cun administrador para obter permisos para visualizar esta páxina ($1).",
 	"gwtoolset-user-blocked": "A súa conta de usuario foi bloqueada. Por favor contacte cun administrador para amañar este problema.",
 	"gwtoolset-required-group": "Vostede non é membro do grupo $1.",

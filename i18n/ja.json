@@ -170,7 +170,6 @@
 	"gwtoolset-step-4-heading": "手順 4: 一括アップロード",
 	"gwtoolset-invalid-token": "フォームから送信された編集トークンが無効です。",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "現在の <code>php.ini</code> の設定:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nこれらはウィキの <code>$wgMaxUploadSize</code> の値「$3」よりも小さい値に設定されています。<code>php.ini</code> の設定を適切なものに変更してください。",
-	"gwtoolset-mediawiki-version-invalid": "この拡張機能を使用するには、MediaWiki バージョン $1 が必要です。<br />ご使用中の MediaWiki のバージョンは $2 です。",
 	"gwtoolset-permission-not-given": "ログインしていることを確認してください。解決しない場合は、このページを閲覧する権限の付与について管理者にお問い合わせください ($1)。",
 	"gwtoolset-user-blocked": "あなたのアカウントは現在ブロックされています。このブロックの問題点を解決するには管理者へお問い合わせください。",
 	"gwtoolset-required-group": "あなたはグループ $1 に属していません。",

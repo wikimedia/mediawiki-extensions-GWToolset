@@ -193,7 +193,6 @@
 	"gwtoolset-step-4-heading": "Stap 4: Batchupload",
 	"gwtoolset-invalid-token": "Het bewerkingstoken, ingediend met het formulier, is ongeldig.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Huidige <code>php.ini</code>-instellingen:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nDeze zijn lager ingesteld dan de <code>$wgMaxUploadSize</code> van de wiki, die ingesteld staat op \"$3\". Pas de <code>php.ini</code>- instellingen aan.",
-	"gwtoolset-mediawiki-version-invalid": "Deze extensie vereist MediaWiki-versie $1<br />Deze MediaWiki-versie is $2.",
 	"gwtoolset-permission-not-given": "Zorg ervoor dat u aangemeld bent, of neem contact op met een beheerder om gemachtigd te worden om deze pagina te bekijken ($1).",
 	"gwtoolset-user-blocked": "Uw gebruikersaccount is momenteel geblokkeerd. Neem contact op met een beheerder om dit probleem op te lossen.",
 	"gwtoolset-required-group": "U bent geen lid van de groep $1.",

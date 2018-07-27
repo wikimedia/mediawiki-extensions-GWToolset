@@ -188,7 +188,6 @@
 	"gwtoolset-step-4-heading": "Passo 4: Importação do lote de ficheiros",
 	"gwtoolset-invalid-token": "A chave de edição fornecida com o formulário é inválida.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Definições atuais no ficheiro <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nEstas definições são inferiores à definição <code>$wgMaxUploadSize</code> da wiki, que tem o valor \"$3\". Ajuste as definições no ficheiro <code>php.ini</code> conforme seja apropriado.",
-	"gwtoolset-mediawiki-version-invalid": "Esta extensão requer o MediaWiki versão $1<br />Esta versão do MediaWiki é a $2.",
 	"gwtoolset-permission-not-given": "Verifique que se autenticou ou contacte um administrador para que lhe seja atribuída permissão para ver esta página ($1).",
 	"gwtoolset-user-blocked": "Neste momento, a sua conta de utilizador está bloqueada. Contacte um administrador para corrigir o problema do bloqueio, por favor.",
 	"gwtoolset-required-group": "Não é membro do grupo $1.",

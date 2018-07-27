@@ -184,7 +184,6 @@
 	"gwtoolset-step-4-heading": "Steg 4: Partiopplasting",
 	"gwtoolset-invalid-token": "Redigeringsnøkkelen som ble sendt med skjemaet er ugyldig.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Gjeldende <code>php.ini</code>-innstillinger:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nDisse er satt lavere enn wikiens <code>$wgMaxUploadSize</code>, som er «$3». Vennligst juster <code>php.ini</code>-innstillingene etter behov.",
-	"gwtoolset-mediawiki-version-invalid": "Denne utvidelsen krever MediaWiki versjon $1<br />Denne MediaWiki-versjonen er $2.",
 	"gwtoolset-permission-not-given": "Sjekk at du er logget inn eller kontakt en administrator for å få tillatelse til å se denne siden ($1).",
 	"gwtoolset-user-blocked": "Brukerkontoen din er for tiden blokkert. Kontakt en administrator for å rette opp problemet.",
 	"gwtoolset-required-group": "Du er ikke medlem av gruppa $1.",

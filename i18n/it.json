@@ -77,7 +77,6 @@
 	"gwtoolset-specific-tooltip": "Utilizzando i seguenti campi puoi applicare una frase (facoltativa) più un campo metadata come la categoria per ogni singolo elemento caricato. Per esempio, se il file metadata contiene un per l'artista su ogni record, puoi aggiungerlo come categoria per ogni record che sarà cambiata al valore specifico di ogni record. Puoi aggiungere anche una frase come <em>{{int:gwtoolset-painted-by}}</em> e poi il campo metadata artista, che sarà reso <em>{{int:gwtoolset-painted-by}} <artist name></em> come la categoria per ogni record. I nomi delle categorie dovrebbero essere generalmente in inglese (vedi [[Commons:Categories#Category_names|Commons:Category names]]).",
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-invalid-token": "Il token di modifica inviato con il modulo non è valido.",
-	"gwtoolset-mediawiki-version-invalid": "Questa estensione richiede MediaWiki versione $1<br />Questa versione di MediaWiki è $2.",
 	"gwtoolset-required-group": "Non sei un membro del gruppo $1.",
 	"gwtoolset-verify-curl": "L'estensione $1 richiede che le [https://www.php.net/manual/en/curl.setup.php funzioni cURL] del PHP siano installate.",
 	"gwtoolset-verify-finfo": "L'estensione $1 richiede che l'estensione [https://www.php.net/manual/en/fileinfo.setup.php finfo] del PHP sia installata.",

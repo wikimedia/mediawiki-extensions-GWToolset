@@ -180,7 +180,6 @@
 	"gwtoolset-step-4-heading": "Pujada per lots",
 	"gwtoolset-invalid-token": "El testimoni d'edició enviat amb el formulari no és correcte.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Paràmetres actuals de <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nAquests són inferiors que el <code>$wgMaxUploadSize</code> del wiki, que està definit a \"$3\". Corregiu el valor de <code>php.ini</code> al valor adient.",
-	"gwtoolset-mediawiki-version-invalid": "Aquestà extensió requereix la versió $1 del MediaWiki</br>Aquest MediaWiki és de la versió $2.",
 	"gwtoolset-permission-not-given": "Registreu-vos o contacteu amb un administrador per tenir permisos per veure aquesta pàgina ($1).",
 	"gwtoolset-user-blocked": "S'ha blocat el vostre compte d'usuari. Contacteu amb un administrador per arreglar-ho.",
 	"gwtoolset-required-group": "No formeu part del grup $1.",

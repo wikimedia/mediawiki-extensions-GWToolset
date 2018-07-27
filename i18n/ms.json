@@ -186,7 +186,6 @@
 	"gwtoolset-step-4-heading": "Langkah 4: Muat naik berkelompok",
 	"gwtoolset-invalid-token": "Token suntingan yang diserahkan dengan borang ini adalah tidak sah.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Tetapan <code>php.ini</code> semasa:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nIni ditetapkan lebih rendah daripada <code>$wgMaxUploadSize</code> wiki yang ditetapkan pada \"$3\". Sila laras tetapan <code>php.ini</code> sewajarnya.",
-	"gwtoolset-mediawiki-version-invalid": "Sambungan ini memerlukan MediaWiki versi $1<br />Ini ialah versi $2.",
 	"gwtoolset-permission-not-given": "Pastikan anda telah log masuk atau hubungi penyelia untuk mendapat kebenaran untuk melihat halaman ini ($1).",
 	"gwtoolset-user-blocked": "Akaun pengguna anda sedang disekat. Sila hubungi penyelia untuk meleraikan isu sekatan ini.",
 	"gwtoolset-required-group": "Anda bukan ahli kumpulan $1.",

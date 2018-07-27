@@ -167,7 +167,6 @@
 	"gwtoolset-step-4-heading": "Vaihe 4: Massalataus",
 	"gwtoolset-invalid-token": "Lomakkeella lähetetty muokkaustunnus on virheellinen.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Tämänhetkiset <code>php.ini</code> asetukset:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nNämä on asetettu alhaisemmiksi kuin wikin <code>$wgMaxUploadSize</code>, joka on asetettu arvoon \"$3\". Muokkaa <code>php.ini</code>-asetuksia sopiviksi.",
-	"gwtoolset-mediawiki-version-invalid": "Tämä laajennus edellyttää MediaWikin versiota $1<br />Tämän MediaWikin versio on $2 .",
 	"gwtoolset-permission-not-given": "Varmista, että olet kirjautunut sisään tai ota yhteys järjestelmänvalvojaan, jotta sinulle voidaan myöntää lupa nähdä tämä sivu ($1).",
 	"gwtoolset-user-blocked": "Tilisi on tällä hetkellä estetty. Pyydä järjestelmänvalvojaa poistamaan esto.",
 	"gwtoolset-required-group": "Et ole ryhmän $1 jäsen.",

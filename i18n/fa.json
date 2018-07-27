@@ -184,7 +184,6 @@
 	"gwtoolset-step-4-heading": "مرحلهٔ ۴: انتقال گروه",
 	"gwtoolset-invalid-token": "نماد ویرایش ارائه شده با فرم نامعتبر است.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "تنظیمات فعلی <code>php.ini</code>:\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\nاین‌ها کمتر از <code>$wgMaxUploadSize</code> ویکی تنظیم شده‌اند، که در \"$3\" تنظیم شده‌است. لطفاً برای صحت تنظیمات <code>php.ini</code> را تنظیم کنید.",
-	"gwtoolset-mediawiki-version-invalid": "گستره نیازمند نسخهٔ $1<br /> مدیاویکی است،این نسخهٔ مدیاویکی $2 است.",
 	"gwtoolset-permission-not-given": "مطمئن شوید که شما وارد شده‌اید یا برای تأیید مجوز برای مشاهدهٔ‌ این صفحه ($1)، با سرپرست تماس بگیرید.",
 	"gwtoolset-user-blocked": "حساب کاربری شما در حال حاضر مسدود شده‌است. لطفاً برای حل کردن مسئلهٔ مسدود، با سرپرست تماس بگیرید.",
 	"gwtoolset-required-group": "شما عضو گروه $1 نیستید.",

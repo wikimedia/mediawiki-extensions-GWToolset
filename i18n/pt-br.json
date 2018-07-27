@@ -187,7 +187,6 @@
 	"gwtoolset-step-4-heading": "Passo 4: Envio em lotes",
 	"gwtoolset-invalid-token": "O identificador de edição submetido com o formulário é inválido.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Configurações atuais de <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nEstes estão definidos menor do que o wiki <code>$wgMaxUploadSize</code>, que está definido em \"$3\". Por favor, ajuste as configurações <code>php.ini</code> apropriadamente.",
-	"gwtoolset-mediawiki-version-invalid": "Essa extensão requer a versão MediaWiki $1<br />A versão atual é $2.",
 	"gwtoolset-permission-not-given": "Certifique-se de que você está logado ou entre em contato com um administrador para que seja concedido a você permissão para visualizar esta página ($1).",
 	"gwtoolset-user-blocked": "Sua conta de usuário está atualmente bloqueada. Entre em contato com um administrador para corrigir o problema.",
 	"gwtoolset-required-group": "Você não é um membro do grupo $1.",

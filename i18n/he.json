@@ -193,7 +193,6 @@
 	"gwtoolset-step-4-heading": "צעד 4: ההעלאת אצווה",
 	"gwtoolset-invalid-token": "אסימון העריכה שנשלח עם הטופס אינו תקין.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "הגדרות <code>php.ini</code> נוכחיות:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nאלה מוגדרים כנמוכים יותר מאשר הגדרת <code>$wgMaxUploadSize</code> של הוויקי, אשר מוגדרת כ־\"$3\". יש לשנות את הגדרות <code>php.ini</code> לפי הצורך.",
-	"gwtoolset-mediawiki-version-invalid": "ההרחבה הזאת דורשת שימוש במדיה־ויקי $1<br />\nהגרסה של מדיה־ויקי כאן היא $2.",
 	"gwtoolset-permission-not-given": "נא לוודא שנכנסת לחשבון או לפנות למפעיל כדי לקבל הרשאה להציג דף זה ($1).",
 	"gwtoolset-user-blocked": "חשבון המשתמש שלך חסום כרגע. נא ליצור קשר עם מפעיל מערכת כדי לתקן את זה.",
 	"gwtoolset-required-group": "חשבונך אינו חלק מהקבוצה $1.",

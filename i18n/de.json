@@ -188,7 +188,6 @@
 	"gwtoolset-step-4-heading": "Schritt 4: Stapel hochladen",
 	"gwtoolset-invalid-token": "Der Bearbeitungstoken, der mit dem Formular übermittelt wurde, ist ungültig.",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Aktuelle <code>php.ini</code>-Einstellungen:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nDiese sind niedriger gesetzt als <code>$wgMaxUploadSize</code> des Wikis, was auf „$3“ festgelegt wurde. Bitte passe die <code>php.ini</code>-Einstellungen dementsprechend an.",
-	"gwtoolset-mediawiki-version-invalid": "Diese Erweiterung benötigt die MediaWiki-Version $1.<br />Diese MediaWiki-Version ist $2.",
 	"gwtoolset-permission-not-given": "Stelle sicher, dass du angemeldet bist oder kontaktiere einen Administrator, um Anzeigerechte für diese Seite zu erhalten ($1).",
 	"gwtoolset-user-blocked": "Dein Benutzerkonto ist derzeit gesperrt. Bitte kontaktiere einen Administrator, um das Sperrproblem zu beheben.",
 	"gwtoolset-required-group": "Du bist kein Mitglied der Gruppe „$1“.",

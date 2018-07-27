@@ -105,7 +105,6 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Шаг 4: Пакетная загрузка",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "Текущий настройки <code>php.ini</code>:\n\n* <code>upload_max_filesize</code>: $1\n* <code>post_max_size</code>: $2\n\nОни устанавливаются ниже, чем вики <code>$wgMaxUploadSize</code>, которые устанавливаются на «$3». Пожалуйста, изменяйте параметры <code>php.ini</code> только при необходимости.",
-	"gwtoolset-mediawiki-version-invalid": "Это расширение требует MediaWiki версии $1<br />У вас версия MediaWiki — $2.",
 	"gwtoolset-permission-not-given": "Убедитесь, что Вы вошли в систему или обратитесь к администратору, чтобы получить разрешение для просмотра этой страницы ($1).",
 	"gwtoolset-user-blocked": "В настоящее время ваша учетная запись пользователя заблокирована. Пожалуйста, обратитесь к администратору для того, чтобы исправить проблему блокирования.",
 	"gwtoolset-required-group": "Вы не являетесь членом $1 группы.",

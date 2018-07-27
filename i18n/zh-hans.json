@@ -190,7 +190,6 @@
 	"gwtoolset-step-4-heading": "第4步：批量上传",
 	"gwtoolset-invalid-token": "编辑令牌在标记无效的情况下被提交。",
 	"gwtoolset-maxuploadsize-exceeds-ini-settings": "当前的<code>php.ini</code>设置：\n* <code>upload_max_filesize</code>：$1\n* <code>post_max_size</code>：$2\n这些设置低于wiki的<code>$wgMaxUploadSize</code>，可在“$3”设置。请适当调整<code>php.ini</code>的设置。",
-	"gwtoolset-mediawiki-version-invalid": "此拓展需要MediaWiki版本$1<br />当前MediaWiki版本$2",
 	"gwtoolset-permission-not-given": "确保您已登录或为赋予查看此页面（$1）的权限联络管理员。",
 	"gwtoolset-user-blocked": "您的用户账户已被封禁。请与管理员联络以寻求解禁。",
 	"gwtoolset-required-group": "您不是$1组的成员。",
