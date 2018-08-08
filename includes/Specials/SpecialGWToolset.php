@@ -103,6 +103,7 @@ class SpecialGWToolset extends SpecialPage {
 	/**
 	 * a control method that processes a SpecialPage request
 	 * SpecialPage->getOutput()->addHtml() present the end result of the request
+	 * @suppress SecurityCheck-XSS Can't handle FormHandler::getHtmlForm()
 	 */
 	protected function processRequest() {
 		$html = '';
