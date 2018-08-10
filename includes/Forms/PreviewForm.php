@@ -49,7 +49,7 @@ class PreviewForm {
 					[
 						'type' => 'submit',
 						'name' => 'submit',
-						'value' => wfMessage( 'gwtoolset-process-batch' )->escaped()
+						'value' => wfMessage( 'gwtoolset-process-batch' )->text()
 					]
 				) .
 				Html::rawElement( 'br' );
