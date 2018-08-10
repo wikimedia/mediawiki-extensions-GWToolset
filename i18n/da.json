@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"gwtoolset-no-text": "Ingen tekst angivet.",
+	"gwtoolset-no-title": "Ingen titel angivet.",
+	"gwtoolset-mediawiki-template": "Skabelon $1",
+	"gwtoolset-save": "Gem",
+	"gwtoolset-json-error-unknown": "Ukendt fejl.",
+	"gwtoolset-category": "Kategori",
+	"gwtoolset-global-categories": "Globale kategorier",
+	"gwtoolset-partner": "Partner",
+	"gwtoolset-wrap-language-heading": "Sprogskabelon",
+	"gwtoolset-select-template": "Vælg en skabelon:",
+	"gwtoolset-title-none": "Ingen titel"
+}
