@@ -613,7 +613,7 @@ class MetadataMappingForm {
 								[
 									'type' => 'text',
 									'name' => 'gwtoolset-category-phrase[]',
-									'placeholder' => wfMessage( 'gwtoolset-painted-by' )->escaped()
+									'placeholder' => wfMessage( 'gwtoolset-painted-by' )->text()
 								]
 							)
 						) .
@@ -709,7 +709,7 @@ class MetadataMappingForm {
 				[
 					'type' => 'submit',
 					'name' => 'submit',
-					'value' => wfMessage( 'gwtoolset-preview' )->escaped()
+					'value' => wfMessage( 'gwtoolset-preview' )->text()
 				]
 			) .
 

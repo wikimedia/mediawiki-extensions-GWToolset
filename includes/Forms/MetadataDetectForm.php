@@ -360,7 +360,7 @@ class MetadataDetectForm {
 				[
 					'type' => 'submit',
 					'name' => 'submit',
-					'value' => wfMessage( 'gwtoolset-submit' )->escaped()
+					'value' => wfMessage( 'gwtoolset-submit' )->text()
 				]
 			) .
 
