@@ -116,7 +116,7 @@ class SpecialGWToolset extends SpecialPage {
 						'h2', [],
 						wfMessage( 'gwtoolset-technical-error' )->escaped()
 					) .
-					Html::rawElement( 'p', [ 'class' => 'error' ], $e->getMessage() );
+					Html::element( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
 		} else {
 			try {
@@ -128,7 +128,7 @@ class SpecialGWToolset extends SpecialPage {
 						'h2', [],
 						wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
 					) .
-					Html::rawElement( 'p', [ 'class' => 'error' ], $e->getMessage() );
+					Html::element( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
 		}
 
