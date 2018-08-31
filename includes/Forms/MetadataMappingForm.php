@@ -495,7 +495,7 @@ class MetadataMappingForm {
 				[
 					'type' => 'text',
 					'name' => 'gwtoolset-global-license',
-					'placeholder' => wfMessage( 'gwtoolset-global-license' ),
+					'placeholder' => wfMessage( 'gwtoolset-global-license' )->text(),
 					'class' => 'gwtoolset-url-input'
 				]
 			) .

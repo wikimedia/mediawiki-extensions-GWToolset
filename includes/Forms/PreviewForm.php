@@ -148,9 +148,9 @@ class PreviewForm {
 				[
 					'id' => 'gwtoolset-back-to-top',
 					'href' => '#top',
-					'title' => wfMessage( 'gwtoolset-back-to-top' )
+					'title' => wfMessage( 'gwtoolset-back-to-top' )->text()
 				],
-				wfMessage( 'gwtoolset-back-to-top' )
+				wfMessage( 'gwtoolset-back-to-top' )->escaped()
 			);
 	}
 
