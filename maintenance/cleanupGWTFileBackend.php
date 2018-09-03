@@ -101,7 +101,7 @@ class GWTFileBackendCleanup extends Maintenance {
 					);
 				}
 
-				$this->output( 'Removed file (' . $mwstore_file_path . ')' .PHP_EOL );
+				$this->output( 'Removed file (' . $mwstore_file_path . ')' . PHP_EOL );
 				$file_count++;
 			}
 		}
