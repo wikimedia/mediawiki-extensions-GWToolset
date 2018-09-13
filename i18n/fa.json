@@ -17,6 +17,7 @@
 	"group-gwtoolset": "کاربران تنظیم ابزار جی‌دبلیو",
 	"group-gwtoolset-member": "{{GENDER:$1|کاربران تنظیم ابزار جی‌دبلیو}}",
 	"grouppage-gwtoolset": "{{ns:project}}: کاربران تنظیم ابزار جی‌دبلیو",
+	"gwtoolset-back-to-top": "بالای صفحه",
 	"gwtoolset-batchjob-creation-failure": "گروه شغل از نوع \"$1\" نتوانست ایجاد شود.",
 	"gwtoolset-could-not-close-xml": "نتوانست ایکس‌ام‌ال خوان را ببندد.",
 	"gwtoolset-could-not-open-xml": "نتوانست پوشهٔ ایکس‌ام‌ال را برای خواندن باز کند.",
@@ -191,5 +192,12 @@
 	"gwtoolset-verify-finfo": "گسترهٔ $1 نیازمند به نصب پی‌اچ‌پی [https://www.php.net/manual/en/fileinfo.setup.php finfo] است.",
 	"gwtoolset-verify-uploads-enabled": "گسترهٔ $1 نیازمند انتقالات پوشه‌ای فعال است.\nلطفاً مطمئن شوید که <code>$wgEnableUploads</code> به <code>true</code> در <code>LocalSettings.php</code> تنظیم شده است.",
 	"gwtoolset-verify-xmlreader": "گسترهٔ $1 نیازمند نصب پی‌اچ‌پی [https://www.php.net/manual/en/xmlreader.setup.php XMLReader] است.",
-	"gwtoolset-wiki-checks-not-passed": "بررسی‌های ویکی پذیرفته نشده."
+	"gwtoolset-wiki-checks-not-passed": "بررسی‌های ویکی پذیرفته نشده.",
+	"gwtoolset-url-to-the-media-file-label": "نشانی پرونده مدیا",
+	"gwtoolset-wrap-creator-heading": "الگوی خالق",
+	"gwtoolset-wrap-language-heading": "زبان الگو",
+	"gwtoolset-global-license": "مجوز سراسری",
+	"gwtoolset-select-template": "یک الگو انتخاب کنید:",
+	"gwtoolset-select-custom-template": "یا یک الگوی شخصی قرار دهید:",
+	"gwtoolset-title-none": "بدون عنوان"
 }
