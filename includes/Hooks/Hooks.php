@@ -18,7 +18,7 @@ class Hooks {
 	 * @param string &$lang Page language.
 	 * @return bool
 	 */
-	static function onCodeEditorGetPageLanguage( $title, &$lang ) {
+	public static function onCodeEditorGetPageLanguage( $title, &$lang ) {
 		if ( $title->inNamespace( NS_GWTOOLSET ) ) {
 			$lang = 'json';
 		}
