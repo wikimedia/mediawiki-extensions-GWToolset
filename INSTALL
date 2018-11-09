@@ -59,8 +59,8 @@ Recommended Extensions
 Installing these extensions will give GWToolset the ability to use the most up to date
 MediaWiki template parameters as long as that template provides TemplateData.
 
-* [Scribunto] ( http://www.mediawiki.org/wiki/Extension:Scribunto )
-* [TemplateData] ( http://www.mediawiki.org/wiki/Extension:TemplateData )
+* [Scribunto] ( https://www.mediawiki.org/wiki/Extension:Scribunto )
+* [TemplateData] ( https://www.mediawiki.org/wiki/Extension:TemplateData )
 
 
 Configuration
