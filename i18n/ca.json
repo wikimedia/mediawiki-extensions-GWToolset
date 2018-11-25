@@ -17,6 +17,7 @@
 	"group-gwtoolset": "Usuaris del GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|Usuari del GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Usuaris del GWToolset",
+	"gwtoolset-back-to-top": "part superior de la pàgina",
 	"gwtoolset-batchjob-creation-failure": "No s'ha pogut crear el treball per lots del tipus \"$1\".",
 	"gwtoolset-could-not-close-xml": "No s'ha pogut tancar el lector d'XML.",
 	"gwtoolset-could-not-open-xml": "No s'ha pogut llegir el fitxer XML.",

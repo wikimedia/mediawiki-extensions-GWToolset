@@ -6,7 +6,8 @@
 			"Olion",
 			"Base",
 			"Piramidion",
-			"Ahonc"
+			"Ahonc",
+			"Vlad5250"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -21,7 +22,7 @@
 	"gwtoolset-batchjob-creation-failure": "Не вдалося створити пакетне завдання типу \"$1\".",
 	"gwtoolset-could-not-close-xml": "Не можна закрити читанку XML.",
 	"gwtoolset-could-not-open-xml": "Не вдалося відкрити XML-файл для читання.",
-	"gwtoolset-developer-issue": "Будь ласка, зв'яжіться з розробником. Цю проблему необхідно вирішити, перш ніж ви зможете продовжити. Будь ласка, додайте наступний текст звіту:\n\n$1",
+	"gwtoolset-developer-issue": "Будь ласка, зв'яжіться з розробником. Цю проблему необхідно вирішити, перш ніж ви зможете продовжити. Будь ласка, до звіту про проблему додайте і наступний текст:\n\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, або <code>record-count</code>, або <code>record-current</code> не надані.",
 	"gwtoolset-file-backend-maxage-invalid": "Максимальне значення віку, передбачене у  <code>$wgGWTFBMaxAge</code>, невірне.\nПодивіться  [php.net/manual/en/datetime.formats.relative.php підручник PHP] за вказівками, які вірно його встановити.",
 	"gwtoolset-fsfile-empty": "Файл був порожній і через це його видалено.",
