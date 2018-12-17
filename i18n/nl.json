@@ -12,7 +12,8 @@
 			"Mar(c)",
 			"Spinster",
 			"Macofe",
-			"Mainframe98"
+			"Mainframe98",
+			"Bdijkstra"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -142,7 +143,7 @@
 	"gwtoolset-which-mediawiki-template": "Welke MediaWikisjabloon:",
 	"gwtoolset-which-metadata-mapping": "Welke metadatatoewijzing:",
 	"gwtoolset-xml-error": "Het XML-bestand kon niet geladen worden. Corrigeer de onderstaande problemen.",
-	"gwtoolset-categories": "Voer categorieen in, gescheiden door een sluisteken (\"|\").",
+	"gwtoolset-categories": "Voer categorieën in, gescheiden door een sluisteken (\"|\").",
 	"gwtoolset-category": "Categorie",
 	"gwtoolset-create-mapping": "$1: Metadatatoewijzing voor $2.",
 	"gwtoolset-example-record": "Inhoud van een voorbeeldrecord met metadata.",
