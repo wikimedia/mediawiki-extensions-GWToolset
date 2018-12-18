@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"gwtoolset": "GWToolset",
+	"gwtoolset-desc": "GWToolset, 'nu strumende de carecamende massive pe GLAM",
+	"right-gwtoolset": "Ause GWToolset",
+	"action-gwtoolset": "ause GWToolset",
+	"group-gwtoolset": "Utinde GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|Utende GWToolset}}",
+	"grouppage-gwtoolset": "{{ns:project}}:Utinde GWToolset",
+	"gwtoolset-submit": "Conferme",
+	"gwtoolset-summary-heading": "Riepiloghe",
+	"gwtoolset-cancel": "Annulle",
+	"gwtoolset-save": "Reggìstre"
+}
