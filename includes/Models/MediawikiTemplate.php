@@ -545,7 +545,7 @@ class MediawikiTemplate implements ModelInterface {
 		if ( empty( $mediawiki_template_name ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->param( wfMessage( 'gwtoolset-no-mediawiki-template' )->parse() )
+					->params( wfMessage( 'gwtoolset-no-mediawiki-template' )->parse() )
 					->parse()
 				);
 		}
