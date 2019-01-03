@@ -560,11 +560,7 @@ class UploadHandler {
 
 		$Api->execute();
 
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
-		} else {
-			$api_result = $Api->getResultData();
-		}
+		$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 
 		$api_result = Utils::objectToArray( $api_result );
 
