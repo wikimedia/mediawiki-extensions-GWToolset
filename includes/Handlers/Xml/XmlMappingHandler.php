@@ -9,6 +9,7 @@
 
 namespace GWToolset\Handlers\Xml;
 
+use Content;
 use DOMElement;
 use GWToolset\Config;
 use GWToolset\Utils;

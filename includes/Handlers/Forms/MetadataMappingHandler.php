@@ -17,6 +17,7 @@ use GWToolset\Config;
 use GWToolset\Constants;
 use GWToolset\Utils;
 use GWToolset\Forms\PreviewForm;
+use GWToolset\GWTException;
 use GWToolset\Handlers\UploadHandler;
 use GWToolset\Handlers\Xml\XmlMappingHandler;
 use GWToolset\Helpers\GWTFileBackend;

@@ -13,6 +13,7 @@ use GWToolset\Adapters\Php\MappingPhpAdapter;
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use GWToolset\Config;
 use GWToolset\Forms\MetadataMappingForm;
+use GWToolset\GWTException;
 use GWToolset\Handlers\UploadHandler;
 use GWToolset\Handlers\Xml\XmlDetectHandler;
 use GWToolset\Helpers\GWTFileBackend;
