@@ -70,7 +70,6 @@ class UploadMetadataJob extends Job {
 
 	/**
 	 * @throws MWException
-	 * @return bool
 	 */
 	protected function recreateMetadataJob() {
 		if ( (int)$this->params['attempts'] > (int)Config::$metadata_job_max_attempts ) {

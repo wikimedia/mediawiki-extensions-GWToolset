@@ -13,6 +13,7 @@ use Content;
 use DOMElement;
 use GWToolset\GWTException;
 use GWToolset\Utils;
+use GWToolset\SpecialGWToolset;
 use GWToolset\Models\Mapping;
 use Html;
 use MWException;
@@ -52,7 +53,7 @@ class XmlDetectHandler extends XmlHandler {
 	protected $_metadata_as_options;
 
 	/**
-	 * @var \SpecialPage
+	 * @var SpecialGWToolset
 	 */
 	protected $_SpecialPage;
 

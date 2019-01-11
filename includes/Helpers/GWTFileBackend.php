@@ -65,7 +65,7 @@ class GWTFileBackend {
 	 *
 	 * @param string|null $mwstore_relative_path
 	 * @throws MWException
-	 * @return bool
+	 * @return Status
 	 */
 	public function createCleanupJob( $mwstore_relative_path = null ) {
 		if ( empty( $mwstore_relative_path ) ) {
@@ -136,7 +136,7 @@ class GWTFileBackend {
 	/**
 	 * @param string|null $mwstore_relative_path
 	 * @throws MWException
-	 * @return string
+	 * @return Status
 	 */
 	public function deleteFileFromRelativePath( $mwstore_relative_path = null ) {
 		if ( empty( $mwstore_relative_path ) ) {

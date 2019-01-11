@@ -9,16 +9,16 @@
 namespace GWToolset\Handlers\Forms;
 
 use GWToolset\GWTException;
+use GWToolset\SpecialGWToolset;
 use GWToolset\Helpers\WikiChecks;
 use Html;
 use MWException;
-use SpecialPage;
 use User;
 
 abstract class FormHandler {
 
 	/**
-	 * @var SpecialPage
+	 * @var SpecialGWToolset
 	 */
 	public $SpecialPage;
 
