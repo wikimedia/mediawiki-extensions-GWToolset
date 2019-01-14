@@ -377,14 +377,14 @@ class GWTFileBackend {
 	 *
 	 * @see http://www.php.net/manual/en/datetime.formats.relative.php
 	 *
-	 * @param File $File
+	 * @param File $file
 	 * @throws MWException
 	 * @return null|string
 	 */
-	public function saveFile( File $File ) {
+	public function saveFile( File $file ) {
 		$result = null;
 
-		if ( empty( $File ) ) {
+		if ( empty( $file ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-file' )->parse() )
@@ -392,24 +392,24 @@ class GWTFileBackend {
 			);
 		}
 
-		$this->setHash( $File->tmp_name );
-		$this->setFileExtension( $File->pathinfo['extension'] );
-		$Status = $this->prepare();
+		$this->setHash( $file->tmp_name );
+		$this->setFileExtension( $file->pathinfo['extension'] );
+		$status = $this->prepare();
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . $Status->getMessage() )
+					->params( __METHOD__ . ': ' . $status->getMessage() )
 					->parse()
 			);
 		}
 
-		$Status = $this->quickStore( $File->tmp_name );
+		$status = $this->quickStore( $file->tmp_name );
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . $Status->getMessage() )
+					->params( __METHOD__ . ': ' . $status->getMessage() )
 					->parse()
 			);
 		}

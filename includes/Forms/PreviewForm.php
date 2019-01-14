@@ -23,7 +23,7 @@ class PreviewForm {
 	/**
 	 * returns an html form for step 3 : Batch Preview
 	 *
-	 * @param IContextSource $Context
+	 * @param IContextSource $context
 	 *
 	 * @param array $expected_post_fields
 	 *
@@ -35,7 +35,7 @@ class PreviewForm {
 	 * an html form that is filtered
 	 */
 	public static function getForm(
-		IContextSource $Context,
+		IContextSource $context,
 		array $expected_post_fields,
 		array $metadata_items
 	) {
@@ -85,7 +85,7 @@ class PreviewForm {
 				'form',
 				[
 					'id' => 'gwtoolset-form',
-					'action' => $Context->getTitle()->getFullURL(),
+					'action' => $context->getTitle()->getFullURL(),
 					'method' => 'post'
 				]
 			) .
@@ -105,7 +105,7 @@ class PreviewForm {
 					'type' => 'hidden',
 					'id' => 'wpEditToken',
 					'name' => 'wpEditToken',
-					'value' => $Context->getUser()->getEditToken()
+					'value' => $context->getUser()->getEditToken()
 				]
 			) .
 
@@ -138,7 +138,7 @@ class PreviewForm {
 
 			Html::closeElement( 'form' ) .
 
-			self::getMetadataAsWikitext( $metadata_items, $Context ) .
+			self::getMetadataAsWikitext( $metadata_items, $context ) .
 
 			Html::rawElement(
 				'a',
@@ -211,8 +211,7 @@ class PreviewForm {
 	 * Title(s), which are the result of processing the metadata file
 	 * with the mapping information given in step 2 : Metadata Mapping
 	 *
-	 * @param array $metadata_items
-	 * a collection of MediaWiki Title objects
+	 * @param Title[] $metadata_items
 	 *
 	 * @return string
 	 * the string contains a Title link assumed to be filtered by Title
@@ -221,13 +220,13 @@ class PreviewForm {
 		$result = Html::openElement( 'ul' );
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
-		foreach ( $metadata_items as $Title ) {
-			if ( $Title instanceof Title ) {
+		foreach ( $metadata_items as $title ) {
+			if ( $title instanceof Title ) {
 				$result .= Html::rawElement(
 					'li',
 					[],
 					// Use linkKnown to guard against slave lag for new uploads.
-					$linkRenderer->makeKnownLink( $Title, null, [ 'target' => '_blank' ] )
+					$linkRenderer->makeKnownLink( $title, null, [ 'target' => '_blank' ] )
 				);
 			}
 		}
@@ -249,37 +248,37 @@ class PreviewForm {
 	 * $item['Title'] {Title}
 	 * $item['wikitext'] {string}
 	 *
-	 * @param IContextSource $Context
+	 * @param IContextSource $context
 	 *
 	 * @return string
 	 */
 	public static function getMetadataAsWikitext(
 		array $metadata_items,
-		IContextSource $Context
+		IContextSource $context
 	) {
 		$result = null;
 		global $wgParser;
-		$Skin = $Context->getSkin();
-		$Output = $Context->getOutput();
+		$skin = $context->getSkin();
+		$output = $context->getOutput();
 
-		$parser_options = ParserOptions::newFromContext( $Context );
+		$parserOptions = ParserOptions::newFromContext( $context );
 		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
-			$parser_options->setEditSection( false );
+			$parserOptions->setEditSection( false );
 		}
-		$parser_options->setIsPreview( true );
+		$parserOptions->setIsPreview( true );
 
 		foreach ( $metadata_items as $item ) {
 			$categories = [];
 			$notParsable = [];
 
-			$parser_options->setTargetLanguage(
+			$parserOptions->setTargetLanguage(
 				$item['Title']->getPageLanguage()
 			);
 
 			$parser_out = $wgParser->parse(
 				$item['wikitext'],
 				$item['Title'],
-				$parser_options
+				$parserOptions
 			);
 
 			/** @var Language $lang */
@@ -291,7 +290,7 @@ class PreviewForm {
 				$category = $wgParser->parse(
 					$key,
 					$item['Title'],
-					$parser_options
+					$parserOptions
 				);
 
 				// find this hacky, but not sure how to retrieve the raw text
@@ -309,7 +308,7 @@ class PreviewForm {
 				}
 			}
 
-			$Output->setCategoryLinks( $categories );
+			$output->setCategoryLinks( $categories );
 
 			$result .=
 				Html::openElement(
@@ -341,13 +340,13 @@ class PreviewForm {
 				$parser_out->getText( [
 					'enableSectionEditLinks' => false,
 				] ) .
-				$Skin->getCategories() .
+				$skin->getCategories() .
 				self::getNonParsableCategoriesAsHtml( $notParsable ) .
 				Html::closeElement( 'div' );
 		}
 
 		// set the page caterogies to nothing
-		$Output->setCategoryLinks( [] );
+		$output->setCategoryLinks( [] );
 
 		return $result;
 	}

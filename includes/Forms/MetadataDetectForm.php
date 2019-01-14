@@ -64,14 +64,14 @@ class MetadataDetectForm {
 	/**
 	 * returns an html form for step 1 : Metadata Detect
 	 *
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 *
 	 * @return string an html form
 	 */
-	public static function getForm( SpecialPage $SpecialPage ) {
+	public static function getForm( SpecialPage $specialPage ) {
 		$namespace = Utils::getNamespaceName( Config::$metadata_namespace );
-		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$user = $SpecialPage->getUser();
+		$mediaWikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
+		$user = $specialPage->getUser();
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		return Html::rawElement(
@@ -132,7 +132,7 @@ class MetadataDetectForm {
 				'form',
 				[
 					'id' => 'gwtoolset-form',
-					'action' => $SpecialPage->getContext()->getTitle()->getFullURL(),
+					'action' => $specialPage->getContext()->getTitle()->getFullURL(),
 					'method' => 'post',
 					'enctype' => 'multipart/form-data'
 				]
@@ -210,7 +210,7 @@ class MetadataDetectForm {
 					[],
 					wfMessage( 'gwtoolset-select-template' )->escaped() .
 					Html::rawElement( 'br' ) .
-					$MediawikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' )
+					$mediaWikiTemplate->getTemplatesAsSelect( 'gwtoolset-mediawiki-template-name' )
 				) .
 
 				Html::rawElement(

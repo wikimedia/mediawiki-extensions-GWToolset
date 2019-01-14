@@ -53,11 +53,11 @@ class Mapping implements ModelInterface {
 	protected $_DataAdapater;
 
 	/**
-	 * @param DataAdapterInterface $DataAdapter
+	 * @param DataAdapterInterface $dataAdapter
 	 */
-	public function __construct( DataAdapterInterface $DataAdapter ) {
+	public function __construct( DataAdapterInterface $dataAdapter ) {
 		$this->reset();
-		$this->_DataAdapater = $DataAdapter;
+		$this->_DataAdapater = $dataAdapter;
 	}
 
 	/**

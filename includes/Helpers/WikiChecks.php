@@ -152,43 +152,43 @@ class WikiChecks {
 	 * Run through a series of checks to make sure the wiki environment is properly
 	 * setup for this extension and that the user has permission to use it
 	 *
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 * @return Status
 	 */
-	public static function pageIsReadyForThisUser( SpecialPage $SpecialPage ) {
-		$Status = self::verifyXMLReaderExists();
-		if ( !$Status->isOK() ) {
-			return $Status;
+	public static function pageIsReadyForThisUser( SpecialPage $specialPage ) {
+		$status = self::verifyXMLReaderExists();
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::verifyFinfoExists();
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::verifyFinfoExists();
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::uploadsEnabled();
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::uploadsEnabled();
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::canUserViewPage( $SpecialPage );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::canUserViewPage( $specialPage );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::checkUserWikiPermissions( $SpecialPage );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::checkUserWikiPermissions( $specialPage );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::isUserBlocked( $SpecialPage );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::isUserBlocked( $specialPage );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
 		self::checkMediaUploadSettings();
 
-		return $Status;
+		return $status;
 	}
 
 	/**

@@ -404,11 +404,11 @@ class MetadataMappingHandler extends FormHandler {
 		);
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFileFromRelativePath(
+		$file = $this->_GWTFileBackend->retrieveFileFromRelativePath(
 			$user_options['gwtoolset-metadata-file-relative-path']
 		);
 
-		if ( !( $FSFile instanceof FSFile ) ) {
+		if ( !( $file instanceof FSFile ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -421,7 +421,7 @@ class MetadataMappingHandler extends FormHandler {
 			);
 		}
 
-		if ( $user_options['gwtoolset-metadata-file-sha1'] !== $FSFile->getSha1Base36() ) {
+		if ( $user_options['gwtoolset-metadata-file-sha1'] !== $file->getSha1Base36() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -434,7 +434,7 @@ class MetadataMappingHandler extends FormHandler {
 
 		$result = $this->_XmlMappingHandler->processXml(
 			$user_options,
-			$FSFile->getPath()
+			$file->getPath()
 		);
 
 		// this method is being run by a wiki job.
@@ -483,14 +483,14 @@ class MetadataMappingHandler extends FormHandler {
 			} else {
 				// no more UploadMediafileJobs need to be created
 				// create a GWTFileBackendCleanupJob that will delete the metadata file in the mwstore
-				$Status = $this->_GWTFileBackend->createCleanupJob(
+				$status = $this->_GWTFileBackend->createCleanupJob(
 					$user_options['gwtoolset-metadata-file-relative-path']
 				);
 
-				if ( !$Status->isOK() ) {
+				if ( !$status->isOK() ) {
 					throw new MWException(
 						wfMessage( 'gwtoolset-developer-issue' )
-							->params( __METHOD__ . ': ' . $Status->getMessage() )
+							->params( __METHOD__ . ': ' . $status->getMessage() )
 							->parse()
 					);
 				}

@@ -329,20 +329,20 @@ class UploadHandler {
 			$options['proxy'] = $wgCopyUploadProxy;
 		}
 
-		$Http = MWHttpRequest::factory( $url, $options );
-		$Status = $Http->execute();
+		$httpRequest = MWHttpRequest::factory( $url, $options );
+		$status = $httpRequest->execute();
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			throw new GWTException(
 				[
 					'gwtoolset-mapping-media-file-url-bad' => [
-						$url, Status::wrap( $Status )->getMessage()
+						$url, Status::wrap( $status )->getMessage()
 					]
 				]
 			);
 		}
 
-		$result['url'] = $Http->getFinalUrl();
+		$result['url'] = $httpRequest->getFinalUrl();
 
 		if ( empty( $result['url'] ) ) {
 			throw new GWTException(
@@ -353,7 +353,7 @@ class UploadHandler {
 			);
 		}
 
-		$result['content-type'] = $Http->getResponseHeader( 'content-type' );
+		$result['content-type'] = $httpRequest->getResponseHeader( 'content-type' );
 
 		if ( empty( $result['content-type'] ) ) {
 			throw new GWTException(
@@ -389,7 +389,7 @@ class UploadHandler {
 			$this->_item_specific_categories
 		);
 
-		// $Output->setCategoryLinks requires an array with the category name
+		// $output->setCategoryLinks requires an array with the category name
 		// as the key and a sortkey as the value;  not sure what the are valid
 		// sortkey values, but 0 seems to work well
 		foreach ( $categories as $category ) {
@@ -435,17 +435,17 @@ class UploadHandler {
 		}
 
 		$pathinfo = pathinfo( $options['url'] );
-		$MimeMagic = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer();
+		$mimeAnalyzer = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer();
 
 		if ( !empty( $pathinfo['extension'] )
 			&& in_array( $pathinfo['extension'], $wgFileExtensions )
-			&& strpos( $MimeMagic->getTypesForExtension( $pathinfo['extension'] ),
+			&& strpos( $mimeAnalyzer->getTypesForExtension( $pathinfo['extension'] ),
 					$options['content-type']
 				) !== false
 		) {
 			$result = $pathinfo['extension'];
 		} elseif ( !empty( $options['content-type'] ) ) {
-			$result = explode( ' ', $MimeMagic->getExtensionsForType( $options['content-type'] ) );
+			$result = explode( ' ', $mimeAnalyzer->getExtensionsForType( $options['content-type'] ) );
 
 			if ( !empty( $result ) ) {
 				$result = $result[0];
@@ -535,32 +535,32 @@ class UploadHandler {
 	 * find out if anyone, besides the current user,
 	 * has contributed to a given Title
 	 *
-	 * @param Title $Title
+	 * @param Title $title
 	 * @return bool
 	 */
-	protected function otherContributors( Title $Title ) {
+	protected function otherContributors( Title $title ) {
 		global $wgRequest;
 
 		if ( is_bool( $this->otherContributors ) ) {
 			return $this->otherContributors;
 		}
 
-		$Api = new ApiMain(
+		$api = new ApiMain(
 			new DerivativeRequest(
 				$wgRequest,
 				[
 					'action' => 'query',
 					'prop' => 'contributors',
-					'titles' => $Title->getPrefixedText()
+					'titles' => $title->getPrefixedText()
 				],
 				false // not posted
 			),
 			false // disable write
 		);
 
-		$Api->execute();
+		$api->execute();
 
-		$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
+		$api_result = $api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 
 		$api_result = Utils::objectToArray( $api_result );
 
@@ -630,10 +630,10 @@ class UploadHandler {
 		}
 
 		$this->_File->populate( $metadata_file_upload );
-		$Status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
+		$status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
 
-		if ( !$Status->isOK() ) {
-			throw new GWTException( $Status->getMessage() );
+		if ( !$status->isOK() ) {
+			throw new GWTException( $status->getMessage() );
 		}
 
 		$result = $this->_GWTFileBackend->saveFile( $this->_File );
@@ -668,7 +668,7 @@ class UploadHandler {
 	 * @return null|Title
 	 */
 	public function saveMediafileAsContent( array $user_options ) {
-		$Status = Status::newGood();
+		$status = Status::newGood();
 
 		$this->validateUserOptions( $user_options );
 		$this->user_options = $user_options;
@@ -676,39 +676,39 @@ class UploadHandler {
 		$upload_params = $this->getUploadParams();
 		$this->validateUploadParams( $upload_params );
 
-		$Title = $this->getTitle( $upload_params['title'] );
+		$title = $this->getTitle( $upload_params['title'] );
 
-		if ( !$Title->isKnown() ) {
+		if ( !$title->isKnown() ) {
 			// upload new content and mediafile
 			$this->otherContributors = false;
-			$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
+			$status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $title );
 		} else {
 			// re-upload the mediafile
 			if ( $this->user_options['gwtoolset-reupload-media'] === true ) {
-				$Status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $Title );
+				$status = $this->uploadMediaFileViaUploadFromUrl( $upload_params, $title );
 			}
 
 			// upload new page content if no one else has edited the title
-			if ( $Status->isOK() ) {
-				if ( !$this->otherContributors( $Title ) ) {
-					$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
-					$Page = WikiPage::factory( $Title );
-					$Status = $Page->doEditContent(
-						$Content,
+			if ( $status->isOK() ) {
+				if ( !$this->otherContributors( $title ) ) {
+					$content = ContentHandler::makeContent( $upload_params['text'], $title );
+					$page = WikiPage::factory( $title );
+					$status = $page->doEditContent(
+						$content,
 						$upload_params['comment'],
 						0,
 						false,
 						$this->_User
 					);
 				} else {
-					$Status = Status::newFatal( 'gwtoolset-mediafile-other-contributors', $Title );
+					$status = Status::newFatal( 'gwtoolset-mediafile-other-contributors', $title );
 				}
 			}
 		}
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$msg =
-				$Status->getMessage() . PHP_EOL .
+				$status->getMessage() . PHP_EOL .
 				'original URL: ' .
 				Utils::sanitizeUrl(
 					$this
@@ -721,7 +721,7 @@ class UploadHandler {
 			throw new GWTException( $msg );
 		}
 
-		return $Title;
+		return $title;
 	}
 
 	/**
@@ -851,18 +851,18 @@ class UploadHandler {
 
 	/**
 	 * @param array $options
-	 * @param Title $Title
+	 * @param Title $title
 	 * @return Status
 	 */
 	protected function uploadMediaFileViaUploadFromUrl(
 		array $options,
-		Title $Title
+		Title $title
 	) {
 		// Initialize the upload object
 		$upload = new UploadFromUrl();
 
 		$upload->initialize(
-			$Title->getBaseText(),
+			$title->getBaseText(),
 			$options['gwtoolset-url-to-the-media-file']
 		);
 
@@ -883,7 +883,7 @@ class UploadHandler {
 		}
 
 		// Check upload warnings
-		$status = $this->checkUploadWarnings( $upload, $Title );
+		$status = $this->checkUploadWarnings( $upload, $title );
 		if ( !$status->isOK() ) {
 			$upload->cleanupTempFile();
 			return $status;
@@ -899,7 +899,7 @@ class UploadHandler {
 		);
 
 		// Page may very well exist now where it previously didn't
-		$Title->resetArticleID( false );
+		$title->resetArticleID( false );
 
 		if ( !$status->isOK() ) {
 			$msg =

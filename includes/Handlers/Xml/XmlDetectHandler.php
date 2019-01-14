@@ -82,15 +82,15 @@ class XmlDetectHandler extends XmlHandler {
 	 * additional nodes that do not exist in the first record are added in
 	 * findExampleDOMNodes(), but only one value is used
 	 *
-	 * @param DOMElement $DOMElement
+	 * @param DOMElement $domElement
 	 */
-	protected function createExampleDOMElement( DOMElement $DOMElement ) {
-		foreach ( $DOMElement->childNodes as $DOMNode ) {
-			if ( $DOMNode->nodeType === XML_ELEMENT_NODE ) {
-				if ( isset( $this->_metadata_example_dom_element[$DOMNode->nodeName] ) ) {
-					$this->_metadata_example_dom_element[$DOMNode->nodeName][] = $DOMNode->nodeValue;
+	protected function createExampleDOMElement( DOMElement $domElement ) {
+		foreach ( $domElement->childNodes as $domNode ) {
+			if ( $domNode->nodeType === XML_ELEMENT_NODE ) {
+				if ( isset( $this->_metadata_example_dom_element[$domNode->nodeName] ) ) {
+					$this->_metadata_example_dom_element[$domNode->nodeName][] = $domNode->nodeValue;
 				} else {
-					$this->_metadata_example_dom_element[$DOMNode->nodeName][0] = $DOMNode->nodeValue;
+					$this->_metadata_example_dom_element[$domNode->nodeName][0] = $domNode->nodeValue;
 				}
 			}
 		}

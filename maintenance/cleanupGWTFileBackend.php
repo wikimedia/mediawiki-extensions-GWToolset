@@ -37,7 +37,7 @@ class GWTFileBackendCleanup extends Maintenance {
 	public function execute() {
 		global $wgGWTFileBackend, $wgGWTFBMaxAge;
 
-		$GWTFileBackend = new GWTFileBackend(
+		$fileBackend = new GWTFileBackend(
 			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend
@@ -64,9 +64,9 @@ class GWTFileBackendCleanup extends Maintenance {
 			'...' . PHP_EOL
 		);
 
-		$mwstore_path = $GWTFileBackend->getMWStorePath() . '/';
+		$mwstore_path = $fileBackend->getMWStorePath() . '/';
 
-		$FSFileBackendFileList = $GWTFileBackend->FileBackend->getFileList(
+		$fileList = $fileBackend->FileBackend->getFileList(
 			[ 'dir' => $mwstore_path, 'adviseStat' => true ]
 		);
 
@@ -77,10 +77,10 @@ class GWTFileBackendCleanup extends Maintenance {
 
 		$file_count = 0;
 
-		foreach ( $FSFileBackendFileList as $file ) {
+		foreach ( $fileList as $file ) {
 			$mwstore_file_path = $mwstore_path . $file;
-			$extension = $GWTFileBackend->FileBackend->extensionFromPath( $file );
-			$timestamp = $GWTFileBackend->FileBackend->getFileTimestamp(
+			$extension = $fileBackend->FileBackend->extensionFromPath( $file );
+			$timestamp = $fileBackend->FileBackend->getFileTimestamp(
 				[ 'src' => $mwstore_file_path ]
 			);
 
@@ -88,14 +88,14 @@ class GWTFileBackendCleanup extends Maintenance {
 				array_key_exists( $extension, Config::$accepted_metadata_types )
 				&& wfTimestamp( TS_UNIX, $timestamp ) < $cutoff
 			) {
-				$Status = $GWTFileBackend->deleteFile( $mwstore_file_path );
+				$status = $fileBackend->deleteFile( $mwstore_file_path );
 
-				if ( !$Status->isOK() ) {
+				if ( !$status->isOK() ) {
 					throw new MWException(
 						wfMessage( 'gwtoolset-developer-issue' )
 							->params(
 								__METHOD__ . ': ' .
-								$Status->getMessage()
+								$status->getMessage()
 							)
 							->escaped()
 					);

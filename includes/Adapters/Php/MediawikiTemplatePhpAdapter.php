@@ -46,14 +46,14 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 */
 	public function retrieve( array $options = [] ) {
 		$result = [ 'mediawiki_template_json' => '' ];
-		$template_data = null;
+		$templateData = null;
 
-		$Title = Utils::getTitle(
+		$title = Utils::getTitle(
 			$options['mediawiki_template_name'],
 			NS_TEMPLATE
 		);
 
-		if ( $Title === null || !$Title->isKnown() ) {
+		if ( $title === null || !$title->isKnown() ) {
 			throw new GWTException(
 				[
 					'gwtoolset-mediawiki-template-does-not-exist' =>
@@ -62,10 +62,10 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 			);
 		}
 
-		$template_data = $this->retrieveTemplateData( $Title );
+		$templateData = $this->retrieveTemplateData( $title );
 
-		if ( !empty( $template_data ) ) {
-			$result['mediawiki_template_json'] = $template_data;
+		if ( !empty( $templateData ) ) {
+			$result['mediawiki_template_json'] = $templateData;
 		} elseif (
 			in_array(
 				$options['mediawiki_template_name'],
@@ -100,12 +100,12 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 	 * if TemplateData isfound, it is prepared as a JSON string in an expected
 	 * format -- {"parameter name":""}
 	 *
-	 * @param Title $Title
+	 * @param Title $title
 	 * @throws \MWException
 	 * @return null|string
 	 * null or a JSON representation of the MediaWiki template parameters
 	 */
-	protected function retrieveTemplateData( Title $Title ) {
+	protected function retrieveTemplateData( Title $title ) {
 		$result = null;
 		global $wgAPIModules, $wgRequest;
 
@@ -113,29 +113,29 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 			return $result;
 		}
 
-		$Api = new ApiMain(
+		$api = new ApiMain(
 			new DerivativeRequest(
 				$wgRequest,
 				[
 					'action' => 'templatedata',
-					'titles' => $Title->getPrefixedText()
+					'titles' => $title->getPrefixedText()
 				],
 				false // not posted
 			),
 			false // disable write
 		);
 
-		$Api->execute();
+		$api->execute();
 
-		$api_result = $Api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
+		$apiResult = $api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 
-		$api_result = Utils::objectToArray( $api_result );
+		$apiResult = Utils::objectToArray( $apiResult );
 
-		if ( isset( $api_result['pages'] ) && count( $api_result['pages'] ) === 1 ) {
-			$api_result = array_shift( $api_result['pages'] );
+		if ( isset( $apiResult['pages'] ) && count( $apiResult['pages'] ) === 1 ) {
+			$apiResult = array_shift( $apiResult['pages'] );
 
-			if ( count( $api_result['params'] ) > 0 ) {
-				foreach ( $api_result['params'] as $key => $value ) {
+			if ( count( $apiResult['params'] ) > 0 ) {
+				foreach ( $apiResult['params'] as $key => $value ) {
 					if ( !$value['deprecated'] ) {
 						$result[$key] = '';
 					}

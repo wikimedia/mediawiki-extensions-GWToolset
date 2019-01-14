@@ -91,8 +91,8 @@ class Utils {
 			return $result;
 		}
 
-		$Languages = Language::factory( $wgLanguageCode );
-		$namespaces = $Languages->getNamespaces();
+		$language = Language::factory( $wgLanguageCode );
+		$namespaces = $language->getNamespaces();
 
 		if ( isset( $namespaces[$namespace] ) ) {
 			$result = $namespaces[$namespace] . ':';
@@ -139,33 +139,33 @@ class Utils {
 			);
 		}
 
-		$Title = Title::newFromText( $page_title, $namespace );
+		$title = Title::newFromText( $page_title, $namespace );
 
-		if ( !( $Title instanceof Title ) ) {
+		if ( !( $title instanceof Title ) ) {
 			return $result;
 		}
 
 		if ( !empty( $namespace )
-				&& $namespace !== $Title->getNamespace()
+				&& $namespace !== $title->getNamespace()
 		) {
 			global $wgLanguageCode;
-			$Language = Language::factory( $wgLanguageCode );
+			$language = Language::factory( $wgLanguageCode );
 
 			throw new GWTException(
 				[
 					'gwtoolset-namespace-mismatch' => [
 						$page_title,
-						$Language->getNsText( $Title->getNamespace() ),
-						$Language->getNsText( $namespace )
+						$language->getNsText( $title->getNamespace() ),
+						$language->getNsText( $namespace )
 					]
 				]
 			);
 		}
 
 		if ( !$options['must-be-known'] ) {
-			$result = $Title;
-		} elseif ( $Title->isKnown() ) {
-			$result = $Title;
+			$result = $title;
+		} elseif ( $title->isKnown() ) {
+			$result = $title;
 		}
 
 		return $result;

@@ -69,10 +69,10 @@ class MediawikiTemplate implements ModelInterface {
 	];
 
 	/**
-	 * @param MediawikiTemplatePhpAdapter $DataAdapter
+	 * @param MediawikiTemplatePhpAdapter $dataAdapter
 	 */
-	public function __construct( MediawikiTemplatePhpAdapter $DataAdapter ) {
-		$this->_DataAdapater = $DataAdapter;
+	public function __construct( MediawikiTemplatePhpAdapter $dataAdapter ) {
+		$this->_DataAdapater = $dataAdapter;
 	}
 
 	public function create( array $options = [] ) {

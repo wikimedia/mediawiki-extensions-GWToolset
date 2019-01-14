@@ -51,14 +51,14 @@ abstract class XmlHandler {
 	/**
 	 * a debug method
 	 *
-	 * @param \DOMNode $DOMNode
+	 * @param \DOMNode $domNode
 	 * @return string
 	 */
-	protected function getNodesInfo( $DOMNode ) {
+	protected function getNodesInfo( $domNode ) {
 		$result = null;
 
-		if ( $DOMNode->hasChildNodes() ) {
-			$subNodes = $DOMNode->childNodes;
+		if ( $domNode->hasChildNodes() ) {
+			$subNodes = $domNode->childNodes;
 
 			foreach ( $subNodes as $subNode ) {
 				if ( ( $subNode->nodeType !== 3 ) ||
@@ -119,9 +119,9 @@ abstract class XmlHandler {
 			);
 		}
 
-		$XMLReader = new XMLReader();
+		$xmlReader = new XMLReader();
 
-		if ( !$XMLReader->open( $file_path_local ) ) {
+		if ( !$xmlReader->open( $file_path_local ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-could-not-open-xml' )->escaped() )
@@ -130,14 +130,14 @@ abstract class XmlHandler {
 		}
 
 		// Make sure close() is called if exceptions occur
-		$xmlCloser = new ScopedCallback( function () use ( $XMLReader ) {
-			$XMLReader->close();
+		$xmlCloser = new ScopedCallback( function () use ( $xmlReader ) {
+			$xmlReader->close();
 		} );
 
 		$old_value = libxml_disable_entity_loader( true );
 
-		while ( $XMLReader->read() ) {
-			if ( $XMLReader->nodeType === XMLReader::DOC_TYPE ) {
+		while ( $xmlReader->read() ) {
+			if ( $xmlReader->nodeType === XMLReader::DOC_TYPE ) {
 				if ( $this->_GWTFileBackend instanceof GWTFileBackend ) {
 					$mwstore_relative_path = $this->_GWTFileBackend->getMWStoreRelativePath();
 
@@ -149,7 +149,7 @@ abstract class XmlHandler {
 				throw new GWTException( 'gwtoolset-xml-doctype' );
 			}
 
-			$read_result = $this->$callback( $XMLReader, $user_options );
+			$read_result = $this->$callback( $xmlReader, $user_options );
 
 			if ( !empty( $read_result['Title'] ) ) {
 				$result[] = $read_result['Title'];
@@ -162,7 +162,7 @@ abstract class XmlHandler {
 
 		libxml_disable_entity_loader( $old_value );
 
-		if ( !$XMLReader->close() ) {
+		if ( !$xmlReader->close() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-could-not-close-xml' )->escaped() )

@@ -57,20 +57,20 @@ class UploadMediafileJob extends Job {
 	 */
 	protected function processMetadata() {
 		global $wgUser;
-		$MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
-		$MediawikiTemplate->getMediaWikiTemplate(
+		$mediaWikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
+		$mediaWikiTemplate->getMediaWikiTemplate(
 			$this->params['user-options']['gwtoolset-mediawiki-template-name']
 		);
 
-		$Mapping = new Mapping( new MappingPhpAdapter() );
+		$mapping = new Mapping( new MappingPhpAdapter() );
 
-		$Mapping->mapping_array = $MediawikiTemplate->getMappingFromArray(
+		$mapping->mapping_array = $mediaWikiTemplate->getMappingFromArray(
 			$this->params['whitelisted-post']
 		);
 
-		$Mapping->setTargetElements();
-		$Mapping->reverseMap();
-		$Metadata = new Metadata( new MetadataPhpAdapter() );
+		$mapping->setTargetElements();
+		$mapping->reverseMap();
+		$metaData = new Metadata( new MetadataPhpAdapter() );
 
 		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
 		$oldUser = $wgUser;
@@ -81,24 +81,24 @@ class UploadMediafileJob extends Job {
 			$wgUser = $oldUser;
 		} );
 
-		$UploadHandler = new UploadHandler(
+		$uploadHandler = new UploadHandler(
 			[
-				'Mapping' => $Mapping,
-				'MediawikiTemplate' => $MediawikiTemplate,
-				'Metadata' => $Metadata,
+				'Mapping' => $mapping,
+				'MediawikiTemplate' => $mediaWikiTemplate,
+				'Metadata' => $metaData,
 				'User' => $this->User,
 			]
 		);
 
-		$MediawikiTemplate->metadata_raw = $this->params['options']['metadata-raw'];
-		$MediawikiTemplate->populateFromArray(
+		$mediaWikiTemplate->metadata_raw = $this->params['options']['metadata-raw'];
+		$mediaWikiTemplate->populateFromArray(
 			$this->params['options']['metadata-mapped-to-mediawiki-template']
 		);
 
-		$Metadata->metadata_raw = $this->params['options']['metadata-raw'];
-		$Metadata->metadata_as_array = $this->params['options']['metadata-as-array'];
+		$metaData->metadata_raw = $this->params['options']['metadata-raw'];
+		$metaData->metadata_as_array = $this->params['options']['metadata-as-array'];
 
-		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
+		$result = $uploadHandler->saveMediafileAsContent( $this->params['user-options'] );
 
 		ScopedCallback::consume( $restoreWgUser );
 
@@ -160,12 +160,12 @@ class UploadMediafileJob extends Job {
 	/**
 	 * @param string $message
 	 * @param string $job_subtype
-	 * @param Title $Title
+	 * @param Title $title
 	 */
-	protected function specialLog( $message, $job_subtype, Title $Title ) {
+	protected function specialLog( $message, $job_subtype, Title $title ) {
 		$options = [
 			'job-subtype' => $job_subtype,
-			'Title' => $Title,
+			'Title' => $title,
 			'User' => $this->User
 		];
 

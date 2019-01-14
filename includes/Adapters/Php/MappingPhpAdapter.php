@@ -44,8 +44,8 @@ class MappingPhpAdapter implements DataAdapterInterface {
 				);
 			}
 
-			$Mapping_Page = WikiPage::factory( $options['Metadata-Mapping-Title'] );
-			$result = $Mapping_Page->getContent()->getNativeData();
+			$mappingPage = WikiPage::factory( $options['Metadata-Mapping-Title'] );
+			$result = $mappingPage->getContent()->getNativeData();
 			// need to remove line breaks from the mapping otherwise the json_decode will error out
 			$result = str_replace( PHP_EOL, '', $result );
 		}

@@ -60,11 +60,11 @@ class UploadMetadataJob extends Job {
 	 * if an array, an array of Titles
 	 */
 	protected function processMetadata() {
-		$MetadataMappingHandler = new MetadataMappingHandler(
+		$metaDataMappingHandler = new MetadataMappingHandler(
 			[ 'User' => $this->User ]
 		);
 
-		return $MetadataMappingHandler->processRequest( $this->params['whitelisted-post'], true );
+		return $metaDataMappingHandler->processRequest( $this->params['whitelisted-post'], true );
 	}
 
 	/**

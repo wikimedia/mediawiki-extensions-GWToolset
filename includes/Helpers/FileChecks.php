@@ -22,7 +22,6 @@ use UploadBase;
  * @todo: examine other checks in baseupload - detectScript
  * @todo: examine other checks in baseupload - detectScriptInSvg
  * @todo: examine other checks in baseupload - mJavaDetected
- * @todo: take a look at how MimeMagic.php is working
  */
 class FileChecks {
 
@@ -44,11 +43,11 @@ class FileChecks {
 	}
 
 	/**
-	 * @param File $File
+	 * @param File $file
 	 * @return Status
 	 */
-	public static function fileWasUploaded( File $File ) {
-		if ( !$File->is_uploaded_file ) {
+	public static function fileWasUploaded( File $file ) {
+		if ( !$file->is_uploaded_file ) {
 			return Status::newFatal( 'gwtoolset-improper-upload' );
 		}
 
@@ -143,18 +142,18 @@ class FileChecks {
 	/**
 	 * Validates the file extension based on the accepted extensions provided
 	 *
-	 * @param string|File $File
+	 * @param string|File $file
 	 * @param array $accepted_extensions
 	 * @return Status
 	 */
-	public static function isAcceptedFileExtension( $File, array $accepted_extensions = [] ) {
+	public static function isAcceptedFileExtension( $file, array $accepted_extensions = [] ) {
 		$msg = null;
 		$extension = null;
 
-		if ( $File instanceof File ) {
-			$extension = Utils::sanitizeString( strtolower( $File->pathinfo['extension'] ) );
+		if ( $file instanceof File ) {
+			$extension = Utils::sanitizeString( strtolower( $file->pathinfo['extension'] ) );
 		} else {
-			$pathinfo = pathinfo( $File );
+			$pathinfo = pathinfo( $file );
 
 			if ( !isset( $pathinfo['extension'] ) ) {
 				$msg = 'gwtoolset-unaccepted-extension';
@@ -181,22 +180,22 @@ class FileChecks {
 	}
 
 	/**
-	 * @param File $File
+	 * @param File $file
 	 * @param array $accepted_mime_types
 	 * @return Status
 	 */
-	public static function isAcceptedMimeType( File $File, array $accepted_mime_types = [] ) {
-		if ( !in_array( $File->mime_type, $accepted_mime_types ) ) {
+	public static function isAcceptedMimeType( File $file, array $accepted_mime_types = [] ) {
+		if ( !in_array( $file->mime_type, $accepted_mime_types ) ) {
 			if ( self::$current_extension === 'xml' ) {
 				return Status::newFatal(
 					'gwtoolset-unaccepted-mime-type-for-xml',
-					Utils::sanitizeString( $File->mime_type ),
+					Utils::sanitizeString( $file->mime_type ),
 					'<?xml version="1.0" encoding="UTF-8"?>'
 				);
 			} else {
 				return Status::newFatal(
 					'gwtoolset-unaccepted-mime-type',
-					Utils::sanitizeString( $File->mime_type )
+					Utils::sanitizeString( $file->mime_type )
 				);
 			}
 		}
@@ -205,11 +204,11 @@ class FileChecks {
 	}
 
 	/**
-	 * @param File $File
+	 * @param File $file
 	 * @return Status
 	 */
-	public static function isFileEmpty( File $File ) {
-		if ( $File->size === 0 ) {
+	public static function isFileEmpty( File $file ) {
+		if ( $file->size === 0 ) {
 			return Status::newFatal( 'gwtoolset-file-is-empty' );
 		}
 
@@ -226,12 +225,12 @@ class FileChecks {
 	 *
 	 * currently tests metadata file upload only.
 	 *
-	 * @param File $File
+	 * @param File $file
 	 * @param array $accepted_types
 	 * @throws MWException
 	 * @return Status
 	 */
-	public static function isUploadedFileValid( File $File, array $accepted_types = [] ) {
+	public static function isUploadedFileValid( File $file, array $accepted_types = [] ) {
 		if ( empty( $accepted_types ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -242,60 +241,60 @@ class FileChecks {
 			);
 		}
 
-		$Status = self::isFileEmpty( $File );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::isFileEmpty( $file );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::noFileErrors( $File );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::noFileErrors( $file );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::fileWasUploaded( $File );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::fileWasUploaded( $file );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::isAcceptedFileExtension(
-			$File, self::getAcceptedExtensions( $accepted_types )
+		$status = self::isAcceptedFileExtension(
+			$file, self::getAcceptedExtensions( $accepted_types )
 		);
-		if ( !$Status->isOK() ) {
-			return $Status;
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::isAcceptedMimeType( $File, self::getAcceptedMimeTypes( $accepted_types ) );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::isAcceptedMimeType( $file, self::getAcceptedMimeTypes( $accepted_types ) );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		$Status = self::mimeTypeAndExtensionMatch( $File );
-		if ( !$Status->isOK() ) {
-			return $Status;
+		$status = self::mimeTypeAndExtensionMatch( $file );
+		if ( !$status->isOK() ) {
+			return $status;
 		}
 
-		return $Status;
+		return $status;
 	}
 
 	/**
 	 * currently tests metadata file upload only.
 	 *
-	 * @param File $File
+	 * @param File $file
 	 * @return Status
 	 */
-	public static function mimeTypeAndExtensionMatch( File $File ) {
-		if ( !isset( $File->pathinfo['extension'] ) || empty( $File->pathinfo['extension'] ) ) {
+	public static function mimeTypeAndExtensionMatch( File $file ) {
+		if ( !isset( $file->pathinfo['extension'] ) || empty( $file->pathinfo['extension'] ) ) {
 			return Status::newFatal( 'gwtoolset-unaccepted-extension' );
 		}
 
 		$mime_type_extension_match = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer()
-			->isMatchingExtension( $File->pathinfo['extension'], $File->mime_type );
+			->isMatchingExtension( $file->pathinfo['extension'], $file->mime_type );
 
 		if ( !$mime_type_extension_match ) {
 			return Status::newFatal(
 				'gwtoolset-mime-type-mismatch',
-				Utils::sanitizeString( $File->pathinfo['extension'] ),
-				Utils::sanitizeString( $File->mime_type )
+				Utils::sanitizeString( $file->pathinfo['extension'] ),
+				Utils::sanitizeString( $file->mime_type )
 			);
 		}
 
@@ -303,13 +302,13 @@ class FileChecks {
 	}
 
 	/**
-	 * @param File $File
+	 * @param File $file
 	 * @return Status
 	 */
-	public static function noFileErrors( File $File ) {
+	public static function noFileErrors( File $file ) {
 		$msg = null;
 
-		switch ( $File->error ) {
+		switch ( $file->error ) {
 			case UPLOAD_ERR_OK:
 				break;
 

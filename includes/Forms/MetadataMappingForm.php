@@ -20,7 +20,7 @@ class MetadataMappingForm {
 	/**
 	 * returns an html form for step 2 : Metadata Mapping
 	 *
-	 * @param MetadataDetectHandler $Handler
+	 * @param MetadataDetectHandler $handler
 	 *
 	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
@@ -28,7 +28,7 @@ class MetadataMappingForm {
 	 * @return string
 	 * an html form
 	 */
-	public static function getForm( MetadataDetectHandler $Handler, array &$user_options ) {
+	public static function getForm( MetadataDetectHandler $handler, array &$user_options ) {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$template_link = '[[Template:' .
 			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .
@@ -119,7 +119,7 @@ class MetadataMappingForm {
 				'form',
 				[
 					'id' => 'gwtoolset-form',
-					'action' => $Handler->SpecialPage->getContext()->getTitle()->getFullURL(),
+					'action' => $handler->SpecialPage->getContext()->getTitle()->getFullURL(),
 					'method' => 'post'
 				]
 			) .
@@ -266,7 +266,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'id' => 'wpEditToken',
 					'name' => 'wpEditToken',
-					'value' => $Handler->User->getEditToken()
+					'value' => $handler->User->getEditToken()
 				]
 			) .
 
@@ -306,7 +306,7 @@ class MetadataMappingForm {
 				Html::rawElement(
 					'tbody',
 					[],
-					$Handler->getMetadataAsHtmlSelectsInTableRows()
+					$handler->getMetadataAsHtmlSelectsInTableRows()
 				)
 			) .
 
@@ -331,7 +331,7 @@ class MetadataMappingForm {
 				Html::rawElement(
 					'tbody',
 					[ 'style' => 'vertical-align:top;' ],
-					$Handler->XmlDetectHandler->getMetadataAsHtmlTableRows()
+					$handler->XmlDetectHandler->getMetadataAsHtmlTableRows()
 				)
 			) .
 
@@ -625,7 +625,7 @@ class MetadataMappingForm {
 								[
 									'name' => 'gwtoolset-category-metadata[]'
 								],
-								$Handler->XmlDetectHandler->getMetadataAsOptions()
+								$handler->XmlDetectHandler->getMetadataAsOptions()
 							)
 						)
 					)

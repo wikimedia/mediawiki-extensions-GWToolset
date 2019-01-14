@@ -196,9 +196,9 @@ class SpecialGWToolset extends SpecialPage {
 	 * @return bool
 	 */
 	protected function wikiChecks() {
-		$Status = WikiChecks::pageIsReadyForThisUser( $this );
+		$status = WikiChecks::pageIsReadyForThisUser( $this );
 
-		if ( !$Status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$this->getOutput()->addHTML(
 				Html::rawElement(
 					'h2',
@@ -208,7 +208,7 @@ class SpecialGWToolset extends SpecialPage {
 				Html::rawElement(
 					'span',
 					[ 'class' => 'error' ],
-					$Status->getMessage()
+					$status->getMessage()
 				)
 			);
 			return false;

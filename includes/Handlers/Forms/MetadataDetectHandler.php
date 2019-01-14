@@ -209,11 +209,11 @@ class MetadataDetectHandler extends FormHandler {
 			$this->_UploadHandler->saveMetadataToFileBackend();
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
-		$FSFile = $this->_GWTFileBackend->retrieveFileFromRelativePath(
+		$file = $this->_GWTFileBackend->retrieveFileFromRelativePath(
 			$user_options['gwtoolset-metadata-file-relative-path']
 		);
 
-		if ( !( $FSFile instanceof FSFile ) ) {
+		if ( !( $file instanceof FSFile ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -226,8 +226,8 @@ class MetadataDetectHandler extends FormHandler {
 			);
 		}
 
-		$user_options['gwtoolset-metadata-file-sha1'] = $FSFile->getSha1Base36();
-		$this->XmlDetectHandler->processXml( $user_options, $FSFile->getPath() );
+		$user_options['gwtoolset-metadata-file-sha1'] = $file->getSha1Base36();
+		$this->XmlDetectHandler->processXml( $user_options, $file->getPath() );
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$this->_MediawikiTemplate->getMediaWikiTemplate(
@@ -261,11 +261,11 @@ class MetadataDetectHandler extends FormHandler {
 		if (
 			!empty( $this->_whitelisted_post['gwtoolset-mediawiki-template-custom'] )
 		) {
-			$Language = Language::factory( $wgLanguageCode );
+			$language = Language::factory( $wgLanguageCode );
 
 			return Utils::normalizeSpace(
 					str_replace(
-						$Language->getNsText( NS_TEMPLATE ) . ':',
+						$language->getNsText( NS_TEMPLATE ) . ':',
 						'',
 						$this->_whitelisted_post['gwtoolset-mediawiki-template-custom']
 					)

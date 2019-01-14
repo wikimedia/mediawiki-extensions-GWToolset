@@ -32,7 +32,7 @@ class GWTFileBackendCleanupJob extends Job {
 		$result = true;
 		global $wgGWTFileBackend;
 
-		$GWTFileBackend = new GWTFileBackend(
+		$fileBackend = new GWTFileBackend(
 			[
 				'container' => Config::$filebackend_metadata_container,
 				'file-backend-name' => $wgGWTFileBackend,
@@ -40,12 +40,12 @@ class GWTFileBackendCleanupJob extends Job {
 			]
 		);
 
-		$Status = $GWTFileBackend->deleteFileFromRelativePath(
+		$status = $fileBackend->deleteFileFromRelativePath(
 			$this->params['gwtoolset-metadata-file-relative-path']
 		);
 
-		if ( !$Status->isOK() ) {
-			$this->setLastError( __METHOD__ . ': ' . $Status->getMessage() );
+		if ( !$status->isOK() ) {
+			$this->setLastError( __METHOD__ . ': ' . $status->getMessage() );
 			$result = false;
 		}
 
