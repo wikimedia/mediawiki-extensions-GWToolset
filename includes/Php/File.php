@@ -103,7 +103,6 @@ class File {
 
 	/**
 	 * @param string|null $file_field_name
-	 * @return void
 	 */
 	public function __construct( $file_field_name = null ) {
 		$this->init();
