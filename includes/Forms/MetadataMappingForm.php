@@ -331,7 +331,7 @@ class MetadataMappingForm {
 				Html::rawElement(
 					'tbody',
 					[ 'style' => 'vertical-align:top;' ],
-					$Handler->XmlDetectHandler->getMetadataAsHtmlTableRows( $user_options )
+					$Handler->XmlDetectHandler->getMetadataAsHtmlTableRows()
 				)
 			) .
 

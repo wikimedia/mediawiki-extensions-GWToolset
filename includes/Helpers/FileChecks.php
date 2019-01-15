@@ -237,7 +237,7 @@ class FileChecks {
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
 						wfMessage( 'gwtoolset-no-accepted-types' )
-							->escaped( 'gwtoolset-no-accepted-types-provided' )
+							->escaped()
 					)->parse()
 			);
 		}

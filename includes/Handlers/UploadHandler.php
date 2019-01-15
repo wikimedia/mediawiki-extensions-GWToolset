@@ -863,8 +863,7 @@ class UploadHandler {
 
 		$upload->initialize(
 			$Title->getBaseText(),
-			$options['gwtoolset-url-to-the-media-file'],
-			false
+			$options['gwtoolset-url-to-the-media-file']
 		);
 
 		$httpOptions['timeout'] = Config::$http_timeout;

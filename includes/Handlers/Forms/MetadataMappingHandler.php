@@ -478,7 +478,7 @@ class MetadataMappingHandler extends FormHandler {
 			) {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
 					(int)$user_options['gwtoolset-record-current'];
-				$this->createMetadataBatchJob( $user_options );
+				$this->createMetadataBatchJob();
 
 			} else {
 				// no more UploadMediafileJobs need to be created
@@ -572,7 +572,7 @@ class MetadataMappingHandler extends FormHandler {
 						[],
 						wfMessage( 'gwtoolset-step-4-heading' )->escaped()
 					) .
-					$this->createMetadataBatchJob( $user_options );
+					$this->createMetadataBatchJob();
 
 			// $fromJob, this method is being run by a wiki job;
 			// typically uploadMediafileJob.
