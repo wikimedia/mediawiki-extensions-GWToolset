@@ -113,5 +113,5 @@ class GWTFileBackendCleanup extends Maintenance {
 	}
 }
 
-$maintClass = 'GWToolset\GWTFileBackendCleanup';
+$maintClass = GWTFileBackendCleanup::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

@@ -35,18 +35,18 @@ class SpecialGWToolset extends SpecialPage {
 	protected $_registered_modules = [
 		'metadata-detect' => [
 			'allow-get' => true,
-			'handler' => '\GWToolset\Handlers\Forms\MetadataDetectHandler',
-			'form' => '\GWToolset\Forms\MetadataDetectForm'
+			'handler' => \GWToolset\Handlers\Forms\MetadataDetectHandler::class,
+			'form' => \GWToolset\Forms\MetadataDetectForm::class,
 		],
 		'metadata-mapping' => [
 			'allow-get' => false,
-			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',
-			'form' => '\GWToolset\Forms\MetadataMappingForm'
+			'handler' => \GWToolset\Handlers\Forms\MetadataMappingHandler::class,
+			'form' => \GWToolset\Forms\MetadataMappingForm::class,
 		],
 		'metadata-preview' => [
 			'allow-get' => false,
-			'handler' => '\GWToolset\Handlers\Forms\MetadataMappingHandler',
-			'form' => '\GWToolset\Forms\MetadataMappingForm'
+			'handler' => \GWToolset\Handlers\Forms\MetadataMappingHandler::class,
+			'form' => \GWToolset\Forms\MetadataMappingForm::class,
 		]
 	];
 
