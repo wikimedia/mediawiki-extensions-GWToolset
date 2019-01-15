@@ -8,10 +8,10 @@
  */
 namespace GWToolset\Forms;
 
+use GWToolset\Handlers\Forms\MetadataDetectHandler;
 use Html;
 use GWToolset\Config;
 use GWToolset\Utils;
-use GWToolset\Handlers\Forms\FormHandler;
 use MediaWiki\MediaWikiServices;
 use Title;
 
@@ -20,7 +20,7 @@ class MetadataMappingForm {
 	/**
 	 * returns an html form for step 2 : Metadata Mapping
 	 *
-	 * @param \GWToolset\Handlers\Forms\FormHandler $Handler
+	 * @param MetadataDetectHandler $Handler
 	 *
 	 * @param array &$user_options
 	 * an array of user options that was submitted in the html form
@@ -28,7 +28,7 @@ class MetadataMappingForm {
 	 * @return string
 	 * an html form
 	 */
-	public static function getForm( FormHandler $Handler, array &$user_options ) {
+	public static function getForm( MetadataDetectHandler $Handler, array &$user_options ) {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$template_link = '[[Template:' .
 			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .

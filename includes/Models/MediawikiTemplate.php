@@ -9,8 +9,8 @@
 
 namespace GWToolset\Models;
 
+use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use Html;
-use GWToolset\Adapters\DataAdapterInterface;
 use GWToolset\Config;
 use GWToolset\GWTException;
 use GWToolset\Utils;
@@ -43,7 +43,7 @@ class MediawikiTemplate implements ModelInterface {
 	public $mediawiki_template_array = [];
 
 	/**
-	 * @var DataAdapterInterface
+	 * @var MediawikiTemplatePhpAdapter
 	 */
 	protected $_DataAdapater;
 
@@ -69,9 +69,9 @@ class MediawikiTemplate implements ModelInterface {
 	];
 
 	/**
-	 * @param DataAdapterInterface $DataAdapter
+	 * @param MediawikiTemplatePhpAdapter $DataAdapter
 	 */
-	public function __construct( DataAdapterInterface $DataAdapter ) {
+	public function __construct( MediawikiTemplatePhpAdapter $DataAdapter ) {
 		$this->_DataAdapater = $DataAdapter;
 	}
 
