@@ -163,7 +163,7 @@ class UploadMediafileJob extends Job {
 	/**
 	 * @param string $message
 	 * @param string $job_subtype
-	 * @param object $Title
+	 * @param Title $Title
 	 */
 	protected function specialLog( $message, $job_subtype, Title $Title ) {
 		$options = [

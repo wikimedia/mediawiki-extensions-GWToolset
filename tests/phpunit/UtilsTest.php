@@ -1,4 +1,5 @@
 <?php
+
 namespace GWToolset;
 
 use MediaWikiTestCase;
@@ -9,6 +10,9 @@ use MediaWikiTestCase;
  */
 class GWToolsetUtilsTest extends MediaWikiTestCase {
 
+	/**
+	 * @var Utils
+	 */
 	protected $utils;
 
 	protected function setUp() {

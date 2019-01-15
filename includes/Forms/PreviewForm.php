@@ -12,6 +12,7 @@ use GWToolset\Config;
 use GWToolset\Utils;
 use Html;
 use IContextSource;
+use Language;
 use MediaWiki\MediaWikiServices;
 use ParserOptions;
 use SpecialPage;
@@ -246,7 +247,7 @@ class PreviewForm {
 	 * No mediafile is shown in order to avoid issues with downloading
 	 * large mediafiles.
 	 *
-	 * @param array $metadata_items
+	 * @param array[] $metadata_items
 	 * each item is an array containing
 	 * $item['categories'] {array}
 	 * $item['Title'] {Title}
@@ -285,6 +286,7 @@ class PreviewForm {
 				$parser_options
 			);
 
+			/** @var Language $lang */
 			$lang = $item['Title']->getPageViewLanguage();
 
 			// attempt to pre-parse the category in case it contains a template

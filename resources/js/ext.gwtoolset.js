@@ -219,13 +219,13 @@
 		 *
 		 * @param {Object} options
 		 *
-		 * @param {string} options.name
+		 * @param {string} [options.name]
 		 * name of the cookie
 		 *
-		 * @param {Object} options.options
+		 * @param {Object} [options.options]
 		 * $.cookie, cookie options
 		 *
-		 * @param {mixed} options.value
+		 * @param {*} options.value
 		 */
 		createCookie: function ( options ) {
 			var optionsDefault = {
@@ -540,7 +540,7 @@
 		/**
 		 * sends the appropriate data to the server for the mapping to be created/updated
 		 *
-		 * @param {Event} evt
+		 * @param {Event} [evt]
 		 */
 		saveMapping: function ( evt ) {
 			var Api = new mw.Api(),

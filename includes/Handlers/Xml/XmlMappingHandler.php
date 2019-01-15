@@ -148,6 +148,7 @@ class XmlMappingHandler extends XmlHandler {
 		$DOMNodeList = $DOMElement->getElementsByTagName( '*' );
 
 		// cycle over all of the elements in the record element provided
+		/** @var DOMElement $DOMNodeElement */
 		foreach ( $DOMNodeList as $DOMNodeElement ) {
 			// if the current element is not one that was mapped, skip it
 			if ( !array_key_exists(

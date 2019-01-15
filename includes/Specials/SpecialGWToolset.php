@@ -30,7 +30,7 @@ class SpecialGWToolset extends SpecialPage {
 	protected $_Handler;
 
 	/**
-	 * @var array
+	 * @var array[]
 	 */
 	protected $_registered_modules = [
 		'metadata-detect' => [
@@ -94,7 +94,7 @@ class SpecialGWToolset extends SpecialPage {
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	public function getRegisteredModules() {
 		return $this->_registered_modules;
