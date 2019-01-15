@@ -487,7 +487,7 @@ class MetadataMappingHandler extends FormHandler {
 					$user_options['gwtoolset-metadata-file-relative-path']
 				);
 
-				if ( !$Status->ok ) {
+				if ( !$Status->isOK() ) {
 					throw new MWException(
 						wfMessage( 'gwtoolset-developer-issue' )
 							->params( __METHOD__ . ': ' . $Status->getMessage() )

@@ -208,7 +208,7 @@ class File {
 		}
 
 		$this->setIsFileUploaded();
-		$this->setPathinfo();
+		$this->setPathInfo();
 
 		if ( !$this->isPathInfoComplete() ) {
 			throw new GWTException( 'gwtoolset-no-extension' );

@@ -135,7 +135,7 @@ class SpecialGWToolset extends SpecialPage {
 
 		$this->getOutput()->addModules( 'ext.GWToolset' );
 
-		$this->getOutput()->addHtml(
+		$this->getOutput()->addHTML(
 			wfMessage( 'gwtoolset-menu' )->rawParams(
 				$this->getLinkRenderer()->makeLink(
 					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
@@ -145,7 +145,7 @@ class SpecialGWToolset extends SpecialPage {
 			)->parse()
 		);
 
-		$this->getOutput()->addHtml( $html );
+		$this->getOutput()->addHTML( $html );
 	}
 
 	/**

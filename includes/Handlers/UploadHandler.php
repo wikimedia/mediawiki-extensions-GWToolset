@@ -689,7 +689,7 @@ class UploadHandler {
 			}
 
 			// upload new page content if no one else has edited the title
-			if ( $Status->isOk() ) {
+			if ( $Status->isOK() ) {
 				if ( !$this->otherContributors( $Title ) ) {
 					$Content = ContentHandler::makeContent( $upload_params['text'], $Title );
 					$Page = WikiPage::factory( $Title );
@@ -871,7 +871,7 @@ class UploadHandler {
 
 		// Fetch the file - returns a Status Object
 		$status = $upload->fetchFile( $httpOptions );
-		if ( !$status->isOk() ) {
+		if ( !$status->isOK() ) {
 			$upload->cleanupTempFile();
 			return $status;
 		}
@@ -885,7 +885,7 @@ class UploadHandler {
 
 		// Check upload warnings
 		$status = $this->checkUploadWarnings( $upload, $Title );
-		if ( !$status->isOk() ) {
+		if ( !$status->isOK() ) {
 			$upload->cleanupTempFile();
 			return $status;
 		}
