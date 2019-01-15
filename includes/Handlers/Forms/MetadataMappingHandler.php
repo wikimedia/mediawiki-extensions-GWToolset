@@ -555,7 +555,6 @@ class MetadataMappingHandler extends FormHandler {
 
 			$result = PreviewForm::getForm(
 				$this->SpecialPage->getContext(),
-				$user_options,
 				$this->_expected_post_fields,
 				$metadata_items
 			);

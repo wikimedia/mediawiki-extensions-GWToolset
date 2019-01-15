@@ -25,9 +25,6 @@ class PreviewForm {
 	 *
 	 * @param IContextSource $Context
 	 *
-	 * @param array $user_options
-	 * an array of user options that was submitted in the html form
-	 *
 	 * @param array $expected_post_fields
 	 *
 	 * @param array $metadata_items
@@ -39,7 +36,6 @@ class PreviewForm {
 	 */
 	public static function getForm(
 		IContextSource $Context,
-		array $user_options,
 		array $expected_post_fields,
 		array $metadata_items
 	) {

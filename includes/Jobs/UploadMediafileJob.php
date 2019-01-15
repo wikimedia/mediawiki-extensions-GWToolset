@@ -36,13 +36,12 @@ class UploadMediafileJob extends Job {
 	/**
 	 * @param Title $title
 	 * @param bool|array $params
-	 * @param int $id
 	 */
-	public function __construct( $title, $params, $id = 0 ) {
+	public function __construct( $title, $params ) {
 		if ( !isset( $params['session'] ) ) {
 			$params['session'] = RequestContext::getMain()->exportSession();
 		}
-		parent::__construct( 'gwtoolsetUploadMediafileJob', $title, $params, $id );
+		parent::__construct( 'gwtoolsetUploadMediafileJob', $title, $params );
 	}
 
 	/**

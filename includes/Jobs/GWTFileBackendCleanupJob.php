@@ -20,10 +20,9 @@ class GWTFileBackendCleanupJob extends Job {
 	/**
 	 * @param \Title $title
 	 * @param bool|array $params
-	 * @param int $id
 	 */
-	public function __construct( $title, $params, $id = 0 ) {
-		parent::__construct( 'gwtoolsetGWTFileBackendCleanupJob', $title, $params, $id );
+	public function __construct( $title, $params ) {
+		parent::__construct( 'gwtoolsetGWTFileBackendCleanupJob', $title, $params );
 	}
 
 	/**
