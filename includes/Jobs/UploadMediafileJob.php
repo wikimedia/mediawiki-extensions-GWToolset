@@ -53,7 +53,7 @@ class UploadMediafileJob extends Job {
 	 * need to add some logic to it so that if a batch job is being process it doesn't display a
 	 * form or process the metadata again
 	 *
-	 * @return bool|Title
+	 * @return Title|false
 	 */
 	protected function processMetadata() {
 		global $wgUser;
@@ -110,7 +110,7 @@ class UploadMediafileJob extends Job {
 	/**
 	 * entry point
 	 * @todo should $result always be true?
-	 * @return bool|Title
+	 * @return Title|false
 	 */
 	public function run() {
 		$result = false;
