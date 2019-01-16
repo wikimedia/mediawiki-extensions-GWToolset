@@ -75,8 +75,8 @@ class UploadMediafileJob extends Job {
 		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
 		$oldUser = $wgUser;
 		$wgUser = $this->User;
-		// This will automatically restore $wgUser, when $magicScopeVariable falls out of scope.
-		$magicScopeVariable = new ScopedCallback( function () use ( $oldUser ) {
+		// This will automatically restore $wgUser, when $restoreWgUser falls out of scope.
+		$restoreWgUser = new ScopedCallback( function () use ( $oldUser ) {
 			global $wgUser;
 			$wgUser = $oldUser;
 		} );
@@ -100,11 +100,9 @@ class UploadMediafileJob extends Job {
 
 		$result = $UploadHandler->saveMediafileAsContent( $this->params['user-options'] );
 
-		if ( $result === null ) {
-			$result = false;
-		}
+		ScopedCallback::consume( $restoreWgUser );
 
-		return $result;
+		return $result ?: false;
 	}
 
 	/**
