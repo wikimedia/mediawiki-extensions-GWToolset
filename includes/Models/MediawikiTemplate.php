@@ -89,10 +89,10 @@ class MediawikiTemplate implements ModelInterface {
 	 * - or wrap the metadata value in an institution template
 	 *
 	 * @param string $content
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @return string
 	 */
-	protected function getCreator( $content, array $user_options ) {
+	protected function getCreator( $content, array $userOptions ) {
 		$result = '';
 
 		// assumes that there could be more than one creator in the string
@@ -101,7 +101,7 @@ class MediawikiTemplate implements ModelInterface {
 
 		foreach ( $creators as $creator ) {
 			// assumes that a creator entry could be last name, first
-			if ( $user_options['gwtoolset-reverse-creator'] ) {
+			if ( $userOptions['gwtoolset-reverse-creator'] ) {
 				$creator = explode( ',', $creator, 2 );
 			} else {
 				$creator = [ $creator ];
@@ -120,7 +120,7 @@ class MediawikiTemplate implements ModelInterface {
 					$creator = $creator[0];
 				}
 
-				if ( $user_options['gwtoolset-wrap-creator'] ) {
+				if ( $userOptions['gwtoolset-wrap-creator'] ) {
 					$result .= sprintf(
 						$this->_sub_templates['creator']['template'],
 						$creator
@@ -164,13 +164,13 @@ class MediawikiTemplate implements ModelInterface {
 	 * - or wrap the metadata value in an institution template
 	 *
 	 * @param string $content
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @return string
 	 */
-	protected function getInstitution( $content, array $user_options ) {
+	protected function getInstitution( $content, array $userOptions ) {
 		if (
 			trim( $content ) === ''
-			|| !$user_options['gwtoolset-wrap-institution']
+			|| !$userOptions['gwtoolset-wrap-institution']
 		) {
 			return $content;
 		}
@@ -252,13 +252,13 @@ class MediawikiTemplate implements ModelInterface {
 	 * @see http://commons.wikimedia.org/wiki/Category:Creative_Commons_licenses
 	 *
 	 * @param string $content
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @return string
 	 */
-	protected function getPermission( $content, array $user_options ) {
-		if ( !empty( $user_options['gwtoolset-global-license'] ) ) {
-			return $user_options['gwtoolset-global-license'];
-		} elseif ( $user_options['gwtoolset-detect-license'] ) {
+	protected function getPermission( $content, array $userOptions ) {
+		if ( !empty( $userOptions['gwtoolset-global-license'] ) ) {
+			return $userOptions['gwtoolset-global-license'];
+		} elseif ( $userOptions['gwtoolset-detect-license'] ) {
 			$permission = strtolower( $content );
 		} else {
 			return $content;
@@ -325,13 +325,13 @@ class MediawikiTemplate implements ModelInterface {
 	 * - use the metadata value mapped to the source parameter
 	 *
 	 * @param string $content
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @return string
 	 */
-	protected function getSource( $content, array $user_options ) {
-		if ( !empty( $user_options['gwtoolset-partner-template-url'] ) ) {
+	protected function getSource( $content, array $userOptions ) {
+		if ( !empty( $userOptions['gwtoolset-partner-template-url'] ) ) {
 			$partnerTemplateName = Utils::getTitle(
-				$user_options['gwtoolset-partner-template-url'],
+				$userOptions['gwtoolset-partner-template-url'],
 				NS_TEMPLATE,
 				[ 'must-be-known' => false ]
 			);
@@ -356,13 +356,13 @@ class MediawikiTemplate implements ModelInterface {
 	 * $this->mediawiki_template_array and into their own
 	 * gwtoolset_template_array
 	 *
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @return string
 	 * the resulting wiki text is filtered
 	 */
-	public function getTemplateAsWikiText( array $user_options ) {
+	public function getTemplateAsWikiText( array $userOptions ) {
 		$result = '';
 		$sections = null;
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
@@ -413,7 +413,7 @@ class MediawikiTemplate implements ModelInterface {
 			} else {
 				// institution parameter
 				if ( $parameter === 'institution' ) {
-					$institution = $this->getInstitution( $content, $user_options );
+					$institution = $this->getInstitution( $content, $userOptions );
 					$sections .= Utils::sanitizeString( $institution ) . PHP_EOL;
 
 				// creator parameter
@@ -423,17 +423,17 @@ class MediawikiTemplate implements ModelInterface {
 						$this->_sub_templates['creator']['parameters']
 					)
 				) {
-					$creator = $this->getCreator( $content, $user_options );
+					$creator = $this->getCreator( $content, $userOptions );
 					$sections .= Utils::sanitizeString( $creator );
 
 				// permission parameter
 				} elseif ( $parameter === 'permission' ) {
-					$permission = $this->getPermission( $content, $user_options );
+					$permission = $this->getPermission( $content, $userOptions );
 					$sections .= Utils::sanitizeString( $permission ) . PHP_EOL;
 
 				// source parameter
 				} elseif ( $parameter === 'source' ) {
-					$source = $this->getSource( $content, $user_options );
+					$source = $this->getSource( $content, $userOptions );
 					$sections .= Utils::sanitizeString( $source ) . PHP_EOL;
 
 				// all other parameters

@@ -47,7 +47,7 @@ abstract class FormHandler {
 	 * 1. exist
 	 * 2. and have a value with strlen > 0
 	 *
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param array $expected_options
@@ -55,23 +55,23 @@ abstract class FormHandler {
 	 * @throws GWTException
 	 * the exception message has been filtered
 	 */
-	protected function checkForRequiredFormFields( array $user_options, array $expected_options ) {
+	protected function checkForRequiredFormFields( array $userOptions, array $expected_options ) {
 		$msg = null;
 
 		$count = 0;
 		foreach ( $expected_options as $option ) {
-			if ( !array_key_exists( $option, $user_options ) ) {
+			if ( !array_key_exists( $option, $userOptions ) ) {
 				$msg .= '* ' . $option . PHP_EOL;
 				$count++;
 			}
 
-			if ( is_array( $user_options[$option] ) ) {
-				if ( strlen( reset( $user_options[$option] ) ) < 1 ) {
+			if ( is_array( $userOptions[$option] ) ) {
+				if ( strlen( reset( $userOptions[$option] ) ) < 1 ) {
 					$msg .= '* ' . $option . PHP_EOL;
 					$count++;
 				}
 			} else {
-				if ( strlen( $user_options[$option] ) < 1 ) {
+				if ( strlen( $userOptions[$option] ) < 1 ) {
 					$msg .= '* ' . $option . PHP_EOL;
 					$count++;
 				}

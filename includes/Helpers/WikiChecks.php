@@ -30,11 +30,11 @@ class WikiChecks {
 	 *
 	 * @see SpecialPage::checkPermissions()
 	 *
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 * @return Status
 	 */
-	public static function canUserViewPage( SpecialPage $SpecialPage ) {
-		$SpecialPage->checkPermissions();
+	public static function canUserViewPage( SpecialPage $specialPage ) {
+		$specialPage->checkPermissions();
 
 		return Status::newGood();
 	}
@@ -104,12 +104,12 @@ class WikiChecks {
 	 * SpecialPage $restriction must be a string, thus it does not check a
 	 * group of permissions.
 	 *
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 * @return Status
 	 */
-	public static function checkUserWikiPermissions( SpecialPage $SpecialPage ) {
+	public static function checkUserWikiPermissions( SpecialPage $specialPage ) {
 		foreach ( Config::$user_permissions as $permission ) {
-			if ( !$SpecialPage->getUser()->isAllowed( $permission ) ) {
+			if ( !$specialPage->getUser()->isAllowed( $permission ) ) {
 				return Status::newFatal( 'gwtoolset-permission-not-given', $permission );
 			}
 		}
@@ -120,12 +120,12 @@ class WikiChecks {
 	/**
 	 * For a submitted form, is the edit token present and valid
 	 *
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 * @return Status
 	 */
-	public static function doesEditTokenMatch( SpecialPage $SpecialPage ) {
-		if ( !$SpecialPage->getUser()->matchEditToken(
-			$SpecialPage->getRequest()->getVal( 'wpEditToken' ) )
+	public static function doesEditTokenMatch( SpecialPage $specialPage ) {
+		if ( !$specialPage->getUser()->matchEditToken(
+			$specialPage->getRequest()->getVal( 'wpEditToken' ) )
 		) {
 			return Status::newFatal(
 				'gwtoolset-permission-not-given',
@@ -137,11 +137,11 @@ class WikiChecks {
 	}
 
 	/**
-	 * @param SpecialPage $SpecialPage
+	 * @param SpecialPage $specialPage
 	 * @return Status
 	 */
-	public static function isUserBlocked( SpecialPage $SpecialPage ) {
-		if ( $SpecialPage->getUser()->isBlocked() ) {
+	public static function isUserBlocked( SpecialPage $specialPage ) {
+		if ( $specialPage->getUser()->isBlocked() ) {
 			return Status::newFatal( 'gwtoolset-user-blocked' );
 		}
 

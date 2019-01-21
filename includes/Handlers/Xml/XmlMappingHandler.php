@@ -74,14 +74,14 @@ class XmlMappingHandler extends XmlHandler {
 	 * helper method for getDOMElementAsArray()
 	 *
 	 * @param array &$array
-	 * @param DOMElement $DOMElement
+	 * @param DOMElement $domElement
 	 */
-	protected function addDOMElementToArray( array &$array, DOMElement $DOMElement ) {
-		$is_url = strpos( $DOMElement->nodeValue, '://' ) !== false;
-		$array[] = $this->getFilteredNodeValue( $DOMElement, $is_url );
+	protected function addDOMElementToArray( array &$array, DOMElement $domElement ) {
+		$is_url = strpos( $domElement->nodeValue, '://' ) !== false;
+		$array[] = $this->getFilteredNodeValue( $domElement, $is_url );
 
-		if ( $DOMElement->hasAttributes() ) {
-			foreach ( $DOMElement->attributes as $attribute ) {
+		if ( $domElement->hasAttributes() ) {
+			foreach ( $domElement->attributes as $attribute ) {
 				$array['@attributes'][$attribute->name] = $attribute->value;
 			}
 		}
@@ -136,14 +136,14 @@ class XmlMappingHandler extends XmlHandler {
 	 * @todo possibly refactor so that it works with getDOMElementAsArray
 	 *
 	 * @param DOMELement $domElement
-	 * @param array $user_options
+	 * @param array $userOptions
 	 *
 	 * @return array
 	 * the keys and values in the array have not been filtered
 	 * an array that maps mediawiki template parameters to the metadata record
 	 * values provided by the DOMElement
 	 */
-	protected function getDOMElementMapped( DOMElement $domElement, array $user_options ) {
+	protected function getDOMElementMapped( DOMElement $domElement, array $userOptions ) {
 		$elements_mapped = [];
 		$domNodeList = $domElement->getElementsByTagName( '*' );
 
@@ -164,9 +164,9 @@ class XmlMappingHandler extends XmlHandler {
 
 			// set the lang attribute if found
 			if ( $domNodeElement->hasAttributes() ) {
-				foreach ( $domNodeElement->attributes as $DOMAttribute ) {
-					if ( $DOMAttribute->name === 'lang' ) {
-						$lang = Utils::sanitizeString( $DOMAttribute->value );
+				foreach ( $domNodeElement->attributes as $domAttribute ) {
+					if ( $domAttribute->name === 'lang' ) {
+						$lang = Utils::sanitizeString( $domAttribute->value );
 						break;
 					}
 				}
@@ -175,7 +175,7 @@ class XmlMappingHandler extends XmlHandler {
 			foreach ( $template_parameters as $template_parameter ) {
 				$is_url = strpos( $template_parameter, 'url' ) !== false;
 
-				if ( !empty( $lang ) && $user_options['gwtoolset-wrap-language'] ) {
+				if ( !empty( $lang ) && $userOptions['gwtoolset-wrap-language'] ) {
 					/**
 					 * within a record, multimple elements with the same element name, e.g., description
 					 * can exist. some may have a lang attribute and some may not. if the first element
@@ -273,9 +273,9 @@ class XmlMappingHandler extends XmlHandler {
 	}
 
 	/**
-	 * @param DOMElement &$DOMNodeElement
+	 * @param DOMElement &$domNodeElement
 	 *
-	 * @param bool $is_url
+	 * @param bool $isUrl
 	 *
 	 * @param array $options
 	 * Fiter options
@@ -284,31 +284,31 @@ class XmlMappingHandler extends XmlHandler {
 	 * the string has been sanitized
 	 */
 	protected function getFilteredNodeValue(
-		DOMElement &$DOMNodeElement,
-		$is_url = false,
+		DOMElement &$domNodeElement,
+		$isUrl = false,
 		array $options = []
 	) {
 		$result = null;
 
-		if ( $is_url ) {
-			$result = Utils::sanitizeUrl( $DOMNodeElement->nodeValue, $options );
+		if ( $isUrl ) {
+			$result = Utils::sanitizeUrl( $domNodeElement->nodeValue, $options );
 		} else {
-			$result = Utils::sanitizeString( $DOMNodeElement->nodeValue, $options );
+			$result = Utils::sanitizeString( $domNodeElement->nodeValue, $options );
 		}
 
 		return $result;
 	}
 
 	/**
-	 * find dom elements in the $XMLElement provided that match the metadata record element
-	 * indicated by original $_POST, $user_options['gwtoolset-record-element-name']
+	 * find dom elements in the $xmlElement provided that match the metadata record element
+	 * indicated by original $_POST, $userOptions['gwtoolset-record-element-name']
 	 *
 	 * each matched metadata record, is sent to $this->_MappingHandler->processMatchingElement()
 	 * to be saved as a new mediafile in the wiki or to update an existing mediafile in the wiki
 	 *
-	 * @param XMLReader|DOMElement $XMLElement
+	 * @param XMLReader|DOMElement $xmlElement
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws MWException
@@ -317,13 +317,13 @@ class XmlMappingHandler extends XmlHandler {
 	 * - $result['Title'] {Title}
 	 * - $result['stop-reading'] {bool}
 	 */
-	protected function processDOMElements( $XMLElement, array &$user_options ) {
+	protected function processDOMElements( $xmlElement, array &$userOptions ) {
 		$result = [ 'Title' => null, 'stop-reading' => false ];
 		$record = null;
 		$outer_xml = null;
 
-		if ( !( $XMLElement instanceof XMLReader )
-			&& !( $XMLElement instanceof DOMElement )
+		if ( !( $xmlElement instanceof XMLReader )
+			&& !( $xmlElement instanceof DOMElement )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -332,9 +332,9 @@ class XmlMappingHandler extends XmlHandler {
 			);
 		}
 
-		if ( !isset( $user_options['gwtoolset-record-element-name'] )
-			|| !isset( $user_options['gwtoolset-record-count'] )
-			|| !isset( $user_options['gwtoolset-record-current'] )
+		if ( !isset( $userOptions['gwtoolset-record-element-name'] )
+			|| !isset( $userOptions['gwtoolset-record-count'] )
+			|| !isset( $userOptions['gwtoolset-record-current'] )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -343,27 +343,27 @@ class XmlMappingHandler extends XmlHandler {
 			);
 		}
 
-		switch ( $XMLElement->nodeType ) {
+		switch ( $xmlElement->nodeType ) {
 			case ( XMLReader::ELEMENT ):
-				if ( $XMLElement instanceof XMLReader ) {
-					if ( $XMLElement->name === $user_options['gwtoolset-record-element-name'] ) {
-						$record = $XMLElement->expand();
-						$outer_xml = $XMLElement->readOuterXml();
+				if ( $xmlElement instanceof XMLReader ) {
+					if ( $xmlElement->name === $userOptions['gwtoolset-record-element-name'] ) {
+						$record = $xmlElement->expand();
+						$outer_xml = $xmlElement->readOuterXml();
 					}
-				} elseif ( $XMLElement instanceof DOMElement ) {
-					if ( $XMLElement->nodeName === $user_options['gwtoolset-record-element-name'] ) {
-						$record = $XMLElement;
+				} elseif ( $xmlElement instanceof DOMElement ) {
+					if ( $xmlElement->nodeName === $userOptions['gwtoolset-record-element-name'] ) {
+						$record = $xmlElement;
 						$outer_xml = $record->ownerDocument->saveXml( $record );
 					}
 				}
 
 				if ( !empty( $record ) ) {
-					$user_options['gwtoolset-record-current'] += 1;
+					$userOptions['gwtoolset-record-current'] += 1;
 
 					// don’t process the element if the current record nr is <
 					// the record nr we should begin processing on
 					if (
-						$user_options['gwtoolset-record-current'] < $user_options['gwtoolset-record-begin']
+						$userOptions['gwtoolset-record-current'] < $userOptions['gwtoolset-record-begin']
 					) {
 						break;
 					}
@@ -371,20 +371,20 @@ class XmlMappingHandler extends XmlHandler {
 					// stop processing if the current record nr is >=
 					// the record nr we should begin processing on plus the job throttle
 					if (
-						(int)$user_options['gwtoolset-record-current']
-						>= ( (int)$user_options['gwtoolset-record-begin'] +
-						(int)$user_options['gwtoolset-mediafile-throttle'] )
+						(int)$userOptions['gwtoolset-record-current']
+						>= ( (int)$userOptions['gwtoolset-record-begin'] +
+						(int)$userOptions['gwtoolset-mediafile-throttle'] )
 					) {
 						$result['stop-reading'] = true;
 						break;
 					}
 
 					$result['Title'] = $this->_MappingHandler->processMatchingElement(
-						$user_options,
+						$userOptions,
 						[
 							'metadata-as-array' => $this->getDOMElementAsArray( $record ),
 							'metadata-mapped-to-mediawiki-template' =>
-								$this->getDOMElementMapped( $record, $user_options ),
+								$this->getDOMElementMapped( $record, $userOptions ),
 							'metadata-raw' => $outer_xml
 						]
 					);
@@ -401,10 +401,10 @@ class XmlMappingHandler extends XmlHandler {
 	 * source. the dom elements will be used for creating mediafile
 	 * Titles in the wiki.
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the original $_POST
 	 *
-	 * @param string|Content|null $xml_source
+	 * @param string|Content|null $xmlSource
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
@@ -413,11 +413,11 @@ class XmlMappingHandler extends XmlHandler {
 	 * @return array
 	 * an array of mediafile Title(s)
 	 */
-	public function processXml( array &$user_options, $xml_source = null ) {
+	public function processXml( array &$userOptions, $xmlSource = null ) {
 		$callback = 'processDOMElements';
 
-		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
-			return $this->readXmlAsFile( $user_options, $xml_source, $callback );
+		if ( is_string( $xmlSource ) && !empty( $xmlSource ) ) {
+			return $this->readXmlAsFile( $userOptions, $xmlSource, $callback );
 		} else {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )

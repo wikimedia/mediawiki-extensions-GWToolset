@@ -22,19 +22,19 @@ class MetadataMappingForm {
 	 *
 	 * @param MetadataDetectHandler $handler
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @return string
 	 * an html form
 	 */
-	public static function getForm( MetadataDetectHandler $handler, array &$user_options ) {
+	public static function getForm( MetadataDetectHandler $handler, array &$userOptions ) {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$template_link = '[[Template:' .
-			Utils::sanitizeString( $user_options['gwtoolset-mediawiki-template-name'] ) .
+			Utils::sanitizeString( $userOptions['gwtoolset-mediawiki-template-name'] ) .
 			']]';
-		$metadata_file_url = !empty( $user_options['Metadata-Title'] )
-			? $linkRenderer->makeLink( $user_options['Metadata-Title'], null,
+		$metadata_file_url = !empty( $userOptions['Metadata-Title'] )
+			? $linkRenderer->makeLink( $userOptions['Metadata-Title'], null,
 				[ 'target' => '_blank' ] ) . Html::rawElement( 'br' )
 			: null;
 
@@ -55,7 +55,7 @@ class MetadataMappingForm {
 				[],
 				$metadata_file_url .
 				wfMessage( 'gwtoolset-record-count' )
-					->numParams( (int)$user_options['gwtoolset-record-count'] )->escaped()
+					->numParams( (int)$userOptions['gwtoolset-record-count'] )->escaped()
 			) .
 
 			Html::rawElement(
@@ -155,7 +155,7 @@ class MetadataMappingForm {
 				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-mediafile-throttle',
-					'value' => (int)$user_options['gwtoolset-mediafile-throttle']
+					'value' => (int)$userOptions['gwtoolset-mediafile-throttle']
 				]
 			) .
 
@@ -166,7 +166,7 @@ class MetadataMappingForm {
 					'id' => 'gwtoolset-mediawiki-template-name',
 					'name' => 'gwtoolset-mediawiki-template-name',
 					'value' => Utils::sanitizeString(
-						$user_options['gwtoolset-mediawiki-template-name'] )
+						$userOptions['gwtoolset-mediawiki-template-name'] )
 				]
 			) .
 
@@ -175,7 +175,7 @@ class MetadataMappingForm {
 				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-url',
-					'value' => Utils::sanitizeString( $user_options['gwtoolset-metadata-file-url'] )
+					'value' => Utils::sanitizeString( $userOptions['gwtoolset-metadata-file-url'] )
 				]
 			) .
 
@@ -186,7 +186,7 @@ class MetadataMappingForm {
 					'id' => 'gwtoolset-metadata-mapping-name',
 					'name' => 'gwtoolset-metadata-mapping-name',
 					'value' => Utils::sanitizeString(
-						$user_options['gwtoolset-metadata-mapping-name'] )
+						$userOptions['gwtoolset-metadata-mapping-name'] )
 				]
 			) .
 
@@ -196,7 +196,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-mapping-url',
 					'value' => Utils::sanitizeString(
-						$user_options['gwtoolset-metadata-mapping-url'] )
+						$userOptions['gwtoolset-metadata-mapping-url'] )
 				]
 			) .
 
@@ -206,7 +206,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-relative-path',
 					'value' => Utils::sanitizeUrl(
-						$user_options['gwtoolset-metadata-file-relative-path'] )
+						$userOptions['gwtoolset-metadata-file-relative-path'] )
 				]
 			) .
 
@@ -216,7 +216,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'name' => 'gwtoolset-metadata-file-sha1',
 					'value' => Utils::sanitizeString(
-						$user_options['gwtoolset-metadata-file-sha1'] )
+						$userOptions['gwtoolset-metadata-file-sha1'] )
 				]
 			) .
 
@@ -225,7 +225,7 @@ class MetadataMappingForm {
 				[
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-count',
-					'value' => (int)$user_options['gwtoolset-record-count']
+					'value' => (int)$userOptions['gwtoolset-record-count']
 				]
 			) .
 
@@ -235,7 +235,7 @@ class MetadataMappingForm {
 					'type' => 'hidden',
 					'name' => 'gwtoolset-record-element-name',
 					'value' => Utils::sanitizeString(
-						$user_options['gwtoolset-record-element-name'] )
+						$userOptions['gwtoolset-record-element-name'] )
 				]
 			) .
 
@@ -275,7 +275,7 @@ class MetadataMappingForm {
 				[],
 				wfMessage( 'gwtoolset-mediawiki-template' )
 					->params( Utils::sanitizeString(
-						$user_options['gwtoolset-mediawiki-template-name'] ) )
+						$userOptions['gwtoolset-mediawiki-template-name'] ) )
 					->escaped()
 			) .
 

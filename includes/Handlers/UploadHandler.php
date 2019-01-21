@@ -642,12 +642,12 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @return array
 	 */
-	public function getPreview( array $user_options ) {
-		$this->validateUserOptions( $user_options );
-		$this->user_options = $user_options;
+	public function getPreview( array $userOptions ) {
+		$this->validateUserOptions( $userOptions );
+		$this->user_options = $userOptions;
 
 		$upload_params = $this->getUploadParams();
 		$this->validateUploadParams( $upload_params );
@@ -663,15 +663,15 @@ class UploadHandler {
 	 * @todo does ContentHandler filter $options['text']?
 	 * @todo does WikiPage filter $options['comment']?
 	 *
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @throws GWTException
 	 * @return null|Title
 	 */
-	public function saveMediafileAsContent( array $user_options ) {
+	public function saveMediafileAsContent( array $userOptions ) {
 		$status = Status::newGood();
 
-		$this->validateUserOptions( $user_options );
-		$this->user_options = $user_options;
+		$this->validateUserOptions( $userOptions );
+		$this->user_options = $userOptions;
 
 		$upload_params = $this->getUploadParams();
 		$this->validateUploadParams( $upload_params );
@@ -727,22 +727,22 @@ class UploadHandler {
 	/**
 	 * save a metadata record as a new/updated wiki page
 	 *
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param array $options
 	 *  - {array} $options['metadata-mapped-to-mediawiki-template']
 	 *  - {array} $options['metadata-as-array']
 	 *  - {string} $options['metadata-raw']
-	 * @param array $whitelisted_post
+	 * @param array $whitelistedPost
 	 *
 	 * @return bool
 	 * @throws MWException
 	 */
 	public function saveMediafileViaJob(
-		array $user_options, array $options, array $whitelisted_post
+		array $userOptions, array $options, array $whitelistedPost
 	) {
-		if ( count( $this->mediafile_jobs ) > (int)$user_options['gwtoolset-mediafile-throttle'] ) {
+		if ( count( $this->mediafile_jobs ) > (int)$userOptions['gwtoolset-mediafile-throttle'] ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -753,7 +753,7 @@ class UploadHandler {
 			);
 		}
 
-		$this->validateUserOptions( $user_options );
+		$this->validateUserOptions( $userOptions );
 
 		$job = new UploadMediafileJob(
 			Title::newFromText(
@@ -765,9 +765,9 @@ class UploadHandler {
 			),
 			[
 				'options' => $options,
-				'whitelisted-post' => $whitelisted_post,
+				'whitelisted-post' => $whitelistedPost,
 				'user-name' => $this->_User->getName(),
-				'user-options' => $user_options
+				'user-options' => $userOptions
 			]
 		);
 
@@ -959,11 +959,11 @@ class UploadHandler {
 	}
 
 	/**
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * @throws MWException
 	 */
-	protected function validateUserOptions( array $user_options ) {
-		if ( !isset( $user_options['comment'] ) ) {
+	protected function validateUserOptions( array $userOptions ) {
+		if ( !isset( $userOptions['comment'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-comment' )->parse() )
@@ -971,7 +971,7 @@ class UploadHandler {
 			);
 		}
 
-		if ( !isset( $user_options['gwtoolset-mediafile-throttle'] ) ) {
+		if ( !isset( $userOptions['gwtoolset-mediafile-throttle'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-mediafile-throttle' )->parse() )
@@ -979,7 +979,7 @@ class UploadHandler {
 			);
 		}
 
-		if ( !isset( $user_options['gwtoolset-reupload-media'] ) ) {
+		if ( !isset( $userOptions['gwtoolset-reupload-media'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-reupload-media' )->parse() )
@@ -987,7 +987,7 @@ class UploadHandler {
 			);
 		}
 
-		if ( !isset( $user_options['save-as-batch-job'] ) ) {
+		if ( !isset( $userOptions['save-as-batch-job'] ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-save-as-batch' )->parse() )

@@ -102,25 +102,25 @@ class XmlDetectHandler extends XmlHandler {
 	 * search through all remaining dom elements and add nodes to the example
 	 * record if they were not in the example dom element.
 	 *
-	 * the search is based on hard-coded keys in the $user_options array
+	 * the search is based on hard-coded keys in the $userOptions array
 	 *
-	 * - $user_options['gwtoolset-record-element-name']
-	 * - $user_options['gwtoolset-record-count']
+	 * - $userOptions['gwtoolset-record-element-name']
+	 * - $userOptions['gwtoolset-record-count']
 	 *
 	 * if a matching dom element is found it is placed in
 	 * $this->_metadata_example_dom_element
 	 *
-	 * @param XMLReader|DOMElement $XMLElement
+	 * @param XMLReader|DOMElement $xmlElement
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @throws MWException
 	 */
-	protected function findExampleDOMElement( $XMLElement, array &$user_options ) {
+	protected function findExampleDOMElement( $xmlElement, array &$userOptions ) {
 		$record = null;
 
-		if ( !( $XMLElement instanceof XMLReader ) && !( $XMLElement instanceof DOMElement ) ) {
+		if ( !( $xmlElement instanceof XMLReader ) && !( $xmlElement instanceof DOMElement ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params( wfMessage( 'gwtoolset-no-xml-element' )->escaped() )
@@ -128,8 +128,8 @@ class XmlDetectHandler extends XmlHandler {
 			);
 		}
 
-		if ( !isset( $user_options['gwtoolset-record-element-name'] )
-			|| !isset( $user_options['gwtoolset-record-count'] )
+		if ( !isset( $userOptions['gwtoolset-record-element-name'] )
+			|| !isset( $userOptions['gwtoolset-record-count'] )
 		) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
@@ -138,22 +138,22 @@ class XmlDetectHandler extends XmlHandler {
 			);
 		}
 
-		switch ( $XMLElement->nodeType ) {
+		switch ( $xmlElement->nodeType ) {
 			case ( XMLReader::ELEMENT ):
-				if ( $XMLElement instanceof XMLReader ) {
-					if ( $XMLElement->name === $user_options['gwtoolset-record-element-name'] ) {
-						$record = $XMLElement->expand();
+				if ( $xmlElement instanceof XMLReader ) {
+					if ( $xmlElement->name === $userOptions['gwtoolset-record-element-name'] ) {
+						$record = $xmlElement->expand();
 					}
-				} elseif ( $XMLElement instanceof DOMElement ) {
-					if ( $XMLElement->nodeName === $user_options['gwtoolset-record-element-name'] ) {
-						$record = $XMLElement;
+				} elseif ( $xmlElement instanceof DOMElement ) {
+					if ( $xmlElement->nodeName === $userOptions['gwtoolset-record-element-name'] ) {
+						$record = $xmlElement;
 					}
 				}
 
 				if ( !empty( $record ) ) {
-					$user_options['gwtoolset-record-count'] += 1;
+					$userOptions['gwtoolset-record-count'] += 1;
 
-					if ( $user_options['gwtoolset-record-count'] === 1 ) {
+					if ( $userOptions['gwtoolset-record-count'] === 1 ) {
 						$this->createExampleDOMElement( $record );
 					}
 
@@ -172,16 +172,16 @@ class XmlDetectHandler extends XmlHandler {
 	 * adds to the example DOMElement, $this->_metadata_example_dom_nodes, any nodes
 	 * not yet present in it
 	 *
-	 * @param DOMElement $DOMElement
+	 * @param DOMElement $domElement
 	 */
-	protected function findExampleDOMNodes( DOMElement $DOMElement ) {
-		foreach ( $DOMElement->childNodes as $DOMNode ) {
-			if ( $DOMNode->nodeType === XML_ELEMENT_NODE ) {
-				if ( !array_key_exists( $DOMNode->nodeName, $this->_metadata_example_dom_nodes ) ) {
-					$this->_metadata_example_dom_nodes[$DOMNode->nodeName] = $DOMNode->nodeValue;
+	protected function findExampleDOMNodes( DOMElement $domElement ) {
+		foreach ( $domElement->childNodes as $domNode ) {
+			if ( $domNode->nodeType === XML_ELEMENT_NODE ) {
+				if ( !array_key_exists( $domNode->nodeName, $this->_metadata_example_dom_nodes ) ) {
+					$this->_metadata_example_dom_nodes[$domNode->nodeName] = $domNode->nodeValue;
 				}
-				if ( !array_key_exists( $DOMNode->nodeName, $this->_metadata_example_dom_element ) ) {
-					$this->_metadata_example_dom_element[$DOMNode->nodeName][] = $DOMNode->nodeValue;
+				if ( !array_key_exists( $domNode->nodeName, $this->_metadata_example_dom_element ) ) {
+					$this->_metadata_example_dom_element[$domNode->nodeName][] = $domNode->nodeValue;
 				}
 			}
 		}
@@ -373,12 +373,12 @@ class XmlDetectHandler extends XmlHandler {
 	 * @param string $parameter
 	 * a mediawiki template parameter, e.g. in Template:Artwork, artist
 	 *
-	 * @param Mapping $Mapping
+	 * @param Mapping $mapping
 	 *
 	 * @return string
 	 * the values within the table row have been filtered
 	 */
-	public function getMetadataAsTableCells( $parameter, Mapping $Mapping ) {
+	public function getMetadataAsTableCells( $parameter, Mapping $mapping ) {
 		$result = null;
 		$selected_options = [];
 		$parameter_as_id = Utils::normalizeSpace( $parameter );
@@ -386,8 +386,8 @@ class XmlDetectHandler extends XmlHandler {
 		$required = null;
 		$required_fields = [ 'gwtoolset-title', 'gwtoolset-url-to-the-media-file' ];
 
-		if ( isset( $Mapping->mapping_array[$parameter] ) ) {
-			$selected_options = $Mapping->mapping_array[$parameter];
+		if ( isset( $mapping->mapping_array[$parameter] ) ) {
+			$selected_options = $mapping->mapping_array[$parameter];
 		}
 
 		if ( empty( $this->_metadata_as_options ) ) {
@@ -440,21 +440,21 @@ class XmlDetectHandler extends XmlHandler {
 	 * example xml record that will be used for mapping the mediawiki template
 	 * attributes to the xml metadata elements
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 *
-	 * @param string|Content|null $xml_source
+	 * @param string|Content|null $xmlSource
 	 * a local wiki path to the xml metadata file or a local wiki Content source.
 	 * the assumption is that it has already been uploaded to the wiki earlier and
 	 * is ready for use
 	 *
 	 * @throws GWTException|MWException
 	 */
-	public function processXml( array &$user_options, $xml_source = null ) {
+	public function processXml( array &$userOptions, $xmlSource = null ) {
 		$callback = 'findExampleDOMElement';
 
-		if ( is_string( $xml_source ) && !empty( $xml_source ) ) {
-			$this->readXmlAsFile( $user_options, $xml_source, $callback );
+		if ( is_string( $xmlSource ) && !empty( $xmlSource ) ) {
+			$this->readXmlAsFile( $userOptions, $xmlSource, $callback );
 		} else {
 			$msg = wfMessage( 'gwtoolset-developer-issue' )
 				->params( wfMessage( 'gwtoolset-no-xml-source' )->escaped() )

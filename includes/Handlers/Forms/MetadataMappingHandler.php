@@ -152,24 +152,24 @@ class MetadataMappingHandler extends FormHandler {
 	}
 
 	/**
-	 * sets the $user_options['categories'] index as appropriate.
+	 * sets the $userOptions['categories'] index as appropriate.
 	 * this value is used by UploadHandler to add global categories
 	 * to a medifile wiki page; global meaning that these categories
 	 * are added to all mediafiles that are being uploaded
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 */
-	protected function getGlobalCategories( array &$user_options ) {
-		$user_options['categories'] = '';
+	protected function getGlobalCategories( array &$userOptions ) {
+		$userOptions['categories'] = '';
 
 		if ( isset( $this->_whitelisted_post['gwtoolset-category'] ) ) {
 			foreach ( $this->_whitelisted_post['gwtoolset-category'] as $category ) {
 				if ( !empty( $category ) ) {
-					if ( empty( $user_options['categories'] ) ) {
-						$user_options['categories'] .= $category;
+					if ( empty( $userOptions['categories'] ) ) {
+						$userOptions['categories'] .= $category;
 					} else {
-						$user_options['categories'] .= Config::$category_separator . $category;
+						$userOptions['categories'] .= Config::$category_separator . $category;
 					}
 				}
 			}
@@ -317,7 +317,7 @@ class MetadataMappingHandler extends FormHandler {
 	/**
 	 * save a metadata record as a new/updated wiki page
 	 *
-	 * @param array $user_options
+	 * @param array $userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param array $options
@@ -327,7 +327,7 @@ class MetadataMappingHandler extends FormHandler {
 	 *
 	 * @return bool|array|null|Title
 	 */
-	public function processMatchingElement( array $user_options, array $options ) {
+	public function processMatchingElement( array $userOptions, array $options ) {
 		$result = null;
 
 		$this->_MediawikiTemplate->metadata_raw = $options['metadata-raw'];
@@ -338,16 +338,16 @@ class MetadataMappingHandler extends FormHandler {
 		$this->_Metadata->metadata_raw = $options['metadata-raw'];
 		$this->_Metadata->metadata_as_array = $options['metadata-as-array'];
 
-		if ( $user_options['save-as-batch-job'] ) {
+		if ( $userOptions['save-as-batch-job'] ) {
 			$result = $this->_UploadHandler->saveMediafileViaJob(
-				$user_options,
+				$userOptions,
 				$options,
 				$this->_whitelisted_post
 			);
-		} elseif ( $user_options['preview'] ) {
-			$result = $this->_UploadHandler->getPreview( $user_options );
+		} elseif ( $userOptions['preview'] ) {
+			$result = $this->_UploadHandler->getPreview( $userOptions );
 		} else {
-			$result = $this->_UploadHandler->saveMediafileAsContent( $user_options );
+			$result = $this->_UploadHandler->saveMediafileAsContent( $userOptions );
 		}
 
 		return $result;
@@ -358,7 +358,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * for processing the metadata and mapping in order to create
 	 * mediafile wiki pages
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 * @param bool $fromJob Is this coming from a job or direct from user
 	 *
@@ -366,7 +366,7 @@ class MetadataMappingHandler extends FormHandler {
 	 * @return array|string
 	 * an array of mediafile Title(s)
 	 */
-	protected function processMetadata( array &$user_options, $fromJob = false ) {
+	protected function processMetadata( array &$userOptions, $fromJob = false ) {
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
 		$this->_Mapping->mapping_array =
 			$this->_MediawikiTemplate->getMappingFromArray( $this->_whitelisted_post );
@@ -405,7 +405,7 @@ class MetadataMappingHandler extends FormHandler {
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
 		$file = $this->_GWTFileBackend->retrieveFileFromRelativePath(
-			$user_options['gwtoolset-metadata-file-relative-path']
+			$userOptions['gwtoolset-metadata-file-relative-path']
 		);
 
 		if ( !( $file instanceof FSFile ) ) {
@@ -414,14 +414,14 @@ class MetadataMappingHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['gwtoolset-metadata-file-relative-path'] )
+							->params( $userOptions['gwtoolset-metadata-file-relative-path'] )
 							->parse()
 					)
 					->parse()
 			);
 		}
 
-		if ( $user_options['gwtoolset-metadata-file-sha1'] !== $file->getSha1Base36() ) {
+		if ( $userOptions['gwtoolset-metadata-file-sha1'] !== $file->getSha1Base36() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
 					->params(
@@ -433,7 +433,7 @@ class MetadataMappingHandler extends FormHandler {
 		}
 
 		$result = $this->_XmlMappingHandler->processXml(
-			$user_options,
+			$userOptions,
 			$file->getPath()
 		);
 
@@ -451,40 +451,40 @@ class MetadataMappingHandler extends FormHandler {
 
 			/**
 			 * at this point
-			 * * the UploadMetadataJob has created ( $user_options['gwtoolset-mediafile-throttle'] )
+			 * * the UploadMetadataJob has created ( $userOptions['gwtoolset-mediafile-throttle'] )
 			 *   number of UploadMediafileJobs
-			 * * $user_options['gwtoolset-record-begin'] is the value that the UploadMetadataJob
+			 * * $userOptions['gwtoolset-record-begin'] is the value that the UploadMetadataJob
 			 *   began with
-			 * * $user_options['gwtoolset-record-current'] is the next record that needs to be
+			 * * $userOptions['gwtoolset-record-current'] is the next record that needs to be
 			 *   processed
 			 *
 			 * example to illustrate the test
 			 * * Config::$preview_throttle                 = 3
-			 * * $user_options['gwtoolset-mediafile-throttle']   = 10
-			 * * $user_options['gwtoolset-record-count']   = 14
-			 * * $user_options['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
-			 * * $user_options['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
+			 * * $userOptions['gwtoolset-mediafile-throttle']   = 10
+			 * * $userOptions['gwtoolset-record-count']   = 14
+			 * * $userOptions['gwtoolset-record-begin']   = 4   ( because the preview took care of 3 )
+			 * * $userOptions['gwtoolset-record-current'] = 14  ( 13 mediafiles will have been
 			 *                                                     processed this is the current
 			 *                                                     record we need to process )
 			 *
 			 * the test 14 >= ( 4 + 10 ) is true so
-			 * * $user_options['gwtoolset-record-begin'] = $user_options['gwtoolset-record-current']
+			 * * $userOptions['gwtoolset-record-begin'] = $userOptions['gwtoolset-record-current']
 			 * * create another UploadMetadataJob that will take care of the last record
 			 */
 			if (
-				(int)$user_options['gwtoolset-record-count']
-				>= ( (int)$user_options['gwtoolset-record-begin'] +
-						(int)$user_options['gwtoolset-mediafile-throttle'] )
+				(int)$userOptions['gwtoolset-record-count']
+				>= ( (int)$userOptions['gwtoolset-record-begin'] +
+						(int)$userOptions['gwtoolset-mediafile-throttle'] )
 			) {
 				$this->_whitelisted_post['gwtoolset-record-begin'] =
-					(int)$user_options['gwtoolset-record-current'];
+					(int)$userOptions['gwtoolset-record-current'];
 				$this->createMetadataBatchJob();
 
 			} else {
 				// no more UploadMediafileJobs need to be created
 				// create a GWTFileBackendCleanupJob that will delete the metadata file in the mwstore
 				$status = $this->_GWTFileBackend->createCleanupJob(
-					$user_options['gwtoolset-metadata-file-relative-path']
+					$userOptions['gwtoolset-metadata-file-relative-path']
 				);
 
 				if ( !$status->isOK() ) {
@@ -534,11 +534,11 @@ class MetadataMappingHandler extends FormHandler {
 			$original_post,
 			$this->_expected_post_fields
 		);
-		$user_options = $this->getUserOptions();
-		$this->getGlobalCategories( $user_options );
+		$userOptions = $this->getUserOptions();
+		$this->getGlobalCategories( $userOptions );
 
 		$this->checkForRequiredFormFields(
-			$user_options,
+			$userOptions,
 			[
 				'gwtoolset-mediawiki-template-name',
 				'gwtoolset-record-count',
@@ -549,9 +549,9 @@ class MetadataMappingHandler extends FormHandler {
 			]
 		);
 
-		if ( $user_options['preview'] === true ) {
-			$user_options['gwtoolset-mediafile-throttle'] = (int)Config::$preview_throttle;
-			$metadata_items = $this->processMetadata( $user_options, $fromJob );
+		if ( $userOptions['preview'] === true ) {
+			$userOptions['gwtoolset-mediafile-throttle'] = (int)Config::$preview_throttle;
+			$metadata_items = $this->processMetadata( $userOptions, $fromJob );
 
 			$result = PreviewForm::getForm(
 				$this->SpecialPage->getContext(),
@@ -559,7 +559,7 @@ class MetadataMappingHandler extends FormHandler {
 				$metadata_items
 			);
 		} else {
-			$user_options['save-as-batch-job'] = true;
+			$userOptions['save-as-batch-job'] = true;
 
 			// when !$fromJob, this method is being run by a user as a SpecialPage,
 			// thus this is the creation of the initial uploadMetadataJob. subsequent
@@ -577,7 +577,7 @@ class MetadataMappingHandler extends FormHandler {
 			// $fromJob, this method is being run by a wiki job;
 			// typically uploadMediafileJob.
 			} else {
-				$result = $this->processMetadata( $user_options, $fromJob );
+				$result = $this->processMetadata( $userOptions, $fromJob );
 			}
 		}
 

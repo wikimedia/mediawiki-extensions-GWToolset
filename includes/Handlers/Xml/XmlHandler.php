@@ -78,14 +78,14 @@ abstract class XmlHandler {
 		return $result;
 	}
 
-	abstract public function processXml( array &$user_options, $xml_source = null );
+	abstract public function processXml( array &$userOptions, $xmlSource = null );
 
 	/**
 	 * opens the xml file as a stream and sends the stream to other methods in
 	 * via the $callback to process the file. allows for the reader to be stopped
 	 * if the $callback method returns true to the $stop_reading variable
 	 *
-	 * @param array &$user_options
+	 * @param array &$userOptions
 	 * an array of user options that was submitted in the html form
 	 *
 	 * @param string|null $file_path_local
@@ -107,7 +107,7 @@ abstract class XmlHandler {
 	 * an array of mediafile Title(s)
 	 */
 	protected function readXmlAsFile(
-		array &$user_options, $file_path_local = null, $callback = null
+		array &$userOptions, $file_path_local = null, $callback = null
 	) {
 		$result = [];
 
@@ -149,7 +149,7 @@ abstract class XmlHandler {
 				throw new GWTException( 'gwtoolset-xml-doctype' );
 			}
 
-			$read_result = $this->$callback( $xmlReader, $user_options );
+			$read_result = $this->$callback( $xmlReader, $userOptions );
 
 			if ( !empty( $read_result['Title'] ) ) {
 				$result[] = $read_result['Title'];

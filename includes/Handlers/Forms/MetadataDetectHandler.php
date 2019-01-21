@@ -167,10 +167,10 @@ class MetadataDetectHandler extends FormHandler {
 			$this->_expected_post_fields
 		);
 
-		$user_options = $this->getUserOptions();
+		$userOptions = $this->getUserOptions();
 
 		$this->checkForRequiredFormFields(
-			$user_options,
+			$userOptions,
 			[
 				'gwtoolset-record-element-name',
 				'gwtoolset-mediawiki-template-name',
@@ -205,12 +205,12 @@ class MetadataDetectHandler extends FormHandler {
 		);
 
 		// upload the metadata file and get an mwstore reference to it
-		$user_options['gwtoolset-metadata-file-relative-path'] =
+		$userOptions['gwtoolset-metadata-file-relative-path'] =
 			$this->_UploadHandler->saveMetadataToFileBackend();
 
 		// retrieve the metadata file, the FileBackend will return an FSFile object
 		$file = $this->_GWTFileBackend->retrieveFileFromRelativePath(
-			$user_options['gwtoolset-metadata-file-relative-path']
+			$userOptions['gwtoolset-metadata-file-relative-path']
 		);
 
 		if ( !( $file instanceof FSFile ) ) {
@@ -219,27 +219,27 @@ class MetadataDetectHandler extends FormHandler {
 					->params(
 						__METHOD__ . ': ' .
 						wfMessage( 'gwtoolset-fsfile-retrieval-failure' )
-							->params( $user_options['gwtoolset-metadata-file-relative-path'] )
+							->params( $userOptions['gwtoolset-metadata-file-relative-path'] )
 							->parse()
 					)
 					->parse()
 			);
 		}
 
-		$user_options['gwtoolset-metadata-file-sha1'] = $file->getSha1Base36();
-		$this->XmlDetectHandler->processXml( $user_options, $file->getPath() );
+		$userOptions['gwtoolset-metadata-file-sha1'] = $file->getSha1Base36();
+		$this->XmlDetectHandler->processXml( $userOptions, $file->getPath() );
 
 		$this->_MediawikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$this->_MediawikiTemplate->getMediaWikiTemplate(
-			$user_options['gwtoolset-mediawiki-template-name']
+			$userOptions['gwtoolset-mediawiki-template-name']
 		);
 
 		$this->_Mapping = new Mapping( new MappingPhpAdapter() );
-		$this->_Mapping->retrieve( $user_options );
+		$this->_Mapping->retrieve( $userOptions );
 
 		$result = MetadataMappingForm::getForm(
 			$this,
-			$user_options
+			$userOptions
 		);
 
 		return $result;
