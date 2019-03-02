@@ -210,7 +210,7 @@ class WikiChecks {
 	 * @return Status
 	 */
 	public static function verifyFinfoExists() {
-		if ( !class_exists( 'finfo' ) ) {
+		if ( !class_exists( \finfo::class ) ) {
 			return Status::newFatal( 'gwtoolset-verify-finfo', Constants::EXTENSION_NAME );
 		}
 
@@ -221,7 +221,7 @@ class WikiChecks {
 	 * @return Status
 	 */
 	public static function verifyXMLReaderExists() {
-		if ( !class_exists( 'XMLReader' ) ) {
+		if ( !class_exists( \XMLReader::class ) ) {
 			return Status::newFatal( 'gwtoolset-verify-xmlreader', Constants::EXTENSION_NAME );
 		}
 
