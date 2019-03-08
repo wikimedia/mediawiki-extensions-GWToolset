@@ -156,16 +156,6 @@ class WikiChecks {
 	 * @return Status
 	 */
 	public static function pageIsReadyForThisUser( SpecialPage $specialPage ) {
-		$status = self::verifyXMLReaderExists();
-		if ( !$status->isOK() ) {
-			return $status;
-		}
-
-		$status = self::verifyFinfoExists();
-		if ( !$status->isOK() ) {
-			return $status;
-		}
-
 		$status = self::uploadsEnabled();
 		if ( !$status->isOK() ) {
 			return $status;
@@ -201,28 +191,6 @@ class WikiChecks {
 			return Status::newFatal(
 				'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME
 			);
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * @return Status
-	 */
-	public static function verifyFinfoExists() {
-		if ( !class_exists( \finfo::class ) ) {
-			return Status::newFatal( 'gwtoolset-verify-finfo', Constants::EXTENSION_NAME );
-		}
-
-		return Status::newGood();
-	}
-
-	/**
-	 * @return Status
-	 */
-	public static function verifyXMLReaderExists() {
-		if ( !class_exists( \XMLReader::class ) ) {
-			return Status::newFatal( 'gwtoolset-verify-xmlreader', Constants::EXTENSION_NAME );
 		}
 
 		return Status::newGood();
