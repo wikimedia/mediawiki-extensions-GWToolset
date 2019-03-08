@@ -56,7 +56,6 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-step-4-heading": "Bước 4: Tải lên hàng loạt",
 	"gwtoolset-required-group": "Bạn không phải thuộc nhóm $1.",
-	"gwtoolset-verify-xmlreader": "Phần mở rộng $1 cần cài đặt [https://www.php.net/manual/xmlreader.setup.php XMLReader] vào PHP.",
 	"gwtoolset-wiki-checks-not-passed": "Các kiểm tra wiki bị thất bại",
 	"gwtoolset-title-label": "Tên GWToolset",
 	"gwtoolset-url-to-the-media-file-label": "URL của tập tin phương tiện",

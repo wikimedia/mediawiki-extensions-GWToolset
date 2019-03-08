@@ -29,6 +29,5 @@
 	"gwtoolset-step-1-instructions-li-4": "Dávkový upload",
 	"gwtoolset-category": "Kategorie",
 	"gwtoolset-step-2-instructions-1": "Níže jsou:",
-	"gwtoolset-create-prefix": "GWToolset",
-	"gwtoolset-verify-xmlreader": "$1 rozšíření vyžaduje instalaci PHP [https://www.php.net/manual/en/xmlreader.setup.php XMLReader]."
+	"gwtoolset-create-prefix": "GWToolset"
 }

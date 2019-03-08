@@ -131,7 +131,6 @@
 	"gwtoolset-step-4-heading": "Trin 4: Batch upload",
 	"gwtoolset-required-group": "Du er ikke medlem af gruppen $1.",
 	"gwtoolset-verify-curl": "Udvidelsen $1 kræver at PHPs [https://www.php.net/manual/en/curl.setup.php cURL-funktioner] er installeret.",
-	"gwtoolset-verify-finfo": "Udvidelsen $1 kræver at PHPs [https://www.php.net/manual/en/fileinfo.setup.php finfo]-udvidelse er installeret.",
 	"gwtoolset-title-label": "GWToolset-titel",
 	"gwtoolset-url-to-the-media-file-label": "mediefilens URL-adresse",
 	"gwtoolset-wrap-language-heading": "Sprogskabelon",
