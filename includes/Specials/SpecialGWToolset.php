@@ -154,10 +154,7 @@ class SpecialGWToolset extends SpecialPage {
 	protected function setModuleAndHandler() {
 		$this->module_key = null;
 
-		$gwtoolset_form =
-			$this->getRequest()->getVal( 'gwtoolset-form' )
-			? $this->getRequest()->getVal( 'gwtoolset-form' )
-			: 'metadata-detect';
+		$gwtoolset_form = $this->getRequest()->getVal( 'gwtoolset-form' ) ?: 'metadata-detect';
 
 		if ( array_key_exists( $gwtoolset_form, $this->_registered_modules ) ) {
 			$this->module_key = $gwtoolset_form;

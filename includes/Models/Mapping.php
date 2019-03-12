@@ -188,15 +188,9 @@ class Mapping implements ModelInterface {
 			return;
 		}
 
-		$this->mediawiki_template_name =
-			isset( $options['gwtoolset-mediawiki-template-name'] )
-				? $options['gwtoolset-mediawiki-template-name']
-				: null;
+		$this->mediawiki_template_name = $options['gwtoolset-mediawiki-template-name'] ?? null;
 
-		$this->mapping_json =
-			isset( $options['metadata-mapping-json'] )
-				? $options['metadata-mapping-json']
-				: null;
+		$this->mapping_json = $options['metadata-mapping-json'] ?? null;
 
 		$this->mapping_array = $this->getJsonAsArray( $options );
 		$this->setTargetElements();
