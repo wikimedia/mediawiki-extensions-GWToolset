@@ -866,10 +866,8 @@ class UploadHandler {
 			$options['gwtoolset-url-to-the-media-file']
 		);
 
-		$httpOptions['timeout'] = Config::$http_timeout;
-
 		// Fetch the file - returns a Status Object
-		$status = $upload->fetchFile( $httpOptions );
+		$status = $upload->fetchFile( [ 'timeout' => Config::$http_timeout ] );
 		if ( !$status->isOK() ) {
 			$upload->cleanupTempFile();
 			return $status;
