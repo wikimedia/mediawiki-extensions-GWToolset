@@ -31,12 +31,6 @@ class MediawikiTemplate implements ModelInterface {
 	public $mediawiki_template_name;
 
 	/**
-	 * @var string
-	 * a json representation of the mediawiki template parameters
-	 */
-	public $mediawiki_template_json;
-
-	/**
 	 * @var array
 	 * the $mediawiki_template_json converted to a php array
 	 */
@@ -593,8 +587,7 @@ class MediawikiTemplate implements ModelInterface {
 			);
 		}
 
-		$this->mediawiki_template_json = $result['mediawiki_template_json'];
-		$this->mediawiki_template_array = json_decode( $this->mediawiki_template_json, true );
+		$this->mediawiki_template_array = json_decode( $result['mediawiki_template_json'], true );
 
 		// add aditional mediawiki template fields that the extension needs
 		$this->mediawiki_template_array['gwtoolset-title'] = null;
