@@ -262,9 +262,6 @@ class PreviewForm {
 		$output = $context->getOutput();
 
 		$parserOptions = ParserOptions::newFromContext( $context );
-		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
-			$parserOptions->setEditSection( false );
-		}
 		$parserOptions->setIsPreview( true );
 
 		foreach ( $metadata_items as $item ) {
