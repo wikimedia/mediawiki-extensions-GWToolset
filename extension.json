@@ -14,7 +14,7 @@
 		"GWTFBMaxAge": "1 week"
 	},
 	"requires": {
-		"MediaWiki": ">= 1.25"
+		"MediaWiki": ">= 1.31"
 	},
 	"namespaces": [
 		{
