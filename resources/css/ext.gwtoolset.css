@@ -72,7 +72,7 @@ td.subtract-metadata {
 	overflow: auto;
 }
 
-div#content .preview-title {
+.mw-body .preview-title {
 	font-weight: bold;
 	border: 0;
 	margin-top: 2em;
