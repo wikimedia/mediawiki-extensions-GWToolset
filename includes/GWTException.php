@@ -53,9 +53,7 @@ class GWTException extends Exception {
 			$result = $message;
 		}
 
-		$result = Sanitizer::removeHTMLtags( $result );
-
-		return $result;
+		return Sanitizer::removeHTMLtags( $result );
 	}
 
 }
