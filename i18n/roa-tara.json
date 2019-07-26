@@ -11,8 +11,11 @@
 	"group-gwtoolset": "Utinde GWToolset",
 	"group-gwtoolset-member": "{{GENDER:$1|Utende GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Utinde GWToolset",
+	"gwtoolset-back-to-top": "'ngape 'a pàgene",
 	"gwtoolset-submit": "Conferme",
 	"gwtoolset-summary-heading": "Riepiloghe",
 	"gwtoolset-cancel": "Annulle",
-	"gwtoolset-save": "Reggìstre"
+	"gwtoolset-save": "Reggìstre",
+	"gwtoolset-json-error-unknown": "Errore scanusciute.",
+	"gwtoolset-accepted-file-types": "Accettate {{PLURAL:$1|tipe}} de file:"
 }
