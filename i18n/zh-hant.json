@@ -7,7 +7,8 @@
 			"LNDDYL",
 			"Zhxy 519",
 			"Hello903hello",
-			"Kly"
+			"Kly",
+			"Winston Sung"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -181,7 +182,7 @@
 	"gwtoolset-step-3-instructions-1": "以下是來自您所選的詮釋資料檔案的{{PLURAL:$1|首次紀錄|前 $1 次紀錄}}上傳結果，且對應{{PLURAL:$1|它|它們}}至您在「{{int:gwtoolset-step-2-heading}}」所選的 MediaWiki 模板。",
 	"gwtoolset-step-3-instructions-2": "檢閱模板，若結果符合您的期望，透過點擊下方「{{int:gwtoolset-process-batch}}」按鈕來繼續「{{int:gwtoolset-step-4-heading}}」。",
 	"gwtoolset-step-3-instructions-3": "若您對結果不滿意，返回至「{{int:gwtoolset-step-2-heading}}」並調整所必要的對應。\n\n若您需要調整詮釋資料檔案本身，請動手進行並以「{{int:gwtoolset-step-1-heading}}」來重新流程並再次上傳。",
-	"gwtoolset-title-bad": "基於詮釋資料以及 MediaWiki 模板對應所建立的標題無效。\n\n請嘗試詮釋資料裡用於標題以及標題識別的其它欄位，如有可能的話，請更改所需的詮釋資料。請查看[https://commons.wikimedia.org/wiki/Commons:File_naming 檔案命名]來獲得更多資訊。\n\n<strong>無效標題：</strong>$1。",
+	"gwtoolset-title-bad": "基於元資料以及 MediaWiki 模板對應所建立的標題無效。\n\n請嘗試元資料裡用於標題以及標題識別碼的其它欄位，如有可能的話，請變更所需的元資料。查看[https://commons.wikimedia.org/wiki/Commons:File_naming 檔案命名]來獲得更多資訊。\n\n<strong>無效標題：</strong>$1。",
 	"gwtoolset-batchjob-metadata-created": "詮釋資料批次作業已建立。您的詮釋資料檔案將會立即分析，且任一項目將會以背景處理方式上傳到 wiki。您可以檢查頁面「$1」來查看它們是何時被上傳的。",
 	"gwtoolset-batchjob-metadata-creation-failure": "無法建立詮釋資料檔案的批次處理作業。",
 	"gwtoolset-create-mediafile": "$1：為 $2 建立了媒體檔案。",
