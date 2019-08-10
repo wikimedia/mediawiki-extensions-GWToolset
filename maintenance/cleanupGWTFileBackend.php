@@ -31,7 +31,8 @@ class GWTFileBackendCleanup extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Clean up abandoned files in the GWTFileBackend.';
+		$this->addDescription( 'Clean up abandoned files in the GWTFileBackend.' );
+		$this->requireExtension( 'GWToolset' );
 	}
 
 	public function execute() {
