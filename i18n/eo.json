@@ -1,8 +1,40 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Mirin"
 		]
 	},
-	"gwtoolset-cancel": "Nuligi"
+	"gwtoolset": "GWToolset",
+	"right-gwtoolset": "Uzi GWToolset",
+	"action-gwtoolset": "uzi GWToolset",
+	"group-gwtoolset": "Uzantoj de GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|uzanto de GWToolset}}",
+	"grouppage-gwtoolset": "{{ns:project}}:Uzantoj de GWToolset",
+	"gwtoolset-back-to-top": "paĝosupren",
+	"gwtoolset-mediawiki-template": "Ŝablono $1",
+	"gwtoolset-submit": "Sendi",
+	"gwtoolset-summary-heading": "Resumo",
+	"gwtoolset-cancel": "Nuligi",
+	"gwtoolset-save": "Konservi",
+	"gwtoolset-category": "Kategorio",
+	"gwtoolset-global-categories": "Ĝeneralaj kategorioj",
+	"gwtoolset-metadata-field": "Kampo de metadateno",
+	"gwtoolset-metadata-file": "Metadatena dosiero",
+	"gwtoolset-partner": "Partnero",
+	"gwtoolset-partner-template": "Ŝablono pri partnero:",
+	"gwtoolset-step-2-instructions-1": "Jen:",
+	"gwtoolset-reupload-media": "Realŝuti aŭdvidaĵon el retadreso",
+	"gwtoolset-template-field": "Kampo de ŝablono",
+	"gwtoolset-create-prefix": "GWToolset",
+	"gwtoolset-title-label": "GWToolset-titolo",
+	"gwtoolset-url-to-the-media-file-label": "Retadreso de la aŭdvidaĵa dosiero",
+	"gwtoolset-wrap-creator-heading": "Ŝablono pri kreinto",
+	"gwtoolset-wrap-institution-heading": "Ŝablono pri institucio",
+	"gwtoolset-wrap-language-heading": "Ŝablono pri lingvo",
+	"gwtoolset-detect-license-heading": "Ŝablono pri permesilo",
+	"gwtoolset-select-template": "Elekti ŝablonon:",
+	"gwtoolset-templatedata-link-text": "bloko <code>&lt;templatedata&gt;</code>",
+	"gwtoolset-title-none": "Neniu titolo",
+	"log-name-gwtoolset": "Protokolo de GWToolset"
 }
