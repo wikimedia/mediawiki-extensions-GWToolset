@@ -11,6 +11,7 @@ namespace GWToolset;
 
 use Language;
 use ManualLogEntry;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Sanitizer;
 use Title;
@@ -345,8 +346,6 @@ class Utils {
 	 * @return string|null
 	 */
 	public static function sanitizeString( $string, array $options = [] ) {
-		global $wgContLang;
-
 		// is_string thought some form fields were booleans instead of strings
 		if ( !gettype( $string ) === 'string' ) {
 			throw new MWException(
@@ -363,7 +362,8 @@ class Utils {
 			$result = null;
 		}
 
-		$result = $wgContLang->normalize( $result );
+		$result = MediaWikiServices::getInstance()->getContentLanguage()
+			->normalize( $result );
 
 		return $result;
 	}
