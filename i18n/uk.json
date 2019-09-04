@@ -7,7 +7,8 @@
 			"Base",
 			"Piramidion",
 			"Ahonc",
-			"Vlad5250"
+			"Vlad5250",
+			"Movses"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -133,7 +134,7 @@
 	"gwtoolset-step-1-instructions-li-1": "Виявлення метаданих",
 	"gwtoolset-step-1-instructions-li-2": "Відображення метаданих",
 	"gwtoolset-step-1-instructions-li-3": "Пакетний перегляд",
-	"gwtoolset-step-1-instructions-li-4": "Пакетне завантеження",
+	"gwtoolset-step-1-instructions-li-4": "Пакетне завантаження",
 	"gwtoolset-upload-legend": "Завантажте ваш файл метаданих.",
 	"gwtoolset-which-mediawiki-template": "Який шаблон Медіавікі:",
 	"gwtoolset-which-metadata-mapping": "Які метадані зіставити:",
