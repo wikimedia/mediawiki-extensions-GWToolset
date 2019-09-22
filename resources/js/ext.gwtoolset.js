@@ -560,7 +560,7 @@
 					$( '#gwtoolset-metadata-mapping-subpage' ).val() + '/' +
 					mw.user.getName() + '/' +
 					mappingNameToUse + '.json',
-				wpEditToken = mw.user.tokens.get( 'editToken' );
+				wpEditToken = mw.user.tokens.get( 'csrfToken' );
 
 			if ( evt ) {
 				gwtoolset.$dialog.dialog( 'close' );
