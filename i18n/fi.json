@@ -5,7 +5,8 @@
 			"Susannaanas",
 			"McSalama",
 			"Nike",
-			"Valtlait"
+			"Valtlait",
+			"Silvonen"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -173,5 +174,6 @@
 	"gwtoolset-required-group": "Et ole ryhmän $1 jäsen.",
 	"gwtoolset-verify-curl": "$1-laajennus vaatii, että PHP [https://www.php.net/manual/en/curl.setup.php cURL functions] on asennettu.",
 	"gwtoolset-verify-uploads-enabled": "$1 laajennus vaatii, että tiedostolataukset on sallittu.\n\nVarmista, että <code>$wgEnableUploads</code>-asetus on <code>true</code> <code>LocalSettings.php</code>:ssa.",
-	"gwtoolset-wiki-checks-not-passed": "Ei läpäissyt wikin tarkistuksia"
+	"gwtoolset-wiki-checks-not-passed": "Ei läpäissyt wikin tarkistuksia",
+	"gwtoolset-title-none": "Ei otsikkoa"
 }
