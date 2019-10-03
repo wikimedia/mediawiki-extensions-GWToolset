@@ -187,7 +187,7 @@ class WikiChecks {
 	public static function uploadsEnabled() {
 		global $wgEnableUploads;
 
-		if ( !$wgEnableUploads || ( !wfIsHHVM() && !wfIniGetBool( 'file_uploads' ) ) ) {
+		if ( !$wgEnableUploads || !wfIniGetBool( 'file_uploads' ) ) {
 			return Status::newFatal(
 				'gwtoolset-verify-uploads-enabled', Constants::EXTENSION_NAME
 			);
