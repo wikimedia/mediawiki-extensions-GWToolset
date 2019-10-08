@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"group-gwtoolset": "GWToolset používatelia",
+	"grouppage-gwtoolset": "{{ns:project}}:GWToolset používatelia",
+	"gwtoolset-submit": "Odoslať",
+	"gwtoolset-summary-heading": "Zhrnutie",
+	"gwtoolset-cancel": "Zrušiť",
+	"gwtoolset-save": "Uložiť",
+	"gwtoolset-json-error-unknown": "Neznáma chyba.",
+	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Povolený typ súboru|Povolené typy súborov}}:",
+	"gwtoolset-category": "Kategória",
+	"gwtoolset-global-categories": "Globálne kategórie",
+	"gwtoolset-title-none": "Bez názvu"
+}
