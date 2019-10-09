@@ -15,12 +15,12 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 	 */
 	protected $utils;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->utils = new Utils();
 	}
 
-	protected function tearDown() {
+	protected function tearDown() : void {
 		parent::tearDown();
 	}
 
