@@ -257,7 +257,7 @@ class PreviewForm {
 		IContextSource $context
 	) {
 		$result = null;
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
 		$skin = $context->getSkin();
 		$output = $context->getOutput();
 
@@ -272,7 +272,7 @@ class PreviewForm {
 				$item['Title']->getPageLanguage()
 			);
 
-			$parser_out = $wgParser->parse(
+			$parser_out = $parser->parse(
 				$item['wikitext'],
 				$item['Title'],
 				$parserOptions
@@ -284,7 +284,7 @@ class PreviewForm {
 			// attempt to pre-parse the category in case it contains a template
 			// @see https://bugzilla.wikimedia.org/show_bug.cgi?id=65620
 			foreach ( $item['categories'] as $key => $value ) {
-				$category = $wgParser->parse(
+				$category = $parser->parse(
 					$key,
 					$item['Title'],
 					$parserOptions
