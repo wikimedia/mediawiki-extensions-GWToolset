@@ -346,16 +346,6 @@ class Utils {
 	 * @return string|null
 	 */
 	public static function sanitizeString( $string, array $options = [] ) {
-		// is_string thought some form fields were booleans instead of strings
-		if ( !gettype( $string ) === 'string' ) {
-			throw new MWException(
-				__METHOD__ . ': ' .
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( wfMessage( 'gwtoolset-not-string' )->params( gettype( $string ) ) )
-					->escaped()
-			);
-		}
-
 		$result = filter_var( trim( $string ), FILTER_SANITIZE_STRING, $options );
 
 		if ( !$result ) {

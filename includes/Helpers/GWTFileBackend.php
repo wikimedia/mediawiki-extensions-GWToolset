@@ -384,14 +384,6 @@ class GWTFileBackend {
 	public function saveFile( File $file ) {
 		$result = null;
 
-		if ( empty( $file ) ) {
-			throw new MWException(
-				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-file' )->parse() )
-					->parse()
-			);
-		}
-
 		$this->setHash( $file->tmp_name );
 		$this->setFileExtension( $file->pathinfo['extension'] );
 		$status = $this->prepare();

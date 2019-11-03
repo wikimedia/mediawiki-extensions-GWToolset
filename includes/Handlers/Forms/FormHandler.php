@@ -78,6 +78,7 @@ abstract class FormHandler {
 			}
 		}
 
+		// @phan-suppress-next-line PhanImpossibleTypeComparison
 		if ( $msg !== null ) {
 			$msg .= $this->SpecialPage->getBackToFormLink();
 
