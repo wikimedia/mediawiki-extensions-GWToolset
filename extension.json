@@ -14,7 +14,7 @@
 		"GWTFBMaxAge": "1 week"
 	},
 	"requires": {
-		"MediaWiki": ">= 1.31"
+		"MediaWiki": ">= 1.34"
 	},
 	"namespaces": [
 		{
@@ -125,13 +125,7 @@
 			],
 			"dependencies": [
 				"jquery.spinner",
-				"jquery.ui.widget",
-				"jquery.ui.button",
-				"jquery.ui.draggable",
-				"jquery.ui.mouse",
-				"jquery.ui.position",
-				"jquery.ui.resizable",
-				"jquery.ui.dialog"
+				"jquery.ui"
 			]
 		}
 	},
