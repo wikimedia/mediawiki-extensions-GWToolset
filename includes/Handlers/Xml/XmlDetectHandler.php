@@ -46,14 +46,14 @@ class XmlDetectHandler extends XmlHandler {
 	protected $_metadata_example_dom_nodes;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * an html string representing the XML metadata as options that can be placed
 	 * in an html select element. none of the options has selected=selected
 	 */
 	protected $_metadata_as_options;
 
 	/**
-	 * @var SpecialGWToolset
+	 * @var SpecialGWToolset|null
 	 */
 	protected $_SpecialPage;
 
@@ -145,6 +145,7 @@ class XmlDetectHandler extends XmlHandler {
 						$record = $xmlElement->expand();
 					}
 				} elseif ( $xmlElement instanceof DOMElement ) {
+					// @phan-suppress-previous-line PhanRedundantCondition
 					if ( $xmlElement->nodeName === $userOptions['gwtoolset-record-element-name'] ) {
 						$record = $xmlElement;
 					}

@@ -25,13 +25,13 @@ class File {
 	public $original_file_array;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * The original name of the file on the client machine.
 	 */
 	public $name;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * The mime type of the file, if the browser provided this information.
 	 * An example would be "image/gif". This mime type is however not checked on the PHP side
 	 * and therefore don't take its value for granted.
@@ -39,19 +39,19 @@ class File {
 	public $type;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * The size, in bytes, of the uploaded file.
 	 */
 	public $size;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * The temporary filename of the file in which the uploaded file was stored on the server.
 	 */
 	public $tmp_name;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * The error code associated with this file upload. This element was added in PHP 4.2.0
 	 *
 	 * UPLOAD_ERR_OK
@@ -97,7 +97,7 @@ class File {
 	public $pathinfo;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	public $mime_type;
 

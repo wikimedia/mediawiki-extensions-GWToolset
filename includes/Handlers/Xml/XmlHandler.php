@@ -30,6 +30,7 @@ abstract class XmlHandler {
 	 *
 	 * @param XMLReader $reader
 	 * @return string
+	 * @suppress PhanTypeSuspiciousStringExpression
 	 */
 	protected function displayCurrentNodeProperties( XMLReader $reader ) {
 		return 'attributeCount : ' . $reader->attributeCount . Html::rawElement( 'br' ) .

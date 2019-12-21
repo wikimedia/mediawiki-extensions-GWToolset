@@ -32,7 +32,7 @@ use WikiPage;
 class UploadHandler {
 
 	/**
-	 * @var \Php\File
+	 * @var \Php\File|null
 	 */
 	protected $_File;
 
@@ -52,12 +52,12 @@ class UploadHandler {
 	protected $_item_specific_categories;
 
 	/**
-	 * @var \GWToolset\Models\Mapping
+	 * @var \GWToolset\Models\Mapping|null
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var \GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate|null
 	 */
 	protected $_MediawikiTemplate;
 
@@ -67,12 +67,12 @@ class UploadHandler {
 	protected $_Metadata;
 
 	/**
-	 * @var SpecialPage
+	 * @var SpecialPage|null
 	 */
 	protected $_SpecialPage;
 
 	/**
-	 * @var UploadBase
+	 * @var UploadBase|null
 	 */
 	protected $_UploadBase;
 

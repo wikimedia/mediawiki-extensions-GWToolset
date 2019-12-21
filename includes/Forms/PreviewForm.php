@@ -159,7 +159,7 @@ class PreviewForm {
 	 *
 	 * @param array $expected_post_fields
 	 *
-	 * @return string
+	 * @return string|null
 	 * the string is filtered
 	 */
 	public static function getPostAsHiddenFields( array $expected_post_fields ) {

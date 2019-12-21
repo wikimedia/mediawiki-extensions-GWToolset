@@ -24,22 +24,22 @@ class XmlMappingHandler extends XmlHandler {
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var \GWToolset\Models\Mapping
+	 * @var \GWToolset\Models\Mapping|null
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var \GWToolset\Handlers\Forms\MetadataMappingHandler
+	 * @var \GWToolset\Handlers\Forms\MetadataMappingHandler|null
 	 */
 	protected $_MappingHandler;
 
 	/**
-	 * @var \GWToolset\Models\MediawikiTemplate
+	 * @var \GWToolset\Models\MediawikiTemplate|null
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var \SpecialPage
+	 * @var \SpecialPage|null
 	 */
 	protected $_SpecialPage;
 
@@ -350,6 +350,7 @@ class XmlMappingHandler extends XmlHandler {
 						$outer_xml = $xmlElement->readOuterXml();
 					}
 				} elseif ( $xmlElement instanceof DOMElement ) {
+					// @phan-suppress-previous-line PhanRedundantCondition
 					if ( $xmlElement->nodeName === $userOptions['gwtoolset-record-element-name'] ) {
 						$record = $xmlElement;
 						$outer_xml = $record->ownerDocument->saveXml( $record );

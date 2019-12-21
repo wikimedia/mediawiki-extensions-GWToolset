@@ -28,7 +28,7 @@ class MappingPhpAdapter implements DataAdapterInterface {
 	 *
 	 * @throws GWTException
 	 *
-	 * @return string
+	 * @return string|null
 	 * the content of the wikipage referred to by the wiki title
 	 */
 	public function retrieve( array $options = [] ) {

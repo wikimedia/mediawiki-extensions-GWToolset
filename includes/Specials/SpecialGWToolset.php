@@ -20,7 +20,7 @@ use Title;
 class SpecialGWToolset extends SpecialPage {
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	public $module_key;
 

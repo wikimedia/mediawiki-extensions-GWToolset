@@ -20,13 +20,13 @@ class Metadata implements ModelInterface {
 	public $metadata_as_array;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 * a raw representation of the original metadata
 	 */
 	public $metadata_raw;
 
 	/**
-	 * @var DataAdapterInterface
+	 * @var DataAdapterInterface|null
 	 */
 	protected $_DataAdapater;
 

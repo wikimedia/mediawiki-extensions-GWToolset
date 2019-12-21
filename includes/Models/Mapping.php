@@ -23,12 +23,12 @@ class Mapping implements ModelInterface {
 	public $mapping_array;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	public $mapping_json;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	public $mediawiki_template_name;
 
@@ -48,7 +48,7 @@ class Mapping implements ModelInterface {
 	public $target_dom_elements_mapped;
 
 	/**
-	 * @var DataAdapterInterface
+	 * @var DataAdapterInterface|null
 	 */
 	protected $_DataAdapater;
 
@@ -110,7 +110,7 @@ class Mapping implements ModelInterface {
 	 *
 	 * @param array $options
 	 * @throws GWTException
-	 * @return string
+	 * @return string|null
 	 * the string is not filtered
 	 */
 	protected function getMappingName( array $options ) {
