@@ -109,7 +109,7 @@
 	"gwtoolset-json-error-ctrl-char": "נמצא תו בקרה בלתי־צפוי.",
 	"gwtoolset-json-error-syntax": "שגיאת תחביר, JSON פגום.",
 	"gwtoolset-json-error-utf8": "תווי UTF-8 פגומים, כנראה קידוד שגוי.",
-	"gwtoolset-json-error-unknown": "שגיאה לא ידועה.",
+	"gwtoolset-json-error-unknown": "שגיאה בלתי־ידועה.",
 	"gwtoolset-accepted-file-types": "{{PLURAL:$1|סוג קובץ מורשה|סוגי קובץ מורשים}}:",
 	"gwtoolset-ensure-well-formed-xml": "יש לוודא כי קובץ ה־XML בנוי נכון עם ה־$1 הזה.",
 	"gwtoolset-file-url-invalid": "הקובץ אינו עדיין אינו קיים בוויקי. יש להעלות את הקובץ תחילה מהמחשב שלך אם ברצונך להשתמש בכתובת הקובץ בטופס.",
