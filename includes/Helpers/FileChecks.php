@@ -70,7 +70,7 @@ class FileChecks {
 	 * @param array $accepted_types
 	 * expected format 'file-extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return string
+	 * @return string|null
 	 * the string is filtered
 	 * a comma delimited list of accepted file extensions
 	 */
@@ -104,7 +104,7 @@ class FileChecks {
 	 * @param array $accepted_types
 	 * expected format 'file-extension' => array('mime/type','mime2/type2')
 	 *
-	 * @return string
+	 * @return string|null
 	 * the string is filtered
 	 * a comma delimited list of accepted file mime types
 	 */

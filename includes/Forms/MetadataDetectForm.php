@@ -307,10 +307,12 @@ class MetadataDetectForm {
 				) .
 				Html::rawElement( 'br' ) .
 				wfMessage( 'gwtoolset-metadata-file-source' )->escaped() .
+				// @phan-suppress-next-line PhanTypeSuspiciousStringExpression
 				self::getMetadataFileUrlExtraInstructions() .
 				Html::rawElement(
 					'ul',
 					[],
+					// @phan-suppress-next-line PhanTypeSuspiciousStringExpression
 					self::getMetadataFileUrlInput( $namespace ) .
 					Html::rawElement(
 						'li',
@@ -377,7 +379,7 @@ class MetadataDetectForm {
 
 	/**
 	 * @fixme what is the point of this function
-	 * @param int $namespace
+	 * @param string $namespace
 	 * @return null
 	 */
 	public static function getMetadataFileUrlInput( $namespace ) {

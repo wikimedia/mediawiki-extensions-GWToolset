@@ -53,7 +53,7 @@ class Config {
 	public static $http_timeout = 1200;
 
 	/**
-	 * @var int
+	 * @var float
 	 * 1.25e7 or 12,500,000 default
 	 */
 	public static $max_image_area = 6.4e7;
@@ -159,7 +159,7 @@ class Config {
 	public static $metadata_job_max_attempts = 10;
 
 	/**
-	 * @var string
+	 * @var int
 	 * wiki namespace to store metadata mappings and data sets
 	 */
 	public static $metadata_namespace = NS_GWTOOLSET;

@@ -74,7 +74,7 @@ class Utils {
 			default:
 		}
 
-		return $val;
+		return (int)$val;
 	}
 
 	/**
@@ -337,7 +337,7 @@ class Utils {
 	 * settings, so if you wish it not to do so, e.g. wiki title, pass in
 	 * $options as array( 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES )
 	 *
-	 * @param string $string
+	 * @param string|null $string
 	 *
 	 * @param array $options
 	 * Filter options

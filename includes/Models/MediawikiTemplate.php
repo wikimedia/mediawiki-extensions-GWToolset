@@ -358,7 +358,7 @@ class MediawikiTemplate implements ModelInterface {
 	 */
 	public function getTemplateAsWikiText( array $userOptions ) {
 		$result = '';
-		$sections = null;
+		$sections = '';
 		$template = '{{' . $this->mediawiki_template_name . PHP_EOL . '%s}}';
 
 		foreach ( $this->mediawiki_template_array as $parameter => $content ) {
