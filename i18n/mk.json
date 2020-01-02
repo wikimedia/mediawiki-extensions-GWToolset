@@ -100,7 +100,7 @@
 	"gwtoolset-json-error-state-mismatch": "Потчекорување или несовпаѓање во режимите.",
 	"gwtoolset-json-error-ctrl-char": "Пронајден е неочекуван контролен знак.",
 	"gwtoolset-json-error-syntax": "Синтаксна грешка: лошо срочен JSON.",
-	"gwtoolset-json-error-utf8": "Лошо срочени знаци во UTF-8. Можеби неправилно кодирани.",
+	"gwtoolset-json-error-utf8": "Неисправно срочени знаци во UTF-16. Можеби неправилно кодирани.",
 	"gwtoolset-json-error-unknown": "Непозната грешка.",
 	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Прифатен податотечен тип|Прифатени податотечни типови}}:",
 	"gwtoolset-ensure-well-formed-xml": "Проверете дали XML-податотеката е добро срочена со овој $1.",

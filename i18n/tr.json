@@ -3,10 +3,13 @@
 		"authors": [
 			"Sayginer",
 			"Violetanka",
-			"Sadrettin"
+			"Sadrettin",
+			"BaRaN6161 TURK"
 		]
 	},
 	"gwtoolset-mediawiki-template": "Şablon $1",
+	"gwtoolset-cancel": "İptal",
+	"gwtoolset-category": "Kategori",
 	"gwtoolset-select-template": "Bir şablon seçin:",
 	"gwtoolset-title-none": "Başlık yok"
 }
