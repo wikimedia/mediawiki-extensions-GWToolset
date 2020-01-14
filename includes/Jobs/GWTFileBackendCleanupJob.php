@@ -9,10 +9,10 @@
 
 namespace GWToolset\Jobs;
 
-use Job;
 use GWToolset\Config;
-use GWToolset\Helpers\GWTFileBackend;
 use GWToolset\GWTException;
+use GWToolset\Helpers\GWTFileBackend;
+use Job;
 use User;
 
 class GWTFileBackendCleanupJob extends Job {

@@ -10,10 +10,10 @@
 namespace GWToolset\Models;
 
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
-use Html;
 use GWToolset\Config;
 use GWToolset\GWTException;
 use GWToolset\Utils;
+use Html;
 use MWException;
 
 class MediawikiTemplate implements ModelInterface {

@@ -9,18 +9,18 @@
 
 namespace GWToolset\Jobs;
 
-use Job;
-use JobQueueGroup;
+use Exception;
 use GWToolset\Config;
 use GWToolset\Constants;
-use GWToolset\Utils;
 use GWToolset\GWTException;
 use GWToolset\Handlers\Forms\MetadataMappingHandler;
+use GWToolset\Utils;
+use Job;
+use JobQueueGroup;
 use MWException;
-use Exception;
+use RequestContext;
 use Title;
 use User;
-use RequestContext;
 use Wikimedia\ScopedCallback;
 
 /**

@@ -8,10 +8,10 @@
  */
 namespace GWToolset\Forms;
 
-use GWToolset\Handlers\Forms\MetadataDetectHandler;
-use Html;
 use GWToolset\Config;
+use GWToolset\Handlers\Forms\MetadataDetectHandler;
 use GWToolset\Utils;
+use Html;
 use MediaWiki\MediaWikiServices;
 use Title;
 

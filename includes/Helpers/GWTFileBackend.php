@@ -9,14 +9,14 @@
 
 namespace GWToolset\Helpers;
 
+use Exception;
 use FileBackendGroup;
-use GWToolset\Jobs\GWTFileBackendCleanupJob;
+use FSFile;
 use GWToolset\Constants;
+use GWToolset\Jobs\GWTFileBackendCleanupJob;
 use GWToolset\Utils;
 use JobQueueGroup;
 use MWException;
-use Exception;
-use FSFile;
 use Php\File;
 use Status;
 use Title;

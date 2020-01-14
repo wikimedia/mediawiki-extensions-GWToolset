@@ -9,8 +9,8 @@
 namespace GWToolset\Handlers\Forms;
 
 use GWToolset\GWTException;
-use GWToolset\SpecialGWToolset;
 use GWToolset\Helpers\WikiChecks;
+use GWToolset\SpecialGWToolset;
 use Html;
 use MWException;
 use User;

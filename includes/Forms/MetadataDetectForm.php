@@ -8,12 +8,12 @@
  */
 namespace GWToolset\Forms;
 
-use Html;
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use GWToolset\Config;
-use GWToolset\Utils;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Models\MediawikiTemplate;
+use GWToolset\Utils;
+use Html;
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Title;

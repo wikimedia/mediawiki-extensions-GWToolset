@@ -9,6 +9,7 @@
 
 namespace GWToolset\Handlers\Forms;
 
+use FSFile;
 use GWToolset\Adapters\Php\MappingPhpAdapter;
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use GWToolset\Config;
@@ -20,7 +21,6 @@ use GWToolset\Helpers\GWTFileBackend;
 use GWToolset\Models\Mapping;
 use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Utils;
-use FSFile;
 use Language;
 use MWException;
 use Php\File;
