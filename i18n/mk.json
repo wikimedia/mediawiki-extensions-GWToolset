@@ -23,7 +23,7 @@
 	"gwtoolset-fsfile-empty": "Податотеката беше празна и затоа беше избришана.",
 	"gwtoolset-fsfile-retrieval-failure": "Не можев да ја добијам податотеката од адресата $1.",
 	"gwtoolset-ignorewarnings": "Не е зададено <code>ignorewarnings</code>.",
-	"gwtoolset-incorrect-form-handler": "Модулот „$1“ нема регистрирано работник со обрасци што го прошируваат GWToolset\\Handlers\\Forms\\FormHandler.",
+	"gwtoolset-incorrect-form-handler": "Модулот „$1“ нема пријавено работник со обрасци што го прошируваат GWToolset\\Handlers\\Forms\\FormHandler.",
 	"gwtoolset-job-throttle-exceeded": "Надминато е ограничувањето на пакетни задачи.",
 	"gwtoolset-mediafile-duplicate-another-title": "Дуплирана податотека: Веќе постои иста податотека, но под насловот: „$1“.",
 	"gwtoolset-mediafile-duplicate-same-title": "Дуплирана податотека: Веќе постои оваа податотека и тоа под истиот наслов: „$1“.",

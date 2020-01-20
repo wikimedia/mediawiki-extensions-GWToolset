@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Serwan"
+			"Serwan",
+			"ئارام بکر"
 		]
 	},
-	"gwtoolset-back-to-top": "سەرەوەی پەرە"
+	"gwtoolset-back-to-top": "سەرەوەی پەرە",
+	"gwtoolset-summary-heading": "کورتە"
 }

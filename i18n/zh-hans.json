@@ -7,7 +7,8 @@
 			"Yfdyh000",
 			"Hzy980512",
 			"Stieizc",
-			"Duolaimi"
+			"Duolaimi",
+			"VulpesVulpes825"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -105,7 +106,7 @@
 	"gwtoolset-json-error-state-mismatch": "下溢或模式不匹配。",
 	"gwtoolset-json-error-ctrl-char": "发现意外的控制字符。",
 	"gwtoolset-json-error-syntax": "语法错误，不正确的JSON。",
-	"gwtoolset-json-error-utf8": "畸形的UTF-8字符，可能编码不正确。",
+	"gwtoolset-json-error-utf8": "不正确的UTF-8字符，可能是错误编码。",
 	"gwtoolset-json-error-unknown": "未知错误。",
 	"gwtoolset-accepted-file-types": "接受的文件{{PLURAL:$1|格式}}：",
 	"gwtoolset-ensure-well-formed-xml": "用这个$1确保XML文件格式优良。",
