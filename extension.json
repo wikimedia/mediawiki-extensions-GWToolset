@@ -9,9 +9,15 @@
 	"license-name": "GPL-3.0-or-later",
 	"type": "media",
 	"config": {
-		"GWToolsetConfigOverrides": {},
-		"GWTFileBackend": "",
-		"GWTFBMaxAge": "1 week"
+		"GWToolsetConfigOverrides": {
+			"value": []
+		},
+		"GWTFileBackend": {
+			"value": ""
+		},
+		"GWTFBMaxAge": {
+			"value": "1 week"
+		}
 	},
 	"requires": {
 		"MediaWiki": ">= 1.34"
@@ -136,5 +142,5 @@
 	"SpecialPages": {
 		"GWToolset": "GWToolset\\SpecialGWToolset"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
