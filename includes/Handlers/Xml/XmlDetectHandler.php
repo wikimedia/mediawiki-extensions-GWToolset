@@ -308,7 +308,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * the values within the table rows have been filtered.
 	 */
 	public function getMetadataAsHtmlTableRows() {
-		$result = null;
+		$result = '';
 
 		foreach ( $this->_metadata_example_dom_element as $nodeName => $nodeValues ) {
 			foreach ( $nodeValues as $nodeValue ) {
@@ -380,7 +380,7 @@ class XmlDetectHandler extends XmlHandler {
 	 * the values within the table row have been filtered
 	 */
 	public function getMetadataAsTableCells( $parameter, Mapping $mapping ) {
-		$result = null;
+		$result = '';
 		$selected_options = [];
 		$parameter_as_id = Utils::normalizeSpace( $parameter );
 		$first_row_placed = false;

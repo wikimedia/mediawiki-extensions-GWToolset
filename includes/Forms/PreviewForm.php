@@ -252,11 +252,11 @@ class PreviewForm {
 	 *
 	 * @return string
 	 */
-	public static function getMetadataAsWikitext(
+	private static function getMetadataAsWikitext(
 		array $metadata_items,
 		IContextSource $context
 	) {
-		$result = null;
+		$result = '';
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$skin = $context->getSkin();
 		$output = $context->getOutput();

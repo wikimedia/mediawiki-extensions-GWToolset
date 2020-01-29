@@ -55,8 +55,8 @@ abstract class XmlHandler {
 	 * @param \DOMNode $domNode
 	 * @return string
 	 */
-	protected function getNodesInfo( $domNode ) {
-		$result = null;
+	private function getNodesInfo( $domNode ) {
+		$result = '';
 
 		if ( $domNode->hasChildNodes() ) {
 			$subNodes = $domNode->childNodes;
