@@ -10,6 +10,7 @@
 	"gwtoolset-mediawiki-template": "Şablon $1",
 	"gwtoolset-cancel": "İptal",
 	"gwtoolset-save": "Kaydet",
+	"gwtoolset-json-error-unknown": "Bilinmeyen hata.",
 	"gwtoolset-category": "Kategori",
 	"gwtoolset-select-template": "Bir şablon seçin:",
 	"gwtoolset-title-none": "Başlık yok"
