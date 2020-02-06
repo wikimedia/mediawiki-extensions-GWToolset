@@ -166,7 +166,6 @@ class MetadataMappingHandler extends FormHandler {
 		if ( isset( $this->_whitelisted_post['gwtoolset-category'] ) ) {
 			foreach ( $this->_whitelisted_post['gwtoolset-category'] as $category ) {
 				if ( !empty( $category ) ) {
-					// @phan-suppress-next-line PhanRedundantConditionInLoop
 					if ( empty( $userOptions['categories'] ) ) {
 						$userOptions['categories'] .= $category;
 					} else {

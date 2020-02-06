@@ -27,7 +27,6 @@ class MetadataMappingForm {
 	 *
 	 * @return string
 	 * an html form
-	 * @suppress PhanTypePossiblyInvalidDimOffset
 	 */
 	public static function getForm( MetadataDetectHandler $handler, array &$userOptions ) {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();

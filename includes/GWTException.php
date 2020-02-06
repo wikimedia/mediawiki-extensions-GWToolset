@@ -41,7 +41,7 @@ class GWTException extends Exception {
 	 * @return string
 	 */
 	protected function processMessage( $message ) {
-		$result = null;
+		$result = '';
 
 		if ( is_array( $message ) ) {
 			foreach ( $message as $key => $params ) {

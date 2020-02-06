@@ -90,7 +90,7 @@ class MetadataDetectHandler extends FormHandler {
 	 * the values within the table rows have been filtered
 	 */
 	public function getMetadataAsHtmlSelectsInTableRows() {
-		$result = null;
+		$result = '';
 
 		foreach ( $this->_MediawikiTemplate->mediawiki_template_array as $parameter => $value ) {
 			$result .= $this->XmlDetectHandler->getMetadataAsTableCells(
