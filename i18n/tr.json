@@ -120,7 +120,7 @@
 	"gwtoolset-metadata-mapping-not-found": "Meta veri eşlemesi bulunamadı.\n\n<strong>$1</strong> sayfası vikide mevcut değil.",
 	"gwtoolset-namespace-mismatch": "<strong>$1</strong> sayfası, <strong>$2</strong> yanlış ad alanında.\n\nBu, <strong>$3</strong> ad alanında olmalıdır.",
 	"gwtoolset-no-xml-element-found": "Eşleme için XML öğesi bulunamadı.\n* \"{{int:gwtoolset-record-element-name}}\" formuna bir değer girdiniz mi?\n* XML dosyası iyi biçimlendirilmiş mi? Bu [$1 XML doğrulayıcıyı] deneyin.\n$2",
-	"gwtoolset-page-title-contains-url": "\"$1\" sayfası tüm wiki URL'sini içeriyor. Yalnızca sayfa başlığını girdiğinizden emin olun, ör. URL'nin <code>/wiki/</code> üzerinden sonraki kısmı.",
+	"gwtoolset-page-title-contains-url": "\"$1\" sayfası tüm viki URL'sini içeriyor. Yalnızca sayfa başlığını girdiğinizden emin olun, ör. URL'nin <code>/wiki/</code> üzerinden sonraki kısmı.",
 	"gwtoolset-record-element-name": "Her meta veri kaydını içeren XML öğesi nedir:",
 	"gwtoolset-step-1-heading": "1. Adım: Meta veri algılama",
 	"gwtoolset-step-1-instructions-1": "Meta veri yükleme işlemi 4 adımdan oluşur:",
