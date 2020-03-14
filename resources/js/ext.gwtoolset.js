@@ -1,6 +1,4 @@
-/*global jQuery, mediaWiki */
-/*jslint browser: true, plusplus: true, regexp: true, white: true */
-(function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	var gwtoolset,
@@ -49,15 +47,15 @@
 
 			for ( i = 0; i < pairs.length; i++ ) {
 				current = data;
-				pair = pairs[i].split( '=' );
+				pair = pairs[ i ].split( '=' );
 
 				// if we find foo=1+1=2
 				if ( pair.length !== 2 ) {
-					pair = [ pair[0], pair.slice( 1 ).join( '=' ) ];
+					pair = [ pair[ 0 ], pair.slice( 1 ).join( '=' ) ];
 				}
 
-				key = decodeURIComponent( pair[0].replace( plus, ' ' ) );
-				value = decodeURIComponent( pair[1].replace( plus, ' ' ) );
+				key = decodeURIComponent( pair[ 0 ].replace( plus, ' ' ) );
+				value = decodeURIComponent( pair[ 1 ].replace( plus, ' ' ) );
 				parts = key.match( keyBreaker );
 
 				for ( j = 0; j < parts.length - 1; j++ ) {
@@ -76,7 +74,7 @@
 				if ( lastPart === '[]' ) {
 					current.push( value );
 				} else {
-					current[lastPart] = value;
+					current[ lastPart ] = value;
 				}
 			}
 
@@ -121,7 +119,7 @@
 			} ),
 		$form: $( '#gwtoolset-form' ),
 		formName: $( 'input[name=gwtoolset-form]' ).val(),
-		$globalCategoriesTableTbody: $( '#global-categories-table')
+		$globalCategoriesTableTbody: $( '#global-categories-table' )
 			.children( 'tbody' )
 			.eq( 0 ),
 		$itemSpecificCategoriesTableTbody: $( '#item-specific-categories-table' )
@@ -248,7 +246,7 @@
 		 * @param {Object} $elm
 		 * a jQuery object
 		 *
-		 * @returns {Object}
+		 * @return {Object}
 		 */
 		findTarget: function ( $elm ) {
 			if ( $elm.next().children( 'td.button-subtract' ).length > 0 ) {
@@ -261,7 +259,7 @@
 		/**
 		 * creates an Object that contains the form section fields the application tracks
 		 *
-		 * @returns {Object}
+		 * @return {Object}
 		 */
 		getFieldsOnForm: function () {
 			return {
@@ -285,7 +283,7 @@
 		 * @param {string} find
 		 * the specific element(s) to find within the $elm, e.g., 'input, select'
 		 *
-		 * @returns {string}
+		 * @return {string}
 		 */
 		getFormSectionValues: function ( $elm, find ) {
 			var result;
@@ -352,7 +350,7 @@
 				var $tdElm,
 					$elm = $( this );
 
-				if ( $elm.find('label').length === 1 ) {
+				if ( $elm.find( 'label' ).length === 1 ) {
 					$row.append( $( '<td>' ) );
 				} else if ( $elm.hasClass( 'button-add' ) || $elm.hasClass( 'button-subtract' ) ) {
 					$row.append( $tdButton );
@@ -382,7 +380,7 @@
 
 					$row.append( $tdElm );
 				}
-			});
+			} );
 
 			$row.insertAfter( $target );
 		},
@@ -428,7 +426,7 @@
 				options: {
 					title: mw.message( 'gwtoolset-save-mapping-name' ).text(),
 					dialogClass: 'no-close',
-					buttons : [
+					buttons: [
 						{
 							text: mw.message( 'gwtoolset-save' ).text(),
 							click: function () {
@@ -469,9 +467,9 @@
 		 */
 		restoreJsFormFields: function () {
 			var buttonAdd,
-			fieldsInCookie,
-			fieldsOnForm,
-			formSectionFieldIndex;
+				fieldsInCookie,
+				fieldsOnForm,
+				formSectionFieldIndex;
 
 			if ( this.formName !== 'metadata-mapping' ) {
 				return;
@@ -486,39 +484,39 @@
 
 			$.each( fieldsInCookie, function ( section, cookieSectionFields ) {
 				$.each( cookieSectionFields, function ( cookieSectionField ) {
-					if ( fieldsOnForm[section][cookieSectionField].length !==
-						cookieSectionFields[cookieSectionField].length
+					if ( fieldsOnForm[ section ][ cookieSectionField ].length !==
+						cookieSectionFields[ cookieSectionField ].length
 					) {
-						formSectionFieldIndex = fieldsOnForm[section][cookieSectionField].length - 1;
-						$.each( cookieSectionFields[cookieSectionField],
-							function( cookieSectionFieldIndex, value
-						) {
+						formSectionFieldIndex = fieldsOnForm[ section ][ cookieSectionField ].length - 1;
+						$.each( cookieSectionFields[ cookieSectionField ],
+							function ( cookieSectionFieldIndex, value
+							) {
 							// when this is true the cookie contains a field and value that was added with js
-							if ( cookieSectionFieldIndex > formSectionFieldIndex ) {
-								switch ( section ) {
-									case '$globalCategoriesTableTbody':
-										buttonAdd = gwtoolset[section].find( '.button-add img' );
-										buttonAdd.trigger( 'click', { value: value } );
-										break;
-									case '$templateTableTbody':
-										buttonAdd = $( '#' + cookieSectionField.replace( ' ', '_' ) )
-											.closest( 'tr' )
-											.find('.button-add img');
-										buttonAdd.trigger( 'click', { option: value } );
-										break;
-									case '$itemSpecificCategoriesTableTbody':
+								if ( cookieSectionFieldIndex > formSectionFieldIndex ) {
+									switch ( section ) {
+										case '$globalCategoriesTableTbody':
+											buttonAdd = gwtoolset[ section ].find( '.button-add img' );
+											buttonAdd.trigger( 'click', { value: value } );
+											break;
+										case '$templateTableTbody':
+											buttonAdd = $( '#' + cookieSectionField.replace( ' ', '_' ) )
+												.closest( 'tr' )
+												.find( '.button-add img' );
+											buttonAdd.trigger( 'click', { option: value } );
+											break;
+										case '$itemSpecificCategoriesTableTbody':
 										// only want to trigger buttonAdd once
-										if ( cookieSectionField === 'gwtoolset-category-metadata' ) {
-											buttonAdd = gwtoolset[section].find( '.button-add img' );
-											buttonAdd.trigger( 'click', {
-												option: cookieSectionFields['gwtoolset-category-metadata'][cookieSectionFieldIndex],
-												value: cookieSectionFields['gwtoolset-category-phrase'][cookieSectionFieldIndex]
-											} );
-										}
-										break;
+											if ( cookieSectionField === 'gwtoolset-category-metadata' ) {
+												buttonAdd = gwtoolset[ section ].find( '.button-add img' );
+												buttonAdd.trigger( 'click', {
+													option: cookieSectionFields[ 'gwtoolset-category-metadata' ][ cookieSectionFieldIndex ],
+													value: cookieSectionFields[ 'gwtoolset-category-phrase' ][ cookieSectionFieldIndex ]
+												} );
+											}
+											break;
+									}
 								}
-							}
-						} );
+							} );
 					}
 				} );
 			} );
@@ -554,7 +552,7 @@
 					'gwtoolset-create-mapping',
 					mw.message( 'gwtoolset-create-prefix' ).text(),
 					mw.user.getName()
-					)
+				)
 					.text(),
 				title = $( '#gwtoolset-metadata-namespace' ).val() +
 					$( '#gwtoolset-metadata-mapping-subpage' ).val() + '/' +
@@ -591,4 +589,4 @@
 
 	gwtoolset.init();
 
-}( mediaWiki, jQuery ));
+}() );

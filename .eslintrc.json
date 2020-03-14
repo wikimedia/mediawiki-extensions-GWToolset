@@ -1,0 +1,22 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery"
+	],
+	"globals": {
+		"mw": false,
+		"OO": false
+	},
+	"rules": {
+		"max-len": "off",
+		"no-jquery/no-class-state": "off",
+		"no-jquery/no-each-util": "off",
+		"no-jquery/no-fade": "off",
+		"no-jquery/no-global-selector": "off",
+		"no-jquery/variable-pattern": "off",
+		"no-useless-escape": "off",
+		"valid-jsdoc": "off",
+		"vars-on-top": "off"
+	}
+}
