@@ -48,7 +48,7 @@
 	"gwtoolset-metadata-file-url": "Wiki-URL vum Metadata-Fichier:",
 	"gwtoolset-metadata-mapping-not-found": "Et goufe keng esou Metadate fonnt.\n\nD'Säit <strong>$1</strong> gëtt et an der Wiki net.",
 	"gwtoolset-namespace-mismatch": "D'Säit <strong>$1</strong> ass am falschen Nummraum <strong>$2</strong>.\n\n<strong>$1</strong> soll am Nummraum <strong>$3</strong> sinn.",
-	"gwtoolset-upload-legend": "Lued Äre Fichier mat de Metadonnéeën erop",
+	"gwtoolset-upload-legend": "Luet Äre Fichier mat de Metadonnéeën erop",
 	"gwtoolset-categories": "Gitt Kategorien an, trennt se mam Pipe-Symbol (\"|\").",
 	"gwtoolset-category": "Kategorie",
 	"gwtoolset-global-categories": "Global Kategorien",
