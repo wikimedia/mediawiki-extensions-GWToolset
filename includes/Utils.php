@@ -107,7 +107,7 @@ class Utils {
 	 * optional namespace requirement and whether or not the title must be known
 	 *
 	 * @param string|null $page_title
-	 * @param Int $namespace
+	 * @param int $namespace
 	 * @param array $options
 	 *  - {bool} $options['must-be-known']
 	 *    Whether or not the Title must be known; defaults to true
