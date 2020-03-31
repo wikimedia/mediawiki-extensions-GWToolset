@@ -10,12 +10,12 @@
 namespace GWToolset\Helpers;
 
 use Exception;
-use FileBackendGroup;
 use FSFile;
 use GWToolset\Constants;
 use GWToolset\Jobs\GWTFileBackendCleanupJob;
 use GWToolset\Utils;
 use JobQueueGroup;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Php\File;
 use Status;
@@ -451,7 +451,7 @@ class GWTFileBackend {
 			);
 		}
 
-		$this->FileBackend = FileBackendGroup::singleton()->get(
+		$this->FileBackend = MediaWikiServices::getInstance()->getFileBackendGroup()->get(
 			Utils::sanitizeString( $params['file-backend-name'] )
 		);
 
