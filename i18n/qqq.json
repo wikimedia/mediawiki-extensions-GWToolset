@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dan-nl",
+			"Hamilton Abreu",
+			"Liuxinyu970226",
+			"Matma Rex",
+			"Nemo bis",
 			"Shirayuki",
 			"Siebrand",
-			"dan-nl",
-			"Liuxinyu970226",
-			"Dan-nl",
-			"Nemo bis",
 			"Umherirrender",
-			"Matma Rex",
-			"Hamilton Abreu"
+			"dan-nl"
 		]
 	},
 	"gwtoolset": "Extension name.\n\nGWToolset is short for GLAMWiki Toolset.",

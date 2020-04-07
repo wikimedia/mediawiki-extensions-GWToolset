@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stryn",
-			"Susannaanas",
 			"McSalama",
 			"Nike",
-			"Valtlait",
-			"Silvonen"
+			"Silvonen",
+			"Stryn",
+			"Susannaanas",
+			"Valtlait"
 		]
 	},
 	"gwtoolset": "GWToolset",

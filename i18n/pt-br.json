@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"555",
-			"Opraco",
 			"Araceletorres",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Opraco",
+			555
 		]
 	},
 	"gwtoolset": "GWToolset",
