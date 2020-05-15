@@ -445,7 +445,10 @@ class UploadHandler {
 		) {
 			$result = $pathinfo['extension'];
 		} elseif ( !empty( $options['content-type'] ) ) {
-			$result = explode( ' ', $mimeAnalyzer->getExtensionsForType( $options['content-type'] ) );
+			// strip charset, etc
+			$contentType = preg_replace( '![;, ].*$!', '', $options['content-type'] );
+
+			$result = explode( ' ', $mimeAnalyzer->getExtensionsForType( $contentType ) );
 
 			if ( !empty( $result ) ) {
 				$result = $result[0];
