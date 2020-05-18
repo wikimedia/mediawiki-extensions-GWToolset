@@ -195,5 +195,6 @@
 	"gwtoolset-templatedata-link-text": "<code>&lt;templatedata></code> 블록",
 	"gwtoolset-title-none": "제목 없음",
 	"log-name-gwtoolset": "GWToolset 기록",
-	"logentry-gwtoolset-mediafile-job-failed": "$1 미디어파일 작업이 실패했습니다. 메타데이터 기록 $4. $5."
+	"logentry-gwtoolset-mediafile-job-failed": "$1 미디어파일 작업이 실패했습니다. 메타데이터 기록 $4. $5.",
+	"logentry-gwtoolset-mediafile-job-succeeded": "$1 미디어파일 작업이 성공했습니다. $3(이)가 생성됨. 메타데이터 기록 $4."
 }
