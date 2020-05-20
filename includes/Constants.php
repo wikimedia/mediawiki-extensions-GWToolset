@@ -11,6 +11,6 @@ namespace GWToolset;
 
 class Constants {
 
-	const EXTENSION_NAME = 'GWToolset';
-	const EXTENSION_VERSION = '0.4.0';
+	public const EXTENSION_NAME = 'GWToolset';
+	public const EXTENSION_VERSION = '0.4.0';
 }
