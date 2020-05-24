@@ -174,7 +174,7 @@ abstract class FormHandler {
 					[],
 					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
 				) .
-				Html::rawElement( 'span', [ 'class' => 'error' ], $result->getMessage() );
+				Html::rawElement( 'span', [ 'class' => 'error' ], $result->getMessage()->parse() );
 		} else {
 			$result = $this->processRequest();
 		}

@@ -636,7 +636,7 @@ class UploadHandler {
 		$status = FileChecks::isUploadedFileValid( $this->_File, Config::$accepted_metadata_types );
 
 		if ( !$status->isOK() ) {
-			throw new GWTException( $status->getMessage() );
+			throw new GWTException( $status->getMessage()->text() );
 		}
 
 		$result = $this->_GWTFileBackend->saveFile( $this->_File );
@@ -711,7 +711,7 @@ class UploadHandler {
 
 		if ( !$status->isOK() ) {
 			$msg =
-				$status->getMessage() . PHP_EOL .
+				$status->getMessage()->text() . PHP_EOL .
 				'original URL: ' .
 				Utils::sanitizeUrl(
 					$this
@@ -904,7 +904,7 @@ class UploadHandler {
 
 		if ( !$status->isOK() ) {
 			$msg =
-				$status->getMessage() . PHP_EOL . ' ' .
+				$status->getMessage()->text() . PHP_EOL . ' ' .
 				'tmp path: ' . $upload->getTempPath() . PHP_EOL;
 
 			$upload->cleanupTempFile();

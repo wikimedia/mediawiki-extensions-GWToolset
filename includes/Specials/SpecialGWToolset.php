@@ -205,7 +205,7 @@ class SpecialGWToolset extends SpecialPage {
 				Html::rawElement(
 					'span',
 					[ 'class' => 'error' ],
-					$status->getMessage()
+					$status->getMessage()->parse()
 				)
 			);
 			return false;

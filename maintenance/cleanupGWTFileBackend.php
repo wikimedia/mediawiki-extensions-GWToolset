@@ -96,7 +96,7 @@ class GWTFileBackendCleanup extends Maintenance {
 						wfMessage( 'gwtoolset-developer-issue' )
 							->params(
 								__METHOD__ . ': ' .
-								$status->getMessage()
+								$status->getMessage()->text()
 							)
 							->escaped()
 					);

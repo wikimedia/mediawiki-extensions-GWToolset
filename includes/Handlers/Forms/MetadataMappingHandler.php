@@ -490,7 +490,7 @@ class MetadataMappingHandler extends FormHandler {
 				if ( !$status->isOK() ) {
 					throw new MWException(
 						wfMessage( 'gwtoolset-developer-issue' )
-							->params( __METHOD__ . ': ' . $status->getMessage() )
+							->params( __METHOD__ . ': ' . $status->getMessage()->text() )
 							->parse()
 					);
 				}

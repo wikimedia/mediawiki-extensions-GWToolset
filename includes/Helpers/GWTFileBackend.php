@@ -71,13 +71,13 @@ class GWTFileBackend {
 		if ( empty( $mwstore_relative_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' )->text() )
 					->parse()
 				);
 		}
 
 		if ( empty( $this->_User ) ) {
-			throw new MWException( wfMessage( 'gwtoolset-no-user' ) );
+			throw new MWException( wfMessage( 'gwtoolset-no-user' )->text() );
 		}
 
 		$job = new GWTFileBackendCleanupJob(
@@ -117,7 +117,7 @@ class GWTFileBackend {
 		if ( empty( $mwstore_complete_file_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' )->text() )
 					->parse()
 			);
 		}
@@ -142,7 +142,7 @@ class GWTFileBackend {
 		if ( empty( $mwstore_relative_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' )->text() )
 					->parse()
 			);
 		}
@@ -278,7 +278,7 @@ class GWTFileBackend {
 	 */
 	protected function getUserPath() {
 		if ( empty( $this->_User ) ) {
-			throw new MWException( wfMessage( 'gwtoolset-no-user' ) );
+			throw new MWException( wfMessage( 'gwtoolset-no-user' )->text() );
 		}
 
 		return wfStripIllegalFilenameChars( $this->_User->getName() );
@@ -329,7 +329,7 @@ class GWTFileBackend {
 		if ( empty( $mwstore_complete_file_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-complete-path' )->text() )
 					->parse()
 			);
 		}
@@ -362,7 +362,7 @@ class GWTFileBackend {
 		if ( empty( $mwstore_relative_path ) ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' ) )
+					->params( __METHOD__ . ': ' . wfMessage( 'gwtoolset-no-mwstore-relative-path' )->text() )
 					->parse()
 			);
 		}
@@ -391,7 +391,7 @@ class GWTFileBackend {
 		if ( !$status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . $status->getMessage() )
+					->params( __METHOD__ . ': ' . $status->getMessage()->text() )
 					->parse()
 			);
 		}
@@ -401,7 +401,7 @@ class GWTFileBackend {
 		if ( !$status->isOK() ) {
 			throw new MWException(
 				wfMessage( 'gwtoolset-developer-issue' )
-					->params( __METHOD__ . ': ' . $status->getMessage() )
+					->params( __METHOD__ . ': ' . $status->getMessage()->text() )
 					->parse()
 			);
 		}

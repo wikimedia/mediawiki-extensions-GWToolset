@@ -216,7 +216,7 @@ class MetadataDetectForm {
 				Html::rawElement(
 					'li',
 					[],
-					wfMessage( 'gwtoolset-select-custom-template' ) .
+					wfMessage( 'gwtoolset-select-custom-template' )->parse() .
 					Html::rawElement( 'br' ) .
 					Html::rawElement(
 						'input',

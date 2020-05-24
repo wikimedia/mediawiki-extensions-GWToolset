@@ -45,7 +45,7 @@ class GWTFileBackendCleanupJob extends Job {
 		);
 
 		if ( !$status->isOK() ) {
-			$this->setLastError( __METHOD__ . ': ' . $status->getMessage() );
+			$this->setLastError( __METHOD__ . ': ' . $status->getMessage()->text() );
 			$result = false;
 		}
 
