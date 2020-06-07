@@ -19,6 +19,7 @@ use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Models\Metadata;
 use GWToolset\Utils;
 use Job;
+use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Title;
 use User;
@@ -87,6 +88,7 @@ class UploadMediafileJob extends Job {
 				'MediawikiTemplate' => $mediaWikiTemplate,
 				'Metadata' => $metaData,
 				'User' => $this->User,
+				'HttpRequestFactory' => MediaWikiServices::getInstance()->getHttpRequestFactory()
 			]
 		);
 

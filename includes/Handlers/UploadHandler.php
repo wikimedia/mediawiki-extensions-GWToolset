@@ -18,9 +18,8 @@ use GWToolset\GWTException;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Jobs\UploadMediafileJob;
 use GWToolset\Utils;
-use Http;
+use MediaWiki\Http\HttpRequestFactory;
 use MWException;
-use MWHttpRequest;
 use SpecialPage;
 use Status;
 use Title;
@@ -70,6 +69,11 @@ class UploadHandler {
 	 * @var SpecialPage|null
 	 */
 	protected $_SpecialPage;
+
+	/**
+	 * @var HttpRequestFactory|null
+	 */
+	protected $_HttpRequestFactory;
 
 	/**
 	 * @var UploadBase|null
@@ -124,6 +128,10 @@ class UploadHandler {
 
 		if ( isset( $options['SpecialPage'] ) ) {
 			$this->_SpecialPage = $options['SpecialPage'];
+		}
+
+		if ( isset( $options['HttpRequestFactory'] ) ) {
+			$this->_HttpRequestFactory = $options['HttpRequestFactory'];
 		}
 
 		if ( isset( $options['UploadBase'] ) ) {
@@ -320,7 +328,7 @@ class UploadHandler {
 		$options = [
 			'method' => 'HEAD',
 			'followRedirects' => true,
-			'userAgent' => Http::userAgent() . ' ' .
+			'userAgent' => $this->_HttpRequestFactory->getUserAgent() . ' ' .
 				Constants::EXTENSION_NAME . '/' .
 				Constants::EXTENSION_VERSION
 		];
@@ -329,7 +337,7 @@ class UploadHandler {
 			$options['proxy'] = $wgCopyUploadProxy;
 		}
 
-		$httpRequest = MWHttpRequest::factory( $url, $options );
+		$httpRequest = $this->_HttpRequestFactory->create( $url, $options, __METHOD__ );
 		$status = $httpRequest->execute();
 
 		if ( !$status->isOK() ) {

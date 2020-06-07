@@ -13,6 +13,7 @@ use GWToolset\Handlers\Forms\FormHandler;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Helpers\WikiChecks;
 use Html;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use SpecialPage;
 use Title;
@@ -162,7 +163,10 @@ class SpecialGWToolset extends SpecialPage {
 
 		if ( $this->module_key !== null ) {
 			$handler = $this->_registered_modules[$this->module_key]['handler'];
-			$this->_Handler = new $handler( [ 'SpecialPage' => $this ] );
+			$this->_Handler = new $handler( [
+				'SpecialPage' => $this,
+				'HttpRequestFactory' => MediaWikiServices::getInstance()->getHttpRequestFactory()
+			] );
 
 			if ( !( $this->_Handler instanceof FormHandler ) ) {
 				$msg = wfMessage( 'gwtoolset-developer-issue' )
