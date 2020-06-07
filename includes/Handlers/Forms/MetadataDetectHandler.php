@@ -193,7 +193,8 @@ class MetadataDetectHandler extends FormHandler {
 				'File' => new File(),
 				'GWTFileBackend' => $this->_GWTFileBackend,
 				'SpecialPage' => $this->SpecialPage,
-				'User' => $this->User
+				'User' => $this->User,
+				'HttpRequestFactory' => $this->HttpRequestFactory
 			]
 		);
 

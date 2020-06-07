@@ -391,6 +391,7 @@ class MetadataMappingHandler extends FormHandler {
 				'MediawikiTemplate' => $this->_MediawikiTemplate,
 				'Metadata' => $this->_Metadata,
 				'User' => $this->User,
+				'HttpRequestFactory' => $this->HttpRequestFactory
 			]
 		);
 

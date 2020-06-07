@@ -12,6 +12,7 @@ use GWToolset\GWTException;
 use GWToolset\Helpers\WikiChecks;
 use GWToolset\SpecialGWToolset;
 use Html;
+use MediaWiki\Http\HttpRequestFactory;
 use MWException;
 use User;
 
@@ -21,6 +22,11 @@ abstract class FormHandler {
 	 * @var SpecialGWToolset
 	 */
 	public $SpecialPage;
+
+	/**
+	 * @var HttpRequestFactory
+	 */
+	public $HttpRequestFactory;
 
 	/**
 	 * @var User
@@ -33,6 +39,9 @@ abstract class FormHandler {
 	public function __construct( array $options = [] ) {
 		if ( isset( $options['SpecialPage'] ) ) {
 			$this->SpecialPage = $options['SpecialPage'];
+		}
+		if ( isset( $options['HttpRequestFactory'] ) ) {
+			$this->HttpRequestFactory = $options['HttpRequestFactory'];
 		}
 
 		if ( isset( $options['User'] ) ) {
