@@ -20,10 +20,6 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 		$this->utils = new Utils();
 	}
 
-	protected function tearDown() : void {
-		parent::tearDown();
-	}
-
 	/**
 	 * @covers \GWToolset\Utils::getArraySecondLevelValues
 	 */
