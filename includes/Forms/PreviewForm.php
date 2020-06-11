@@ -225,7 +225,7 @@ class PreviewForm {
 				$result .= Html::rawElement(
 					'li',
 					[],
-					// Use linkKnown to guard against slave lag for new uploads.
+					// Use linkKnown to guard against replica lag for new uploads.
 					$linkRenderer->makeKnownLink( $title, null, [ 'target' => '_blank' ] )
 				);
 			}
