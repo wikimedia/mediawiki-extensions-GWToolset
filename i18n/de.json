@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Blafasel42",
 			"ChrisiPK",
 			"Didym",
@@ -206,7 +207,7 @@
 	"gwtoolset-wrap-institution-explanation": "Die MediaWiki-Vorlage könnte einen Einrichtungsparameter haben; falls ja, kann der gemappte Metadatenwert automatisch in <code>{{Institution:<Wert>}}</code> eingebunden werden.",
 	"gwtoolset-wrap-institution-heading": "Einrichtungsvorlage",
 	"gwtoolset-wrap-language": "Metadaten in eine Sprachvorlage einbinden",
-	"gwtoolset-wrap-language-explanation": "Manchmal enthält ein Metadaten-Element ein <code>lang</code>-Attribut; falls ja, kann der Wert in eine Sprachvorlage eingebunden werden; z.&nbsp;B. <code><dc:description lang=\"de\">Ein in deutsch verfasster Satz.</dc:description></code> wird zu {{de|Ein in deutsch verfasster Satz.}}",
+	"gwtoolset-wrap-language-explanation": "Manchmal enthält ein Metadaten-Element ein <code>lang</code>-Attribut; falls ja, kann der Wert in eine Sprachvorlage eingebunden werden; z.&nbsp;B. <code><dc:description lang=\"en\">A sentence written in English.</dc:description></code> wird zu {{en|A sentence written in English.}}",
 	"gwtoolset-wrap-language-heading": "Sprachvorlage",
 	"gwtoolset-detect-license": "Versuch zur Erkennung der Lizenz",
 	"gwtoolset-detect-license-explanation": "Die MediaWiki-Vorlage kann einen <code>permission</code>-Parameter haben; falls ja, kann versucht werden, die Urheberrechtslizenz basierend auf dem Metadatenwert zu erkennen. GWToolset sucht nach Creative-Commons-URLs mit möglichen Urheberrechtslizenzen; z.&nbsp;B. https://creativecommons.org/licenses/by-sa/3.0/ entspricht der MediaWiki-Lizenzvorlage <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Falls dieses Kontrollkästchen nicht aktiviert wird, wird der Rohmetadatenwert für jedes Objekt im Stapel-Upload im Genehmigungsparameter gesetzt.",
