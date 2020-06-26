@@ -5,6 +5,7 @@
 			"Blafasel42",
 			"ChrisiPK",
 			"Didym",
+			"Kghbln",
 			"Metalhead64",
 			"Purodha"
 		]
@@ -127,8 +128,8 @@
 	"gwtoolset-step-1-heading": "Schritt 1: Metadaten-Erkennung",
 	"gwtoolset-step-1-instructions-1": "Der Metadaten-Hochladeprozess besteht aus 4 Schritten:",
 	"gwtoolset-step-1-instructions-2": "In diesem Schritt ladest {{GENDER:$1|du}} eine neue Metadatendatei auf das Wiki hoch. Das Werkzeug wird versuchen, die in der Metadatendatei vorhandenen Metadatenfelder zu extrahieren, die du dann zu einer MediaWiki-Vorlage in „{{int:gwtoolset-step-2-heading}}“ mappst.",
-	"gwtoolset-step-1-instructions-3": "Falls deine Mediendateidomain unten nicht aufgelistet ist, stelle bitte eine [$1 Anfrage], dass deine Mediendateidomain zur Wikimedia-Commons-Domain-Whitelist hinzugefügt wird. Die Domain-Whitelist ist eine Liste von Domains, die Wikimedia Commons vor dem Abrufen von Mediendateien gegenprüft. Falls deine Mediendateidomain nicht auf dieser Liste ist, wird Wikimedia Commons keine Mediendateien von dieser Domain herunterladen. Das beste Beispiel zum Einreichen deiner Anfrage ist ein tatsächlicher Link zu einer Mediendatei.",
-	"gwtoolset-step-1-instructions-3-heading": "Domain-Whitelist",
+	"gwtoolset-step-1-instructions-3": "Falls deine Mediendateidomain unten nicht aufgelistet ist, stelle bitte eine [$1 Anfrage], dass deine Mediendateidomain zur Wikimedia-Commons-Domain-Positivliste hinzugefügt wird. Die Domain-Positivliste ist eine Liste von Domains, die Wikimedia Commons vor dem Abrufen von Mediendateien überprüft. Falls deine Mediendateidomain nicht auf dieser Liste ist, wird Wikimedia Commons keine Mediendateien von dieser Domain herunterladen. Das beste Beispiel zum Einreichen deiner Anfrage ist ein tatsächlicher Link zu einer Mediendatei.",
+	"gwtoolset-step-1-instructions-3-heading": "Domain-Positivliste",
 	"gwtoolset-step-1-instructions-li-1": "Metadaten-Erkennung",
 	"gwtoolset-step-1-instructions-li-2": "Metadaten-Mapping",
 	"gwtoolset-step-1-instructions-li-3": "Stapel-Vorschau",
