@@ -16,6 +16,7 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"VIGNERON",
+			"Verdy p",
 			"Wladek92",
 			"Zoranzoki21"
 		]
@@ -218,7 +219,7 @@
 	"gwtoolset-wrap-institution-explanation": "Le modèle MediaWiki peut avoir un paramètre institution ; quand c’est le cas, la valeur de métadonnée qui y correspond peut être automatiquement englobée dans <code>{{Institution:<value>}}</code>.",
 	"gwtoolset-wrap-institution-heading": "Modèle d’institution",
 	"gwtoolset-wrap-language": "Englober la métadonnée dans un modèle de langue",
-	"gwtoolset-wrap-language-explanation": "Quelquefois, un élément de métadonnée peut contenir un attribut <code>lang</code> ; quand c’est le cas, la valeur peut être englobée dans un modèle de langue ; par ex., <code><dc:description lang=\"en\">Une phrase en anglais.</dc:description></code> deviendra {{en|Une phrase en anglais.}}",
+	"gwtoolset-wrap-language-explanation": "Quelquefois, un élément de métadonnée peut contenir un attribut <code>lang</code> ; quand c’est le cas, la valeur peut être englobée dans un modèle de langue ; par ex., <code><dc:description lang=\"en\">A sentence written in English.</dc:description></code> deviendra {{en|A sentence written in English.}}",
 	"gwtoolset-wrap-language-heading": "Modèle de langue",
 	"gwtoolset-detect-license": "Tenter de détecter la licence",
 	"gwtoolset-detect-license-explanation": "Le modèle MediaWiki peut avoir un paramètre <code>permission</code> ; quand c’est le cas, une tentative pour détecter la licence d’après la valeur de la métadonnée peut être effectuée. GWToolset rechercher des URL de Creative Commons qui correspondent aux licences possibles ; par ex., https://creativecommons.org/licenses/by-sa/3.0/ correspond au modèle de licence MediaWiki <code>{{tl|Template:Cc-by-sa-3.0}}</code>. Si cette case reste non cochée, la valeur de métadonnée brute pour chaque élément dans l’import par lot sera placée dans le paramètre permission.",
