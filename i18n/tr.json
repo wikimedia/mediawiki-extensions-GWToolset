@@ -74,7 +74,7 @@
 	"gwtoolset-no-file": "Hiçbir dosya alınmadı.",
 	"gwtoolset-no-form-field": "Beklenen form alanı \"$1\" mevcut değil.",
 	"gwtoolset-over-max-ini": "Yüklenen dosya <code>php.ini</code> içindeki <code>upload_max_filesize</code> ve/veya <code>post_max_size</code> yönergesini aşıyor.",
-	"gwtoolset-partial-upload": "Dosya sadece kısmen yüklendi.",
+	"gwtoolset-partial-upload": "Dosya yalnızca kısmen yüklendi.",
 	"gwtoolset-php-extension-error": "Bir PHP uzantısı dosya yüklemesini durdurdu. PHP, hangi uzantının dosya yüklemesinin durmasına neden olduğunu belirlemek için bir yol sağlamaz. Yüklü uzantıların listesini <code>phpinfo()</code> ile incelemek yardımcı olabilir.",
 	"gwtoolset-unaccepted-extension": "Dosya kaynağı kabul edilen bir dosya uzantısı içermiyor.",
 	"gwtoolset-unaccepted-extension-specific": "Dosya kaynağında \".$1\" kabul edilmeyen bir dosya uzantısı var.",
