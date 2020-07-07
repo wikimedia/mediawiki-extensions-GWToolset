@@ -21,7 +21,7 @@
 	"gwtoolset-could-not-open-xml": "XML dosyası okumak için açılamadı.",
 	"gwtoolset-developer-issue": "Lütfen bir geliştiriciyle iletişim kurun. Devam edebilmeniz için bu sorunun çözülmesi gerekir. Lütfen raporunuza aşağıdaki metni ekleyin:\n\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code> veya <code>record-count</code> veya <code>record-current</code> sağlanamadı.",
-	"gwtoolset-file-backend-maxage-invalid": "<code>$wgGWTFBMaxAge</code> sağlanan maksimum yaş değeri geçersiz.\nDoğru şekilde nasıl ayarlayacağınız için [php.net/manual/tr/datetime.formats.relative.php PHP kılavuzuna] bakın.",
+	"gwtoolset-file-backend-maxage-invalid": "<code>$wgGWTFBMaxAge</code> sağlanan maksimum yaş değeri geçersiz.\nDoğru şekilde nasıl ayarlayacağınız için [https://www.php.net/manual/tr/datetime.formats.relative.php PHP kılavuzuna] bakın.",
 	"gwtoolset-fsfile-empty": "Dosya boştu ve silindi.",
 	"gwtoolset-fsfile-retrieval-failure": "Dosya $1 URL'sinden alınamadı.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> ayarlanmadı.",
