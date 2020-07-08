@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Araceletorres",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
 			"Opraco",
 			555
@@ -21,7 +22,7 @@
 	"gwtoolset-could-not-open-xml": "Não foi possível abrir o aquivo XML para leitura.",
 	"gwtoolset-developer-issue": "Entre em contato com um desenvolvedor, esse problema precisa ser corrigido antes de prosseguir. Adicione o seguinte texto em seu relato:\n\n$1",
 	"gwtoolset-dom-record-issue": "Não foi inserido ou um <code>record-element-name</code> ou <code>record-count</code> ou <code>record-current</code>.",
-	"gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade fornecido em <code>$wgGWTFBMaxAge</code> é inválido. Veja o [php.net/manual/en/datetime.formats.relative.php manual do PHP] para saber como defini-lo corretamente.",
+	"gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade fornecido em <code>$wgGWTFBMaxAge</code> é inválido. Veja o [https://php.net/datetime.formats.relative manual do PHP] para saber como defini-lo corretamente.",
 	"gwtoolset-fsfile-empty": "O arquivo foi eliminado por estar vazio.",
 	"gwtoolset-fsfile-retrieval-failure": "Não foi possível obter o arquivo a partir do URL $1.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> não foi definido.",
@@ -190,7 +191,7 @@
 	"gwtoolset-permission-not-given": "Certifique-se de que você está logado ou entre em contato com um administrador para que seja concedido a você permissão para visualizar esta página ($1).",
 	"gwtoolset-user-blocked": "Sua conta de usuário está atualmente bloqueada. Entre em contato com um administrador para corrigir o problema.",
 	"gwtoolset-required-group": "Você não é um membro do grupo $1.",
-	"gwtoolset-verify-curl": "A extensão $1 requer que as [https://www.php.net/manual/en/curl.setup.php funções cURL] do PHP estejam instaladas.",
+	"gwtoolset-verify-curl": "A extensão $1 requer que as [https://www.php.net/curl.setup funções cURL] do PHP estejam instaladas.",
 	"gwtoolset-verify-uploads-enabled": "A extensão $1 exige que o upload de arquivos esteja habilitado.\n\nCertifique-se que <code>$wgEnableUploads</code> esteja definido como <code>true</code> em <code>LocalSettings.php</code>.",
 	"gwtoolset-wiki-checks-not-passed": "Não passou na verificação da wiki",
 	"gwtoolset-title-too-long": "O título avaliado é muito longo; um título pode ter um tamanho máximo de 240 bytes. Este título tem $1 {{PLURAL:$1|byte|bytes}} de comprimento.\n\n$2.",
