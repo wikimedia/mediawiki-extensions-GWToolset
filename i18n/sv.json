@@ -6,6 +6,7 @@
 			"Jopparn",
 			"LeiLar",
 			"Lokal Profil",
+			"Sabelöga",
 			"Tobulos1",
 			"WikiPhoenix"
 		]
@@ -24,7 +25,7 @@
 	"gwtoolset-could-not-open-xml": "Kunde inte öppna XML-filen för läsning.",
 	"gwtoolset-developer-issue": "Vänligen kontakta en utvecklare. Detta problem måste åtgärdas innan du kan fortsätta. Lägg till följande text i rapporten:\n\n\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, <code>record-count</code>, eller <code>record-current</code> inte angivet.",
-	"gwtoolset-file-backend-maxage-invalid": "Maximalt värdet för ålder i <code>$wgGWTFBMaxAge</code> är ogiltigt.\nSe [https://php.net/datetime.formats.relative PHP-manualen] för hur du ställer in det korrekt.",
+	"gwtoolset-file-backend-maxage-invalid": "Maximala värdet för ålder i <code>$wgGWTFBMaxAge</code> är ogiltigt.\nSe [https://php.net/datetime.formats.relative PHP-manualen] för hur du ställer in det korrekt.",
 	"gwtoolset-fsfile-empty": "Filen var tom och togs bort.",
 	"gwtoolset-fsfile-retrieval-failure": "Filen kunde inte hämtas från URL $1.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> inte angivet.",
