@@ -27,7 +27,7 @@
 	"gwtoolset-could-not-open-xml": "XML 파일을 읽어올 수 없습니다.",
 	"gwtoolset-developer-issue": "개발자와 연락해 주십시오. 계속하기 전에 이 문제를 해결해야 합니다. 개발자에게 알릴 때 다음 내용을 추가해 주십시오:\n\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, <code>record-count</code>, 또는 <code>record-current</code>가 입력되지 않았습니다.",
-	"gwtoolset-file-backend-maxage-invalid": "<code>$wgGWTFBMaxAge</code>에 입력된 최대 나이 값이 유효하지 않습니다. [php.net/manual/en/datetime.formats.relative.php PHP 설명서]를 참고하여 올바르게 설정하실 수 있습니다.",
+	"gwtoolset-file-backend-maxage-invalid": "<code>$wgGWTFBMaxAge</code>에 입력된 최대 나이 값이 유효하지 않습니다. [https://php.net/datetime.formats.relative PHP 설명서]를 참고하여 올바르게 설정하실 수 있습니다.",
 	"gwtoolset-fsfile-empty": "파일이 비었으며 삭제했습니다.",
 	"gwtoolset-fsfile-retrieval-failure": "파일을 URL $1에서 가져올 수 없습니다.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code>가 설정되지 않습니다.",
