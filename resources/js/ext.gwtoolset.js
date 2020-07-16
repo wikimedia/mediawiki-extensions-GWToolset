@@ -14,7 +14,7 @@
 	 */
 	$.String = $.extend( $.String || {}, {
 		/**
-		 * @function deparam
+		 * @method deparam
 		 *
 		 * Takes a string of name value pairs and returns a Object literal that represents those params.
 		 *
