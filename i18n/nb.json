@@ -18,7 +18,7 @@
 	"gwtoolset-could-not-open-xml": "Kunne ikke åpne XML-fila for lesing.",
 	"gwtoolset-developer-issue": "Vennligst kontakt en utvikler. Dette problemet må oppklares før du kan fortsette. Legg til følgende tekst i rapporten din:\n\n$1",
 	"gwtoolset-dom-record-issue": "<code>record-element-name</code>, <code>record-count</code> eller <code>record-current</code> ikke oppgitt.",
-	"gwtoolset-file-backend-maxage-invalid": "Maksimal alder gitt i <code>$wgGWTFBMaxAge</code er ugyldig.\nSe [https://php.net/datetime.formats.relative.php PHP-manualen] for hvordan den skal stilles inn korrekt.",
+	"gwtoolset-file-backend-maxage-invalid": "Maksimal alder gitt i <code>$wgGWTFBMaxAge</code> er ugyldig.\nSe [https://php.net/datetime.formats.relative.php PHP-manualen] for hvordan den skal stilles inn korrekt.",
 	"gwtoolset-fsfile-empty": "Fila var tom og ble slettet.",
 	"gwtoolset-fsfile-retrieval-failure": "Fila kunne ikke hentes fra URL-en $1.",
 	"gwtoolset-ignorewarnings": "<code>ignorewarnings</code> ikke satt.",
