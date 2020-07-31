@@ -4,6 +4,7 @@
 			"ESM",
 			"KRLS",
 			"Macofe",
+			"Mguix",
 			"Papapep",
 			"QuimGil",
 			"Toniher"
@@ -23,7 +24,7 @@
 	"gwtoolset-could-not-open-xml": "No s'ha pogut llegir el fitxer XML.",
 	"gwtoolset-developer-issue": "$1Contacteu amb el desenvolupador. Aquest error s'ha de corregir abans de continuar. Afegiu el text següent al vostre informe:\n\n$1",
 	"gwtoolset-dom-record-issue": "No s'ha proporcionat <code>record-element-name</code>, o <code>record-count</code>, o <code>record-current</code>.",
-	"gwtoolset-file-backend-maxage-invalid": "L'edat màxima proporcionada a <code>$wgGWTFBMaxAge</code> no és vàlida.\nConsulteu el [php.net/manual/en/datetime.formats.relative.php manual de PHP] per saber com fer-ho.",
+	"gwtoolset-file-backend-maxage-invalid": "L'edat màxima proporcionada a <code>$wgGWTFBMaxAge</code> no és vàlida.\nConsulteu el [https://php.net/datetime.formats.relative manual  de PHP] per saber com fer-ho.",
 	"gwtoolset-fsfile-empty": "El fitxer era buit i s'ha suprimit.",
 	"gwtoolset-fsfile-retrieval-failure": "No s'ha pogut recuperar el fitxer de la URL $1.",
 	"gwtoolset-ignorewarnings": "No s'ha definit <code>ignorewarnings</code>.",
