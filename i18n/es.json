@@ -14,7 +14,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, una herramienta de carga por lotes para los GLAM",
-	"gwtoolset-intro": "GWToolset es una extensión para MediaWiki que permite que galerías, bibliotecas, archivos y museos (GLAM, por sus siglas en inglés) realicen cargas de contenido en masa con base en un archivo XML con metadatos sobre el contenido. [[commons:Commons:GLAMToolset_project|Más información]].",
+	"gwtoolset-intro": "GWToolset es una extensión para MediaWiki que permite que galerías, bibliotecas, archivos y museos (GLAM, por sus siglas en inglés) realicen cargas de contenido en masa con base en un archivo XML con metadatos sobre el contenido. [[Special:MyLanguage/Commons:GLAMwiki_Toolset_Project|Más información]].",
 	"right-gwtoolset": "Usar GWToolset",
 	"action-gwtoolset": "usar GWToolset",
 	"group-gwtoolset": "Usuarios de GWToolset",

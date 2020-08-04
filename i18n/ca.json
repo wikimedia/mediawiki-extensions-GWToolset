@@ -12,7 +12,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, una eina de càrrega massiva per als projectes GLAM",
-	"gwtoolset-intro": "GWToolset és una extensió MediaWiki que permet la pujada massiva de contingut GLAM (Galeries, Biblioteques -Libraries-, Arxius i Museus) mitjançant un fitxer XML que conté les metadades del contingut. S'intenta amb això permetre diversos esquemes XML. Més informació del projecte a la seva [[commons:Commons:GLAMToolset_project|pàgina]]. Contacteu amb nosaltres a la mateixa pàgina. Trieu un dels elements del menú superior per iniciar el procés de pujada.",
+	"gwtoolset-intro": "GWToolset és una extensió MediaWiki que permet la pujada massiva de contingut GLAM (Galeries, Biblioteques -Libraries-, Arxius i Museus) mitjançant un fitxer XML que conté les metadades del contingut. S'intenta amb això permetre diversos esquemes XML. Més informació del projecte a la seva [[Special:MyLanguage/Commons:GLAMwiki_Toolset_Project|pàgina]]. Contacteu amb nosaltres a la mateixa pàgina. Trieu un dels elements del menú superior per iniciar el procés de pujada.",
 	"right-gwtoolset": "Utilitza el GWToolset",
 	"action-gwtoolset": "utilitza el gwtoolset",
 	"group-gwtoolset": "Usuaris del GWToolset",

@@ -18,7 +18,7 @@
 	},
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, een hulpprogramma voor het massaal uploaden van bestanden",
-	"gwtoolset-intro": "GWToolset is een uitbreiding voor MediaWiki die GLAMs (galeries, bibliotheken, archieven en musea) de mogelijkheid biedt om een verzameling mediabestanden te uploaden op basis van een XML-bestand met metagegevens over de inhoud. Het is de bedoeling om verschillende XML-schema's te accepteren. Meer informatie over het project kan worden gevonden op de [[commons:Commons:GLAMToolset_project|projectpagina]]. Voel u ook vrij om contact met ons op te nemen middels die pagina. Selecteer een van de menu-items hierboven om te beginnen met het uploadproces.",
+	"gwtoolset-intro": "GWToolset is een uitbreiding voor MediaWiki die GLAMs (galeries, bibliotheken, archieven en musea) de mogelijkheid biedt om een verzameling mediabestanden te uploaden op basis van een XML-bestand met metagegevens over de inhoud. Het is de bedoeling om verschillende XML-schema's te accepteren. Meer informatie over het project kan worden gevonden op de [[Special:MyLanguage/Commons:GLAMwiki_Toolset_Project|projectpagina]]. Voel u ook vrij om contact met ons op te nemen middels die pagina. Selecteer een van de menu-items hierboven om te beginnen met het uploadproces.",
 	"right-gwtoolset": "GLAMWiki Toolset gebruiken",
 	"action-gwtoolset": "GLAMWiki Toolset te gebruiken",
 	"group-gwtoolset": "GWToolsetgebruikers",
