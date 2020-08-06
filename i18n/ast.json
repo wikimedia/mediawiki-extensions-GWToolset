@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fitoschido",
 			"Xuacu"
 		]
 	},
@@ -173,7 +174,7 @@
 	"gwtoolset-template-field": "Campu de la plantía",
 	"gwtoolset-step-3-instructions-heading": "Pasu 3: Vista previa del llote",
 	"gwtoolset-step-3-instructions-1": "Abaxo tán los resultaos de xubir {{PLURAL:$1|el primer rexistru|los $1 primeros rexistros}} del ficheru de metadatos que seleicionasti  {{PLURAL:$1|cola correspondencia|coles correspondencies}} cola plantía de MediaWiki que seleicionasti en \"{{int:gwtoolset-step-2-heading}}\".",
-	"gwtoolset-step-3-instructions-2": "Revisa les plantíes y, si los resultaos correspuenden colo qu'esperabes, sigui con \"{{int:gwtoolset-step-4-heading}}\", faciendo click nel botón \"{{int:gwtoolset-process-batch}}\" más abaxo.",
+	"gwtoolset-step-3-instructions-2": "Revisa les plantíes y, si los resultaos correspuenden colo qu'esperabes, sigui con «{{int:gwtoolset-step-4-heading}}», calcando'l botón «{{int:gwtoolset-process-batch}}» más abaxo.",
 	"gwtoolset-step-3-instructions-3": "Si nun te convencen los resultaos, vuelvi a \"{{int:gwtoolset-step-2-heading}}\" y axusta les correspondecies como necesites.\n\nSi precises facer axustes al ficheru de metadatos, sigui, failo y vuelvi a xubilu principiando'l procesu nuevamente con \"{{int:gwtoolset-step-1-heading}}\".",
 	"gwtoolset-title-bad": "El títulu, que se creó basándose nos metadatos y na designación de la plantíq de MediaWiki nun ye válidu.\n\nPrueba otru campu de los metadatos pal títulu y pal identificador de títulu o, si ye posible, cambia los metadatos onde se necesite. Consulta [https://commons.wikimedia.org/wiki/Commons:File_naming nomes de ficheros] pa más información.\n\n<strong>Títulu inválidu:</strong> $1.",
 	"gwtoolset-create-mediafile": "$1: Creando'l ficheru multimedia pa $2.",
