@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Clockoon",
+			"Codenstory",
 			"Hwangjy9",
 			"Hym411",
 			"MemphisA5",
@@ -143,7 +144,7 @@
 	"gwtoolset-create-mapping": "$1: $2을 위한 메타데이터 매핑 만들기",
 	"gwtoolset-example-record": "메타데이터 예시 레코드의 내용",
 	"gwtoolset-global-categories": "전역 분류",
-	"gwtoolset-global-tooltip": "이 분류는 업로드된 모든 항목에 대해 적용됩니다.",
+	"gwtoolset-global-tooltip": "이 분류는 업로드된 모든 항목에 대해 적용됩니다.분류 이름은 일반적으로 영어로 됩니다 ([[Special:MyLanguage/Commons:Categories#Category_names|Commons:Category names]]를 참조하세요).",
 	"gwtoolset-maps-to": "매핑 장소",
 	"gwtoolset-mapping-media-file-url-extension-bad": "파일 확장 기능이 파일 URL에서 확정되지 않았습니다: $1",
 	"gwtoolset-mapping-media-file-url-bad": "해당 미디어 파일 URL을 평가할 수 없습니다. URL이 아직 이 확장 기능으로 다룰 수 없는 방법으로 내용을 전달했거나 HTTP 요청 문제가 있습니다. 주어진 URL은 \"$1\"입니다. HTTP 요청은 \"$2\" 오류입니다.",
