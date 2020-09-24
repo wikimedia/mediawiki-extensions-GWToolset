@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"John Reid"
+			"John Reid",
+			"MJL"
 		]
 	},
 	"gwtoolset-no-accepted-types": "Nae acceptit types providit.",
@@ -22,7 +23,7 @@
 	"gwtoolset-reverse-creator-explanation": "Sometimes the creauter value is leetit aes \"faimilie name, gien name\" in the metadata. Checkin this kist will reverse that order n remuiv the comma, e.g., \"da Vinci, Leonardo\" wid become \"Leonardo da Vinci\". Mynd that this relies oan ae single comma in the value; gif thaur's nae comma in the value, nae chynge will be makit, n gif thaur's mair than yin comma, the chynge will yinlie be makit uisin the first comma.",
 	"gwtoolset-wrap-creator-explanation": "The MediaWiki template micht hae aen <code>author</code>, <code>artist</code>, <code>publisher</code> or siclik boundin. Whan it dis, the metadata value mappit til it can autæmateeclie be wrappit in <code>{{Creator:<value>}}</code>.",
 	"gwtoolset-wrap-language-explanation": "Sometimes ae metadata element micht contain ae <code>lang</code> attreebute. Whan it daes, the value can be wrappit in ae leid template, e.g. <code><dc:description lang=\"en\">A sentence written in English.</dc:description></code> wid become {{en|A sentence written in English.}}",
-	"gwtoolset-global-license-explanation": "Or ye can speceefie ablow ae global license that will be applied tae aw the eetems in the batch uplaid. This value can be ae free text value or ae MediaWiki template. Gif this field haes ae value in it than onie metadata value mappit tae the permeession boundin will be ignored.",
+	"gwtoolset-global-license-explanation": "Or ye can speceefie ablow ae global license that will be applied tae aw the items in the batch uplaid. This value can be ae free text value or ae MediaWiki template. Gif this field haes ae value in it than onie metadata value mappit tae the permeession boundin will be ignored.",
 	"gwtoolset-select-template": "Select ae template:",
 	"gwtoolset-select-custom-template": "or enter ae custom template:",
 	"gwtoolset-no-templatedata": "Thaur's nae <code>&lt;templatedata></code> block fer template $1.\n\nGif possible, eik ae $2 tae the template, or tae the template's $3.",

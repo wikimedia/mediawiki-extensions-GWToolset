@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"MuratTheTurkish",
 			"Sadrettin",
 			"Sayginer",
 			"Violetanka"
@@ -10,8 +11,8 @@
 	"gwtoolset": "GWToolset",
 	"gwtoolset-desc": "GWToolset, GLAM'lar için toplu yükleme aracı",
 	"gwtoolset-intro": "GWToolset, GLAM'lerin (Galeriler, Kütüphaneler, Arşivler ve Müzeler) içerikle ilgili meta verileri içeren bir XML dosyasına dayalı olarak içeriği toplu olarak yükleyebilmesini sağlayan bir MediaWiki uzantısıdır. Proje hakkında daha fazla bilgi [[Special:MyLanguage/Commons:GLAMwiki_Toolset_Project|proje sayfasında]] bulunabilir.",
-	"right-gwtoolset": "GWToolset kullanın",
-	"action-gwtoolset": "GWToolset kullanın",
+	"right-gwtoolset": "GWToolset kullan",
+	"action-gwtoolset": "GWToolset kullan",
 	"group-gwtoolset": "GWToolset kullanıcıları",
 	"group-gwtoolset-member": "{{GENDER:$1|GWToolset kullanıcısı}}",
 	"grouppage-gwtoolset": "{{ns:project}}:GWToolset kullanıcıları",
