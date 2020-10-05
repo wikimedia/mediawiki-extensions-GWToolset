@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"StanProg"
 		]
 	},
@@ -8,5 +9,6 @@
 	"action-gwtoolset": "употреба на GWToolset",
 	"gwtoolset-submit": "Изпращане",
 	"gwtoolset-cancel": "Отказ",
-	"gwtoolset-save": "Съхраняване"
+	"gwtoolset-save": "Съхраняване",
+	"gwtoolset-category": "Категория"
 }
