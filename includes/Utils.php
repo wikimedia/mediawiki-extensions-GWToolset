@@ -65,11 +65,14 @@ class Utils {
 	 */
 	public static function getBytes( $val ) {
 		switch ( substr( $val, -1 ) ) {
-			case 'M': case 'm':
+			case 'M':
+			case 'm':
 				return (int)$val * 1048576;
-			case 'K': case 'k':
+			case 'K':
+			case 'k':
 				return (int)$val * 1024;
-			case 'G': case 'g':
+			case 'G':
+			case 'g':
 				return (int)$val * 1073741824;
 			default:
 		}

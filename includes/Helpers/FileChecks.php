@@ -312,27 +312,27 @@ class FileChecks {
 			case UPLOAD_ERR_OK:
 				break;
 
-			case UPLOAD_ERR_INI_SIZE :
+			case UPLOAD_ERR_INI_SIZE:
 				$msg = 'gwtoolset-over-max-ini';
 				break;
 
-			case UPLOAD_ERR_PARTIAL :
+			case UPLOAD_ERR_PARTIAL:
 				$msg = 'gwtoolset-partial-upload';
 				break;
 
-			case UPLOAD_ERR_NO_FILE :
+			case UPLOAD_ERR_NO_FILE:
 				$msg = 'gwtoolset-no-file';
 				break;
 
-			case UPLOAD_ERR_NO_TMP_DIR :
+			case UPLOAD_ERR_NO_TMP_DIR:
 				$msg = 'gwtoolset-missing-temp-folder';
 				break;
 
-			case UPLOAD_ERR_CANT_WRITE :
+			case UPLOAD_ERR_CANT_WRITE:
 				$msg = 'gwtoolset-disk-write-failure';
 				break;
 
-			case UPLOAD_ERR_EXTENSION :
+			case UPLOAD_ERR_EXTENSION:
 				$msg = 'gwtoolset-php-extension-error';
 				break;
 		}
