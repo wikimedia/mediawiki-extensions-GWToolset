@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ArenaL5",
 			"Banjo",
 			"Breogan2008",
 			"Elisardojm"
@@ -20,7 +21,7 @@
 	"gwtoolset-could-not-open-xml": "Non se puido abrir o ficheiro XML para a súa lectura.",
 	"gwtoolset-developer-issue": "Por favor, póñase en contacto coun desenvolvedor. Hai que amañar este problema antes de poder continuar. Engada o texto seguinte ó informe:\n\n$1",
 	"gwtoolset-dom-record-issue": "Non se proporcionou nen <code>record-element-name</code> nen <code>record-count</code> nen <code>record-current</code>.",
-	"gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade indicado en <code>$wgGWTFBMaxAge</code> non é válido. Consulte o [php.net/manual/en/datetime.formats.relative.php manual de PHP] para ver como configuralo correctamente.",
+	"gwtoolset-file-backend-maxage-invalid": "O valor máximo de idade indicado en <code>$wgGWTFBMaxAge</code> non é válido. Consulte o [https://php.net/manual/en/datetime.formats.relative manual de PHP] para ver como configuralo correctamente.",
 	"gwtoolset-fsfile-empty": "O ficheiro estaba vacío e foi eliminado.",
 	"gwtoolset-fsfile-retrieval-failure": "Non se puido recuperar o ficheiro da URL $1.",
 	"gwtoolset-ignorewarnings": "Non se definiu <code>ignorewarnings</code>.",
@@ -139,7 +140,7 @@
 	"gwtoolset-create-mapping": "$1: Creando a correspondencia de metadatos para $2",
 	"gwtoolset-example-record": "Rexistros de exemplo de metadatos.",
 	"gwtoolset-global-categories": "Categorías globais",
-	"gwtoolset-global-tooltip": "Estas categorías serán aplicadas globalmente a todos os elementos subidos. Os nomes de categorías normalmente debe estar en inglés (consulte [[Special:MyLanguage/Commons:Categories#Category_names|Commons:Nomes de categorías]]).",
+	"gwtoolset-global-tooltip": "Estas categorías serán aplicadas globalmente a todos os elementos subidos. Os nomes de categorías normalmente deben estar en inglés (consulte [[Special:MyLanguage/Commons:Categories#Category_names|Commons:Nomes de categorías]]).",
 	"gwtoolset-maps-to": "Corresponde con",
 	"gwtoolset-mapping-media-file-no-content-type": "Non se puido determinar o tipo de contido da URL: $1.",
 	"gwtoolset-mapping-media-file-url-extension-bad": "A extensión do ficheiro non se puido determinar da URL: $1.",
@@ -189,7 +190,7 @@
 	"gwtoolset-permission-not-given": "Asegúrese de que está conectado ou contacte cun administrador para obter permisos para visualizar esta páxina ($1).",
 	"gwtoolset-user-blocked": "A súa conta de usuario foi bloqueada. Por favor contacte cun administrador para amañar este problema.",
 	"gwtoolset-required-group": "Vostede non é membro do grupo $1.",
-	"gwtoolset-verify-curl": "A extensión $1 precisa que as [https://www.php.net/manual/en/curl.setup.php cURL funcións cURL] de PHP estean instaladas.",
+	"gwtoolset-verify-curl": "A extensión $1 precisa que as [https://www.php.net/curl.setup cURL funcións cURL] de PHP estean instaladas.",
 	"gwtoolset-verify-uploads-enabled": "A extensión $1 precisa que a API wiki estea activa a subida de ficheiros.\n\nPor favor, asegúrese que <code>$wgEnableUploads</code> ten o valor <code>true</code> en <code>LocalSettings.php</code>.",
 	"gwtoolset-wiki-checks-not-passed": "Non pasou as comprobacións do wiki",
 	"gwtoolset-title-too-long": "O título evaluado é demasiado longo, os títulos poden ter unha lonxitude máxima de 240 bytes. Este título ten unha lonxitude de $1 {{PLURAL:$1|byte|bytes}}.\n\n$2",
