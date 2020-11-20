@@ -727,6 +727,7 @@ class UploadHandler {
 						->mediawiki_template_array['gwtoolset-url-to-the-media-file']
 				) . PHP_EOL .
 				'evaluated URL: ' .
+				// @phan-suppress-next-line PhanTypeMismatchArgument
 				Utils::sanitizeUrl( $upload_params['gwtoolset-url-to-the-media-file'] );
 
 			throw new GWTException( $msg );

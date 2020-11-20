@@ -39,6 +39,9 @@ class GWTException extends Exception {
 	 * - otherwise it is assumed that the message is a “regular” message string
 	 *
 	 * @return string
+	 *
+	 * Hack for T268353:
+	 * @param-taint $message none
 	 */
 	protected function processMessage( $message ) {
 		$result = '';
