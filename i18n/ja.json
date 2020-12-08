@@ -173,7 +173,7 @@
 	"gwtoolset-reupload-media": "メディアを URL から再アップロード",
 	"gwtoolset-reupload-media-explanation": "このチェックボックスでは、ウィキに既にアップロードされている項目用のメディアを再アップロードできるようにします。あなたによる以前のアップロードによって、項目が既に存在する場合には、新たなメディア ファイルがウィキに追加されます。もし、誰か別の人が、既にアップロードして新しいバージョンのメディアファイルを置いた場合には、あなたの新しいアップロードは無視されます。もし、メディアファイルがウィキにまだ存在しない場合には、このチェックボックスにチェックを入れているか否かに関わらず、アップロードされます。",
 	"gwtoolset-specific-categories": "項目固有のカテゴリ",
-	"gwtoolset-specific-tooltip": "以下のフィールドを使用して、フレーズ（オプション）とメタデータ・フィールドを、アップロードされた個々のアイテムのカテゴリ・エントリとして適用することができます。例えば、メタデータファイルに各レコードのアーティストの要素が含まれている場合、それを各レコードのカテゴリエントリとして追加することで、各レコード固有の値に変更することができます。また、<em>{{{int:gwtoolset-painted-by}}</em>のようなフレーズを追加してから、アーティストのメタデータフィールドを追加すると、<em>{{{int:gwtoolset-painted-by}}となります。<アーティスト名></em>を各レコードのカテゴリとして指定します。カテゴリ名は一般的に英語でなければなりません([[Special:MyLanguage/Commons:Categories#Category_names|Commons:Category names]]を参照してください)。",
+	"gwtoolset-specific-tooltip": "以下のフィールドを使用すると、アップロードされた個々のアイテムのカテゴリ・エントリに語句（オプション）とメタデータ・フィールドを適用できます。例えば、メタデータファイルに各レコードのアーティストの要素が含まれている場合、それを各レコードのカテゴリとして追加すると、各レコードが固有値に変わります。また追加するのは<em>{{int:gwtoolset-painted-by}}</em>のような語句でもよく、アーティストのメタデータフィールドは<em>{{int:gwtoolset-painted-by}}<アーティスト名></em>に変わり、各レコードのカテゴリとして指定します。カテゴリ名は一般的に英語でなければなりません([[Special:MyLanguage/Commons:Categories#Category_names|Commons:Category names]]を参照してください)。",
 	"gwtoolset-template-field": "テンプレートのフィールド",
 	"gwtoolset-step-3-instructions-heading": "手順 3: 一括処理のプレビュー",
 	"gwtoolset-step-3-instructions-1": "以下は、あなたが選択して「{{int:gwtoolset-step-2-heading}}」で MediaWiki テンプレートに{{PLURAL:$1|}}マッピングしたメタデータ ファイルから抽出した{{PLURAL:$1|先頭のレコード|先頭の $1 件のレコード}}のアップロード結果です。",
