@@ -57,7 +57,6 @@ class UploadMediafileJob extends Job {
 	 * @return Title|false
 	 */
 	protected function processMetadata() {
-		global $wgUser;
 		$mediaWikiTemplate = new MediawikiTemplate( new MediawikiTemplatePhpAdapter() );
 		$mediaWikiTemplate->getMediaWikiTemplate(
 			$this->params['user-options']['gwtoolset-mediawiki-template-name']
@@ -72,15 +71,6 @@ class UploadMediafileJob extends Job {
 		$mapping->setTargetElements();
 		$mapping->reverseMap();
 		$metaData = new Metadata( new MetadataPhpAdapter() );
-
-		// AbuseFilter still looks at $wgUser in an UploadVerifyFile hook
-		$oldUser = $wgUser;
-		$wgUser = $this->User;
-		// This will automatically restore $wgUser, when $restoreWgUser falls out of scope.
-		$restoreWgUser = new ScopedCallback( function () use ( $oldUser ) {
-			global $wgUser;
-			$wgUser = $oldUser;
-		} );
 
 		$uploadHandler = new UploadHandler(
 			[
@@ -101,8 +91,6 @@ class UploadMediafileJob extends Job {
 		$metaData->metadata_as_array = $this->params['options']['metadata-as-array'];
 
 		$result = $uploadHandler->saveMediafileAsContent( $this->params['user-options'] );
-
-		ScopedCallback::consume( $restoreWgUser );
 
 		return $result ?: false;
 	}
