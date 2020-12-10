@@ -134,7 +134,7 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		if ( isset( $apiResult['pages'] ) && count( $apiResult['pages'] ) === 1 ) {
 			$apiResult = array_shift( $apiResult['pages'] );
 
-			if ( count( $apiResult['params'] ) > 0 ) {
+			if ( isset( $apiResult['params'] ) && count( $apiResult['params'] ) > 0 ) {
 				$jsonResult = [];
 				foreach ( $apiResult['params'] as $key => $value ) {
 					if ( !$value['deprecated'] ) {
