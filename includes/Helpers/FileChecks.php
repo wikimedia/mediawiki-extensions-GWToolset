@@ -25,6 +25,7 @@ use UploadBase;
  */
 class FileChecks {
 
+	/** @var string|null */
 	public static $current_extension;
 
 	/**

@@ -62,12 +62,14 @@ class Mapping implements ModelInterface {
 
 	/**
 	 * @param array $options
-	 * @return \Status
 	 */
 	public function create( array $options = [] ) {
-		return $this->_DataAdapater->create( $options );
+		$this->_DataAdapater->create( $options );
 	}
 
+	/**
+	 * @param array &$options
+	 */
 	public function delete( array &$options = [] ) {
 	}
 
@@ -242,6 +244,9 @@ class Mapping implements ModelInterface {
 		}
 	}
 
+	/**
+	 * @param array &$options
+	 */
 	public function update( array &$options = [] ) {
 	}
 }

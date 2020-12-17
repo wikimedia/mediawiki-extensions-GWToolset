@@ -19,7 +19,7 @@ use XMLReader;
 abstract class XmlHandler {
 
 	/**
-	 * @var \GWToolset\Helpers\GWTFileBackend
+	 * @var GWTFileBackend|null
 	 */
 	protected $_GWTFileBackend;
 
@@ -79,6 +79,10 @@ abstract class XmlHandler {
 		return $result;
 	}
 
+	/**
+	 * @param array &$userOptions
+	 * @param string|\Content|null $xmlSource
+	 */
 	abstract public function processXml( array &$userOptions, $xmlSource = null );
 
 	/**

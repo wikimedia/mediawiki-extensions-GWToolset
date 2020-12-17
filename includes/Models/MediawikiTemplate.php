@@ -69,9 +69,15 @@ class MediawikiTemplate implements ModelInterface {
 		$this->_DataAdapater = $dataAdapter;
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function create( array $options = [] ) {
 	}
 
+	/**
+	 * @param array &$options
+	 */
 	public function delete( array &$options = [] ) {
 	}
 
@@ -594,6 +600,9 @@ class MediawikiTemplate implements ModelInterface {
 		$this->mediawiki_template_array['gwtoolset-url-to-the-media-file'] = null;
 	}
 
+	/**
+	 * @param array &$options
+	 */
 	public function update( array &$options = [] ) {
 	}
 }

@@ -16,9 +16,15 @@ use WikiPage;
 
 class MappingPhpAdapter implements DataAdapterInterface {
 
+	/**
+	 * @param array $options
+	 */
 	public function create( array $options = [] ) {
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function delete( array $options = [] ) {
 	}
 
@@ -53,6 +59,9 @@ class MappingPhpAdapter implements DataAdapterInterface {
 		return $result;
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function update( array $options = [] ) {
 	}
 }

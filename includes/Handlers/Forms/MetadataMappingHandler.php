@@ -33,6 +33,7 @@ use Title;
 
 class MetadataMappingHandler extends FormHandler {
 
+	/** @var GWTFileBackend|null */
 	protected $_GWTFileBackend;
 
 	/**

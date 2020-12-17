@@ -39,6 +39,7 @@ class Utils {
 	/**
 	 * GlobalFunctions->wfObjectToArray() doesn’t work here
 	 *
+	 * @phpcs:ignore MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam
 	 * @param array|object $data
 	 * @return array
 	 */

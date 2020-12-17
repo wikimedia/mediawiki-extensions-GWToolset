@@ -32,6 +32,9 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		return array_keys( Config::$mediawiki_templates );
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function create( array $options = [] ) {
 	}
 
@@ -149,9 +152,15 @@ class MediawikiTemplatePhpAdapter implements DataAdapterInterface {
 		return $result;
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function update( array $options = [] ) {
 	}
 
+	/**
+	 * @param array $options
+	 */
 	public function delete( array $options = [] ) {
 	}
 }
