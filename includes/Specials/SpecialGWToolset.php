@@ -89,7 +89,7 @@ class SpecialGWToolset extends SpecialPage {
 			Html::rawElement(
 				'noscript',
 				[],
-				wfMessage( 'gwtoolset-back-text' )->escaped() . ' '
+				$this->msg( 'gwtoolset-back-text' )->escaped() . ' '
 			)
 		);
 	}
@@ -116,7 +116,7 @@ class SpecialGWToolset extends SpecialPage {
 				$html .=
 					Html::rawElement(
 						'h2', [],
-						wfMessage( 'gwtoolset-technical-error' )->escaped()
+						$this->msg( 'gwtoolset-technical-error' )->escaped()
 					) .
 					Html::element( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
@@ -128,7 +128,7 @@ class SpecialGWToolset extends SpecialPage {
 				$html .=
 					Html::rawElement(
 						'h2', [],
-						wfMessage( 'gwtoolset-file-interpretation-error' )->escaped()
+						$this->msg( 'gwtoolset-file-interpretation-error' )->escaped()
 					) .
 					Html::element( 'p', [ 'class' => 'error' ], $e->getMessage() );
 			}
@@ -137,10 +137,10 @@ class SpecialGWToolset extends SpecialPage {
 		$this->getOutput()->addModules( 'ext.GWToolset' );
 
 		$this->getOutput()->addHTML(
-			wfMessage( 'gwtoolset-menu' )->rawParams(
+			$this->msg( 'gwtoolset-menu' )->rawParams(
 				$this->getLinkRenderer()->makeLink(
 					Title::newFromText( 'Special:' . Constants::EXTENSION_NAME ),
-					wfMessage( 'gwtoolset-menu-1' )->text(),
+					$this->msg( 'gwtoolset-menu-1' )->text(),
 					[]
 				)
 			)->parse()
@@ -169,12 +169,12 @@ class SpecialGWToolset extends SpecialPage {
 			] );
 
 			if ( !( $this->_Handler instanceof FormHandler ) ) {
-				$msg = wfMessage( 'gwtoolset-developer-issue' )
+				$msg = $this->msg( 'gwtoolset-developer-issue' )
 				->params(
 					__METHOD__ . ': ' .
-					wfMessage( 'gwtoolset-incorrect-form-handler' )
-					->params( $this->module_key )
-					->escaped()
+					$this->msg( 'gwtoolset-incorrect-form-handler' )
+						->params( $this->module_key )
+						->escaped()
 				)
 				->escaped();
 
@@ -182,10 +182,10 @@ class SpecialGWToolset extends SpecialPage {
 			}
 		} elseif ( $this->getRequest()->wasPosted() ) {
 			// a posted form must have a registered module key
-			$msg = wfMessage( 'gwtoolset-developer-issue' )
+			$msg = $this->msg( 'gwtoolset-developer-issue' )
 				->params(
 					__METHOD__ . ': ' .
-					wfMessage( 'gwtoolset-no-form-handler' )->escaped()
+					$this->msg( 'gwtoolset-no-form-handler' )->escaped()
 				)
 				->escaped();
 
@@ -204,7 +204,7 @@ class SpecialGWToolset extends SpecialPage {
 				Html::rawElement(
 					'h2',
 					[],
-					wfMessage( 'gwtoolset-wiki-checks-not-passed' )->escaped()
+					$this->msg( 'gwtoolset-wiki-checks-not-passed' )->escaped()
 				) .
 				Html::rawElement(
 					'span',
