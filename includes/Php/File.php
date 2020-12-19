@@ -113,7 +113,7 @@ class File {
 	}
 
 	protected function setMimeType() {
-		// @phan-suppress-next-line SecurityCheck-OTHER Paths from $_FILES are safe
+		// @phan-suppress-next-line SecurityCheck-PathTraversal Paths from $_FILES are safe
 		$this->mime_type = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer()->guessMimeType(
 			$this->tmp_name,
 			$this->pathinfo['extension']
