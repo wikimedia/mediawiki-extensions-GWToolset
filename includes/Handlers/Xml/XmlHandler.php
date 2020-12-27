@@ -139,7 +139,10 @@ abstract class XmlHandler {
 			$xmlReader->close();
 		} );
 
-		$old_value = libxml_disable_entity_loader( true );
+		$oldValue = false;
+		if ( LIBXML_VERSION < 20900 ) {
+			$oldValue = libxml_disable_entity_loader( true );
+		}
 
 		while ( $xmlReader->read() ) {
 			if ( $xmlReader->nodeType === XMLReader::DOC_TYPE ) {
@@ -165,7 +168,9 @@ abstract class XmlHandler {
 			}
 		}
 
-		libxml_disable_entity_loader( $old_value );
+		if ( LIBXML_VERSION < 20900 ) {
+			libxml_disable_entity_loader( $oldValue );
+		}
 
 		if ( !$xmlReader->close() ) {
 			throw new MWException(
