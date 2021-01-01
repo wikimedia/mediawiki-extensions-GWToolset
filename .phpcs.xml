@@ -11,5 +11,5 @@
 	</rule>
 	<file>.</file>
 	<arg name="encoding" value="UTF-8" />
-	<arg name="extensions" value="php,php5,inc" />
+	<arg name="extensions" value="php" />
 </ruleset>
