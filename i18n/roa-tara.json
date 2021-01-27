@@ -12,6 +12,8 @@
 	"group-gwtoolset-member": "{{GENDER:$1|Utende GWToolset}}",
 	"grouppage-gwtoolset": "{{ns:project}}:Utinde GWToolset",
 	"gwtoolset-back-to-top": "'ngape 'a pàgene",
+	"gwtoolset-no-accepted-types": "Nisciune tipe accettate mise.",
+	"gwtoolset-mediawiki-template": "Template $1",
 	"gwtoolset-submit": "Conferme",
 	"gwtoolset-summary-heading": "Riepiloghe",
 	"gwtoolset-cancel": "Annulle",
