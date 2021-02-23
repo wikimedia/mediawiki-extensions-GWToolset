@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kambai Akau"
+		]
+	},
+	"gwtoolset": "GWToolset",
+	"right-gwtoolset": "Nyia̱ ta̱m ma̱ng GWToolset",
+	"action-gwtoolset": "nyia̱ ta̱m ma̱ng GWToolset",
+	"group-gwtoolset": "Á̱niet ba̱ nyian ta̱m ma̱ng GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|A̱tyunyian ta̱m ma̱ng GWToolset}}",
+	"grouppage-gwtoolset": "{{ns:project}}:Á̱nietnyian ta̱m ma̱ng GWToolset",
+	"gwtoolset-back-to-top": "a̱za peji hu",
+	"gwtoolset-mediawiki-template": "Templet $1",
+	"gwtoolset-submit": "Neap",
+	"gwtoolset-summary-heading": "Nam-a̱lyiat",
+	"gwtoolset-cancel": "Lyang",
+	"gwtoolset-loading": "Ma̱sa̱kut nyap fwuo. Si̱ huni bye kyiak a̱banjen.",
+	"gwtoolset-save": "Sak",
+	"gwtoolset-maps-to": "A̱yaata̱si̱la nat",
+	"gwtoolset-metadata-field": "Kyai Metadeita",
+	"gwtoolset-metadata-file": "Fail Metadeita",
+	"gwtoolset-partner": "A̱kpa̱ndang ta̱m",
+	"gwtoolset-step-2-instructions-1": "A̱tatak bya:",
+	"gwtoolset-step-2-instructions-1-li-1": "Lis nkyai na mami MidyaWiki $1.",
+	"gwtoolset-template-field": "Kyai templet",
+	"gwtoolset-create-prefix": "GWToolset",
+	"gwtoolset-title-label": "A̱lyoot GWToolset",
+	"gwtoolset-url-to-the-media-file-label": "URL a̱si̱ fail midya hu",
+	"gwtoolset-reverse-creator": "Bwuok ma̱ng a̱lyoot ngaan, a̱lyoot ntsa",
+	"gwtoolset-wrap-language-heading": "Templet a̱lyem",
+	"gwtoolset-title-none": "A̱lyoot nshyia̱ bah",
+	"log-name-gwtoolset": "Ri̱jista GWToolset"
+}
