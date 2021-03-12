@@ -5,7 +5,8 @@
 			"MuratTheTurkish",
 			"Sadrettin",
 			"Sayginer",
-			"Violetanka"
+			"Violetanka",
+			"Vito Genovese"
 		]
 	},
 	"gwtoolset": "GWToolset",
@@ -102,7 +103,7 @@
 	"gwtoolset-json-error-depth": "Maksimum yığın derinliği aşıldı.",
 	"gwtoolset-json-error-state-mismatch": "Düşük akış veya modlar uyumsuz.",
 	"gwtoolset-json-error-ctrl-char": "Beklenmeyen kontrol karakteri bulundu.",
-	"gwtoolset-json-error-syntax": "Sözdizimi hatası, hatalı biçimlendirilmiş JSON.",
+	"gwtoolset-json-error-syntax": "Sözdizim hatası, hatalı biçimlendirilmiş JSON.",
 	"gwtoolset-json-error-utf8": "Yanlış biçimlendirilmiş UTF-8 karakterleri yanlış kodlanmış olabilir.",
 	"gwtoolset-json-error-unknown": "Bilinmeyen hata.",
 	"gwtoolset-accepted-file-types": "Kabul edilen dosya {{PLURAL:$1|türü|türü}}:",
