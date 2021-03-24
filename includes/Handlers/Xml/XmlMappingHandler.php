@@ -12,6 +12,10 @@ namespace GWToolset\Handlers\Xml;
 use Content;
 use DOMElement;
 use GWToolset\Config;
+use GWToolset\Handlers\Forms\MetadataMappingHandler;
+use GWToolset\Helpers\GWTFileBackend;
+use GWToolset\Models\Mapping;
+use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Utils;
 use MWException;
 use XMLReader;
@@ -19,22 +23,22 @@ use XMLReader;
 class XmlMappingHandler extends XmlHandler {
 
 	/**
-	 * @var \GWToolset\Helpers\GWTFileBackend
+	 * @var GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var \GWToolset\Models\Mapping|null
+	 * @var Mapping|null
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var \GWToolset\Handlers\Forms\MetadataMappingHandler|null
+	 * @var MetadataMappingHandler|null
 	 */
 	protected $_MappingHandler;
 
 	/**
-	 * @var \GWToolset\Models\MediawikiTemplate|null
+	 * @var MediawikiTemplate|null
 	 */
 	protected $_MediawikiTemplate;
 

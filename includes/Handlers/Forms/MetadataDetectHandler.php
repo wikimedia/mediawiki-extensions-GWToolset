@@ -13,6 +13,7 @@ use FSFile;
 use GWToolset\Adapters\Php\MappingPhpAdapter;
 use GWToolset\Adapters\Php\MediawikiTemplatePhpAdapter;
 use GWToolset\Config;
+use GWToolset\File;
 use GWToolset\Forms\MetadataMappingForm;
 use GWToolset\GWTException;
 use GWToolset\Handlers\UploadHandler;
@@ -23,7 +24,6 @@ use GWToolset\Models\MediawikiTemplate;
 use GWToolset\Utils;
 use Language;
 use MWException;
-use Php\File;
 
 class MetadataDetectHandler extends FormHandler {
 
@@ -42,22 +42,22 @@ class MetadataDetectHandler extends FormHandler {
 	];
 
 	/**
-	 * @var \GWToolset\Helpers\GWTFileBackend
+	 * @var GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
 	/**
-	 * @var \GWToolset\Models\Mapping
+	 * @var Mapping
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var \GWToolset\Models\MediawikiTemplate
+	 * @var MediawikiTemplate
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var \GWToolset\Handlers\UploadHandler
+	 * @var UploadHandler
 	 */
 	protected $_UploadHandler;
 
@@ -67,7 +67,7 @@ class MetadataDetectHandler extends FormHandler {
 	protected $_whitelisted_post;
 
 	/**
-	 * @var \GWToolset\Handlers\Xml\XmlDetectHandler
+	 * @var XmlDetectHandler
 	 */
 	public $XmlDetectHandler;
 

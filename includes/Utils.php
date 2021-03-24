@@ -356,10 +356,8 @@ class Utils {
 			$result = null;
 		}
 
-		$result = MediaWikiServices::getInstance()->getContentLanguage()
+		return MediaWikiServices::getInstance()->getContentLanguage()
 			->normalize( $result );
-
-		return $result;
 	}
 
 	/**
@@ -375,8 +373,7 @@ class Utils {
 	 */
 	public static function sanitizeUrl( $url, array $options = [] ) {
 		$result = self::sanitizeString( $url );
-		$result = filter_var( $result, FILTER_SANITIZE_URL, $options );
-		return $result;
+		return filter_var( $result, FILTER_SANITIZE_URL, $options );
 	}
 
 	/**
@@ -408,7 +405,7 @@ class Utils {
 			$logEntry->setParameters( $options['parameters'] );
 		}
 
-		$logid = $logEntry->insert();
+		$logEntry->insert();
 		// Do not call $logEntry->publish( $logid );
 		// as we only want this on Special:Log/gwtoolset, and not
 		// Special:Recentchanges or RC irc feed
@@ -426,9 +423,7 @@ class Utils {
 			return $result;
 		}
 
-		$result = str_replace( [ '[', ']' ], '', $category );
-
-		return $result;
+		return str_replace( [ '[', ']' ], '', $category );
 	}
 
 	/**
@@ -457,9 +452,8 @@ class Utils {
 
 		$title = str_replace( $illegal_chars, $options['replacement'], $title );
 		$title = Sanitizer::decodeCharReferences( $title );
-		$title = wfStripIllegalFilenameChars( $title );
 
-		return $title;
+		return wfStripIllegalFilenameChars( $title );
 	}
 
 }

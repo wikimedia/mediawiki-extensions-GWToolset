@@ -40,9 +40,6 @@
 	"ExtensionFunctions": [
 		"GWToolset\\Config::mergeOverrides"
 	],
-	"AutoloadClasses": {
-		"Php\\File": "includes/Php/File.php"
-	},
 	"AutoloadNamespaces": {
 		"GWToolset\\": "includes/"
 	},

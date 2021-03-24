@@ -14,9 +14,14 @@ use ContentHandler;
 use DerivativeRequest;
 use GWToolset\Config;
 use GWToolset\Constants;
+use GWToolset\File;
 use GWToolset\GWTException;
 use GWToolset\Helpers\FileChecks;
+use GWToolset\Helpers\GWTFileBackend;
 use GWToolset\Jobs\UploadMediafileJob;
+use GWToolset\Models\Mapping;
+use GWToolset\Models\MediawikiTemplate;
+use GWToolset\Models\Metadata;
 use GWToolset\Utils;
 use MediaWiki\Http\HttpRequestFactory;
 use MWException;
@@ -31,12 +36,12 @@ use WikiPage;
 class UploadHandler {
 
 	/**
-	 * @var \Php\File|null
+	 * @var File|null
 	 */
 	protected $_File;
 
 	/**
-	 * @var \GWToolset\Helpers\GWTFileBackend
+	 * @var GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 
@@ -51,17 +56,17 @@ class UploadHandler {
 	protected $_item_specific_categories;
 
 	/**
-	 * @var \GWToolset\Models\Mapping|null
+	 * @var Mapping|null
 	 */
 	protected $_Mapping;
 
 	/**
-	 * @var \GWToolset\Models\MediawikiTemplate|null
+	 * @var MediawikiTemplate|null
 	 */
 	protected $_MediawikiTemplate;
 
 	/**
-	 * @var \GWToolset\Models\Metadata
+	 * @var Metadata
 	 */
 	protected $_Metadata;
 

@@ -10,10 +10,10 @@
 namespace GWToolset\Helpers;
 
 use GWToolset\Config;
+use GWToolset\File;
 use GWToolset\GWTException;
 use GWToolset\Utils;
 use MWException;
-use Php\File;
 use Status;
 use UploadBase;
 

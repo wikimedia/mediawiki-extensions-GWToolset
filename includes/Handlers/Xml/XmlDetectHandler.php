@@ -12,6 +12,7 @@ namespace GWToolset\Handlers\Xml;
 use Content;
 use DOMElement;
 use GWToolset\GWTException;
+use GWToolset\Helpers\GWTFileBackend;
 use GWToolset\Models\Mapping;
 use GWToolset\SpecialGWToolset;
 use GWToolset\Utils;
@@ -27,7 +28,7 @@ use XMLReader;
 class XmlDetectHandler extends XmlHandler {
 
 	/**
-	 * @var \GWToolset\Helpers\GWTFileBackend
+	 * @var GWTFileBackend
 	 */
 	protected $_GWTFileBackend;
 

@@ -9,7 +9,11 @@
 
 namespace GWToolset;
 
+use GWToolset\Forms\MetadataDetectForm;
+use GWToolset\Forms\MetadataMappingForm;
 use GWToolset\Handlers\Forms\FormHandler;
+use GWToolset\Handlers\Forms\MetadataDetectHandler;
+use GWToolset\Handlers\Forms\MetadataMappingHandler;
 use GWToolset\Helpers\FileChecks;
 use GWToolset\Helpers\WikiChecks;
 use Html;
@@ -26,7 +30,7 @@ class SpecialGWToolset extends SpecialPage {
 	public $module_key;
 
 	/**
-	 * @var \GWToolset\Handlers\Forms\FormHandler
+	 * @var FormHandler
 	 */
 	protected $_Handler;
 
@@ -36,18 +40,18 @@ class SpecialGWToolset extends SpecialPage {
 	protected $_registered_modules = [
 		'metadata-detect' => [
 			'allow-get' => true,
-			'handler' => \GWToolset\Handlers\Forms\MetadataDetectHandler::class,
-			'form' => \GWToolset\Forms\MetadataDetectForm::class,
+			'handler' => MetadataDetectHandler::class,
+			'form' => MetadataDetectForm::class,
 		],
 		'metadata-mapping' => [
 			'allow-get' => false,
-			'handler' => \GWToolset\Handlers\Forms\MetadataMappingHandler::class,
-			'form' => \GWToolset\Forms\MetadataMappingForm::class,
+			'handler' => MetadataMappingHandler::class,
+			'form' => MetadataMappingForm::class,
 		],
 		'metadata-preview' => [
 			'allow-get' => false,
-			'handler' => \GWToolset\Handlers\Forms\MetadataMappingHandler::class,
-			'form' => \GWToolset\Forms\MetadataMappingForm::class,
+			'handler' => MetadataMappingHandler::class,
+			'form' => MetadataMappingForm::class,
 		]
 	];
 

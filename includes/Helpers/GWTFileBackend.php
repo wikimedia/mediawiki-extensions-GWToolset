@@ -12,12 +12,13 @@ namespace GWToolset\Helpers;
 use Exception;
 use FSFile;
 use GWToolset\Constants;
+use GWToolset\File;
 use GWToolset\Jobs\GWTFileBackendCleanupJob;
 use GWToolset\Utils;
 use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
 use MWException;
-use Php\File;
+
 use Status;
 use Title;
 use User;
