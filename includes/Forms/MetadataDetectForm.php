@@ -39,9 +39,8 @@ class MetadataDetectForm {
 				[],
 				wfMessage(
 					'gwtoolset-step-1-instructions-3',
-					// @codingStandardsIgnoreStart
+					// phpcs:ignore Generic.Files.LineLength
 					'https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?parent=60224&projects=Commons,Wikimedia-Site-requests&title=Add+domain+to+$wgCopyUploadsDomains&description=Please+add+the+following+domain+to+the+wgCopyUploadsDomains+allowlist,+so+that+I+can+use+GWToolset+to+upload+media+files+from+that+domain.+I+have+provided+at+least+3+example+URLs+to+media+files+that+will+be+uploaded+with+GWToolset.%0A%0A%3Cdomain+name%3E%0A%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E%0A%3Cexample+URL%3E'
-					// @codingStandardsIgnoreEnd
 				)->parse()
 			);
 
