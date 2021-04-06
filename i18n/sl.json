@@ -4,6 +4,10 @@
 			"Eleassar"
 		]
 	},
+	"right-gwtoolset": "Uporabi GWToolset",
+	"group-gwtoolset": "Uporabniki GWToolset",
+	"group-gwtoolset-member": "{{GENDER:$1|Uporabnik GWToolset|Uporabnica GWToolset|Uporabnik/ca GWToolset}}",
+	"grouppage-gwtoolset": "{{ns:project}}:Uporabniki GWToolset",
 	"gwtoolset-back-to-top": "vrh strani",
 	"gwtoolset-mediawiki-template": "Predloga $1",
 	"gwtoolset-summary-heading": "Povzetek",
