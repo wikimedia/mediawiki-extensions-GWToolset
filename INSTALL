@@ -95,7 +95,7 @@ _FileBackend_
 The extension makes use of a file backend to temporarily store metada files for processing.
 Once the extension finishes processing the metadata file, a cleanup job is run in order to
 delete the metadata file from the file backend. Sometimes orphaned files can remain in the file
-backend; the maintenace script GWToolset\maintenance\cleanupGWTFileBackend.php can be run to
+backend; the maintenance script GWToolset\maintenance\cleanupGWTFileBackend.php can be run to
 remove those files. $wgGWTFBMaxAge, a php relative time value, is used as an age threshold to
 determine which files to delete.
 
