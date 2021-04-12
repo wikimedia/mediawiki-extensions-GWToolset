@@ -124,7 +124,7 @@
 	"gwtoolset-mediafile-throttle": "Accélérateur de fichier média :",
 	"gwtoolset-mediafile-throttle-description": "Après l’aperçu du lot, dans l’étape 3, GWToolset importe les enregistrements restants dans votre import de lot via des traitements en tâche de fond. L’accélérateur de fichier média contrôle le nombre de requêtes de fichiers média que Wikimedia Commons fera à votre serveur de fichiers média chaque fois qu’un traitement en tâche de fond est exécuté. Vous pouvez fixer l’accélérateur de fichiers média entre 1 et 20. Par exemple, si le nombre total d’enregistrements de votre import de lot est de 100 et que vous avez fixé l’accélérateur à 20, Wikimedia Commons fera tourner 5 traitements en tâche de fond pour exécuter l’ensemble de votre import de lot. Le temps entre chaque traitement en tâche de fond dépend de la charge du serveur et de la configuration ; nous avons prévu que sur Wikimedia Commons un traitement en tâche de fond de GWToolset tournera au moins toutes les 5 minutes.",
 	"gwtoolset-mediawiki-template-does-not-exist": "Le modèle MediaWiki <strong>$1</strong> n’existe pas dans le wiki.\n\nImportez le modèle, ou sélectionnez un autre modèle MediaWiki à utiliser pour la correspondance.",
-	"gwtoolset-mediawiki-template-not-found": "Modèle MediaWiki « $1 » introuvable.",
+	"gwtoolset-mediawiki-template-not-found": "Modèle MediaWiki « $1 » introuvable.",
 	"gwtoolset-metadata-file-source": "Sélectionner le fichier de métadonnées source.",
 	"gwtoolset-metadata-file-source-info": "… soit un fichier qui a été préalablement importé ou un fichier que vous voulez importer depuis votre machine.",
 	"gwtoolset-metadata-file-url": "URL du wiki du fichier de métadonnées :",
