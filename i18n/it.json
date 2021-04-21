@@ -71,6 +71,7 @@
 	"gwtoolset-mediawiki-template-not-found": "Template MediaWiki \"$1\" non trovato.",
 	"gwtoolset-metadata-mapping-not-found": "Non è stata trovata alcuna mappatura dei metadati.\n\nLa pagina <strong>$1</strong> non esiste nel wiki.",
 	"gwtoolset-namespace-mismatch": "La pagina <strong>$1</strong> è nel namespace sbagliato <strong>$2</strong>.\n\nDovrebbe essere nel namespace <strong>$3</strong>.",
+	"gwtoolset-step-1-instructions-3-heading": "Elenco domini consentiti",
 	"gwtoolset-category": "Categoria",
 	"gwtoolset-global-categories": "Categorie globali",
 	"gwtoolset-mapping-media-file-no-content-type": "Non è stato possibile determinare il tipo di contenuto per  l'URL: $1.",
