@@ -128,7 +128,7 @@
 	"gwtoolset-step-1-instructions-1": "O processo de envio de metadados consiste em 4 etapas:",
 	"gwtoolset-step-1-instructions-2": "Neste passo, {{GENDER:$1|você envia}} um novo arquivo de metadados para a wiki. A ferramenta tentará extrair os campos de metadados disponíveis e, então, você mapeará um modelo MediaWiki em \"{{int:gwtoolset-step-2-heading}}\".",
 	"gwtoolset-step-1-instructions-3": "Se o seu domínio do arquivo multimídia não está listado abaixo, por favor, [$1 solicite] que seu domínio de arquivo multimídia seja adicionado na lista branca da Wikimedia Commons. A lista branca do domínio é uma lista de domínios que a Wikimedia Commons verifica antes de buscar arquivos multimídia. Se o seu domínio de arquivo multimídia não está nessa lista, a Wikimedia Commons não vai baixá-los desse domínio. O melhor exemplo a apresentar em seu pedido, é um link para um arquivo multimídia.",
-	"gwtoolset-step-1-instructions-3-heading": "Lista branca de domínios",
+	"gwtoolset-step-1-instructions-3-heading": "Lista de domínios permitidos",
 	"gwtoolset-step-1-instructions-li-1": "Detecção de metadados",
 	"gwtoolset-step-1-instructions-li-2": "Mapeamento de metadados",
 	"gwtoolset-step-1-instructions-li-3": "Pré-visualização de lote",
