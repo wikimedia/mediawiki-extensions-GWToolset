@@ -130,7 +130,7 @@
 	"gwtoolset-step-1-instructions-1": "메타데이터 올리기 과정은 4단계로 구성됩니다.",
 	"gwtoolset-step-1-instructions-2": "이 단계에서 위키에 새로운 메타데이터 파일을 {{GENDER:$1|올립니다}}. 이 도구는 메타데이터 파일에서 사용할 수 있는 메타데이터 필드 추출을 시도합니다. \"{{int:gwtoolset-step-2-heading}}\"로 메타위키 틀에 매핑합니다.",
 	"gwtoolset-step-1-instructions-3": "만약 미디어 파일 도메인이 아래 목록에 없다면 당신의 미디어 파일 도메인이 위키미디어 공용 화이트리스트에 추가될 수 있도록 [$1 요청]해주세요. 미디어파일 도메인이 해당 목록에 없다면 위키미디어 공용은 해당 도메인에서 미디어 파일을 내려받을 것입니다. 당신의 요청을 제출하는 최고의 예시가 미디어파일에 연결할 실제 링크입니다.",
-	"gwtoolset-step-1-instructions-3-heading": "도메인 화이트리스트",
+	"gwtoolset-step-1-instructions-3-heading": "허용된 도메인 목록",
 	"gwtoolset-step-1-instructions-li-1": "메타데이터 감지",
 	"gwtoolset-step-1-instructions-li-2": "메타데이터 매핑",
 	"gwtoolset-step-1-instructions-li-3": "일괄 처리 미리 보기",
