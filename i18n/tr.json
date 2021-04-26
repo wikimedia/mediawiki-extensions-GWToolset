@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Joseph",
 			"MuratTheTurkish",
 			"Sadrettin",
 			"Sayginer",
@@ -127,8 +128,8 @@
 	"gwtoolset-step-1-heading": "1. Adım: Meta veri algılama",
 	"gwtoolset-step-1-instructions-1": "Meta veri yükleme işlemi 4 adımdan oluşur:",
 	"gwtoolset-step-1-instructions-2": "Bu adımda, vikiye {{GENDER:$1|yüklediğiniz}} yeni bir meta veri dosyası. Araç, daha sonra \"{{int:gwtoolset-step-2-heading}}\" içindeki bir MediaWiki şablonuyla eşleştireceğiniz meta veri dosyasında bulunan meta veri alanlarını ayıklamaya çalışır.",
-	"gwtoolset-step-1-instructions-3": "Medya dosyası alanınız aşağıda listelenmemişse, lütfen medya dosyası alanınızın Wikimedia Commons alan adı beyaz listesine eklenmesini [$1 istek] yapın. Alan beyaz listesi, Wikimedia Commons'ın medya dosyalarını getirmeden önce kontrol ettiği alanların bir listesidir. Medya dosyası etki alanınız bu listede değilse, Wikimedia Commons medya dosyalarını bu etki alanından indirmez. İsteğinizde göndermek için en iyi örnek, bir medya dosyasına giden gerçek bir bağlantıdır.",
-	"gwtoolset-step-1-instructions-3-heading": "Alan adı beyaz listesi",
+	"gwtoolset-step-1-instructions-3": "Medya dosyası alanınız aşağıda listelenmemişse, lütfen medya dosyası alanınızın Wikimedia Commons izin verilen alan adı listesine eklenmesi için [$1 istek] yapın. İzin verilen alan adı listesi, Wikimedia Commons'ın medya dosyalarını getirmeden önce kontrol ettiği alanların bir listesidir. Medya dosyası etki alanınız bu listede değilse, Wikimedia Commons medya dosyalarını bu etki alanından indirmez. İsteğinizde göndermek için en iyi örnek, bir medya dosyasına giden gerçek bir bağlantıdır.",
+	"gwtoolset-step-1-instructions-3-heading": "İzin verilen alan adları listesi",
 	"gwtoolset-step-1-instructions-li-1": "Meta veri algılama",
 	"gwtoolset-step-1-instructions-li-2": "Meta veri eşleme",
 	"gwtoolset-step-1-instructions-li-3": "Toplu önizleme",
