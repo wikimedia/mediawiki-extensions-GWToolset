@@ -84,7 +84,7 @@
 	"gwtoolset-json-error-unknown": "Неизвестная ошибка.",
 	"gwtoolset-accepted-file-types": "{{PLURAL:$1|Допустимый тип|Допустимые типы}} файлов:",
 	"gwtoolset-ensure-well-formed-xml": "Убедитесь, что XML-файл правильно сформирован с помощью $1.",
-	"gwtoolset-step-1-instructions-3-heading": "Белый список доменов",
+	"gwtoolset-step-1-instructions-3-heading": "Список разрешённых доменов",
 	"gwtoolset-step-1-instructions-li-1": "Описание метаданных",
 	"gwtoolset-step-1-instructions-li-2": "Сопоставление метаданных",
 	"gwtoolset-step-1-instructions-li-3": "Пакетный предпросмотр",
