@@ -135,7 +135,7 @@ abstract class XmlHandler {
 		}
 
 		// Make sure close() is called if exceptions occur
-		$xmlCloser = new ScopedCallback( function () use ( $xmlReader ) {
+		$xmlCloser = new ScopedCallback( static function () use ( $xmlReader ) {
 			$xmlReader->close();
 		} );
 

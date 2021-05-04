@@ -131,7 +131,7 @@ class UploadMetadataJob extends Job {
 
 		if ( isset( $this->params['session'] ) ) {
 			$sessionScope = RequestContext::importScopedSession( $this->params['session'] );
-			$this->addTeardownCallback( function () use ( &$sessionScope ) {
+			$this->addTeardownCallback( static function () use ( &$sessionScope ) {
 				ScopedCallback::consume( $sessionScope ); // T126450
 			} );
 		}
