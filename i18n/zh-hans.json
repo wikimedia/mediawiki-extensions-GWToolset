@@ -3,6 +3,7 @@
 		"authors": [
 			"Duolaimi",
 			"Hzy980512",
+			"Lakejason0",
 			"Liuxinyu970226",
 			"Qiyue2001",
 			"Shizhao",
@@ -130,7 +131,7 @@
 	"gwtoolset-step-1-heading": "第1步：元数据检测",
 	"gwtoolset-step-1-instructions-1": "元数据上传过程包括以下4个步骤：",
 	"gwtoolset-step-1-instructions-2": "在此步骤中，{{GENDER:$1|您上传了}}一个新的元数据文件在此wiki。此工具将尝试从元数据文件中提取可用元数据字段，之后您将映射至在“{{int:gwtoolset-step-2-heading}}”中的一个MediaWiki模板。",
-	"gwtoolset-step-1-instructions-3": "如果您的媒体文件域未在下方列出，请[$1 在此]申请在维基共享资源域白名单中加入您的媒体文件域。域白名单是维基共享资源检查反例的媒体文件的例外列表。如果您的媒体文件域未在此列表上，维基共享资源将不会在此域下载媒体文件。最好的提交您申请的例子是实际连接一个媒体文件。",
+	"gwtoolset-step-1-instructions-3": "如果您的媒体文件域未在下方列出，请[$1 在此]申请在维基共享资源域白名单中加入您的媒体文件域。域白名单是维基共享资源检查反例的媒体文件的例外列表。如果您的媒体文件域未在此列表上，维基共享资源将不会在此域下载媒体文件。最好的提交您申请的例子是实际连接一个媒体文件.",
 	"gwtoolset-step-1-instructions-3-heading": "域名白名单",
 	"gwtoolset-step-1-instructions-li-1": "元数据检测",
 	"gwtoolset-step-1-instructions-li-2": "元数据映射",
