@@ -71,7 +71,7 @@
 	"gwtoolset-create-prefix": "GWToolset",
 	"gwtoolset-invalid-token": "Kod weryfikacyjny (token) wysłany w formularzu jest nieprawidłowy.",
 	"gwtoolset-required-group": "Nie jesteś członkiem grupy $1.",
-	"gwtoolset-verify-curl": "Rozszerzenie $1 wymaga zainstalowania PHP [https://www.php.net/manual/en/curl.setup.php cURL functions].",
+	"gwtoolset-verify-curl": "Rozszerzenie $1 wymaga zainstalowania PHP [https://www.php.net/curl.setup cURL functions].",
 	"gwtoolset-title-label": "Tytuł GWToolset",
 	"gwtoolset-wrap-institution-heading": "Szablon instytucji",
 	"gwtoolset-wrap-language-heading": "Szablon językowy",
