@@ -709,12 +709,10 @@ class UploadHandler {
 				if ( !$this->otherContributors( $title ) ) {
 					$content = ContentHandler::makeContent( $upload_params['text'], $title );
 					$page = WikiPage::factory( $title );
-					$status = $page->doEditContent(
+					$status = $page->doUserEditContent(
 						$content,
-						$upload_params['comment'],
-						0,
-						false,
-						$this->_User
+						$this->_User,
+						$upload_params['comment']
 					);
 				} else {
 					$status = Status::newFatal( 'gwtoolset-mediafile-other-contributors', $title );
