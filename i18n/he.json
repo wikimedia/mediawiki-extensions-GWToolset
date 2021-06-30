@@ -229,5 +229,6 @@
 	"log-description-gwtoolset": "היומן הזה עוקב אחרי אירועים בארגז הכלים של גלאם ויקי.",
 	"logentry-gwtoolset-mediafile-job-failed": "משימת קובץ מדיה של $1 נכשלה. רשומת מטא־נתונים $4. שגיאה: $5",
 	"logentry-gwtoolset-mediafile-job-succeeded": "משימת קובץ מדיה של $1 הצליחה. נוצר הדף $3. רשומת מטא־נתונים $4.",
-	"logentry-gwtoolset-metadata-job": "נוצרה משימת מטא־נתונים $1. הודעה: $4"
+	"logentry-gwtoolset-metadata-job": "נוצרה משימת מטא־נתונים $1. הודעה: $4",
+	"tag-gwtoolset-description": "קבצים שהועלו באמצעות [[commons:Commons:GLAMwiki Toolset|ארגז כלי גלאם־ויקי]]"
 }

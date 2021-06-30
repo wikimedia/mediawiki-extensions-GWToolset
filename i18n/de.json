@@ -226,5 +226,6 @@
 	"log-description-gwtoolset": "Dies ist ein Logbuch mit GWToolset-Ereignissen im Wiki.",
 	"logentry-gwtoolset-mediafile-job-failed": "$1 Mediendatei-Auftrag fehlgeschlagen. Metadaten-Datensatz $4. $5.",
 	"logentry-gwtoolset-mediafile-job-succeeded": "$1 Mediendatei-Auftrag war erfolgreich. $3 erstellt. Metadaten-Datensatz $4.",
-	"logentry-gwtoolset-metadata-job": "$1 Metadaten-Auftrag erstellt. $4."
+	"logentry-gwtoolset-metadata-job": "$1 Metadaten-Auftrag erstellt. $4.",
+	"tag-gwtoolset-description": "Dateien, die mit dem [[commons:Commons:GLAMwiki Toolset|GLAMwiki-Toolset]] hochgeladen wurden"
 }
