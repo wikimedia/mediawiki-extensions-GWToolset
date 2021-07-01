@@ -221,5 +221,6 @@
 	"log-description-gwtoolset": "Дневников ги следи настаните на GWToolset на викито.",
 	"logentry-gwtoolset-mediafile-job-failed": "Задачата на медиумската податотека на $1 не успеа. Метаподаточен запис $4. $5.",
 	"logentry-gwtoolset-mediafile-job-succeeded": "Задачата на медиумската податотека на $1 успеа. Создадена е страницата $3. Метаподаточен запис $4.",
-	"logentry-gwtoolset-metadata-job": "Метаподаточната задача на $1 е создадена. $4."
+	"logentry-gwtoolset-metadata-job": "Метаподаточната задача на $1 е создадена. $4.",
+	"tag-gwtoolset-description": "Податотеките се подигнати со помош на [[commons:Commons:GLAMwiki Toolset|Алатникот на GLAMwiki]]"
 }

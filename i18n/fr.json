@@ -237,5 +237,6 @@
 	"log-description-gwtoolset": "Ce journal consigne toutes les actions GWToolset sur le wiki.",
 	"logentry-gwtoolset-mediafile-job-failed": "La tâche de fichier média de $1 a échoué. Enregistrement des métadonnées n° $4. $5. ",
 	"logentry-gwtoolset-mediafile-job-succeeded": "La tâche de fichier média de $1 a réussi. $3 créée. Enregistrement des métadonnées n° $4. ",
-	"logentry-gwtoolset-metadata-job": "La tâche $1 de métadonnées a été créée. $4."
+	"logentry-gwtoolset-metadata-job": "La tâche $1 de métadonnées a été créée. $4.",
+	"tag-gwtoolset-description": "Fichiers téléchargés en utilisant l’[[commons:Commons:GLAMwiki Toolset|ensemble d’outils GLAMwiki]]"
 }
