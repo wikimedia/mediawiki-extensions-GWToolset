@@ -70,7 +70,7 @@
 	"gwtoolset-not-string": "הערך שסופק לשיאה לא היה מחרוזת. הוא מסוג \"$1\".",
 	"gwtoolset-sha1-does-not-match": "SHA-1 אינו תואם.",
 	"gwtoolset-disk-write-failure": "השרת לא הצליח לכתוב את הקובץ אל מערכת קבצים.",
-	"gwtoolset-xml-doctype": "קובץ ה־XML לא יכול להכיל מקטע <!DOCTYPE>. יש להסיר אותו ולאחר מכן לנסות שוב להעלות קובץ מטא־נתונים XML.",
+	"gwtoolset-xml-doctype": "קובץ ה־XML לא יכול להכיל קטע <!DOCTYPE>. יש להסיר אותו ולאחר מכן לנסות שוב להעלות קובץ מטא־נתונים XML.",
 	"gwtoolset-file-is-empty": "הקובץ שהועלה ריק.",
 	"gwtoolset-improper-upload": "הקובץ לא הועלה כראוי.",
 	"gwtoolset-mime-type-mismatch": "סיומת הקובץ \"$1\" וסוג הקובץ (MIME type‏) \"$2\" של הקובץ שהועלה אינם תואמים.",

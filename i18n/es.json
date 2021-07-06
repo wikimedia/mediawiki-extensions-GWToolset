@@ -5,6 +5,7 @@
 			"Dgstranz",
 			"Fitoschido",
 			"Frammm",
+			"Jackiezelaya",
 			"Macofe",
 			"ProtoplasmaKid",
 			"Ryo567",
@@ -165,5 +166,6 @@
 	"log-description-gwtoolset": "Este registro muestra los eventos de GWToolset en esta wiki.",
 	"logentry-gwtoolset-mediafile-job-failed": "$1 falló la realización de un trabajo multimedia. Registro de Metadatos $4. $5",
 	"logentry-gwtoolset-mediafile-job-succeeded": "$1 realizó con éxito un trabajo multimedia. Creados $3. Registro de Metadatos $4",
-	"logentry-gwtoolset-metadata-job": "$1 creó un trabajo de metadatos. $4"
+	"logentry-gwtoolset-metadata-job": "$1 creó un trabajo de metadatos. $4",
+	"tag-gwtoolset-description": "Archivos subidos usando el [[commons:Commons:GLAMwiki Toolset| GLAMwiki Toolset]]"
 }
