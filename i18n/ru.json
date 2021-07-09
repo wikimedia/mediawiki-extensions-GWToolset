@@ -6,6 +6,7 @@
 			"Eroha",
 			"Facenapalm",
 			"Kaganer",
+			"Kareyac",
 			"Megakott",
 			"Meshkov.a",
 			"Okras",
@@ -134,5 +135,6 @@
 	"log-description-gwtoolset": "Этот лог отслеживает события GWToolset в вики.",
 	"logentry-gwtoolset-mediafile-job-failed": "$1 задание медиафайла провалено. Запись метаданных $4. $5.",
 	"logentry-gwtoolset-mediafile-job-succeeded": "Сценарий медиафайла $1 выполнен успешно. Создан $3. Запись метаданных $4.",
-	"logentry-gwtoolset-metadata-job": "Создан сценарий метаданных $1. $4."
+	"logentry-gwtoolset-metadata-job": "Создан сценарий метаданных $1. $4.",
+	"tag-gwtoolset-description": "Файлы, загруженные с помощью [[commons:Commons:GLAMwiki Toolset|GLAMwiki Toolset]]"
 }
