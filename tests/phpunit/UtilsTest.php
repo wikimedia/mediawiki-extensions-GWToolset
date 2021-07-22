@@ -15,7 +15,7 @@ class GWToolsetUtilsTest extends MediaWikiTestCase {
 	 */
 	protected $utils;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->utils = new Utils();
 	}
